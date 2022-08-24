@@ -2527,7 +2527,7 @@ ul.breadcrumb li:last-child {
   transition: all 0.2s ease-in-out;
 }
 .links-of-author a::before {
-  background: #ff28a4;
+  background: #ff253d;
   display: inline-block;
   margin-right: 3px;
   transform: translateY(-2px);
