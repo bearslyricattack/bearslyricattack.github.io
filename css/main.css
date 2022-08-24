@@ -1262,12 +1262,6 @@ header.header {
 .links-of-author a {
   font-size: 0.8125em;
 }
-.links-of-author .fa,
-.links-of-author .fab,
-.links-of-author .far,
-.links-of-author .fas {
-  margin-right: 2px;
-}
 .sidebar .sidebar-button:not(:first-child) {
   margin-top: 15px;
 }
@@ -2530,9 +2524,10 @@ ul.breadcrumb li:last-child {
   margin-bottom: 10px;
   margin-right: 10px;
   vertical-align: middle;
+  transition: all 0.2s ease-in-out;
 }
 .links-of-author a::before {
-  background: #ff01ff;
+  background: #695824;
   display: inline-block;
   margin-right: 3px;
   transform: translateY(-2px);
