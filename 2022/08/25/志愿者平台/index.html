@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 6.2.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/3.ico">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/2.ico">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css" integrity="sha256-xejo6yLi6vGtAjcMIsY8BHdKsLg7QynVlFMzdQgUuy8=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"example.com","root":"/","images":"/images","scheme":"Muse","darkmode":false,"version":"8.12.3","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="抗疫志愿者信息化应用平台1.总体思路:本次项目带来的是为社区志愿者提供服务和监督的一体化系统demo,总体上根据一个个的救援活动为基本 单位设计,采用微信小程序和Web端共同操作的方式进行管理,实现功能的分割,对普通的志愿者来说,只需要 简单的微信小程序操作就可以进行志愿活动的一系列流程,实现一个完整的救援需求,而对于救援信息的发布 者,救援物资的提供者,救援活动的审批者,以及各个社区活动之间的统">
+<meta property="og:type" content="article">
+<meta property="og:title" content="志愿者平台">
+<meta property="og:url" content="http://example.com/2022/08/25/%E5%BF%97%E6%84%BF%E8%80%85%E5%B9%B3%E5%8F%B0/index.html">
+<meta property="og:site_name" content="抒情小熊">
+<meta property="og:description" content="抗疫志愿者信息化应用平台1.总体思路:本次项目带来的是为社区志愿者提供服务和监督的一体化系统demo,总体上根据一个个的救援活动为基本 单位设计,采用微信小程序和Web端共同操作的方式进行管理,实现功能的分割,对普通的志愿者来说,只需要 简单的微信小程序操作就可以进行志愿活动的一系列流程,实现一个完整的救援需求,而对于救援信息的发布 者,救援物资的提供者,救援活动的审批者,以及各个社区活动之间的统">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="c:/Users/wpy/Desktop/QQ截图20220802133349.png">
+<meta property="og:image" content="c:/Users/wpy/Desktop/QQ截图20220802141326.png">
+<meta property="og:image" content="c:/Users/wpy/Desktop/QQ截图20220802135146.png">
+<meta property="og:image" content="c:/Users/wpy/Desktop/QQ截图20220802135754.png">
+<meta property="og:image" content="c:/Users/wpy/Desktop/QQ截图20220802140057.png">
+<meta property="og:image" content="c:/Users/wpy/Desktop/QQ截图20220802140446.png">
+<meta property="og:image" content="c:/Users/wpy/Desktop/QQ截图20220802140948.png">
+<meta property="og:image" content="c:/Users/wpy/Desktop/QQ截图20220802141133.png">
+<meta property="og:image" content="c:/Users/wpy/Desktop/QQ截图20220803155032.png">
+<meta property="og:image" content="c:/Users/wpy/Desktop/QQ截图20220803155137.png">
+<meta property="og:image" content="c:/Users/wpy/Desktop/QQ截图20220803155507.png">
+<meta property="og:image" content="c:/Users/wpy/AppData/Roaming/Typora/typora-user-images/image-20220803160409246.png">
+<meta property="og:image" content="c:/Users/wpy/AppData/Roaming/Typora/typora-user-images/image-20220803160559277.png">
+<meta property="og:image" content="c:/Users/wpy/Desktop/QQ图片20220803160646.jpg">
+<meta property="og:image" content="c:/Users/wpy/AppData/Roaming/Typora/typora-user-images/image-20220803160909033.png">
+<meta property="og:image" content="c:/Users/wpy/Desktop/QQ图片20220803162050.jpg">
+<meta property="og:image" content="c:/Users/wpy/Desktop/QQ图片20220803161936.jpg">
+<meta property="og:image" content="c:/Users/wpy/AppData/Roaming/Typora/typora-user-images/image-20220803161459504.png">
+<meta property="og:image" content="c:/Users/wpy/Desktop/Cache_28c2cb60f885e65f..jpg">
+<meta property="og:image" content="c:/Users/wpy/AppData/Roaming/Typora/typora-user-images/image-20220803161549318.png">
+<meta property="og:image" content="c:/Users/wpy/AppData/Roaming/Typora/typora-user-images/image-20220803161632017.png">
+<meta property="og:image" content="c:/Users/wpy/AppData/Roaming/Typora/typora-user-images/image-20220803162451243.png">
+<meta property="og:image" content="c:/Users/wpy/AppData/Roaming/Typora/typora-user-images/image-20220803162525316.png">
+<meta property="og:image" content="c:/Users/wpy/AppData/Roaming/Typora/typora-user-images/image-20220803162610408.png">
+<meta property="og:image" content="c:/Users/wpy/AppData/Roaming/Typora/typora-user-images/image-20220803162721456.png">
+<meta property="og:image" content="c:/Users/wpy/AppData/Roaming/Typora/typora-user-images/image-20220803162912933.png">
+<meta property="og:image" content="file:///C:/Users/wpy/AppData/Local/Temp/ksohtml28852/wps2.png">
+<meta property="og:image" content="c:/Users/wpy/Desktop/QQ截图20220803163331.png">
+<meta property="og:image" content="c:/Users/wpy/Desktop/QQ截图20220803163454.png">
+<meta property="og:image" content="c:/Users/wpy/Desktop/QQ截图20220803163625.png">
+<meta property="article:published_time" content="2022-08-25T04:17:56.000Z">
+<meta property="article:modified_time" content="2022-08-25T04:24:14.607Z">
+<meta property="article:author" content="bearslyricattack">
+<meta property="article:tag" content="-springboot">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="c:/Users/wpy/Desktop/QQ截图20220802133349.png">
+
+
+<link rel="canonical" href="http://example.com/2022/08/25/%E5%BF%97%E6%84%BF%E8%80%85%E5%B9%B3%E5%8F%B0/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"http://example.com/2022/08/25/%E5%BF%97%E6%84%BF%E8%80%85%E5%B9%B3%E5%8F%B0/","path":"2022/08/25/志愿者平台/","title":"志愿者平台"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>志愿者平台 | 抒情小熊</title>
+  
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">抒情小熊</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">Remember me as I was.</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签<span class="badge">4</span></a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类<span class="badge">2</span></a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">6</span></a></li><li class="menu-item menu-item-schedule"><a href="/schedule/" rel="section"><i class="fa fa-calendar fa-fw"></i>日程表</a></li><li class="menu-item menu-item-sitemap"><a href="/sitemap.xml" rel="section"><i class="fa fa-sitemap fa-fw"></i>站点地图</a></li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%8A%97%E7%96%AB%E5%BF%97%E6%84%BF%E8%80%85%E4%BF%A1%E6%81%AF%E5%8C%96%E5%BA%94%E7%94%A8%E5%B9%B3%E5%8F%B0"><span class="nav-number">1.</span> <span class="nav-text">抗疫志愿者信息化应用平台</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#1-%E6%80%BB%E4%BD%93%E6%80%9D%E8%B7%AF"><span class="nav-number">2.</span> <span class="nav-text">1.总体思路:</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%C2%B7%E6%80%BB%E4%BD%93%E6%80%9D%E8%B7%AF"><span class="nav-number">2.0.1.</span> <span class="nav-text">·总体思路</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%C2%B7%E5%90%8E%E7%AB%AF%E8%AE%BE%E8%AE%A1"><span class="nav-number">2.0.2.</span> <span class="nav-text">·后端设计</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%C2%B7Web%E5%89%8D%E7%AB%AF%E8%AE%BE%E8%AE%A1"><span class="nav-number">2.0.3.</span> <span class="nav-text">·Web前端设计</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%C2%B7%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F%E7%AB%AF%E8%AE%BE%E8%AE%A1"><span class="nav-number">2.0.4.</span> <span class="nav-text">·微信小程序端设计</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%C2%B7%E9%A1%B9%E7%9B%AE%E6%80%BB%E7%BB%93"><span class="nav-number">2.0.5.</span> <span class="nav-text">·项目总结</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-1-%E6%95%91%E6%8F%B4%E6%B4%BB%E5%8A%A8%E7%9A%84%E5%8F%91%E5%B8%83"><span class="nav-number">2.1.</span> <span class="nav-text">1.1 救援活动的发布:</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-2-%E6%95%91%E6%8F%B4%E6%B4%BB%E5%8A%A8%E7%9A%84%E6%8A%A5%E5%90%8D"><span class="nav-number">2.2.</span> <span class="nav-text">1.2 救援活动的报名:</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-3-%E6%95%91%E6%8F%B4%E6%B4%BB%E5%8A%A8%E7%9A%84%E8%BF%9B%E8%A1%8C"><span class="nav-number">2.3.</span> <span class="nav-text">1.3 救援活动的进行:</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-4-%E6%95%91%E6%8F%B4%E6%B4%BB%E5%8A%A8%E7%9A%84%E7%BB%93%E7%AE%97"><span class="nav-number">2.4.</span> <span class="nav-text">1.4 救援活动的结算:</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-5-%E6%95%91%E6%8F%B4%E6%B4%BB%E5%8A%A8%E7%9A%84%E5%8F%8D%E9%A6%88"><span class="nav-number">2.5.</span> <span class="nav-text">1.5 救援活动的反馈:</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-6-%E6%95%91%E6%8F%B4%E6%B4%BB%E5%8A%A8%E7%9A%84%E4%B8%AA%E4%BA%BA%E4%BF%A1%E6%81%AF%E5%B9%B3%E5%8F%B0%E4%BB%A5%E5%8F%8A%E6%BF%80%E5%8A%B1"><span class="nav-number">2.6.</span> <span class="nav-text">1.6 救援活动的个人信息平台以及激励:</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E6%95%91%E6%8F%B4%E6%B4%BB%E5%8A%A8%E6%B5%81%E7%A8%8B%E5%9B%BE"><span class="nav-number">2.6.0.0.1.</span> <span class="nav-text">救援活动流程图</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-7-%E5%90%8E%E7%BB%AD%E4%BC%98%E5%8C%96%E6%80%9D%E8%B7%AF"><span class="nav-number">2.7.</span> <span class="nav-text">1.7 后续优化思路:</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-7-1-%E5%AE%9A%E5%88%B6%E6%8E%A8%E9%80%81%E6%9C%8D%E5%8A%A1"><span class="nav-number">2.7.1.</span> <span class="nav-text">1.7.1 定制推送服务:</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-7-2-%E7%A4%BE%E5%8C%BA%E6%9C%8D%E5%8A%A1"><span class="nav-number">2.7.2.</span> <span class="nav-text">1.7.2 社区服务:</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-7-3-%E7%89%A9%E8%B5%84%E8%B0%83%E5%BA%A6%E6%9C%8D%E5%8A%A1"><span class="nav-number">2.7.3.</span> <span class="nav-text">1.7.3 物资调度服务:</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2-%E5%90%8E%E7%AB%AF%E8%AE%BE%E8%AE%A1"><span class="nav-number">3.</span> <span class="nav-text">2.后端设计:</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#2-1-%E7%BB%BC%E8%BF%B0"><span class="nav-number">3.1.</span> <span class="nav-text">2.1 综述:</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E9%A1%B9%E7%9B%AE%E6%96%87%E4%BB%B6%E7%BB%93%E6%9E%84"><span class="nav-number">3.1.0.0.1.</span> <span class="nav-text">项目文件结构</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-2-%E6%95%B0%E6%8D%AE%E5%BA%93%E8%AE%BE%E8%AE%A1"><span class="nav-number">3.2.</span> <span class="nav-text">2.2 数据库设计:</span></a></li><li class="nav-item nav-level-2"><a class="nav-link"><span class="nav-number">3.3.</span> <span class="nav-text"></span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E6%95%B0%E6%8D%AE%E5%BA%93%E8%A1%A8%E5%88%97%E8%A1%A8"><span class="nav-number">3.3.0.0.1.</span> <span class="nav-text">数据库表列表</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E6%B4%BB%E5%8A%A8%E6%96%B9%E9%9D%A2%E7%9A%84%E9%83%A8%E5%88%86sql%E8%AF%AD%E5%8F%A5"><span class="nav-number">3.3.0.0.2.</span> <span class="nav-text">活动方面的部分sql语句</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-3-%E6%8E%A5%E5%8F%A3%E8%AE%BE%E8%AE%A1"><span class="nav-number">3.4.</span> <span class="nav-text">2.3 接口设计:</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#shiro%E9%83%A8%E5%88%86%E9%85%8D%E7%BD%AE"><span class="nav-number">3.4.0.0.1.</span> <span class="nav-text">shiro部分配置</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E9%83%A8%E5%88%86%E6%8E%A5%E5%8F%A3%E6%96%87%E6%A1%A3"><span class="nav-number">3.4.0.0.2.</span> <span class="nav-text">部分接口文档</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-4-%E5%85%B6%E4%BB%96%E5%A4%84%E7%90%86%E5%8F%8A%E6%8A%80%E6%9C%AF"><span class="nav-number">3.5.</span> <span class="nav-text">2.4 其他处理及技术:</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#2-4-1-%E5%85%A8%E5%B1%80%E8%B7%A8%E5%9F%9F%E9%85%8D%E7%BD%AE"><span class="nav-number">3.5.1.</span> <span class="nav-text">2.4.1 全局跨域配置:</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%85%A8%E5%B1%80%E8%B7%A8%E5%9F%9F%E9%85%8D%E7%BD%AE%E7%B1%BB"><span class="nav-number">3.5.1.0.1.</span> <span class="nav-text">全局跨域配置类</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-4-2-%E5%9B%BE%E7%89%87%E5%A4%84%E7%90%86"><span class="nav-number">3.5.2.</span> <span class="nav-text">2.4.2 图片处理:</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E7%BB%9F%E4%B8%80%E8%8E%B7%E5%8F%96%E5%9B%BE%E7%89%87%E6%8E%A5%E5%8F%A3"><span class="nav-number">3.5.2.0.1.</span> <span class="nav-text">统一获取图片接口</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-4-3-%E6%8A%A5%E5%90%8D%E6%9C%BA%E5%88%B6%E5%A4%84%E7%90%86"><span class="nav-number">3.5.3.</span> <span class="nav-text">2.4.3 报名机制处理:</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E6%8A%A5%E5%90%8D%E6%9C%BA%E5%88%B6%E7%9A%84%E9%80%BB%E8%BE%91"><span class="nav-number">3.5.3.0.1.</span> <span class="nav-text">报名机制的逻辑</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E7%94%9F%E6%88%90%E4%B8%8D%E9%87%8D%E5%A4%8D%E7%9A%84%E9%9A%8F%E6%9C%BA%E6%95%B0%E7%AE%97%E6%B3%95"><span class="nav-number">3.5.3.0.2.</span> <span class="nav-text">生成不重复的随机数算法</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-4-4-%E5%85%A8%E5%B1%80%E5%BC%82%E5%B8%B8%E5%A4%84%E7%90%86"><span class="nav-number">3.5.4.</span> <span class="nav-text">2.4.4 全局异常处理:</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%85%A8%E5%B1%80%E5%BC%82%E5%B8%B8%E5%A4%84%E7%90%86%E9%83%A8%E5%88%86%E4%BB%A3%E7%A0%81"><span class="nav-number">3.5.4.0.1.</span> <span class="nav-text">全局异常处理部分代码</span></a></li></ol></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#3-%E5%89%8D%E7%AB%AF%E8%AE%BE%E8%AE%A1"><span class="nav-number">4.</span> <span class="nav-text">3.前端设计:</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#3-1-%E7%BD%91%E9%A1%B5%E8%AE%BE%E8%AE%A1%E6%80%9D%E8%B7%AF"><span class="nav-number">4.1.</span> <span class="nav-text">3.1 网页设计思路:</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#3-1-1-%E5%AE%9A%E4%BD%8D%E7%BD%91%E7%AB%99%E4%B8%BB%E4%BD%93%E5%92%8C%E5%90%8D%E7%A7%B0"><span class="nav-number">4.1.1.</span> <span class="nav-text">3.1.1 定位网站主体和名称:</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-1-2-%E7%A1%AE%E5%AE%9A%E7%BD%91%E7%AB%99%E6%A8%A1%E5%9D%97"><span class="nav-number">4.1.2.</span> <span class="nav-text">3.1.2 确定网站模块:</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-1-3-%E6%8A%80%E6%9C%AF%E6%A0%88"><span class="nav-number">4.1.3.</span> <span class="nav-text">3.1.3 技术栈:</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-2-%E9%A1%B5%E9%9D%A2%E8%AE%BE%E8%AE%A1"><span class="nav-number">4.2.</span> <span class="nav-text">3.2 页面设计:</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#3-2-1-%E6%80%BB%E4%BD%93%E4%BB%8B%E7%BB%8D"><span class="nav-number">4.2.1.</span> <span class="nav-text">3.2.1 总体介绍:</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-2-2-%E7%99%BB%E5%BD%95%E9%A1%B5%E9%9D%A2"><span class="nav-number">4.2.2.</span> <span class="nav-text">3.2.2 登录页面:</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E7%99%BB%E5%BD%95%E9%A1%B5%E9%9D%A2"><span class="nav-number">4.2.2.0.1.</span> <span class="nav-text">登录页面</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E6%B3%A8%E5%86%8C%E9%A1%B5%E9%9D%A2"><span class="nav-number">4.2.2.0.2.</span> <span class="nav-text">注册页面</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E7%9B%B8%E5%85%B3%E4%BB%A3%E7%A0%81"><span class="nav-number">4.2.2.0.3.</span> <span class="nav-text">相关代码</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-2-3-%E5%BF%97%E6%84%BF%E8%80%85%E4%B8%BB%E7%95%8C%E9%9D%A2"><span class="nav-number">4.2.3.</span> <span class="nav-text">3.2.3 志愿者主界面:</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%BF%97%E6%84%BF%E8%80%85%E4%B8%BB%E9%A1%B5%E9%9D%A2"><span class="nav-number">4.2.3.0.1.</span> <span class="nav-text">志愿者主页面</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%BF%97%E6%84%BF%E6%B4%BB%E5%8A%A8%E7%AE%A1%E7%90%86%E5%91%98%E9%A1%B5%E9%9D%A2"><span class="nav-number">4.2.3.0.2.</span> <span class="nav-text">志愿活动管理员页面</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-2-4-%E5%AE%A1%E6%89%B9%E8%80%85%E4%B8%BB%E9%A1%B5%E9%9D%A2"><span class="nav-number">4.2.4.</span> <span class="nav-text">3.2.4 审批者主页面:</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-2-5-%E5%88%9B%E5%BB%BA%E6%B4%BB%E5%8A%A8"><span class="nav-number">4.2.5.</span> <span class="nav-text">3.2.5 创建活动:</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%8F%91%E5%B8%83%E6%B4%BB%E5%8A%A8"><span class="nav-number">4.2.5.0.1.</span> <span class="nav-text">发布活动</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E7%9B%B8%E5%85%B3%E4%BB%A3%E7%A0%81-1"><span class="nav-number">4.2.5.0.2.</span> <span class="nav-text">相关代码</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-2-6-%E7%94%A8%E6%88%B7%E4%BF%A1%E6%81%AF%E9%83%A8%E5%88%86"><span class="nav-number">4.2.6.</span> <span class="nav-text">3.2.6 用户信息部分:</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E4%B8%AA%E4%BA%BA%E8%BA%AB%E4%BB%BD%E5%A4%84%E7%90%86"><span class="nav-number">4.2.6.0.1.</span> <span class="nav-text">个人身份处理</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E4%BF%AE%E6%94%B9%E4%B8%AA%E4%BA%BA%E4%BF%A1%E6%81%AF"><span class="nav-number">4.2.6.0.2.</span> <span class="nav-text">修改个人信息</span></a></li></ol></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#4-%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F%E7%AB%AF%E8%AE%BE%E8%AE%A1"><span class="nav-number">5.</span> <span class="nav-text">4.微信小程序端设计:</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#4-1-%E9%A6%96%E9%A1%B5%E8%AE%BE%E8%AE%A1"><span class="nav-number">5.1.</span> <span class="nav-text">4.1 首页设计:</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E9%A6%96%E9%A1%B5%E9%A1%B5%E9%9D%A2"><span class="nav-number">5.1.0.0.1.</span> <span class="nav-text">首页页面</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%88%86%E7%B1%BB%E9%A1%B5%E9%9D%A2"><span class="nav-number">5.1.0.0.2.</span> <span class="nav-text">分类页面</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E6%B4%BB%E5%8A%A8%E5%B1%95%E7%A4%BA%E5%8F%8A%E6%8A%A5%E5%90%8D"><span class="nav-number">5.1.0.0.3.</span> <span class="nav-text">活动展示及报名</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-2-%E7%AD%BE%E5%88%B0%E8%AE%BE%E8%AE%A1"><span class="nav-number">5.2.</span> <span class="nav-text">4.2 签到设计:</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E9%80%9A%E8%BF%87%E6%8F%90%E4%BA%A4%E7%AD%BE%E5%88%B0%E7%A0%81%E7%9A%84%E6%96%B9%E5%BC%8F%E8%BF%9B%E8%A1%8C%E7%AD%BE%E5%88%B0"><span class="nav-number">5.2.0.0.1.</span> <span class="nav-text">通过提交签到码的方式进行签到</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-3-%E4%B8%AA%E4%BA%BA%E5%B9%B3%E5%8F%B0%E8%AE%BE%E8%AE%A1"><span class="nav-number">5.3.</span> <span class="nav-text">4.3 个人平台设计:</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%88%9D%E6%AC%A1%E7%99%BB%E5%BD%95"><span class="nav-number">5.3.0.0.1.</span> <span class="nav-text">初次登录</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E6%9C%AA%E7%99%BB%E5%BD%95%E6%97%B6%E6%98%BE%E7%A4%BA%E9%A1%B5%E9%9D%A2"><span class="nav-number">5.3.0.0.2.</span> <span class="nav-text">未登录时显示页面</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E7%99%BB%E9%99%86%E6%88%90%E5%8A%9F%E5%90%8E%E6%98%BE%E7%A4%BA"><span class="nav-number">5.3.0.0.3.</span> <span class="nav-text">登陆成功后显示</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E4%B8%AA%E4%BA%BA%E4%B8%AD%E5%BF%83%E4%B8%8B%E6%96%B9%E9%A1%B5%E9%9D%A2"><span class="nav-number">5.3.0.0.4.</span> <span class="nav-text">个人中心下方页面</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E4%B8%AA%E4%BA%BA%E8%B5%84%E6%96%99%E9%A1%B5%E9%9D%A2"><span class="nav-number">5.3.0.0.5.</span> <span class="nav-text">个人资料页面</span></a></li></ol></li></ol></li></ol></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="bearslyricattack"
+      src="/images/1.jpg">
+  <p class="site-author-name" itemprop="name">bearslyricattack</p>
+  <div class="site-description" itemprop="description">静海夜涛三万里,月明飞锡下天风。</div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">6</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">2</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">4</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author site-overview-item animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/bearslyricattack" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;bearslyricattack" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:2669184984@qq.com" title="E-Mail → mailto:2669184984@qq.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+  </div>
+
+
+
+        </div>
+      </div>
+
+
+<a target="_blank" rel="noopener" href="https://github.com/bearslyricattack/" class="github-corner" aria-label="View source on GitHub"><svg width="80" height="80" viewBox="0 0 250 250" style="fill:#151513; color:#fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style>
+
+<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=450 src="//music.163.com/outchain/player?type=0&id=2696299728&auto=1&height=430"></iframe>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2022/08/25/%E5%BF%97%E6%84%BF%E8%80%85%E5%B9%B3%E5%8F%B0/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/1.jpg">
+      <meta itemprop="name" content="bearslyricattack">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="抒情小熊">
+      <meta itemprop="description" content="静海夜涛三万里,月明飞锡下天风。">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="志愿者平台 | 抒情小熊">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          志愿者平台
+        </h1>
+
+    
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+      
+
+      <time title="创建时间：2022-08-25 12:17:56 / 修改时间：12:24:14" itemprop="dateCreated datePublished" datetime="2022-08-25T12:17:56+08:00">2022-08-25</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E9%A1%B9%E7%9B%AE/" itemprop="url" rel="index"><span itemprop="name">项目</span></a>
+        </span>
+    </span>
+
+  
+    <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv">
+      <span class="post-meta-item-icon">
+        <i class="eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span id="busuanzi_value_page_pv"></span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <h1 id="抗疫志愿者信息化应用平台"><a href="#抗疫志愿者信息化应用平台" class="headerlink" title="抗疫志愿者信息化应用平台"></a>抗疫志愿者信息化应用平台</h1><h1 id="1-总体思路"><a href="#1-总体思路" class="headerlink" title="1.总体思路:"></a>1.总体思路:</h1><p>本次项目带来的是为社区志愿者提供服务和监督的一体化系统demo,总体上根据一个个的救援活动为基本</p>
+<p>单位设计,采用微信小程序和Web端共同操作的方式进行管理,实现功能的分割,对普通的志愿者来说,只需要</p>
+<p>简单的微信小程序操作就可以进行志愿活动的一系列流程,实现一个完整的救援需求,而对于救援信息的发布</p>
+<p>者,救援物资的提供者,救援活动的审批者,以及各个社区活动之间的统筹安排等则通过更为专业,更精准的网</p>
+<p>页操作来完成.</p>
+<p>下面以一个救援活动的全部过程为例子描述一下我们设计的平台的工作流程.</p>
+<span id="more"></span>
+
+<h3 id="·总体思路"><a href="#·总体思路" class="headerlink" title="·总体思路"></a>·总体思路</h3><h3 id="·后端设计"><a href="#·后端设计" class="headerlink" title="·后端设计"></a>·后端设计</h3><h3 id="·Web前端设计"><a href="#·Web前端设计" class="headerlink" title="·Web前端设计"></a>·Web前端设计</h3><h3 id="·微信小程序端设计"><a href="#·微信小程序端设计" class="headerlink" title="·微信小程序端设计"></a>·微信小程序端设计</h3><h3 id="·项目总结"><a href="#·项目总结" class="headerlink" title="·项目总结"></a>·项目总结</h3><h2 id="1-1-救援活动的发布"><a href="#1-1-救援活动的发布" class="headerlink" title="1.1 救援活动的发布:"></a>1.1 救援活动的发布:</h2><p>使用web操作,每个志愿者都可发布志愿活动,发布后被社区管理员审核,审核成功之后就进入招募阶段,在这</p>
+<p>个阶段,所有的社区人员和志愿者都可以看到各个活动的详细信息,以便于对其进行监督. </p>
+<h2 id="1-2-救援活动的报名"><a href="#1-2-救援活动的报名" class="headerlink" title="1.2 救援活动的报名:"></a>1.2 救援活动的报名:</h2><p>我们希望对于单纯的救援人员来说,只使用手机就可以完成与活动相关的所有的功能.社区的所有的救援活动一经审批通过,可在微信小程序上查看,并点击报名,不限制人数的报名可以直接进行,而限制人数的也可在时间段内直接报名,然后在报名时间结束之后,有系统进行摇号自动生成报名名单,各位志愿者可以通过微信小程序查看自己的报名志愿成功情况,报名成功后可以参与救援活动.</p>
+<h2 id="1-3-救援活动的进行"><a href="#1-3-救援活动的进行" class="headerlink" title="1.3 救援活动的进行:"></a>1.3 救援活动的进行:</h2><p>把救援活动抽象为活动开始,活动进行,活动结束三个部分,在活动创建时,可以选择多种进行活动的方式,如当活动审核成功后,活动的创建者会得到活动开始和结束的签到码,并在活动现场告知各位志愿者,然后志愿者在活动开始和结束的一段时间内通过输入签到码的方式进行签到,便于后需进行志愿认证.</p>
+<h2 id="1-4-救援活动的结算"><a href="#1-4-救援活动的结算" class="headerlink" title="1.4 救援活动的结算:"></a>1.4 救援活动的结算:</h2><p>活动结束后,系统会根据活动创建者设置的签到时间自动的生成活动状态:完成或未完成,同时,活动创建者也</p>
+<p>可根据自己的认知情况手动的更改某些志愿者的志愿情况,在情况确认后,可以为志愿者加相应的志愿时长以</p>
+<p>及得分等,同时为了便于监督,所有的志愿者的志愿服务情况,会在网站上进行公示.</p>
+<h2 id="1-5-救援活动的反馈"><a href="#1-5-救援活动的反馈" class="headerlink" title="1.5 救援活动的反馈:"></a>1.5 救援活动的反馈:</h2><p>志愿者完成志愿活动后(完成活动结束的签到后),可以进行活动的反馈,包括评分与详细的文字反馈等,而活动</p>
+<p>的组织者和管理员可以看到所有的活动反馈,来帮助他们做得更好,同时,未进行这个志愿活动的公众也可以</p>
+<p>对社区进行的活动提意见或者进行举报等. </p>
+<h2 id="1-6-救援活动的个人信息平台以及激励"><a href="#1-6-救援活动的个人信息平台以及激励" class="headerlink" title="1.6 救援活动的个人信息平台以及激励:"></a>1.6 救援活动的个人信息平台以及激励:</h2><p>救援活动是一种发自内心的活动,是一种无私的奉献,但是他们同时也需要激励与回顾,对志愿者来说,自己所参加的所有救援活动情况均可在微信小程序端查看,而对志愿者的激励主要体现在微信小程序端的志愿活动排行榜,和各种志愿活动的推送上,而对于志愿活动组织和创建者的激励则由社区管理员之后自主决定.</p>
+<p><img src="C:\Users\wpy\Desktop\QQ截图20220802133349.png" alt="QQ截图20220802133349"></p>
+<h5 id="救援活动流程图"><a href="#救援活动流程图" class="headerlink" title="救援活动流程图"></a>救援活动流程图</h5><h2 id="1-7-后续优化思路"><a href="#1-7-后续优化思路" class="headerlink" title="1.7 后续优化思路:"></a>1.7 后续优化思路:</h2><h3 id="1-7-1-定制推送服务"><a href="#1-7-1-定制推送服务" class="headerlink" title="1.7.1 定制推送服务:"></a>1.7.1 定制推送服务:</h3><p>根据志愿者已经参加过的救援活动或者填写的意愿,专长等信息,为志愿者更加精准的推送和安排志愿活动,(如为医护人员志愿者群体安排社区医疗服务)更精准的发挥志愿者的能量</p>
+<h3 id="1-7-2-社区服务"><a href="#1-7-2-社区服务" class="headerlink" title="1.7.2 社区服务:"></a>1.7.2 社区服务:</h3><p>当前的demo仅仅是针对于一个特定的社区,后续拟推出跨社区救援活动的功能,使志愿者们可以跨越不同的社区进行救援活动,同时在各个不同社区之间实现统一招募,统一认证,统一反馈的功能,同时可以在不同社区之间进行积分排名对比,为各种层次的志愿活动激励提供依据.</p>
+<h3 id="1-7-3-物资调度服务"><a href="#1-7-3-物资调度服务" class="headerlink" title="1.7.3 物资调度服务:"></a>1.7.3 物资调度服务:</h3><p>现在程序对救援物资的处理通过活动的具体信息和活动反馈体现,后续会把物资处理变成单独的模块,以便于让物资的调度变得更加快捷高效,同时为物资的使用情况提供单独的查询访问窗口,使公众查询物资调度使用变得更加透明.</p>
+<h1 id="2-后端设计"><a href="#2-后端设计" class="headerlink" title="2.后端设计:"></a>2.后端设计:</h1><h2 id="2-1-综述"><a href="#2-1-综述" class="headerlink" title="2.1 综述:"></a>2.1 综述:</h2><p>项目采用前后端分离的方式进行开发,后端主要使用springboot和springmvc,Web端和微信小程序端共用一套</p>
+<p>数据库,使用不同的接口实现不同的功能.</p>
+<p><img src="C:\Users\wpy\Desktop\QQ截图20220802141326.png" alt="QQ截图20220802141326"></p>
+<h5 id="项目文件结构"><a href="#项目文件结构" class="headerlink" title="项目文件结构"></a>项目文件结构</h5><h2 id="2-2-数据库设计"><a href="#2-2-数据库设计" class="headerlink" title="2.2 数据库设计:"></a>2.2 数据库设计:</h2><p>设计三张实体类表,user:用户,activity:活动,feedback:活动反馈,维护表之间的关系不通过@manytomany这种注</p>
+<p>解,而是手写中间表维护,(因为需要添加额外的字段),故还有一张user-activity表.一般的增删改查使用spring-data-jpa直接完成,复杂的查询情况通过原生sql语句实现.</p>
+<h2 id=""><a href="#" class="headerlink" title=""></a><img src="C:\Users\wpy\Desktop\QQ截图20220802135146.png" alt="QQ截图20220802135146"></h2><h5 id="数据库表列表"><a href="#数据库表列表" class="headerlink" title="数据库表列表"></a>数据库表列表</h5><p><img src="C:\Users\wpy\Desktop\QQ截图20220802135754.png" alt="QQ截图20220802135754"></p>
+<h5 id="活动方面的部分sql语句"><a href="#活动方面的部分sql语句" class="headerlink" title="活动方面的部分sql语句"></a>活动方面的部分sql语句</h5><h2 id="2-3-接口设计"><a href="#2-3-接口设计" class="headerlink" title="2.3 接口设计:"></a>2.3 接口设计:</h2><p>主要分为用户操作接口和活动部分接口两大部分,用户操作主要实现用户的登录.注册.修改各类个人信息等功能,而活动接口则完成主要的活动功能.</p>
+<p>浏览器端使用shiro框架和jwt维护状态,而微信小程序端的接口则直接放行</p>
+<p>接口文档通过swagger-ui自动的生成,便于前端和微信小程序端人员查看并调用</p>
+<p><img src="C:\Users\wpy\Desktop\QQ截图20220802140057.png" alt="QQ截图20220802140057"></p>
+<h5 id="shiro部分配置"><a href="#shiro部分配置" class="headerlink" title="shiro部分配置"></a>shiro部分配置</h5><p><img src="C:\Users\wpy\Desktop\QQ截图20220802140446.png" alt="QQ截图20220802140446"></p>
+<h5 id="部分接口文档"><a href="#部分接口文档" class="headerlink" title="部分接口文档"></a>部分接口文档</h5><h2 id="2-4-其他处理及技术"><a href="#2-4-其他处理及技术" class="headerlink" title="2.4 其他处理及技术:"></a>2.4 其他处理及技术:</h2><h3 id="2-4-1-全局跨域配置"><a href="#2-4-1-全局跨域配置" class="headerlink" title="2.4.1 全局跨域配置:"></a>2.4.1 全局跨域配置:</h3><p>主要是为了解决跨域问题</p>
+<p>因为对于携带token的访问不能简单地通过注解解决,故用全局的配置类来解决</p>
+<p><img src="C:\Users\wpy\Desktop\QQ截图20220802140948.png" alt="QQ截图20220802140948"></p>
+<h5 id="全局跨域配置类"><a href="#全局跨域配置类" class="headerlink" title="全局跨域配置类"></a>全局跨域配置类</h5><h3 id="2-4-2-图片处理"><a href="#2-4-2-图片处理" class="headerlink" title="2.4.2 图片处理:"></a>2.4.2 图片处理:</h3><p>个人信息和活动信息处都需要图片,具体处理的思路是每个活动和志愿者数据库中有一个字段表征他们图片的地址,数据库为避免压力过大并不存储图片,得到相应的信息后,使用字段访问统一获取图片的接口获取相应的图片.</p>
+<p><img src="C:\Users\wpy\Desktop\QQ截图20220802141133.png" alt="QQ截图20220802141133"></p>
+<h5 id="统一获取图片接口"><a href="#统一获取图片接口" class="headerlink" title="统一获取图片接口"></a>统一获取图片接口</h5><h3 id="2-4-3-报名机制处理"><a href="#2-4-3-报名机制处理" class="headerlink" title="2.4.3 报名机制处理:"></a>2.4.3 报名机制处理:</h3><p>报名机制是整个活动流程中相对比较复杂的一个环节,具体的实施思路是:活动开始报名后,由组织者设置报名时间段,在这个时间段内均可提交报名申请,提交申请后则把一一对应的人员和活动信息存入数据库报名时间结束后,根据报名人数和拟招募人数来进行判断,如果报名人数小于等于拟招募人数,则所有人都被招募,如果报名人数大于拟招募人数,则根据二者的差值,生成不重复的随机数,然后从数据库中把这些人的信息删除,从而留下刚好对应的人数.</p>
+<p><img src="C:\Users\wpy\Desktop\QQ截图20220803155032.png" alt="QQ截图20220803155032"></p>
+<h5 id="报名机制的逻辑"><a href="#报名机制的逻辑" class="headerlink" title="报名机制的逻辑"></a>报名机制的逻辑</h5><p><img src="C:\Users\wpy\Desktop\QQ截图20220803155137.png" alt="QQ截图20220803155137"></p>
+<h5 id="生成不重复的随机数算法"><a href="#生成不重复的随机数算法" class="headerlink" title="生成不重复的随机数算法"></a>生成不重复的随机数算法</h5><h3 id="2-4-4-全局异常处理"><a href="#2-4-4-全局异常处理" class="headerlink" title="2.4.4 全局异常处理:"></a>2.4.4 全局异常处理:</h3><p>利用此全局异常处理,程序异常时,既可以在访问接口时体现异常问题,也可以在服务器端控制台体现.</p>
+<p><img src="C:\Users\wpy\Desktop\QQ截图20220803155507.png" alt="QQ截图20220803155507"></p>
+<h5 id="全局异常处理部分代码"><a href="#全局异常处理部分代码" class="headerlink" title="全局异常处理部分代码"></a>全局异常处理部分代码</h5><h1 id="3-前端设计"><a href="#3-前端设计" class="headerlink" title="3.前端设计:"></a>3.前端设计:</h1><h2 id="3-1-网页设计思路"><a href="#3-1-网页设计思路" class="headerlink" title="3.1 网页设计思路:"></a>3.1 网页设计思路:</h2><h3 id="3-1-1-定位网站主体和名称"><a href="#3-1-1-定位网站主体和名称" class="headerlink" title="3.1.1 定位网站主体和名称:"></a>3.1.1 定位网站主体和名称:</h3><p>该网站是为了志愿者以及志愿活动组织者服务，应当简洁明了，通俗易懂，方便操作，具有象征性，让人们对他马上有印象并且记住。</p>
+<h3 id="3-1-2-确定网站模块"><a href="#3-1-2-确定网站模块" class="headerlink" title="3.1.2 确定网站模块:"></a>3.1.2 确定网站模块:</h3><p>登录模块：我们没有与以往的登录注册界面不同，我们将登录注册功能写到同一个界面上，以一种更有趣更新奇的方式进行登录注册。</p>
+<p>为了方便操作，我们将主页面分为两种，一种是志愿者主页面，只要志愿者登录就可以进入主页面查看志愿活动的相关信息；一种是审批者主页面，审批者通过身份认证之后即可进入审批者主页面对相关志愿活动进行审批，避免了繁琐的操作。</p>
+<h3 id="3-1-3-技术栈"><a href="#3-1-3-技术栈" class="headerlink" title="3.1.3 技术栈:"></a>3.1.3 技术栈:</h3><p>主要运用了vue，axios，router，element-UI组件库等技术.</p>
+<h2 id="3-2-页面设计"><a href="#3-2-页面设计" class="headerlink" title="3.2 页面设计:"></a>3.2 页面设计:</h2><h3 id="3-2-1-总体介绍"><a href="#3-2-1-总体介绍" class="headerlink" title="3.2.1 总体介绍:"></a>3.2.1 总体介绍:</h3><p>该网站分为三个主页面，分别为：登录页面，志愿者主页面，审批者主页面，每个页面都实现了其相应的功能.</p>
+<h3 id="3-2-2-登录页面"><a href="#3-2-2-登录页面" class="headerlink" title="3.2.2 登录页面:"></a>3.2.2 登录页面:</h3><p>在同一页面中实现登录和注册功能，其中紫色div可左右滑动显示对应功能，运用axios与后端数据库连接，验证密码是否正确或者注册账号，账号密码正确则运用router跳转到对应页面。</p>
+<p><img src="C:\Users\wpy\AppData\Roaming\Typora\typora-user-images\image-20220803160409246.png" alt="image-20220803160409246"></p>
+<h5 id="登录页面"><a href="#登录页面" class="headerlink" title="登录页面"></a>登录页面</h5><p><img src="C:\Users\wpy\AppData\Roaming\Typora\typora-user-images\image-20220803160559277.png" alt="image-20220803160559277"></p>
+<h5 id="注册页面"><a href="#注册页面" class="headerlink" title="注册页面"></a>注册页面</h5><p><img src="C:\Users\wpy\Desktop\QQ图片20220803160646.jpg" alt="QQ图片20220803160646"></p>
+<h5 id="相关代码"><a href="#相关代码" class="headerlink" title="相关代码"></a>相关代码</h5><h3 id="3-2-3-志愿者主界面"><a href="#3-2-3-志愿者主界面" class="headerlink" title="3.2.3 志愿者主界面:"></a>3.2.3 志愿者主界面:</h3><p>主要分为五部分，用户信息部分，志愿活动发放部分，志愿积分排行榜部分，我参加的活动部分。先判断是否为管理员身份，如果为志愿者，则显示以下页面（此页面不可以申请发布志愿活动）在此页面中可以查看公布的志愿活动的详细情况以及志愿者名单，起到群众监督的作用，还可以查看自己的志愿积分，志愿排行榜以及自己过去参加的志愿活动的相关信息。</p>
+<p><img src="C:\Users\wpy\AppData\Roaming\Typora\typora-user-images\image-20220803160909033.png" alt="image-20220803160909033"></p>
+<h5 id="志愿者主页面"><a href="#志愿者主页面" class="headerlink" title="志愿者主页面"></a>志愿者主页面</h5><p>若为管理员则展示以下页面，点击页面中的志愿活动即可看到志愿活动的详细信息，也可以对志愿者的完成情况进行认定，也可以查看自己发布的志愿活动的活动反馈以此对自己下一次发布的活动进行调整</p>
+<p><img src="C:\Users\wpy\Desktop\QQ图片20220803162050.jpg"></p>
+<h5 id="志愿活动管理员页面"><a href="#志愿活动管理员页面" class="headerlink" title="志愿活动管理员页面"></a>志愿活动管理员页面</h5><h3 id="3-2-4-审批者主页面"><a href="#3-2-4-审批者主页面" class="headerlink" title="3.2.4 审批者主页面:"></a>3.2.4 审批者主页面:</h3><p>在此页面可以查看未审批的志愿活动和已审批的志愿活动，并且对未审批的志愿活动进行审批.</p>
+<p><img src="C:\Users\wpy\Desktop\QQ图片20220803161936.jpg" alt="QQ图片20220803161936"></p>
+<h3 id="3-2-5-创建活动"><a href="#3-2-5-创建活动" class="headerlink" title="3.2.5 创建活动:"></a>3.2.5 创建活动:</h3><p>在此页面可进行活动内容的填写，待审核通过后即可出现在志愿者主页面上的志愿活动中，点击返回按钮则会返回原页面。</p>
+<p><img src="C:\Users\wpy\AppData\Roaming\Typora\typora-user-images\image-20220803161459504.png" alt="image-20220803161459504"></p>
+<h5 id="发布活动"><a href="#发布活动" class="headerlink" title="发布活动"></a>发布活动</h5><p><img src="C:\Users\wpy\Desktop\Cache_28c2cb60f885e65f..jpg" alt="Cache_28c2cb60f885e65f."></p>
+<h5 id="相关代码-1"><a href="#相关代码-1" class="headerlink" title="相关代码"></a>相关代码</h5><h3 id="3-2-6-用户信息部分"><a href="#3-2-6-用户信息部分" class="headerlink" title="3.2.6 用户信息部分:"></a>3.2.6 用户信息部分:</h3><p><img src="C:\Users\wpy\AppData\Roaming\Typora\typora-user-images\image-20220803161549318.png" alt="image-20220803161549318"></p>
+<h5 id="个人身份处理"><a href="#个人身份处理" class="headerlink" title="个人身份处理"></a>个人身份处理</h5><p><img src="C:\Users\wpy\AppData\Roaming\Typora\typora-user-images\image-20220803161632017.png" alt="image-20220803161632017"></p>
+<h5 id="修改个人信息"><a href="#修改个人信息" class="headerlink" title="修改个人信息"></a>修改个人信息</h5><h1 id="4-微信小程序端设计"><a href="#4-微信小程序端设计" class="headerlink" title="4.微信小程序端设计:"></a>4.微信小程序端设计:</h1><h2 id="4-1-首页设计"><a href="#4-1-首页设计" class="headerlink" title="4.1 首页设计:"></a>4.1 首页设计:</h2><p>首页部分计划实现轮播图，分类跳转，精选活动，在相应的活动界面会有报名功能及查看是否摇号成功的功能。</p>
+<p>（1） 轮播图（推出评分最高的三个活动），调用“<a target="_blank" rel="noopener" href="http://3.36.73.0:8080/activity/rotation%E2%80%9D%E6%8E%A5%E5%8F%A3%EF%BC%8C%E4%BB%A5get%E6%96%B9%E5%BC%8F%E4%BB%8E%E5%90%8E%E7%AB%AF%E8%8E%B7%E5%8F%96%E8%BD%AE%E6%92%AD%E5%9B%BE%E5%9B%BE%E7%89%87%E4%BB%A5%E5%8F%8A%E5%AF%B9%E5%BA%94%E6%B4%BB%E5%8A%A8%E7%9A%84%E8%AF%A6%E7%BB%86%E4%BF%A1%E6%81%AF%EF%BC%8C%E5%B9%B6%E6%8A%8A%E8%BF%94%E5%9B%9E%E4%BF%A1%E6%81%AF%E4%B8%AD%E7%9A%84%E5%9B%BE%E7%89%87%E6%98%BE%E7%A4%BA%E5%88%B0%E9%A1%B5%E9%9D%A2%E4%B8%8A%EF%BC%8C%E5%B9%B6%E4%B8%94%E5%AE%9E%E7%8E%B0%E7%82%B9%E5%87%BB%E8%BD%AE%E6%92%AD%E5%9B%BE%E5%AE%9E%E7%8E%B0%E8%B7%B3%E8%BD%AC%E5%88%B0%E7%9B%B8%E5%BA%94%E6%B4%BB%E5%8A%A8%E7%9A%84%E5%8A%9F%E8%83%BD%E3%80%82">http://3.36.73.0:8080/activity/rotation”接口，以get方式从后端获取轮播图图片以及对应活动的详细信息，并把返回信息中的图片显示到页面上，并且实现点击轮播图实现跳转到相应活动的功能。</a></p>
+<p>（2） 精选活动（推出逻辑人数最多的十个活动），调用“<a target="_blank" rel="noopener" href="http://3.36.73.0:8080/activity/selected%E2%80%9D%E6%8E%A5%E5%8F%A3%EF%BC%8C%E4%BB%A5">http://3.36.73.0:8080/activity/selected”接口，以</a> get方式从后端获取精选活动图片以及对应活动的详细信息，并把返回信息中的图片显示到页面上，并且实现点击精选活动图片实现跳转到相应活动的功能。</p>
+<p><img src="C:\Users\wpy\AppData\Roaming\Typora\typora-user-images\image-20220803162451243.png" alt="image-20220803162451243"></p>
+<h5 id="首页页面"><a href="#首页页面" class="headerlink" title="首页页面"></a>首页页面</h5><p>（3） 分类，调用“<a target="_blank" rel="noopener" href="http://3.36.73.0:8080/activity/type%E2%80%9D%E6%8E%A5%E5%8F%A3%EF%BC%8C%E4%BB%A5post%E6%96%B9%E5%BC%8F%E4%BC%A0%E5%85%A5%E7%9B%B8%E5%BA%94%E5%88%86%E7%B1%BBid%EF%BC%8C%E4%BB%8E%E5%90%8E%E7%AB%AF%E8%BF%94%E5%9B%9E%E7%BB%93%E6%9E%9C%E8%8E%B7%E5%8F%96%E4%B8%8D%E5%90%8C%E5%88%86%E7%B1%BB%E4%B8%8B%E5%AF%B9%E5%BA%94%E7%9A%84%E7%89%B9%E5%AE%9A%E6%B4%BB%E5%8A%A8%EF%BC%8C%E5%AE%9E%E7%8E%B0%E7%82%B9%E5%87%BB%E5%88%86%E7%B1%BB%E8%B7%B3%E8%BD%AC%E5%88%B0%E5%88%86%E7%B1%BB%E9%A1%B5%E9%9D%A2%EF%BC%8C%E9%80%89%E6%8B%A9%E4%B8%8D%E5%90%8C%E5%88%86%E7%B1%BB%E4%B8%AD%E7%9A%84%E7%89%B9%E5%AE%9A%E6%B4%BB%E5%8A%A8%EF%BC%8C%E6%90%BA%E5%B8%A6%E5%8F%82%E6%95%B0%E8%B7%B3%E8%BD%AC%E5%8F%AF%E4%BB%A5%E5%AE%9E%E7%8E%B0%E8%B7%B3%E8%BD%AC%E5%88%B0%E6%B4%BB%E5%8A%A8%E8%AF%A6%E6%83%85%E9%A1%B5%E3%80%82">http://3.36.73.0:8080/activity/type”接口，以post方式传入相应分类id，从后端返回结果获取不同分类下对应的特定活动，实现点击分类跳转到分类页面，选择不同分类中的特定活动，携带参数跳转可以实现跳转到活动详情页。</a></p>
+<p><img src="C:\Users\wpy\AppData\Roaming\Typora\typora-user-images\image-20220803162525316.png" alt="image-20220803162525316"></p>
+<h5 id="分类页面"><a href="#分类页面" class="headerlink" title="分类页面"></a>分类页面</h5><p>（4） 具体活动信息展示及报名，调用“<a target="_blank" rel="noopener" href="http://3.36.73.0:8080/activity/signActivity%E2%80%9D%E6%8E%A5%E5%8F%A3%EF%BC%8C%E4%BB%A5post%E6%96%B9%E5%BC%8F%E6%90%BA%E5%B8%A6%E5%8F%82%E6%95%B0%E6%A0%B9%E6%8D%AE%E7%94%A8%E6%88%B7%E5%90%8D%E5%92%8C%E6%B4%BB%E5%8A%A8%E6%A0%87%E9%A2%98%E6%8A%A5%E5%90%8D%EF%BC%8C%E5%B9%B6%E5%B0%86%E8%BF%94%E5%9B%9E%E7%9A%84%E6%8A%A5%E5%90%8D%E7%BB%93%E6%9E%9C%E6%98%BE%E7%A4%BA%E5%88%B0%E9%A1%B5%E9%9D%A2%E4%B8%AD%EF%BC%8C%E5%88%86%E4%B8%BA%E2%80%9C%E6%88%91%E8%A6%81%E6%8A%A5%E5%90%8D%E2%80%9D%EF%BC%8C%E2%80%9C%E5%B7%B2%E6%8A%A5%E5%90%8D%EF%BC%8C%E8%AF%B7%E7%AD%89%E5%BE%85%E6%91%87%E5%8F%B7%E7%BB%93%E6%9E%9C%E2%80%9D%EF%BC%8C%E2%80%9C%E6%81%AD%E5%96%9C%E6%82%A8%EF%BC%8C%E6%91%87%E5%8F%B7%E6%88%90%E5%8A%9F%E2%80%9D%EF%BC%8C%E2%80%9C%E7%9C%9F%E5%8F%AF%E6%83%9C%EF%BC%8C%E7%AD%89%E5%BE%85%E4%B8%8B%E4%B8%80%E6%AC%A1%E7%9A%84%E6%9C%BA%E4%BC%9A%E5%90%A7%EF%BC%81%E2%80%9D">http://3.36.73.0:8080/activity/signActivity”接口，以post方式携带参数根据用户名和活动标题报名，并将返回的报名结果显示到页面中，分为“我要报名”，“已报名，请等待摇号结果”，“恭喜您，摇号成功”，“真可惜，等待下一次的机会吧！”</a></p>
+<p><img src="C:\Users\wpy\AppData\Roaming\Typora\typora-user-images\image-20220803162610408.png" alt="image-20220803162610408"></p>
+<h5 id="活动展示及报名"><a href="#活动展示及报名" class="headerlink" title="活动展示及报名"></a>活动展示及报名</h5><h2 id="4-2-签到设计"><a href="#4-2-签到设计" class="headerlink" title="4.2 签到设计:"></a>4.2 签到设计:</h2><p>签到作为志愿活动的重要环节，我们页面设计时以简洁的风格为主尽可能地让志愿者减少操作。同时我们采用签到码的方式来进行签到.为了防止代签，迟到，报名未参加等情况的出现，在志愿活动开始前，我们会将参加志愿的每位成员的签到码通过web端发送给负责人，志愿者需要在现场领取属于自己的签到码。</p>
+<p><img src="C:\Users\wpy\AppData\Roaming\Typora\typora-user-images\image-20220803162721456.png" alt="image-20220803162721456"></p>
+<h5 id="通过提交签到码的方式进行签到"><a href="#通过提交签到码的方式进行签到" class="headerlink" title="通过提交签到码的方式进行签到"></a>通过提交签到码的方式进行签到</h5><h2 id="4-3-个人平台设计"><a href="#4-3-个人平台设计" class="headerlink" title="4.3 个人平台设计:"></a>4.3 个人平台设计:</h2><p>个人中心部分实现用户初次打开时的登录和注册，此外还负责展示个人信息，显示用户的志愿记录等功能。注册按钮跳转至注册页面，引导用户输入用户名，密码，昵称，然后调用注册接口将用户输入的信息上传至后端数据库，以完成注册。同理登录按钮和登录页面，能够让用户成功登录志愿小程序。</p>
+<p><img src="C:\Users\wpy\AppData\Roaming\Typora\typora-user-images\image-20220803162912933.png" alt="image-20220803162912933"></p>
+<h5 id="初次登录"><a href="#初次登录" class="headerlink" title="初次登录"></a>初次登录</h5><p><img src="file:///C:\Users\wpy\AppData\Local\Temp\ksohtml28852\wps2.png" alt="img"></p>
+<h5 id="未登录时显示页面"><a href="#未登录时显示页面" class="headerlink" title="未登录时显示页面"></a>未登录时显示页面</h5><p>登录成功后，注册和登录按钮消失，转而显示用户的头像和昵称.</p>
+<p><img src="C:\Users\wpy\Desktop\QQ截图20220803163331.png" alt="QQ截图20220803163331"></p>
+<h5 id="登陆成功后显示"><a href="#登陆成功后显示" class="headerlink" title="登陆成功后显示"></a>登陆成功后显示</h5><p>个人中心的下半区域，负责显示用户的志愿数量，点击相关区域，跳转页面，可查看详细的用户志愿记录，而且为了方便用户查看，志愿记录分为4类，已完成，未完成，违约，和所有志愿。</p>
+<p><img src="C:\Users\wpy\Desktop\QQ截图20220803163454.png" alt="QQ截图20220803163454"></p>
+<h5 id="个人中心下方页面"><a href="#个人中心下方页面" class="headerlink" title="个人中心下方页面"></a>个人中心下方页面</h5><p>接下来就是主要功能区域，包括了个人资料，积分商城(暂未实现)等四个功能模块.</p>
+<p><img src="C:\Users\wpy\Desktop\QQ截图20220803163625.png" alt="QQ截图20220803163625"></p>
+<h5 id="个人资料页面"><a href="#个人资料页面" class="headerlink" title="个人资料页面"></a>个人资料页面</h5>
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/springboot/" rel="tag"># -springboot</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2022/08/25/%E7%99%BD%E9%A9%AC%E9%81%A5/" rel="prev" title="白马遥">
+                  <i class="fa fa-chevron-left"></i> 白马遥
+                </a>
+            </div>
+            <div class="post-nav-item">
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 
+  <span itemprop="copyrightYear">2022</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">bearslyricattack</span>
+</div>
+<div class="busuanzi-count">
+    <span class="post-meta-item" id="busuanzi_container_site_uv">
+      <span class="post-meta-item-icon">
+        <i class="user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv">
+      <span class="post-meta-item-icon">
+        <i class="eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/muse/" rel="noopener" target="_blank">NexT.Muse</a> 强力驱动
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/schemes/muse.js"></script><script src="/js/next-boot.js"></script>
+
+  
+
+
+
+
+
+  
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+
+<!-- 页面点击小红心 -->
+<script type="text/javascript" src="/js/src/clicklove.js"></script>
+</body>
+</html>
