@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 6.2.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/3.ico">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/2.ico">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css" integrity="sha256-xejo6yLi6vGtAjcMIsY8BHdKsLg7QynVlFMzdQgUuy8=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"example.com","root":"/","images":"/images","scheme":"Muse","darkmode":false,"version":"8.12.3","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="Springboot笔记Springboot的复杂性不是来自他处理的对象,而是来自他自身,是来自不断演进发展的springboot带来的时间维度上的复杂性.">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Springboot笔记">
+<meta property="og:url" content="http://example.com/2022/08/27/Springboot%E7%AC%94%E8%AE%B0/index.html">
+<meta property="og:site_name" content="抒情小熊">
+<meta property="og:description" content="Springboot笔记Springboot的复杂性不是来自他处理的对象,而是来自他自身,是来自不断演进发展的springboot带来的时间维度上的复杂性.">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2022-08-27T08:54:38.000Z">
+<meta property="article:modified_time" content="2022-08-27T08:56:52.763Z">
+<meta property="article:author" content="bearslyricattack">
+<meta property="article:tag" content="-springboot">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="http://example.com/2022/08/27/Springboot%E7%AC%94%E8%AE%B0/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"http://example.com/2022/08/27/Springboot%E7%AC%94%E8%AE%B0/","path":"2022/08/27/Springboot笔记/","title":"Springboot笔记"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>Springboot笔记 | 抒情小熊</title>
+  
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">抒情小熊</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">Remember me as I was.</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签<span class="badge">4</span></a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类<span class="badge">3</span></a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">7</span></a></li><li class="menu-item menu-item-schedule"><a href="/schedule/" rel="section"><i class="fa fa-calendar fa-fw"></i>日程表</a></li><li class="menu-item menu-item-sitemap"><a href="/sitemap.xml" rel="section"><i class="fa fa-sitemap fa-fw"></i>站点地图</a></li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Springboot%E7%AC%94%E8%AE%B0"><span class="nav-number">1.</span> <span class="nav-text">Springboot笔记</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Springboot%E7%9A%84%E5%A4%8D%E6%9D%82%E6%80%A7%E4%B8%8D%E6%98%AF%E6%9D%A5%E8%87%AA%E4%BB%96%E5%A4%84%E7%90%86%E7%9A%84%E5%AF%B9%E8%B1%A1-%E8%80%8C%E6%98%AF%E6%9D%A5%E8%87%AA%E4%BB%96%E8%87%AA%E8%BA%AB-%E6%98%AF%E6%9D%A5%E8%87%AA%E4%B8%8D%E6%96%AD%E6%BC%94%E8%BF%9B%E5%8F%91%E5%B1%95%E7%9A%84springboot%E5%B8%A6%E6%9D%A5%E7%9A%84%E6%97%B6%E9%97%B4%E7%BB%B4%E5%BA%A6%E4%B8%8A%E7%9A%84%E5%A4%8D%E6%9D%82%E6%80%A7"><span class="nav-number">2.</span> <span class="nav-text">Springboot的复杂性不是来自他处理的对象,而是来自他自身,是来自不断演进发展的springboot带来的时间维度上的复杂性.</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#1-Web%E5%89%8D%E5%90%8E%E7%AB%AF%E5%88%86%E7%A6%BB%E5%9F%BA%E6%9C%AC%E5%8E%9F%E7%90%86-Spring-MVC"><span class="nav-number">3.</span> <span class="nav-text">1.Web前后端分离基本原理:Spring MVC</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2-Springboot%E4%BB%8B%E7%BB%8D"><span class="nav-number">4.</span> <span class="nav-text">2.Springboot介绍:</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#3-Springboot%E9%A1%B9%E7%9B%AE%E4%B8%8A%E6%89%8B"><span class="nav-number">5.</span> <span class="nav-text">3.Springboot项目上手:</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#3-1-%E5%88%9B%E5%BB%BASpringboot%E9%A1%B9%E7%9B%AE%EF%BC%9A"><span class="nav-number">5.1.</span> <span class="nav-text">3.1 创建Springboot项目：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-2-Springboot%E9%A1%B9%E7%9B%AE%E7%BB%93%E6%9E%84%EF%BC%9A"><span class="nav-number">5.2.</span> <span class="nav-text">3.2 Springboot项目结构：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-3-%E6%96%B0%E5%BB%BAController%E5%B1%82%EF%BC%9A"><span class="nav-number">5.3.</span> <span class="nav-text">3.3 新建Controller层：</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#3-3-1-Controller%E4%BB%8B%E7%BB%8D%EF%BC%9A"><span class="nav-number">5.3.1.</span> <span class="nav-text">3.3.1 Controller介绍：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-3-2-%E6%B3%A8%E8%A7%A3%EF%BC%9A"><span class="nav-number">5.3.2.</span> <span class="nav-text">3.3.2 注解：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-3-3-%E5%9F%BA%E6%9C%AC%E7%BB%93%E6%9E%84%EF%BC%9A"><span class="nav-number">5.3.3.</span> <span class="nav-text">3.3.3 基本结构：</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#4-%E4%B8%BB%E5%90%AF%E5%8A%A8%E7%B1%BB%EF%BC%9A"><span class="nav-number">6.</span> <span class="nav-text">4. 主启动类：</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#5-%E4%BF%AE%E6%94%B9%E9%A1%B9%E7%9B%AE%E9%85%8D%E7%BD%AE%EF%BC%9A"><span class="nav-number">7.</span> <span class="nav-text">5.修改项目配置：</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#6-%E6%95%B0%E6%8D%AE%E5%BA%93%E6%93%8D%E4%BD%9C"><span class="nav-number">8.</span> <span class="nav-text">6.数据库操作:</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#6-1-%E6%8A%80%E6%9C%AF%E9%80%89%E5%9E%8B"><span class="nav-number">8.1.</span> <span class="nav-text">6.1 技术选型:</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#6-2-%E6%93%8D%E4%BD%9C%E8%BF%87%E7%A8%8B"><span class="nav-number">8.2.</span> <span class="nav-text">6.2 操作过程:</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#6-2-1-%E6%B7%BB%E5%8A%A0maven%E4%BE%9D%E8%B5%96"><span class="nav-number">8.2.1.</span> <span class="nav-text">6.2.1 添加maven依赖:</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6-2-2-yml%E9%85%8D%E7%BD%AE"><span class="nav-number">8.2.2.</span> <span class="nav-text">6.2.2 yml配置:</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6-2-3-%E9%93%BE%E6%8E%A5%E6%95%B0%E6%8D%AE%E5%BA%93"><span class="nav-number">8.2.3.</span> <span class="nav-text">6.2.3 链接数据库:</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6-2-4-%E7%BC%96%E5%86%99%E5%AE%9E%E4%BD%93%E7%B1%BB"><span class="nav-number">8.2.4.</span> <span class="nav-text">6.2.4: 编写实体类:</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#6-2-4-1-%E5%AE%9E%E4%BD%93%E7%B1%BB%E6%B3%A8%E8%A7%A3"><span class="nav-number">8.2.4.1.</span> <span class="nav-text">6.2.4.1 实体类注解:</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#6-2-4-2-%E6%95%B0%E6%8D%AE%E5%BA%93%E4%B8%BB%E9%94%AE"><span class="nav-number">8.2.4.2.</span> <span class="nav-text">6.2.4.2 数据库主键:</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6-2-5-%E5%BB%BA%E7%AB%8B%E6%95%B0%E6%8D%AE%E5%BA%93%E6%8E%A5%E5%8F%A3"><span class="nav-number">8.2.5.</span> <span class="nav-text">6.2.5: 建立数据库接口:</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6-2-6-%E6%8E%A5%E5%8F%A3%E5%AE%9E%E4%BE%8B%E5%8C%96"><span class="nav-number">8.2.6.</span> <span class="nav-text">6.2.6: 接口实例化:</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6-2-7-%E4%BF%AE%E6%94%B9%E5%AF%B9%E8%B1%A1%E6%95%B0%E6%8D%AE"><span class="nav-number">8.2.7.</span> <span class="nav-text">6.2.7: 修改对象数据:</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6-2-8-%E8%87%AA%E5%AE%9A%E4%B9%89%E6%95%B0%E6%8D%AE%E5%BA%93%E6%93%8D%E4%BD%9C"><span class="nav-number">8.2.8.</span> <span class="nav-text">6.2.8 自定义数据库操作:</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#7-%E5%8D%95%E5%85%83%E6%B5%8B%E8%AF%95"><span class="nav-number">9.</span> <span class="nav-text">7.单元测试:</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#7-1-service%E5%B1%82%E6%B5%8B%E8%AF%95"><span class="nav-number">9.1.</span> <span class="nav-text">7.1 service层测试:</span></a></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="bearslyricattack"
+      src="/images/1.jpg">
+  <p class="site-author-name" itemprop="name">bearslyricattack</p>
+  <div class="site-description" itemprop="description">静海夜涛三万里,月明飞锡下天风。</div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">7</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">3</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">4</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author site-overview-item animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/bearslyricattack" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;bearslyricattack" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:2669184984@qq.com" title="E-Mail → mailto:2669184984@qq.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+  </div>
+
+
+
+        </div>
+      </div>
+
+
+<a target="_blank" rel="noopener" href="https://github.com/bearslyricattack/" class="github-corner" aria-label="View source on GitHub"><svg width="80" height="80" viewBox="0 0 250 250" style="fill:#151513; color:#fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style>
+
+<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=450 src="//music.163.com/outchain/player?type=0&id=2696299728&auto=1&height=430"></iframe>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2022/08/27/Springboot%E7%AC%94%E8%AE%B0/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/1.jpg">
+      <meta itemprop="name" content="bearslyricattack">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="抒情小熊">
+      <meta itemprop="description" content="静海夜涛三万里,月明飞锡下天风。">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="Springboot笔记 | 抒情小熊">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Springboot笔记
+        </h1>
+
+    
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+      
+
+      <time title="创建时间：2022-08-27 16:54:38 / 修改时间：16:56:52" itemprop="dateCreated datePublished" datetime="2022-08-27T16:54:38+08:00">2022-08-27</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E7%AC%94%E8%AE%B0/" itemprop="url" rel="index"><span itemprop="name">笔记</span></a>
+        </span>
+    </span>
+
+  
+    <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv">
+      <span class="post-meta-item-icon">
+        <i class="eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span id="busuanzi_value_page_pv"></span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <h1 id="Springboot笔记"><a href="#Springboot笔记" class="headerlink" title="Springboot笔记"></a>Springboot笔记</h1><h1 id="Springboot的复杂性不是来自他处理的对象-而是来自他自身-是来自不断演进发展的springboot带来的时间维度上的复杂性"><a href="#Springboot的复杂性不是来自他处理的对象-而是来自他自身-是来自不断演进发展的springboot带来的时间维度上的复杂性" class="headerlink" title="Springboot的复杂性不是来自他处理的对象,而是来自他自身,是来自不断演进发展的springboot带来的时间维度上的复杂性."></a>Springboot的复杂性不是来自他处理的对象,而是来自他自身,是来自不断演进发展的springboot带来的时间维度上的复杂性.</h1><span id="more"></span>
+
+<h1 id="1-Web前后端分离基本原理-Spring-MVC"><a href="#1-Web前后端分离基本原理-Spring-MVC" class="headerlink" title="1.Web前后端分离基本原理:Spring MVC"></a>1.Web前后端分离基本原理:Spring MVC</h1><p>用户在view(视图层)进行操作,该层调用controller的接口进行逻辑处理,controller调用service层的方法,service层的数据持久化又需要dao层的数据库支持.</p>
+<h1 id="2-Springboot介绍"><a href="#2-Springboot介绍" class="headerlink" title="2.Springboot介绍:"></a>2.Springboot介绍:</h1><p>Springboot是一个java ee框架,是Spring的升级版,采用前后端分离的方式产出接口,实现网页,微信小程序,app的开发,他的特点是简化配置,部署.监控</p>
+<h1 id="3-Springboot项目上手"><a href="#3-Springboot项目上手" class="headerlink" title="3.Springboot项目上手:"></a>3.Springboot项目上手:</h1><h2 id="3-1-创建Springboot项目："><a href="#3-1-创建Springboot项目：" class="headerlink" title="3.1 创建Springboot项目："></a>3.1 创建Springboot项目：</h2><p>idea：file-new-Spring Initializr</p>
+<h2 id="3-2-Springboot项目结构："><a href="#3-2-Springboot项目结构：" class="headerlink" title="3.2 Springboot项目结构："></a>3.2 Springboot项目结构：</h2><p>新建项目后，会得到一个文件夹，其中一级文件需要关注最重要的是src文件夹和pom.xml文件，pom.xml是依赖(依赖？可以理解认为一些外部包)的配置文件，其中src包括main文件夹和text文件夹，text文件夹存放测试文件，main包括java文件夹（用于写业务程序），resources文件夹（存放项目的配置）</p>
+<h2 id="3-3-新建Controller层："><a href="#3-3-新建Controller层：" class="headerlink" title="3.3 新建Controller层："></a>3.3 新建Controller层：</h2><h3 id="3-3-1-Controller介绍："><a href="#3-3-1-Controller介绍：" class="headerlink" title="3.3.1 Controller介绍："></a>3.3.1 Controller介绍：</h3><p>在java文件夹下，创建类名为某Controller类进行编写。Controller是接口层，是直接和前端交互的地方，它由一个一个的接口组成.（接口：接收一部分数据，进行内部处理，返回另一组数据）</p>
+<h3 id="3-3-2-注解："><a href="#3-3-2-注解：" class="headerlink" title="3.3.2 注解："></a>3.3.2 注解：</h3><p>在类上方增加@RestController注解</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@RestController</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">ActivityController</span> &#123;&#125;</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>用于标识这个类是Controller类，同时这个注解是@Controller和@ResposeBody两个注解的结合，可以直接接收前端的json格式的数据，同时返回json格式的数据</p>
+<h3 id="3-3-3-基本结构："><a href="#3-3-3-基本结构：" class="headerlink" title="3.3.3 基本结构："></a>3.3.3 基本结构：</h3><p>Controller类由一个一个的接口构成，其基本格式如下：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">@PostMapping(&quot;/addScore&quot;)</span><br><span class="line">public Result addScore (@RequestParam(&quot;addStrips&quot;) List&lt;AddStrip&gt; addStrips)&#123;</span><br><span class="line">    return activityService.addScore(name, addStrips);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>接口就是一些注解加上一个方法，必须要有的是形如@PostMapping一样的注解，表明了这个接口访问的地址，以及访问的方式等信息</p>
+<p>而对于需要传参数的接口，需要加类似@RequestParam类的接口，加在方法所需的参数前，表明了这个参数传来的名称与格式。</p>
+<h1 id="4-主启动类："><a href="#4-主启动类：" class="headerlink" title="4. 主启动类："></a>4. 主启动类：</h1><p>在java文件夹下，自动生成的一个类，下面有一个主方法。</p>
+<p>这个类用于项目的启动，不需要做任何的修改。</p>
+<h1 id="5-修改项目配置："><a href="#5-修改项目配置：" class="headerlink" title="5.修改项目配置："></a>5.修改项目配置：</h1><p>位于resources文件夹下，为了更快的写配置，删除掉该文件夹下原有的application.properties文件，新建一个application.yml文件</p>
+<p>格式：</p>
+<p>properties：</p>
+<p>key&#x3D;value</p>
+<p>yml：</p>
+<p>key: value（注意value前面有一个空格）</p>
+<p>完成前三步后,就可以运行程序,并在网页上访问相应的接口的到相应的数据,但这样不能实现数据的变化,而要做到这一点,就需要进行数据库操作.</p>
+<h1 id="6-数据库操作"><a href="#6-数据库操作" class="headerlink" title="6.数据库操作:"></a>6.数据库操作:</h1><h2 id="6-1-技术选型"><a href="#6-1-技术选型" class="headerlink" title="6.1 技术选型:"></a>6.1 技术选型:</h2><p>选用mysql数据库,使用jpa进行操作</p>
+<p>jpa:一种对象持久化的标准.</p>
+<p>spring-data-jpa:根据jpa开发出的一个产品.</p>
+<h2 id="6-2-操作过程"><a href="#6-2-操作过程" class="headerlink" title="6.2 操作过程:"></a>6.2 操作过程:</h2><h3 id="6-2-1-添加maven依赖"><a href="#6-2-1-添加maven依赖" class="headerlink" title="6.2.1 添加maven依赖:"></a>6.2.1 添加maven依赖:</h3><p>​	spring-data-jpa.</p>
+<p>​	mysql-connector-java</p>
+<h3 id="6-2-2-yml配置"><a href="#6-2-2-yml配置" class="headerlink" title="6.2.2 yml配置:"></a>6.2.2 yml配置:</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">datasource:</span><br><span class="line">  driver-class-name: com.mysql.cj.jdbc.Driver</span><br><span class="line">  url: jdbc:mysql://localhost:3306/dbaddscore(你自己的数据库名)</span><br><span class="line">  username: root</span><br><span class="line">  password: (你自己的密码)</span><br><span class="line">jpa:</span><br><span class="line">  hibernate:</span><br><span class="line">    ddl-auto: update(意味着没有数据就新建,有数据也保留),还可用create(每次运行都覆盖数据)等</span><br><span class="line">  show-sql: true(在控制台展示sql语句)</span><br><span class="line">  </span><br></pre></td></tr></table></figure>
+
+<h3 id="6-2-3-链接数据库"><a href="#6-2-3-链接数据库" class="headerlink" title="6.2.3 链接数据库:"></a>6.2.3 链接数据库:</h3><p>用Navicat与数据库连接,在里面创建即可,编码选择UTF-8.</p>
+<p>只需要新建数据库即可,无需自己建表.</p>
+<h3 id="6-2-4-编写实体类"><a href="#6-2-4-编写实体类" class="headerlink" title="6.2.4: 编写实体类:"></a>6.2.4: 编写实体类:</h3><h4 id="6-2-4-1-实体类注解"><a href="#6-2-4-1-实体类注解" class="headerlink" title="6.2.4.1 实体类注解:"></a>6.2.4.1 实体类注解:</h4><p>完成数据库连接后即可编写实体类,实体类是会数据库中储存的类.</p>
+<p>建立类后,在类的上方加@Entity注解,表示这是一个实体类,在项目运行时,会自动创建由这个类所映射的表,以及里面的所有数据.</p>
+<p>注意:在此类中一定要有一个无参的构造方法,否则会报错,可以在类上方通过</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">@NoArgsConstructor</span><br><span class="line">@AllArgsConstructor</span><br></pre></td></tr></table></figure>
+
+<p>这两个注解来实现.</p>
+<h4 id="6-2-4-2-数据库主键"><a href="#6-2-4-2-数据库主键" class="headerlink" title="6.2.4.2 数据库主键:"></a>6.2.4.2 数据库主键:</h4><p>数据库主键是这一行数据在这张表中唯一的标识,在一张表中,每条数据的这个字段一定不相同,可以作为其他表的外键,让其他表通过这个属性的值找到这条记录</p>
+<p>主键注解:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">/**</span><br><span class="line"> * id</span><br><span class="line"> */</span><br><span class="line">@Id  用于表征接下来这个数据是主键</span><br><span class="line">@GeneratedValue(strategy = GenerationType.IDENTITY) 主键策略,当前是主键自动生成</span><br><span class="line">private Integer id;</span><br></pre></td></tr></table></figure>
+
+<h3 id="6-2-5-建立数据库接口"><a href="#6-2-5-建立数据库接口" class="headerlink" title="6.2.5: 建立数据库接口:"></a>6.2.5: 建立数据库接口:</h3><p>建立接口名为实体类名+Repository,继承JpaRepository,同时在类上方添加@Repository注解</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">@Repository</span><br><span class="line">public interface ActivityRepository extends JpaRepository&lt;Activity,Integer&gt; &#123;&#125;</span><br></pre></td></tr></table></figure>
+
+<p>第一个参数是类名,第二个参数是类的主键数据类型.</p>
+<p>在没有额外方法的时候,数据库中不用写任何代码.</p>
+<h3 id="6-2-6-接口实例化"><a href="#6-2-6-接口实例化" class="headerlink" title="6.2.6: 接口实例化:"></a>6.2.6: 接口实例化:</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">@Autowired</span><br><span class="line">UserRepository userRepository;</span><br></pre></td></tr></table></figure>
+
+<p>在所需要的类的上方添加这个,就可以使用这个新建的对象调用数据库中各种方法.</p>
+<p>简单的数据库操作都用自带的方法:如</p>
+<p>.findAll()  返回数据库中所有数据.</p>
+<p>.save()   保存一个对象</p>
+<h3 id="6-2-7-修改对象数据"><a href="#6-2-7-修改对象数据" class="headerlink" title="6.2.7: 修改对象数据:"></a>6.2.7: 修改对象数据:</h3><p>修改时,通过find方法找到对象,修改其中的数据,注意不要修改其主键,然后重新使用数据库保存,数据库就会根据主键自动覆盖之前的数据.</p>
+<h3 id="6-2-8-自定义数据库操作"><a href="#6-2-8-自定义数据库操作" class="headerlink" title="6.2.8 自定义数据库操作:"></a>6.2.8 自定义数据库操作:</h3><p>在Repository接口类下面新增方法.一般是各种特殊的查找,格式如下:</p>
+<p>@Query(“from Activity where year &#x3D;?1”)<br>List<Activity> findActivityByYear(Integer year);</p>
+<p>这是使用自己的sql语句的方式,也可不使用@Query注解,只起一个名字,Jpa会根据名字自动的生成所对应的方法.</p>
+<h1 id="7-单元测试"><a href="#7-单元测试" class="headerlink" title="7.单元测试:"></a>7.单元测试:</h1><h2 id="7-1-service层测试"><a href="#7-1-service层测试" class="headerlink" title="7.1 service层测试:"></a>7.1 service层测试:</h2><p>对应于不进行数据库和接口访问,只针对某种特定的逻辑(比如测试获取当前时间是否正确等)</p>
+<p>在text文件夹下创建测试类,在类前加@SpringBootTest注解.</p>
+<p>在这个类下面写方法,每个方法前面加@Test注解,每个方法都可以单独,直接运行进行测试.</p>
+<p>注意方法不能有返回值,股返回值的类型是void.</p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/springboot/" rel="tag"># -springboot</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2022/08/25/%E5%BF%97%E6%84%BF%E8%80%85%E5%B9%B3%E5%8F%B0/" rel="prev" title="志愿者平台">
+                  <i class="fa fa-chevron-left"></i> 志愿者平台
+                </a>
+            </div>
+            <div class="post-nav-item">
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 
+  <span itemprop="copyrightYear">2022</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">bearslyricattack</span>
+</div>
+<div class="busuanzi-count">
+    <span class="post-meta-item" id="busuanzi_container_site_uv">
+      <span class="post-meta-item-icon">
+        <i class="user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv">
+      <span class="post-meta-item-icon">
+        <i class="eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/muse/" rel="noopener" target="_blank">NexT.Muse</a> 强力驱动
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/schemes/muse.js"></script><script src="/js/next-boot.js"></script>
+
+  
+
+
+
+
+
+  
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+
+<!-- 页面点击小红心 -->
+<script type="text/javascript" src="/js/src/clicklove.js"></script>
+</body>
+</html>
