@@ -1,6 +1,117 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title></title>
+    <url>/2022/10/05/1.%E7%AE%A1%E7%90%86%E5%91%98%E6%93%8D%E4%BD%9C/</url>
+    <content><![CDATA[<h1 id="1-管理员操作"><a href="#1-管理员操作" class="headerlink" title="1.管理员操作"></a>1.管理员操作</h1><p>如果管理员验证没通过，则会返回300状态码，msg为权限不足提示。</p>
+<h2 id="1-1-查看提交成为社团管理员的成员列表"><a href="#1-1-查看提交成为社团管理员的成员列表" class="headerlink" title="1.1 查看提交成为社团管理员的成员列表"></a>1.1 查看提交成为社团管理员的成员列表</h2><p>&#x2F;admin&#x2F;submitterlist</p>
+<p>get请求</p>
+<p>正常返回200状态码</p>
+<p>如果没有请求会返回400状态码 以及没有审批请求的提示</p>
+<p>意外错误返回500状态码</p>
+<h2 id="1-2-进行社团管理员审批"><a href="#1-2-进行社团管理员审批" class="headerlink" title="1.2 进行社团管理员审批"></a>1.2 进行社团管理员审批</h2><p>&#x2F;admin&#x2F;approvalsubmitte</p>
+<p>post请求</p>
+]]></content>
+  </entry>
+  <entry>
+    <title>Floyd最短路算法</title>
+    <url>/2022/10/17/FLOYD%E6%9C%80%E7%9F%AD%E8%B7%AF/</url>
+    <content><![CDATA[<pre><code>#include&lt;stdio.h&gt;
+</code></pre>
+<p>​	<br>    int main (){<br>        &#x2F;&#x2F;首先,这个社交网络图很明显,是一张无向图.用邻接矩阵进行存储和遍历.<br>    &#x2F;&#x2F;确定邻接矩阵的大小.<br>    int size,length;<br>    printf(“请输入社交网络图的节点数:\n”);<br>    scanf(“%d”,&amp;size);<br>    printf(“请输入社交网络图的边数:\n”);<br>    scanf(“%d”,&amp;length);<br>    int zu[size][size];<br>    int i,j,k;</p>
+<pre><code>//初始值为0 
+for(i=0;i&lt;size;i++)&#123;
+    for(j=0;j&lt;size;j++)&#123;
+        if(i==j)&#123;
+            zu[i][j]=0;
+        &#125; else
+        &#123;
+            zu[i][j]=999;
+        &#125; 
+    &#125; 
+&#125; 
+
+int p1,p2; 
+//为邻接矩阵赋值
+for(i=0;i&lt;length;i++)&#123;
+    printf(&quot;请输入直接联通的两个节点的编号:\n&quot;);
+    scanf(&quot;%d %d&quot;,&amp;p1,&amp;p2);
+    zu[p1-1][p2-1]=1;
+    zu[p2-1][p1-1]=1; 
+&#125; 
+
+//输出邻接矩阵,做测试用.
+for(i=0;i&lt;size;i++)&#123;
+    for(j=0;j&lt;size;j++)&#123;
+        printf(&quot;%d &quot;,zu[i][j]); 
+    &#125; 
+    printf(&quot;\n&quot;); 
+&#125; 	
+
+//具体操作的思路是: 对每个节点执行: 找出与其相连的节点,加入一个一位数组中,
+//同时把这几个节点的标号记录到另一个一维度数组中.
+//然后再对第二个数组中的每个节点执行相同的操作,所有的节点都汇总到第一个数组中.
+//重复进行五次,最后根据第一个数组的结果判断与这个节点距离不超过6的节点. 
+//然后发现基本操作是:输入一个节点和一个数组,遍历之后得到一个临时一维数组,这个函数设置为base()
+
+
+//..... 
+//当抽象完函数的时候,就会发现这也太复杂了,有没有什么简单的方法呢?
+
+//Floyd最短路算法:把这个问题转化为两点之间最短距离的问题(任意两点间只要联通,就设置距离为1)
+
+//核心代码
+for(int k = 0 ; k &lt; size ; k ++)
+&#123;
+    for(int i = 0 ; i &lt; size ; i ++)
+    &#123;
+        for(int j = 0 ; j &lt; size ; j ++)
+        &#123;
+            if(zu[i][j] &gt; zu[i][k] + zu[k][j])&#123;
+            	zu[i][j] = zu[i][k] + zu[k][j];
+            &#125; 
+        &#125;
+    &#125;
+&#125;	 
+
+//现在,每个位置上的数已经变成了这两个点之间的距离,如果这两个点不连通,那就还是为0;
+printf(&quot;\n\n\n&quot;); 
+
+printf(&quot;现在 最短路径的邻接矩阵为:\n&quot;);
+//输出邻接矩阵,做测试用.
+for(i=0;i&lt;size;i++)&#123;
+    for(j=0;j&lt;size;j++)&#123;
+        printf(&quot;%5d &quot;,zu[i][j]); 
+    &#125; 
+    printf(&quot;\n&quot;); 
+&#125; 
+
+printf(&quot;\n\n\n&quot;); 	
+
+int count;
+for(i=0;i&lt;size;i++)&#123;
+    count=0;
+    for(j=0;j&lt;size;j++)
+    &#123;
+        if(zu[i][j]&lt;=6)
+        &#123;
+            count++;
+        &#125;
+    &#125;
+    printf(&quot;%d: %.2f%%\n&quot;,i+1,(float)count/size);
+&#125;  
+&#125;		 
+</code></pre>
+<p>​		<br>​		<br>​		<br>​		 </p>
+]]></content>
+      <categories>
+        <category>笔记</category>
+      </categories>
+      <tags>
+        <tag>-算法</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Java virtual machine</title>
     <url>/2022/08/31/Java%20virtual%20machine/</url>
     <content><![CDATA[<p>总想在年少轻狂的时候,窥探一下规律的终极.</p>
@@ -137,6 +248,70 @@
 <p>综上所述,是否移动对象都存在弊端，移动则内存回收时会更复杂，不移动则内存分配时会更复杂。从垃圾收集的停顿时间来看，不移动对象停顿时间会更短，甚至可以不需要停顿，但是从整个程序的吞吐量来看，移动对象会更划算。</p>
 <p>吞吐量:实质是赋值器（Mutator，可以理解为使用垃圾收集的用户程序，本书为便于理解，多数地方用“用户程序”或“用户线程”代替）与收集器的效率总和。在这个案例中,即使不移动对象会使得收集器的效率提升一些，但因内存分配和访问相比垃圾收集频率要高得多，这部分的耗时增加，总吞吐量仍然是下降的。</p>
 <p>另外，还有一种“和稀泥式”解决方案可以不在内存分配和访问上增加太大额外负担，做法是让虚拟机平时多数时间都采用标记-清除算法，暂时容忍内存碎片的存在，直到内存空间的碎片化程度已经大到影响对象分配时，再采用标记-整理算法收集一次，以获得规整的内存空间。前面提到的基于标记-清除算法的CMS收集器面临空间碎片过多时采用的就是这种处理办法。 </p>
+<h1 id="4-虚拟机执行子系统"><a href="#4-虚拟机执行子系统" class="headerlink" title="4.虚拟机执行子系统:"></a>4.虚拟机执行子系统:</h1><h2 id="4-1-概述"><a href="#4-1-概述" class="headerlink" title="4.1: 概述:"></a>4.1: 概述:</h2><p>代码编译的结果从本地机器码转变为字节码，是存储格式发展的一小步，却是编程语言发展的一大步。</p>
+<p>“计算机只认识0和1，所以我们写的程序需要被编译器翻译成由0和1构成的二进制格式才能被计算机执行。”十多年过去了，今天的计算机仍然只能识别0和1，但由于最近十年内虚拟机以及大量建立在虚拟机之上的程序语言如雨后春笋般出现并蓬勃发展，把我们编写的程序编译成二进制本地机器码（Native Code）已不再是唯一的选择，越来越多的程序语言选择了与操作系统和机器指令集无关的、平台中立的格式作为程序编译后的存储格式。</p>
+<h2 id="4-2-字节码"><a href="#4-2-字节码" class="headerlink" title="4.2: 字节码:"></a>4.2: 字节码:</h2><p>字节码是一种中间状态的二进制代码,由字母和数字组成.</p>
+<p>各种不同平台的Java虚拟机，以及所有平台都统一支持的程序存储格式——字节码（Byte Code）是构成平台无关性的基石.</p>
+<p>实现语言无关性的基础仍然是虚拟机和字节码存储格式。Java虚拟机不与包括Java语言在内的任何程序语言绑定，它只与“Class文件”特定的二进制文件格式所关联，Class文件中包含了Java虚拟机指令集、符号表以及若干其他辅助信息。</p>
+<p>Java语言中的各种语法、关键字、常量变量和运算符号的语义最终都会由多条字节码指令组合来表达，这决定了字节码指令所能提供的语言描述能力必须比Java语言本身更加强大才行。因此，有一些Java语言本身无法有效支持的语言特性并不代表在字节码中也无法有效表达出来，这为其他程序语言实现一些有别于Java的语言特性提供了发挥空间。</p>
+<p>![image-20220926102257194](C:\Users\wpy\Documents\Tencent Files\2669184984\FileRecv\Farewell Light\学习\blog\myblog\source_posts\image-20220926102257194.png)</p>
+<h2 id="4-3-Class文件"><a href="#4-3-Class文件" class="headerlink" title="4.3: Class文件:"></a>4.3: Class文件:</h2><p>Class文件是由用户编写完程序后,通过编译器生成的应用程序文件,主要由一条条的字节码指令组成.任何一个Class文件都对应着唯一的一个类或接口的定义信息.</p>
+<p>Class文件是一组以8个字节为基础单位的二进制流，各个数据项目严格按照顺序紧凑地排列在文件之中，中间没有添加任何分隔符.</p>
+<p>下面简要介绍下Class文件的结构:</p>
+<h3 id="4-3-1-开头"><a href="#4-3-1-开头" class="headerlink" title="4.3.1:  开头:"></a>4.3.1:  开头:</h3><p>每个Class文件的头4个字节被称为魔数（Magic Number），它的唯一作用是确定这个文件是否为一个能被虚拟机接受的Class文件。</p>
+<p>不仅是Class文件，很多文件格式标准中都有使用魔数来进行身份识别的习惯，譬如图片格式，如GIF或者JPEG等在文件头中都存有魔数。使用魔数而不是扩展名来进行识别主要是基于安全考虑，因为文件扩展名可以随意改动。文件格式的制定者可以自由地选择魔数值，只要这个魔数值还没有被广泛采用过而且不会引起混淆。</p>
+<p>Class文件的魔数取得很有“浪漫气息”， 值为0xCAFEBABE.</p>
+<p>紧接着魔数的4个字节存储的是Class文件的版本号：第5和第6个字节是次版本号（Minor Version），第7和第8个字节是主版本号（Major Version）。</p>
+<h3 id="4-3-2-常量池"><a href="#4-3-2-常量池" class="headerlink" title="4.3.2: 常量池:"></a>4.3.2: 常量池:</h3><p>紧接着主、次版本号之后的是常量池入口，常量池可以比喻为Class文件里的资源仓库.</p>
+<p>由于常量池中常量的数量是不固定的，所以在常量池的入口需要放置一项u2类型的数据，代表常量池容量计数值.</p>
+<p>常量池中主要存放两大类常量：字面量（Literal）和符号引用（Symbolic References）。</p>
+<p>字面量比较接近于Java语言层面的常量概念，如文本字符串、被声明为final的常量值等。而符号引用则属于编译原理方面的概念，主要包括下面几类常量： </p>
+<p>·被模块导出或者开放的包（Package） </p>
+<p>·类和接口的全限定名（Fully Qualified Name） </p>
+<p>·字段的名称和描述符（Descriptor） </p>
+<p>·方法的名称和描述符 </p>
+<p>·方法句柄和方法类型（Method Handle、Method Type、Invoke Dynamic） </p>
+<p>·动态调用点和动态常量（Dynamically-Computed Call Site、Dynamically-Computed Constant） </p>
+<p>Java代码在进行Javac编译的时候，并不像C和C++那样有“连接”这一步骤，而是在虚拟机加载Class文件的时候进行动态连接（具体见第7章）。也就是说，在Class文件中不会保存各个方法、字段最终在内存中的布局信息，这些字段、方法的符号引用不经过虚拟机在运行期转换的话是无法得到真正的内存入口地址，也就无法直接被虚拟机使用的。当虚拟机做类加载时，将会从常量池获得对应的符号引用，再在类创建时或运行时解析、翻译到具体的内存地址之中。关于类的创建和动态连接的内容，在下一章介绍虚拟机类加载过程时再详细讲解。</p>
+<h3 id="4-3-3-访问接口"><a href="#4-3-3-访问接口" class="headerlink" title="4.3.3: 访问接口:"></a>4.3.3: 访问接口:</h3><p>在常量池结束之后，紧接着的2个字节代表访问标志（access_flags），这个标志用于识别一些类或者接口层次的访问信息，包括：这个Class是类还是接口；是否定义为public类型；是否定义为abstract类型；如果是类的话，是否被声明为final；等等。</p>
+<h3 id="4-3-4-类索引、父类索引与接口索引集合"><a href="#4-3-4-类索引、父类索引与接口索引集合" class="headerlink" title="4.3.4: 类索引、父类索引与接口索引集合:"></a>4.3.4: 类索引、父类索引与接口索引集合:</h3><p>类索引、父类索引和接口索引集合都按顺序排列在访问标志之后.</p>
+<p>类索引（this_class）和父类索引（super_class）都是一个u2类型的数据，而接口索引集合 （interfaces）是一组u2类型的数据的集合，Class文件中由这三项数据来确定该类型的继承关系。类索引用于确定这个类的全限定名，父类索引用于确定这个类的父类的全限定名。由于Java语言不允许多重继承，所以父类索引只有一个，除了java.lang.Object之外，所有的Java类都有父类，因此除了java.lang.Object外，所有Java类的父类索引都不为0。接口索引集合就用来描述这个类实现了哪些接口，这些被实现的接口将按implements关键字（如果这个Class文件表示的是一个接口，则应当是extends关键字）后的接口顺序从左到右排列在接口索引集合中。</p>
+<h3 id="4-3-5-字段表集合"><a href="#4-3-5-字段表集合" class="headerlink" title="4.3.5: 字段表集合:"></a>4.3.5: 字段表集合:</h3><p>字段表（field_info）用于描述接口或者类中声明的变量。Java语言中的“字段”（Field）包括类级变量以及实例级变量，但不包括在方法内部声明的局部变量。</p>
+<h3 id="4-3-6-方法表集合"><a href="#4-3-6-方法表集合" class="headerlink" title="4.3.6: 方法表集合:"></a>4.3.6: 方法表集合:</h3><p>Class文件存储格式中对方法的描述与对字段的描述采用了几乎完全一致的方式，方法表的结构如同字段表一样，依次包括访问标（access_flags）、名称索引（name_index）、描述符索引（descriptor_index）、属性表集合（attributes）几项.</p>
+<p>方法里的Java代码，经过Javac编译器编译成字节码指令之后，存放在方法属性表集合中一个名为“Code”的属性里面.</p>
+<p>在Java语言中，要重载（Overload）一个方法，除了要与原方法具有相同的简单名称之外，还要求必须拥有一个与原方法不同的特征签名。特征签名是指一个方法中各个参数在常量池中的字段符号 引用的集合，也正是因为返回值不会包含在特征签名之中，所以Java语言里面是无法仅仅依靠返回值的不同来对一个已有方法进行重载的。但是在Class文件格式之中，特征签名的范围明显要更大一些，只要描述符不是完全一致的两个方法就可以共存。也就是说，如果两个方法有相同的名称和特征签名，但返回值不同，那么也是可以合法共存于同一个Class文件中的。 </p>
+<h3 id="4-3-7-字节码指令简介"><a href="#4-3-7-字节码指令简介" class="headerlink" title="4.3.7: 字节码指令简介:"></a>4.3.7: 字节码指令简介:</h3><p>字节码指令集可算是一种具有鲜明特点、优势和劣势均很突出的指令集架构.</p>
+<p>Java虚拟机的指令由一个字节长度的、代表着某种特定操作含义的数字（称为操作码，Opcode）以及跟随其后的零至多个代表此操作所需的参数（称为操作数，Operand）构成。</p>
+<p>由于限制了Java虚拟机操作码的长度为一个字节（即0～255），这意味着指令集的操作码总数不能够超过256条；</p>
+<p>如果不考虑异常处理的话，那Java虚拟机的解释器可以使用下面这段伪代码作为最基本的执行模型来理解，这个执行模型虽然很简单，但依然可以有效正确地工作:</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">do &#123;</span><br><span class="line"></span><br><span class="line">自动计算PC寄存器的值加1; </span><br><span class="line"></span><br><span class="line">根据PC寄存器指示的位置，从字节码流中取出操作码; </span><br><span class="line"></span><br><span class="line">if (字节码存在操作数) 从字节码流中取出操作数; </span><br><span class="line"></span><br><span class="line">执行操作码所定义的操作; </span><br><span class="line"></span><br><span class="line">&#125; while (字节码流长度 &gt; 0); </span><br></pre></td></tr></table></figure>
+
+<h3 id="4-3-8-公有设计，私有实现"><a href="#4-3-8-公有设计，私有实现" class="headerlink" title="4.3.8: 公有设计，私有实现:"></a>4.3.8: 公有设计，私有实现:</h3><p>《Java虚拟机规范》描绘了Java虚拟机应有的共同程序存储格式：Class文件格式以及字节码指令集。这些内容与硬件、操作系统和具体的Java虚拟机实现之间是完全独立的，虚拟机实现者可能更愿意把它们看作程序在各种Java平台实现之间互相安全地交互的手段。 </p>
+<p>任何一款Java虚拟机实现都必须能够读取Class文件并精确实现包含在其中的Java虚拟机代码的语义。</p>
+<p>在满足《Java虚拟机规范》的约束下对具体实现做出修改和优化也是完全可行的，并且《Java虚拟机规范》中明确鼓励实现者这样去做。只要优化以后Class文件依然可以被正确读取，并且包含在其中的语义能得到完整保持，那实现者就可以选择以任何方式去实现这些语义，虚拟机在后台如何处理Class文件完全是实现者自己的事情，只要它在外部接口上看起来与规范描述的一致即可.</p>
+<h2 id="4-4-虚拟机类加载机制"><a href="#4-4-虚拟机类加载机制" class="headerlink" title="4.4: 虚拟机类加载机制:"></a>4.4: 虚拟机类加载机制:</h2><h3 id="4-4-1-概述"><a href="#4-4-1-概述" class="headerlink" title="4.4.1: 概述:"></a>4.4.1: 概述:</h3><p>类加载:</p>
+<p>Java虚拟机把描述类的数据从Class文件加载到内存，并对数据进行校验、转换解析和初始化，最终形成可以被虚拟机直接使用的Java类型.</p>
+<p>与那些在编译时需要进行连接的语言不同，在Java语言里面，类型的加载、连接和初始化过程都是在程序运行期间完成的，这种策略让Java语言进行提前编译会面临额外的困难，也会让类加载时稍微增加一些性能开销，但是却为Java应用提供了极高的扩展性和灵活性，</p>
+<p>例如，编写一个面向接口的应用程序，可以等到运行时再指定其实际的实现类，用户可以通过Java预置的或自定义类加载器，让某个本地的应用程序在运行时从网络或其他地方上加载一个二进制流作为其程序代码的一部分。</p>
+<h3 id="4-4-2-类加载的过程概述"><a href="#4-4-2-类加载的过程概述" class="headerlink" title="4.4.2: 类加载的过程概述:"></a>4.4.2: 类加载的过程概述:</h3><p>累的加载主要由以下七个阶段组成.</p>
+<p>![image-20220926104957738](C:\Users\wpy\Documents\Tencent Files\2669184984\FileRecv\Farewell Light\学习\blog\myblog\source_posts\image-20220926104957738.png)</p>
+<h3 id="4-4-3-类加载的时机"><a href="#4-4-3-类加载的时机" class="headerlink" title="4.4.3: 类加载的时机:"></a>4.4.3: 类加载的时机:</h3><p>关于在什么情况下需要开始类加载过程的第一个阶段“加载”，《Java虚拟机规范》中并没有进行强制约束，这点可以交给虚拟机的具体实现来自由把握。</p>
+<p>但是对于初始化阶段，《Java虚拟机规范》 则是严格规定了有且只有六种情况必须立即对类进行“初始化”（而加载、验证、准备自然需要在此之前开始）： </p>
+<p>1）遇到new、getstatic、putstatic或invokestatic这四条字节码指令时，如果类型没有进行过初始化，则需要先触发其初始化阶段。能够生成这四条指令的典型Java代码场景有： </p>
+<p>·使用new关键字实例化对象的时候。 </p>
+<p>·读取或设置一个类型的静态字段（被final修饰、已在编译期把结果放入常量池的静态字段除外）的时候。</p>
+<p>·调用一个类型的静态方法的时候。 </p>
+<p>2）使用java.lang.reflect包的方法对类型进行反射调用的时候，如果类型没有进行过初始化，则需要先触发其初始化。</p>
+<p>3）当初始化类的时候，如果发现其父类还没有进行过初始化，则需要先触发其父类的初始化。 </p>
+<p>4）当虚拟机启动时，用户需要指定一个要执行的主类（包含main()方法的那个类），虚拟机会先初始化这个主类。 </p>
+<p>5）当使用JDK 7新加入的动态语言支持时，如果一个java.lang.invoke.MethodHandle实例最后的解析结果为REF_getStatic、REF_putStatic、REF_invokeStatic、REF_newInvokeSpecial四种类型的方法句柄，并且这个方法句柄对应的类没有进行过初始化，则需要先触发其初始化。 </p>
+<p>6）当一个接口中定义了JDK 8新加入的默认方法（被default关键字修饰的接口方法）时，如果有这个接口的实现类发生了初始化，那该接口要在其之前被初始化。 </p>
+<p>对于这六种会触发类型进行初始化的场景，《Java虚拟机规范》中使用了一个非常强烈的限定语——“有且只有”，这六种场景中的行为称为对一个类型进行主动引用。除此之外，所有引用类型的方式都不会触发初始化，称为被动引用。</p>
+<h3 id="4-4-4-加载阶段"><a href="#4-4-4-加载阶段" class="headerlink" title="4.4.4: 加载阶段:"></a>4.4.4: 加载阶段:</h3><p>“加载”（Loading）阶段是整个“类加载”（Class Loading）过程中的一个阶段.主要完成三件事:</p>
+<p>1）通过一个类的全限定名来获取定义此类的二进制字节流。 </p>
+<p>2）将这个字节流所代表的静态存储结构转化为方法区的运行时数据结构。 </p>
+<p>3）在内存中生成一个代表这个类的java.lang.Class对象，作为方法区这个类的各种数据的访问入 </p>
+<p>口。</p>
 ]]></content>
       <categories>
         <category>笔记</category>
@@ -584,6 +759,25 @@ Result&lt;List&lt;Note&gt;&gt; noteList(String username);
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">@GetMapping(value = &quot;/file/getFIleByURL&quot;,produces = MediaType.IMAGE_JPEG_VALUE)</span><br><span class="line"> @ApiOperation(&quot;统一获取图片接口&quot;)</span><br><span class="line"> public byte[] getMyFIle(@RequestParam String code) throws IOException &#123;</span><br><span class="line">     Base64.Decoder decoder = Base64.getDecoder();</span><br><span class="line">     code = code.replaceAll(&quot; &quot;, &quot;+&quot;);</span><br><span class="line">     String url = new String(decoder.decode(code));</span><br><span class="line">     System.out.println(&quot;url:&quot; + url);</span><br><span class="line">     BufferedImage bufferedImage = ImageIO.read(new FileInputStream(url));</span><br><span class="line">     ByteArrayOutputStream out = new ByteArrayOutputStream();</span><br><span class="line">     ImageIO.write(bufferedImage, &quot;png&quot;, out);</span><br><span class="line">     return out.toByteArray();</span><br></pre></td></tr></table></figure>
 
 <p>}</p>
+<h5 id="9-3-2-5-5-文件上传优化"><a href="#9-3-2-5-5-文件上传优化" class="headerlink" title="9.3.2.5.5: 文件上传优化:"></a>9.3.2.5.5: 文件上传优化:</h5><p>原先的代码没有经过优化和测试,现在在经过测试和学习之后,优化过的文件上传代码如下:</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">package com.controller;</span><br><span class="line"></span><br><span class="line">import com.pojo.User;</span><br><span class="line">import com.repository.UserRepository;</span><br><span class="line">import com.service.UserService;</span><br><span class="line">import com.util.Result;</span><br><span class="line">import io.swagger.annotations.ApiOperation;</span><br><span class="line">import lombok.extern.slf4j.Slf4j;</span><br><span class="line">import org.springframework.beans.factory.annotation.Autowired;</span><br><span class="line">import org.springframework.http.MediaType;</span><br><span class="line">import org.springframework.web.bind.annotation.*;</span><br><span class="line">import org.springframework.web.multipart.MultipartFile;</span><br><span class="line"></span><br><span class="line">import javax.imageio.ImageIO;</span><br><span class="line">import java.awt.image.BufferedImage;</span><br><span class="line">import java.io.ByteArrayOutputStream;</span><br><span class="line">import java.io.File;</span><br><span class="line">import java.io.FileInputStream;</span><br><span class="line">import java.io.IOException;</span><br><span class="line">import java.nio.charset.Charset;</span><br><span class="line">import java.util.Base64;</span><br><span class="line"></span><br><span class="line">@Slf4j</span><br><span class="line">@RestController</span><br><span class="line">@CrossOrigin(origins = &quot;*&quot;)</span><br><span class="line">@RequestMapping(&quot;user&quot;)</span><br><span class="line">public class UserController &#123;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    @Autowired</span><br><span class="line">    UserService userService;</span><br><span class="line"></span><br><span class="line">    @Autowired</span><br><span class="line">    UserRepository userRepository;</span><br><span class="line"></span><br><span class="line">    @PostMapping(&quot;/upPicture&quot;)</span><br><span class="line">    @ApiOperation(&quot;用户上传头像，上传后会生成一串路径存在用户信息中属性名url，直接访问路径即可得到图片&quot;)</span><br><span class="line">    public Result uploadUserPicture(@RequestBody MultipartFile file) &#123;</span><br><span class="line">//      User user = userRepository.findUserByUserName(username);</span><br><span class="line">        try&#123;</span><br><span class="line"></span><br><span class="line">            //通过这个方法获得当前目录.相对路径</span><br><span class="line">            String basePath = System.getProperty(&quot;user.dir&quot;);</span><br><span class="line"></span><br><span class="line">            //因为不同操作系统下分隔符不同,所以通过这个方法获取当前系统的分隔符</span><br><span class="line">            //File类中的 public static final String separator. 类的静态成员和静态方法可以直接访问,而不需要实例化.所以可以将很多工具类里面的方法设置为静态方法.</span><br><span class="line">            String s = File.separator;</span><br><span class="line"></span><br><span class="line">            String ip_port = &quot;localhost&quot; + &quot;:&quot; + &quot;8080&quot; + &quot;/file/getFIleByURL?code=&quot;;</span><br><span class="line">            if (file == null) &#123;</span><br><span class="line">                    throw new IOException(&quot;未选择文件&quot;);</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">            //获取文件原名</span><br><span class="line">            String name = file.getOriginalFilename();</span><br><span class="line"></span><br><span class="line">            //获取文件的类型</span><br><span class="line">            String type = file.getContentType();</span><br><span class="line">            switch (type) &#123;</span><br><span class="line">                case &quot;image/jpeg&quot;:</span><br><span class="line">                    break;</span><br><span class="line">                case &quot;image/gif&quot;:</span><br><span class="line">                    break;</span><br><span class="line">                case &quot;image/png&quot;:</span><br><span class="line">                    break;</span><br><span class="line">                default:</span><br><span class="line">                    throw new IOException(&quot;不接受的文件类型,只接受jpg,gif,png格式&quot;);</span><br><span class="line">            &#125;</span><br><span class="line">//            //以pathname为路径创建file对象</span><br><span class="line">//            //创建的file可能是文件 也可能是文件夹,取决于后面的方法</span><br><span class="line">//            //进入路径的逻辑是到文件为止,比如要在某个文件夹下创建文件,这个路径就要精确到要创建的那个文件的名字.与Linux进入文件夹的方式不同.</span><br><span class="line">//           File newFile = new File(basePath  + s +&quot;用户图片&quot;);</span><br><span class="line">//            //判断文件夹是否存在</span><br><span class="line">//           if (!newFile.exists()) &#123;</span><br><span class="line">//            //共有mkdir和mkdirs两个方法,第一个方法如果路径中的文件夹不存在会报错,建立不了文件或文件夹,第二个方法会依次建立所有的父类.然后再建立文件夹.</span><br><span class="line">//               newFile.mkdirs();</span><br><span class="line">//           &#125;</span><br><span class="line">           File file1 = new File(basePath+ s+ &quot;src&quot; + s + &quot;main&quot; +  s  + &quot;resources&quot; + s + &quot;static&quot; + s + name);</span><br><span class="line">           //创建文件</span><br><span class="line">           file1.createNewFile();</span><br><span class="line"></span><br><span class="line">           //写入文件</span><br><span class="line">           file.transferTo(file1);</span><br><span class="line">//           Base64.Encoder encoder = Base64.getEncoder();</span><br><span class="line">//           String code = encoder.encodeToString(newFile.getAbsolutePath().getBytes(Charset.forName(&quot;GBK&quot;)));</span><br><span class="line">//           String url =  ip_port + code;</span><br><span class="line">//           user.setUrl(url);</span><br><span class="line">//           userRepository.save(user);</span><br><span class="line">            return Result.success(&quot;文件上传成功:&quot;,name);</span><br><span class="line">        &#125; catch (IOException e) &#123;</span><br><span class="line">            return Result.success(&quot;文件上传失败!:&quot;,e.getMessage());</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h5 id="9-3-2-5-6-文件获取问题"><a href="#9-3-2-5-6-文件获取问题" class="headerlink" title="9.3.2.5.6: 文件获取问题:"></a>9.3.2.5.6: 文件获取问题:</h5><p><code>Spring Boot</code> 默认将 <code>/</code> 的所有访问映射到以下目录：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">classpath:/static</span><br><span class="line">classpath:/public</span><br><span class="line">classpath:/resources</span><br><span class="line">classpath:/META-INF/resources</span><br></pre></td></tr></table></figure>
+
+<p>classpath可以简单地理解为文件存储的目录.</p>
+<p>比如把图片0.jpg存放到src&#x2F;main&#x2F;resources&#x2F;static文件夹下.然后使用<a href="http://localhost:端口名/0.jpg访问既可以得到该图片">http://localhost:端口名/0.jpg访问既可以得到该图片</a>.</p>
+<p>如果想自己配置自定义的资源访问映射,有两种方式,一是通过yml文件:</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">spring:</span><br><span class="line">  datasource:</span><br><span class="line">    driver-class-name: com.mysql.cj.jdbc.Driver</span><br><span class="line">    url: jdbc:mysql://localhost:3306/dbaddscore</span><br><span class="line">    username: root</span><br><span class="line">    password: 123456</span><br><span class="line">  jpa:</span><br><span class="line">    hibernate:</span><br><span class="line">      ddl-auto: update</span><br><span class="line">    show-sql: true</span><br><span class="line">  mvc:</span><br><span class="line">    log-request-details: true</span><br><span class="line">#   static-path-pattern: /image/**   #想要访问的路径</span><br><span class="line"># web:</span><br><span class="line">#   resources:</span><br><span class="line">#      static-locations: file:C:\Users\wpy\Documents\Tencent Files\2669184984\FileRecv\Farewell Light\学习\项目\JAVA\校园二手交易及失物招领平台\用户图片  #图片存储的路径</span><br><span class="line">server:</span><br><span class="line">  port: 8080</span><br><span class="line">debug: true</span><br><span class="line">location:</span><br><span class="line">  file:C:\Users\wpy\Documents\Tencent Files\2669184984\FileRecv\Farewell Light\学习\项目\JAVA\校园二手交易及失物招领平台\用户图片\</span><br></pre></td></tr></table></figure>
+
+<p>加#的即为相关配置.</p>
+<p>还有一种方式是通过重写拦截器.代码如下:</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">package com.config;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">import org.springframework.beans.factory.annotation.Configurable;</span><br><span class="line">import org.springframework.beans.factory.annotation.Value;</span><br><span class="line">import org.springframework.context.annotation.Configuration;</span><br><span class="line">import org.springframework.context.annotation.PropertySource;</span><br><span class="line">import org.springframework.web.bind.annotation.CrossOrigin;</span><br><span class="line">import org.springframework.web.servlet.config.annotation.InterceptorRegistry;</span><br><span class="line">import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;</span><br><span class="line">import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;</span><br><span class="line"></span><br><span class="line">@PropertySource(&quot;classpath:application.yml&quot;)</span><br><span class="line">@Configuration</span><br><span class="line">public class WebConfig implements WebMvcConfigurer &#123;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">	//引用上文配置中yml里的字段</span><br><span class="line">    //引用yml字段的方式,避免在本地测试与服务器端运行的时候需要频繁修改内部代码的问题</span><br><span class="line">    @Value(&quot;$&#123;location&#125;&quot;)</span><br><span class="line">    private String location;</span><br><span class="line"></span><br><span class="line">    //访问不了 一直是404 不知什么原因</span><br><span class="line">    @Override</span><br><span class="line">    public void addResourceHandlers(ResourceHandlerRegistry registry) &#123;</span><br><span class="line">        // 解决静态资源无法访问</span><br><span class="line">        registry.addResourceHandler(&quot;/**&quot;)</span><br><span class="line">                .addResourceLocations(&quot;classpath:/static/&quot;);</span><br><span class="line">        //第一个字段是网页访问的地址,第二个字段是存储的地址</span><br><span class="line">        registry.addResourceHandler(&quot;/img/**&quot;).addResourceLocations(&quot;file:D:\\PIC\\&quot;);</span><br><span class="line">        //一定要注意最后也要加斜线.</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>但在测试中,均未能解决问题,尝试了诸多方法,都在代码里体现,但仍然一直404报错.</p>
+<h5 id="9-3-2-5-7-上传图片过大问题"><a href="#9-3-2-5-7-上传图片过大问题" class="headerlink" title="9.3.2.5.7:上传图片过大问题:"></a>9.3.2.5.7:上传图片过大问题:</h5><p>通过yml配置解决.</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">spring:</span><br><span class="line">  servlet:</span><br><span class="line">    multipart:</span><br><span class="line">      max-file-size: 10MB  # 单个文件的大小</span><br><span class="line">      max-request-size: 100MB  # 上传文件的总大小</span><br></pre></td></tr></table></figure>
+
 <h2 id="9-4-加分系统："><a href="#9-4-加分系统：" class="headerlink" title="9.4: 加分系统："></a>9.4: 加分系统：</h2><h3 id="9-4-1-介绍："><a href="#9-4-1-介绍：" class="headerlink" title="9.4.1: 介绍："></a>9.4.1: 介绍：</h3><p>校团委的项目,自己的idea,实际应用的项目.</p>
 ]]></content>
       <categories>
@@ -591,21 +785,6 @@ Result&lt;List&lt;Note&gt;&gt; noteList(String username);
       </categories>
       <tags>
         <tag>-springboot</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>巷</title>
-    <url>/2022/08/25/%E5%B7%B7/</url>
-    <content><![CDATA[<p>巷<br>他依稀记得昔年初遇的模样<br>在熟悉的故国故城</p>
-<span id="more"></span>
-
-<p>恍若千里是熙熙攘攘的古巷<br>莺飞草长映出她眼中的流光<br>时光婉转却风采飞扬<br>少年转身告别故乡<br>闯荡远方的背后留下寂寞清冷的月光她低沉的吟唱被时光渐渐淡忘<br>抑或昏黄的月影中烛火黯淡无光<br>年华辗转后少年忆起曾经豆蔻旧梦开始循着旧梦走向魂牵梦萦的故乡当他越过青山重终于以游子归来<br>古巷里再也听不到的是她的婉转歌声少年念及过往后再叹世事无常<br>转身离去赴往喧嚣浮华的客方<br>又是一夜清冷月光<br>恍然间又听到她的低声浅唱<br>他仿佛褪去眉间风霜如同时光轮转梦中古巷里的故人重逢<br>再也等不到的两相执手<br>他紧握着半生的古巷月光<br>看着幻梦中的她渐行渐远<br>希冀着时光再一次流转<br>流转出彼时年少的模样</p>
-]]></content>
-      <categories>
-        <category>创作</category>
-      </categories>
-      <tags>
-        <tag>-诗歌</tag>
       </tags>
   </entry>
   <entry>
@@ -802,6 +981,116 @@ Result&lt;List&lt;Note&gt;&gt; noteList(String username);
       </tags>
   </entry>
   <entry>
+    <title>冰魄</title>
+    <url>/2022/09/05/%E5%86%B0%E9%AD%84/</url>
+    <content><![CDATA[<p>云屯水府，涛随神女，九江东注。</p>
+<p>北客翩然，壮心偏感，年华将暮。</p>
+<p>​														–水龙吟</p>
+<span id="more"></span>
+
+<h3 id="一"><a href="#一" class="headerlink" title="(一)."></a>(一).</h3><p>他整理好翻飞的思绪,推开了沉重的大门.</p>
+<p>西北的天风裹挟着冰雪的碎片,反复地拍击打在房屋的外墙上,像海浪一样沉默而悠扬.放眼望去，整齐阵列的房屋高大而坚毅,内核几乎都由一米见方的石头堆砌而成,而外墙纯白的落雪之下,则是更加纯净而坚不可摧的冰棱。在宁静的夜晚，如果有心人不顾可以冻结灵魂的寒冷,拨开外墙的白色躯壳，就会看到远方的星星和月亮在坚冰上折射出璀璨的光。</p>
+<p>自从古代圣贤定居在这世界的极北之地以来,就一直在修葺这些房屋.在漫长的寒冷时节,女人和孩子大多都整日足不出户,房屋.炉火和食物早已取代男人的肩膀，成为他们最大依靠。走出村落，南北顾则千里冰原缓缓铺陈，东西眺则雪山与冰河遥遥相望。冰原荒芜，雪山则有生灵万千。这里的男人们多以雪山为猎，捕获熊.狐.狼等凶兽，以冬粮储备它们的冻肉，取它们皮毛，反复鞣制，成皮袍.皮帽.皮具，经由尚可通航的大河运向温暖的南方，供南国富贵的官家和商贾穿戴炫耀之用。也许,也会成为王国骑士们汗血的马鞍，在下一场神圣的对决中沾染血渍和刀痕.</p>
+<p>风雪寒冷，生活寒冷，很多人的内心也随之变得寒冷。因此地尚且宁静不受战火摧折，偶有外乡人乘船过冰河逃难至此，想寻一口生计，可这唯一的村庄村民大多冷漠而排外，不愿让出自家蕴含先祖精魂的房屋，更不愿把村里为数不多的生计拱手分享，所以来客的生活大多艰难，不得不在兜里银子见底后，奔赴下一个逃难的地点。有银子尚且如此，至于那些被朝廷发配至此的书生与家眷，生活之艰难苦恨也就可想而知了。但他父亲却是个例外。</p>
+<p>他父亲本是逃难的异乡人，却用二十余年时间成了一名皮客，村上最好的皮客。		</p>
+<p>村里组队猎杀，死伤大半，报告说出现了巨龙，父亲猎杀巨龙，去而未归，男孩奔赴南方求学，</p>
+<p>本地学堂，姑娘，藏，</p>
+<p>本地男人，土生土长的冰峰勇士</p>
+]]></content>
+      <categories>
+        <category>创作</category>
+      </categories>
+      <tags>
+        <tag>-小说</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title></title>
+    <url>/2022/08/25/%E5%8D%9A%E5%AE%A2%E6%97%A5%E5%B8%B8%E6%93%8D%E4%BD%9C/</url>
+    <content><![CDATA[<h1 id="博客日常操作"><a href="#博客日常操作" class="headerlink" title="博客日常操作"></a>博客日常操作</h1><h1 id="1-创建笔记-git进入myblog-hexo-n-笔记名"><a href="#1-创建笔记-git进入myblog-hexo-n-笔记名" class="headerlink" title="1.创建笔记: git进入myblog hexo n 笔记名"></a>1.创建笔记: git进入myblog hexo n 笔记名</h1><h1 id="2-修改-tags-categories"><a href="#2-修改-tags-categories" class="headerlink" title="2.修改:tags,categories"></a>2.修改:tags,categories</h1><h1 id="摘要："><a href="#摘要：" class="headerlink" title="摘要："></a>摘要：<span id="more"></span></h1><h1 id="3-放到-post中"><a href="#3-放到-post中" class="headerlink" title="3.放到_post中"></a>3.放到_post中</h1><h1 id="4-运行"><a href="#4-运行" class="headerlink" title="4.运行:"></a>4.运行:</h1><h1 id="hexo-clean（hexo-cl）"><a href="#hexo-clean（hexo-cl）" class="headerlink" title="hexo clean（hexo cl）"></a>hexo clean（hexo cl）</h1><h1 id="hexo-generate（hexo-g）"><a href="#hexo-generate（hexo-g）" class="headerlink" title="hexo generate（hexo g）"></a>hexo generate（hexo g）</h1><h1 id="hexo-s：本地测试"><a href="#hexo-s：本地测试" class="headerlink" title="hexo s：本地测试"></a>hexo s：本地测试</h1><h1 id="hexo-deploy（hexo-d）：发布"><a href="#hexo-deploy（hexo-d）：发布" class="headerlink" title="hexo deploy（hexo d）：发布"></a>hexo deploy（hexo d）：发布</h1><h1 id="5-有问题看csdn收藏"><a href="#5-有问题看csdn收藏" class="headerlink" title="5.有问题看csdn收藏"></a>5.有问题看csdn收藏</h1>]]></content>
+  </entry>
+  <entry>
+    <title>工作流</title>
+    <url>/2022/10/20/%E5%B7%A5%E4%BD%9C%E6%B5%81/</url>
+    <content><![CDATA[<h1 id="工作流"><a href="#工作流" class="headerlink" title="工作流"></a>工作流</h1><span id="more"></span>
+
+<h1 id="1-准备知识"><a href="#1-准备知识" class="headerlink" title="1.准备知识:"></a>1.准备知识:</h1><h2 id="1-1-xml文件"><a href="#1-1-xml文件" class="headerlink" title="1.1 xml文件:"></a>1.1 xml文件:</h2><h3 id="1-1-1-介绍"><a href="#1-1-1-介绍" class="headerlink" title="1.1.1:介绍:"></a>1.1.1:介绍:</h3><ul>
+<li><p>XML 指可扩展标记语言（EXtensible Markup Language）。</p>
+</li>
+<li><p>XML 被设计用来传输和存储数据，其焦点是数据的内容。</p>
+</li>
+</ul>
+<h3 id="1-1-2-语法"><a href="#1-1-2-语法" class="headerlink" title="1.1.2:语法:"></a>1.1.2:语法:</h3><p> 一个XML文件分为如下几部分内容：<br>1.文档声明<br>2.元素<br>3.属性<br>4.注释<br>5.CDATA区、特殊字符<br>6.处理指令（processing instruction）</p>
+<h4 id="1-1-2-1-文档声明"><a href="#1-1-2-1-文档声明" class="headerlink" title="1.1.2.1: 文档声明:"></a>1.1.2.1: 文档声明:</h4><p><code>&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot; standalone=&quot;yes&quot; ?&gt;</code></p>
+<p>文档声明放在xml文档的开头.由以下几个部分组成:</p>
+<p>version –文档符合XML1.0规范，我们学习1.0<br>encoding –文档字符编码，比如”GB2312”或者”UTF-8”<br>standalone –文档定义是否独立使用<br>standalone&#x3D;”no”为默认值。yes代表是独立使用，而no代表不是独立使用</p>
+<h4 id="1-1-2-2-元素-标签"><a href="#1-1-2-2-元素-标签" class="headerlink" title="1.1.2.2: 元素(标签):"></a>1.1.2.2: 元素(标签):</h4><p>元素是xml文件的核心组成部分.指的是XML文件中出现的标签，一个标签分为开始标签和结束标签，元素一般书写为:</p>
+<p><code>&lt;a&gt;这是标签内容&lt;/a&gt;</code></p>
+<p>每个xml文档都有且只有一个根元素.所有的元素都在根元素下按照顺序嵌套.</p>
+<h4 id="1-1-2-3-属性"><a href="#1-1-2-3-属性" class="headerlink" title="1.1.2.3: 属性:"></a>1.1.2.3: 属性:</h4><p>放在元素的开始标签内部,以表征其某种属性,格式如下:</p>
+<p>&lt;元素名 属性名&#x3D;”属性值”&gt;</p>
+<p>元素可以有多重属性,格式为:</p>
+<p>&lt;元素名 属性名1&#x3D;”属性值1” 属性名2&#x3D;”属性值2”&gt;</p>
+<h4 id="1-1-2-4-注释"><a href="#1-1-2-4-注释" class="headerlink" title="1.1.2.4: 注释:"></a>1.1.2.4: 注释:</h4><p>与HTML中的类似:其格式为:</p>
+<p><code>&lt;!--这是一个注释--&gt;</code></p>
+<h4 id="1-1-2-5-CDATA节"><a href="#1-1-2-5-CDATA节" class="headerlink" title="1.1.2.5:  CDATA节"></a>1.1.2.5:  CDATA节</h4><p>假如有这么一个需求，需要通过XML文件传递一幅图片，怎么做呢？其实我们看到的电脑上的所有文件，本质上都是字符串，不过它们都是特殊的二进制字符串。我们可以通过XML文件将一幅图片的二进制字符串传递过去，然后再解析成一幅图片。那么这个字符串就会包含大量的&lt;,&gt;,&amp;或者“等一些特殊的不合法的字符。这时候解析引擎是会报错的。</p>
+<p>所以，有些内容可能不想让解析引擎解析执行，而是当做原始内容处理，用于把整段文本解释为纯字符数据而不是标记。这就要用到CDATA节。</p>
+<p>语法如下：</p>
+<figure class="highlight xml"><table><tr><td class="code"><pre><span class="line">&lt;![CDATA[</span><br><span class="line">    ......</span><br><span class="line">]]&gt;</span><br></pre></td></tr></table></figure>
+
+<p>CDATA节中可以输入任意字符（除<code>]]&gt;</code>外），但是不能嵌套！</p>
+<h4 id="1-1-2-6-处理指令"><a href="#1-1-2-6-处理指令" class="headerlink" title="1.1.2.6: 处理指令:"></a>1.1.2.6: 处理指令:</h4><p>处理指令，简称PI（processing instruction）。处理指令用来指示解析引擎如何解析XML文件，看下面一个例子：</p>
+<p>比如我们也可以使用css样式表来修饰XML文件，编写my.css如下：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">name&#123;</span><br><span class="line">    font-size:80px;</span><br><span class="line">    font-weight:bold;</span><br><span class="line">    color:red;</span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line">sex&#123;</span><br><span class="line">    font-size:60px;</span><br><span class="line">    font-weight:bold;</span><br><span class="line">    color:blue;</span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line">sex&#123;</span><br><span class="line">    font-size:40px;</span><br><span class="line">    font-weight:bold;</span><br><span class="line">    color:green;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>若用下xml进行传输的时候可以使用处理指令引入上述css文件,则是这样:</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&lt;!--这些都是注释--&gt;</span><br><span class="line">&lt;!--这是文档声明--&gt;</span><br><span class="line">&lt;?xml version=&quot;1.0&quot; encoding=&quot;gb2312&quot;?&gt;</span><br><span class="line">&lt;!--这是引入css的处理指令--&gt;</span><br><span class="line">&lt;?xml-stylesheet href=&quot;my.css&quot; type=&quot;text/css&quot;?&gt;</span><br><span class="line">&lt;!--这是根元素--&gt;</span><br><span class="line">&lt;class&gt;</span><br><span class="line">	&lt;!--这是一个元素 后面是属性,属性值必须加引号--&gt;</span><br><span class="line">    &lt;stu id=&quot;001&quot;&gt;</span><br><span class="line">    	&lt;!--这是嵌套的没有属性的元素,只有当需要嵌套元素时,才会有属性,否则会体现在标签中&gt;</span><br><span class="line">        &lt;name&gt;杨过&lt;/name&gt; </span><br><span class="line">        &lt;sex&gt;男&lt;/sex&gt;</span><br><span class="line">        &lt;age&gt;20&lt;/age&gt;</span><br><span class="line">    &lt;/stu&gt;  </span><br><span class="line">    &lt;stu id=&quot;002&quot;&gt;</span><br><span class="line">        &lt;name&gt;小龙女&lt;/name&gt;    </span><br><span class="line">        &lt;sex&gt;女&lt;/sex&gt;</span><br><span class="line">        &lt;age&gt;21&lt;/age&gt;</span><br><span class="line">    &lt;/stu&gt;</span><br><span class="line">&lt;/class&gt;</span><br></pre></td></tr></table></figure>
+
+<h2 id="1-2-BPMN2-0"><a href="#1-2-BPMN2-0" class="headerlink" title="1.2 BPMN2.0"></a>1.2 BPMN2.0</h2><h3 id="1-2-1-介绍"><a href="#1-2-1-介绍" class="headerlink" title="1.2.1: 介绍:"></a>1.2.1: 介绍:</h3><p>BPMN（Business Process Model and Notation）2.0 (业务流程模型注解) 是一套业务流程模型与符号建模标准,用精准的执行语义来描述元素的操作,以XML为载体，以符号可视化业务.</p>
+<p>基本上，BPMN规范定义了任务看起来怎样的，哪些结构可以 与其他进行连接，等等。这就意味着 意思不会被误解。</p>
+<h3 id="1-2-2-结构"><a href="#1-2-2-结构" class="headerlink" title="1.2.2: 结构:"></a>1.2.2: 结构:</h3><h4 id="1-2-2-1-组成部分"><a href="#1-2-2-1-组成部分" class="headerlink" title="1.2.2.1: 组成部分:"></a>1.2.2.1: 组成部分:</h4><p>bpmn主要由流对象,连接对象,数据对象,泳道,描述对象五部分组成.而主要的流对象由事件,网关,活动三大部分组成:</p>
+<ol>
+<li>Event（事件）：流程的创建、流转、结束均需要事件支持</li>
+<li>Gateways（网关）：辅助决定流程实例最终流转的目的地，排他并行包容</li>
+<li>Activitis（活动）：有生命周期的元素或者节点</li>
+</ol>
+<p>用一个购物示例图来说明各个元素的功能:</p>
+<p><img src="C:\Users\wpy\Desktop\watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0pKQk9PTTQyNQ==,size_16,color_FFFFFF,t_70.png" alt="img"></p>
+<p>在流程图中.圆形的是事件,圆角矩形的是活动,斜正方形的是网关.</p>
+<h4 id="1-2-2-2-xml格式"><a href="#1-2-2-2-xml格式" class="headerlink" title="1.2.2.2: xml格式:"></a>1.2.2.2: xml格式:</h4><h5 id="1-2-2-2-1-流程根元素"><a href="#1-2-2-2-1-流程根元素" class="headerlink" title="1.2.2.2.1: 流程根元素:"></a>1.2.2.2.1: 流程根元素:</h5><p>示例如下:</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&lt;definitions id=&quot;myProcesses&quot;  xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;  xsi:schemaLocation=&quot;http://schema.omg.org/spec/BPMN/2.0 BPMN20.xsd&quot;  xmlns=&quot;http://schema.omg.org/spec/BPMN/2.0&quot;  typeLanguage=&quot;http://www.w3.org/2001/XMLSchema&quot;  expressionLanguage=&quot;http://www.w3.org/1999/XPath&quot;  targetNamespace=&quot;http://jbpm.org/example/bpmn2&quot;&gt;  &lt;process id=&quot;My business processs&quot; name=&quot;myBusinessProcess&quot;&gt;     </span><br><span class="line"></span><br><span class="line"></span><br><span class="line">...</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">&lt;definitions&gt;   </span><br></pre></td></tr></table></figure>
+
+<p> 而子流程的每个<strong>process</strong>子元素 可以拥有一个id（必填）和 name（可选）。</p>
+<p>如果为process元素定义了name，它会被用做流程的<strong>key</strong>。 （比如，启动一个流程可以通过调用executionService.startProcessInstanceByKey(“myBusinessProcess”）。 如果没有指定name，id会被用做key。所以只有id定义时， 会允许通过id来启动一个流程实例。所以基本上name和key在使用上是等价的，比如搜索流程定义。 注意key的规则与jPDL一样： 空格和非字母数字的字符会被下划线代替。</p>
+<h5 id="1-2-2-2-2-事件"><a href="#1-2-2-2-2-事件" class="headerlink" title="1.2.2.2.2: 事件:"></a>1.2.2.2.2: 事件:</h5><p>与活动和网关一起，事件用来在实际的每个业务流程中。 事件让业务建模工具用很自然的方式描述业务流程，比如 *’当我接收到客户的订单，这个流程就启动’<em>， <em>‘如果两天内任务没结束，就终止流程’</em> 或者</em>‘当我收到一封取消邮件，当流程在运行时， 使用子流程处理邮件’*。注意典型的业务 通常使用这种事件驱动的方式。人们不会硬编码顺序创建， 但是他们倾向于使用在他们的环境中发生的事情（比如，事件）。 在BPMN规范中，描述了很多事件类型，为了覆盖可能的事情， 在业务环境中可能出现的情况。</p>
+<p>简单来说就是包含和控制活动和网关.</p>
+<p><img src="C:\Users\wpy\Desktop\watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQzNTA5MTQy,size_16,color_FFFFFF,t_70.png" alt="img"></p>
+<p>启动事件负责一个流程的开始.</p>
+<p>空启动事件:表示事件开始时没有任何条件</p>
+<p>图形:</p>
+<p><img src="C:\Users\wpy\Desktop\20210430162448461.png" alt="空启动事件图形"></p>
+<p>xml:</p>
+<p>id是必须填的,name是可选的.</p>
+<p><em><!-- startEvent：表示空开始事件--></em></p>
+<p> <startEvent id="startevert" name ="startEvent"></startEvent></p>
+<p>结束事件负责一个流程的结束.</p>
+<p>空结束事件:事件结束时不做任何处理.</p>
+<p>图形:</p>
+<p><img src="C:\Users\wpy\Desktop\2021043017361095.png" alt="在这里插入图片描述"></p>
+<p>xml:</p>
+<p><em><!-- endEvent：表示空结束事件--></em></p>
+<p><endEvent id="end" name="my end event"></endEvent></p>
+<p>还有很多种开始.中间.结束事件,此处不再一一赘述.</p>
+<h5 id="1-2-2-2-3-网关"><a href="#1-2-2-2-3-网关" class="headerlink" title="1.2.2.2.3: 网关:"></a>1.2.2.2.3: 网关:</h5><p>网关用来控制流程的走向.</p>
+]]></content>
+      <categories>
+        <category>项目</category>
+      </categories>
+      <tags>
+        <tag>-Java</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>志愿者平台</title>
     <url>/2022/08/25/%E5%BF%97%E6%84%BF%E8%80%85%E5%B9%B3%E5%8F%B0/</url>
     <content><![CDATA[<h1 id="抗疫志愿者信息化应用平台"><a href="#抗疫志愿者信息化应用平台" class="headerlink" title="抗疫志愿者信息化应用平台"></a>抗疫志愿者信息化应用平台</h1><h1 id="1-总体思路"><a href="#1-总体思路" class="headerlink" title="1.总体思路:"></a>1.总体思路:</h1><p>本次项目带来的是为社区志愿者提供服务和监督的一体化系统demo,总体上根据一个个的救援活动为基本</p>
@@ -896,6 +1185,32 @@ Result&lt;List&lt;Note&gt;&gt; noteList(String username);
       </tags>
   </entry>
   <entry>
+    <title>巷</title>
+    <url>/2022/08/25/%E5%B7%B7/</url>
+    <content><![CDATA[<p>巷<br>他依稀记得昔年初遇的模样<br>在熟悉的故国故城</p>
+<span id="more"></span>
+
+<p>恍若千里是熙熙攘攘的古巷<br>莺飞草长映出她眼中的流光<br>时光婉转却风采飞扬<br>少年转身告别故乡<br>闯荡远方的背后留下寂寞清冷的月光她低沉的吟唱被时光渐渐淡忘<br>抑或昏黄的月影中烛火黯淡无光<br>年华辗转后少年忆起曾经豆蔻旧梦开始循着旧梦走向魂牵梦萦的故乡当他越过青山重终于以游子归来<br>古巷里再也听不到的是她的婉转歌声少年念及过往后再叹世事无常<br>转身离去赴往喧嚣浮华的客方<br>又是一夜清冷月光<br>恍然间又听到她的低声浅唱<br>他仿佛褪去眉间风霜如同时光轮转梦中古巷里的故人重逢<br>再也等不到的两相执手<br>他紧握着半生的古巷月光<br>看着幻梦中的她渐行渐远<br>希冀着时光再一次流转<br>流转出彼时年少的模样</p>
+]]></content>
+      <categories>
+        <category>创作</category>
+      </categories>
+      <tags>
+        <tag>-诗歌</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>数据结构</title>
+    <url>/2022/10/20/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/</url>
+    <content><![CDATA[]]></content>
+      <categories>
+        <category>笔记</category>
+      </categories>
+      <tags>
+        <tag>-数据结构</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>白马遥</title>
     <url>/2022/08/25/%E7%99%BD%E9%A9%AC%E9%81%A5/</url>
     <content><![CDATA[<h1 id="白马遥"><a href="#白马遥" class="headerlink" title="白马遥"></a>白马遥</h1><p>三关千里 念念不忘<br>是你红豆初抛的桃天</p>
@@ -914,6 +1229,357 @@ Result&lt;List&lt;Note&gt;&gt; noteList(String username);
       </categories>
       <tags>
         <tag>-诗歌</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title></title>
+    <url>/2022/10/04/%E7%BA%BF%E6%80%A7%E7%BB%93%E6%9E%84/</url>
+    <content><![CDATA[<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">#include&lt;stdio.h&gt;</span><br><span class="line">#include &lt;stdlib.h&gt;</span><br><span class="line"></span><br><span class="line">//定义链表 </span><br><span class="line">typedef struct linklist &#123;</span><br><span class="line">	int data;</span><br><span class="line">	struct linklist* next;</span><br><span class="line">&#125;node;</span><br><span class="line"></span><br><span class="line">int main(void) &#123;</span><br><span class="line"></span><br><span class="line">	//头指针分配空间 </span><br><span class="line">	node* head = (node*)malloc(sizeof(node));</span><br><span class="line">	head-&gt;next = NULL;</span><br><span class="line">	node* p;</span><br><span class="line">	p=head;</span><br><span class="line">	int n;</span><br><span class="line">	printf(&quot;请输入链表的长度:\n&quot;);</span><br><span class="line">	scanf(&quot;%d&quot;, &amp;n);</span><br><span class="line">	printf(&quot;请输入元素:\n&quot;);</span><br><span class="line">	for (int i = 0; i &lt; n; i++) &#123;</span><br><span class="line">		</span><br><span class="line">		//链表分配空间 </span><br><span class="line">		node* s = (node*)malloc(sizeof(node));</span><br><span class="line">		</span><br><span class="line">		//数据指向 </span><br><span class="line">		scanf(&quot;%d&quot;, &amp;s-&gt;data);</span><br><span class="line">		</span><br><span class="line">		//指针指向 </span><br><span class="line">		p-&gt;next = s;</span><br><span class="line">		s-&gt;next = NULL;</span><br><span class="line">		p = s;</span><br><span class="line">	&#125;</span><br><span class="line">	int length=0; </span><br><span class="line">	p = head;</span><br><span class="line">	</span><br><span class="line">	//输出链表测试用 </span><br><span class="line">	while (p-&gt;next != NULL) &#123;</span><br><span class="line">		p = p-&gt;next;</span><br><span class="line">		length++; </span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	p = head-&gt;next;</span><br><span class="line">	</span><br><span class="line">	//进行链表数据处理,保存到数组中</span><br><span class="line">	int zu[length];</span><br><span class="line">	int b,c,d,i;</span><br><span class="line">	//处理的逻辑是:奇数位置上的数据与偶数位置上的数据相乘,保存到新的奇数位置,偶数位置如果不为0,则减一,如果为0则还是0; </span><br><span class="line">	for(i=0;i&lt;length;i++)&#123;</span><br><span class="line">		//奇数情况 </span><br><span class="line">		if(i%2==0)&#123;</span><br><span class="line">			//取出当前节点和下一节点的数据</span><br><span class="line">			b=p-&gt;data;</span><br><span class="line">			c=p-&gt;next-&gt;data;</span><br><span class="line">			//运算</span><br><span class="line">			d = b*c;</span><br><span class="line">			//保存 </span><br><span class="line">			zu[i]=d; </span><br><span class="line">		&#125;</span><br><span class="line">		//偶数情况</span><br><span class="line">		if(i%2!=0)&#123;</span><br><span class="line">			//取出当前节点的数据</span><br><span class="line">			b=p-&gt;data;</span><br><span class="line">			//判断是否大于0</span><br><span class="line">			if(b==0)&#123;</span><br><span class="line">				d=0;</span><br><span class="line">			&#125;</span><br><span class="line">			if(b!=0)&#123;</span><br><span class="line">				d=b-1;</span><br><span class="line">			&#125;</span><br><span class="line">			//保存</span><br><span class="line">			zu[i]=d; </span><br><span class="line">		&#125; </span><br><span class="line">		p=p-&gt;next; </span><br><span class="line">	&#125; </span><br><span class="line">	//输出数组</span><br><span class="line">	</span><br><span class="line">	for(i=0;i&lt;length;i++)&#123;</span><br><span class="line">		printf(&quot;%d &quot;,zu[i]);</span><br><span class="line">	&#125; </span><br><span class="line"> </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+]]></content>
+  </entry>
+  <entry>
+    <title>面向对象建模技术</title>
+    <url>/2022/10/20/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E5%BB%BA%E6%A8%A1%E6%8A%80%E6%9C%AF/</url>
+    <content><![CDATA[<h1 id="面向对象建模技术"><a href="#面向对象建模技术" class="headerlink" title="面向对象建模技术"></a>面向对象建模技术</h1><span id="more"></span>
+
+<h1 id="1-从结构化到面向对象模型"><a href="#1-从结构化到面向对象模型" class="headerlink" title="1.从结构化到面向对象模型:"></a>1.从结构化到面向对象模型:</h1><h2 id="1-1-结构化与面向对象的区别"><a href="#1-1-结构化与面向对象的区别" class="headerlink" title="1.1 结构化与面向对象的区别:"></a>1.1 结构化与面向对象的区别:</h2><p>结构化思维用过程刻画数据间关系.对象思维直接用类表达数据间关系.结构化中，数据是死的，全部依赖算法操作.对象思维中，数据是活的，“她”知道自己的信息（属性），并能完成自己的工作（操作）.结构化思维更像是一个人在解决所有问题.对象思维更像是一个团队的分工协作.</p>
+<p>![QQ截图20221017083859](C:\Users\wpy\Documents\Tencent Files\2669184984\FileRecv\Farewell Light\学习\blog\myblog\source_posts\QQ截图20221017083859.png)</p>
+<h2 id="1-2-面向对象方法"><a href="#1-2-面向对象方法" class="headerlink" title="1.2: 面向对象方法:"></a>1.2: 面向对象方法:</h2><p>面向对象方法（Object-Oriented Method)是一种把面向对象的思想应用于软件开发过程中，指导开发活动的系统方法，简称OO（Object-Oriented）方法.面向对象方法的作用和意义决不只限于编程技术.它是一种程序设计范型-面向对象程序设计范型；是软件系统开发的方法论-面向对象方法学；是流行的技术-面向对象技术。</p>
+<h2 id="1-3-面向对象技术"><a href="#1-3-面向对象技术" class="headerlink" title="1.3: 面向对象技术:"></a>1.3: 面向对象技术:</h2><p>面向对象技术是一系列指导软件构造的原则（如抽象、封装、多态等），并通过语言、数据库和其它工具来支持这些原则.从本质上讲，对象技术是对一系列相关原则的应用OO&#x3D;类+对象+抽象+封装+继承+多态+消息……</p>
+<h2 id="1-4-面向对象技术基本点"><a href="#1-4-面向对象技术基本点" class="headerlink" title="1.4: 面向对象技术基本点:"></a>1.4: 面向对象技术基本点:</h2><p>1.任何客观的事物或实体都是对象。对象组成客观世界，复杂对象可以由简单的对象组成。</p>
+<p> 2.具有相同数据和操作的对象可以归并为一个类（class ) ，对象是对象类的一个实例。</p>
+<p>3.类可以派生出子类，子类继承父类的全部特性（数据和操作），又可以有自己的新特性。</p>
+<p>4.子类与父类形成类的层次结构。 对象之间通过消息传递相互联系。</p>
+<h2 id="1-5-面向对象技术的优势"><a href="#1-5-面向对象技术的优势" class="headerlink" title="1.5: 面向对象技术的优势:"></a>1.5: 面向对象技术的优势:</h2><p>1.顺应人类思维习惯，让软件开发人员在解空间中直接模拟问题空间中的对象及其行为.更要容易被开发人员所接受.</p>
+<p>2.稳定较小的需求变化不会导致系统结构大的改变.</p>
+<p>功能最不稳定,数据次之,对象相对最稳定,而面向对象用对象承载功能和数据,用相对稳定的把不稳定的”包”起来.</p>
+<p>3.复用代码重用：类库、框架等重用机制能提高质量，减少由于编制新的系统代码而产生的成本通过继承、关联、封装等手段.</p>
+<p>软件开发组越大，组中每个成员的生产率就越低–Philippe Kahn, Borland公司创始人.</p>
+<h2 id="1-6-对象定义"><a href="#1-6-对象定义" class="headerlink" title="1.6: 对象定义:"></a>1.6: 对象定义:</h2><p>对象是一个实体，该实体：</p>
+<p>1.具有明确定义的边界和标识边界意味着对象是一个封装体，通过封装来与其它对象分隔.标识则表明每一个对象都是唯一的(在程序运行的时候，用计算机内存地址表示对象)</p>
+<p>2.对象封装了状态和行为对象的状态通过对象的属性(attribute)和关系(relationship)来表达.对象的行为通过对象的操作(operation),方法(method)和状态机(state machine)来表达</p>
+<h2 id="1-7-面向对象相关原则"><a href="#1-7-面向对象相关原则" class="headerlink" title="1.7: 面向对象相关原则:"></a>1.7: 面向对象相关原则:</h2><h3 id="1-7-1-抽象-Abstraction"><a href="#1-7-1-抽象-Abstraction" class="headerlink" title="1.7.1: 抽象-Abstraction:"></a>1.7.1: 抽象-Abstraction:</h3><p>对象到类的过程就是抽象即将所见到的具体实体抽象成概念，从而在计算机世界中进行描述和各种操作.</p>
+<h3 id="1-7-2-封装-Encapsulation"><a href="#1-7-2-封装-Encapsulation" class="headerlink" title="1.7.2: 封装-Encapsulation:"></a>1.7.2: 封装-Encapsulation:</h3><p>封装是对客户（使用者）隐藏具体实现细节.客户只依赖于接口通过封装实现信息隐藏和数据抽象.</p>
+<p>比如在c语言中,对数据的访问没有限制.这就导致操作这个数据结构的程序员，必须严格遵守一系列业务逻辑规则，否则很容易破坏数据的一致性.结构化程序设计处理大项目时，多人协同开发时，本质上无法保证数据的一致性.</p>
+<p>但在面向对象的设计方法中,通过封装把数据隐藏起来,使得该数据无法被其他开发人员随意的修改.</p>
+<h3 id="1-7-3-分解-Decomposition"><a href="#1-7-3-分解-Decomposition" class="headerlink" title="1.7.3: 分解-Decomposition:"></a>1.7.3: 分解-Decomposition:</h3><p>分解是指将单个大规模复杂系统划分为多个不同的小构件分解的构件通过抽象、封装等技术形成相对独立的单元，可以独立设计和开发，从而实现化繁为简、分而治之.</p>
+<p>面向对象设计中的模块化，将根据需要将类分组放在一些包中.</p>
+<h3 id="1-7-4-泛化-Generalization"><a href="#1-7-4-泛化-Generalization" class="headerlink" title="1.7.4: 泛化-Generalization:"></a>1.7.4: 泛化-Generalization:</h3><p>泛化是类之间的一种is a&#x2F; is kind of 关系,通过该关系一个类（子类）可以共享另外一个或多个类（父类）的结构和行为.</p>
+<p>采用继承（Inheritance）实现泛化关系通过泛化关系，可以建立类之间的层次结构，根据继承层次中父类的个数不同，分为：单一继承.多重继承(Java不允许).</p>
+<h3 id="1-7-5-多态-Polymorphism"><a href="#1-7-5-多态-Polymorphism" class="headerlink" title="1.7.5: 多态-Polymorphism:"></a>1.7.5: 多态-Polymorphism:</h3><p>多态是在统一外表（接口）下隐藏不同实现的能力.</p>
+<p>即一个接口可以有不同的实现行为.</p>
+<p>是面向对象技术的本质特征.</p>
+<p>多态是类型理论中的概念，其中，一个名字可以代表许多不同类的实例，只要它们有共同的超类。</p>
+<h3 id="1-7-6-分层-Hierarchy"><a href="#1-7-6-分层-Hierarchy" class="headerlink" title="1.7.6: 分层-Hierarchy:"></a>1.7.6: 分层-Hierarchy:</h3><p>分层是指面向不同的目标建立不同的抽象级别层次，从而在不同的抽象层次对系统进行分解，进一步简化对系统的理解.</p>
+<p>两种分层结构类层次结构：</p>
+<p>(1)在不同的抽象级别进行对象的抽象，通过泛化关系，形成类间的继承层次结构.</p>
+<p>(2)对象层次结构：是指对象间的组成结构，即大的对象由小的对象组成.</p>
+<h3 id="1-7-7-复用-Reuse"><a href="#1-7-7-复用-Reuse" class="headerlink" title="1.7.7: 复用-Reuse:"></a>1.7.7: 复用-Reuse:</h3><p>复用是借助于已有软件的各种有关知识建立新的软件的过程.</p>
+<p>将软件看成是由不同功能部分的构件所组成的有机体，每个构件在设计编写时可以被设计成完成同类工作的通用工具.</p>
+<p>如果完成各种工作的构件被建立起来以后，编写特定软件的工作就变成了将各种不同构件进行组合的简单问题，从而对软件产品的最终质量和维护工作都有本质性的改变.</p>
+<p>系统开发各个阶段都可能涉及到复用.</p>
+<p>从最底层的代码复用，到设计复用、架构复用，再到需求复用，甚至于延伸到特定业务领域的复用.</p>
+<p>复用原则要求设计者不仅针对当前的业务需求开展设计，还需要考虑业务的通用性和可扩展性等问题，从而设计抽象层次高、复用粒度大的组件.</p>
+<h1 id="2-可视化建模"><a href="#2-可视化建模" class="headerlink" title="2.可视化建模:"></a>2.可视化建模:</h1><h2 id="2-1-瀑布模型"><a href="#2-1-瀑布模型" class="headerlink" title="2.1: 瀑布模型:"></a>2.1: 瀑布模型:</h2><p>![QQ截图20221017091353](C:\Users\wpy\Documents\Tencent Files\2669184984\FileRecv\Farewell Light\学习\blog\myblog\source_posts\QQ截图20221017091353.png)</p>
+<p>1.瀑布模型的性质:</p>
+<p>不同的开发阶段应该被连贯地进行.每个阶段都有文档，上一个阶段的文档是下一个阶段文档工作的基础. 系统部署后，进入维护阶段. </p>
+<p>2.瀑布模型的优点:</p>
+<p>将软件开发当做工程对待.<br>3.瀑布模型的缺点:</p>
+<p>没有引入迭代.</p>
+<h2 id="2-2-统一过程模型"><a href="#2-2-统一过程模型" class="headerlink" title="2.2: 统一过程模型:"></a>2.2: 统一过程模型:</h2><p>统一过程(THE UNIFIED PROCESS)试图在整体开发过程模型中结合迭代与渐增两种思想.</p>
+<p>![QQ截图20221017091721](C:\Users\wpy\Documents\Tencent Files\2669184984\FileRecv\Farewell Light\学习\blog\myblog\source_posts\QQ截图20221017091721.png)</p>
+<p>特点:</p>
+<p>每项活动都可以在任何一次迭代发生，但是重心随着开发过程的进行，每次迭代的重心都不同.</p>
+<h2 id="2-3-UML-统一建模语言"><a href="#2-3-UML-统一建模语言" class="headerlink" title="2.3: UML:统一建模语言"></a>2.3: UML:统一建模语言</h2><p>UML — Unified Modeling Language.</p>
+<p>UML是一种标准的图形化建模语言，是面向对象分析与设计的标准表示，它不是一种程序设计语言，而是一种可视化的建模语言(用于分析设计).</p>
+<p>Unified Modeling Language（统一建模语言）是对象管理组织（OMG）制定的一个通用的、可视化的建模语言标准，可以用来可视化（visualize） 、描述（specify）、构造（construct）和文档化（document）软件密集型系统的各种工件（artifacts，又译制品） .</p>
+<h2 id="2-4-结构"><a href="#2-4-结构" class="headerlink" title="2.4: 结构:"></a>2.4: 结构:</h2><p>UML主要包括两类图:</p>
+<p>![QQ截图20221017092120](C:\Users\wpy\Documents\Tencent Files\2669184984\FileRecv\Farewell Light\学习\blog\myblog\source_posts\QQ截图20221017092120.png)</p>
+<p>结构图. 结构图用于表示系统中元素的静态结构，例如系统组织结构，例如，类图系统的物理元素，例如，包，组件图运行时配置，等.</p>
+<p>行为图. 用来描述动态行为对象的创建与销毁对象按照顺序发送消息外部事件引发了特定的对象的操作.</p>
+<h2 id="2-5-4-1模型"><a href="#2-5-4-1模型" class="headerlink" title="2.5: 4+1模型:"></a>2.5: 4+1模型:</h2><p>UML试图在5个方面刻画一个软件.</p>
+<p>系统的结构用五个视图(Views)描述，用例视图在集成其他四个视图的内容中起着特殊的作用。</p>
+<p>![QQ截图20221017092500](C:\Users\wpy\Documents\Tencent Files\2669184984\FileRecv\Farewell Light\学习\blog\myblog\source_posts\QQ截图20221017092500.png)</p>
+<h2 id="2-6-类图"><a href="#2-6-类图" class="headerlink" title="2.6: 类图:"></a>2.6: 类图:</h2><p>类图表示类的存在以及从逻辑层面表达它们之间的关系.</p>
+<p>类图的基本要素：类，以及它们之间的关系.</p>
+<p>一个类图的结构:</p>
+<p>![QQ截图20221017092722](C:\Users\wpy\Documents\Tencent Files\2669184984\FileRecv\Farewell Light\学习\blog\myblog\source_posts\QQ截图20221017092722.png)</p>
+<h2 id="2-7-聚合与组合"><a href="#2-7-聚合与组合" class="headerlink" title="2.7: 聚合与组合:"></a>2.7: 聚合与组合:</h2><p>聚合 (aggregation): “part of ” 关系.不是物理包含关系.表示一种弱关联.有独立的生命周期.</p>
+<p>组合(composition)的概念：整体包括部分,是一种物理包含.一个部分对象仅仅对应于1个整体对象；该整体对象如果不存在，则部分对象也就没有存在的必要组合中，创建“整体”对象，则要创建“部分”对象；消灭“整体”对象，其组合的“部分”也必须被消灭。相反，如果“部分”对象被消灭，则“整体”对象也必须被消灭.一般在构造函数中引入.</p>
+<h2 id="2-8-类的可视性记号"><a href="#2-8-类的可视性记号" class="headerlink" title="2.8: 类的可视性记号:"></a>2.8: 类的可视性记号:</h2><p>出现在uml类图中的符号:</p>
+<p>Public (+)：所有的其它类都可以访问.</p>
+<p>Protected (#)：类中的元素以及子类中的元素可访问.</p>
+<p>Private (-): 仅类中的元素可以访问.</p>
+<p>Package (~): 仅仅同一个包中的元素可以访问.</p>
+<h2 id="2-9-构件图"><a href="#2-9-构件图" class="headerlink" title="2.9: 构件图:"></a>2.9: 构件图:</h2><p>构件（Component）是系统中遵从一组接口且提供其实现的物理的、可替换的部分。</p>
+<p>构件图（Component diagram）则是显示一组组件以及它们之间的相互关系，包括编译、链接还在执行时组件之间的依赖关系。</p>
+<p>一个构件代表一个可复用的软件；提供一批有意义的功能在最底层，一个构件是一群(自己内聚的)松散耦合的类系统中的每一个类必须在一个构件之中，或者在系统的顶层；一个构件可以包含其它构件.</p>
+<p>可以利用构件层次地分解一个系统与表达系统的逻辑结构 (这是在UML2.0中新引进的；面向构件编程).</p>
+<h3 id="2-9-1-基本元素"><a href="#2-9-1-基本元素" class="headerlink" title="2.9.1: 基本元素:"></a>2.9.1: 基本元素:</h3><p>components,构件</p>
+<p>their interfaces, 接口</p>
+<p>their realizations. 接口实现</p>
+<p>![QQ截图20221017155555](C:\Users\wpy\Documents\Tencent Files\2669184984\FileRecv\Farewell Light\学习\blog\myblog\source_posts\QQ截图20221017155555.png)</p>
+<h2 id="2-10-部署图-Deployment-Diagram"><a href="#2-10-部署图-Deployment-Diagram" class="headerlink" title="2.10: 部署图(Deployment Diagram):"></a>2.10: 部署图(Deployment Diagram):</h2><p>部署图被用来表示将工件分配到系统的各个物理设计节点的情况。部署图代表系统的工件结构的视图. </p>
+<p>使用部署图表示系统执行平台的物理节点的集合；这些节点组成了系统的执行平台。</p>
+<p>三个基本的部署图元素：工件、节点、连接符号.</p>
+<h2 id="2-11-用例图"><a href="#2-11-用例图" class="headerlink" title="2.11: 用例图:"></a>2.11: 用例图:</h2><p>用例图：描述将要创建的系统的环境与系统应该提供的功能描述谁与系统交互；即(外部世界) 用户让系统做什么.</p>
+<p>用例描述包括将系统作为一个黑匣子。描述人与系统之间的交互。</p>
+<p>比如一个人去银行.他与系统进行的交互就是存现金,取现金,那么这就是两个用例.</p>
+<h2 id="2-12-活动图"><a href="#2-12-活动图" class="headerlink" title="2.12: 活动图:"></a>2.12: 活动图:</h2><p>与流程图比较类似.</p>
+<p>]活动图提供了活动流的可视化描述(系统中，业务中，工作流，其它流程中)；</p>
+<p>活动图关注应有的活动，以及谁负责完成这些活动.</p>
+<h1 id="3-建模过程"><a href="#3-建模过程" class="headerlink" title="3.建模过程:"></a>3.建模过程:</h1><p>![QQ截图20221017160344](C:\Users\wpy\Documents\Tencent Files\2669184984\FileRecv\Farewell Light\学习\blog\myblog\source_posts\QQ截图20221017160344.png)</p>
+<h2 id="3-1-领域模型"><a href="#3-1-领域模型" class="headerlink" title="3.1: 领域模型:"></a>3.1: 领域模型:</h2><p>领域模型捕捉业务环境最重要的对象(产生类图).</p>
+<p>领域模型代表存在的“实物” 或业务环境中出现的事件.</p>
+<p>专注于分析问题领域本身，发掘重要的业务领域概念，并建立业务领域概念之间的关系。</p>
+<h2 id="3-2-用例模型"><a href="#3-2-用例模型" class="headerlink" title="3.2: 用例模型:"></a>3.2: 用例模型:</h2><p>一个用例图涉及到一个参与者与一个用例.表达的是功能化的需求.</p>
+<p>![QQ截图20221017161053](C:\Users\wpy\Documents\Tencent Files\2669184984\FileRecv\Farewell Light\学习\blog\myblog\source_posts\QQ截图20221017161053.png)</p>
+<h3 id="3-2-1-参与者："><a href="#3-2-1-参与者：" class="headerlink" title="3.2.1: 参与者："></a>3.2.1: 参与者：</h3><p>在系统之外，透过系统边界与系统进行有意义交互的任何事物.参与者透过系统边界直接与系统交互，参与者的确定代表系统边界的确定.</p>
+<p>参与者可以通过泛化关系来定义，在这种泛化关系中，一个参与者的抽象描述可以被一个或多个具体的参与者所共享.</p>
+<h3 id="3-2-2-用例"><a href="#3-2-2-用例" class="headerlink" title="3.2.2: 用例:"></a>3.2.2: 用例:</h3><p>例描述的是参与者与系统的交互，而不是系统内在的活动。因此用例的定义也应该只关注系统对外所体现的行为，即用例止于系统边界.将系统视为黑匣子描述的不是内在的系统活动.</p>
+<p>每个用例都会对参与者产生一个有价值的结果。</p>
+<p>购买商品的会员构造一个”购买商品”的用例是合理的.倘若构造”查询商品”,”购买”这两个用例就是不好的用例.</p>
+<h3 id="3-2-3-用例其他注意事项"><a href="#3-2-3-用例其他注意事项" class="headerlink" title="3.2.3: 用例其他注意事项:"></a>3.2.3: 用例其他注意事项:</h3><p>(1)系统执行，每个用例所产生的结果值都是由系统生成的。</p>
+<p>(2)用例从参与者的观点出发,而不是从系统的观点出发.</p>
+<p>(3)粒度问题:![QQ截图20221017162002](C:\Users\wpy\Documents\Tencent Files\2669184984\FileRecv\Farewell Light\学习\blog\myblog\source_posts\QQ截图20221017162002.png)</p>
+<p>处理方式:</p>
+<p>![QQ截图20221017162026](C:\Users\wpy\Documents\Tencent Files\2669184984\FileRecv\Farewell Light\学习\blog\myblog\source_posts\QQ截图20221017162026.png)</p>
+<h3 id="3-2-4-用例图"><a href="#3-2-4-用例图" class="headerlink" title="3.2.4: 用例图:"></a>3.2.4: 用例图:</h3><p>用例图：表达参与者与用例关系图形.</p>
+<p>![QQ截图20221017162206](C:\Users\wpy\Documents\Tencent Files\2669184984\FileRecv\Farewell Light\学习\blog\myblog\source_posts\QQ截图20221017162206.png)</p>
+<p>一个用例图实例:</p>
+<p>![QQ截图20221017162245](C:\Users\wpy\Documents\Tencent Files\2669184984\FileRecv\Farewell Light\学习\blog\myblog\source_posts\QQ截图20221017162245.png)</p>
+<h2 id="3-3-用例文档"><a href="#3-3-用例文档" class="headerlink" title="3.3: 用例文档:"></a>3.3: 用例文档:</h2><p>用例文档：描述用户与系统交互的需求说明书.</p>
+<p>用例描述是需求的核心内容,而用例图作为用例文档的索引图.</p>
+<p>用例文档要考虑到每个用例的各种场景.文档中每一句话都有其价值.</p>
+<p>![QQ截图20221017163254](C:\Users\wpy\Documents\Tencent Files\2669184984\FileRecv\Farewell Light\学习\blog\myblog\source_posts\QQ截图20221017163254.png)</p>
+<h2 id="3-4-重构用例模型"><a href="#3-4-重构用例模型" class="headerlink" title="3.4: 重构用例模型:"></a>3.4: 重构用例模型:</h2><p>(1)用例关系:</p>
+<p>通过用例关系将复杂的用例进行适当的分解，以便于提高需求的复用性和可扩展性等，从而使用例模型的结构更合理.</p>
+<p>(2)用例分级:</p>
+<p>可以根据用例的重要程度进行分级，以便后续迭代计划的制定，高级别的用例优先考虑用例分包将相关的.</p>
+<p>(3)用例分包:</p>
+<p>将相关的用例打包，通过分包的方式可以将用例图分层表示，以用于大规模系统的用例建模。</p>
+<h3 id="3-4-1-用例关系："><a href="#3-4-1-用例关系：" class="headerlink" title="3.4.1: 用例关系："></a>3.4.1: 用例关系：</h3><p>(1)Include(包含):</p>
+<p>基用例中复用被包含用例的行为提取公共步骤，便于复用.</p>
+<p>(2)Extend(扩展):</p>
+<p>通过扩展用例对基用例增加附加的行为.</p>
+<p>(3)Generalization(泛化):</p>
+<p>派生用例继承泛化用例的行为并添加新行为.</p>
+<p>重构的用例模型例子：</p>
+<p>![QQ截图20221017163944](C:\Users\wpy\Documents\Tencent Files\2669184984\FileRecv\Farewell Light\学习\blog\myblog\source_posts\QQ截图20221017163944.png)</p>
+<h3 id="3-4-2：注意事项："><a href="#3-4-2：注意事项：" class="headerlink" title="3.4.2：注意事项："></a>3.4.2：注意事项：</h3><p>用例不是功能分解.使用用例进行功能分解，是用例使用过程中最容易出现的问题.用例是目标，不是过程；用例不代表功能模块.</p>
+<p>用例说明了系统所能提供的功能、服务，而软件分析&#x2F;设计者可能会进行不同的设计.</p>
+<h2 id="3-5-用例分析："><a href="#3-5-用例分析：" class="headerlink" title="3.5: 用例分析："></a>3.5: 用例分析：</h2><p>得到用例模型之后，进行用例分析，根据分析进行设计，从而得到类图，并编写代码。</p>
+<p>分析：为了满足需求模型中所描述的功能，系统内部应该有什么样的业务核心机制(需要几个对象互相协作呢？)</p>
+<p>分析的目标是开发一系列模型，以描述软件核心成分，从而满足客户定义的需求：称为分析模型。</p>
+<p>需求模型以用户的角度描述系统所要实现的目标，而分析模型表示在系统内部应该提供哪些核心业务元素和关系，以实现需求模型提出的目标（例如，要有哪些对象(类)的配合才能完成需求中所提出的功能）。</p>
+<p>用例模型被“翻译”成分析模型(用例描述顺序图，用例描述中的重要名词被翻译成类名及其属性)</p>
+<h3 id="3-5-1-用例实现："><a href="#3-5-1-用例实现：" class="headerlink" title="3.5.1:用例实现："></a>3.5.1:用例实现：</h3><p>用例实现： m将用例行为分配给类</p>
+<p>用例实现是分析&#x2F;设计模型中系统用例的表达式。</p>
+<p>用例实现描述了对象间的协作以完成用例目标。</p>
+<p>用例实现将用例模型中的用例和设计(分析)模型中的类和关系连接在一起，说明了每个用例必须用那些类来实现。提供了从分析和设计到需求的可跟踪性。</p>
+<p>![QQ截图20221017173321](C:\Users\wpy\Documents\Tencent Files\2669184984\FileRecv\Farewell Light\学习\blog\myblog\source_posts\QQ截图20221017173321.png)</p>
+<p>用例实现和用例是两个不同的概念，它们关注的重点不同.</p>
+<p>用例(描述)面向用户，描述功能。</p>
+<p>用例实现则面向分析设计人员，描述软件的内部结构。<br>构造用例实现是分析最核心的工作。</p>
+<p>获得实现用例行为所必须的分析类，利用这些分析类来描述其实现逻辑。</p>
+<p>![QQ截图20221017172900](C:\Users\wpy\Documents\Tencent Files\2669184984\FileRecv\Farewell Light\学习\blog\myblog\source_posts\QQ截图20221017172900.png)</p>
+<h3 id="3-5-2-顺序图"><a href="#3-5-2-顺序图" class="headerlink" title="3.5.2: 顺序图:"></a>3.5.2: 顺序图:</h3><p>顺序图是一种交互图，描述对象之间的动态交互关系，着重体现对象间消息传递的时间顺序.</p>
+<p>对象(Object)：对象、对象的生命线、对象的执行发生和对象的删除.</p>
+<p>消息(Message)：简单消息、同步消息、异步消息、返回消息.</p>
+<h2 id="QQ截图20221018100414-C-Users-wpy-Documents-Tencent-Files-2669184984-FileRecv-Farewell-Light-学习-blog-myblog-source-posts-QQ截图20221018100414-png"><a href="#QQ截图20221018100414-C-Users-wpy-Documents-Tencent-Files-2669184984-FileRecv-Farewell-Light-学习-blog-myblog-source-posts-QQ截图20221018100414-png" class="headerlink" title="![QQ截图20221018100414](C:\Users\wpy\Documents\Tencent Files\2669184984\FileRecv\Farewell Light\学习\blog\myblog\source_posts\QQ截图20221018100414.png)"></a>![QQ截图20221018100414](C:\Users\wpy\Documents\Tencent Files\2669184984\FileRecv\Farewell Light\学习\blog\myblog\source_posts\QQ截图20221018100414.png)</h2><h3 id="3-5-3-专家模式"><a href="#3-5-3-专家模式" class="headerlink" title="3.5.3: 专家模式:"></a>3.5.3: 专家模式:</h3><p>是怎样将职责分配到分析类的指南.</p>
+<p>将职责分配给具有当前职责所需要的数据的类如果一个类有这个数据，就将职责分配给这个类.</p>
+<p>![QQ截图20221018101144](C:\Users\wpy\Documents\Tencent Files\2669184984\FileRecv\Farewell Light\学习\blog\myblog\source_posts\QQ截图20221018101144.png)</p>
+<h3 id="3-5-4-VOPC图"><a href="#3-5-4-VOPC图" class="headerlink" title="3.5.4: VOPC图:"></a>3.5.4: VOPC图:</h3><p>对于每一个“用例实现”，需要绘制与之相关的类图，即VOPC图.</p>
+<p>参与类类图(VOPC, View Of Participating Classes Class Diagram).</p>
+<p>![QQ截图20221018101507](C:\Users\wpy\Documents\Tencent Files\2669184984\FileRecv\Farewell Light\学习\blog\myblog\source_posts\QQ截图20221018101507.png)</p>
+<p>当所有的用例的VOPC图都画完了以后，就由此可以推导出分析类图.</p>
+<h2 id="3-6-架构分析："><a href="#3-6-架构分析：" class="headerlink" title="3.6: 架构分析："></a>3.6: 架构分析：</h2><p>架构分析的过程就是定义系统高层组织结构和核心架构机制的过程。</p>
+<p>（1）定义系统的备选架构来描述系统的高层组织结构—备选架构(选取层次结构，Client-server, MVC等).</p>
+<p>（2）提取系统的关键抽象以揭示系统必须能够处理的核心概念—关键抽象(领域模型图).</p>
+<p>（3）创建用例实现来启动用例分析—用例实现 .</p>
+<p>架构模式(软件体系结构，架构)表示了对软件系统的一个基础结构组织形式。它提供了一套预定义子系统，详细说明它们的职责，并且包括组织它们之间的规则和指南。</p>
+<p>经典的架构有：</p>
+<p>（1）分层架构(层次架构)</p>
+<p>（2） 模型-视图-控制器(M-V-C)</p>
+<p>（3） 客户端-服务器架构…</p>
+<h2 id="3-7-分析类图"><a href="#3-7-分析类图" class="headerlink" title="3.7: 分析类图:"></a>3.7: 分析类图:</h2><p>最终目标是从系统的角度明确说明每一个分析类的职责和属性以及类之间的关系, 从而构造系统的分析类视图。</p>
+<p>![QQ截图20221018102049](C:\Users\wpy\Documents\Tencent Files\2669184984\FileRecv\Farewell Light\学习\blog\myblog\source_posts\QQ截图20221018102049.png)</p>
+<p>分析阶段的重点在于找出体现系统核心业务所需数据的实体类，而界面和业务逻辑细节分别由边界类和控制类隐藏.</p>
+<p>在很多UML模型中，分析阶段的工作就是找到这些实体类.</p>
+<p>这些实体类组成系统概念模型(分析类图).</p>
+<p>通过比较各个用例的VOPC图，删除重复的与那些没有引用的实体类，即可得到由实体类组成的分析类图，这些是分析的关键.</p>
+<p>![QQ截图20221018102327](C:\Users\wpy\Documents\Tencent Files\2669184984\FileRecv\Farewell Light\学习\blog\myblog\source_posts\QQ截图20221018102327.png)</p>
+<h1 id="4-面向对象的设计原则"><a href="#4-面向对象的设计原则" class="headerlink" title="4.面向对象的设计原则:"></a>4.面向对象的设计原则:</h1><p>面向对象的设计原则是面向对象设计的基本指导思想.</p>
+<p>是评价面向对象设计的价值观体系.</p>
+<p>是设计模式的出发点和归宿.</p>
+<p>是构造高质量软件的出发点.</p>
+<h2 id="4-1-有缺陷的设计与好的设计"><a href="#4-1-有缺陷的设计与好的设计" class="headerlink" title="4.1: 有缺陷的设计与好的设计:"></a>4.1: 有缺陷的设计与好的设计:</h2><p>有缺陷的设计:</p>
+<p>![QQ截图20221018102709](C:\Users\wpy\Documents\Tencent Files\2669184984\FileRecv\Farewell Light\学习\blog\myblog\source_posts\QQ截图20221018102709.png)</p>
+<p>好的设计:</p>
+<p>![QQ截图20221018102910](C:\Users\wpy\Documents\Tencent Files\2669184984\FileRecv\Farewell Light\学习\blog\myblog\source_posts\QQ截图20221018102910.png)</p>
+<h2 id="4-2-LSP-替换原则"><a href="#4-2-LSP-替换原则" class="headerlink" title="4.2: LSP-替换原则:"></a>4.2: LSP-替换原则:</h2><p>LSP(The Liskov Substitution Principle, Liskov替换原则).</p>
+<p>“若对于类型S的任一对象o1，均有类型T的对象o2存在，使得在T定义的所有程序P中，用o1替换o2之后，程序的行为不变，则S是T的子类型”.</p>
+<p>如果在任何情况下，子类（或子类型）或实现类与超类对象都是可以互换的，那么继承的使用就是合适的。为了达到这一目标，子类不能添加任何父类没有的附加约束.“子类对象必须可以替换超类对象”.</p>
+<p>当设计违背LSP原则时,可参考一下思路:![QQ截图20221018103231](C:\Users\wpy\Documents\Tencent Files\2669184984\FileRecv\Farewell Light\学习\blog\myblog\source_posts\QQ截图20221018103231.png)</p>
+<h2 id="4-3-OCP-开闭原则"><a href="#4-3-OCP-开闭原则" class="headerlink" title="4.3: OCP-开闭原则:"></a>4.3: OCP-开闭原则:</h2><p>开闭原则:（OCP-The Open-Close Principle）</p>
+<p>开闭原则说明软件实体应该对扩展开放，对修改关闭；即在不修改已经存在的源代码的情况下，修改其行为.</p>
+<p>这在软件生产环境中尤其有价值，因为在生产环境下可能需要更改源代码。然后，极有可能对源代码进行代码评审；单元测试，集成测试等符合开闭原则的代码可以做到在不修改源代码的情况下扩展功能，因此从经济方面非常节省。</p>
+<p>实现开闭原则的两种策略:</p>
+<h3 id="4-3-1-复用代码"><a href="#4-3-1-复用代码" class="headerlink" title="4.3.1: 复用代码:"></a>4.3.1: 复用代码:</h3><p>只有在更正代码错误的情况下才能修改一个类；新增或改变功能需要创建不同的类。 </p>
+<p>新类通过继承的方式复用原来的类的代码  子类可能与超类可能有不同的接口.</p>
+<p>主要思想是：复用实现（代码），而不复用接口现有实现代码不允许修改，新实现不需要实现现有接口。</p>
+<h3 id="4-3-2-复用接口"><a href="#4-3-2-复用接口" class="headerlink" title="4.3.2: 复用接口:"></a>4.3.2: 复用接口:</h3><p>重用抽象接口，而不是重用实现（代码）.</p>
+<p>![QQ截图20221018104401](C:\Users\wpy\Documents\Tencent Files\2669184984\FileRecv\Farewell Light\学习\blog\myblog\source_posts\QQ截图20221018104401.png)</p>
+<p>![QQ截图20221018104445](C:\Users\wpy\Documents\Tencent Files\2669184984\FileRecv\Farewell Light\学习\blog\myblog\source_posts\QQ截图20221018104445.png)</p>
+<h2 id="4-4-SRP-单一职责原则"><a href="#4-4-SRP-单一职责原则" class="headerlink" title="4.4: SRP-单一职责原则:"></a>4.4: SRP-单一职责原则:</h2><p>SRP(The Single Responsibility Principle).</p>
+<p>就一个类而言，应该仅有一个引起它变化的原因.</p>
+<p>有关类的职责分配问题，是面向对象设计中最重要的基本原则.</p>
+<p>SRP体现了内聚性（Cohesion）.</p>
+<p>内聚性：一个模块的组成元素之间的功能相关性类的职责定义为“变化的原因”，每个职责都是变化的一个轴线；当需求变化时，该变化会反映为类的职责的变化如果一个类承担了多于一个的职责，那么引起它变化的原因就会有多个.</p>
+<h2 id="4-5-ISP-接口隔离原则"><a href="#4-5-ISP-接口隔离原则" class="headerlink" title="4.5: ISP-接口隔离原则:"></a>4.5: ISP-接口隔离原则:</h2><p>ISP(The Interface Segregation Principle).</p>
+<p>将很大的接口拆分成较小的，更具体的接口；使得客户类只需要知道它所感兴趣的方法。ISP原则的意图是使得一个系统保持较低的耦合，以便于更容易重构，修改与部署。 </p>
+<p>使用多个专门的接口比使用单一的接口好一个类对另一个类的依赖性应当是建立在最小的接口上的避免接口污染(Interface Pollution). </p>
+<h2 id="4-6-DIP-依赖倒转原则"><a href="#4-6-DIP-依赖倒转原则" class="headerlink" title="4.6: DIP-依赖倒转原则:"></a>4.6: DIP-依赖倒转原则:</h2><p>(DIP-The Dependency Inversion Principle).</p>
+<p>高层模块不依赖于低层模块，二者都依赖于抽象.抽象不依赖于细节，细节依赖于抽象.</p>
+<p>针对接口编程，不要针对实现编程.</p>
+<p>又称控制反转(IoC，Inversion of Control)、依赖注入.</p>
+<p>![QQ截图20221018105232](C:\Users\wpy\Documents\Tencent Files\2669184984\FileRecv\Farewell Light\学习\blog\myblog\source_posts\QQ截图20221018105232.png)</p>
+<p>结构化设计，上层调用下层，上层依赖于下层，当下层剧烈变动时上层也要跟着变动，这就会导致模块的复用性降低而且大大提高了开发的成本。面向对象设计中的依赖倒转：一般情况下抽象的变化概率很小，让客户类依赖于抽象，实现的细节也依赖于抽象。即使实现细节不断变动，只要抽象不变，客户程序也不需要变化。这大大降低了客户程序与实现细节的耦合度。</p>
+<p>![QQ截图20221018105430](C:\Users\wpy\Documents\Tencent Files\2669184984\FileRecv\Farewell Light\学习\blog\myblog\source_posts\QQ截图20221018105430.png)</p>
+<p>![QQ截图20221018105452](C:\Users\wpy\Documents\Tencent Files\2669184984\FileRecv\Farewell Light\学习\blog\myblog\source_posts\QQ截图20221018105452.png)</p>
+<p>ps: 这个带菱形的箭头表示为类之间的聚合关系.</p>
+<h1 id="5-设计模式"><a href="#5-设计模式" class="headerlink" title="5. 设计模式:"></a>5. 设计模式:</h1><p>设计模式是在构件设计阶段，通过定义类或特定对象之间的结构和行为，从而解决每类设计问题的通用解决方案.</p>
+<p>设计就是解决方案—对某个问题的解决.如果某个解决方案对某类问题都很有用.这时就把它总结出来.这就产生了设计模式.</p>
+<p>设计模式是：优秀的设计范例,从优秀设计方案中发现和总结出来的经验,在实践中反复出现的设计问题的优秀解决方案,设计者相互交流的基本术语,设计语言培养优秀设计师的一条捷径.</p>
+<h2 id="5-1-设计模式与设计原则"><a href="#5-1-设计模式与设计原则" class="headerlink" title="5.1: 设计模式与设计原则:"></a>5.1: 设计模式与设计原则:</h2><p>设计原则是面向对象设计的指导思想,设计模式只是更好地遵循这一指导思想的手段之一.</p>
+<p>设计模式是面向对象设计的具体技术,设计模式抽象出成功设计的共性，并进行分类与标识.</p>
+<p>设计模式通过描述对象、协作和职责将设计中的意图抽取出来.</p>
+<h2 id="5-2-GRASP"><a href="#5-2-GRASP" class="headerlink" title="5.2: GRASP:"></a>5.2: GRASP:</h2><p>GRASP（General Responsibility Assignment Software Pattern，通用职责分配软件模式）.</p>
+<p>GRASP模式描述了将职责分配给对象的基本原则，这些原则被表示成模式.</p>
+<p>职责和职责分配是面向对象分析和设计的最核心工作，合理的职责分配直接决定了设计的质量.</p>
+<p>GRASP就是用于指导职责分配的原则和模式.</p>
+<p>![QQ截图20221018110406](C:\Users\wpy\Documents\Tencent Files\2669184984\FileRecv\Farewell Light\学习\blog\myblog\source_posts\QQ截图20221018110406.png)</p>
+<h2 id="5-3-信息专家模式"><a href="#5-3-信息专家模式" class="headerlink" title="5.3: 信息专家模式:"></a>5.3: 信息专家模式:</h2><p>信息专家模式：将责任分配给信息专家类（拥有实现该责任的信息的类）.</p>
+<p>将职责分配拥有履行一个职责所必需信息的类，即信息专家信息专家模式在职责分配中的应用比任何其他模式都广泛，它是面向对象的设计中的一个基本指导.</p>
+<p>原则信息专家不是一个模糊或者新奇的设计概念，它表述了最普遍的一种“直觉”，即对象所能完成的工作要依赖于它所掌握的信息.</p>
+<p>优点：</p>
+<p>(1)封装能够得以维持，因为对象只使用他们自己包含的信息来完成任务（低耦合）.</p>
+<p>(2)系统行为只分布在具有所需信息的类中（高内聚）.</p>
+<h2 id="5-4-创建者模式"><a href="#5-4-创建者模式" class="headerlink" title="5.4: 创建者模式:"></a>5.4: 创建者模式:</h2><p>![QQ截图20221018152633](C:\Users\wpy\Documents\Tencent Files\2669184984\FileRecv\Farewell Light\学习\blog\myblog\source_posts\QQ截图20221018152633.png)</p>
+<p>使用创建者模式的好处支持低耦合，从而意味着低维护依赖，高复用机会.</p>
+<h2 id="5-5-低耦合模式"><a href="#5-5-低耦合模式" class="headerlink" title="5.5: 低耦合模式:"></a>5.5: 低耦合模式:</h2><p>低耦合模式：通过分配责任使得得到低耦合的设计.</p>
+<p>高耦合的设计:</p>
+<p>![QQ截图20221018153029](C:\Users\wpy\Documents\Tencent Files\2669184984\FileRecv\Farewell Light\学习\blog\myblog\source_posts\QQ截图20221018153029.png)</p>
+<p>低耦合的改进方法:</p>
+<p>![QQ截图20221018153111](C:\Users\wpy\Documents\Tencent Files\2669184984\FileRecv\Farewell Light\学习\blog\myblog\source_posts\QQ截图20221018153111.png)</p>
+<h2 id="5-6-高内聚模式"><a href="#5-6-高内聚模式" class="headerlink" title="5.6: 高内聚模式:"></a>5.6: 高内聚模式:</h2><h2 id="5-7-控制器模式"><a href="#5-7-控制器模式" class="headerlink" title="5.7: 控制器模式:"></a>5.7: 控制器模式:</h2><p>控制器模式：将接受（处理）系统事件消息的责任分配给一个代表整体系统（子系统、设备）的类，叫做门面控制器或者代表一个用例场景的类，称为用例控制器的类。</p>
+<p>![QQ截图20221018153401](C:\Users\wpy\Documents\Tencent Files\2669184984\FileRecv\Farewell Light\学习\blog\myblog\source_posts\QQ截图20221018153401.png)</p>
+<p>控制器是一个非用户图形界面对象。控制器负责接收或处理系统消息。控制器决定调用哪些系统操作。</p>
+<p>优点：</p>
+<p>Controller类对象代表了应用层的控制器，它提供了用户图形界面所需要的方法。这样，ChartDrawerGUI类就可以不和Chart层次类产生关联，而只要调用Controller类即可。</p>
+<p>用户图形界面ChartDrawerGUI是可插拔的，可以轻松地替换的.</p>
+<p>增加用户图形界面的复用，产生可插拔的用户图形界面可能性.  保证应用逻辑不包含在GUI层.   将系统操作代理给一个Controller类的好处是支持应用逻辑在将来的应用程序中的复用. </p>
+<h2 id="5-8-多态模式"><a href="#5-8-多态模式" class="headerlink" title="5.8: 多态模式:"></a>5.8: 多态模式:</h2><p>如果一个程序使用了条件语句，则当有新的条件被加入的话，则需要修改原来的条件语句组的逻辑缺点：程序不容易扩展。原因是如果程序有了新变化的时候，则可能会涉及到多处的修改。</p>
+<p>解决方案：使用多态模式。当相关的行为基于类型而变化，使用多态操作，将行为责任分配给相关的类型。</p>
+<p>![QQ截图20221018153836](C:\Users\wpy\Documents\Tencent Files\2669184984\FileRecv\Farewell Light\学习\blog\myblog\source_posts\QQ截图20221018153836.png)</p>
+<p>简单地说,就是把复杂的方法”退化”到类,避免了因为需求的变化大幅度的修改和重新编译原有类的操作.</p>
+<h2 id="5-9-纯虚构模式"><a href="#5-9-纯虚构模式" class="headerlink" title="5.9: 纯虚构模式:"></a>5.9: 纯虚构模式:</h2><p>将一组高内聚的责任分配给一个不代表领域类概念的虚构的类。该虚构的类的存在支持高内聚，低耦合与复用.</p>
+<p>![QQ截图20221019185835](C:\Users\wpy\Documents\Tencent Files\2669184984\FileRecv\Farewell Light\学习\blog\myblog\source_posts\QQ截图20221019185835.png)</p>
+<p>这种设计不好：数据库操作方法与这3个类没有概念上的关系，如果数据库操作包含在3个类中，那么您将得到一个低内聚的设计(导致低内聚的设计);这样做将生成一个与数据库接口（例如JDBC）紧密耦合的类图.</p>
+<p>一方面，按照信息专家模式，三个领域类类都应该拥有数据库访问的职责，而另一方面，如果这样做，会导致低内聚，高耦合与可重用性差的设计。</p>
+<p>使用纯虚构模式进行设计:</p>
+<p>![QQ截图20221019185929](C:\Users\wpy\Documents\Tencent Files\2669184984\FileRecv\Farewell Light\学习\blog\myblog\source_posts\QQ截图20221019185929.png)</p>
+<h2 id="5-10-间接模式"><a href="#5-10-间接模式" class="headerlink" title="5.10: 间接模式:"></a>5.10: 间接模式:</h2><p>将责任分配给中介对象，以便在其它组件之间进行协调，以使它们不直接耦合。</p>
+<p>![QQ截图20221019190233](C:\Users\wpy\Documents\Tencent Files\2669184984\FileRecv\Farewell Light\学习\blog\myblog\source_posts\QQ截图20221019190233.png)</p>
+<p>![QQ截图20221019190203](C:\Users\wpy\Documents\Tencent Files\2669184984\FileRecv\Farewell Light\学习\blog\myblog\source_posts\QQ截图20221019190203.png)</p>
+<h2 id="5-11-受保护模式"><a href="#5-11-受保护模式" class="headerlink" title="5.11: 受保护模式:"></a>5.11: 受保护模式:</h2><p>如何设计对象、子系统和系统，以使这些元素中的变化或不稳定对其他元素不会产生不良影响？</p>
+<p>确定能预测到的（类型）变化或不稳定点；分配责任以建立一个稳定的接口.</p>
+<p>PV是大多数编程和设计的机制和模式的基本动机之一，它使得系统能适应和隔离变化.</p>
+<p>![QQ截图20221019190450](C:\Users\wpy\Documents\Tencent Files\2669184984\FileRecv\Farewell Light\学习\blog\myblog\source_posts\QQ截图20221019190450.png)</p>
+<p>![QQ截图20221019190516](C:\Users\wpy\Documents\Tencent Files\2669184984\FileRecv\Farewell Light\学习\blog\myblog\source_posts\QQ截图20221019190516.png)</p>
+<p>改善之后的设计容易维护,容易扩展,而且符合开闭原则.</p>
+<h2 id="5-12-Demeter定律"><a href="#5-12-Demeter定律" class="headerlink" title="5.12: Demeter定律:"></a>5.12: Demeter定律:</h2><p>类的方法不应该依赖于其它的类的结构，而只能依赖于自己所在的类或者其最靠近的超类。</p>
+<p>不符合此定律的设计:</p>
+<p>![QQ截图20221019192128](C:\Users\wpy\Documents\Tencent Files\2669184984\FileRecv\Farewell Light\学习\blog\myblog\source_posts\QQ截图20221019192128.png)</p>
+<p>![QQ截图20221019192152](C:\Users\wpy\Documents\Tencent Files\2669184984\FileRecv\Farewell Light\学习\blog\myblog\source_posts\QQ截图20221019192152.png)</p>
+<p>符合此定律的设计:</p>
+<p>![QQ截图20221019192204](C:\Users\wpy\Documents\Tencent Files\2669184984\FileRecv\Farewell Light\学习\blog\myblog\source_posts\QQ截图20221019192204.png)</p>
+<p>应用Demeter定律的基本效果是可以创建松散耦合的类，其实现秘密被封装了；因此，为了理解一个类的意图，不必理解许多其它类的细节。</p>
+<h1 id="6-分析与设计"><a href="#6-分析与设计" class="headerlink" title="6.分析与设计:"></a>6.分析与设计:</h1><h2 id="6-1-设计策略"><a href="#6-1-设计策略" class="headerlink" title="6.1: 设计策略:"></a>6.1: 设计策略:</h2><p>D-设计（分解设计，Decomposition design）将系统映射为构件片（component pieces），再对各个构件片进行内部设计；是应用广泛的设计策略。<br>FP-设计（Family Pattern design）是一种探求一定范围的通用性设计策略，不从需求入手，而去探求问题的本质特征。主要用于通用产品设计，例如通用财务软件的设计。</p>
+<p>I-设计（Invention design）基于概念化原型作系统分析，定义系统以满足所发现的需要和需求.</p>
+<h2 id="6-2-从分析到设计："><a href="#6-2-从分析到设计：" class="headerlink" title="6.2: 从分析到设计："></a>6.2: 从分析到设计：</h2><p>面向对象分析是面向对象设计的输入，设计是分析的细化方法。</p>
+<p>相同点：都产生类图，分析类图，设计类图）。。</p>
+<p>分析：做什么(What)分析有效地确定了将要构建的内容分析重点关注业务(business)问题。</p>
+<p>设计：怎么做(How)设计定义如何构建目标系统：采用何种技术、何种平台(如JavaEE，前后端分离开发)来实现分析模型设计关注于系统的技术(technical)和实现(implementation)细节。</p>
+<p>分析集中在系统需求，而设计集中在待生产的软件的结构.</p>
+<p>![QQ截图20221019192850](C:\Users\wpy\Documents\Tencent Files\2669184984\FileRecv\Farewell Light\学习\blog\myblog\source_posts\QQ截图20221019192850.png)</p>
+<p>![QQ截图20221019192920](C:\Users\wpy\Documents\Tencent Files\2669184984\FileRecv\Farewell Light\学习\blog\myblog\source_posts\QQ截图20221019192920.png)</p>
+<p>OO设计是对OO分析的进一步细化，其根本思想是：对分析模型中的分析类进行进一步的设计，添加实现细节，这些分析类最终转变成设计元素面向对象的方法中，设计是分析的自然延续，在分析模型中添加特定的实现机制，得到可以实现的设计元素.</p>
+<h1 id="7-架构设计基础"><a href="#7-架构设计基础" class="headerlink" title="7.架构设计基础:"></a>7.架构设计基础:</h1><h2 id="7-1-架构与架构设计"><a href="#7-1-架构与架构设计" class="headerlink" title="7.1: 架构与架构设计:"></a>7.1: 架构与架构设计:</h2><p>架构是一个系统的组织结构，包括系统分解成的各个部分、它们的连接性、交互机制和指导系统设计的相关规则.</p>
+<p>架构设计的活动在分析阶段就已经开始，分析阶段主要关注基础架构的选型和并确定核心的分析机制.</p>
+<p>设计阶段，要针对分析阶段的备选架构的各个方面进行详细的定义，以设计出符合特定系统的架构.</p>
+<h2 id="7-2-架构设计内容"><a href="#7-2-架构设计内容" class="headerlink" title="7.2: 架构设计内容:"></a>7.2: 架构设计内容:</h2><p>(1)确定核心元素：在架构的中高层，以“分析类”为出发点，确定相应的“核心设计元素”（设计类，接口，子系统等）.</p>
+<p>(2)优化组织结构：按照高内聚、低耦合的基本原则，整理并逐渐充实架构的层次和内容（在架构的哪些层，具体地包含哪些包，在哪些包中，包含哪些类）.</p>
+<p>(3)定义设计后的组织结构：架构设计还应该考虑设计完成后系统实现、运行以及部署等阶段的组织结构（JavaEE, 前后端分离开发，服务器，数据存储，软件部署）.</p>
+<h2 id="7-3-包图"><a href="#7-3-包图" class="headerlink" title="7.3: 包图:"></a>7.3: 包图:</h2><p>包图是一种将模型元素分组的机制.</p>
+<p>包主要用于组织模型元素配置管理单元.</p>
+<p>分包的原则：职责相似，将一组职责相似、但以不同方式实现的类归为一组有意义的包；如java类库中的javax.swing.border.</p>
+<p>协作关系：包图包含了各种不同类型的类，它们之间通过相互协作实现一个意义重大的职责.</p>
+<p>可以使用包记号表示大的系统架构与局部的结构表示架构，可以依据架构层依据用户功能.</p>
+<p>![QQ截图20221019193956](C:\Users\wpy\Documents\Tencent Files\2669184984\FileRecv\Farewell Light\学习\blog\myblog\source_posts\QQ截图20221019193956.png)</p>
+<h3 id="7-3-1-包的关系"><a href="#7-3-1-包的关系" class="headerlink" title="7.3.1: 包的关系:"></a>7.3.1: 包的关系:</h3><p>![QQ截图20221019194253](C:\Users\wpy\Documents\Tencent Files\2669184984\FileRecv\Farewell Light\学习\blog\myblog\source_posts\QQ截图20221019194253.png)</p>
+<p>![QQ截图20221019194332](C:\Users\wpy\Documents\Tencent Files\2669184984\FileRecv\Farewell Light\学习\blog\myblog\source_posts\QQ截图20221019194332.png)</p>
+<p>![QQ截图20221019194830](C:\Users\wpy\Documents\Tencent Files\2669184984\FileRecv\Farewell Light\学习\blog\myblog\source_posts\QQ截图20221019194830.png)</p>
+<p>![QQ截图20221019195147](C:\Users\wpy\Documents\Tencent Files\2669184984\FileRecv\Farewell Light\学习\blog\myblog\source_posts\QQ截图20221019195147.png)</p>
+<h3 id="7-3-2-包的设计原则"><a href="#7-3-2-包的设计原则" class="headerlink" title="7.3.2: 包的设计原则:"></a>7.3.2: 包的设计原则:</h3><p>![QQ截图20221019195236](C:\Users\wpy\Documents\Tencent Files\2669184984\FileRecv\Farewell Light\学习\blog\myblog\source_posts\QQ截图20221019195236.png)</p>
+<p>![QQ截图20221020103645](C:\Users\wpy\Documents\Tencent Files\2669184984\FileRecv\Farewell Light\学习\blog\myblog\source_posts\QQ截图20221020103645.png)</p>
+<h2 id="7-4-设计元素"><a href="#7-4-设计元素" class="headerlink" title="7.4: 设计元素:"></a>7.4: 设计元素:</h2><p>设计元素(Design Elements)是指能够直接用于实现(编码)的模型要素.</p>
+<p>主要包括:</p>
+<p>包(Package).</p>
+<p>设计类(Design Classes).</p>
+<p>子系统(Subsystem).</p>
+<p>接口(Interface).</p>
+<p>主动类(Active Class).</p>
+<p>确定设计元素的目的是改进(调整)分析类，使之成为适当的设计模型元素.</p>
+<h3 id="7-4-1-分析类到设计元素"><a href="#7-4-1-分析类到设计元素" class="headerlink" title="7.4.1: 分析类到设计元素:"></a>7.4.1: 分析类到设计元素:</h3><p>(1)简单的分析类被直接映射到设计类，如果：若一个分析类是一个简单类（表示一个简单逻辑抽象）则将此分析类增加详细内容（属性，方法的参数，返回值），从而成为设计类.</p>
+<p>(2)更复杂的分析类可能被分成:</p>
+<p>多个设计类.</p>
+<p>设计为一个包.</p>
+<p>设计为一个接口和子系统.</p>
+<h3 id="7-4-2-接口"><a href="#7-4-2-接口" class="headerlink" title="7.4.2: 接口:"></a>7.4.2: 接口:</h3><p>接口(Interface)是类、子系统或构件提供的操作的集合接口允许用户以公开的方式定义多态，并且和实现没有直接联系接口支持“即插即用”的结构.</p>
+<p>![QQ截图20221020104032](C:\Users\wpy\Documents\Tencent Files\2669184984\FileRecv\Farewell Light\学习\blog\myblog\source_posts\QQ截图20221020104032.png)</p>
+<h3 id="7-4-3-子系统与接口"><a href="#7-4-3-子系统与接口" class="headerlink" title="7.4.3: 子系统与接口:"></a>7.4.3: 子系统与接口:</h3><p>子系统(Subsystem)是一种介于包和类之间的一种设计机制，它实现一个或多个接口所定义的行为.</p>
+<p>具有包的语义：能够包含其它模型元素.</p>
+<p>具有类的语义：具有行为.</p>
+<p>![QQ截图20221020104129](C:\Users\wpy\Documents\Tencent Files\2669184984\FileRecv\Farewell Light\学习\blog\myblog\source_posts\QQ截图20221020104129.png)</p>
+<p>子系统可以将系统划分成独立的部分，将被实现为独立的构件，这些构件在保持结构不变的情况下，可以独立地开发和部署，适应变更，而不影响到其它系统.</p>
+<p>子系统也可用于将系统划分成若干单元表示设计中的既存产品或外部系统.</p>
+<h4 id="7-4-3-1-适用情况"><a href="#7-4-3-1-适用情况" class="headerlink" title="7.4.3.1: 适用情况:"></a>7.4.3.1: 适用情况:</h4><p>![QQ截图20221020104243](C:\Users\wpy\Documents\Tencent Files\2669184984\FileRecv\Farewell Light\学习\blog\myblog\source_posts\QQ截图20221020104243.png)</p>
+<p>![QQ截图20221020104258](C:\Users\wpy\Documents\Tencent Files\2669184984\FileRecv\Farewell Light\学习\blog\myblog\source_posts\QQ截图20221020104258.png)</p>
+<p>![QQ截图20221020104319](C:\Users\wpy\Documents\Tencent Files\2669184984\FileRecv\Farewell Light\学习\blog\myblog\source_posts\QQ截图20221020104319.png)</p>
+<p>![QQ截图20221020104339](C:\Users\wpy\Documents\Tencent Files\2669184984\FileRecv\Farewell Light\学习\blog\myblog\source_posts\QQ截图20221020104339.png)</p>
+<h2 id="7-5-永久数据存储"><a href="#7-5-永久数据存储" class="headerlink" title="7.5: 永久数据存储:"></a>7.5: 永久数据存储:</h2><h1 id="8-类的设计理论"><a href="#8-类的设计理论" class="headerlink" title="8.类的设计理论:"></a>8.类的设计理论:</h1><p>类设计(Class Design)目标确保类可为用例实现提供必需的操作确保提供足够的信息可明确无误地实现处理和类相关的非功能需求(例如，可扩展性).</p>
+<p>输入:用例实现(设计).</p>
+<p>输出:设计类.</p>
+<h2 id="8-1-主要内容"><a href="#8-1-主要内容" class="headerlink" title="8.1: 主要内容:"></a>8.1: 主要内容:</h2><ol>
+<li>创建初始设计类.</li>
+<li>定义操作.</li>
+<li>定义属性.</li>
+<li>定义关系.</li>
+</ol>
+<h2 id="8-2-初始设计类"><a href="#8-2-初始设计类" class="headerlink" title="8.2: 初始设计类:"></a>8.2: 初始设计类:</h2><p>![QQ截图20221020104802](C:\Users\wpy\Documents\Tencent Files\2669184984\FileRecv\Farewell Light\学习\blog\myblog\source_posts\QQ截图20221020104802.png)</p>
+<h3 id="8-2-1-边界类"><a href="#8-2-1-边界类" class="headerlink" title="8.2.1: 边界类:"></a>8.2.1: 边界类:</h3><p>![QQ截图20221020104828](C:\Users\wpy\Documents\Tencent Files\2669184984\FileRecv\Farewell Light\学习\blog\myblog\source_posts\QQ截图20221020104828.png)</p>
+<h3 id="8-2-2-实体类"><a href="#8-2-2-实体类" class="headerlink" title="8.2.2: 实体类:"></a>8.2.2: 实体类:</h3><p>![QQ截图20221020104833](C:\Users\wpy\Documents\Tencent Files\2669184984\FileRecv\Farewell Light\学习\blog\myblog\source_posts\QQ截图20221020104833.png)</p>
+<h3 id="8-2-3-控制类"><a href="#8-2-3-控制类" class="headerlink" title="8.2.3: 控制类:"></a>8.2.3: 控制类:</h3><p>![QQ截图20221020104924](C:\Users\wpy\Documents\Tencent Files\2669184984\FileRecv\Farewell Light\学习\blog\myblog\source_posts\QQ截图20221020104924.png)</p>
+<p>![QQ截图20221020104944](C:\Users\wpy\Documents\Tencent Files\2669184984\FileRecv\Farewell Light\学习\blog\myblog\source_posts\QQ截图20221020104944.png)</p>
+<h2 id="8-3-定义操作"><a href="#8-3-定义操作" class="headerlink" title="8.3: 定义操作:"></a>8.3: 定义操作:</h2><h2 id="8-4-定义属性"><a href="#8-4-定义属性" class="headerlink" title="8.4: 定义属性:"></a>8.4: 定义属性:</h2><h2 id="8-5-定义关系"><a href="#8-5-定义关系" class="headerlink" title="8.5: 定义关系:"></a>8.5: 定义关系:</h2><p>![QQ截图20221020105052](C:\Users\wpy\Documents\Tencent Files\2669184984\FileRecv\Farewell Light\学习\blog\myblog\source_posts\QQ截图20221020105052.png)</p>
+]]></content>
+      <categories>
+        <category>笔记</category>
+      </categories>
+      <tags>
+        <tag>-面向对象</tag>
       </tags>
   </entry>
   <entry>
