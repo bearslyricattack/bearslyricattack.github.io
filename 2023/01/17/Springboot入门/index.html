@@ -1,0 +1,1142 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-theme="light">
+    <head>
+        <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Springboot笔记 | 风凌渡</title>
+<noscript>开启Javascript是必要的</noscript>
+<link rel="icon" type="image/x-icon" href="/img/avatar.webp">
+<link rel="apple-touch-icon" href="/img/avatar.webp">
+<meta name="apple-mobile-web-app-title" content="风凌渡">
+<link rel="bookmark" href="/img/avatar.webp">
+<link rel="apple-touch-icon-precomposed" sizes="180x180" href="/img/avatar.webp">
+<meta name="description" content="a blog 一个分享技术与生活的博客">
+<meta name="theme-color" content="#1C1C1F">
+<link rel="stylesheet" href="/css/var.css">
+<link rel="stylesheet" href="/css/main.css">
+<link rel="stylesheet" href="/css/custom.css">
+
+
+
+<link rel="stylesheet" href="https://cdn.bootcdn.net/ajax/libs/font-awesome/6.3.0/css/all.min.css">
+    
+
+<link rel="stylesheet" href="/lib/snackbar.min.css">
+
+
+<script src="/lib/qrcode.min.js"></script>
+
+
+
+
+
+<script>var GLOBALCONFIG = {"root":"/","runtime":"2021-12-12 00:00:00","lazyload":{"enable":false,"error":"/img/acrylic.png"},"hightlight":{"enable":false,"limit":200},"lightbox":true,"randomlinks":false,"lang":{"theme":{"dark":"已切换至深色模式","light":"已切换至浅色模式"},"copy":{"success":"复制成功","error":"复制失败"},"backtop":"返回顶部","time":{"recent":"最近","yesterday":"昨天","berforeyesterday":"前天","daybefore":"天前","runtime":"天"},"sayhello":{"morning":"早上好","noon":"中午好","afternoon":"下午好","night":"晚上好","goodnight":"晚安","iam":"!  我是"},"search":{"empty":"搜索结果为空","hit":"已为您找到 ${query} 条结果","placeholder":"输入关键词快速查找"}},"covercolor":false};</script><script id="site-config">var PAGECONFIG = {"is_home":false,"is_post":true,"is_page":false,"page":false,"toc":true,"comment":false};</script>
+    <meta name="generator" content="Hexo 6.3.0"></head>
+    <body id="body">
+        
+        <div id="console" style="zoom: 1;" class="">
+    <div class="close-btn" onclick="acrylic.hideConsole()" href="javascript:void(0);">
+        <i class="fas fa-circle-xmark"></i>
+    </div>
+    <div class="button-group">
+        <div class="console-btn-item"> <a class="darkmode_switchbutton" onclick="acrylic.switchDarkMode()" title="显示模式切换"
+                href="javascript:void(0);" rel="external nofollow" data-pjax-state=""><i class="fas fa-moon"
+                    style="font-size: 1rem;"></i></a></div>
+        
+        <div class="console-btn-item" id="consoleFPS" onclick="acrylic.FPSToggle()" title="帧率显示开关"><a class="FPS-switch"
+                data-pjax-state=""><i class="fas fa-gauge"></i></a></div>
+    </div>
+    <div class="console-mask" onclick="acrylic.hideConsole()" href="javascript:void(0);" rel="external nofollow"></div>
+</div>
+        <div id="sidebar" style="zoom: 1;">
+    <div id="menu-mask" style="display: none;"></div>
+    <div id="sidebar-menus" class>
+        <span class="sidebar-menu-item-title">功能</span>
+        <div class="sidebar-menu-item">
+            <a class="darkmode_switchbutton menu-child" onclick="acrylic.switchDarkMode()" title="显示模式切换"
+                href="javascript:void(0);" rel="external nofollow">
+                <i class="fas fa-moon" style="font-size: 1rem;"></i>
+                <span>显示模式</span>
+            </a>
+        </div>
+        
+            <div class="back-menu-list-groups">
+    
+      
+      <div class="back-menu-list-group">
+        <div class="back-menu-list-title">
+          我的
+        </div>
+        <div class="back-menu-list">
+          
+            
+            <a class="back-menu-item" href="/" rel="external nofollow" title="博客">
+              <img class="back-menu-item-icon" src="/img/avatar.webp" loading="lazy">
+              <span class="back-menu-item-text">
+                博客
+              </span>
+            </a>
+          
+        </div>
+      </div>
+    
+  </div>
+  
+        
+        <div class="menus_items">
+    
+        <div class="menus_item">
+            
+                <a class="site-page" href="javascript:void(0);" rel="external nofollow">
+                    <span> 文库</span>
+                </a>
+                <ul class="menus_item_child">
+                    
+                        <li>
+                            <a class="site-page child" href="/archives/">
+                                <i class="fas fa-box-archive"></i>
+                                <span> 文章列表</span>
+                            </a>
+                        </li>
+                    
+                        <li>
+                            <a class="site-page child" href="/categories/">
+                                <i class="fas fa-cube"></i>
+                                <span> 全部分类</span>
+                            </a>
+                        </li>
+                    
+                        <li>
+                            <a class="site-page child" href="/tags/">
+                                <i class="fas fa-tags"></i>
+                                <span> 全部标签</span>
+                            </a>
+                        </li>
+                    
+                </ul>
+             
+        </div>
+    
+        <div class="menus_item">
+            
+                <a class="site-page" href="javascript:void(0);" rel="external nofollow">
+                    <span> 友链</span>
+                </a>
+                <ul class="menus_item_child">
+                    
+                        <li>
+                            <a class="site-page child" href="/fcircle/">
+                                <i class="fas fa-fish-fins"></i>
+                                <span> 友链鱼塘</span>
+                            </a>
+                        </li>
+                    
+                        <li>
+                            <a class="site-page child" href="/links/">
+                                <i class="fas fa-user-group"></i>
+                                <span> 友情链接</span>
+                            </a>
+                        </li>
+                    
+                        <li>
+                            <a class="site-page child" href="javascript:travelling()">
+                                <i class="fas fa-bus"></i>
+                                <span> 宝藏博主</span>
+                            </a>
+                        </li>
+                    
+                </ul>
+             
+        </div>
+    
+        <div class="menus_item">
+            
+                <a class="site-page not-child" href="/says" rel="external nofollow">
+                    <span> 即刻</span>
+                </a>
+             
+        </div>
+    
+        <div class="menus_item">
+            
+                <a class="site-page not-child" target="_blank" href="https://github.com/rootlexblog" rel="external nofollow noopener">
+                    <span> 仓库</span>
+                </a>
+             
+        </div>
+    
+</div>
+        <span class="sidebar-menu-item-title">标签</span>
+        <div class="card-widget card-tags card-archives card-webinfo card-allinfo">
+            <div class="item-headline">
+                <i class="fas fa-tags"></i>
+                <span>标签</span>
+            </div>
+            <div class="card-tag-cloud">
+                
+                    <a href="/tags/%E4%B8%AD%E9%97%B4%E4%BB%B6/" style="font-size: 1em; color: #d3d3d3">中间件
+                        <sup>3</sup>
+                    </a>
+                
+                    <a href="/tags/Go/" style="font-size: 1em; color: #d3d3d3">Go
+                        <sup>3</sup>
+                    </a>
+                
+                    <a href="/tags/Java/" style="font-size: 1em; color: #d3d3d3">Java
+                        <sup>3</sup>
+                    </a>
+                
+                    <a href="/tags/%E5%88%86%E5%B8%83%E5%BC%8F/" style="font-size: 1em; color: #d3d3d3">分布式
+                        <sup>1</sup>
+                    </a>
+                
+                    <a href="/tags/%E8%AF%97%E6%AD%8C/" style="font-size: 1em; color: #d3d3d3">诗歌
+                        <sup>3</sup>
+                    </a>
+                
+            </div>
+        </div>
+    </div>
+</div>    
+        
+            <div class="post" id="body-wrap">
+                <header class="post-bg" id="page-header">
+    <nav id="nav" class="show">
+    <div id="nav-group">
+        <div id="blog_name">
+            
+                <div class="back-home-button" tabindex="-1">
+                    <i class="back-home-button-icon fas fa-grip-vertical"></i>
+                    <div class="back-menu-list-groups">
+    
+      
+      <div class="back-menu-list-group">
+        <div class="back-menu-list-title">
+          我的
+        </div>
+        <div class="back-menu-list">
+          
+            
+            <a class="back-menu-item" href="/" rel="external nofollow" title="博客">
+              <img class="back-menu-item-icon" src="/img/avatar.webp" loading="lazy">
+              <span class="back-menu-item-text">
+                博客
+              </span>
+            </a>
+          
+        </div>
+      </div>
+    
+  </div>
+  
+                </div>
+            
+            <a id="site-name" href="/" title="返回博客主页">
+                    
+            </a>
+        </div>
+        <div id="page-name-mask">
+            <div id="page-name">
+                <a id="page-name-text" onclick="acrylic.toTop()">Springboot笔记</a>
+            </div>
+        </div>
+        <div id="menus">
+            <div class="menus_items">
+    
+        <div class="menus_item">
+            
+                <a class="site-page" href="javascript:void(0);" rel="external nofollow">
+                    <span> 文库</span>
+                </a>
+                <ul class="menus_item_child">
+                    
+                        <li>
+                            <a class="site-page child" href="/archives/">
+                                <i class="fas fa-box-archive"></i>
+                                <span> 文章列表</span>
+                            </a>
+                        </li>
+                    
+                        <li>
+                            <a class="site-page child" href="/categories/">
+                                <i class="fas fa-cube"></i>
+                                <span> 全部分类</span>
+                            </a>
+                        </li>
+                    
+                        <li>
+                            <a class="site-page child" href="/tags/">
+                                <i class="fas fa-tags"></i>
+                                <span> 全部标签</span>
+                            </a>
+                        </li>
+                    
+                </ul>
+             
+        </div>
+    
+        <div class="menus_item">
+            
+                <a class="site-page" href="javascript:void(0);" rel="external nofollow">
+                    <span> 友链</span>
+                </a>
+                <ul class="menus_item_child">
+                    
+                        <li>
+                            <a class="site-page child" href="/fcircle/">
+                                <i class="fas fa-fish-fins"></i>
+                                <span> 友链鱼塘</span>
+                            </a>
+                        </li>
+                    
+                        <li>
+                            <a class="site-page child" href="/links/">
+                                <i class="fas fa-user-group"></i>
+                                <span> 友情链接</span>
+                            </a>
+                        </li>
+                    
+                        <li>
+                            <a class="site-page child" href="javascript:travelling()">
+                                <i class="fas fa-bus"></i>
+                                <span> 宝藏博主</span>
+                            </a>
+                        </li>
+                    
+                </ul>
+             
+        </div>
+    
+        <div class="menus_item">
+            
+                <a class="site-page not-child" href="/says" rel="external nofollow">
+                    <span> 即刻</span>
+                </a>
+             
+        </div>
+    
+        <div class="menus_item">
+            
+                <a class="site-page not-child" target="_blank" href="https://github.com/rootlexblog" rel="external nofollow noopener">
+                    <span> 仓库</span>
+                </a>
+             
+        </div>
+    
+</div>
+        </div>
+        <!-- <div id="nav-left">
+            <div id="fps-group">
+                <div id="fps">145</div><span class="fpsText">FPS</span>
+            </div>
+        </div> -->
+        <div id="nav-right">
+            
+    <div class="nav-button only-home" id="travellings_button">
+        <a class="site-page"  target="_blank" rel="noopener external nofollow" href="https://www.travellings.cn/go.html" title="开往-友链接力"  width="120">
+            <i class="fa-solid fa-train-subway" style="font-size: 1rem;"></i>
+        </a>
+    </div>
+
+
+    <div class="nav-button" id="randomPost_button">
+        <a class="site-page" onclick="toRandomPost()"
+            title="随机前往一个文章">
+            <i class="fas fa-shuffle" style="font-size: 1rem;"></i>
+        </a>
+    </div>
+
+
+
+    <div class="nav-button" id="nav-console">
+        <a class="console_switchbutton" onclick="acrylic.showConsole()"
+        title="显示中控台" href="javascript:void(0);" rel="external nofollow">
+        <i class="fas fa-bars-progress" style="font-size: 1rem;"></i>
+        </a>
+    </div>
+
+<div class="nav-button" id="nav-totop" onclick="acrylic.toTop()">
+    <a class="totopbtn">
+        <i class="fas fa-arrow-up"></i>
+        <span id="percent">0</span>
+    </a>
+</div>
+<div id="toggle-menu">
+    <a class="site-page">
+        <i class="fas fa-bars fa-fw" style="font-size: 1rem;"></i>
+    </a>
+</div>
+        </div>
+    </div>
+</nav>
+    
+        <div class="coverdiv" id="coverdiv">
+    <img id="post-cover" class="nolazyload" src="/img/8.jpg" alt="cover">
+</div>
+<div id="post-info">
+    <div id="post-firstinfo">
+        <div class="meta-firstline">
+            <a class="post-meta-original" title="该文章为原创文章，注意版权协议">
+                原创
+            </a>
+            
+            <span class="post-meta-categories">
+                
+                    <a class="post-meta-categories" href="/categories/%E7%AC%94%E8%AE%B0/">笔记</a>
+                
+            </span>
+            
+            <div class="tag_share">
+                <div class="post-meta__tag-list">
+                    
+                        <a class="post-meta__tags" href="/tags/Java/">
+                            <span class="tags-punctuation">#</span>
+                            <span class="tags-name">Java</span>
+                        </a>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+    <h1 class="post-title">Springboot笔记</h1>
+    <div id="post-meta">
+        <div class="meta-secondline">
+            <span class="post-meta-date" title="发布于">
+                <i class="post-meta-icon fa-fw fas fa-calendar"></i>
+                <time datetime="2023-01-17T22:59:51+08:00"></time>
+            </span>
+            
+            
+                <span class="post-meta-position" title="作者IP归属地为北京">
+                    <i class="fas fa-location-dot post-meta-icon"></i>
+                    <span>北京</span>
+                </span>
+            
+            
+            
+                
+        </div>
+    </div>
+</div>
+<section class="main-hero-waves-area waves-area"><svg class="waves-svg" xmlns="http://www.w3.org/2000/svg"
+    xlink="http://www.w3.org/1999/xlink" viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto">
+    <defs>
+        <path id="gentle-wave"
+            d="M -160 44 c 30 0 58 -18 88 -18 s 58 18 88 18 s 58 -18 88 -18 s 58 18 88 18 v 44 h -352 Z"></path>
+    </defs>
+    <g class="parallax">
+        <use href="#gentle-wave" x="48" y="0"></use>
+        <use href="#gentle-wave" x="48" y="3"></use>
+        <use href="#gentle-wave" x="48" y="5"></use>
+        <use href="#gentle-wave" x="48" y="7"></use>
+    </g>
+</svg>
+</section>
+
+        
+</header>
+                <main class="layout" id="content-inner">
+    <div id="post">
+        <article class="post-content" id="article-container">
+            <h1 id="Springboot笔记"><a href="#Springboot笔记" class="headerlink" title="Springboot笔记"></a>Springboot笔记</h1><p>Springboot的复杂性不是来自他处理的对象,而是来自他自身,是来自不断演进发展的springboot带来的时间维度上的复杂性.</p>
+<h1 id="1-Web前后端分离基本原理-Spring-MVC"><a href="#1-Web前后端分离基本原理-Spring-MVC" class="headerlink" title="1.Web前后端分离基本原理:Spring MVC"></a>1.Web前后端分离基本原理:Spring MVC</h1><p>用户在view(视图层)进行操作,该层调用controller的接口进行逻辑处理,controller调用service层的方法,service层的数据持久化又需要dao层的数据库支持.</p>
+<h1 id="2-Springboot介绍"><a href="#2-Springboot介绍" class="headerlink" title="2.Springboot介绍:"></a>2.Springboot介绍:</h1><p>Springboot是一个java ee框架,是Spring的升级版,采用前后端分离的方式产出接口,实现网页,微信小程序,app的开发,他的特点是简化配置,部署.监控</p>
+<h1 id="3-Springboot项目上手"><a href="#3-Springboot项目上手" class="headerlink" title="3.Springboot项目上手:"></a>3.Springboot项目上手:</h1><h2 id="3-1-创建Springboot项目："><a href="#3-1-创建Springboot项目：" class="headerlink" title="3.1 创建Springboot项目："></a>3.1 创建Springboot项目：</h2><p>idea：file-new-Spring Initializr</p>
+<h2 id="3-2-Springboot项目结构："><a href="#3-2-Springboot项目结构：" class="headerlink" title="3.2 Springboot项目结构："></a>3.2 Springboot项目结构：</h2><p>新建项目后，会得到一个文件夹，其中一级文件需要关注最重要的是src文件夹和pom.xml文件，pom.xml是依赖(依赖？可以理解认为一些外部包)的配置文件，其中src包括main文件夹和text文件夹，text文件夹存放测试文件，main包括java文件夹（用于写业务程序），resources文件夹（存放项目的配置）</p>
+<h2 id="3-3-新建Controller层："><a href="#3-3-新建Controller层：" class="headerlink" title="3.3 新建Controller层："></a>3.3 新建Controller层：</h2><h3 id="3-3-1-Controller介绍："><a href="#3-3-1-Controller介绍：" class="headerlink" title="3.3.1 Controller介绍："></a>3.3.1 Controller介绍：</h3><p>在java文件夹下，创建类名为某Controller类进行编写。Controller是接口层，是直接和前端交互的地方，它由一个一个的接口组成.（接口：接收一部分数据，进行内部处理，返回另一组数据）</p>
+<h3 id="3-3-2-注解："><a href="#3-3-2-注解：" class="headerlink" title="3.3.2 注解："></a>3.3.2 注解：</h3><p>在类上方增加@RestController注解</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">@RestController</span><br><span class="line">public class  ctivityController &#123;&#125;</span><br></pre></td></tr></table></figure>
+
+<p>用于标识这个类是Controller类，同时这个注解是@Controller和@ResposeBody两个注解的结合，可以直接接收前端的json格式的数据，同时返回json格式的数据</p>
+<h3 id="3-3-3-基本结构："><a href="#3-3-3-基本结构：" class="headerlink" title="3.3.3 基本结构："></a>3.3.3 基本结构：</h3><p>Controller类由一个一个的接口构成，其基本格式如下：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">@PostMapping(&quot;/addScore&quot;)</span><br><span class="line">public Result addScore (@RequestParam(&quot;addStrips&quot;) List&lt;AddStrip&gt; addStrips)&#123;</span><br><span class="line">    return activityService.addScore(name, addStrips);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>接口就是一些注解加上一个方法，必须要有的是形如@PostMapping一样的注解，表明了这个接口访问的地址，以及访问的方式等信息</p>
+<p>而对于需要传参数的接口，需要加类似@RequestParam类的接口，加在方法所需的参数前，表明了这个参数传来的名称与格式。</p>
+<h3 id="3-3-4-Post与Get请求："><a href="#3-3-4-Post与Get请求：" class="headerlink" title="3.3.4: Post与Get请求："></a>3.3.4: Post与Get请求：</h3><p>post请求的参数在reposeBody中，可以使用@RequestBody获取数据.get请求的参数体现在url中，不能使用@RequestBody获取数据。</p>
+<p>一般因为post请求实现了信息的隐藏，在url中看不到，所以认为post请求比get请求更安全。</p>
+<h3 id="3-3-5：-RequestParam与-RequestBody："><a href="#3-3-5：-RequestParam与-RequestBody：" class="headerlink" title="3.3.5：@RequestParam与@RequestBody："></a>3.3.5：@RequestParam与@RequestBody：</h3><h4 id="3-3-5-1-RequestParam"><a href="#3-3-5-1-RequestParam" class="headerlink" title="3.3.5.1: @RequestParam:"></a>3.3.5.1: @RequestParam:</h4><p>用来处理Content-Type: 为 application&#x2F;x-www-form-urlencoded编码的内容。（Http协议中，如果不指定Content-Type，则默认传递的参数就是application&#x2F;x-www-form-urlencoded类型.POST类型和GET类型都可以使用@RequestParam注解来接收参数.</p>
+<p>@RequestParam注解有三个参数,required 表示是否必须，默认为 true，必须。defaultValue 可设置请求参数的默认值，如果设置了该值，required&#x3D;true将失效，自动为false,如果没有传该参数，就使用默认值。value 为接收url的参数名（相当于key值）.</p>
+<h4 id="3-3-5-2-application-x2F-x-www-form-urlencoded"><a href="#3-3-5-2-application-x2F-x-www-form-urlencoded" class="headerlink" title="3.3.5.2: application&#x2F;x-www-form-urlencoded:"></a>3.3.5.2: application&#x2F;x-www-form-urlencoded:</h4><p>application&#x2F;x-www-form-urlencoded：是最常见的 POST 提交数据的方式，浏览器的原生表单如果不设置 enctype 属性，那么最终就会以 application&#x2F;x-www-form-urlencoded 方式提交数据，它是未指定属性时的默认值。 数据发送过程中会对数据进行序列化处理，以键值对形式?key1&#x3D;value1&amp;key2&#x3D;value2的方式发送到服务器。 数据被编码成以 ‘&amp;’ 分隔的键-值对, 同时以 ‘&#x3D;’ 分隔键和值。非字母或数字的字符会被 percent-encoding。在axios中当请求参数为qs.stringify(data)时，会以此方式提交数据。后台如果使用对象接收的话,可以自动封装成对象.</p>
+<h4 id="3-3-5-3-RequestBody"><a href="#3-3-5-3-RequestBody" class="headerlink" title="3.3.5.3: @RequestBody:"></a>3.3.5.3: @RequestBody:</h4><p>@RequestBody接收的参数是来自requestBody中，即请求体。一般用于处理非 Content-Type: application&#x2F;x-www-form-urlencoded编码格式的数据，比如：application&#x2F;json、application&#x2F;xml等类型的数据。</p>
+<h4 id="3-3-5-4-application-x2F-json"><a href="#3-3-5-4-application-x2F-json" class="headerlink" title="3.3.5.4: application&#x2F;json:"></a>3.3.5.4: application&#x2F;json:</h4><p>随着 json 规范的越来越流行，并且对浏览器支持程度原来越好，许多开发人员在请求头中加入 content-type: application&#x2F;jsonapplication&#x2F;json ，这样做可以方便的提交复杂的结构化数据，这样特别适合restful接口。它告诉服务器请求的主体内容是 json 格式的字符串，服务器端会对json字符串进行解析，json 格式要支持比键值对复杂得多的结构化数据。这种方式的好处就是前端人员不需要关心数据结构的复杂度，只需要标准的json格式就能提交成功。当在 axios 中请求参数为普通对象时，POST 请求默认发送的是 application&#x2F;json 格式的数据。 application&#x2F;json 需要封装成对象的话，可以加上 @RequestBody 进行注解。</p>
+<p>综上,当传输实体类属性时,用@RequestParam(用@RequestBody)也可,但是传入List类型的数据时,由于@RequestParam所要求的application&#x2F;x-www-form-urlencoded识别不了,所以只能通过@RequestBody传输数据.</p>
+<p>@RequestBody与@RequestParam()可以同时使用，@RequestBody最多只能有一个，而@RequestParam()可以有多个。</p>
+<h1 id="4-主启动类："><a href="#4-主启动类：" class="headerlink" title="4. 主启动类："></a>4. 主启动类：</h1><p>在java文件夹下，自动生成的一个类，下面有一个主方法。</p>
+<p>这个类用于项目的启动，不需要做任何的修改。</p>
+<h1 id="5-修改项目配置："><a href="#5-修改项目配置：" class="headerlink" title="5.修改项目配置："></a>5.修改项目配置：</h1><p>位于resources文件夹下，为了更快的写配置，删除掉该文件夹下原有的application.properties文件，新建一个application.yml文件</p>
+<p>格式：</p>
+<p>properties：</p>
+<p>key&#x3D;value</p>
+<p>yml：</p>
+<p>key: value（注意value前面有一个空格）</p>
+<p>完成前三步后,就可以运行程序,并在网页上访问相应的接口的到相应的数据,但这样不能实现数据的变化,而要做到这一点,就需要进行数据库操作.</p>
+<h1 id="6-数据库操作"><a href="#6-数据库操作" class="headerlink" title="6.数据库操作:"></a>6.数据库操作:</h1><h2 id="6-1-技术选型"><a href="#6-1-技术选型" class="headerlink" title="6.1 技术选型:"></a>6.1 技术选型:</h2><p>选用mysql数据库,使用jpa进行操作</p>
+<p>jpa:jpa: java persistence(持久化) api ,一种对象持久化的标准.</p>
+<p>spring-data-jpa:根据jpa开发出的一个产品.</p>
+<h2 id="6-2-操作过程"><a href="#6-2-操作过程" class="headerlink" title="6.2 操作过程:"></a>6.2 操作过程:</h2><h3 id="6-2-1-添加maven依赖"><a href="#6-2-1-添加maven依赖" class="headerlink" title="6.2.1 添加maven依赖:"></a>6.2.1 添加maven依赖:</h3><p> spring-data-jpa.</p>
+<p> mysql-connector-java</p>
+<h3 id="6-2-2-yml配置"><a href="#6-2-2-yml配置" class="headerlink" title="6.2.2 yml配置:"></a>6.2.2 yml配置:</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">datasource:</span><br><span class="line">  driver-class-name: com.mysql.cj.jdbc.Driver</span><br><span class="line">  url: jdbc:mysql://localhost:3306/dbaddscore(你自己的数据库名)</span><br><span class="line">  					ip地址:端口</span><br><span class="line">  username: root</span><br><span class="line">  password: (你自己的密码)</span><br><span class="line">jpa:</span><br><span class="line">  hibernate:</span><br><span class="line">    ddl-auto: update(意味着没有数据就新建,有数据也保留),还可用create(每次运行都覆盖数据)等</span><br><span class="line">  show-sql: true(在控制台展示sql语句)</span><br><span class="line">  </span><br></pre></td></tr></table></figure>
+
+<h3 id="6-2-3-链接数据库"><a href="#6-2-3-链接数据库" class="headerlink" title="6.2.3 链接数据库:"></a>6.2.3 链接数据库:</h3><p>用Navicat与数据库连接,在里面创建即可,编码选择UTF-8.</p>
+<p>只需要新建数据库即可,无需自己建表.</p>
+<h3 id="6-2-4-编写实体类"><a href="#6-2-4-编写实体类" class="headerlink" title="6.2.4: 编写实体类:"></a>6.2.4: 编写实体类:</h3><h4 id="6-2-4-1-实体类注解"><a href="#6-2-4-1-实体类注解" class="headerlink" title="6.2.4.1 实体类注解:"></a>6.2.4.1 实体类注解:</h4><p>完成数据库连接后即可编写实体类,实体类是会数据库中储存的类.</p>
+<p>建立类后,在类的上方加@Entity注解,表示这是一个实体类,在项目运行时,会自动创建由这个类所映射的表,以及里面的所有数据.</p>
+<p>注意:在此类中一定要有一个无参的构造方法,否则会报错,可以在类上方通过</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">@NoArgsConstructor</span><br><span class="line">@AllArgsConstructor</span><br></pre></td></tr></table></figure>
+
+<p>这两个注解来实现.</p>
+<h4 id="6-2-4-2-数据库主键"><a href="#6-2-4-2-数据库主键" class="headerlink" title="6.2.4.2 数据库主键:"></a>6.2.4.2 数据库主键:</h4><p>数据库主键是这一行数据在这张表中唯一的标识,在一张表中,每条数据的这个字段一定不相同,可以作为其他表的外键,让其他表通过这个属性的值找到这条记录</p>
+<p>主键注解:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">/**</span><br><span class="line"> * id</span><br><span class="line"> */</span><br><span class="line">@Id  用于表征接下来这个数据是主键</span><br><span class="line">@GeneratedValue(strategy = GenerationType.IDENTITY) 主键策略,当前是主键自动生成</span><br><span class="line">private Integer id;</span><br></pre></td></tr></table></figure>
+
+<h3 id="6-2-5-建立数据库接口"><a href="#6-2-5-建立数据库接口" class="headerlink" title="6.2.5: 建立数据库接口:"></a>6.2.5: 建立数据库接口:</h3><p>建立接口名为实体类名+Repository,继承JpaRepository,同时在类上方添加@Repository注解</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">@Repository</span><br><span class="line">public interface ActivityRepository extends JpaRepository&lt;Activity,Integer&gt; &#123;&#125;</span><br></pre></td></tr></table></figure>
+
+<p>第一个参数是类名,第二个参数是类的主键数据类型.</p>
+<p>在没有额外方法的时候,数据库中不用写任何代码.</p>
+<h3 id="6-2-6-接口实例化"><a href="#6-2-6-接口实例化" class="headerlink" title="6.2.6: 接口实例化:"></a>6.2.6: 接口实例化:</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">@Autowired</span><br><span class="line">UserRepository userRepository;</span><br></pre></td></tr></table></figure>
+
+<p>在所需要的类的上方添加这个,就可以使用这个新建的对象调用数据库中各种方法.</p>
+<p>简单的数据库操作都用自带的方法:如</p>
+<p>.findAll() 返回数据库中所有数据.</p>
+<p>.save() 保存一个对象</p>
+<h3 id="6-2-7-修改对象数据"><a href="#6-2-7-修改对象数据" class="headerlink" title="6.2.7: 修改对象数据:"></a>6.2.7: 修改对象数据:</h3><p>修改时,通过find方法找到对象,修改其中的数据,注意不要修改其主键,然后重新使用数据库保存,数据库就会根据主键自动覆盖之前的数据.</p>
+<h3 id="6-2-8-自定义数据库操作"><a href="#6-2-8-自定义数据库操作" class="headerlink" title="6.2.8 自定义数据库操作:"></a>6.2.8 自定义数据库操作:</h3><p>jpa中共有三种方法:</p>
+<p> (1) 默认的方法:</p>
+<p> (2) 自定义规则名的方法:</p>
+<p>只需要按规定的jpa格式写好对应的方法名,就能自动获得方法,不用自己写,如:</p>
+<p>List findActivityByYear(Integer year);</p>
+<p> (3) 自定义sql语句:</p>
+<p>使用@Query注解(注意jdbc和jpa两个包都支持这个注解,注意不要导错包):</p>
+<p>格式为:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">@Query(value = &quot;sql语句&quot;,nativeQuery = &quot;&quot;)</span><br><span class="line">方法相关信息</span><br></pre></td></tr></table></figure>
+
+<p>nativeQuery默认为false,意为hql,即字段用的是实体类中的名字,true表示sql,字段用的是数据库中的名字.</p>
+<h3 id="6-2-9-级联操作"><a href="#6-2-9-级联操作" class="headerlink" title="6.2.9 级联操作:"></a>6.2.9 级联操作:</h3><h4 id="6-2-9-1-介绍"><a href="#6-2-9-1-介绍" class="headerlink" title="6.2.9.1: 介绍:"></a>6.2.9.1: 介绍:</h4><p>级联操作用于维护有关系的几张表之间的关系.本质上是用一张表的主键数据,成为另一张上的外键数据,操作级联更新,级联删除等操作.</p>
+<p>启用级联操作时,当更新一个表的主键值,系统将会相应的更新其对应的所有外键值,如果删除主键,相应的外键也会一同删除.</p>
+<p>比如角色有多个课程,课程也会被多个角色选.适合于多对多关系.jpa会自动生成中间表，java的entity代码中只需要User类和Role类,无需创建中间表user_role类（sql建表语句中可以手动创建该中间表，不手动创建jpa系统也会帮忙自动创建).</p>
+<p>当角色类维护外键时,若角色名字改变,课程列表中的角色名也会随之改变,若角色删除,课程列表中也会删除这个学生,</p>
+<p>但课程没有维护外键的能力,也就是说当课程名称改变时,学生课表中课程的姓名不会改变,课程删除时,学生课表中的课程也不会删除.</p>
+<h4 id="6-2-9-2-使用"><a href="#6-2-9-2-使用" class="headerlink" title="6.2.9.2: 使用:"></a>6.2.9.2: 使用:</h4><p>以manytomany的多对多关系为例子,进行配置:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">在控制类的关联字段上加上如下配置:</span><br><span class="line">@ManyToMany(fetch = FetchType.LAZY,targetEntity = User.class)</span><br><span class="line">//fetch:可取的值有FetchType.EAGER和FetchType.LAZY，前者表示主类被加载时加载，后者表示被访问时才会加载</span><br><span class="line">@JoinTable(name=&quot;users_courses&quot;,uniqueConstraints = &#123;@UniqueConstraint(columnNames = &#123;&quot;u_id&quot;,&quot;c_id&quot;&#125;)&#125;,</span><br><span class="line">joinColumns = &#123;@JoinColumn(name = &quot;u_id&quot;,referencedColumnName = &quot;id&quot;)&#125;,</span><br><span class="line">inverseJoinColumns = &#123;@JoinColumn(name = &quot;c_id&quot;,referencedColumnName = &quot;id&quot;),&#125;</span><br><span class="line">//name:主键名称</span><br><span class="line">//uniqueConstraints:唯一约束的联合主键</span><br><span class="line">//joinColumns:当前对象在中间表中的外键,此处应为id</span><br><span class="line">//inverseJoinColumns:对方对象在中间表中的外键,此处为id</span><br><span class="line">//一个角色有多个课程</span><br><span class="line">private List&lt;Course&gt; courses = new ArrayList&lt;&gt;();</span><br><span class="line"></span><br><span class="line">在另一方的关联字段下面加上如下配置:</span><br><span class="line">//一个课程可以被多个角色选择</span><br><span class="line">//使得course放弃外键的维护权利</span><br><span class="line">@ManyToMany(mappedBy = &quot;courses&quot;,cascade = CascadeType.ALL)</span><br><span class="line">//这个cascade字段定义了级联的类型.主要有:CascadeType.PERSIST（级联新建）、CascadeType.REMOVE（级联删除）、CascadeType.REFRESH（级联刷新）、CascadeType.MERGE（级联更新）、CascadeType.ALL（选择全部）.一般不推荐使用all(?).</span><br><span class="line">private List&lt;User&gt; users = new ArrayList&lt;&gt;();</span><br></pre></td></tr></table></figure>
+
+<h1 id="7-单元测试"><a href="#7-单元测试" class="headerlink" title="7.单元测试:"></a>7.单元测试:</h1><h2 id="7-1-service层测试"><a href="#7-1-service层测试" class="headerlink" title="7.1 service层测试:"></a>7.1 service层测试:</h2><p>对应于不进行数据库和接口访问,只针对某种特定的逻辑(比如测试获取当前时间是否正确等)</p>
+<p>在text文件夹下创建测试类,在类前加@SpringBootTest注解.</p>
+<p>在这个类下面写方法,每个方法前面加@Test注解,每个方法都可以单独,直接运行进行测试.</p>
+<p>注意方法不能有返回值,股返回值的类型是void.</p>
+<h1 id="8-其他技术"><a href="#8-其他技术" class="headerlink" title="8.其他技术:"></a>8.其他技术:</h1><p>前七部分已经可以写出一般的业务逻辑,其他的零零碎碎的技术,用于更好地优化逻辑和提升代码质量.</p>
+<h2 id="8-1-结果类"><a href="#8-1-结果类" class="headerlink" title="8.1:结果类:"></a>8.1:结果类:</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">public class Result&lt;T&gt;&#123;</span><br><span class="line">    //    返回的状态码</span><br><span class="line">    private int code;</span><br><span class="line">    //    返回的状态信息</span><br><span class="line">    private String message;</span><br><span class="line">    //    返回的具体数据</span><br><span class="line">    private T data;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>后端向前端返回数据时,不直接返回数据,而是一般封装一个结果类进行返回,便于前端获取返回结果的状态(返回成功or出现错误),同时获取返回的具体信息,最后获取返回的数据.由于不知道返回的具体类型,故使用泛型.</p>
+<p>传入什么类型均可,在无返回具体数据时可返回null.</p>
+<p>给接口传入参数时,框架自动把传入的json转换成java对象,结果返回时,同样由框架把java对象转换成json对象.</p>
+<h2 id="8-2-项目配置"><a href="#8-2-项目配置" class="headerlink" title="8.2: 项目配置:"></a>8.2: 项目配置:</h2><p>application的dev和prod配置分开.</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">spring:</span><br><span class="line">  freemarker:</span><br><span class="line">    check-template-location: false</span><br><span class="line">  profiles:</span><br><span class="line">    active: dev</span><br><span class="line">  jackson:</span><br><span class="line">    time-zone: GMT+8</span><br><span class="line">  data:</span><br><span class="line">    redis:</span><br><span class="line">      repositories:</span><br><span class="line">        enabled: false</span><br></pre></td></tr></table></figure>
+
+<p>使用主配置文件里profiles字段来选择使用的配置文件.</p>
+<h2 id="8-3-项目部署"><a href="#8-3-项目部署" class="headerlink" title="8.3 项目部署:"></a>8.3 项目部署:</h2><h3 id="8-3-1-打包"><a href="#8-3-1-打包" class="headerlink" title="8.3.1: 打包:"></a>8.3.1: 打包:</h3><p>右上角maven图标,依次点击刷新,clean,package,自动在文件目录下生成一个jar包.</p>
+<h3 id="8-3-2-连接服务器"><a href="#8-3-2-连接服务器" class="headerlink" title="8.3.2: 连接服务器"></a>8.3.2: 连接服务器</h3><h3 id="8-3-3-部署"><a href="#8-3-3-部署" class="headerlink" title="8.3.3: 部署:"></a>8.3.3: 部署:</h3><p>(1)进入文件夹 cd 文件夹名</p>
+<p>(2)上传jar包</p>
+<p>(3)运行jar包</p>
+<p>nohup java -jar jar包名称.jar &gt; 日志名 2&gt;&amp;1</p>
+<p>(4)根据端口查看进程:</p>
+<p>lsof -i:端口名</p>
+<p>如果不输出即意味着这个端口当前没有进程</p>
+<p>(5)杀死进程:</p>
+<p>kill -9 进程名</p>
+<h2 id="8-4-跨域问题"><a href="#8-4-跨域问题" class="headerlink" title="8.4: 跨域问题:"></a>8.4: 跨域问题:</h2><p>跨域:从一个域名访问另外一个域名时,域名.端口.协议任何一个不一样都会造成无法访问的情况.</p>
+<p>预检:进行跨域访问时,首先会发送预检请求,如果服务器允许的话才会再次发送真正的(options)请求.</p>
+<p>解决方案:cors:cross-origin resource sharing 一种跨域资源共享方案.</p>
+<h4 id="8-4-1-简单请求"><a href="#8-4-1-简单请求" class="headerlink" title="8.4.1 简单请求:"></a>8.4.1 简单请求:</h4><p>没有人为添加字段的get,post,head(?)的请求,解决方式:</p>
+<p>在Controller类上方添加@CrossOrigin(origins &#x3D; “*”)注解</p>
+<h4 id="8-4-2-复杂请求"><a href="#8-4-2-复杂请求" class="headerlink" title="8.4.2 复杂请求:"></a>8.4.2 复杂请求:</h4><p>当需要在header中添加token等字段时,需要使用全局的跨域配置类:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">@Configuration</span><br><span class="line">//表征这是一个配置,只有这个配置才会被框架识别并自动使用.</span><br><span class="line">public class CorsConfig &#123;</span><br><span class="line"></span><br><span class="line">    @Bean</span><br><span class="line">    public CorsFilter corsFilter()&#123;</span><br><span class="line"></span><br><span class="line">        UrlBasedCorsConfigurationSource urlBasedCorsConfigurationSource = new UrlBasedCorsConfigurationSource();</span><br><span class="line">        CorsConfiguration corsConfiguration = new CorsConfiguration();</span><br><span class="line">        corsConfiguration.addAllowedHeader(&quot;*&quot;);</span><br><span class="line">        corsConfiguration.addAllowedMethod(&quot;*&quot;);</span><br><span class="line">        corsConfiguration.addAllowedOrigin(&quot;*&quot;);</span><br><span class="line">        corsConfiguration.setAllowCredentials(false);</span><br><span class="line">        urlBasedCorsConfigurationSource.registerCorsConfiguration(&quot;/**&quot;,corsConfiguration);</span><br><span class="line">        CorsFilter corsFilter = new CorsFilter(urlBasedCorsConfigurationSource);</span><br><span class="line">        return corsFilter;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="8-5-事务处理"><a href="#8-5-事务处理" class="headerlink" title="8.5: 事务处理:"></a>8.5: 事务处理:</h2><p>事务:对数据库的若干操作构成的集合.</p>
+<p>事物的出现是为了操作的可靠性,通过回退机制使数据安全.</p>
+<p>事务分为编程式事务(通过手写代码)和声明式事务(通过AOP)两种方式.</p>
+<p>声明式事务:在方法或者类(再类上添加表示对类下的所有方法生效)上加@Tranactional注解</p>
+<p>当该方法出现异常时,该方法中对数据库的所有的操作不会被提交.</p>
+<p>比如在进行取款操作时,如果没有事务,若在从银行取出钱后,发生了异常导致用户没有收到钱,就会导致钱的总数减少从而出现问题,而对这个方法使用事务就可以很好地解决这个问题.</p>
+<h2 id="8-6-AOP-面向切面编程"><a href="#8-6-AOP-面向切面编程" class="headerlink" title="8.6: AOP(面向切面编程):"></a>8.6: AOP(面向切面编程):</h2><h4 id="8-6-1-定义"><a href="#8-6-1-定义" class="headerlink" title="8.6.1 定义:"></a>8.6.1 定义:</h4><p>在软件业，AOP为Aspect Oriented Programming的缩写，意为：面向切面编程，通过预编译方式和运行期动态代理实现程序功能的统一维护的一种技术。AOP是OOP(面向对象编程)的延续，是软件开发中的一个<br>热点，也是Spring框架中的一个重要内容，是函数式编程的一种衍生范型。利用AOP可以对业务逻辑的各个部分进行隔离，从而使得业务逻辑各部分之间的耦合度降低，提高程序的可重用性，同时提高<br>了开发的效率。</p>
+<p>简单来说,就是在面向对象的,纵向设计的复杂程序中,横向的关注程序的不同位置中复用代码的地方(切面),进行统一的处理.比如打印程序执行日志之类的.</p>
+<h4 id="8-6-2-概念"><a href="#8-6-2-概念" class="headerlink" title="8.6.2 概念:"></a>8.6.2 概念:</h4><p>切面(aspect): 类似于java类,在里面包含着一些pointcut以及对应的advice.</p>
+<p>连接点(joint point): 程序中明确定义的点,比如说方法调用,异常处理什么的.一般所有的同类过程都可以被认为是连接点.</p>
+<p>切点(point cut): 切面的组成部分,表示一组特定的连接点,advice发生在这些地方.</p>
+<p>增强(advice): 表明了对在pointcut里面定义的过程所进行的操作.</p>
+<h4 id="8-6-3-基本使用"><a href="#8-6-3-基本使用" class="headerlink" title="8.6.3 基本使用:"></a>8.6.3 基本使用:</h4><p>以打印执行日志为例子.</p>
+<h5 id="8-6-3-1-引入依赖"><a href="#8-6-3-1-引入依赖" class="headerlink" title="8.6.3.1 引入依赖:"></a>8.6.3.1 引入依赖:</h5><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;dependency&gt;</span><br><span class="line">    &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;</span><br><span class="line">    &lt;artifactId&gt;spring-boot-starter-aop&lt;/artifactId&gt;</span><br><span class="line">    &lt;version&gt;2.7.0&lt;/version&gt;</span><br><span class="line">&lt;/dependency&gt;</span><br></pre></td></tr></table></figure>
+
+<h5 id="8-6-3-2-新建一个切面类"><a href="#8-6-3-2-新建一个切面类" class="headerlink" title="8.6.3.2 新建一个切面类:"></a>8.6.3.2 新建一个切面类:</h5><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br></pre></td><td class="code"><pre><span class="line">package com.util;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">import org.aspectj.lang.JoinPoint;</span><br><span class="line">import org.aspectj.lang.ProceedingJoinPoint;</span><br><span class="line">import org.aspectj.lang.annotation.*;</span><br><span class="line">import org.springframework.stereotype.Component;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">//新建切面</span><br><span class="line">@Aspect</span><br><span class="line">//这个注解的作用是表明这是一个切面类</span><br><span class="line">@Component</span><br><span class="line">//这个注解的作用是把当前类注入到Spring容器内</span><br><span class="line">public class LogAspect &#123;</span><br><span class="line">    </span><br><span class="line">    //切点:这个注解用来筛选所有的连接点,可以使用通配符.</span><br><span class="line">    @Pointcut(&quot;execution(public * com.controller.*.*(..))&quot;)</span><br><span class="line">    public void LogAspect()&#123;&#125;</span><br><span class="line">    </span><br><span class="line">    </span><br><span class="line">    //这是对切点的增强(advice)</span><br><span class="line">    //这些方法的参数是JoinPoint,里面包含了类名,被切面的方法名,被切面的方法参数等信息.</span><br><span class="line">    </span><br><span class="line">    @Before(&quot;LogAspect()&quot;)</span><br><span class="line">    //在方法前执行这个方法</span><br><span class="line">    public void doBefore(JoinPoint joinPoint)&#123;</span><br><span class="line">        System.out.println(&quot;doBefore&quot;);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    @After(&quot;LogAspect()&quot;)</span><br><span class="line">    //在方法后执行这个方法</span><br><span class="line">    public void doAfter(JoinPoint joinPoint)&#123;</span><br><span class="line">        System.out.println(&quot;doAfter&quot;);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    @AfterReturning(&quot;LogAspect()&quot;)</span><br><span class="line">    //在方法执行后,并且返回结果后执行</span><br><span class="line">    public void doAfterReturning(JoinPoint joinPoint)&#123;</span><br><span class="line">        System.out.println(&quot;doAfterReturning&quot;);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    @AfterThrowing(&quot;LogAspect()&quot;)</span><br><span class="line">    //在方法执行后,并且抛出异常后执行</span><br><span class="line">    public void deAfterThrowing(JoinPoint joinPoint)&#123;</span><br><span class="line">        System.out.println(&quot;deAfterThrowing&quot;);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    @Around(&quot;LogAspect()&quot;)</span><br><span class="line">    //环绕:在方法执行前后都执行.参数必须为ProceedingJoinPoint</span><br><span class="line">    public Object deAround(ProceedingJoinPoint joinPoint) throws Throwable&#123;</span><br><span class="line">        System.out.println(&quot;deAround&quot;);</span><br><span class="line">       	//获取当前类</span><br><span class="line">        Class&lt;?&gt; clazz = joinPoint.getClass();</span><br><span class="line">        //获取请求参数</span><br><span class="line">        Object[] args = joinPoint.getArgs();</span><br><span class="line">        System.out.println((&quot;当前类名是:&quot;+clazz.getName()));</span><br><span class="line">        System.out.println(&quot;传入参数是&quot;+ Arrays.toString(args));</span><br><span class="line">        return joinPoint.proceed();</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>还有其他很多种使用方式,后续再一一进行学习.</p>
+<h2 id="8-7-异常处理"><a href="#8-7-异常处理" class="headerlink" title="8.7: 异常处理:"></a>8.7: 异常处理:</h2><p>异常处理机制。异常处理机制能让程序在异常发生时，按照代码的预先设定的异常处理逻辑，针对性地处理异常，让程序尽最大可能恢复正常并继续执行，且保持代码的清晰。</p>
+<h4 id="8-7-1-Java异常体系结构"><a href="#8-7-1-Java异常体系结构" class="headerlink" title="8.7.1 Java异常体系结构:"></a>8.7.1 Java异常体系结构:</h4><p>Java标准库内建了一些通用的异常，这些类以Throwable为顶层父类。Throwable又派生出Error类和Exception类。</p>
+<p>错误：Error类以及它的子类的实例，代表了JVM本身的错误。错误不能被程序员通过代码处理，Error很少出现。因此，程序员应该关注Exception为父类的分支下的各种异常类。</p>
+<p>异常：Exception以及它的子类，代表程序运行时发生的各种不期望发生的事件。可以被Java异常处理机制使用，是异常处理的核心。</p>
+<p>Error和Exception的区别:</p>
+<p> Error和Exception都有一个共同的根类是Throwable类。</p>
+<p> Error是系统中的错误，程序员是不能改变的和处理的，一般是指与虚拟机相关的问题，如系统崩溃，虚拟机错误，内存空间不足，方法调用栈溢等。对于这类错误的导致的应用程序中断，仅靠程序本身无法恢复和和预防，遇到这样的错误，建议让程序终止。因此我们编写程序时不需要关心这类错误。</p>
+<p> Exception，也就是我们经常见到的一些异常情况，表示程序可以处理的异常，可以捕获且可能恢复。遇到这类异常，应该尽可能处理异常，使程序恢复运行，而不应该随意终止异常。</p>
+<h4 id=""><a href="#" class="headerlink" title=""></a><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5oiR5piv5rOi5ZOp5Liq5rOi,size_16,color_FFFFFF,t_70,g_se,x_16.png" alt="img"></h4><p>异常通常分为两类:受检异常和运行异常.</p>
+<p>受检异常(checked exception)是编译器要求必须处理的异常,否则编译不会通过.一般是一些发生概率非常高的异常.</p>
+<p>运行异常则可处理也可不处理.相对来说一般发生的概率较低.</p>
+<p>注意:虽然叫受检异常,但是编译阶段不会发生异常,因为异常就是new 异常对象,而只有运行时才可new对象,所以所有的异常都是程序运行时产生的.</p>
+<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5oiR5piv5rOi5ZOp5Liq5rOi,size_16,color_FFFFFF,t_70,g_se,x_16-1673792028306-1.png" alt="img"></p>
+<h4 id="8-7-2-Java异常处理机制1-try-catch-finally结构"><a href="#8-7-2-Java异常处理机制1-try-catch-finally结构" class="headerlink" title="8.7.2 Java异常处理机制1: try-catch-finally结构:"></a>8.7.2 Java异常处理机制1: try-catch-finally结构:</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line">语法格式：</span><br><span class="line">    try&#123;</span><br><span class="line">        ...... //可能产生异常的代码</span><br><span class="line">    &#125;</span><br><span class="line">    catch( ExceptionName1 e )&#123;</span><br><span class="line">        ...... //当产生ExceptionName1型异常时的处置措施</span><br><span class="line">    &#125;</span><br><span class="line">    catch( ExceptionName2 e )&#123;</span><br><span class="line">        ...... //当产生ExceptionName2型异常时的处置措施</span><br><span class="line">    &#125;</span><br><span class="line">    [ finally&#123;</span><br><span class="line">        ...... //无论是否发生异常，都无条件执行的语句</span><br><span class="line">    &#125; ]</span><br><span class="line"> </span><br><span class="line">语法解释：</span><br><span class="line">    try：</span><br><span class="line">        捕获异常的第一步是用try&#123;…&#125;语句块选定捕获异常的范围，将可能出现异常的代码放在try语句块中。</span><br><span class="line">        如果发生异常，则尝试去匹配catch块，catch块可以有多个（因为try块可以出现多个不同类型异常）;</span><br><span class="line">        如果执行完try不管有没有发生异常，则接着去执行finally块和finally后面的代码（如果有的话）。			</span><br><span class="line">    catch (Exceptiontype e)：</span><br><span class="line">        在catch语句块中是对异常对象进行处理的代码。每个try语句块可以伴随一个或多个catch语句，用于处理可能产生的不同类型的异常对象。</span><br><span class="line">        每一个catch块用于捕获并处理一个特定的异常，或者这异常类型的子类。Java可以将多个异常声明在一个catch中。 catch(Exception1 | Exception2 | Exception3 e)</span><br><span class="line">        catch后面的括号定义了异常类型和异常参数。如果异常与之匹配且是最先匹配到的，则虚拟机将使用这个catch块来处理异常。</span><br><span class="line">        在catch块中可以使用这个块的异常参数来获取异常的相关信息。异常参数是这个catch块中的局部变量，其它块不能访问。与其它对象一样，可以访问一个异常对象的成员变量或调用它的方法。</span><br><span class="line">            ①、getMessage() 获取异常信息，返回字符串。</span><br><span class="line">            ②、printStackTrace() 获取异常类名和异常信息，以及异常出现在程序中的位置。返回值void。</span><br><span class="line">        如果当前try块中发生的异常在后续的所有catch中都没捕获到，则先去执行finally，然后到这个函数的外部caller中去匹配异常处理器。</span><br><span class="line">        如果try中没有发生异常，则所有的catch块将被忽略。</span><br><span class="line">        注意：如果明确知道产生的是何种异常，可以用该异常类作为catch的参数；也可以用其父类作为catch的参数。比如：可以用 ArithmeticException 类作为参数的地方，就可以用RuntimeException类作为参数，或者用所有异常的父类Exception类作为参数。但不能是与ArithmeticException类无关的异常，如NullPointerException（catch中的语句将不会执行）。</span><br><span class="line"> </span><br><span class="line">    finally：</span><br><span class="line">        finally块通常是可选的。捕获异常的最后一步是通过finally语句为异常处理提供一个统一的出口，使得在控制流转到程序的其它部分以前，能够对程序的状态作统一的管理。</span><br><span class="line">        不论在try代码块中是否发生了异常事件，catch语句是否执行，catch语句是否有异常，catch语句中是否有return，finally块中的语句都会被执行。</span><br><span class="line">        一个try至少要有一个catch块，否则， 至少要有1个finally块。但是finally不是用来处理异常的，finally不会捕获异常。</span><br><span class="line">        finally主要做一些清理工作，如流的关闭，数据库连接的关闭等。 </span><br></pre></td></tr></table></figure>
+
+<h4 id="8-7-2-Java异常处理机制2-throws结构"><a href="#8-7-2-Java异常处理机制2-throws结构" class="headerlink" title="8.7.2 Java异常处理机制2: throws结构:"></a>8.7.2 Java异常处理机制2: throws结构:</h4><p>Java异常类对象除在程序执行过程中出现异常时由系统自动生成并抛出，也可根据需要使用人工创建并抛出。首先要生成异常类对象，然后通过throw语句实现抛出操作(提交给Java运行环境)。<br>throw exceptionObject 程序员也可以通过throw语句手动显式的抛出一个异常。throw语句的后面可以抛出的异常必须是Throwable或其子类的实例。throw 语句必须写在函数中，执行throw 语句的地方就是一个异常抛出点，它和由JRE自动形成的异常抛出点没有任何差别。</p>
+<p>抛出的异常可以被调用这个方法的方法所捕获,多用于层层嵌套的调用方法的中间环节.比如shiro验证过程中,JWTFilter使用了myRealm进行token的验证,而如果验证出现问题,myRealm会抛出异常,然后会被调用它的JWTFilter所捕获,从而进行下一步的操作.</p>
+<h4 id="8-7-3-Springboot异常处理"><a href="#8-7-3-Springboot异常处理" class="headerlink" title="8.7.3 Springboot异常处理:"></a>8.7.3 Springboot异常处理:</h4><p>Springboot对异常的处理内置了多种方式,比较好用的是使用全局异常处理:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line">import lombok.extern.slf4j.Slf4j;</span><br><span class="line">import org.springframework.stereotype.Component;</span><br><span class="line">import org.springframework.web.bind.MethodArgumentNotValidException;</span><br><span class="line">import org.springframework.web.bind.annotation.ExceptionHandler;</span><br><span class="line">import org.springframework.web.bind.annotation.RestController;</span><br><span class="line">import org.springframework.web.bind.annotation.RestControllerAdvice;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">//方法增强,只有@RsetController注解下的方法才会调用这个异常处理模式</span><br><span class="line">@RestControllerAdvice(annotations = RestController.class)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">//这个注解开启日志功能</span><br><span class="line">@Slf4j</span><br><span class="line"></span><br><span class="line">//这个注解注入到spring容器</span><br><span class="line">@Component</span><br><span class="line"></span><br><span class="line">public class GlobalExpectionHandler &#123;</span><br><span class="line"></span><br><span class="line">    @ExceptionHandler(MethodArgumentNotValidException.class)</span><br><span class="line">    //处理参数效验的异常</span><br><span class="line">    public Result handMethodArgumentNotValidException(MethodArgumentNotValidException e)&#123;</span><br><span class="line">        </span><br><span class="line">        //把异常对象e的message变成字符串,在日志上输出</span><br><span class="line">        log.error(&quot;参数效验异常!&quot;,e);</span><br><span class="line">        </span><br><span class="line">        //给前端返回结果</span><br><span class="line">        return new Result(401,e.getMessage(),null);</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="8-8-shiro-jwt实现权限验证"><a href="#8-8-shiro-jwt实现权限验证" class="headerlink" title="8.8 :shiro+jwt实现权限验证:"></a>8.8 :shiro+jwt实现权限验证:</h2><h3 id="8-8-1-shiro介绍"><a href="#8-8-1-shiro介绍" class="headerlink" title="8.8.1: shiro介绍:"></a>8.8.1: shiro介绍:</h3><p>shiro是一个java的安全框架,用于身份验证,授权,密码,会话管理等功能.能储存用户的登录凭证:session等,同时使用过滤器(filter)</p>
+<p>对每个http请求进行过滤(根据接口和权限等信息限制访问).</p>
+<p>shiro由三大部分组成:</p>
+<p>(1)subject:当前操作的用户</p>
+<p>(2)securitymanager:管理内部组件的实例,提供认证和授权的服务.</p>
+<p>(3)realm:领域,是shiro和数据之间的连接器,相当与框架里的数据库.</p>
+<h3 id="8-8-2-jwt介绍"><a href="#8-8-2-jwt介绍" class="headerlink" title="8.8.2: jwt介绍:"></a>8.8.2: jwt介绍:</h3><p>jwt是json web token的缩写,是目前最流行的跨域身份认证解决方案.本质上是一个特殊的字符串.</p>
+<p>由三部分组成:header(头部),payload(负载),signature(签名).</p>
+<p>(1): header:</p>
+<p>{</p>
+<p> “alg”: 表明签名所使用的算法,一般为hs256.</p>
+<p> “typ”: 令牌的类型,一般为”JWT”</p>
+<p>}</p>
+<p>(2): payload:</p>
+<p>这七个字段都是可选的,并没有个数限制.</p>
+<p>{</p>
+<p> “iss”: 发行</p>
+<p> “exp”: 到期时间</p>
+<p> “sub”: 主题</p>
+<p> “aud”: 用户</p>
+<p> “nbf”: 在此之前不可以用</p>
+<p> “iat”: 发布时间</p>
+<p> “jti”: JWT id</p>
+<p>}</p>
+<p>这两个部分用base64算法变成两个字符串,由于算法是已知的,故任何人都会对其进行解密,所以不能在里面存储敏感的信息.</p>
+<p>(3): signature:签名哈希</p>
+<p>生成这部分需要(1)和(2)部分的两个字符串,还需要一个秘钥,储存在服务器中.通过(1)中指定的签名算法,生成第三部分.</p>
+<p>第三部分的作用是检验token有没有被篡改.</p>
+<p>由于哈希是不可逆的,所以真正进行验证时,会用算法解密前两部分,然后用得到的算法和存储在服务器端的秘钥重新进行加密得到第三部分,然后与客户端所传来的数据进行对比,如果相同就验证成功,如果不同就验证失败.</p>
+<h3 id="8-8-3-cookie-session和token"><a href="#8-8-3-cookie-session和token" class="headerlink" title="8.8.3: cookie,session和token:"></a>8.8.3: cookie,session和token:</h3><p>(1)首先我们要知道,网页有静态网页和动态网页之分.静态网页由html编写,网页上所有的内容都已经被指定好了,不能灵活的显示内容,无法根据传入的参数实现动态的变化.而动态网页可以动态的解析参数,从而呈现不同的内容.</p>
+<p>(2)无状态http:</p>
+<p>一般的网页是由客户端发送请求给服务器,服务器解析请求后返回客户端,中间浏览器不会记录htpp的状态,从而导致很多时候出现浪费资源的问题,比如相应内容的重复问题,导致资源的浪费,为了解决这个问题,就开发出了可以维持浏览器状态的技术.</p>
+<p>(3)session和cookie:</p>
+<p>session:回话,储存在服务器端.</p>
+<p>cookie:储存在客户端本地的数据</p>
+<p>当客户端第一次请求服务器时,服务器解析请求的同时会建立session,同时返回响应给客户端,客户端储存cookie保存在本地.</p>
+<p>当客户端再次访问服务器时,客户端带着cookie请求发送给服务器,服务器根据cookie找到自己所维护的session,通过解析session判断客户端状态从而发送响应的数据.</p>
+<p>但是这种机制有很多问题,首先是服务器要维护用户的session,浪费了部分的资源,而且当后端系统使用负载均衡设计时(同一个系统分布在多台不同的服务器上),若用户在a节点成功登陆,那么他的session存储在a中,当用户在一次登陆时被分配到b节点,而b节点没有存储用户的相关信息,那么用户只能重新登录,这种体验非常不好.所以,jwt应运而生.</p>
+<p>(4)jwt处理机制:</p>
+<p>当客户端第一次发送请求时,服务器会做出响应,然后把状态信息加密成一个字符串,这就是token,然后把这个token传给客户端,并由客户端本地保存.客户端以后发送请求时携带token,由服务器解析token,并得到相应的状态.然后返回响应的数据.</p>
+<p>这种机制把”传递数据”变成了”传递方法”,巧妙地解决了cookie-session这种状态维持的方式所带来的种种问题.</p>
+<h3 id="8-8-4-在springboot中使用shiro-jwt"><a href="#8-8-4-在springboot中使用shiro-jwt" class="headerlink" title="8.8.4: 在springboot中使用shiro+jwt:"></a>8.8.4: 在springboot中使用shiro+jwt:</h3><h4 id="8-8-4-1-导入依赖"><a href="#8-8-4-1-导入依赖" class="headerlink" title="8.8.4.1: 导入依赖:"></a>8.8.4.1: 导入依赖:</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">&lt;!-- https://mvnrepository.com/artifact/com.auth0/java-jwt --&gt;</span><br><span class="line">&lt;dependency&gt;</span><br><span class="line">    &lt;groupId&gt;com.auth0&lt;/groupId&gt;</span><br><span class="line">    &lt;artifactId&gt;java-jwt&lt;/artifactId&gt;</span><br><span class="line">    &lt;version&gt;3.18.3&lt;/version&gt;</span><br><span class="line">&lt;/dependency&gt;</span><br><span class="line">&lt;!-- https://mvnrepository.com/artifact/org.apache.shiro/shiro-spring --&gt;</span><br><span class="line">&lt;dependency&gt;</span><br><span class="line">    &lt;groupId&gt;org.apache.shiro&lt;/groupId&gt;</span><br><span class="line">    &lt;artifactId&gt;shiro-spring&lt;/artifactId&gt;</span><br><span class="line">    &lt;version&gt;1.9.0&lt;/version&gt;</span><br><span class="line">&lt;/dependency&gt;</span><br></pre></td></tr></table></figure>
+
+<h4 id="8-8-4-2-建立JWTUtil类"><a href="#8-8-4-2-建立JWTUtil类" class="headerlink" title="8.8.4.2: 建立JWTUtil类:"></a>8.8.4.2: 建立JWTUtil类:</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br></pre></td><td class="code"><pre><span class="line">package com.chen.internetplus.config;</span><br><span class="line">import com.auth0.jwt.JWT;</span><br><span class="line">import com.auth0.jwt.JWTVerifier;</span><br><span class="line">import com.auth0.jwt.algorithms.Algorithm;</span><br><span class="line">import com.auth0.jwt.exceptions.JWTDecodeException;</span><br><span class="line">import com.auth0.jwt.interfaces.DecodedJWT;</span><br><span class="line">import com.chen.internetplus.pojo.User;</span><br><span class="line">import java.io.UnsupportedEncodingException;</span><br><span class="line">import java.util.Date;</span><br><span class="line">import java.util.HashMap;</span><br><span class="line">import java.util.Map;</span><br><span class="line"></span><br><span class="line">public class JWTUtil &#123;</span><br><span class="line">    //token有效时长:毫秒</span><br><span class="line">    private static final long EXPIRE=7*24*60*60*1000;</span><br><span class="line">    //token的密钥</span><br><span class="line">    private static final String SECRET=&quot;InternetPlus&quot;;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    public static String createToken(User user) throws UnsupportedEncodingException &#123;</span><br><span class="line">        //token过期时间</span><br><span class="line">        Date date=new Date(System.currentTimeMillis()+EXPIRE);</span><br><span class="line"></span><br><span class="line">        //jwt的header部分</span><br><span class="line">        Map&lt;String ,Object&gt;map=new HashMap&lt;&gt;();</span><br><span class="line">        map.put(&quot;alg&quot;,&quot;HS256&quot;);</span><br><span class="line">        map.put(&quot;typ&quot;,&quot;JWT&quot;);</span><br><span class="line"></span><br><span class="line">        //使用jwt的api生成token</span><br><span class="line">        String token= JWT.create()</span><br><span class="line">                .withHeader(map)</span><br><span class="line">                .withClaim(&quot;username&quot;, user.getUsername())//私有声明</span><br><span class="line">                .withExpiresAt(date)//过期时间</span><br><span class="line">                .withIssuedAt(new Date())//签发时间</span><br><span class="line">                .sign(Algorithm.HMAC256(SECRET));//签名</span><br><span class="line">        return token;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    //校验token的有效性，1、token的header和payload是否没改过；2、没有过期</span><br><span class="line">    public static boolean verify(String token)&#123;</span><br><span class="line">        try &#123;</span><br><span class="line">            //解密</span><br><span class="line">            JWTVerifier verifier=JWT.require(Algorithm.HMAC256(SECRET)).build();</span><br><span class="line">            verifier.verify(token);</span><br><span class="line">            return true;</span><br><span class="line">        &#125;catch (Exception e)&#123;</span><br><span class="line">            return false;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    //无需解密也可以获取token的信息</span><br><span class="line">    public static String getUsername(String token)&#123;</span><br><span class="line">        try &#123;</span><br><span class="line">            DecodedJWT jwt = JWT.decode(token);</span><br><span class="line">            return jwt.getClaim(&quot;username&quot;).asString();</span><br><span class="line">        &#125; catch (JWTDecodeException e) &#123;</span><br><span class="line">            return null;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>这个类用于处理token的各种操作.</p>
+<h4 id="8-8-4-3-封装token"><a href="#8-8-4-3-封装token" class="headerlink" title="8.8.4.3: 封装token"></a>8.8.4.3: 封装token</h4><p>把token这个字符串封装成一个类:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">package com.chen.internetplus.config;</span><br><span class="line"></span><br><span class="line">import org.apache.shiro.authc.AuthenticationToken;</span><br><span class="line">//封装token</span><br><span class="line">//shiro并不能够识别字符串的token(就是由JWTUtil中creatToken方法生成的),故要把这个字符串做成一个类</span><br><span class="line">public class JWTToken implements AuthenticationToken &#123;</span><br><span class="line">    private String token;</span><br><span class="line"></span><br><span class="line">    public  JWTToken(String token)&#123;</span><br><span class="line">        this.token = token;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    @Override</span><br><span class="line">    public Object getPrincipal() &#123;</span><br><span class="line">        return token;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    @Override</span><br><span class="line">    public Object getCredentials() &#123;</span><br><span class="line">        return token;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">/**</span><br><span class="line"> * @author: lhy</span><br><span class="line"> * 自定义的shiro接口token，可以通过这个类将string的token转型成AuthenticationToken，可供shiro使用</span><br><span class="line"> * 注意：需要重写getPrincipal和getCredentials方法，因为是进行三件套处理的，没有特殊配置shiro无法通过这两个方法获取到用户名和密码，需要直接返回token，之后交给JwtUtil去解析获取。（当然了，可以对realm进行配</span><br><span class="line">置HashedCredentialsMatcher，这里就不这么处理了）</span><br><span class="line"> */</span><br></pre></td></tr></table></figure>
+
+<h4 id="8-8-4-4-编写JwtFilter过滤器"><a href="#8-8-4-4-编写JwtFilter过滤器" class="headerlink" title="8.8.4.4:编写JwtFilter过滤器:"></a>8.8.4.4:编写JwtFilter过滤器:</h4><p>用于筛选http请求,对不同的请求进行不同的操作.</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br></pre></td><td class="code"><pre><span class="line">package com.chen.internetplus.config;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">//过滤器:用于更加精确地筛选http请求</span><br><span class="line"></span><br><span class="line">import com.chen.internetplus.pojo.Result;</span><br><span class="line">import com.fasterxml.jackson.databind.ObjectMapper;</span><br><span class="line">import org.apache.shiro.authc.AuthenticationException;</span><br><span class="line">import org.apache.shiro.authc.ExpiredCredentialsException;</span><br><span class="line">import org.apache.shiro.web.filter.authc.BasicHttpAuthenticationFilter;</span><br><span class="line">import org.apache.shiro.web.util.WebUtils;</span><br><span class="line">import org.springframework.stereotype.Component;</span><br><span class="line">import javax.servlet.ServletRequest;</span><br><span class="line">import javax.servlet.ServletResponse;</span><br><span class="line">import javax.servlet.http.HttpServletRequest;</span><br><span class="line">import javax.servlet.http.HttpServletResponse;</span><br><span class="line">import java.io.IOException;</span><br><span class="line"></span><br><span class="line">@Component</span><br><span class="line">//用这个注解把这个类注入到spring容器中</span><br><span class="line">public class JWTFilter extends BasicHttpAuthenticationFilter &#123;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    //这个方法的作用是判断请求头是否含有token</span><br><span class="line">    @Override</span><br><span class="line">    protected boolean isLoginAttempt(ServletRequest request, ServletResponse response) &#123;</span><br><span class="line">        System.out.println(&quot;isLoginAttempt&quot;);</span><br><span class="line">        HttpServletRequest req= (HttpServletRequest) request;</span><br><span class="line">        String token=req.getHeader(&quot;Authorization&quot;);</span><br><span class="line">        return token!=null;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    @Override</span><br><span class="line">    protected boolean isAccessAllowed(ServletRequest request, ServletResponse response, Object mappedValue) &#123;</span><br><span class="line">        //判断请求的请求头是否带上 &quot;Token&quot;</span><br><span class="line">        if (isLoginAttempt(request, response)) &#123;</span><br><span class="line">            String token = null;</span><br><span class="line">            try &#123;</span><br><span class="line">                HttpServletRequest req = (HttpServletRequest) request;</span><br><span class="line">                token = req.getHeader(&quot;Authorization&quot;);</span><br><span class="line">                JWTToken jwt = new JWTToken(token);</span><br><span class="line">                //交给自定义的realm对象去登录，如果错误他会抛出异常并被捕获</span><br><span class="line">                getSubject(request, response).login(jwt);</span><br><span class="line">                return true;</span><br><span class="line">            &#125; catch (ExpiredCredentialsException e) &#123;</span><br><span class="line">                Result result = Result.error(500,&quot;Token认证失败!&quot;);</span><br><span class="line">                try &#123;</span><br><span class="line">                    out(response, result);</span><br><span class="line">                &#125; catch (IOException ex) &#123;</span><br><span class="line">                    ex.printStackTrace();</span><br><span class="line">                &#125;</span><br><span class="line">                return false;</span><br><span class="line">            &#125; catch (AuthenticationException e) &#123;</span><br><span class="line">                Result result = Result.error(500,&quot;Token错误!用户不存在!&quot;);</span><br><span class="line">                try &#123;</span><br><span class="line">                    out(response, result);</span><br><span class="line">                &#125; catch (IOException ex) &#123;</span><br><span class="line">                    ex.printStackTrace();</span><br><span class="line">                &#125;</span><br><span class="line">                return false;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        //token不存在</span><br><span class="line">        Result result = Result.error(500,&quot;无token,请重新登录!&quot;);</span><br><span class="line">        try &#123;</span><br><span class="line">            out(response,result);</span><br><span class="line">        &#125; catch (IOException e) &#123;</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        &#125;</span><br><span class="line">        return false;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    /**</span><br><span class="line">     * json形式返回结果token验证失败信息，无需转发</span><br><span class="line">     */</span><br><span class="line">    private void out(ServletResponse response, Result res) throws IOException &#123;</span><br><span class="line">        HttpServletResponse httpServletResponse = WebUtils.toHttp(response);</span><br><span class="line">        ObjectMapper mapper = new ObjectMapper();</span><br><span class="line">        String jsonRes = mapper.writeValueAsString(res);</span><br><span class="line">        httpServletResponse.setCharacterEncoding(&quot;UTF-8&quot;);</span><br><span class="line">        httpServletResponse.setContentType(&quot;application/json; charset=utf-8&quot;);</span><br><span class="line">        httpServletResponse.getOutputStream().write(jsonRes.getBytes());</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="8-8-4-5-编写realm对象"><a href="#8-8-4-5-编写realm对象" class="headerlink" title="8.8.4.5: 编写realm对象:"></a>8.8.4.5: 编写realm对象:</h4><p>用于验证登录状态是否正确.</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br></pre></td><td class="code"><pre><span class="line">package com.chen.internetplus.config;</span><br><span class="line"></span><br><span class="line">import com.chen.internetplus.pojo.User;</span><br><span class="line">import com.chen.internetplus.service.UserService;</span><br><span class="line">import org.apache.shiro.SecurityUtils;</span><br><span class="line">import org.apache.shiro.authc.*;</span><br><span class="line">import org.apache.shiro.authz.AuthorizationInfo;</span><br><span class="line">import org.apache.shiro.realm.AuthorizingRealm;</span><br><span class="line">import org.apache.shiro.subject.PrincipalCollection;</span><br><span class="line">import org.springframework.beans.factory.annotation.Autowired;</span><br><span class="line">//realm:是shiro两大功能:认证和授权的入口,通过自定义realm,对认证和授权功能进行自定义处理</span><br><span class="line">public class MyRealm extends AuthorizingRealm&#123;</span><br><span class="line"></span><br><span class="line">    @Autowired</span><br><span class="line">    UserService userService;</span><br><span class="line"></span><br><span class="line">    //添加注解支持:限定这个realm只能处理JWTToken,不加的话会报错</span><br><span class="line">    @Override</span><br><span class="line">    public boolean supports(AuthenticationToken token)&#123;</span><br><span class="line">        return token instanceof JWTToken;</span><br><span class="line">    &#125;</span><br><span class="line">    //认证</span><br><span class="line">    @Override</span><br><span class="line">    protected AuthenticationInfo doGetAuthenticationInfo(AuthenticationToken token) throws AuthenticationException &#123;</span><br><span class="line">        //从刚才封装的JWTToken中重新取出token</span><br><span class="line">        String jwt= (String) token.getCredentials();</span><br><span class="line"></span><br><span class="line">        //验证token</span><br><span class="line">        if (!JWTUtil.verify(jwt))&#123;</span><br><span class="line">            throw new ExpiredCredentialsException(&quot;token认证失效，token错误或者过期，重新登陆&quot;);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        //获取用户名</span><br><span class="line">        String username= JWTUtil.getUsername(jwt);</span><br><span class="line"></span><br><span class="line">        //获取用户</span><br><span class="line">        User user=userService.getUser(username);</span><br><span class="line">        if (user==null)&#123;</span><br><span class="line">            throw new AuthenticationException(&quot;该用户不存在&quot;);</span><br><span class="line">        &#125;</span><br><span class="line">    //对于获取不到对象的问题,网上搜索栏了很多种方法,这是其中一种,但未解决问题</span><br><span class="line">        SecurityUtils.getSubject().getSession().setAttribute(&quot;User&quot;, user);</span><br><span class="line">    //return new SimpleAuthenticationInfo(jwt,jwt,&quot;MyRealm&quot;);</span><br><span class="line">    //当把第一个参数从jwt变成user对象时,就可以获取当前用户了</span><br><span class="line">        return new SimpleAuthenticationInfo(user,jwt,&quot;MyRealm&quot;);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    //授权</span><br><span class="line">    @Override</span><br><span class="line">    protected AuthorizationInfo doGetAuthorizationInfo(PrincipalCollection principalCollection) &#123;</span><br><span class="line">        return null;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="8-8-4-6-编写shiro配置"><a href="#8-8-4-6-编写shiro配置" class="headerlink" title="8.8.4.6: 编写shiro配置:"></a>8.8.4.6: 编写shiro配置:</h4><p>最终配置,调用所有组件的地方.</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br></pre></td><td class="code"><pre><span class="line">package com.chen.internetplus.config;</span><br><span class="line"></span><br><span class="line">import com.chen.internetplus.config.JWTFilter;</span><br><span class="line">import com.chen.internetplus.config.MyRealm;</span><br><span class="line">import org.apache.shiro.mgt.DefaultSessionStorageEvaluator;</span><br><span class="line">import org.apache.shiro.mgt.DefaultSubjectDAO;</span><br><span class="line">import org.apache.shiro.spring.security.interceptor.AuthorizationAttributeSourceAdvisor;</span><br><span class="line">import org.apache.shiro.spring.web.ShiroFilterFactoryBean;</span><br><span class="line">import org.apache.shiro.web.mgt.DefaultWebSecurityManager;</span><br><span class="line">import org.springframework.beans.factory.annotation.Qualifier;</span><br><span class="line">import org.springframework.context.annotation.Bean;</span><br><span class="line">import org.springframework.context.annotation.Configuration;</span><br><span class="line">import java.util.HashMap;</span><br><span class="line">import java.util.LinkedHashMap;</span><br><span class="line">import java.util.Map;</span><br><span class="line">import javax.servlet.Filter;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">@Configuration</span><br><span class="line">public class</span><br><span class="line">ShiroConfig &#123;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    //1.创建realm对象</span><br><span class="line">    @Bean</span><br><span class="line">    public MyRealm myRealm()&#123;</span><br><span class="line">        return new MyRealm();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    //2.SecurityManager</span><br><span class="line">    @Bean(name = &quot;securityManager&quot;)</span><br><span class="line">    public DefaultWebSecurityManager securityManager(MyRealm myRealm)&#123;</span><br><span class="line">        DefaultWebSecurityManager securityManager=new DefaultWebSecurityManager();</span><br><span class="line">        // 设置自定义 realm.</span><br><span class="line">        securityManager.setRealm(myRealm);</span><br><span class="line">        //关闭session</span><br><span class="line">        DefaultSubjectDAO subjectDAO=new DefaultSubjectDAO();</span><br><span class="line">        DefaultSessionStorageEvaluator sessionStorageEvaluator=new DefaultSessionStorageEvaluator();</span><br><span class="line">        sessionStorageEvaluator.setSessionStorageEnabled(false);</span><br><span class="line">        subjectDAO.setSessionStorageEvaluator(sessionStorageEvaluator);</span><br><span class="line">        securityManager.setSubjectDAO(subjectDAO);</span><br><span class="line">        return securityManager;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    //创建ShiroFilter（用于拦截所有请求，对受限资源进行Shiro的认证和授权判断）</span><br><span class="line">    //Shiro提供了丰富的过滤器（anon等），不过在这里就需要加入我们自定义的JwtFilter了</span><br><span class="line">    //3.配置过滤器</span><br><span class="line">    @Bean</span><br><span class="line">    public ShiroFilterFactoryBean factory(@Qualifier(&quot;securityManager&quot;)DefaultWebSecurityManager securityManager)&#123;</span><br><span class="line">        ShiroFilterFactoryBean factoryBean=new ShiroFilterFactoryBean();</span><br><span class="line">        //设置安全管理器</span><br><span class="line">        factoryBean.setSecurityManager(securityManager);</span><br><span class="line"></span><br><span class="line">        //设置我们自定义的JWT过滤器,并注册JWTFilter到ShiroFilterFactoryBean中</span><br><span class="line">        Map&lt;String, Filter&gt; filterMap=new LinkedHashMap&lt;&gt;();</span><br><span class="line">        filterMap.put(&quot;jwt&quot;,new JWTFilter());</span><br><span class="line">        factoryBean.setFilters(filterMap);</span><br><span class="line"></span><br><span class="line">        //配置系统的受限资源以及对应的过滤器</span><br><span class="line">        Map&lt;String, String&gt; ruleMap = new HashMap&lt;&gt;();</span><br><span class="line">        ruleMap.put(&quot;/activity/createActivity&quot;,&quot;jwt&quot;);</span><br><span class="line">        ruleMap.put(&quot;/activity/myActivity&quot;,&quot;jwt&quot;);</span><br><span class="line">        ruleMap.put(&quot;/activity/approveActivity&quot;,&quot;jwt&quot;);</span><br><span class="line">        ruleMap.put(&quot;/activity/lottery&quot;,&quot;jwt&quot;);</span><br><span class="line">        ruleMap.put(&quot;/activity/show&quot;,&quot;jwt&quot;);</span><br><span class="line">        ruleMap.put(&quot;/activity/change&quot;,&quot;jwt&quot;);</span><br><span class="line">        ruleMap.put(&quot;/activity/add&quot;,&quot;jwt&quot;);</span><br><span class="line">        ruleMap.put(&quot;/user/getuser&quot;,&quot;jwt&quot;);</span><br><span class="line">        ruleMap.put(&quot;/user/changenickname&quot;,&quot;jwt&quot;);</span><br><span class="line">        ruleMap.put(&quot;/**&quot;,&quot;anon&quot;);</span><br><span class="line">        factoryBean.setFilterChainDefinitionMap(ruleMap);</span><br><span class="line">        return factoryBean;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    /**</span><br><span class="line">     * 开启对 Shiro 注解的支持</span><br><span class="line">     */</span><br><span class="line">    @Bean</span><br><span class="line">    public AuthorizationAttributeSourceAdvisor authorizationAttributeSourceAdvisor(DefaultWebSecurityManager securityManager) &#123;</span><br><span class="line">        AuthorizationAttributeSourceAdvisor advisor = new AuthorizationAttributeSourceAdvisor();</span><br><span class="line">        advisor.setSecurityManager(securityManager);</span><br><span class="line">        return advisor;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>除了配置拦截器,可以拦截器全部放行,通过注解实现拦截:</p>
+<p>在接口和Controller类上加@RequiresAuthentication注解:需要token</p>
+<p>@RequiresRoles:授权</p>
+<h4 id="8-8-4-7-获取当前登录对象"><a href="#8-8-4-7-获取当前登录对象" class="headerlink" title="8.8.4.7: 获取当前登录对象"></a>8.8.4.7: 获取当前登录对象</h4><p>通过shiro框架可以根据token直接获得当前对象,不需要每次调用接口都传入用户名等信息.</p>
+<p>SecurityUtils.getSubject().getPrincipal().</p>
+<h2 id="8-9-lombok"><a href="#8-9-lombok" class="headerlink" title="8.9: lombok:"></a>8.9: lombok:</h2><h3 id="8-9-1-介绍"><a href="#8-9-1-介绍" class="headerlink" title="8.9.1: 介绍:"></a>8.9.1: 介绍:</h3><p>在Java中,封装是一个非常好的机制,最常见的封装莫过于get,set方法了,无论是Intellij idea 还是Eclipse，都提供了快速生成get,set方法的快捷键,使用起来很是方便，其实,我们还有更方便的办法,就是今天的主角-Lombok.</p>
+<p>简而言之,就是帮助我们快速生成重复代码的工具.</p>
+<h3 id="8-9-2-导入依赖"><a href="#8-9-2-导入依赖" class="headerlink" title="8.9.2: 导入依赖:"></a>8.9.2: 导入依赖:</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;dependency&gt;</span><br><span class="line">    &lt;groupId&gt;org.projectlombok&lt;/groupId&gt;</span><br><span class="line">    &lt;artifactId&gt;lombok&lt;/artifactId&gt;</span><br><span class="line">    &lt;version&gt;1.16.12&lt;/version&gt;</span><br><span class="line">&lt;/dependency&gt;</span><br></pre></td></tr></table></figure>
+
+<h3 id="8-9-3-使用"><a href="#8-9-3-使用" class="headerlink" title="8.9.3: 使用:"></a>8.9.3: 使用:</h3><p>Lombok提供注解方式来提高代码的简洁性,常用注解有:</p>
+<ul>
+<li>@Data</li>
+<li>@Setter @Getter</li>
+<li>@NonNull</li>
+<li>@Synchronized</li>
+<li>@ToString</li>
+<li>@EqualsAndHashCode</li>
+<li>@Cleanup</li>
+<li>@SneakyThrows</li>
+</ul>
+<p>下面重点介绍其中几个:</p>
+<p>@Data:相当于同时添加@Setter @Getter,@ToString,@EqualsAndHashCode这些注解,一般在实体类上使用.</p>
+<p>@Setter @Getter:自动为所有属性添加set.get方法.方法名遵循驼峰命名法.</p>
+<p>@NonNull:该注解快速判断是否为空,如果为空,则抛出java.lang.NullPointerException.</p>
+<p>@ToString:自动生成toString()方法:用String的形式去描述一个类</p>
+<h2 id="8-10-Slf4j"><a href="#8-10-Slf4j" class="headerlink" title="8.10: Slf4j:"></a>8.10: Slf4j:</h2><p>使用这个注解,在控制台实现日志的输出.</p>
+<p>使用方法:再类的最上方加上@Slf4j这个注解,然后在代码中直接使用log.方法()就可以在控制台输出日志了,非常的方便.</p>
+<p>slf4j的日志级别分为五种：info、debug、error、warn、trance.</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">info:  一般处理业务逻辑的时候使用，就跟 system.err打印一样，用于说明此处是干什么的。slf4j使用的时候是可以动态的传参的，使用占位符 &#123;&#125; 。后边一次加参数，会挨个对应进去。</span><br><span class="line"></span><br><span class="line">debug: 一般放于程序的某个关键点的地方，用于打印一个变量值或者一个方法返回的信息之类的信息</span><br><span class="line"></span><br><span class="line">error： 用户程序报错，必须解决的时候使用此级别打印日志。</span><br><span class="line">    </span><br><span class="line">warn： 警告，不会影响程序的运行，但是值得注意。</span><br><span class="line"></span><br><span class="line">trance: 一般不会使用，在日志里边也不会打印出来，好像是很低的一个日志级别。</span><br><span class="line"></span><br><span class="line">举个例子:</span><br><span class="line">在类上方添加:</span><br><span class="line">@Slf4j</span><br><span class="line">public class UserController &#123;;&#125;</span><br><span class="line">使用时:</span><br><span class="line">public Integer text()&#123;</span><br><span class="line">        log.info(&quot;这样使用日志.处理一般的业务逻辑,在控制台会显示绿色的info(information的缩写,表示提示信息)标识.&quot;);</span><br><span class="line">        log.error(&quot;这是发生错误时的日志使用方式,在控制台会显示出红色的ERROR标识.);</span><br><span class="line">        log.debug(&quot;这是使用debug的日志使用方式.&quot;);</span><br><span class="line">        log.warn(&quot;这是使用警告的日志使用方式,在控制台会显示出黄色的WARN提示.);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h1 id="9-项目实践"><a href="#9-项目实践" class="headerlink" title="9.项目实践:"></a>9.项目实践:</h1><h2 id="9-1-选课系统"><a href="#9-1-选课系统" class="headerlink" title="9.1: 选课系统:"></a>9.1: 选课系统:</h2><h3 id="9-1-1-介绍"><a href="#9-1-1-介绍" class="headerlink" title="9.1.1: 介绍:"></a>9.1.1: 介绍:</h3><p>第一个springboot项目,作为werun实验室的考核大作业.</p>
+<h3 id="9-1-2-技术"><a href="#9-1-2-技术" class="headerlink" title="9.1.2: 技术:"></a>9.1.2: 技术:</h3><h4 id="9-1-2-1-find-in-set"><a href="#9-1-2-1-find-in-set" class="headerlink" title="9.1.2.1: find in set:"></a>9.1.2.1: find in set:</h4><p>FIND_IN_SET(str,strlist)</p>
+<p>str 要查询的字符串,strlist 字段名 参数以”,”分隔 如 (1,2,6,8),查询字段(strlist)中包含(str)的结果，返回结果为null或记录假如字符串str在由N个子链组成的字符串列表strlist 中，则返回值的范围在 1 到 N 之间。 一个字符串列表就是一个由一些被 ‘,’ 符号分开的子链组成的字符串。如果第一个参数是一个常数字符串，而第二个是type SET列，则FIND_IN_SET() 函数被优化，使用比特计算。 如果str不在strlist 或strlist 为空字符串，则返回值为 0 。如任意一个参数为NULL，则返回值为 NULL。这个函数在第一个参数包含一个逗号(‘,’)时将无法正常运行。</p>
+<p>例子:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">@Query(value = &quot;SELECT * FROM Course WHERE FIND_IN_SET(&#x27;已通过&#x27;,status)&quot;)</span><br><span class="line">List&lt;Course&gt; findAllByStatus(String status);</span><br></pre></td></tr></table></figure>
+
+<p>这个函数适用于这种情况:</p>
+<p>比如一个字段是一个字符串列表: 1,2,3,还有另一个记录的该字段值是:1,22,33,若用like进行搜索,则会搜索到这两条记录,但是如果用这个函数就只能搜索到第一条记录,作为一种特殊的搜索方式.</p>
+<h4 id="9-1-2-2-分页"><a href="#9-1-2-2-分页" class="headerlink" title="9.1.2.2: 分页:"></a>9.1.2.2: 分页:</h4><p>功能举例如下:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">@GetMapping(&quot;/administrator/query&quot;)</span><br><span class="line">//教务功能:查看所有课程</span><br><span class="line">//通过分页的方式呈现,不进行排序所以去掉sort参数</span><br><span class="line">// pageNum是指查询页,默认从0开始</span><br><span class="line">// pageSize是每页的期望行数,设置为10</span><br><span class="line">public Page&lt;Course&gt; administratorQuery(@RequestParam(name = &quot;pageNum&quot;, defaultValue = &quot;0&quot;) Integer pageNum,</span><br><span class="line">                         @RequestParam(name = &quot;pageSize&quot;, defaultValue = &quot;10&quot;) Integer pageSize)&#123;</span><br><span class="line">PageRequest of = PageRequest.of(pageNum, pageSize);</span><br><span class="line">    Page&lt;Course&gt; courses = courseRepository.findAll(of);</span><br><span class="line">    return courses;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="9-2-云端笔记"><a href="#9-2-云端笔记" class="headerlink" title="9.2: 云端笔记:"></a>9.2: 云端笔记:</h2><h3 id="9-2-1-介绍"><a href="#9-2-1-介绍" class="headerlink" title="9.2.1: 介绍:"></a>9.2.1: 介绍:</h3><p>作为加入实验室后的考核项目,第一次与前端的同学进行合作和对接.</p>
+<h3 id="9-2-2-技术"><a href="#9-2-2-技术" class="headerlink" title="9.2.2: 技术:"></a>9.2.2: 技术:</h3><h4 id="9-2-2-1-项目设计过程"><a href="#9-2-2-1-项目设计过程" class="headerlink" title="9.2.2.1: 项目设计过程:"></a>9.2.2.1: 项目设计过程:</h4><p>数据库表设计-实体类设计-服务层设计-接口设计(根据原型图)</p>
+<h4 id="9-2-2-2-封装service"><a href="#9-2-2-2-封装service" class="headerlink" title="9.2.2.2: 封装service:"></a>9.2.2.2: 封装service:</h4><p>写service层,在里面实现接口,同时写serviceimpl层进行接口的实现,这样做的好处是在项目需求发生变化时,只需要重新建立serviceimpl,不用修改所有的代码,符合开闭原则(程序对修改关闭,对增添开放)</p>
+<p>具体操作:</p>
+<p>(1)：在service层中写接口：</p>
+<p>public interface NoteService {</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Result&lt;String&gt; addNote(String name, String username, String status, String describe, String content, String type);</span><br><span class="line">Result&lt;List&lt;Note&gt;&gt; noteList(String username);</span><br></pre></td></tr></table></figure>
+
+<p>}</p>
+<p>(2): 在serviceimpl类中实现service接口,同时加@service注解.</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br></pre></td><td class="code"><pre><span class="line">package com.example.serviceImp;</span><br><span class="line"></span><br><span class="line">import com.example.dao.NoteRepository;</span><br><span class="line">import com.example.dao.TypeRepository;</span><br><span class="line">import com.example.entity.Note;</span><br><span class="line">import com.example.entity.Type;</span><br><span class="line">import com.example.service.NoteService;</span><br><span class="line">import com.example.util.Result;</span><br><span class="line">import org.springframework.beans.factory.annotation.Autowired;</span><br><span class="line">import org.springframework.stereotype.Service;</span><br><span class="line">import javax.transaction.Transactional;</span><br><span class="line">import java.text.SimpleDateFormat;</span><br><span class="line">import java.util.Date;</span><br><span class="line">import java.util.List;</span><br><span class="line"></span><br><span class="line">@Service</span><br><span class="line">@Transactional</span><br><span class="line">public class NoteServiceImp implements NoteService &#123;</span><br><span class="line"></span><br><span class="line">    @Autowired</span><br><span class="line">    private NoteRepository noteRepository;</span><br><span class="line"></span><br><span class="line">    @Autowired</span><br><span class="line">    private TypeRepository typeRepository;</span><br><span class="line"></span><br><span class="line">    @Override</span><br><span class="line">    public Result&lt;String&gt; modifyNote(String name,String username,String status,String describe,String content,String type)&#123;</span><br><span class="line">        //修改笔记</span><br><span class="line">        try&#123;</span><br><span class="line">            //首先找到笔记</span><br><span class="line">            Result&lt;Note&gt; result = note(username, type, name);</span><br><span class="line">            Note note = result.getData();</span><br><span class="line">            if(note == null)&#123;</span><br><span class="line">                return new Result&lt;String&gt;(400,&quot;修改笔记失败!笔记不存在&quot;,null);</span><br><span class="line">            &#125;</span><br><span class="line">            //修改笔记</span><br><span class="line">            note.setNotecontent(content);</span><br><span class="line">            note.setNotedescribe(describe);</span><br><span class="line">            note.setNotestatus(status);</span><br><span class="line">            note.setNotetype(type);</span><br><span class="line">            note.setNotename(name);</span><br><span class="line">            note.setUsername(username);</span><br><span class="line"></span><br><span class="line">            //重新获取时间</span><br><span class="line">            SimpleDateFormat sdf = new SimpleDateFormat();</span><br><span class="line">            sdf.applyPattern(&quot;yyyy-MM-dd&quot;);</span><br><span class="line">            Date date = new Date();</span><br><span class="line">            String data = sdf.format(date);</span><br><span class="line">            note.setNotetime(data);</span><br><span class="line"></span><br><span class="line">            //保存</span><br><span class="line">            noteRepository.save(note);</span><br><span class="line">            return new Result&lt;String&gt;(200,&quot;修改笔记成功!&quot;,null);</span><br><span class="line">        &#125;catch(Exception e)&#123;</span><br><span class="line">            return new Result&lt;String&gt;(500,&quot;修改笔记失败!&quot;,null);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>(3): 在controller类中调用时,注入接口类,内部会自动注入其实现类:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">@Autowired</span><br><span class="line">//写的是注入接口,事实上是注入了实现类</span><br><span class="line">NoteService noteService;</span><br></pre></td></tr></table></figure>
+
+<h2 id="9-3-抗疫志愿者信息化应用平台"><a href="#9-3-抗疫志愿者信息化应用平台" class="headerlink" title="9.3: 抗疫志愿者信息化应用平台:"></a>9.3: 抗疫志愿者信息化应用平台:</h2><h3 id="9-3-1-介绍"><a href="#9-3-1-介绍" class="headerlink" title="9.3.1: 介绍:"></a>9.3.1: 介绍:</h3><p>参加互联网＋创新创业大赛的项目,第一次设计项目,第一次领导项目.</p>
+<h3 id="9-3-2-技术"><a href="#9-3-2-技术" class="headerlink" title="9.3.2: 技术:"></a>9.3.2: 技术:</h3><h4 id="9-3-2-1：注解AOP："><a href="#9-3-2-1：注解AOP：" class="headerlink" title="9.3.2.1：注解AOP："></a>9.3.2.1：注解AOP：</h4><p>通过注解自定义aop进行全局异常处理.再出现异常时,同时实现向前端的返回和向控制台的输出.</p>
+<p>（1）：自定义注解：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">@Retention(RetentionPolicy.RUNTIME)</span><br><span class="line">@Target(&#123;ElementType.TYPE,ElementType.METHOD&#125;)</span><br><span class="line">public @interface BearLogger &#123;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>（2）：自定义切面：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br></pre></td><td class="code"><pre><span class="line">package com.chen.internetplus.utils.manageResult;</span><br><span class="line"></span><br><span class="line">import com.chen.internetplus.pojo.Result;</span><br><span class="line">import org.aspectj.lang.ProceedingJoinPoint;</span><br><span class="line">import org.aspectj.lang.annotation.Around;</span><br><span class="line">import org.aspectj.lang.annotation.Aspect;</span><br><span class="line">import org.aspectj.lang.annotation.Pointcut;</span><br><span class="line">import org.slf4j.ILoggerFactory;</span><br><span class="line">import org.slf4j.Logger;</span><br><span class="line">import org.slf4j.LoggerFactory;</span><br><span class="line">import org.springframework.core.DefaultParameterNameDiscoverer;</span><br><span class="line">import org.springframework.core.ParameterNameDiscoverer;</span><br><span class="line">import org.springframework.stereotype.Component;</span><br><span class="line"></span><br><span class="line">import java.lang.reflect.Method;</span><br><span class="line">import java.util.HashMap;</span><br><span class="line"></span><br><span class="line">@Aspect</span><br><span class="line">@Component//注意一定要将此切面设入spring容器中，否则无法调用进行方法增强</span><br><span class="line">public class MyPointcuts &#123;</span><br><span class="line">    @Pointcut(&quot;@annotation(BearLogger)&quot;)</span><br><span class="line">    public void logBefore()&#123;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">//    @Around(&quot;@annotation(BearLogger)&quot;)</span><br><span class="line">//    通过这个注解进行环绕，这样在想使用这个的地方加上这个注解即可.</span><br><span class="line">    @Around(&quot;execution(* com.chen.internetplus.controller.*.*(..))&quot;)</span><br><span class="line">    //可以用 @Around(&quot;execution(* com.chen.studyaop.controllers.HelloController.*(..))&quot;)指定某个类下所有方法</span><br><span class="line">    private Result bearLog(ProceedingJoinPoint joinPoint) &#123;</span><br><span class="line">        ILoggerFactory loggerFactory = LoggerFactory.getILoggerFactory();</span><br><span class="line">        Logger logger = loggerFactory.getLogger(&quot;&quot;);</span><br><span class="line">        try &#123;</span><br><span class="line"></span><br><span class="line">            String classType = joinPoint.getTarget().getClass().getName();</span><br><span class="line">            String methodName = joinPoint.getSignature().getName();</span><br><span class="line">            // 参数</span><br><span class="line">            Object[] args = joinPoint.getArgs();</span><br><span class="line">            Class&lt;?&gt;[] classes = new Class[args.length];</span><br><span class="line">            for (int k = 0; k &lt; args.length; k++) &#123;</span><br><span class="line">                if (!args[k].getClass().isPrimitive()) &#123;</span><br><span class="line">                    // 获取的是封装类型而不是基础类型</span><br><span class="line">                    String result = args[k].getClass().getName();</span><br><span class="line">                    Class s = map.get(result);</span><br><span class="line">                    classes[k] = s == null ? args[k].getClass() : s;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            ParameterNameDiscoverer pnd = new DefaultParameterNameDiscoverer();</span><br><span class="line">            // 获取指定的方法，第二个参数可以不传，但是为了防止有重载的现象，还是需要传入参数的类型</span><br><span class="line">            Method method = Class.forName(classType).getMethod(methodName, classes);</span><br><span class="line">            // 参数名</span><br><span class="line">            String[] parameterNames = pnd.getParameterNames(method);</span><br><span class="line">            // 通过map封装参数和参数值</span><br><span class="line">            HashMap&lt;String, Object&gt; paramMap = new HashMap();</span><br><span class="line">            for (int i = 0; i &lt; parameterNames.length; i++) &#123;</span><br><span class="line">                paramMap.put(parameterNames[i], args[i]);</span><br><span class="line">                logger.info(&quot;参数名：&quot;+parameterNames[i]+&quot;  参数值&quot;+args[i]);</span><br><span class="line">            &#125;</span><br><span class="line">            return (Result) joinPoint.proceed();</span><br><span class="line">        &#125; catch (Throwable e) &#123;</span><br><span class="line">            if (e instanceof GlobalException) &#123;</span><br><span class="line"></span><br><span class="line">                logger.error(e.getMessage());</span><br><span class="line">                logger.error(&quot;执行方法调用失败,此失败来源于代码内手动抛出&quot;);</span><br><span class="line">                return Result.error(e.getMessage());</span><br><span class="line">            &#125;</span><br><span class="line">            logger.error(e.getMessage());</span><br><span class="line">            logger.error(&quot;未排除失败来源于系统性失败&quot;);</span><br><span class="line">            return Result.error(&quot;服务器端错误,来源于代码错误&quot;+&quot;错误内容如下&quot;+e.getMessage());</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    private static HashMap&lt;String, Class&gt; map = new HashMap&lt;String, Class&gt;() &#123;</span><br><span class="line">        &#123;</span><br><span class="line">            put(&quot;java.lang.Integer&quot;, int.class);</span><br><span class="line">            put(&quot;java.lang.Double&quot;, double.class);</span><br><span class="line">            put(&quot;java.lang.Float&quot;, float.class);</span><br><span class="line">            put(&quot;java.lang.Long&quot;, Long.class);</span><br><span class="line">            put(&quot;java.lang.Short&quot;, short.class);</span><br><span class="line">            put(&quot;java.lang.Boolean&quot;, boolean.class);</span><br><span class="line">            put(&quot;java.lang.Char&quot;, char.class);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>目前并未完全理解这段代码，后续慢慢学习.</p>
+<h4 id="9-3-2-2-生成不重复的随机数："><a href="#9-3-2-2-生成不重复的随机数：" class="headerlink" title="9.3.2.2: 生成不重复的随机数："></a>9.3.2.2: 生成不重复的随机数：</h4><p>可以按照传入的数量生成一组随机数.</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br></pre></td><td class="code"><pre><span class="line">package com.chen.internetplus.utils.manageResult;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">import java.security.NoSuchAlgorithmException;</span><br><span class="line">import java.security.SecureRandom;</span><br><span class="line">import java.util.Random;</span><br><span class="line">public class MyRandom &#123;</span><br><span class="line"></span><br><span class="line">     public  int[] getTheRandomArray(int count) throws NoSuchAlgorithmException &#123;</span><br><span class="line">            //采用更随机的生成随机数的方式,生成任意数量个不重复的随机数</span><br><span class="line">            SecureRandom random = SecureRandom.getInstance(&quot;SHA1PRNG&quot;);</span><br><span class="line">            int array[] = new int[count];</span><br><span class="line">            //首先 Random类中的nextInt(int bound)方法是产生一个从0到bound-1的一个随机数</span><br><span class="line">            //为了防止第一个数是0而无法放入,所以我选择不使用数组默认的初始化方式,而是选择让所有的数值都为bound值。</span><br><span class="line">            for(int i=0;i&lt;count;i++)&#123;</span><br><span class="line">                array[i] = count;</span><br><span class="line">            &#125;</span><br><span class="line">            //这是一个标志,当flag的值为false时,</span><br><span class="line">            //说明新产生的随机数没有与数组当中的数值重复，跳出while循环。</span><br><span class="line">            boolean flag = false;</span><br><span class="line">            //这是一个for循环进行赋值</span><br><span class="line">            for(int i=0;i&lt;count;i++)&#123;</span><br><span class="line">                //这个变量的作用有必要说明一下</span><br><span class="line">                //我们的flag一开始是false值,为了保证我们的while循环第一次可以执行,我们设置了这样一个变量。</span><br><span class="line">                int start = 0;</span><br><span class="line">                int temp = count ;</span><br><span class="line">                while(/**三目表达式,这个地方体现了start变量的价值*/start==0?true:flag)&#123;</span><br><span class="line">                    //我们的测试循环很简单,一旦发现新生成的随机数和之前在数组中的随机数重复</span><br><span class="line">                    //马上重新生成并重新进行比较</span><br><span class="line">                    //当发现重复时我们会将flag设置为true值,这样while循环得以执行</span><br><span class="line">                    //当开始下一次的while循环时,我们就需要将flag设置为false值</span><br><span class="line">                    //这样是为了防止即使新产生的temp值并没有出现重复,由于flag依旧为true从而陷入死循环</span><br><span class="line">                    flag = false;</span><br><span class="line">                    temp = random.nextInt(count);</span><br><span class="line">                    for(int j=0;j&lt;i;j++)&#123;</span><br><span class="line">                        if(temp ==array[j])&#123;</span><br><span class="line">                            flag = true;</span><br><span class="line">                            break;</span><br><span class="line">                        &#125;</span><br><span class="line">                    &#125;</span><br><span class="line">                    //一次while循环结束后,对start变量进行递增</span><br><span class="line">                    start++;</span><br><span class="line">                &#125;</span><br><span class="line">                //while循环执行结束后,说明新产生的temp随机变量并不会重复,将它放在数组中即可</span><br><span class="line">                array[i]  = temp;</span><br><span class="line">            &#125;</span><br><span class="line">            return array;</span><br><span class="line">        &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="9-3-2-3-获取时间和时间比较："><a href="#9-3-2-3-获取时间和时间比较：" class="headerlink" title="9.3.2.3: 获取时间和时间比较："></a>9.3.2.3: 获取时间和时间比较：</h4><p>通过calendar进行比较.</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">//获取当前时间,转换为calendar</span><br><span class="line">Date d = new Date();</span><br><span class="line">SimpleDateFormat time = new SimpleDateFormat(&quot;yyyy-MM-dd HH:mm:ss&quot;);</span><br><span class="line">Calendar nowTime = Calendar.getInstance();</span><br><span class="line">nowTime.setTime(time.parse(time.format(d)));</span><br><span class="line"></span><br><span class="line">//获取招募时间段,转换为calendar</span><br><span class="line">Activity activity = activityRepository.findByTitle(title);</span><br><span class="line">String start = activity.getStarttime();</span><br><span class="line">String end = activity.getEndtime();</span><br><span class="line">Date start1 = time.parse(start);</span><br><span class="line">Date end1 = time.parse(end);</span><br><span class="line">Calendar startTime = Calendar.getInstance();</span><br><span class="line">startTime.setTime(start1);</span><br><span class="line">Calendar endTime = Calendar.getInstance();</span><br><span class="line">endTime.setTime(end1);</span><br><span class="line"></span><br><span class="line">//比较时间</span><br><span class="line">if (nowTime.after(endTime) || nowTime.before(startTime)) &#123;</span><br><span class="line">    return Result.error(500, &quot;报名失败!,不在报名时间段内!&quot;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="9-3-2-4-swagger-ui"><a href="#9-3-2-4-swagger-ui" class="headerlink" title="9.3.2.4: swagger-ui:"></a>9.3.2.4: swagger-ui:</h4><p>swagger-ui是一个可以自动为controller类的接口生成接口文档的组件，通过简单的配置自动生成接口文档，方便与前端的同学进行对接.</p>
+<p>(1)配置swagger：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line">@Configuration</span><br><span class="line">@EnableSwagger2</span><br><span class="line">public class SwaggerConfig extends WebMvcConfigurationSupport &#123;</span><br><span class="line">    @Bean</span><br><span class="line">    public Docket createRestApi() &#123;</span><br><span class="line"></span><br><span class="line">        return new Docket(DocumentationType.SWAGGER_2)</span><br><span class="line">                .apiInfo(apiInfo())</span><br><span class="line">                .select()</span><br><span class="line">                .apis(RequestHandlerSelectors.withMethodAnnotation(ApiOperation.class))</span><br><span class="line">                .paths(PathSelectors.any())</span><br><span class="line">                .build();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    private ApiInfo apiInfo() &#123;</span><br><span class="line">        return new ApiInfoBuilder()</span><br><span class="line">                .title(&quot;互联网加 Api&quot;)</span><br><span class="line">                //swagger的标题</span><br><span class="line">                .description(&quot;需要token的接口均为web前端操作部分&quot;)</span><br><span class="line">                //swagger的提示</span><br><span class="line">                .termsOfServiceUrl(&quot;&quot;)</span><br><span class="line">                .contact(new Contact(&quot;Spring Cloud --&gt; =.=#&quot;, &quot;http://spring.io/projects/spring-boot&quot;, &quot;&quot;))</span><br><span class="line">                .version(&quot;2.0&quot;)</span><br><span class="line">                .build();</span><br><span class="line">    &#125;</span><br><span class="line">    @Override</span><br><span class="line">    protected void addResourceHandlers(ResourceHandlerRegistry registry) &#123;</span><br><span class="line">        // 解决静态资源无法访问</span><br><span class="line">        registry.addResourceHandler(&quot;/**&quot;)</span><br><span class="line">                .addResourceLocations(&quot;classpath:/static/&quot;);</span><br><span class="line">        // 解决swagger无法访问</span><br><span class="line">        registry.addResourceHandler(&quot;/swagger-ui.html&quot;)</span><br><span class="line">                .addResourceLocations(&quot;classpath:/META-INF/resources/&quot;);</span><br><span class="line">        // 解决swagger的js文件无法访问</span><br><span class="line">        registry.addResourceHandler(&quot;/webjars/**&quot;)</span><br><span class="line">                .addResourceLocations(&quot;classpath:/META-INF/resources/webjars/&quot;);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>（2）在具体实体类上使用：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">@ApiModelProperty(&quot;活动标题&quot;)</span><br><span class="line">//加上这个注解，表明实体类的意义.</span><br><span class="line">@Column(name = &quot;title&quot;, precision = 255)</span><br><span class="line">private String title;</span><br></pre></td></tr></table></figure>
+
+<p>(3) 在接口上使用：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">@PostMapping(&quot;approveActivity&quot;)</span><br><span class="line">@ApiOperation(&quot;通过活动id批准活动进行&quot;)</span><br><span class="line">//这个注解表明接口的作用</span><br><span class="line">public Result approveActivity(@ApiParam(&quot;活动标题&quot;) </span><br><span class="line">							//这个接口表明这个参数的意义。还可添加提示信息等.</span><br><span class="line">						@RequestParam(&quot;title&quot;) String title,</span><br><span class="line">                              @ApiParam(&quot;审批类型,默认为0未审批,1为审批通过,2为审批未通过&quot;) @RequestParam(&quot;type&quot;) Integer type)&#123;</span><br><span class="line">    return activityService.approveActivity(title, type);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="9-3-2-5-图片处理："><a href="#9-3-2-5-图片处理：" class="headerlink" title="9.3.2.5: 图片处理："></a>9.3.2.5: 图片处理：</h4><p>大体思路是:上传图片后,不把图片存放进入数据库,那样效率太低,而是存进服务器.然后返回一个url,当需要这个图片时,访问这个url就可以得到这张图片.</p>
+<h5 id="9-3-2-5-1-新建文件工具类"><a href="#9-3-2-5-1-新建文件工具类" class="headerlink" title="9.3.2.5.1: 新建文件工具类:"></a>9.3.2.5.1: 新建文件工具类:</h5><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br></pre></td><td class="code"><pre><span class="line">import org.springframework.beans.factory.annotation.Value;</span><br><span class="line">import org.springframework.web.multipart.MultipartFile;</span><br><span class="line"></span><br><span class="line">import java.io.File;</span><br><span class="line">import java.io.IOException;</span><br><span class="line">import java.nio.charset.Charset;</span><br><span class="line">import java.util.Base64;</span><br><span class="line"></span><br><span class="line">public class FileUtil &#123;</span><br><span class="line"></span><br><span class="line">    private static String basePath = System.getProperty(&quot;user.dir&quot;);</span><br><span class="line">    private static String s = File.separator;</span><br><span class="line">    public static String generateFile(MultipartFile file, String uniqueString, String name) throws IOException &#123;</span><br><span class="line">        String ip_port = &quot;3.36.73.0&quot; + &quot;:&quot; + &quot;8080&quot; + &quot;/file/getFIleByURL?code=&quot;;</span><br><span class="line">        //这是要储存的公网的ip.</span><br><span class="line">        if (file == null) &#123;</span><br><span class="line">            throw new IOException(&quot;未选择文件&quot;);</span><br><span class="line">        &#125;</span><br><span class="line">        String type = file.getContentType();</span><br><span class="line">        switch (type) &#123;</span><br><span class="line">            case &quot;image/jpeg&quot;:</span><br><span class="line">                type = &quot;.jpg&quot;;</span><br><span class="line">                break;</span><br><span class="line">            case &quot;image/gif&quot;:</span><br><span class="line">                type = &quot;.gif&quot;;</span><br><span class="line">                break;</span><br><span class="line">            case &quot;image/png&quot;:</span><br><span class="line">                type = &quot;.png&quot;;</span><br><span class="line">                break;</span><br><span class="line">            default:</span><br><span class="line">                throw new IOException(&quot;不接受的文件类型,只接受jpg,gif,png格式&quot;);</span><br><span class="line">        &#125;</span><br><span class="line">        File newFile = new File(basePath + s + &quot;data&quot; + s + name + s + uniqueString + s + &quot;ininame&quot;+type);</span><br><span class="line">        if (newFile.exists()) &#123;</span><br><span class="line">            newFile.delete();</span><br><span class="line">        &#125; else &#123;</span><br><span class="line">            newFile.mkdirs();</span><br><span class="line">        &#125;</span><br><span class="line">        newFile.createNewFile();</span><br><span class="line">        file.transferTo(newFile);</span><br><span class="line">        Base64.Encoder encoder = Base64.getEncoder();</span><br><span class="line">        String code = encoder.encodeToString(newFile.getAbsolutePath().getBytes(Charset.forName(&quot;GBK&quot;)));</span><br><span class="line">        return ip_port + code;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h5 id="9-3-2-5-2-新建上传图片实现类"><a href="#9-3-2-5-2-新建上传图片实现类" class="headerlink" title="9.3.2.5.2: 新建上传图片实现类:"></a>9.3.2.5.2: 新建上传图片实现类:</h5><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">Result uploadUserPicture(MultipartFile file,String username);</span><br><span class="line">@Override</span><br><span class="line">   public Result uploadUserPicture(MultipartFile file, String username) &#123;</span><br><span class="line">       String url;</span><br><span class="line">       try&#123;</span><br><span class="line">           url = FileUtil.generateFile(file,username,&quot;personImg&quot;);</span><br><span class="line">           User user = userRepository.findUserByUserName(username);</span><br><span class="line">           user.setUrl(url);</span><br><span class="line">           userRepository.save(user);</span><br><span class="line">       &#125;catch (IOException e)&#123;</span><br><span class="line">           return Result.error(400,e.getMessage());</span><br><span class="line">       &#125;</span><br><span class="line">       return Result.success(&quot;文件上传成功:&quot;,url);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h5 id="9-3-2-5-3-新建上传图片接口"><a href="#9-3-2-5-3-新建上传图片接口" class="headerlink" title="9.3.2.5.3: 新建上传图片接口:"></a>9.3.2.5.3: 新建上传图片接口:</h5><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">@PostMapping(&quot;/user/uploadUserPicture&quot;)</span><br><span class="line">   @ApiOperation(&quot;用户上传头像，上传后会生成一串路径存在用户信息中属性名url，直接访问路径即可得到图片&quot;)</span><br><span class="line">   public Result uploadUserPicture(@RequestBody MultipartFile file, @RequestParam String username) &#123;</span><br><span class="line">       return userService.uploadUserPicture(file, username);</span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure>
+
+<p>图片上传后,可以选择情况把图片的url储存到数据库或者其他方案.</p>
+<h5 id="9-3-2-5-4-新建获取图片接口"><a href="#9-3-2-5-4-新建获取图片接口" class="headerlink" title="9.3.2.5.4: 新建获取图片接口:"></a>9.3.2.5.4: 新建获取图片接口:</h5><p>按照上文的url访问这个接口,可以获取图片.</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">@GetMapping(value = &quot;/file/getFIleByURL&quot;,produces = MediaType.IMAGE_JPEG_VALUE)</span><br><span class="line"> @ApiOperation(&quot;统一获取图片接口&quot;)</span><br><span class="line"> public byte[] getMyFIle(@RequestParam String code) throws IOException &#123;</span><br><span class="line">     Base64.Decoder decoder = Base64.getDecoder();</span><br><span class="line">     code = code.replaceAll(&quot; &quot;, &quot;+&quot;);</span><br><span class="line">     String url = new String(decoder.decode(code));</span><br><span class="line">     System.out.println(&quot;url:&quot; + url);</span><br><span class="line">     BufferedImage bufferedImage = ImageIO.read(new FileInputStream(url));</span><br><span class="line">     ByteArrayOutputStream out = new ByteArrayOutputStream();</span><br><span class="line">     ImageIO.write(bufferedImage, &quot;png&quot;, out);</span><br><span class="line">     return out.toByteArray();</span><br></pre></td></tr></table></figure>
+
+<p>}</p>
+<h5 id="9-3-2-5-5-文件上传优化"><a href="#9-3-2-5-5-文件上传优化" class="headerlink" title="9.3.2.5.5: 文件上传优化:"></a>9.3.2.5.5: 文件上传优化:</h5><p>原先的代码没有经过优化和测试,现在在经过测试和学习之后,优化过的文件上传代码如下:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br></pre></td><td class="code"><pre><span class="line">package com.controller;</span><br><span class="line"></span><br><span class="line">import com.pojo.User;</span><br><span class="line">import com.repository.UserRepository;</span><br><span class="line">import com.service.UserService;</span><br><span class="line">import com.util.Result;</span><br><span class="line">import io.swagger.annotations.ApiOperation;</span><br><span class="line">import lombok.extern.slf4j.Slf4j;</span><br><span class="line">import org.springframework.beans.factory.annotation.Autowired;</span><br><span class="line">import org.springframework.http.MediaType;</span><br><span class="line">import org.springframework.web.bind.annotation.*;</span><br><span class="line">import org.springframework.web.multipart.MultipartFile;</span><br><span class="line"></span><br><span class="line">import javax.imageio.ImageIO;</span><br><span class="line">import java.awt.image.BufferedImage;</span><br><span class="line">import java.io.ByteArrayOutputStream;</span><br><span class="line">import java.io.File;</span><br><span class="line">import java.io.FileInputStream;</span><br><span class="line">import java.io.IOException;</span><br><span class="line">import java.nio.charset.Charset;</span><br><span class="line">import java.util.Base64;</span><br><span class="line"></span><br><span class="line">@Slf4j</span><br><span class="line">@RestController</span><br><span class="line">@CrossOrigin(origins = &quot;*&quot;)</span><br><span class="line">@RequestMapping(&quot;user&quot;)</span><br><span class="line">public class UserController &#123;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    @Autowired</span><br><span class="line">    UserService userService;</span><br><span class="line"></span><br><span class="line">    @Autowired</span><br><span class="line">    UserRepository userRepository;</span><br><span class="line"></span><br><span class="line">    @PostMapping(&quot;/upPicture&quot;)</span><br><span class="line">    @ApiOperation(&quot;用户上传头像，上传后会生成一串路径存在用户信息中属性名url，直接访问路径即可得到图片&quot;)</span><br><span class="line">    public Result uploadUserPicture(@RequestBody MultipartFile file) &#123;</span><br><span class="line">//      User user = userRepository.findUserByUserName(username);</span><br><span class="line">        try&#123;</span><br><span class="line"></span><br><span class="line">            //通过这个方法获得当前目录.相对路径</span><br><span class="line">            String basePath = System.getProperty(&quot;user.dir&quot;);</span><br><span class="line"></span><br><span class="line">            //因为不同操作系统下分隔符不同,所以通过这个方法获取当前系统的分隔符</span><br><span class="line">            //File类中的 public static final String separator. 类的静态成员和静态方法可以直接访问,而不需要实例化.所以可以将很多工具类里面的方法设置为静态方法.</span><br><span class="line">            String s = File.separator;</span><br><span class="line"></span><br><span class="line">            String ip_port = &quot;localhost&quot; + &quot;:&quot; + &quot;8080&quot; + &quot;/file/getFIleByURL?code=&quot;;</span><br><span class="line">            if (file == null) &#123;</span><br><span class="line">                    throw new IOException(&quot;未选择文件&quot;);</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">            //获取文件原名</span><br><span class="line">            String name = file.getOriginalFilename();</span><br><span class="line"></span><br><span class="line">            //获取文件的类型</span><br><span class="line">            String type = file.getContentType();</span><br><span class="line">            switch (type) &#123;</span><br><span class="line">                case &quot;image/jpeg&quot;:</span><br><span class="line">                    break;</span><br><span class="line">                case &quot;image/gif&quot;:</span><br><span class="line">                    break;</span><br><span class="line">                case &quot;image/png&quot;:</span><br><span class="line">                    break;</span><br><span class="line">                default:</span><br><span class="line">                    throw new IOException(&quot;不接受的文件类型,只接受jpg,gif,png格式&quot;);</span><br><span class="line">            &#125;</span><br><span class="line">//            //以pathname为路径创建file对象</span><br><span class="line">//            //创建的file可能是文件 也可能是文件夹,取决于后面的方法</span><br><span class="line">//            //进入路径的逻辑是到文件为止,比如要在某个文件夹下创建文件,这个路径就要精确到要创建的那个文件的名字.与Linux进入文件夹的方式不同.</span><br><span class="line">//           File newFile = new File(basePath  + s +&quot;用户图片&quot;);</span><br><span class="line">//            //判断文件夹是否存在</span><br><span class="line">//           if (!newFile.exists()) &#123;</span><br><span class="line">//            //共有mkdir和mkdirs两个方法,第一个方法如果路径中的文件夹不存在会报错,建立不了文件或文件夹,第二个方法会依次建立所有的父类.然后再建立文件夹.</span><br><span class="line">//               newFile.mkdirs();</span><br><span class="line">//           &#125;</span><br><span class="line">           File file1 = new File(basePath+ s+ &quot;src&quot; + s + &quot;main&quot; +  s  + &quot;resources&quot; + s + &quot;static&quot; + s + name);</span><br><span class="line">           //创建文件</span><br><span class="line">           file1.createNewFile();</span><br><span class="line"></span><br><span class="line">           //写入文件</span><br><span class="line">           file.transferTo(file1);</span><br><span class="line">//           Base64.Encoder encoder = Base64.getEncoder();</span><br><span class="line">//           String code = encoder.encodeToString(newFile.getAbsolutePath().getBytes(Charset.forName(&quot;GBK&quot;)));</span><br><span class="line">//           String url =  ip_port + code;</span><br><span class="line">//           user.setUrl(url);</span><br><span class="line">//           userRepository.save(user);</span><br><span class="line">            return Result.success(&quot;文件上传成功:&quot;,name);</span><br><span class="line">        &#125; catch (IOException e) &#123;</span><br><span class="line">            return Result.success(&quot;文件上传失败!:&quot;,e.getMessage());</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h5 id="9-3-2-5-6-文件获取问题"><a href="#9-3-2-5-6-文件获取问题" class="headerlink" title="9.3.2.5.6: 文件获取问题:"></a>9.3.2.5.6: 文件获取问题:</h5><p><code>Spring Boot</code> 默认将 <code>/</code> 的所有访问映射到以下目录：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">classpath:/static</span><br><span class="line">classpath:/public</span><br><span class="line">classpath:/resources</span><br><span class="line">classpath:/META-INF/resources</span><br></pre></td></tr></table></figure>
+
+<p>classpath可以简单地理解为文件存储的目录.</p>
+<p>比如把图片0.jpg存放到src&#x2F;main&#x2F;resources&#x2F;static文件夹下.然后使用<a href="http://localhost:端口名/0.jpg访问既可以得到该图片">http://localhost:端口名/0.jpg访问既可以得到该图片</a>.</p>
+<p>如果想自己配置自定义的资源访问映射,有两种方式,一是通过yml文件:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">spring:</span><br><span class="line">  datasource:</span><br><span class="line">    driver-class-name: com.mysql.cj.jdbc.Driver</span><br><span class="line">    url: jdbc:mysql://localhost:3306/dbaddscore</span><br><span class="line">    username: root</span><br><span class="line">    password: 123456</span><br><span class="line">  jpa:</span><br><span class="line">    hibernate:</span><br><span class="line">      ddl-auto: update</span><br><span class="line">    show-sql: true</span><br><span class="line">  mvc:</span><br><span class="line">    log-request-details: true</span><br><span class="line">#   static-path-pattern: /image/**   #想要访问的路径</span><br><span class="line"># web:</span><br><span class="line">#   resources:</span><br><span class="line">#      static-locations: file:C:\Users\wpy\Documents\Tencent Files\2669184984\FileRecv\Farewell Light\学习\项目\JAVA\校园二手交易及失物招领平台\用户图片  #图片存储的路径</span><br><span class="line">server:</span><br><span class="line">  port: 8080</span><br><span class="line">debug: true</span><br><span class="line">location:</span><br><span class="line">  file:C:\Users\wpy\Documents\Tencent Files\2669184984\FileRecv\Farewell Light\学习\项目\JAVA\校园二手交易及失物招领平台\用户图片\</span><br></pre></td></tr></table></figure>
+
+<p>加#的即为相关配置.</p>
+<p>还有一种方式是通过重写拦截器.代码如下:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line">package com.config;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">import org.springframework.beans.factory.annotation.Configurable;</span><br><span class="line">import org.springframework.beans.factory.annotation.Value;</span><br><span class="line">import org.springframework.context.annotation.Configuration;</span><br><span class="line">import org.springframework.context.annotation.PropertySource;</span><br><span class="line">import org.springframework.web.bind.annotation.CrossOrigin;</span><br><span class="line">import org.springframework.web.servlet.config.annotation.InterceptorRegistry;</span><br><span class="line">import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;</span><br><span class="line">import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;</span><br><span class="line"></span><br><span class="line">@PropertySource(&quot;classpath:application.yml&quot;)</span><br><span class="line">@Configuration</span><br><span class="line">public class WebConfig implements WebMvcConfigurer &#123;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">	//引用上文配置中yml里的字段</span><br><span class="line">    //引用yml字段的方式,避免在本地测试与服务器端运行的时候需要频繁修改内部代码的问题</span><br><span class="line">    @Value(&quot;$&#123;location&#125;&quot;)</span><br><span class="line">    private String location;</span><br><span class="line"></span><br><span class="line">    //访问不了 一直是404 不知什么原因</span><br><span class="line">    @Override</span><br><span class="line">    public void addResourceHandlers(ResourceHandlerRegistry registry) &#123;</span><br><span class="line">        // 解决静态资源无法访问</span><br><span class="line">        registry.addResourceHandler(&quot;/**&quot;)</span><br><span class="line">                .addResourceLocations(&quot;classpath:/static/&quot;);</span><br><span class="line">        //第一个字段是网页访问的地址,第二个字段是存储的地址</span><br><span class="line">        registry.addResourceHandler(&quot;/img/**&quot;).addResourceLocations(&quot;file:D:\\PIC\\&quot;);</span><br><span class="line">        //一定要注意最后也要加斜线.</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>但在测试中,均未能解决问题,尝试了诸多方法,都在代码里体现,但仍然一直404报错.</p>
+<h5 id="9-3-2-5-7-上传图片过大问题"><a href="#9-3-2-5-7-上传图片过大问题" class="headerlink" title="9.3.2.5.7:上传图片过大问题:"></a>9.3.2.5.7:上传图片过大问题:</h5><p>通过yml配置解决.</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">spring:</span><br><span class="line">  servlet:</span><br><span class="line">    multipart:</span><br><span class="line">      max-file-size: 10MB  # 单个文件的大小</span><br><span class="line">      max-request-size: 100MB  # 上传文件的总大小</span><br></pre></td></tr></table></figure>
+
+<h2 id="9-4-加分系统："><a href="#9-4-加分系统：" class="headerlink" title="9.4: 加分系统："></a>9.4: 加分系统：</h2><h3 id="9-4-1-介绍："><a href="#9-4-1-介绍：" class="headerlink" title="9.4.1: 介绍："></a>9.4.1: 介绍：</h3><p>校团委的项目,自己的idea,实际应用的项目.</p>
+
+        </article>
+        <div class="post-tools" id="post-tools">
+            <div class="post-tools-left">
+                
+                <div class="share-link mobile">
+    <div class="share-qrcode">
+        <div class="share-button" title="使用手机访问这篇文章">
+            <i class="fas fa-qrcode"></i>
+        </div>
+        <div class="share-main">
+            <div class="share-main-all">
+                <div id="qrcode" title="http://example.com/2023/01/17/Springboot%E5%85%A5%E9%97%A8/">
+                </div>
+                <div class="reward-dec">使用手机访问这篇文章</div>
+            </div>
+        </div>
+        <script type="text/javascript">
+            new QRCode(document.getElementById("qrcode"), "http://example.com/2023/01/17/Springboot%E5%85%A5%E9%97%A8/");
+        </script>
+    </div>
+</div>
+                <div class="share-link weibo"><a class="share-button" target="_blank"
+    href="https://service.weibo.com/share/share.php?title=Springboot笔记&amp;url=http://example.com/2023/01/17/Springboot%E5%85%A5%E9%97%A8/&amp;pic=/img/8.jpg"
+    title="分享到微博" rel="noopener external nofollow noreferrer noopener">
+    <i class="fab fa-weibo" style="font-size:22px"></i>
+</a>
+</div>
+<div class="share-link copyurl">
+<div class="share-button" id="post-share-url" title="复制链接" onclick="acrylic.copyPageUrl()">
+    <i class="fas fa-link"></i>
+</div>
+</div>
+            </div>
+            <div class="post-tools-right">
+                <div class="tag_share">
+                    <div class="post-meta__tag-list">
+                        
+                            <a href="/tags/Java/" class="post-meta__tags">
+                                <span class="tags-punctuation">#</span>
+                                Java
+                                <span class="tagsPageCount">3</span>
+                            </a>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="post-copyright">
+    <div class="post-copyright__author">
+        <a class="post-copyright__original" title="该文章为原创文章，注意版权协议">原创</a>
+        <a class="post-copyright-title" href="#">
+            <span>Springboot笔记</span>
+        </a>
+    </div>
+    <div class="post-copyright__type">
+        <span class="post-copyright-info" id="post-copyright-url">
+            <a href="/2023/01/17/Springboot%E5%85%A5%E9%97%A8/">http://example.com/2023/01/17/Springboot%E5%85%A5%E9%97%A8/</a>
+        </span>
+        <button class="post-copyright-copybtn" onclick="acrylic.copyPageUrl()">
+            <i class="fas fa-paste copy-btn"></i>
+        </button>
+    </div>
+    <div class="post-copyright__notice"><span class="post-copyright-info">本文是原创文章，采用 <a
+                href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank">CC BY-NC-ND 4.0</a> 协议，完整转载请注明来自 <a
+                href="/">风凌渡</a>
+            </span>
+        </div>
+</div>
+        <nav class="pagination-post" id="pagination">
+    
+        <div class="prev-post pull-left">
+            <a href="/2023/01/17/Web%E5%9F%BA%E6%9C%AC%E5%8E%9F%E7%90%86/">
+                <div class="pagination-info">
+                    <div class="label">上一篇</div>
+                    <div class="prev_info">Web基本原理</div>
+                </div>
+            </a>
+        </div>
+        <div class="next-post pull-right">
+            <a href="/2023/01/17/%E5%88%86%E5%B8%83%E5%BC%8F/">
+                <div class="pagination-info">
+                    <div class="label">下一篇</div>
+                    <div class="next_info">分布式原理</div>
+                </div>
+            </a>
+        </div>
+    
+</nav>
+            
+    </div>
+    <div class="aside-content" id="aside-content">
+    
+    
+        
+        <div class="card-widget card-info">
+    <div class="card-content">
+        <div class="card-info-avatar is-center">
+            <div class="author-info__sayhi" id="author-info__sayhi">
+            </div>
+            <div class="author-info__name">
+                抒情熊
+            </div>
+            <div class="author-info__description">这有关于<b>后端开发</b>、<b>基础架构</b>的相关笔记分享，还有对于的一些<b>诗歌</b>和<b>小说</b>。<br>相信你可以在这里找到对你有用的知识和文章.</div>
+        </div>
+    </div>
+    <div class="banner-button-group">
+        <a class="banner-button" href="/">
+            <i class="fas fa-circle-chevron-right"></i>
+            <span class="banner-button-text">个人主页</span>
+        </a>
+    </div>
+    <div class="card-info-social-icons is-center">
+        
+            <a class="social-icon" target="_blank" rel="noopener" href="https://github.com/bearslyricattack" title="Github">
+                <i class="fa-brands fa-github"></i>
+            </a>
+        
+            <a class="social-icon" target="_blank" rel="noopener" href="https://user.qzone.qq.com/2669184984" title="Mail">
+                <i class="fa-solid fa-envelope"></i>
+            </a>
+        
+    </div>
+</div>
+     
+    
+    <div class="sticky_layout">
+        
+            <div class="card-widget" id="card-toc">
+    <div class="item-headline">
+        <i class="fas fa-bars"></i>
+        <span>文章目录</span>
+    </div>
+    <div class="toc-content" id="toc-content">
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Springboot%E7%AC%94%E8%AE%B0"><span class="toc-text">Springboot笔记</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#1-Web%E5%89%8D%E5%90%8E%E7%AB%AF%E5%88%86%E7%A6%BB%E5%9F%BA%E6%9C%AC%E5%8E%9F%E7%90%86-Spring-MVC"><span class="toc-text">1.Web前后端分离基本原理:Spring MVC</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#2-Springboot%E4%BB%8B%E7%BB%8D"><span class="toc-text">2.Springboot介绍:</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#3-Springboot%E9%A1%B9%E7%9B%AE%E4%B8%8A%E6%89%8B"><span class="toc-text">3.Springboot项目上手:</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#3-1-%E5%88%9B%E5%BB%BASpringboot%E9%A1%B9%E7%9B%AE%EF%BC%9A"><span class="toc-text">3.1 创建Springboot项目：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-2-Springboot%E9%A1%B9%E7%9B%AE%E7%BB%93%E6%9E%84%EF%BC%9A"><span class="toc-text">3.2 Springboot项目结构：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-3-%E6%96%B0%E5%BB%BAController%E5%B1%82%EF%BC%9A"><span class="toc-text">3.3 新建Controller层：</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#3-3-1-Controller%E4%BB%8B%E7%BB%8D%EF%BC%9A"><span class="toc-text">3.3.1 Controller介绍：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-3-2-%E6%B3%A8%E8%A7%A3%EF%BC%9A"><span class="toc-text">3.3.2 注解：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-3-3-%E5%9F%BA%E6%9C%AC%E7%BB%93%E6%9E%84%EF%BC%9A"><span class="toc-text">3.3.3 基本结构：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-3-4-Post%E4%B8%8EGet%E8%AF%B7%E6%B1%82%EF%BC%9A"><span class="toc-text">3.3.4: Post与Get请求：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-3-5%EF%BC%9A-RequestParam%E4%B8%8E-RequestBody%EF%BC%9A"><span class="toc-text">3.3.5：@RequestParam与@RequestBody：</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#3-3-5-1-RequestParam"><span class="toc-text">3.3.5.1: @RequestParam:</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-3-5-2-application-x2F-x-www-form-urlencoded"><span class="toc-text">3.3.5.2: application&#x2F;x-www-form-urlencoded:</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-3-5-3-RequestBody"><span class="toc-text">3.3.5.3: @RequestBody:</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-3-5-4-application-x2F-json"><span class="toc-text">3.3.5.4: application&#x2F;json:</span></a></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#4-%E4%B8%BB%E5%90%AF%E5%8A%A8%E7%B1%BB%EF%BC%9A"><span class="toc-text">4. 主启动类：</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#5-%E4%BF%AE%E6%94%B9%E9%A1%B9%E7%9B%AE%E9%85%8D%E7%BD%AE%EF%BC%9A"><span class="toc-text">5.修改项目配置：</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#6-%E6%95%B0%E6%8D%AE%E5%BA%93%E6%93%8D%E4%BD%9C"><span class="toc-text">6.数据库操作:</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#6-1-%E6%8A%80%E6%9C%AF%E9%80%89%E5%9E%8B"><span class="toc-text">6.1 技术选型:</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6-2-%E6%93%8D%E4%BD%9C%E8%BF%87%E7%A8%8B"><span class="toc-text">6.2 操作过程:</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#6-2-1-%E6%B7%BB%E5%8A%A0maven%E4%BE%9D%E8%B5%96"><span class="toc-text">6.2.1 添加maven依赖:</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6-2-2-yml%E9%85%8D%E7%BD%AE"><span class="toc-text">6.2.2 yml配置:</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6-2-3-%E9%93%BE%E6%8E%A5%E6%95%B0%E6%8D%AE%E5%BA%93"><span class="toc-text">6.2.3 链接数据库:</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6-2-4-%E7%BC%96%E5%86%99%E5%AE%9E%E4%BD%93%E7%B1%BB"><span class="toc-text">6.2.4: 编写实体类:</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#6-2-4-1-%E5%AE%9E%E4%BD%93%E7%B1%BB%E6%B3%A8%E8%A7%A3"><span class="toc-text">6.2.4.1 实体类注解:</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#6-2-4-2-%E6%95%B0%E6%8D%AE%E5%BA%93%E4%B8%BB%E9%94%AE"><span class="toc-text">6.2.4.2 数据库主键:</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6-2-5-%E5%BB%BA%E7%AB%8B%E6%95%B0%E6%8D%AE%E5%BA%93%E6%8E%A5%E5%8F%A3"><span class="toc-text">6.2.5: 建立数据库接口:</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6-2-6-%E6%8E%A5%E5%8F%A3%E5%AE%9E%E4%BE%8B%E5%8C%96"><span class="toc-text">6.2.6: 接口实例化:</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6-2-7-%E4%BF%AE%E6%94%B9%E5%AF%B9%E8%B1%A1%E6%95%B0%E6%8D%AE"><span class="toc-text">6.2.7: 修改对象数据:</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6-2-8-%E8%87%AA%E5%AE%9A%E4%B9%89%E6%95%B0%E6%8D%AE%E5%BA%93%E6%93%8D%E4%BD%9C"><span class="toc-text">6.2.8 自定义数据库操作:</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6-2-9-%E7%BA%A7%E8%81%94%E6%93%8D%E4%BD%9C"><span class="toc-text">6.2.9 级联操作:</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#6-2-9-1-%E4%BB%8B%E7%BB%8D"><span class="toc-text">6.2.9.1: 介绍:</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#6-2-9-2-%E4%BD%BF%E7%94%A8"><span class="toc-text">6.2.9.2: 使用:</span></a></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#7-%E5%8D%95%E5%85%83%E6%B5%8B%E8%AF%95"><span class="toc-text">7.单元测试:</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#7-1-service%E5%B1%82%E6%B5%8B%E8%AF%95"><span class="toc-text">7.1 service层测试:</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#8-%E5%85%B6%E4%BB%96%E6%8A%80%E6%9C%AF"><span class="toc-text">8.其他技术:</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#8-1-%E7%BB%93%E6%9E%9C%E7%B1%BB"><span class="toc-text">8.1:结果类:</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#8-2-%E9%A1%B9%E7%9B%AE%E9%85%8D%E7%BD%AE"><span class="toc-text">8.2: 项目配置:</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#8-3-%E9%A1%B9%E7%9B%AE%E9%83%A8%E7%BD%B2"><span class="toc-text">8.3 项目部署:</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#8-3-1-%E6%89%93%E5%8C%85"><span class="toc-text">8.3.1: 打包:</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#8-3-2-%E8%BF%9E%E6%8E%A5%E6%9C%8D%E5%8A%A1%E5%99%A8"><span class="toc-text">8.3.2: 连接服务器</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#8-3-3-%E9%83%A8%E7%BD%B2"><span class="toc-text">8.3.3: 部署:</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#8-4-%E8%B7%A8%E5%9F%9F%E9%97%AE%E9%A2%98"><span class="toc-text">8.4: 跨域问题:</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#8-4-1-%E7%AE%80%E5%8D%95%E8%AF%B7%E6%B1%82"><span class="toc-text">8.4.1 简单请求:</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#8-4-2-%E5%A4%8D%E6%9D%82%E8%AF%B7%E6%B1%82"><span class="toc-text">8.4.2 复杂请求:</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#8-5-%E4%BA%8B%E5%8A%A1%E5%A4%84%E7%90%86"><span class="toc-text">8.5: 事务处理:</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#8-6-AOP-%E9%9D%A2%E5%90%91%E5%88%87%E9%9D%A2%E7%BC%96%E7%A8%8B"><span class="toc-text">8.6: AOP(面向切面编程):</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#8-6-1-%E5%AE%9A%E4%B9%89"><span class="toc-text">8.6.1 定义:</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#8-6-2-%E6%A6%82%E5%BF%B5"><span class="toc-text">8.6.2 概念:</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#8-6-3-%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8"><span class="toc-text">8.6.3 基本使用:</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#8-6-3-1-%E5%BC%95%E5%85%A5%E4%BE%9D%E8%B5%96"><span class="toc-text">8.6.3.1 引入依赖:</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#8-6-3-2-%E6%96%B0%E5%BB%BA%E4%B8%80%E4%B8%AA%E5%88%87%E9%9D%A2%E7%B1%BB"><span class="toc-text">8.6.3.2 新建一个切面类:</span></a></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#8-7-%E5%BC%82%E5%B8%B8%E5%A4%84%E7%90%86"><span class="toc-text">8.7: 异常处理:</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#8-7-1-Java%E5%BC%82%E5%B8%B8%E4%BD%93%E7%B3%BB%E7%BB%93%E6%9E%84"><span class="toc-text">8.7.1 Java异常体系结构:</span></a></li><li class="toc-item toc-level-4"><a class="toc-link"><span class="toc-text"></span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#8-7-2-Java%E5%BC%82%E5%B8%B8%E5%A4%84%E7%90%86%E6%9C%BA%E5%88%B61-try-catch-finally%E7%BB%93%E6%9E%84"><span class="toc-text">8.7.2 Java异常处理机制1: try-catch-finally结构:</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#8-7-2-Java%E5%BC%82%E5%B8%B8%E5%A4%84%E7%90%86%E6%9C%BA%E5%88%B62-throws%E7%BB%93%E6%9E%84"><span class="toc-text">8.7.2 Java异常处理机制2: throws结构:</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#8-7-3-Springboot%E5%BC%82%E5%B8%B8%E5%A4%84%E7%90%86"><span class="toc-text">8.7.3 Springboot异常处理:</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#8-8-shiro-jwt%E5%AE%9E%E7%8E%B0%E6%9D%83%E9%99%90%E9%AA%8C%E8%AF%81"><span class="toc-text">8.8 :shiro+jwt实现权限验证:</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#8-8-1-shiro%E4%BB%8B%E7%BB%8D"><span class="toc-text">8.8.1: shiro介绍:</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#8-8-2-jwt%E4%BB%8B%E7%BB%8D"><span class="toc-text">8.8.2: jwt介绍:</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#8-8-3-cookie-session%E5%92%8Ctoken"><span class="toc-text">8.8.3: cookie,session和token:</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#8-8-4-%E5%9C%A8springboot%E4%B8%AD%E4%BD%BF%E7%94%A8shiro-jwt"><span class="toc-text">8.8.4: 在springboot中使用shiro+jwt:</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#8-8-4-1-%E5%AF%BC%E5%85%A5%E4%BE%9D%E8%B5%96"><span class="toc-text">8.8.4.1: 导入依赖:</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#8-8-4-2-%E5%BB%BA%E7%AB%8BJWTUtil%E7%B1%BB"><span class="toc-text">8.8.4.2: 建立JWTUtil类:</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#8-8-4-3-%E5%B0%81%E8%A3%85token"><span class="toc-text">8.8.4.3: 封装token</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#8-8-4-4-%E7%BC%96%E5%86%99JwtFilter%E8%BF%87%E6%BB%A4%E5%99%A8"><span class="toc-text">8.8.4.4:编写JwtFilter过滤器:</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#8-8-4-5-%E7%BC%96%E5%86%99realm%E5%AF%B9%E8%B1%A1"><span class="toc-text">8.8.4.5: 编写realm对象:</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#8-8-4-6-%E7%BC%96%E5%86%99shiro%E9%85%8D%E7%BD%AE"><span class="toc-text">8.8.4.6: 编写shiro配置:</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#8-8-4-7-%E8%8E%B7%E5%8F%96%E5%BD%93%E5%89%8D%E7%99%BB%E5%BD%95%E5%AF%B9%E8%B1%A1"><span class="toc-text">8.8.4.7: 获取当前登录对象</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#8-9-lombok"><span class="toc-text">8.9: lombok:</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#8-9-1-%E4%BB%8B%E7%BB%8D"><span class="toc-text">8.9.1: 介绍:</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#8-9-2-%E5%AF%BC%E5%85%A5%E4%BE%9D%E8%B5%96"><span class="toc-text">8.9.2: 导入依赖:</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#8-9-3-%E4%BD%BF%E7%94%A8"><span class="toc-text">8.9.3: 使用:</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#8-10-Slf4j"><span class="toc-text">8.10: Slf4j:</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#9-%E9%A1%B9%E7%9B%AE%E5%AE%9E%E8%B7%B5"><span class="toc-text">9.项目实践:</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#9-1-%E9%80%89%E8%AF%BE%E7%B3%BB%E7%BB%9F"><span class="toc-text">9.1: 选课系统:</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#9-1-1-%E4%BB%8B%E7%BB%8D"><span class="toc-text">9.1.1: 介绍:</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#9-1-2-%E6%8A%80%E6%9C%AF"><span class="toc-text">9.1.2: 技术:</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#9-1-2-1-find-in-set"><span class="toc-text">9.1.2.1: find in set:</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#9-1-2-2-%E5%88%86%E9%A1%B5"><span class="toc-text">9.1.2.2: 分页:</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#9-2-%E4%BA%91%E7%AB%AF%E7%AC%94%E8%AE%B0"><span class="toc-text">9.2: 云端笔记:</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#9-2-1-%E4%BB%8B%E7%BB%8D"><span class="toc-text">9.2.1: 介绍:</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#9-2-2-%E6%8A%80%E6%9C%AF"><span class="toc-text">9.2.2: 技术:</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#9-2-2-1-%E9%A1%B9%E7%9B%AE%E8%AE%BE%E8%AE%A1%E8%BF%87%E7%A8%8B"><span class="toc-text">9.2.2.1: 项目设计过程:</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#9-2-2-2-%E5%B0%81%E8%A3%85service"><span class="toc-text">9.2.2.2: 封装service:</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#9-3-%E6%8A%97%E7%96%AB%E5%BF%97%E6%84%BF%E8%80%85%E4%BF%A1%E6%81%AF%E5%8C%96%E5%BA%94%E7%94%A8%E5%B9%B3%E5%8F%B0"><span class="toc-text">9.3: 抗疫志愿者信息化应用平台:</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#9-3-1-%E4%BB%8B%E7%BB%8D"><span class="toc-text">9.3.1: 介绍:</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#9-3-2-%E6%8A%80%E6%9C%AF"><span class="toc-text">9.3.2: 技术:</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#9-3-2-1%EF%BC%9A%E6%B3%A8%E8%A7%A3AOP%EF%BC%9A"><span class="toc-text">9.3.2.1：注解AOP：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#9-3-2-2-%E7%94%9F%E6%88%90%E4%B8%8D%E9%87%8D%E5%A4%8D%E7%9A%84%E9%9A%8F%E6%9C%BA%E6%95%B0%EF%BC%9A"><span class="toc-text">9.3.2.2: 生成不重复的随机数：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#9-3-2-3-%E8%8E%B7%E5%8F%96%E6%97%B6%E9%97%B4%E5%92%8C%E6%97%B6%E9%97%B4%E6%AF%94%E8%BE%83%EF%BC%9A"><span class="toc-text">9.3.2.3: 获取时间和时间比较：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#9-3-2-4-swagger-ui"><span class="toc-text">9.3.2.4: swagger-ui:</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#9-3-2-5-%E5%9B%BE%E7%89%87%E5%A4%84%E7%90%86%EF%BC%9A"><span class="toc-text">9.3.2.5: 图片处理：</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#9-3-2-5-1-%E6%96%B0%E5%BB%BA%E6%96%87%E4%BB%B6%E5%B7%A5%E5%85%B7%E7%B1%BB"><span class="toc-text">9.3.2.5.1: 新建文件工具类:</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#9-3-2-5-2-%E6%96%B0%E5%BB%BA%E4%B8%8A%E4%BC%A0%E5%9B%BE%E7%89%87%E5%AE%9E%E7%8E%B0%E7%B1%BB"><span class="toc-text">9.3.2.5.2: 新建上传图片实现类:</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#9-3-2-5-3-%E6%96%B0%E5%BB%BA%E4%B8%8A%E4%BC%A0%E5%9B%BE%E7%89%87%E6%8E%A5%E5%8F%A3"><span class="toc-text">9.3.2.5.3: 新建上传图片接口:</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#9-3-2-5-4-%E6%96%B0%E5%BB%BA%E8%8E%B7%E5%8F%96%E5%9B%BE%E7%89%87%E6%8E%A5%E5%8F%A3"><span class="toc-text">9.3.2.5.4: 新建获取图片接口:</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#9-3-2-5-5-%E6%96%87%E4%BB%B6%E4%B8%8A%E4%BC%A0%E4%BC%98%E5%8C%96"><span class="toc-text">9.3.2.5.5: 文件上传优化:</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#9-3-2-5-6-%E6%96%87%E4%BB%B6%E8%8E%B7%E5%8F%96%E9%97%AE%E9%A2%98"><span class="toc-text">9.3.2.5.6: 文件获取问题:</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#9-3-2-5-7-%E4%B8%8A%E4%BC%A0%E5%9B%BE%E7%89%87%E8%BF%87%E5%A4%A7%E9%97%AE%E9%A2%98"><span class="toc-text">9.3.2.5.7:上传图片过大问题:</span></a></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#9-4-%E5%8A%A0%E5%88%86%E7%B3%BB%E7%BB%9F%EF%BC%9A"><span class="toc-text">9.4: 加分系统：</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#9-4-1-%E4%BB%8B%E7%BB%8D%EF%BC%9A"><span class="toc-text">9.4.1: 介绍：</span></a></li></ol></li></ol></li></ol>
+    </div>
+</div>
+            
+        
+            
+        <div class="card-widget card-recent-post">
+    <div class="item-headline">
+        <i class="fas fa-list-ol"></i>
+        <span>最近发布</span>
+    </div>
+    <div class="aside-list">
+        
+        
+            <div class="aside-list-item">
+                <a class="thumbnail" href="/2023/04/28/ClickHouse/" title="ClickHouse">
+                    <img
+                        alt="ClickHouse"
+                        src="/img/1.jpg">
+                </a>
+                <div class="content">
+                    
+                        <a class="article-recent_post_categories" href="/2023/04/28/ClickHouse/">
+                            笔记
+                        </a>
+                    
+                    <a class="title" href="/2023/04/28/ClickHouse/" title="ClickHouse">
+                        ClickHouse
+                    </a>
+                </div>
+            </div>
+                
+        
+            <div class="aside-list-item">
+                <a class="thumbnail" href="/2023/03/14/Go%E8%AF%AD%E8%A8%80%E8%AE%BE%E8%AE%A1%E4%B8%8E%E5%AE%9E%E7%8E%B0/" title="Go语言设计与实现">
+                    <img
+                        alt="Go语言设计与实现"
+                        src="/img/4.jpg">
+                </a>
+                <div class="content">
+                    
+                        <a class="article-recent_post_categories" href="/2023/03/14/Go%E8%AF%AD%E8%A8%80%E8%AE%BE%E8%AE%A1%E4%B8%8E%E5%AE%9E%E7%8E%B0/">
+                            笔记
+                        </a>
+                    
+                    <a class="title" href="/2023/03/14/Go%E8%AF%AD%E8%A8%80%E8%AE%BE%E8%AE%A1%E4%B8%8E%E5%AE%9E%E7%8E%B0/" title="Go语言设计与实现">
+                        Go语言设计与实现
+                    </a>
+                </div>
+            </div>
+                
+        
+            <div class="aside-list-item">
+                <a class="thumbnail" href="/2023/03/13/Git/" title="Git">
+                    <img
+                        alt="Git"
+                        src="/img/2.jpg">
+                </a>
+                <div class="content">
+                    
+                        <a class="article-recent_post_categories" href="/2023/03/13/Git/">
+                            笔记
+                        </a>
+                    
+                    <a class="title" href="/2023/03/13/Git/" title="Git">
+                        Git
+                    </a>
+                </div>
+            </div>
+                
+        
+            <div class="aside-list-item">
+                <a class="thumbnail" href="/2023/02/10/%E9%A3%8E%E5%87%8C%E5%A4%9C%E8%AF%9D/" title="风凌夜话">
+                    <img
+                        alt="风凌夜话"
+                        src="/img/13.jpg">
+                </a>
+                <div class="content">
+                    
+                        <a class="article-recent_post_categories" href="/2023/02/10/%E9%A3%8E%E5%87%8C%E5%A4%9C%E8%AF%9D/">
+                            创作
+                        </a>
+                    
+                    <a class="title" href="/2023/02/10/%E9%A3%8E%E5%87%8C%E5%A4%9C%E8%AF%9D/" title="风凌夜话">
+                        风凌夜话
+                    </a>
+                </div>
+            </div>
+                
+        
+            <div class="aside-list-item">
+                <a class="thumbnail" href="/2023/02/04/Hertz/" title="Hertz">
+                    <img
+                        alt="Hertz"
+                        src="/img/5.jpg">
+                </a>
+                <div class="content">
+                    
+                        <a class="article-recent_post_categories" href="/2023/02/04/Hertz/">
+                            笔记
+                        </a>
+                    
+                    <a class="title" href="/2023/02/04/Hertz/" title="Hertz">
+                        Hertz
+                    </a>
+                </div>
+            </div>
+            
+    </div>
+</div>
+     
+        
+    </div>
+</div> 
+</main>
+                <footer id="footer">
+                    <div id="footer_deal">
+    
+        <a class="deal_link" target="_blank" href="https://github.com/bearslyricattack" rel="external nofollow noopener" title="Github">
+            <i class="fa-brands fa-github"></i>
+        </a>
+    
+        <a class="deal_link" target="_blank" href="https://user.qzone.qq.com/2669184984" rel="external nofollow noopener" title="Mail">
+            <i class="fa-solid fa-envelope"></i>
+        </a>
+    
+    <img class="footer_mini_logo" src="/img/avatar.webp"
+        title="返回顶部" onclick="acrylic.toTop()">
+    
+        <a class="deal_link" target="_blank" href="https://music.163.com/#/user/follows?id=436327083" rel="external nofollow noopener" title="网易云">
+            <i class="fa-solid fa-music"></i>
+        </a>
+    
+        <a class="deal_link" target="_blank" href="https://space.bilibili.com/701779878?spm_id_from=333.1007.0.0" rel="external nofollow noopener" title="bilibili">
+            <i class="fa-brands fa-bilibili"></i>
+        </a>
+    
+</div>    
+<div id="heo-footer">
+    
+    
+</div>
+<div id="footer-section">
+    <div class="footer-section-links">
+        <div class="footer-section-left">
+            <div id="footer-section-tips">
+                <div class="copyright">©2021 - 2023 By 
+                    <a class="footer-section-link" href="/" rel="external nofollow">抒情熊</a>
+                    <a class="footer-section-link" href="https://github.com/hexo-theme-Acrylic/Hexo-Theme-Acrylic-Next" rel="external nofollow" target="_blank"> Theme By Acrylic-Next</a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-section-right">
+            <a class="footer-section-link" href="/rss/">订阅</a>
+            
+            <a class="footer-section-link cc" target="_blank" href="https://creativecommons.org/licenses/by/4.0/" title="cc协议">
+                <i class="fa-solid fa-closed-captioning"></i>
+            </a>
+        </div>
+    </div>
+</div>
+                </footer>
+            </div>
+         
+        <div>
+    <script type="text/javascript" src="/js/utils.js"></script>
+    <script type="text/javascript" src="/js/main.js"></script>
+    
+
+<script src="/lib/pjax.min.js"></script>
+
+
+
+<script src="/lib/snackbar.min.js"></script>
+
+
+    
+<script src="/lib/view-image.min.js"></script>
+
+
+
+    
+<link rel="stylesheet" href="/lib/swiper.min.css">
+
+    
+<script src="/lib/swiper.min.js"></script>
+
+
+<div id="js-pjax">
+    
+     
+</div>
+
+
+    
+<script src="/js/extend/covercolor/web.js"></script>
+
+        
+
+    <script>
+  let pjaxSelectors = [
+    'title',
+    '#body-wrap',
+    '#site-config',
+    'meta[name="description"]',
+    '#js-pjax'
+  ]
+  
+  const pjax = new Pjax({
+    elements: 'a:not([target="_blank"])',
+    selectors: pjaxSelectors,
+    cacheBust: false,
+    analytics: false,
+    scrollRestoration: false
+  })
+
+  document.querySelectorAll('script[data-pjax]').forEach(item => {
+      const newScript = document.createElement('script')
+      const content = item.text || item.textContent || item.innerHTML || ""
+      Array.from(item.attributes).forEach(attr => newScript.setAttribute(attr.name, attr.value))
+      newScript.appendChild(document.createTextNode(content))
+      item.parentNode.replaceChild(newScript, item)
+  })
+
+  document.addEventListener('pjax:error', (e) => {
+    if (e.request.status === 404) {
+      pjax.loadUrl('/404.html')
+    }
+  })
+</script>
+    
+</div>
+        
+     
+        <div class="needEndHide" id="nav-music" onclick="acrylic.musicToggle()">
+    <div id="nav-music-hoverTips">音乐已暂停</div>
+    <meting-js id="1708664797" server="tencent" type="playlist" mutex="true"
+        preload="none" data-lrctype="0" order="random" theme="var(--heo-main)"></meting-js>
+</div>
+    
+    </body>
+</html>
+<script>const posts=["2023/04/28/ClickHouse/","2023/03/14/Go语言设计与实现/","2023/03/13/Git/","2023/02/10/风凌夜话/","2023/02/04/Hertz/","2023/01/17/白马遥/","2023/01/17/彩云辞/","2023/01/17/Java虚拟机/","2023/01/17/Web基本原理/","2023/01/17/Springboot入门/","2023/01/17/分布式/","2023/01/17/Golang/","2023/01/17/Redis/"];function toRandomPost(){ window.pjax ? pjax.loadUrl('/'+posts[Math.floor(Math.random()*posts.length)]) : window.open('/'+posts[Math.floor(Math.random()*posts.length)], "_self"); };</script>

@@ -1,0 +1,978 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-theme="light">
+    <head>
+        <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Web基本原理 | 风凌渡</title>
+<noscript>开启Javascript是必要的</noscript>
+<link rel="icon" type="image/x-icon" href="/img/avatar.webp">
+<link rel="apple-touch-icon" href="/img/avatar.webp">
+<meta name="apple-mobile-web-app-title" content="风凌渡">
+<link rel="bookmark" href="/img/avatar.webp">
+<link rel="apple-touch-icon-precomposed" sizes="180x180" href="/img/avatar.webp">
+<meta name="description" content="a blog 一个分享技术与生活的博客">
+<meta name="theme-color" content="#1C1C1F">
+<link rel="stylesheet" href="/css/var.css">
+<link rel="stylesheet" href="/css/main.css">
+<link rel="stylesheet" href="/css/custom.css">
+
+
+
+<link rel="stylesheet" href="https://cdn.bootcdn.net/ajax/libs/font-awesome/6.3.0/css/all.min.css">
+    
+
+<link rel="stylesheet" href="/lib/snackbar.min.css">
+
+
+<script src="/lib/qrcode.min.js"></script>
+
+
+
+
+
+<script>var GLOBALCONFIG = {"root":"/","runtime":"2021-12-12 00:00:00","lazyload":{"enable":false,"error":"/img/acrylic.png"},"hightlight":{"enable":false,"limit":200},"lightbox":true,"randomlinks":false,"lang":{"theme":{"dark":"已切换至深色模式","light":"已切换至浅色模式"},"copy":{"success":"复制成功","error":"复制失败"},"backtop":"返回顶部","time":{"recent":"最近","yesterday":"昨天","berforeyesterday":"前天","daybefore":"天前","runtime":"天"},"sayhello":{"morning":"早上好","noon":"中午好","afternoon":"下午好","night":"晚上好","goodnight":"晚安","iam":"!  我是"},"search":{"empty":"搜索结果为空","hit":"已为您找到 ${query} 条结果","placeholder":"输入关键词快速查找"}},"covercolor":false};</script><script id="site-config">var PAGECONFIG = {"is_home":false,"is_post":true,"is_page":false,"page":false,"toc":true,"comment":false};</script>
+    <meta name="generator" content="Hexo 6.3.0"></head>
+    <body id="body">
+        
+        <div id="console" style="zoom: 1;" class="">
+    <div class="close-btn" onclick="acrylic.hideConsole()" href="javascript:void(0);">
+        <i class="fas fa-circle-xmark"></i>
+    </div>
+    <div class="button-group">
+        <div class="console-btn-item"> <a class="darkmode_switchbutton" onclick="acrylic.switchDarkMode()" title="显示模式切换"
+                href="javascript:void(0);" rel="external nofollow" data-pjax-state=""><i class="fas fa-moon"
+                    style="font-size: 1rem;"></i></a></div>
+        
+        <div class="console-btn-item" id="consoleFPS" onclick="acrylic.FPSToggle()" title="帧率显示开关"><a class="FPS-switch"
+                data-pjax-state=""><i class="fas fa-gauge"></i></a></div>
+    </div>
+    <div class="console-mask" onclick="acrylic.hideConsole()" href="javascript:void(0);" rel="external nofollow"></div>
+</div>
+        <div id="sidebar" style="zoom: 1;">
+    <div id="menu-mask" style="display: none;"></div>
+    <div id="sidebar-menus" class>
+        <span class="sidebar-menu-item-title">功能</span>
+        <div class="sidebar-menu-item">
+            <a class="darkmode_switchbutton menu-child" onclick="acrylic.switchDarkMode()" title="显示模式切换"
+                href="javascript:void(0);" rel="external nofollow">
+                <i class="fas fa-moon" style="font-size: 1rem;"></i>
+                <span>显示模式</span>
+            </a>
+        </div>
+        
+            <div class="back-menu-list-groups">
+    
+      
+      <div class="back-menu-list-group">
+        <div class="back-menu-list-title">
+          我的
+        </div>
+        <div class="back-menu-list">
+          
+            
+            <a class="back-menu-item" href="/" rel="external nofollow" title="博客">
+              <img class="back-menu-item-icon" src="/img/avatar.webp" loading="lazy">
+              <span class="back-menu-item-text">
+                博客
+              </span>
+            </a>
+          
+        </div>
+      </div>
+    
+  </div>
+  
+        
+        <div class="menus_items">
+    
+        <div class="menus_item">
+            
+                <a class="site-page" href="javascript:void(0);" rel="external nofollow">
+                    <span> 文库</span>
+                </a>
+                <ul class="menus_item_child">
+                    
+                        <li>
+                            <a class="site-page child" href="/archives/">
+                                <i class="fas fa-box-archive"></i>
+                                <span> 文章列表</span>
+                            </a>
+                        </li>
+                    
+                        <li>
+                            <a class="site-page child" href="/categories/">
+                                <i class="fas fa-cube"></i>
+                                <span> 全部分类</span>
+                            </a>
+                        </li>
+                    
+                        <li>
+                            <a class="site-page child" href="/tags/">
+                                <i class="fas fa-tags"></i>
+                                <span> 全部标签</span>
+                            </a>
+                        </li>
+                    
+                </ul>
+             
+        </div>
+    
+        <div class="menus_item">
+            
+                <a class="site-page" href="javascript:void(0);" rel="external nofollow">
+                    <span> 友链</span>
+                </a>
+                <ul class="menus_item_child">
+                    
+                        <li>
+                            <a class="site-page child" href="/fcircle/">
+                                <i class="fas fa-fish-fins"></i>
+                                <span> 友链鱼塘</span>
+                            </a>
+                        </li>
+                    
+                        <li>
+                            <a class="site-page child" href="/links/">
+                                <i class="fas fa-user-group"></i>
+                                <span> 友情链接</span>
+                            </a>
+                        </li>
+                    
+                        <li>
+                            <a class="site-page child" href="javascript:travelling()">
+                                <i class="fas fa-bus"></i>
+                                <span> 宝藏博主</span>
+                            </a>
+                        </li>
+                    
+                </ul>
+             
+        </div>
+    
+        <div class="menus_item">
+            
+                <a class="site-page not-child" href="/says" rel="external nofollow">
+                    <span> 即刻</span>
+                </a>
+             
+        </div>
+    
+        <div class="menus_item">
+            
+                <a class="site-page not-child" target="_blank" href="https://github.com/rootlexblog" rel="external nofollow noopener">
+                    <span> 仓库</span>
+                </a>
+             
+        </div>
+    
+</div>
+        <span class="sidebar-menu-item-title">标签</span>
+        <div class="card-widget card-tags card-archives card-webinfo card-allinfo">
+            <div class="item-headline">
+                <i class="fas fa-tags"></i>
+                <span>标签</span>
+            </div>
+            <div class="card-tag-cloud">
+                
+                    <a href="/tags/%E4%B8%AD%E9%97%B4%E4%BB%B6/" style="font-size: 1em; color: #d3d3d3">中间件
+                        <sup>3</sup>
+                    </a>
+                
+                    <a href="/tags/Go/" style="font-size: 1em; color: #d3d3d3">Go
+                        <sup>3</sup>
+                    </a>
+                
+                    <a href="/tags/Java/" style="font-size: 1em; color: #d3d3d3">Java
+                        <sup>3</sup>
+                    </a>
+                
+                    <a href="/tags/%E5%88%86%E5%B8%83%E5%BC%8F/" style="font-size: 1em; color: #d3d3d3">分布式
+                        <sup>1</sup>
+                    </a>
+                
+                    <a href="/tags/%E8%AF%97%E6%AD%8C/" style="font-size: 1em; color: #d3d3d3">诗歌
+                        <sup>3</sup>
+                    </a>
+                
+            </div>
+        </div>
+    </div>
+</div>    
+        
+            <div class="post" id="body-wrap">
+                <header class="post-bg" id="page-header">
+    <nav id="nav" class="show">
+    <div id="nav-group">
+        <div id="blog_name">
+            
+                <div class="back-home-button" tabindex="-1">
+                    <i class="back-home-button-icon fas fa-grip-vertical"></i>
+                    <div class="back-menu-list-groups">
+    
+      
+      <div class="back-menu-list-group">
+        <div class="back-menu-list-title">
+          我的
+        </div>
+        <div class="back-menu-list">
+          
+            
+            <a class="back-menu-item" href="/" rel="external nofollow" title="博客">
+              <img class="back-menu-item-icon" src="/img/avatar.webp" loading="lazy">
+              <span class="back-menu-item-text">
+                博客
+              </span>
+            </a>
+          
+        </div>
+      </div>
+    
+  </div>
+  
+                </div>
+            
+            <a id="site-name" href="/" title="返回博客主页">
+                    
+            </a>
+        </div>
+        <div id="page-name-mask">
+            <div id="page-name">
+                <a id="page-name-text" onclick="acrylic.toTop()">Web基本原理</a>
+            </div>
+        </div>
+        <div id="menus">
+            <div class="menus_items">
+    
+        <div class="menus_item">
+            
+                <a class="site-page" href="javascript:void(0);" rel="external nofollow">
+                    <span> 文库</span>
+                </a>
+                <ul class="menus_item_child">
+                    
+                        <li>
+                            <a class="site-page child" href="/archives/">
+                                <i class="fas fa-box-archive"></i>
+                                <span> 文章列表</span>
+                            </a>
+                        </li>
+                    
+                        <li>
+                            <a class="site-page child" href="/categories/">
+                                <i class="fas fa-cube"></i>
+                                <span> 全部分类</span>
+                            </a>
+                        </li>
+                    
+                        <li>
+                            <a class="site-page child" href="/tags/">
+                                <i class="fas fa-tags"></i>
+                                <span> 全部标签</span>
+                            </a>
+                        </li>
+                    
+                </ul>
+             
+        </div>
+    
+        <div class="menus_item">
+            
+                <a class="site-page" href="javascript:void(0);" rel="external nofollow">
+                    <span> 友链</span>
+                </a>
+                <ul class="menus_item_child">
+                    
+                        <li>
+                            <a class="site-page child" href="/fcircle/">
+                                <i class="fas fa-fish-fins"></i>
+                                <span> 友链鱼塘</span>
+                            </a>
+                        </li>
+                    
+                        <li>
+                            <a class="site-page child" href="/links/">
+                                <i class="fas fa-user-group"></i>
+                                <span> 友情链接</span>
+                            </a>
+                        </li>
+                    
+                        <li>
+                            <a class="site-page child" href="javascript:travelling()">
+                                <i class="fas fa-bus"></i>
+                                <span> 宝藏博主</span>
+                            </a>
+                        </li>
+                    
+                </ul>
+             
+        </div>
+    
+        <div class="menus_item">
+            
+                <a class="site-page not-child" href="/says" rel="external nofollow">
+                    <span> 即刻</span>
+                </a>
+             
+        </div>
+    
+        <div class="menus_item">
+            
+                <a class="site-page not-child" target="_blank" href="https://github.com/rootlexblog" rel="external nofollow noopener">
+                    <span> 仓库</span>
+                </a>
+             
+        </div>
+    
+</div>
+        </div>
+        <!-- <div id="nav-left">
+            <div id="fps-group">
+                <div id="fps">145</div><span class="fpsText">FPS</span>
+            </div>
+        </div> -->
+        <div id="nav-right">
+            
+    <div class="nav-button only-home" id="travellings_button">
+        <a class="site-page"  target="_blank" rel="noopener external nofollow" href="https://www.travellings.cn/go.html" title="开往-友链接力"  width="120">
+            <i class="fa-solid fa-train-subway" style="font-size: 1rem;"></i>
+        </a>
+    </div>
+
+
+    <div class="nav-button" id="randomPost_button">
+        <a class="site-page" onclick="toRandomPost()"
+            title="随机前往一个文章">
+            <i class="fas fa-shuffle" style="font-size: 1rem;"></i>
+        </a>
+    </div>
+
+
+
+    <div class="nav-button" id="nav-console">
+        <a class="console_switchbutton" onclick="acrylic.showConsole()"
+        title="显示中控台" href="javascript:void(0);" rel="external nofollow">
+        <i class="fas fa-bars-progress" style="font-size: 1rem;"></i>
+        </a>
+    </div>
+
+<div class="nav-button" id="nav-totop" onclick="acrylic.toTop()">
+    <a class="totopbtn">
+        <i class="fas fa-arrow-up"></i>
+        <span id="percent">0</span>
+    </a>
+</div>
+<div id="toggle-menu">
+    <a class="site-page">
+        <i class="fas fa-bars fa-fw" style="font-size: 1rem;"></i>
+    </a>
+</div>
+        </div>
+    </div>
+</nav>
+    
+        <div class="coverdiv" id="coverdiv">
+    <img id="post-cover" class="nolazyload" src="/img/9.jpg" alt="cover">
+</div>
+<div id="post-info">
+    <div id="post-firstinfo">
+        <div class="meta-firstline">
+            <a class="post-meta-original" title="该文章为原创文章，注意版权协议">
+                原创
+            </a>
+            
+            <span class="post-meta-categories">
+                
+                    <a class="post-meta-categories" href="/categories/%E7%AC%94%E8%AE%B0/">笔记</a>
+                
+            </span>
+            
+            <div class="tag_share">
+                <div class="post-meta__tag-list">
+                    
+                        <a class="post-meta__tags" href="/tags/Java/">
+                            <span class="tags-punctuation">#</span>
+                            <span class="tags-name">Java</span>
+                        </a>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+    <h1 class="post-title">Web基本原理</h1>
+    <div id="post-meta">
+        <div class="meta-secondline">
+            <span class="post-meta-date" title="发布于">
+                <i class="post-meta-icon fa-fw fas fa-calendar"></i>
+                <time datetime="2023-01-17T22:59:51+08:00"></time>
+            </span>
+            
+            
+                <span class="post-meta-position" title="作者IP归属地为北京">
+                    <i class="fas fa-location-dot post-meta-icon"></i>
+                    <span>北京</span>
+                </span>
+            
+            
+            
+                
+        </div>
+    </div>
+</div>
+<section class="main-hero-waves-area waves-area"><svg class="waves-svg" xmlns="http://www.w3.org/2000/svg"
+    xlink="http://www.w3.org/1999/xlink" viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto">
+    <defs>
+        <path id="gentle-wave"
+            d="M -160 44 c 30 0 58 -18 88 -18 s 58 18 88 18 s 58 -18 88 -18 s 58 18 88 18 v 44 h -352 Z"></path>
+    </defs>
+    <g class="parallax">
+        <use href="#gentle-wave" x="48" y="0"></use>
+        <use href="#gentle-wave" x="48" y="3"></use>
+        <use href="#gentle-wave" x="48" y="5"></use>
+        <use href="#gentle-wave" x="48" y="7"></use>
+    </g>
+</svg>
+</section>
+
+        
+</header>
+                <main class="layout" id="content-inner">
+    <div id="post">
+        <article class="post-content" id="article-container">
+            <h1 id="Web"><a href="#Web" class="headerlink" title="Web"></a>Web</h1><h1 id="1-绪论"><a href="#1-绪论" class="headerlink" title="1.绪论:"></a>1.绪论:</h1><h2 id="1-1-b-x2F-s架构："><a href="#1-1-b-x2F-s架构：" class="headerlink" title="1.1 b&#x2F;s架构："></a>1.1 b&#x2F;s架构：</h2><p>B&#x2F;S 架构：Browser&#x2F;Server，浏览器&#x2F;服务器 架构模式。</p>
+<p>客户端只需要浏览器，应用程序的逻辑和数据都存储在服务器端浏览器只需要请求服务器，获取Web资源，服务器把Web资源发送给浏览器即可。</p>
+<h2 id="1-2-web应用"><a href="#1-2-web应用" class="headerlink" title="1.2 web应用"></a>1.2 web应用</h2><p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/image-20230524094118036.png" alt="image-20230524094118036"></p>
+<p>静态资源直接返回，动态资源转化为静态资源后再返回.</p>
+<h2 id="1-3-前中后台："><a href="#1-3-前中后台：" class="headerlink" title="1.3 前中后台："></a>1.3 前中后台：</h2><p>前台：即包括与用户直接交互的界面，如：web页、app；也包括服务端各种实时响应用户请求的业务逻辑，如：商品查询、订单系统等。后台：面向内部运营人员的管理系统、配置系统，如：电商配置后台的商品管理、订单管理、会员管理、财务管理等。</p>
+<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/image-20230524094249596.png" alt="image-20230524094249596"></p>
+<h1 id="2-HTML"><a href="#2-HTML" class="headerlink" title="2.HTML:"></a>2.HTML:</h1><h2 id="2-1-语法："><a href="#2-1-语法：" class="headerlink" title="2.1 语法："></a>2.1 语法：</h2><h3 id="2-1-1-文字"><a href="#2-1-1-文字" class="headerlink" title="2.1.1 文字:"></a>2.1.1 文字:</h3><p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/image-20230524094525694.png" alt="image-20230524094525694"></p>
+<h3 id="2-1-2图片"><a href="#2-1-2图片" class="headerlink" title="2.1.2图片:"></a>2.1.2图片:</h3><p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/image-20230524094556727.png" alt="image-20230524094556727"></p>
+<h3 id="2-1-3-标签"><a href="#2-1-3-标签" class="headerlink" title="2.1.3 标签:"></a>2.1.3 标签:</h3><p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/image-20230524094624293.png" alt="image-20230524094624293"></p>
+<h3 id="2-1-4-表格"><a href="#2-1-4-表格" class="headerlink" title="2.1.4 表格:"></a>2.1.4 表格:</h3><p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/image-20230524094729208.png" alt="image-20230524094729208"></p>
+<h3 id="2-1-5-表单"><a href="#2-1-5-表单" class="headerlink" title="2.1.5 表单:"></a>2.1.5 表单:</h3><p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/image-20230524094832142.png" alt="image-20230524094832142"></p>
+<h1 id="3-css"><a href="#3-css" class="headerlink" title="3.css:"></a>3.css:</h1><p>Cascading Style Sheets.层叠样式表.</p>
+<h2 id="3-1-页面构成"><a href="#3-1-页面构成" class="headerlink" title="3.1 页面构成:"></a>3.1 页面构成:</h2><p>HTML标签只用于搭建网页的基础结构；样式交由CSS来设置。</p>
+<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/image-20230524095021130.png" alt="image-20230524095021130"></p>
+<h2 id="3-2-引用方式"><a href="#3-2-引用方式" class="headerlink" title="3.2 引用方式:"></a>3.2 引用方式:</h2><h3 id="3-2-1-行内式"><a href="#3-2-1-行内式" class="headerlink" title="3.2.1 行内式:"></a>3.2.1 行内式:</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&lt;html标签名 style=&quot;属性1:属性值1; 属性2:属性值2; &quot;&gt;    </span><br><span class="line">内容 </span><br><span class="line">&lt;/html标签名&gt;</span><br><span class="line"></span><br><span class="line">&lt;div style=&quot;color: red; font-size: 12px;“ &gt;</span><br><span class="line">      日出江花红胜火</span><br><span class="line">&lt;/div&gt;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h3 id="3-2-2-内嵌式"><a href="#3-2-2-内嵌式" class="headerlink" title="3.2.2 内嵌式:"></a>3.2.2 内嵌式:</h3><p>放在head开头:</p>
+<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/image-20230524095327215.png" alt="image-20230524095327215"></p>
+<h3 id="3-2-3-外链式"><a href="#3-2-3-外链式" class="headerlink" title="3.2.3 外链式:"></a>3.2.3 外链式:</h3><p>放在新的文件中. .css结尾 </p>
+<p>这个文件里面的内容和head里面的style内容是一样的,引用这个文件发生在html的head中.</p>
+<h2 id="3-3-语法"><a href="#3-3-语法" class="headerlink" title="3.3 语法:"></a>3.3 语法:</h2><h3 id="3-3-1-普通选择器："><a href="#3-3-1-普通选择器：" class="headerlink" title="3.3.1 普通选择器："></a>3.3.1 普通选择器：</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">选择器 &#123; 属性1:属性值1; 属性2:属性值2; … &#125;</span><br></pre></td></tr></table></figure>
+
+<p>选择器类型：</p>
+<p>1.根据html标签选择。</p>
+<p>2.把css样式写成类，在html的每一个标签上引用：</p>
+<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/image-20230524095829423.png" alt="image-20230524095829423"></p>
+<p>3.id：</p>
+<p>和类差不多 不过是唯一的。就是只能被引用一次</p>
+<p>定义时：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">#blue&#123;</span><br><span class="line">	color: #000ff</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>4.通配：</p>
+<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/image-20230524100103883.png" alt="image-20230524100103883"></p>
+<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/image-20230524100020569.png" alt="image-20230524100020569"></p>
+<h3 id="3-3-2-特殊选择器："><a href="#3-3-2-特殊选择器：" class="headerlink" title="3.3.2 特殊选择器："></a>3.3.2 特殊选择器：</h3><p>1.后代：</p>
+<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/image-20230524100210856.png" alt="image-20230524100210856"></p>
+<p>不管嵌套了多少标签 统称为后代，而直接标签的后代成为儿子标签。</p>
+<p>2.儿子：</p>
+<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/image-20230524100333199.png" alt="image-20230524100333199"></p>
+<p>3.并集：</p>
+<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/image-20230524100419631.png" alt="image-20230524100419631"></p>
+<p>4.交集：</p>
+<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/image-20230524100503788.png" alt="image-20230524100503788"></p>
+<h2 id="3-4-盒子模型："><a href="#3-4-盒子模型：" class="headerlink" title="3.4 盒子模型："></a>3.4 盒子模型：</h2><p>html中的每一个元素可以看作一个盒子。</p>
+<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/image-20230524100615921.png" alt="image-20230524100615921"></p>
+<h2 id="3-5-三大特征："><a href="#3-5-三大特征：" class="headerlink" title="3.5 三大特征："></a>3.5 三大特征：</h2><h3 id="3-5-1-层叠性："><a href="#3-5-1-层叠性：" class="headerlink" title="3.5.1 层叠性："></a>3.5.1 层叠性：</h3><p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/image-20230524100719874.png" alt="image-20230524100719874"></p>
+<h3 id="3-5-2-继承性："><a href="#3-5-2-继承性：" class="headerlink" title="3.5.2 继承性："></a>3.5.2 继承性：</h3><p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/image-20230524100753450.png" alt="image-20230524100753450"></p>
+<h3 id="3-5-3-优先级："><a href="#3-5-3-优先级：" class="headerlink" title="3.5.3 优先级："></a>3.5.3 优先级：</h3><p>根据上文选择器顺序判断。</p>
+<h1 id="4-javascript"><a href="#4-javascript" class="headerlink" title="4.javascript:"></a>4.javascript:</h1><h2 id="4-1-简介"><a href="#4-1-简介" class="headerlink" title="4.1 简介:"></a>4.1 简介:</h2><p>JavaScript 是一门跨平台、面向对象的脚本语言，用来控制网页行为，使网页可交互。JavaScript 和 Java 是完全不同的语言，不论是概念还是设计。但是基础语法类似。</p>
+<p>JavaScript可以改变页面内容,展示动态的相关信息,变更图片,对表单进行校验等等.</p>
+<h2 id="4-2-引入方式"><a href="#4-2-引入方式" class="headerlink" title="4.2 引入方式:"></a>4.2 引入方式:</h2><h3 id="4-2-1-内部脚本"><a href="#4-2-1-内部脚本" class="headerlink" title="4.2.1 内部脚本:"></a>4.2.1 内部脚本:</h3><p>定义在html页面中.</p>
+<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/image-20230525195643499.png" alt="image-20230525195643499"></p>
+<p>此类标签可以出现在任何地方,一般位于最底部.因为浏览器在加载页面的时候会从上往下进行加载并解析。我们应该让用户看到页面内容，然后再展示动态的效果。</p>
+<h3 id="4-2-2-外部脚本"><a href="#4-2-2-外部脚本" class="headerlink" title="4.2.2 外部脚本:"></a>4.2.2 外部脚本:</h3><p>通过编写js文件的方式,引入js.</p>
+<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/image-20230525195832237.png" alt="image-20230525195832237"></p>
+<h2 id="4-3-基础语法"><a href="#4-3-基础语法" class="headerlink" title="4.3 基础语法:"></a>4.3 基础语法:</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line">&lt;script&gt;            </span><br><span class="line"></span><br><span class="line">//写入警告框            </span><br><span class="line">window.alert(&quot;hello js1~&quot;);            </span><br><span class="line"></span><br><span class="line">//写入html页面     </span><br><span class="line">document.write(&quot;hello js2~&quot;);   </span><br><span class="line"></span><br><span class="line">//写入浏览器的控制台    </span><br><span class="line">console.log(&quot;hello js3~&quot;);   </span><br><span class="line"></span><br><span class="line">&lt;/script&gt;</span><br><span class="line"></span><br><span class="line">var test = 20;</span><br><span class="line">test = &quot;张三&quot;;</span><br><span class="line">alert(test);</span><br><span class="line"></span><br><span class="line">//var定义的变量是全局变量,可以重复定义.</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">// 函数定义方式1    </span><br><span class="line">function add(a, b) &#123;</span><br><span class="line">        return a + b;    </span><br><span class="line">&#125;   </span><br><span class="line"></span><br><span class="line">// 函数定义方式2</span><br><span class="line">var sub = function (a, b) &#123;</span><br><span class="line">return a - b;  &#125;</span><br><span class="line">var subResult = sub(3,5)    </span><br><span class="line">alert(subResult);</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h2 id="4-4-BOM"><a href="#4-4-BOM" class="headerlink" title="4.4 BOM:"></a>4.4 BOM:</h2><p>Browser Object Model 浏览器对象模型.</p>
+<p>也就是 JavaScript 将浏览器的各个组成部分封装为对象。操作浏览器的各个组成部分就可以通过操作 BOM 中的对象来实现。<br><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/image-20230525200410879.png" alt="image-20230525200410879"></p>
+<h2 id="4-5-DOM"><a href="#4-5-DOM" class="headerlink" title="4.5 DOM:"></a>4.5 DOM:</h2><p>Document Object Model 文档对象模型.</p>
+<p>Document Object Model 文档对象模型。即： JavaScript 将 HTML 文档的各个组成部分封装为对象封装的对象分为：document：整个文档对象element：元素对象attribute：属性对象text：文本对象comment：注释对象.</p>
+<p>通过DOM,可以对html进行操作.</p>
+<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/image-20230525200624000.png" alt="image-20230525200624000"></p>
+<p>使用举例:点亮图片:</p>
+<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/image-20230525200726476.png" alt="image-20230525200726476"></p>
+<h2 id="4-6-事件监听"><a href="#4-6-事件监听" class="headerlink" title="4.6 事件监听:"></a>4.6 事件监听:</h2><p>HTML 事件是发生在 HTML 元素上的“事情”。比如：页面上的 按钮被点击、鼠标移动到元素之上、按下键盘按键等都是事件。</p>
+<p>事件监听是 JavaScript 可以在 事件被侦测到时 执行一段逻辑代码。</p>
+<h1 id="5-http"><a href="#5-http" class="headerlink" title="5.http:"></a>5.http:</h1><h2 id="5-1-定义"><a href="#5-1-定义" class="headerlink" title="5.1: 定义:"></a>5.1: 定义:</h2><p>Hyper Text Transfer Protocol 超文本传输协议</p>
+<h2 id="5-2-特点"><a href="#5-2-特点" class="headerlink" title="5.2 特点:"></a>5.2 特点:</h2><p>基于TCP协议：面向连接，安全。</p>
+<p>基于请求&#x2F;响应模型的：一次请求对应一次响应无状态：对于事务处理没有记忆能力。每次请求-响应之间相互独立。</p>
+<p>优点：速度快</p>
+<p>缺点：多次请求间不能共享数据。</p>
+<h2 id="5-3-消息格式"><a href="#5-3-消息格式" class="headerlink" title="5.3 消息格式:"></a>5.3 消息格式:</h2><p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/image-20230524101342314.png"></p>
+<p>空行的作用是分割正文和请求头.</p>
+<p>响应:</p>
+<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/image-20230524101438649.png" alt="image-20230524101438649"></p>
+<h1 id="6-tomcat"><a href="#6-tomcat" class="headerlink" title="6.tomcat:"></a>6.tomcat:</h1><h2 id="6-1-web服务器"><a href="#6-1-web服务器" class="headerlink" title="6.1 web服务器:"></a>6.1 web服务器:</h2><p>Web服务器是一个应用程序，对HTTP协议的操作进行封装，使得程序员不必直接对协议进行操作，让Web开发更加便捷。主要功能是 ”提供网上信息浏览服务 ”.</p>
+<h2 id="6-2-介绍"><a href="#6-2-介绍" class="headerlink" title="6.2 介绍:"></a>6.2 介绍:</h2><p>Tomcat是Apache软件基金会一个核心项目，是一个开源免费的轻量级Web服务器，支持Servlet&#x2F;JSP少量JavaEE规范。</p>
+<h2 id="6-3-项目结构"><a href="#6-3-项目结构" class="headerlink" title="6.3 项目结构:"></a>6.3 项目结构:</h2><p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/image-20230524101627252.png" alt="image-20230524101627252"></p>
+<h2 id="6-4-启动与部署"><a href="#6-4-启动与部署" class="headerlink" title="6.4 启动与部署:"></a>6.4 启动与部署:</h2><p>启动:</p>
+<p>点击bin下 startup.bat.</p>
+<p>部署:</p>
+<p>拷贝到webapps下,也可以打包成war包在进行拷贝.</p>
+<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/image-20230524101919152.png" alt="image-20230524101919152"></p>
+<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/image-20230524101952986.png" alt="image-20230524101952986"></p>
+<h1 id="7-Servlet"><a href="#7-Servlet" class="headerlink" title="7.Servlet:"></a>7.Servlet:</h1><h2 id="7-1-介绍"><a href="#7-1-介绍" class="headerlink" title="7.1 介绍:"></a>7.1 介绍:</h2><p>Servlet 是 java 提供的一门 动态 web资源开发技术。Servlet 是 Java EE 规范之一，是一个接口。</p>
+<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/image-20230524102931979.png" alt="image-20230524102931979"></p>
+<h2 id="7-2-生命周期"><a href="#7-2-生命周期" class="headerlink" title="7.2 生命周期:"></a>7.2 生命周期:</h2><p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/image-20230524165458955.png" alt="image-20230524165458955"></p>
+<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/image-20230524165522763.png" alt="image-20230524165522763"></p>
+<h2 id="7-3-HTTPServlet"><a href="#7-3-HTTPServlet" class="headerlink" title="7.3 HTTPServlet:"></a>7.3 HTTPServlet:</h2><p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/image-20230524165611678.png" alt="image-20230524165611678"></p>
+<p>还有xml的配置方式:</p>
+<p><strong><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/image-20230524165714050.png" alt="image-20230524165714050"></strong></p>
+<h1 id="8-xml"><a href="#8-xml" class="headerlink" title="8.xml:"></a>8.xml:</h1><p>XML（ Extensible Markup Language），可扩展标记语言。是由 W3C 推出一种类似于 HTML 的标记语言。 可扩展体现在：标签都是自定义的。</p>
+<h2 id="8-1-基本格式"><a href="#8-1-基本格式" class="headerlink" title="8.1 基本格式:"></a>8.1 基本格式:</h2><p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/image-20230524165948944.png" alt="image-20230524165948944"></p>
+<h2 id="8-2-约束"><a href="#8-2-约束" class="headerlink" title="8.2 约束:"></a>8.2 约束:</h2><h3 id="8-2-1-DTD"><a href="#8-2-1-DTD" class="headerlink" title="8.2.1 DTD:"></a>8.2.1 DTD:</h3><p>为了规范xml的标签的格式.</p>
+<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/image-20230524170104514.png" alt="image-20230524170104514"></p>
+<h3 id="8-2-2-Schema"><a href="#8-2-2-Schema" class="headerlink" title="8.2.2 Schema:"></a>8.2.2 Schema:</h3><p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/image-20230524170236775.png" alt="image-20230524170236775"></p>
+<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/image-20230524170255144.png" alt="image-20230524170255144"></p>
+<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/image-20230524170317951.png" alt="image-20230524170317951"></p>
+<h1 id="9-Maven"><a href="#9-Maven" class="headerlink" title="9.Maven:"></a>9.Maven:</h1><h2 id="9-1-简介"><a href="#9-1-简介" class="headerlink" title="9.1 简介:"></a>9.1 简介:</h2><p>Maven 是专门用于管理和构建 Java 项目的工具。主要功能提供了一套标准化的项目结构提供了一套标准化的构建流程（编译，测试，打包，发布……）提供了一套依赖管理机制.</p>
+<h2 id="9-2-项目结构"><a href="#9-2-项目结构" class="headerlink" title="9.2 项目结构:"></a>9.2 项目结构:</h2><p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/image-20230524170505576.png" alt="image-20230524170505576"></p>
+<h2 id="9-3-POM"><a href="#9-3-POM" class="headerlink" title="9.3 POM:"></a>9.3 POM:</h2><p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/image-20230524170549767.png" alt="image-20230524170549767"></p>
+<h2 id="9-4-仓库"><a href="#9-4-仓库" class="headerlink" title="9.4 仓库:"></a>9.4 仓库:</h2><p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/image-20230524170641960.png" alt="image-20230524170641960"><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/image-20230524170657281.png" alt="image-20230524170657281"></p>
+<h2 id="9-5-生命周期"><a href="#9-5-生命周期" class="headerlink" title="9.5 生命周期:"></a>9.5 生命周期:</h2><p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/image-20230524170726626.png" alt="image-20230524170726626"></p>
+<h1 id="10-request-amp-response"><a href="#10-request-amp-response" class="headerlink" title="10. request&amp;response:"></a>10. request&amp;response:</h1><h2 id="10-1-语法"><a href="#10-1-语法" class="headerlink" title="10.1: 语法:"></a>10.1: 语法:</h2><p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/image-20230524170853865.png" alt="image-20230524170853865"></p>
+<h2 id="10-2-访问过程"><a href="#10-2-访问过程" class="headerlink" title="10.2 访问过程:"></a>10.2 访问过程:</h2><p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/image-20230524171015404.png" alt="image-20230524171015404"></p>
+<h1 id="11-JDBC"><a href="#11-JDBC" class="headerlink" title="11.JDBC:"></a>11.JDBC:</h1><h2 id="11-1-简介"><a href="#11-1-简介" class="headerlink" title="11.1 简介:"></a>11.1 简介:</h2><p>JDBC：使用Java语言操作关系型数据库的一套API。全称：( Java DataBase Connectivity ) Java 数据库连接</p>
+<h2 id="11-2-语法"><a href="#11-2-语法" class="headerlink" title="11.2 语法:"></a>11.2 语法:</h2><p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/image-20230524171326623.png" alt="image-20230524171326623"></p>
+<h2 id="11-3-数据库连接池"><a href="#11-3-数据库连接池" class="headerlink" title="11.3 数据库连接池:"></a>11.3 数据库连接池:</h2><p>池化技术.</p>
+<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/image-20230524171619940.png" alt="image-20230524171619940"></p>
+<h2 id="11-4-druid"><a href="#11-4-druid" class="headerlink" title="11.4 druid:"></a>11.4 druid:</h2><p>Druid 连接池是阿里巴巴开源的数据库连接池项目功能强大，性能优秀是 Java 语言最好的数据库连接池之一.</p>
+<h3 id="11-4-1-写配置-引依赖"><a href="#11-4-1-写配置-引依赖" class="headerlink" title="11.4.1 写配置 引依赖."></a>11.4.1 写配置 引依赖.</h3><p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/image-20230524171704094.png" alt="image-20230524171704094"></p>
+<h3 id="11-4-2-代码连接"><a href="#11-4-2-代码连接" class="headerlink" title="11.4.2 代码连接:"></a>11.4.2 代码连接:</h3><p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/image-20230524171756673.png" alt="image-20230524171756673"></p>
+<h2 id="11-5-jdbcTemplate"><a href="#11-5-jdbcTemplate" class="headerlink" title="11.5 jdbcTemplate:"></a>11.5 jdbcTemplate:</h2><p>简化操作:</p>
+<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/image-20230524171947128.png" alt="image-20230524171947128"><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/image-20230524172017726.png" alt="image-20230524172017726"></p>
+<h1 id="12-MVC架构"><a href="#12-MVC架构" class="headerlink" title="12.MVC架构:"></a>12.MVC架构:</h1><p>架构示例图:</p>
+<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/image-20230525164114821.png" alt="image-20230525164114821"></p>
+<h1 id="13-会话技术"><a href="#13-会话技术" class="headerlink" title="13. 会话技术:"></a>13. 会话技术:</h1><h2 id="13-1-会话跟踪"><a href="#13-1-会话跟踪" class="headerlink" title="13.1 会话跟踪:"></a>13.1 会话跟踪:</h2><p>浏览器无状态,会话跟踪技术是为了解决这个问题出现的技术.</p>
+<h2 id="13-2-cookie"><a href="#13-2-cookie" class="headerlink" title="13.2 cookie:"></a>13.2 cookie:</h2><p>存储在客户端.认证过程如下:</p>
+<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/web_1684982156224.png" alt="web_1684982156224"></p>
+<h2 id="13-3-session"><a href="#13-3-session" class="headerlink" title="13.3 session:"></a>13.3 session:</h2><p>cookie的升级版,存储在服务器端.认证过程如下:<br><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/web_1684982167273.png" alt="web_1684982167273"></p>
+<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/Screenshot_20230525_103517.jpg" alt="Screenshot_20230525_103517"></p>
+<p>基本使用:</p>
+<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/image-20230525165325065.png" alt="image-20230525165325065"></p>
+<h3 id="13-3-1-钝化和活化"><a href="#13-3-1-钝化和活化" class="headerlink" title="13.3.1 钝化和活化:"></a>13.3.1 钝化和活化:</h3><p>钝化：在服务器正常关闭后，Tomcat 会自动将 Session 数据写入硬盘的文件中。钝化的数据路径为: 项目目录\target\tomcat\work\Tomcat\ localhost\项目名称\SESSIONS.ser.</p>
+<p>活化：再次启动服务器后，从文件中加载数据到 Session 中.</p>
+<h2 id="13-4-小结"><a href="#13-4-小结" class="headerlink" title="13.4 小结:"></a>13.4 小结:</h2><p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/image-20230525165429477.png" alt="image-20230525165429477"></p>
+<h1 id="14-Filter"><a href="#14-Filter" class="headerlink" title="14. Filter:"></a>14. Filter:</h1><h2 id="14-1-简介"><a href="#14-1-简介" class="headerlink" title="14.1 简介:"></a>14.1 简介:</h2><p>拦截特定的请求,并进行一系列操作.</p>
+<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/image-20230525165614821.png" alt="image-20230525165614821"></p>
+<h2 id="14-2-开发"><a href="#14-2-开发" class="headerlink" title="14.2 开发:"></a>14.2 开发:</h2><h3 id="14-2-1-demo"><a href="#14-2-1-demo" class="headerlink" title="14.2.1 demo:"></a>14.2.1 demo:</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">//配置拦截路径.也可以通过xml的方式进行配置</span><br><span class="line">@WebFilter(&quot;/*&quot;)</span><br><span class="line"></span><br><span class="line">//实现filer接口</span><br><span class="line">public class FilterDemo1 implements Filter &#123;    </span><br><span class="line"></span><br><span class="line">//初始化</span><br><span class="line">@Override    </span><br><span class="line">public void init(FilterConfig filterConfig) throws ServletException &#123;    &#125;    </span><br><span class="line"></span><br><span class="line"></span><br><span class="line">//拦截的具体方法</span><br><span class="line">@Override    </span><br><span class="line">public void doFilter(ServletRequest servletRequest,ServletResponse servletResponse,FilterChainfilterChain)throws IOException, ServletException &#123;</span><br><span class="line"></span><br><span class="line">//具体逻辑</span><br><span class="line">System.out.println(“filterDemo1 过滤....&quot;);       </span><br><span class="line"></span><br><span class="line"></span><br><span class="line">//放行语句</span><br><span class="line">filterChain.doFilter(servletRequest,servletResponse);    </span><br><span class="line">&#125;    </span><br><span class="line"></span><br><span class="line">//销毁</span><br><span class="line">@Override    public void destroy() &#123;    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="14-3-过滤器链"><a href="#14-3-过滤器链" class="headerlink" title="14.3 过滤器链:"></a>14.3 过滤器链:</h2><p>当配置多个过滤器时,称为过滤器链.</p>
+<p>执行顺序:</p>
+<p>注解配置时过滤器执行顺序：当使用注解配置多个 Filter 时，用户无法控制它们的执行顺序，Filter的执行顺序按照类名的字符串比较规则比较，值小的先执行AFilter 和 BFilter，AFilter就先执行web.xml配置： <filter-mapping>谁定义在上边，谁先执行</p>
+<h1 id="15-Ajax"><a href="#15-Ajax" class="headerlink" title="15.Ajax:"></a>15.Ajax:</h1><p>Ajax：ASynchronous JavaScript And XML：异步 的 JavaScript 和 XML。</p>
+<p>JavaScript 表明该技术和前端相关XML 是指以此进行数据交换.</p>
+<p>Ajax 的作用：与服务器进行数据交换异步交互.</p>
+<h2 id="15-1-同步-异步交互"><a href="#15-1-同步-异步交互" class="headerlink" title="15.1 同步.异步交互:"></a>15.1 同步.异步交互:</h2><p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/image-20230525170425027.png" alt="image-20230525170425027"></p>
+<h2 id="15-2-体系结构"><a href="#15-2-体系结构" class="headerlink" title="15.2 体系结构:"></a>15.2 体系结构:</h2><p>通过ajax,后端可以不向前端发送html文件,而是发送特定格式的数据.避免了在Java中编写html的复杂情况出现.</p>
+<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/image-20230525170452141.png" alt="image-20230525170452141"></p>
+<h2 id="15-3-入门"><a href="#15-3-入门" class="headerlink" title="15.3 入门:"></a>15.3 入门:</h2><p>服务端:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">@WebServlet(&quot;/selectUserServlet&quot;)</span><br><span class="line">public class SelectUserServlet extends HttpServlet &#123;    </span><br><span class="line"></span><br><span class="line">@Override</span><br><span class="line">protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException &#123;</span><br><span class="line"></span><br><span class="line"> //1. 接收用户名        </span><br><span class="line"> String username = request.getParameter(&quot;username&quot;);       </span><br><span class="line"> //2. 此处不进行业务逻辑处理，直接给 flag 赋值为 true，表明用户名占用        </span><br><span class="line"> boolean flag = true;        </span><br><span class="line"> //3. 响应标记        </span><br><span class="line"> response.getWriter().write(&quot;&quot; + flag);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">@Override    </span><br><span class="line">protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException &#123;</span><br><span class="line">this.doGet(request, response);    </span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>客户端:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line">//1. 给用户名输入框绑定 失去焦点事件</span><br><span class="line">document.getElementById(&quot;username&quot;).onblur = function () &#123;</span><br><span class="line"></span><br><span class="line">//2. 发送ajax请求    </span><br><span class="line"></span><br><span class="line">// 获取用户名的值    </span><br><span class="line">var username = this.value;    </span><br><span class="line"></span><br><span class="line">//2.1. 创建核心对象    var xhttp;    </span><br><span class="line"></span><br><span class="line">if (window.XMLHttpRequest) &#123;        </span><br><span class="line">xhttp = new XMLHttpRequest();    </span><br><span class="line">&#125;else &#123;</span><br><span class="line">xhttp = new ActiveXObject(&quot;Microsoft.XMLHTTP&quot;);    </span><br><span class="line">&#125;    </span><br><span class="line"></span><br><span class="line">//2.2. 发送请求    </span><br><span class="line">xhttp.open(&quot;GET&quot;, &quot;http://localhost:8080/ajax-demo/selectUserServlet?username=&quot;+username);    </span><br><span class="line">xhttp.send();    </span><br><span class="line"></span><br><span class="line">//2.3. 获取响应    </span><br><span class="line">xhttp.onreadystatechange = function() &#123;</span><br><span class="line">if (this.readyState == 4 &amp;&amp; this.status == 200) &#123;</span><br><span class="line"></span><br><span class="line">if(this.responseText == &quot;true&quot;)&#123;                </span><br><span class="line">//用户名存在，显示提示信息                </span><br><span class="line">document.getElementById(&quot;username_err&quot;).style.display = &#x27;&#x27;;            </span><br><span class="line">&#125;else &#123;</span><br><span class="line">//用户名不存在 ，清楚提示信息</span><br><span class="line">document.getElementById(&quot;username_err&quot;).style.display = &#x27;none&#x27;;            </span><br><span class="line"></span><br><span class="line">&#125;        </span><br><span class="line">&#125;    </span><br><span class="line">&#125;;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="15-4-JQuery"><a href="#15-4-JQuery" class="headerlink" title="15.4 JQuery:"></a>15.4 JQuery:</h2><p>主要包括:</p>
+<p>$.ajax() &#x2F;&#x2F; jQuery 底层 AJAX 实现</p>
+<p>$.get()  &#x2F;&#x2F; get方式</p>
+<p>$.post() &#x2F;&#x2F; post方式</p>
+<p>对原生的ajax进行了封装,使用变得更加的便捷.</p>
+<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/image-20230525172055054.png" alt="image-20230525172055054"></p>
+<p>success和error的值是回调函数:在函数内部定义并使用的函数.</p>
+<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/image-20230525172408869.png" alt="image-20230525172408869"></p>
+<p>post与get类似,只是把.get换成.post.</p>
+<h2 id="15-5-axios"><a href="#15-5-axios" class="headerlink" title="15.5 axios:"></a>15.5 axios:</h2><p>同样是对原生的ajax进行封装没达到简化书写的目的.</p>
+<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/image-20230525172616668.png" alt="image-20230525172616668"></p>
+<p>.then是回调函数.在请求成功响应过后才会被调用. resp是对后端返回的数据进行封装过后的对象.</p>
+<h2 id="15-6-JSON"><a href="#15-6-JSON" class="headerlink" title="15.6 JSON:"></a>15.6 JSON:</h2><p> JavaScript Object Notation:JavaScript 对象表示法</p>
+<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/image-20230525174907410.png" alt="image-20230525174907410"></p>
+
+        </article>
+        <div class="post-tools" id="post-tools">
+            <div class="post-tools-left">
+                
+                <div class="share-link mobile">
+    <div class="share-qrcode">
+        <div class="share-button" title="使用手机访问这篇文章">
+            <i class="fas fa-qrcode"></i>
+        </div>
+        <div class="share-main">
+            <div class="share-main-all">
+                <div id="qrcode" title="http://example.com/2023/01/17/Web%E5%9F%BA%E6%9C%AC%E5%8E%9F%E7%90%86/">
+                </div>
+                <div class="reward-dec">使用手机访问这篇文章</div>
+            </div>
+        </div>
+        <script type="text/javascript">
+            new QRCode(document.getElementById("qrcode"), "http://example.com/2023/01/17/Web%E5%9F%BA%E6%9C%AC%E5%8E%9F%E7%90%86/");
+        </script>
+    </div>
+</div>
+                <div class="share-link weibo"><a class="share-button" target="_blank"
+    href="https://service.weibo.com/share/share.php?title=Web基本原理&amp;url=http://example.com/2023/01/17/Web%E5%9F%BA%E6%9C%AC%E5%8E%9F%E7%90%86/&amp;pic=/img/9.jpg"
+    title="分享到微博" rel="noopener external nofollow noreferrer noopener">
+    <i class="fab fa-weibo" style="font-size:22px"></i>
+</a>
+</div>
+<div class="share-link copyurl">
+<div class="share-button" id="post-share-url" title="复制链接" onclick="acrylic.copyPageUrl()">
+    <i class="fas fa-link"></i>
+</div>
+</div>
+            </div>
+            <div class="post-tools-right">
+                <div class="tag_share">
+                    <div class="post-meta__tag-list">
+                        
+                            <a href="/tags/Java/" class="post-meta__tags">
+                                <span class="tags-punctuation">#</span>
+                                Java
+                                <span class="tagsPageCount">3</span>
+                            </a>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="post-copyright">
+    <div class="post-copyright__author">
+        <a class="post-copyright__original" title="该文章为原创文章，注意版权协议">原创</a>
+        <a class="post-copyright-title" href="#">
+            <span>Web基本原理</span>
+        </a>
+    </div>
+    <div class="post-copyright__type">
+        <span class="post-copyright-info" id="post-copyright-url">
+            <a href="/2023/01/17/Web%E5%9F%BA%E6%9C%AC%E5%8E%9F%E7%90%86/">http://example.com/2023/01/17/Web%E5%9F%BA%E6%9C%AC%E5%8E%9F%E7%90%86/</a>
+        </span>
+        <button class="post-copyright-copybtn" onclick="acrylic.copyPageUrl()">
+            <i class="fas fa-paste copy-btn"></i>
+        </button>
+    </div>
+    <div class="post-copyright__notice"><span class="post-copyright-info">本文是原创文章，采用 <a
+                href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank">CC BY-NC-ND 4.0</a> 协议，完整转载请注明来自 <a
+                href="/">风凌渡</a>
+            </span>
+        </div>
+</div>
+        <nav class="pagination-post" id="pagination">
+    
+        <div class="prev-post pull-left">
+            <a href="/2023/01/17/Java%E8%99%9A%E6%8B%9F%E6%9C%BA/">
+                <div class="pagination-info">
+                    <div class="label">上一篇</div>
+                    <div class="prev_info">Java虚拟机</div>
+                </div>
+            </a>
+        </div>
+        <div class="next-post pull-right">
+            <a href="/2023/01/17/Springboot%E5%85%A5%E9%97%A8/">
+                <div class="pagination-info">
+                    <div class="label">下一篇</div>
+                    <div class="next_info">Springboot笔记</div>
+                </div>
+            </a>
+        </div>
+    
+</nav>
+            
+    </div>
+    <div class="aside-content" id="aside-content">
+    
+    
+        
+        <div class="card-widget card-info">
+    <div class="card-content">
+        <div class="card-info-avatar is-center">
+            <div class="author-info__sayhi" id="author-info__sayhi">
+            </div>
+            <div class="author-info__name">
+                抒情熊
+            </div>
+            <div class="author-info__description">这有关于<b>后端开发</b>、<b>基础架构</b>的相关笔记分享，还有对于的一些<b>诗歌</b>和<b>小说</b>。<br>相信你可以在这里找到对你有用的知识和文章.</div>
+        </div>
+    </div>
+    <div class="banner-button-group">
+        <a class="banner-button" href="/">
+            <i class="fas fa-circle-chevron-right"></i>
+            <span class="banner-button-text">个人主页</span>
+        </a>
+    </div>
+    <div class="card-info-social-icons is-center">
+        
+            <a class="social-icon" target="_blank" rel="noopener" href="https://github.com/bearslyricattack" title="Github">
+                <i class="fa-brands fa-github"></i>
+            </a>
+        
+            <a class="social-icon" target="_blank" rel="noopener" href="https://user.qzone.qq.com/2669184984" title="Mail">
+                <i class="fa-solid fa-envelope"></i>
+            </a>
+        
+    </div>
+</div>
+     
+    
+    <div class="sticky_layout">
+        
+            <div class="card-widget" id="card-toc">
+    <div class="item-headline">
+        <i class="fas fa-bars"></i>
+        <span>文章目录</span>
+    </div>
+    <div class="toc-content" id="toc-content">
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Web"><span class="toc-text">Web</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#1-%E7%BB%AA%E8%AE%BA"><span class="toc-text">1.绪论:</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-1-b-x2F-s%E6%9E%B6%E6%9E%84%EF%BC%9A"><span class="toc-text">1.1 b&#x2F;s架构：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-2-web%E5%BA%94%E7%94%A8"><span class="toc-text">1.2 web应用</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-3-%E5%89%8D%E4%B8%AD%E5%90%8E%E5%8F%B0%EF%BC%9A"><span class="toc-text">1.3 前中后台：</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#2-HTML"><span class="toc-text">2.HTML:</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#2-1-%E8%AF%AD%E6%B3%95%EF%BC%9A"><span class="toc-text">2.1 语法：</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#2-1-1-%E6%96%87%E5%AD%97"><span class="toc-text">2.1.1 文字:</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-1-2%E5%9B%BE%E7%89%87"><span class="toc-text">2.1.2图片:</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-1-3-%E6%A0%87%E7%AD%BE"><span class="toc-text">2.1.3 标签:</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-1-4-%E8%A1%A8%E6%A0%BC"><span class="toc-text">2.1.4 表格:</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-1-5-%E8%A1%A8%E5%8D%95"><span class="toc-text">2.1.5 表单:</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#3-css"><span class="toc-text">3.css:</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#3-1-%E9%A1%B5%E9%9D%A2%E6%9E%84%E6%88%90"><span class="toc-text">3.1 页面构成:</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-2-%E5%BC%95%E7%94%A8%E6%96%B9%E5%BC%8F"><span class="toc-text">3.2 引用方式:</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#3-2-1-%E8%A1%8C%E5%86%85%E5%BC%8F"><span class="toc-text">3.2.1 行内式:</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-2-2-%E5%86%85%E5%B5%8C%E5%BC%8F"><span class="toc-text">3.2.2 内嵌式:</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-2-3-%E5%A4%96%E9%93%BE%E5%BC%8F"><span class="toc-text">3.2.3 外链式:</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-3-%E8%AF%AD%E6%B3%95"><span class="toc-text">3.3 语法:</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#3-3-1-%E6%99%AE%E9%80%9A%E9%80%89%E6%8B%A9%E5%99%A8%EF%BC%9A"><span class="toc-text">3.3.1 普通选择器：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-3-2-%E7%89%B9%E6%AE%8A%E9%80%89%E6%8B%A9%E5%99%A8%EF%BC%9A"><span class="toc-text">3.3.2 特殊选择器：</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-4-%E7%9B%92%E5%AD%90%E6%A8%A1%E5%9E%8B%EF%BC%9A"><span class="toc-text">3.4 盒子模型：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-5-%E4%B8%89%E5%A4%A7%E7%89%B9%E5%BE%81%EF%BC%9A"><span class="toc-text">3.5 三大特征：</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#3-5-1-%E5%B1%82%E5%8F%A0%E6%80%A7%EF%BC%9A"><span class="toc-text">3.5.1 层叠性：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-5-2-%E7%BB%A7%E6%89%BF%E6%80%A7%EF%BC%9A"><span class="toc-text">3.5.2 继承性：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-5-3-%E4%BC%98%E5%85%88%E7%BA%A7%EF%BC%9A"><span class="toc-text">3.5.3 优先级：</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#4-javascript"><span class="toc-text">4.javascript:</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#4-1-%E7%AE%80%E4%BB%8B"><span class="toc-text">4.1 简介:</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-2-%E5%BC%95%E5%85%A5%E6%96%B9%E5%BC%8F"><span class="toc-text">4.2 引入方式:</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#4-2-1-%E5%86%85%E9%83%A8%E8%84%9A%E6%9C%AC"><span class="toc-text">4.2.1 内部脚本:</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-2-2-%E5%A4%96%E9%83%A8%E8%84%9A%E6%9C%AC"><span class="toc-text">4.2.2 外部脚本:</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-3-%E5%9F%BA%E7%A1%80%E8%AF%AD%E6%B3%95"><span class="toc-text">4.3 基础语法:</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-4-BOM"><span class="toc-text">4.4 BOM:</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-5-DOM"><span class="toc-text">4.5 DOM:</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-6-%E4%BA%8B%E4%BB%B6%E7%9B%91%E5%90%AC"><span class="toc-text">4.6 事件监听:</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#5-http"><span class="toc-text">5.http:</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#5-1-%E5%AE%9A%E4%B9%89"><span class="toc-text">5.1: 定义:</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-2-%E7%89%B9%E7%82%B9"><span class="toc-text">5.2 特点:</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-3-%E6%B6%88%E6%81%AF%E6%A0%BC%E5%BC%8F"><span class="toc-text">5.3 消息格式:</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#6-tomcat"><span class="toc-text">6.tomcat:</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#6-1-web%E6%9C%8D%E5%8A%A1%E5%99%A8"><span class="toc-text">6.1 web服务器:</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6-2-%E4%BB%8B%E7%BB%8D"><span class="toc-text">6.2 介绍:</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6-3-%E9%A1%B9%E7%9B%AE%E7%BB%93%E6%9E%84"><span class="toc-text">6.3 项目结构:</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6-4-%E5%90%AF%E5%8A%A8%E4%B8%8E%E9%83%A8%E7%BD%B2"><span class="toc-text">6.4 启动与部署:</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#7-Servlet"><span class="toc-text">7.Servlet:</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#7-1-%E4%BB%8B%E7%BB%8D"><span class="toc-text">7.1 介绍:</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#7-2-%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F"><span class="toc-text">7.2 生命周期:</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#7-3-HTTPServlet"><span class="toc-text">7.3 HTTPServlet:</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#8-xml"><span class="toc-text">8.xml:</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#8-1-%E5%9F%BA%E6%9C%AC%E6%A0%BC%E5%BC%8F"><span class="toc-text">8.1 基本格式:</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#8-2-%E7%BA%A6%E6%9D%9F"><span class="toc-text">8.2 约束:</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#8-2-1-DTD"><span class="toc-text">8.2.1 DTD:</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#8-2-2-Schema"><span class="toc-text">8.2.2 Schema:</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#9-Maven"><span class="toc-text">9.Maven:</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#9-1-%E7%AE%80%E4%BB%8B"><span class="toc-text">9.1 简介:</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#9-2-%E9%A1%B9%E7%9B%AE%E7%BB%93%E6%9E%84"><span class="toc-text">9.2 项目结构:</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#9-3-POM"><span class="toc-text">9.3 POM:</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#9-4-%E4%BB%93%E5%BA%93"><span class="toc-text">9.4 仓库:</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#9-5-%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F"><span class="toc-text">9.5 生命周期:</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#10-request-amp-response"><span class="toc-text">10. request&amp;response:</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#10-1-%E8%AF%AD%E6%B3%95"><span class="toc-text">10.1: 语法:</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#10-2-%E8%AE%BF%E9%97%AE%E8%BF%87%E7%A8%8B"><span class="toc-text">10.2 访问过程:</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#11-JDBC"><span class="toc-text">11.JDBC:</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#11-1-%E7%AE%80%E4%BB%8B"><span class="toc-text">11.1 简介:</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#11-2-%E8%AF%AD%E6%B3%95"><span class="toc-text">11.2 语法:</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#11-3-%E6%95%B0%E6%8D%AE%E5%BA%93%E8%BF%9E%E6%8E%A5%E6%B1%A0"><span class="toc-text">11.3 数据库连接池:</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#11-4-druid"><span class="toc-text">11.4 druid:</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#11-4-1-%E5%86%99%E9%85%8D%E7%BD%AE-%E5%BC%95%E4%BE%9D%E8%B5%96"><span class="toc-text">11.4.1 写配置 引依赖.</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#11-4-2-%E4%BB%A3%E7%A0%81%E8%BF%9E%E6%8E%A5"><span class="toc-text">11.4.2 代码连接:</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#11-5-jdbcTemplate"><span class="toc-text">11.5 jdbcTemplate:</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#12-MVC%E6%9E%B6%E6%9E%84"><span class="toc-text">12.MVC架构:</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#13-%E4%BC%9A%E8%AF%9D%E6%8A%80%E6%9C%AF"><span class="toc-text">13. 会话技术:</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#13-1-%E4%BC%9A%E8%AF%9D%E8%B7%9F%E8%B8%AA"><span class="toc-text">13.1 会话跟踪:</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#13-2-cookie"><span class="toc-text">13.2 cookie:</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#13-3-session"><span class="toc-text">13.3 session:</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#13-3-1-%E9%92%9D%E5%8C%96%E5%92%8C%E6%B4%BB%E5%8C%96"><span class="toc-text">13.3.1 钝化和活化:</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#13-4-%E5%B0%8F%E7%BB%93"><span class="toc-text">13.4 小结:</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#14-Filter"><span class="toc-text">14. Filter:</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#14-1-%E7%AE%80%E4%BB%8B"><span class="toc-text">14.1 简介:</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#14-2-%E5%BC%80%E5%8F%91"><span class="toc-text">14.2 开发:</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#14-2-1-demo"><span class="toc-text">14.2.1 demo:</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#14-3-%E8%BF%87%E6%BB%A4%E5%99%A8%E9%93%BE"><span class="toc-text">14.3 过滤器链:</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#15-Ajax"><span class="toc-text">15.Ajax:</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#15-1-%E5%90%8C%E6%AD%A5-%E5%BC%82%E6%AD%A5%E4%BA%A4%E4%BA%92"><span class="toc-text">15.1 同步.异步交互:</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#15-2-%E4%BD%93%E7%B3%BB%E7%BB%93%E6%9E%84"><span class="toc-text">15.2 体系结构:</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#15-3-%E5%85%A5%E9%97%A8"><span class="toc-text">15.3 入门:</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#15-4-JQuery"><span class="toc-text">15.4 JQuery:</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#15-5-axios"><span class="toc-text">15.5 axios:</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#15-6-JSON"><span class="toc-text">15.6 JSON:</span></a></li></ol></li></ol>
+    </div>
+</div>
+            
+        
+            
+        <div class="card-widget card-recent-post">
+    <div class="item-headline">
+        <i class="fas fa-list-ol"></i>
+        <span>最近发布</span>
+    </div>
+    <div class="aside-list">
+        
+        
+            <div class="aside-list-item">
+                <a class="thumbnail" href="/2023/04/28/ClickHouse/" title="ClickHouse">
+                    <img
+                        alt="ClickHouse"
+                        src="/img/1.jpg">
+                </a>
+                <div class="content">
+                    
+                        <a class="article-recent_post_categories" href="/2023/04/28/ClickHouse/">
+                            笔记
+                        </a>
+                    
+                    <a class="title" href="/2023/04/28/ClickHouse/" title="ClickHouse">
+                        ClickHouse
+                    </a>
+                </div>
+            </div>
+                
+        
+            <div class="aside-list-item">
+                <a class="thumbnail" href="/2023/03/14/Go%E8%AF%AD%E8%A8%80%E8%AE%BE%E8%AE%A1%E4%B8%8E%E5%AE%9E%E7%8E%B0/" title="Go语言设计与实现">
+                    <img
+                        alt="Go语言设计与实现"
+                        src="/img/4.jpg">
+                </a>
+                <div class="content">
+                    
+                        <a class="article-recent_post_categories" href="/2023/03/14/Go%E8%AF%AD%E8%A8%80%E8%AE%BE%E8%AE%A1%E4%B8%8E%E5%AE%9E%E7%8E%B0/">
+                            笔记
+                        </a>
+                    
+                    <a class="title" href="/2023/03/14/Go%E8%AF%AD%E8%A8%80%E8%AE%BE%E8%AE%A1%E4%B8%8E%E5%AE%9E%E7%8E%B0/" title="Go语言设计与实现">
+                        Go语言设计与实现
+                    </a>
+                </div>
+            </div>
+                
+        
+            <div class="aside-list-item">
+                <a class="thumbnail" href="/2023/03/13/Git/" title="Git">
+                    <img
+                        alt="Git"
+                        src="/img/2.jpg">
+                </a>
+                <div class="content">
+                    
+                        <a class="article-recent_post_categories" href="/2023/03/13/Git/">
+                            笔记
+                        </a>
+                    
+                    <a class="title" href="/2023/03/13/Git/" title="Git">
+                        Git
+                    </a>
+                </div>
+            </div>
+                
+        
+            <div class="aside-list-item">
+                <a class="thumbnail" href="/2023/02/10/%E9%A3%8E%E5%87%8C%E5%A4%9C%E8%AF%9D/" title="风凌夜话">
+                    <img
+                        alt="风凌夜话"
+                        src="/img/13.jpg">
+                </a>
+                <div class="content">
+                    
+                        <a class="article-recent_post_categories" href="/2023/02/10/%E9%A3%8E%E5%87%8C%E5%A4%9C%E8%AF%9D/">
+                            创作
+                        </a>
+                    
+                    <a class="title" href="/2023/02/10/%E9%A3%8E%E5%87%8C%E5%A4%9C%E8%AF%9D/" title="风凌夜话">
+                        风凌夜话
+                    </a>
+                </div>
+            </div>
+                
+        
+            <div class="aside-list-item">
+                <a class="thumbnail" href="/2023/02/04/Hertz/" title="Hertz">
+                    <img
+                        alt="Hertz"
+                        src="/img/5.jpg">
+                </a>
+                <div class="content">
+                    
+                        <a class="article-recent_post_categories" href="/2023/02/04/Hertz/">
+                            笔记
+                        </a>
+                    
+                    <a class="title" href="/2023/02/04/Hertz/" title="Hertz">
+                        Hertz
+                    </a>
+                </div>
+            </div>
+            
+    </div>
+</div>
+     
+        
+    </div>
+</div> 
+</main>
+                <footer id="footer">
+                    <div id="footer_deal">
+    
+        <a class="deal_link" target="_blank" href="https://github.com/bearslyricattack" rel="external nofollow noopener" title="Github">
+            <i class="fa-brands fa-github"></i>
+        </a>
+    
+        <a class="deal_link" target="_blank" href="https://user.qzone.qq.com/2669184984" rel="external nofollow noopener" title="Mail">
+            <i class="fa-solid fa-envelope"></i>
+        </a>
+    
+    <img class="footer_mini_logo" src="/img/avatar.webp"
+        title="返回顶部" onclick="acrylic.toTop()">
+    
+        <a class="deal_link" target="_blank" href="https://music.163.com/#/user/follows?id=436327083" rel="external nofollow noopener" title="网易云">
+            <i class="fa-solid fa-music"></i>
+        </a>
+    
+        <a class="deal_link" target="_blank" href="https://space.bilibili.com/701779878?spm_id_from=333.1007.0.0" rel="external nofollow noopener" title="bilibili">
+            <i class="fa-brands fa-bilibili"></i>
+        </a>
+    
+</div>    
+<div id="heo-footer">
+    
+    
+</div>
+<div id="footer-section">
+    <div class="footer-section-links">
+        <div class="footer-section-left">
+            <div id="footer-section-tips">
+                <div class="copyright">©2021 - 2023 By 
+                    <a class="footer-section-link" href="/" rel="external nofollow">抒情熊</a>
+                    <a class="footer-section-link" href="https://github.com/hexo-theme-Acrylic/Hexo-Theme-Acrylic-Next" rel="external nofollow" target="_blank"> Theme By Acrylic-Next</a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-section-right">
+            <a class="footer-section-link" href="/rss/">订阅</a>
+            
+            <a class="footer-section-link cc" target="_blank" href="https://creativecommons.org/licenses/by/4.0/" title="cc协议">
+                <i class="fa-solid fa-closed-captioning"></i>
+            </a>
+        </div>
+    </div>
+</div>
+                </footer>
+            </div>
+         
+        <div>
+    <script type="text/javascript" src="/js/utils.js"></script>
+    <script type="text/javascript" src="/js/main.js"></script>
+    
+
+<script src="/lib/pjax.min.js"></script>
+
+
+
+<script src="/lib/snackbar.min.js"></script>
+
+
+    
+<script src="/lib/view-image.min.js"></script>
+
+
+
+    
+<link rel="stylesheet" href="/lib/swiper.min.css">
+
+    
+<script src="/lib/swiper.min.js"></script>
+
+
+<div id="js-pjax">
+    
+     
+</div>
+
+
+    
+<script src="/js/extend/covercolor/web.js"></script>
+
+        
+
+    <script>
+  let pjaxSelectors = [
+    'title',
+    '#body-wrap',
+    '#site-config',
+    'meta[name="description"]',
+    '#js-pjax'
+  ]
+  
+  const pjax = new Pjax({
+    elements: 'a:not([target="_blank"])',
+    selectors: pjaxSelectors,
+    cacheBust: false,
+    analytics: false,
+    scrollRestoration: false
+  })
+
+  document.querySelectorAll('script[data-pjax]').forEach(item => {
+      const newScript = document.createElement('script')
+      const content = item.text || item.textContent || item.innerHTML || ""
+      Array.from(item.attributes).forEach(attr => newScript.setAttribute(attr.name, attr.value))
+      newScript.appendChild(document.createTextNode(content))
+      item.parentNode.replaceChild(newScript, item)
+  })
+
+  document.addEventListener('pjax:error', (e) => {
+    if (e.request.status === 404) {
+      pjax.loadUrl('/404.html')
+    }
+  })
+</script>
+    
+</div>
+        
+     
+        <div class="needEndHide" id="nav-music" onclick="acrylic.musicToggle()">
+    <div id="nav-music-hoverTips">音乐已暂停</div>
+    <meting-js id="1708664797" server="tencent" type="playlist" mutex="true"
+        preload="none" data-lrctype="0" order="random" theme="var(--heo-main)"></meting-js>
+</div>
+    
+    </body>
+</html>
+<script>const posts=["2023/04/28/ClickHouse/","2023/03/14/Go语言设计与实现/","2023/03/13/Git/","2023/02/10/风凌夜话/","2023/02/04/Hertz/","2023/01/17/白马遥/","2023/01/17/彩云辞/","2023/01/17/Java虚拟机/","2023/01/17/Web基本原理/","2023/01/17/Springboot入门/","2023/01/17/分布式/","2023/01/17/Golang/","2023/01/17/Redis/"];function toRandomPost(){ window.pjax ? pjax.loadUrl('/'+posts[Math.floor(Math.random()*posts.length)]) : window.open('/'+posts[Math.floor(Math.random()*posts.length)], "_self"); };</script>

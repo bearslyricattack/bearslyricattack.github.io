@@ -1,0 +1,857 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-theme="light">
+    <head>
+        <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hertz | 风凌渡</title>
+<noscript>开启Javascript是必要的</noscript>
+<link rel="icon" type="image/x-icon" href="/img/avatar.webp">
+<link rel="apple-touch-icon" href="/img/avatar.webp">
+<meta name="apple-mobile-web-app-title" content="风凌渡">
+<link rel="bookmark" href="/img/avatar.webp">
+<link rel="apple-touch-icon-precomposed" sizes="180x180" href="/img/avatar.webp">
+<meta name="description" content="a blog 一个分享技术与生活的博客">
+<meta name="theme-color" content="#1C1C1F">
+<link rel="stylesheet" href="/css/var.css">
+<link rel="stylesheet" href="/css/main.css">
+<link rel="stylesheet" href="/css/custom.css">
+
+
+
+<link rel="stylesheet" href="https://cdn.bootcdn.net/ajax/libs/font-awesome/6.3.0/css/all.min.css">
+    
+
+<link rel="stylesheet" href="/lib/snackbar.min.css">
+
+
+<script src="/lib/qrcode.min.js"></script>
+
+
+
+
+
+<script>var GLOBALCONFIG = {"root":"/","runtime":"2021-12-12 00:00:00","lazyload":{"enable":false,"error":"/img/acrylic.png"},"hightlight":{"enable":false,"limit":200},"lightbox":true,"randomlinks":false,"lang":{"theme":{"dark":"已切换至深色模式","light":"已切换至浅色模式"},"copy":{"success":"复制成功","error":"复制失败"},"backtop":"返回顶部","time":{"recent":"最近","yesterday":"昨天","berforeyesterday":"前天","daybefore":"天前","runtime":"天"},"sayhello":{"morning":"早上好","noon":"中午好","afternoon":"下午好","night":"晚上好","goodnight":"晚安","iam":"!  我是"},"search":{"empty":"搜索结果为空","hit":"已为您找到 ${query} 条结果","placeholder":"输入关键词快速查找"}},"covercolor":false};</script><script id="site-config">var PAGECONFIG = {"is_home":false,"is_post":true,"is_page":false,"page":false,"toc":true,"comment":false};</script>
+    <meta name="generator" content="Hexo 6.3.0"></head>
+    <body id="body">
+        
+        <div id="console" style="zoom: 1;" class="">
+    <div class="close-btn" onclick="acrylic.hideConsole()" href="javascript:void(0);">
+        <i class="fas fa-circle-xmark"></i>
+    </div>
+    <div class="button-group">
+        <div class="console-btn-item"> <a class="darkmode_switchbutton" onclick="acrylic.switchDarkMode()" title="显示模式切换"
+                href="javascript:void(0);" rel="external nofollow" data-pjax-state=""><i class="fas fa-moon"
+                    style="font-size: 1rem;"></i></a></div>
+        
+        <div class="console-btn-item" id="consoleFPS" onclick="acrylic.FPSToggle()" title="帧率显示开关"><a class="FPS-switch"
+                data-pjax-state=""><i class="fas fa-gauge"></i></a></div>
+    </div>
+    <div class="console-mask" onclick="acrylic.hideConsole()" href="javascript:void(0);" rel="external nofollow"></div>
+</div>
+        <div id="sidebar" style="zoom: 1;">
+    <div id="menu-mask" style="display: none;"></div>
+    <div id="sidebar-menus" class>
+        <span class="sidebar-menu-item-title">功能</span>
+        <div class="sidebar-menu-item">
+            <a class="darkmode_switchbutton menu-child" onclick="acrylic.switchDarkMode()" title="显示模式切换"
+                href="javascript:void(0);" rel="external nofollow">
+                <i class="fas fa-moon" style="font-size: 1rem;"></i>
+                <span>显示模式</span>
+            </a>
+        </div>
+        
+            <div class="back-menu-list-groups">
+    
+      
+      <div class="back-menu-list-group">
+        <div class="back-menu-list-title">
+          我的
+        </div>
+        <div class="back-menu-list">
+          
+            
+            <a class="back-menu-item" href="/" rel="external nofollow" title="博客">
+              <img class="back-menu-item-icon" src="/img/avatar.webp" loading="lazy">
+              <span class="back-menu-item-text">
+                博客
+              </span>
+            </a>
+          
+        </div>
+      </div>
+    
+  </div>
+  
+        
+        <div class="menus_items">
+    
+        <div class="menus_item">
+            
+                <a class="site-page" href="javascript:void(0);" rel="external nofollow">
+                    <span> 文库</span>
+                </a>
+                <ul class="menus_item_child">
+                    
+                        <li>
+                            <a class="site-page child" href="/archives/">
+                                <i class="fas fa-box-archive"></i>
+                                <span> 文章列表</span>
+                            </a>
+                        </li>
+                    
+                        <li>
+                            <a class="site-page child" href="/categories/">
+                                <i class="fas fa-cube"></i>
+                                <span> 全部分类</span>
+                            </a>
+                        </li>
+                    
+                        <li>
+                            <a class="site-page child" href="/tags/">
+                                <i class="fas fa-tags"></i>
+                                <span> 全部标签</span>
+                            </a>
+                        </li>
+                    
+                </ul>
+             
+        </div>
+    
+        <div class="menus_item">
+            
+                <a class="site-page" href="javascript:void(0);" rel="external nofollow">
+                    <span> 友链</span>
+                </a>
+                <ul class="menus_item_child">
+                    
+                        <li>
+                            <a class="site-page child" href="/fcircle/">
+                                <i class="fas fa-fish-fins"></i>
+                                <span> 友链鱼塘</span>
+                            </a>
+                        </li>
+                    
+                        <li>
+                            <a class="site-page child" href="/links/">
+                                <i class="fas fa-user-group"></i>
+                                <span> 友情链接</span>
+                            </a>
+                        </li>
+                    
+                        <li>
+                            <a class="site-page child" href="javascript:travelling()">
+                                <i class="fas fa-bus"></i>
+                                <span> 宝藏博主</span>
+                            </a>
+                        </li>
+                    
+                </ul>
+             
+        </div>
+    
+        <div class="menus_item">
+            
+                <a class="site-page not-child" href="/says" rel="external nofollow">
+                    <span> 即刻</span>
+                </a>
+             
+        </div>
+    
+        <div class="menus_item">
+            
+                <a class="site-page not-child" target="_blank" href="https://github.com/rootlexblog" rel="external nofollow noopener">
+                    <span> 仓库</span>
+                </a>
+             
+        </div>
+    
+</div>
+        <span class="sidebar-menu-item-title">标签</span>
+        <div class="card-widget card-tags card-archives card-webinfo card-allinfo">
+            <div class="item-headline">
+                <i class="fas fa-tags"></i>
+                <span>标签</span>
+            </div>
+            <div class="card-tag-cloud">
+                
+                    <a href="/tags/%E4%B8%AD%E9%97%B4%E4%BB%B6/" style="font-size: 1em; color: #d3d3d3">中间件
+                        <sup>3</sup>
+                    </a>
+                
+                    <a href="/tags/Go/" style="font-size: 1em; color: #d3d3d3">Go
+                        <sup>3</sup>
+                    </a>
+                
+                    <a href="/tags/Java/" style="font-size: 1em; color: #d3d3d3">Java
+                        <sup>3</sup>
+                    </a>
+                
+                    <a href="/tags/%E5%88%86%E5%B8%83%E5%BC%8F/" style="font-size: 1em; color: #d3d3d3">分布式
+                        <sup>1</sup>
+                    </a>
+                
+                    <a href="/tags/%E8%AF%97%E6%AD%8C/" style="font-size: 1em; color: #d3d3d3">诗歌
+                        <sup>3</sup>
+                    </a>
+                
+            </div>
+        </div>
+    </div>
+</div>    
+        
+            <div class="post" id="body-wrap">
+                <header class="post-bg" id="page-header">
+    <nav id="nav" class="show">
+    <div id="nav-group">
+        <div id="blog_name">
+            
+                <div class="back-home-button" tabindex="-1">
+                    <i class="back-home-button-icon fas fa-grip-vertical"></i>
+                    <div class="back-menu-list-groups">
+    
+      
+      <div class="back-menu-list-group">
+        <div class="back-menu-list-title">
+          我的
+        </div>
+        <div class="back-menu-list">
+          
+            
+            <a class="back-menu-item" href="/" rel="external nofollow" title="博客">
+              <img class="back-menu-item-icon" src="/img/avatar.webp" loading="lazy">
+              <span class="back-menu-item-text">
+                博客
+              </span>
+            </a>
+          
+        </div>
+      </div>
+    
+  </div>
+  
+                </div>
+            
+            <a id="site-name" href="/" title="返回博客主页">
+                    
+            </a>
+        </div>
+        <div id="page-name-mask">
+            <div id="page-name">
+                <a id="page-name-text" onclick="acrylic.toTop()">Hertz</a>
+            </div>
+        </div>
+        <div id="menus">
+            <div class="menus_items">
+    
+        <div class="menus_item">
+            
+                <a class="site-page" href="javascript:void(0);" rel="external nofollow">
+                    <span> 文库</span>
+                </a>
+                <ul class="menus_item_child">
+                    
+                        <li>
+                            <a class="site-page child" href="/archives/">
+                                <i class="fas fa-box-archive"></i>
+                                <span> 文章列表</span>
+                            </a>
+                        </li>
+                    
+                        <li>
+                            <a class="site-page child" href="/categories/">
+                                <i class="fas fa-cube"></i>
+                                <span> 全部分类</span>
+                            </a>
+                        </li>
+                    
+                        <li>
+                            <a class="site-page child" href="/tags/">
+                                <i class="fas fa-tags"></i>
+                                <span> 全部标签</span>
+                            </a>
+                        </li>
+                    
+                </ul>
+             
+        </div>
+    
+        <div class="menus_item">
+            
+                <a class="site-page" href="javascript:void(0);" rel="external nofollow">
+                    <span> 友链</span>
+                </a>
+                <ul class="menus_item_child">
+                    
+                        <li>
+                            <a class="site-page child" href="/fcircle/">
+                                <i class="fas fa-fish-fins"></i>
+                                <span> 友链鱼塘</span>
+                            </a>
+                        </li>
+                    
+                        <li>
+                            <a class="site-page child" href="/links/">
+                                <i class="fas fa-user-group"></i>
+                                <span> 友情链接</span>
+                            </a>
+                        </li>
+                    
+                        <li>
+                            <a class="site-page child" href="javascript:travelling()">
+                                <i class="fas fa-bus"></i>
+                                <span> 宝藏博主</span>
+                            </a>
+                        </li>
+                    
+                </ul>
+             
+        </div>
+    
+        <div class="menus_item">
+            
+                <a class="site-page not-child" href="/says" rel="external nofollow">
+                    <span> 即刻</span>
+                </a>
+             
+        </div>
+    
+        <div class="menus_item">
+            
+                <a class="site-page not-child" target="_blank" href="https://github.com/rootlexblog" rel="external nofollow noopener">
+                    <span> 仓库</span>
+                </a>
+             
+        </div>
+    
+</div>
+        </div>
+        <!-- <div id="nav-left">
+            <div id="fps-group">
+                <div id="fps">145</div><span class="fpsText">FPS</span>
+            </div>
+        </div> -->
+        <div id="nav-right">
+            
+    <div class="nav-button only-home" id="travellings_button">
+        <a class="site-page"  target="_blank" rel="noopener external nofollow" href="https://www.travellings.cn/go.html" title="开往-友链接力"  width="120">
+            <i class="fa-solid fa-train-subway" style="font-size: 1rem;"></i>
+        </a>
+    </div>
+
+
+    <div class="nav-button" id="randomPost_button">
+        <a class="site-page" onclick="toRandomPost()"
+            title="随机前往一个文章">
+            <i class="fas fa-shuffle" style="font-size: 1rem;"></i>
+        </a>
+    </div>
+
+
+
+    <div class="nav-button" id="nav-console">
+        <a class="console_switchbutton" onclick="acrylic.showConsole()"
+        title="显示中控台" href="javascript:void(0);" rel="external nofollow">
+        <i class="fas fa-bars-progress" style="font-size: 1rem;"></i>
+        </a>
+    </div>
+
+<div class="nav-button" id="nav-totop" onclick="acrylic.toTop()">
+    <a class="totopbtn">
+        <i class="fas fa-arrow-up"></i>
+        <span id="percent">0</span>
+    </a>
+</div>
+<div id="toggle-menu">
+    <a class="site-page">
+        <i class="fas fa-bars fa-fw" style="font-size: 1rem;"></i>
+    </a>
+</div>
+        </div>
+    </div>
+</nav>
+    
+        <div class="coverdiv" id="coverdiv">
+    <img id="post-cover" class="nolazyload" src="/img/5.jpg" alt="cover">
+</div>
+<div id="post-info">
+    <div id="post-firstinfo">
+        <div class="meta-firstline">
+            <a class="post-meta-original" title="该文章为原创文章，注意版权协议">
+                原创
+            </a>
+            
+            <span class="post-meta-categories">
+                
+                    <a class="post-meta-categories" href="/categories/%E7%AC%94%E8%AE%B0/">笔记</a>
+                
+            </span>
+            
+            <div class="tag_share">
+                <div class="post-meta__tag-list">
+                    
+                        <a class="post-meta__tags" href="/tags/Go/">
+                            <span class="tags-punctuation">#</span>
+                            <span class="tags-name">Go</span>
+                        </a>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+    <h1 class="post-title">Hertz</h1>
+    <div id="post-meta">
+        <div class="meta-secondline">
+            <span class="post-meta-date" title="发布于">
+                <i class="post-meta-icon fa-fw fas fa-calendar"></i>
+                <time datetime="2023-02-04T14:54:04+08:00"></time>
+            </span>
+            
+            
+                <span class="post-meta-position" title="作者IP归属地为北京">
+                    <i class="fas fa-location-dot post-meta-icon"></i>
+                    <span>北京</span>
+                </span>
+            
+            
+            
+                
+        </div>
+    </div>
+</div>
+<section class="main-hero-waves-area waves-area"><svg class="waves-svg" xmlns="http://www.w3.org/2000/svg"
+    xlink="http://www.w3.org/1999/xlink" viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto">
+    <defs>
+        <path id="gentle-wave"
+            d="M -160 44 c 30 0 58 -18 88 -18 s 58 18 88 18 s 58 -18 88 -18 s 58 18 88 18 v 44 h -352 Z"></path>
+    </defs>
+    <g class="parallax">
+        <use href="#gentle-wave" x="48" y="0"></use>
+        <use href="#gentle-wave" x="48" y="3"></use>
+        <use href="#gentle-wave" x="48" y="5"></use>
+        <use href="#gentle-wave" x="48" y="7"></use>
+    </g>
+</svg>
+</section>
+
+        
+</header>
+                <main class="layout" id="content-inner">
+    <div id="post">
+        <article class="post-content" id="article-container">
+            <h1 id="Hertz"><a href="#Hertz" class="headerlink" title="Hertz"></a>Hertz</h1><h1 id="1-简介："><a href="#1-简介：" class="headerlink" title="1.简介："></a>1.简介：</h1><p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230204145726.png" alt="QQ截图20230204145726"></p>
+<h1 id="2-Hertz分层设计："><a href="#2-Hertz分层设计：" class="headerlink" title="2.Hertz分层设计："></a>2.Hertz分层设计：</h1><p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230204145757.png" alt="QQ截图20230204145757"></p>
+<h1 id="3-特点："><a href="#3-特点：" class="headerlink" title="3.特点："></a>3.特点：</h1><p><a target="_blank" rel="noopener" href="https://www.cloudwego.io/zh/docs/hertz/">Hertz | CloudWeGo</a></p>
+<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230204145934.png" alt="QQ截图20230204145934"></p>
+<p><a target="_blank" rel="noopener" href="https://mp.weixin.qq.com/s/jU-IiDett3LLeEFtmrXXxw">微服务超 10 万、跨语言场景，字节服务网格依靠 CloudWeGo 扛住流量洪峰 (qq.com)</a><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230204150004.png" alt="QQ截图20230204150004"></p>
+<h1 id="4-新特性："><a href="#4-新特性：" class="headerlink" title="4.新特性："></a>4.新特性：</h1><p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230204150346.png" alt="QQ截图20230204150346"></p>
+<h1 id="5-提问截图："><a href="#5-提问截图：" class="headerlink" title="5.提问截图："></a>5.提问截图：</h1><p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230204150458.png" alt="QQ截图20230204150458"></p>
+<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230204150530.png" alt="QQ截图20230204150530"><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230204150512.png" alt="QQ截图20230204150512"></p>
+<h1 id="6-使用"><a href="#6-使用" class="headerlink" title="6.使用:"></a>6.使用:</h1><p>依据<a target="_blank" rel="noopener" href="https://www.cloudwego.io/zh/docs/hertz/getting-started/">快速开始 | CloudWeGo</a>此教程学习.</p>
+<h2 id="6-1-安装"><a href="#6-1-安装" class="headerlink" title="6.1 安装:"></a>6.1 安装:</h2><p>cmd,git,powershell的区别?</p>
+<p>安装报错:</p>
+<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20230204210542.png" alt="微信图片_20230204210542"></p>
+<p>解决方案:</p>
+<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230204215755.png" alt="QQ截图20230204215755"></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">$</span><span class="language-bash"><span class="built_in">env</span>:GOPROXY = <span class="string">&quot;https://proxy.golang.com.cn,direct&quot;</span></span></span><br></pre></td></tr></table></figure>
+
+<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E5%9B%BE%E7%89%8720230204215817.png" alt="QQ图片20230204215817"></p>
+<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20230205182837.jpg" alt="微信图片_20230205182837"></p>
+<h2 id="6-2-goland配置"><a href="#6-2-goland配置" class="headerlink" title="6.2 goland配置:"></a>6.2 goland配置:</h2><p>全部爆红,识别不出来,同步也同步不了.</p>
+<p>解决方案是设置代理.</p>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/JikeStardy/article/details/123090981?ops_request_misc=%7B%22request_id%22:%22167559127316800215033458%22,%22scm%22:%2220140713.130102334.pc_all.%22%7D&request_id=167559127316800215033458&biz_id=0&utm_medium=distribute.pc_search_result.none-task-blog-2~all~first_rank_ecpm_v1~rank_v31_ecpm-2-123090981-null-null.142%5Ev73%5Econtrol,201%5Ev4%5Eadd_ask,239%5Ev1%5Econtrol&utm_term=goland%E4%BB%A3%E7%90%86&spm=1018.2226.3001.4187">(181条消息) Goland 下载 go 包_JikeStardy的博客-CSDN博客</a></p>
+<p>解决方案从这个文章找到,略有修改.</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">GOPROXY=&quot;https://goproxy.cn&quot;;GO111MODULE=on</span><br></pre></td></tr></table></figure>
+
+<p>可能会出现版本不匹配的情况.建议切换到1.19版本.</p>
+<figure class="highlight console"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">curl http://127.0.0.1:8888/ping</span><br></pre></td></tr></table></figure>
+
+<h2 id="6-3-hello-world"><a href="#6-3-hello-world" class="headerlink" title="6.3 hello world:"></a>6.3 hello world:</h2><p>尝试编写一个类似于spring中，controller层的一个接口的一个简单的方法.</p>
+<p>只需要一个main方法。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">package main</span><br><span class="line"></span><br><span class="line">import (</span><br><span class="line">   &quot;context&quot;</span><br><span class="line">   &quot;github.com/cloudwego/hertz/pkg/app&quot;</span><br><span class="line">   &quot;github.com/cloudwego/hertz/pkg/app/server&quot;</span><br><span class="line">   &quot;github.com/cloudwego/hertz/pkg/protocol/consts&quot;</span><br><span class="line">)</span><br><span class="line"></span><br><span class="line">func main() &#123;</span><br><span class="line">   h := server.Default(</span><br><span class="line">      server.WithHostPorts(&quot;127.0.0.1:8080&quot;),</span><br><span class="line">      //使用这个配置指定ip和端口.</span><br><span class="line">   )</span><br><span class="line">   //建立一个get请求</span><br><span class="line">   h.GET(&quot;/hello&quot;, func(c context.Context, ctx *app.RequestContext) &#123;</span><br><span class="line">   	  //在这里写访问这个接口的具体逻辑.</span><br><span class="line">      ctx.String(consts.StatusOK, &quot;hello hertz!&quot;)</span><br><span class="line">   &#125;)</span><br><span class="line">   //类似于接口的打开.</span><br><span class="line">   h.Spin()</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230205221923.png" alt="QQ截图20230205221923"></p>
+<h2 id="6-4-获取参数："><a href="#6-4-获取参数：" class="headerlink" title="6.4 获取参数："></a>6.4 获取参数：</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">name := ctx.Query(&quot;name&quot;)</span><br></pre></td></tr></table></figure>
+
+<h2 id="6-5-hertz-gorm-实现简单的MVC逻辑"><a href="#6-5-hertz-gorm-实现简单的MVC逻辑" class="headerlink" title="6.5 hertz+gorm 实现简单的MVC逻辑:"></a>6.5 hertz+gorm 实现简单的MVC逻辑:</h2><p>也是只需要main函数.</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br></pre></td><td class="code"><pre><span class="line">package main</span><br><span class="line"></span><br><span class="line">import (</span><br><span class="line">   &quot;context&quot;</span><br><span class="line">   &quot;github.com/cloudwego/hertz/pkg/app&quot;</span><br><span class="line">   &quot;github.com/cloudwego/hertz/pkg/app/server&quot;</span><br><span class="line">   &quot;github.com/cloudwego/hertz/pkg/common/json&quot;</span><br><span class="line">   &quot;github.com/cloudwego/hertz/pkg/protocol/consts&quot;</span><br><span class="line">   &quot;gorm.io/driver/mysql&quot;</span><br><span class="line">   &quot;gorm.io/gorm&quot;</span><br><span class="line">)</span><br><span class="line"></span><br><span class="line">//定义gorm model</span><br><span class="line">type User struct &#123;</span><br><span class="line">   Name string `gorm:&quot;column:name; type:varchar(32);&quot;`</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">//定义表名</span><br><span class="line">func (u User) TableName() string &#123;</span><br><span class="line">   return &quot;User&quot;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">func main() &#123;</span><br><span class="line">   //建立数据库连接,数据库名:数据库密码@...</span><br><span class="line">   dsn := &quot;root:123456@tcp(127.0.0.1:3306)/dbgotest?charset=utf8mb4&amp;parseTime=True&amp;loc=Local&quot;</span><br><span class="line">   db, err := gorm.Open(mysql.Open(dsn), &amp;gorm.Config&#123;&#125;)</span><br><span class="line">   //处理错误</span><br><span class="line">   if err != nil &#123;</span><br><span class="line">   	  //控制台打印错误日志</span><br><span class="line">      panic(&quot;数据库连接失败!&quot;)</span><br><span class="line">   &#125;</span><br><span class="line">   //新建数据库表,根据结构体创建</span><br><span class="line">   m := db.Migrator()</span><br><span class="line">   err = m.CreateTable(&amp;User&#123;&#125;)</span><br><span class="line">   if err != nil &#123;</span><br><span class="line">      panic(&quot;新建表失败!&quot;)</span><br><span class="line">   &#125;</span><br><span class="line">   //配置http</span><br><span class="line">   h := server.Default(</span><br><span class="line">      server.WithHostPorts(&quot;127.0.0.1:8080&quot;),</span><br><span class="line">   )</span><br><span class="line">   h.GET(&quot;/hello&quot;, func(c context.Context, ctx *app.RequestContext) &#123;</span><br><span class="line">      username := ctx.Query(&quot;name&quot;)</span><br><span class="line">      //创建一条数据,传入一个对象.</span><br><span class="line">      db.Create(&amp;User&#123;Name: username&#125;)</span><br><span class="line">      //查询一条数据</span><br><span class="line">      var user User</span><br><span class="line">      db.First(&amp;user, &quot;name = ?&quot;, username)</span><br><span class="line">      //转换格式后输出</span><br><span class="line">      res, _ := json.Marshal(user)</span><br><span class="line">      ctx.String(consts.StatusOK, string(res))</span><br><span class="line">   &#125;)</span><br><span class="line">   h.Spin()</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+
+        </article>
+        <div class="post-tools" id="post-tools">
+            <div class="post-tools-left">
+                
+                <div class="share-link mobile">
+    <div class="share-qrcode">
+        <div class="share-button" title="使用手机访问这篇文章">
+            <i class="fas fa-qrcode"></i>
+        </div>
+        <div class="share-main">
+            <div class="share-main-all">
+                <div id="qrcode" title="http://example.com/2023/02/04/Hertz/">
+                </div>
+                <div class="reward-dec">使用手机访问这篇文章</div>
+            </div>
+        </div>
+        <script type="text/javascript">
+            new QRCode(document.getElementById("qrcode"), "http://example.com/2023/02/04/Hertz/");
+        </script>
+    </div>
+</div>
+                <div class="share-link weibo"><a class="share-button" target="_blank"
+    href="https://service.weibo.com/share/share.php?title=Hertz&amp;url=http://example.com/2023/02/04/Hertz/&amp;pic=/img/5.jpg"
+    title="分享到微博" rel="noopener external nofollow noreferrer noopener">
+    <i class="fab fa-weibo" style="font-size:22px"></i>
+</a>
+</div>
+<div class="share-link copyurl">
+<div class="share-button" id="post-share-url" title="复制链接" onclick="acrylic.copyPageUrl()">
+    <i class="fas fa-link"></i>
+</div>
+</div>
+            </div>
+            <div class="post-tools-right">
+                <div class="tag_share">
+                    <div class="post-meta__tag-list">
+                        
+                            <a href="/tags/Go/" class="post-meta__tags">
+                                <span class="tags-punctuation">#</span>
+                                Go
+                                <span class="tagsPageCount">3</span>
+                            </a>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="post-copyright">
+    <div class="post-copyright__author">
+        <a class="post-copyright__original" title="该文章为原创文章，注意版权协议">原创</a>
+        <a class="post-copyright-title" href="#">
+            <span>Hertz</span>
+        </a>
+    </div>
+    <div class="post-copyright__type">
+        <span class="post-copyright-info" id="post-copyright-url">
+            <a href="/2023/02/04/Hertz/">http://example.com/2023/02/04/Hertz/</a>
+        </span>
+        <button class="post-copyright-copybtn" onclick="acrylic.copyPageUrl()">
+            <i class="fas fa-paste copy-btn"></i>
+        </button>
+    </div>
+    <div class="post-copyright__notice"><span class="post-copyright-info">本文是原创文章，采用 <a
+                href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank">CC BY-NC-ND 4.0</a> 协议，完整转载请注明来自 <a
+                href="/">风凌渡</a>
+            </span>
+        </div>
+</div>
+        <nav class="pagination-post" id="pagination">
+    
+        <div class="prev-post pull-left">
+            <a href="/2023/02/10/%E9%A3%8E%E5%87%8C%E5%A4%9C%E8%AF%9D/">
+                <div class="pagination-info">
+                    <div class="label">上一篇</div>
+                    <div class="prev_info">风凌夜话</div>
+                </div>
+            </a>
+        </div>
+        <div class="next-post pull-right">
+            <a href="/2023/01/17/%E7%99%BD%E9%A9%AC%E9%81%A5/">
+                <div class="pagination-info">
+                    <div class="label">下一篇</div>
+                    <div class="next_info">白马遥</div>
+                </div>
+            </a>
+        </div>
+    
+</nav>
+            
+    </div>
+    <div class="aside-content" id="aside-content">
+    
+    
+        
+        <div class="card-widget card-info">
+    <div class="card-content">
+        <div class="card-info-avatar is-center">
+            <div class="author-info__sayhi" id="author-info__sayhi">
+            </div>
+            <div class="author-info__name">
+                抒情熊
+            </div>
+            <div class="author-info__description">这有关于<b>后端开发</b>、<b>基础架构</b>的相关笔记分享，还有对于的一些<b>诗歌</b>和<b>小说</b>。<br>相信你可以在这里找到对你有用的知识和文章.</div>
+        </div>
+    </div>
+    <div class="banner-button-group">
+        <a class="banner-button" href="/">
+            <i class="fas fa-circle-chevron-right"></i>
+            <span class="banner-button-text">个人主页</span>
+        </a>
+    </div>
+    <div class="card-info-social-icons is-center">
+        
+            <a class="social-icon" target="_blank" rel="noopener" href="https://github.com/bearslyricattack" title="Github">
+                <i class="fa-brands fa-github"></i>
+            </a>
+        
+            <a class="social-icon" target="_blank" rel="noopener" href="https://user.qzone.qq.com/2669184984" title="Mail">
+                <i class="fa-solid fa-envelope"></i>
+            </a>
+        
+    </div>
+</div>
+     
+    
+    <div class="sticky_layout">
+        
+            <div class="card-widget" id="card-toc">
+    <div class="item-headline">
+        <i class="fas fa-bars"></i>
+        <span>文章目录</span>
+    </div>
+    <div class="toc-content" id="toc-content">
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Hertz"><span class="toc-text">Hertz</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#1-%E7%AE%80%E4%BB%8B%EF%BC%9A"><span class="toc-text">1.简介：</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#2-Hertz%E5%88%86%E5%B1%82%E8%AE%BE%E8%AE%A1%EF%BC%9A"><span class="toc-text">2.Hertz分层设计：</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#3-%E7%89%B9%E7%82%B9%EF%BC%9A"><span class="toc-text">3.特点：</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#4-%E6%96%B0%E7%89%B9%E6%80%A7%EF%BC%9A"><span class="toc-text">4.新特性：</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#5-%E6%8F%90%E9%97%AE%E6%88%AA%E5%9B%BE%EF%BC%9A"><span class="toc-text">5.提问截图：</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#6-%E4%BD%BF%E7%94%A8"><span class="toc-text">6.使用:</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#6-1-%E5%AE%89%E8%A3%85"><span class="toc-text">6.1 安装:</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6-2-goland%E9%85%8D%E7%BD%AE"><span class="toc-text">6.2 goland配置:</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6-3-hello-world"><span class="toc-text">6.3 hello world:</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6-4-%E8%8E%B7%E5%8F%96%E5%8F%82%E6%95%B0%EF%BC%9A"><span class="toc-text">6.4 获取参数：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6-5-hertz-gorm-%E5%AE%9E%E7%8E%B0%E7%AE%80%E5%8D%95%E7%9A%84MVC%E9%80%BB%E8%BE%91"><span class="toc-text">6.5 hertz+gorm 实现简单的MVC逻辑:</span></a></li></ol></li></ol>
+    </div>
+</div>
+            
+        
+            
+        <div class="card-widget card-recent-post">
+    <div class="item-headline">
+        <i class="fas fa-list-ol"></i>
+        <span>最近发布</span>
+    </div>
+    <div class="aside-list">
+        
+        
+            <div class="aside-list-item">
+                <a class="thumbnail" href="/2023/04/28/ClickHouse/" title="ClickHouse">
+                    <img
+                        alt="ClickHouse"
+                        src="/img/1.jpg">
+                </a>
+                <div class="content">
+                    
+                        <a class="article-recent_post_categories" href="/2023/04/28/ClickHouse/">
+                            笔记
+                        </a>
+                    
+                    <a class="title" href="/2023/04/28/ClickHouse/" title="ClickHouse">
+                        ClickHouse
+                    </a>
+                </div>
+            </div>
+                
+        
+            <div class="aside-list-item">
+                <a class="thumbnail" href="/2023/03/14/Go%E8%AF%AD%E8%A8%80%E8%AE%BE%E8%AE%A1%E4%B8%8E%E5%AE%9E%E7%8E%B0/" title="Go语言设计与实现">
+                    <img
+                        alt="Go语言设计与实现"
+                        src="/img/4.jpg">
+                </a>
+                <div class="content">
+                    
+                        <a class="article-recent_post_categories" href="/2023/03/14/Go%E8%AF%AD%E8%A8%80%E8%AE%BE%E8%AE%A1%E4%B8%8E%E5%AE%9E%E7%8E%B0/">
+                            笔记
+                        </a>
+                    
+                    <a class="title" href="/2023/03/14/Go%E8%AF%AD%E8%A8%80%E8%AE%BE%E8%AE%A1%E4%B8%8E%E5%AE%9E%E7%8E%B0/" title="Go语言设计与实现">
+                        Go语言设计与实现
+                    </a>
+                </div>
+            </div>
+                
+        
+            <div class="aside-list-item">
+                <a class="thumbnail" href="/2023/03/13/Git/" title="Git">
+                    <img
+                        alt="Git"
+                        src="/img/2.jpg">
+                </a>
+                <div class="content">
+                    
+                        <a class="article-recent_post_categories" href="/2023/03/13/Git/">
+                            笔记
+                        </a>
+                    
+                    <a class="title" href="/2023/03/13/Git/" title="Git">
+                        Git
+                    </a>
+                </div>
+            </div>
+                
+        
+            <div class="aside-list-item">
+                <a class="thumbnail" href="/2023/02/10/%E9%A3%8E%E5%87%8C%E5%A4%9C%E8%AF%9D/" title="风凌夜话">
+                    <img
+                        alt="风凌夜话"
+                        src="/img/13.jpg">
+                </a>
+                <div class="content">
+                    
+                        <a class="article-recent_post_categories" href="/2023/02/10/%E9%A3%8E%E5%87%8C%E5%A4%9C%E8%AF%9D/">
+                            创作
+                        </a>
+                    
+                    <a class="title" href="/2023/02/10/%E9%A3%8E%E5%87%8C%E5%A4%9C%E8%AF%9D/" title="风凌夜话">
+                        风凌夜话
+                    </a>
+                </div>
+            </div>
+                
+        
+            <div class="aside-list-item">
+                <a class="thumbnail" href="/2023/02/04/Hertz/" title="Hertz">
+                    <img
+                        alt="Hertz"
+                        src="/img/5.jpg">
+                </a>
+                <div class="content">
+                    
+                        <a class="article-recent_post_categories" href="/2023/02/04/Hertz/">
+                            笔记
+                        </a>
+                    
+                    <a class="title" href="/2023/02/04/Hertz/" title="Hertz">
+                        Hertz
+                    </a>
+                </div>
+            </div>
+            
+    </div>
+</div>
+     
+        
+    </div>
+</div> 
+</main>
+                <footer id="footer">
+                    <div id="footer_deal">
+    
+        <a class="deal_link" target="_blank" href="https://github.com/bearslyricattack" rel="external nofollow noopener" title="Github">
+            <i class="fa-brands fa-github"></i>
+        </a>
+    
+        <a class="deal_link" target="_blank" href="https://user.qzone.qq.com/2669184984" rel="external nofollow noopener" title="Mail">
+            <i class="fa-solid fa-envelope"></i>
+        </a>
+    
+    <img class="footer_mini_logo" src="/img/avatar.webp"
+        title="返回顶部" onclick="acrylic.toTop()">
+    
+        <a class="deal_link" target="_blank" href="https://music.163.com/#/user/follows?id=436327083" rel="external nofollow noopener" title="网易云">
+            <i class="fa-solid fa-music"></i>
+        </a>
+    
+        <a class="deal_link" target="_blank" href="https://space.bilibili.com/701779878?spm_id_from=333.1007.0.0" rel="external nofollow noopener" title="bilibili">
+            <i class="fa-brands fa-bilibili"></i>
+        </a>
+    
+</div>    
+<div id="heo-footer">
+    
+    
+</div>
+<div id="footer-section">
+    <div class="footer-section-links">
+        <div class="footer-section-left">
+            <div id="footer-section-tips">
+                <div class="copyright">©2021 - 2023 By 
+                    <a class="footer-section-link" href="/" rel="external nofollow">抒情熊</a>
+                    <a class="footer-section-link" href="https://github.com/hexo-theme-Acrylic/Hexo-Theme-Acrylic-Next" rel="external nofollow" target="_blank"> Theme By Acrylic-Next</a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-section-right">
+            <a class="footer-section-link" href="/rss/">订阅</a>
+            
+            <a class="footer-section-link cc" target="_blank" href="https://creativecommons.org/licenses/by/4.0/" title="cc协议">
+                <i class="fa-solid fa-closed-captioning"></i>
+            </a>
+        </div>
+    </div>
+</div>
+                </footer>
+            </div>
+         
+        <div>
+    <script type="text/javascript" src="/js/utils.js"></script>
+    <script type="text/javascript" src="/js/main.js"></script>
+    
+
+<script src="/lib/pjax.min.js"></script>
+
+
+
+<script src="/lib/snackbar.min.js"></script>
+
+
+    
+<script src="/lib/view-image.min.js"></script>
+
+
+
+    
+<link rel="stylesheet" href="/lib/swiper.min.css">
+
+    
+<script src="/lib/swiper.min.js"></script>
+
+
+<div id="js-pjax">
+    
+     
+</div>
+
+
+    
+<script src="/js/extend/covercolor/web.js"></script>
+
+        
+
+    <script>
+  let pjaxSelectors = [
+    'title',
+    '#body-wrap',
+    '#site-config',
+    'meta[name="description"]',
+    '#js-pjax'
+  ]
+  
+  const pjax = new Pjax({
+    elements: 'a:not([target="_blank"])',
+    selectors: pjaxSelectors,
+    cacheBust: false,
+    analytics: false,
+    scrollRestoration: false
+  })
+
+  document.querySelectorAll('script[data-pjax]').forEach(item => {
+      const newScript = document.createElement('script')
+      const content = item.text || item.textContent || item.innerHTML || ""
+      Array.from(item.attributes).forEach(attr => newScript.setAttribute(attr.name, attr.value))
+      newScript.appendChild(document.createTextNode(content))
+      item.parentNode.replaceChild(newScript, item)
+  })
+
+  document.addEventListener('pjax:error', (e) => {
+    if (e.request.status === 404) {
+      pjax.loadUrl('/404.html')
+    }
+  })
+</script>
+    
+</div>
+        
+     
+        <div class="needEndHide" id="nav-music" onclick="acrylic.musicToggle()">
+    <div id="nav-music-hoverTips">音乐已暂停</div>
+    <meting-js id="1708664797" server="tencent" type="playlist" mutex="true"
+        preload="none" data-lrctype="0" order="random" theme="var(--heo-main)"></meting-js>
+</div>
+    
+    </body>
+</html>
+<script>const posts=["2023/04/28/ClickHouse/","2023/03/14/Go语言设计与实现/","2023/03/13/Git/","2023/02/10/风凌夜话/","2023/02/04/Hertz/","2023/01/17/白马遥/","2023/01/17/彩云辞/","2023/01/17/Java虚拟机/","2023/01/17/Web基本原理/","2023/01/17/Springboot入门/","2023/01/17/分布式/","2023/01/17/Golang/","2023/01/17/Redis/"];function toRandomPost(){ window.pjax ? pjax.loadUrl('/'+posts[Math.floor(Math.random()*posts.length)]) : window.open('/'+posts[Math.floor(Math.random()*posts.length)], "_self"); };</script>

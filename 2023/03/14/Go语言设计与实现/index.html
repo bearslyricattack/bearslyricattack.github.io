@@ -1,0 +1,904 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-theme="light">
+    <head>
+        <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Go语言设计与实现 | 风凌渡</title>
+<noscript>开启Javascript是必要的</noscript>
+<link rel="icon" type="image/x-icon" href="/img/avatar.webp">
+<link rel="apple-touch-icon" href="/img/avatar.webp">
+<meta name="apple-mobile-web-app-title" content="风凌渡">
+<link rel="bookmark" href="/img/avatar.webp">
+<link rel="apple-touch-icon-precomposed" sizes="180x180" href="/img/avatar.webp">
+<meta name="description" content="a blog 一个分享技术与生活的博客">
+<meta name="theme-color" content="#1C1C1F">
+<link rel="stylesheet" href="/css/var.css">
+<link rel="stylesheet" href="/css/main.css">
+<link rel="stylesheet" href="/css/custom.css">
+
+
+
+<link rel="stylesheet" href="https://cdn.bootcdn.net/ajax/libs/font-awesome/6.3.0/css/all.min.css">
+    
+
+<link rel="stylesheet" href="/lib/snackbar.min.css">
+
+
+<script src="/lib/qrcode.min.js"></script>
+
+
+
+
+
+<script>var GLOBALCONFIG = {"root":"/","runtime":"2021-12-12 00:00:00","lazyload":{"enable":false,"error":"/img/acrylic.png"},"hightlight":{"enable":false,"limit":200},"lightbox":true,"randomlinks":false,"lang":{"theme":{"dark":"已切换至深色模式","light":"已切换至浅色模式"},"copy":{"success":"复制成功","error":"复制失败"},"backtop":"返回顶部","time":{"recent":"最近","yesterday":"昨天","berforeyesterday":"前天","daybefore":"天前","runtime":"天"},"sayhello":{"morning":"早上好","noon":"中午好","afternoon":"下午好","night":"晚上好","goodnight":"晚安","iam":"!  我是"},"search":{"empty":"搜索结果为空","hit":"已为您找到 ${query} 条结果","placeholder":"输入关键词快速查找"}},"covercolor":false};</script><script id="site-config">var PAGECONFIG = {"is_home":false,"is_post":true,"is_page":false,"page":false,"toc":true,"comment":false};</script>
+    <meta name="generator" content="Hexo 6.3.0"></head>
+    <body id="body">
+        
+        <div id="console" style="zoom: 1;" class="">
+    <div class="close-btn" onclick="acrylic.hideConsole()" href="javascript:void(0);">
+        <i class="fas fa-circle-xmark"></i>
+    </div>
+    <div class="button-group">
+        <div class="console-btn-item"> <a class="darkmode_switchbutton" onclick="acrylic.switchDarkMode()" title="显示模式切换"
+                href="javascript:void(0);" rel="external nofollow" data-pjax-state=""><i class="fas fa-moon"
+                    style="font-size: 1rem;"></i></a></div>
+        
+        <div class="console-btn-item" id="consoleFPS" onclick="acrylic.FPSToggle()" title="帧率显示开关"><a class="FPS-switch"
+                data-pjax-state=""><i class="fas fa-gauge"></i></a></div>
+    </div>
+    <div class="console-mask" onclick="acrylic.hideConsole()" href="javascript:void(0);" rel="external nofollow"></div>
+</div>
+        <div id="sidebar" style="zoom: 1;">
+    <div id="menu-mask" style="display: none;"></div>
+    <div id="sidebar-menus" class>
+        <span class="sidebar-menu-item-title">功能</span>
+        <div class="sidebar-menu-item">
+            <a class="darkmode_switchbutton menu-child" onclick="acrylic.switchDarkMode()" title="显示模式切换"
+                href="javascript:void(0);" rel="external nofollow">
+                <i class="fas fa-moon" style="font-size: 1rem;"></i>
+                <span>显示模式</span>
+            </a>
+        </div>
+        
+            <div class="back-menu-list-groups">
+    
+      
+      <div class="back-menu-list-group">
+        <div class="back-menu-list-title">
+          我的
+        </div>
+        <div class="back-menu-list">
+          
+            
+            <a class="back-menu-item" href="/" rel="external nofollow" title="博客">
+              <img class="back-menu-item-icon" src="/img/avatar.webp" loading="lazy">
+              <span class="back-menu-item-text">
+                博客
+              </span>
+            </a>
+          
+        </div>
+      </div>
+    
+  </div>
+  
+        
+        <div class="menus_items">
+    
+        <div class="menus_item">
+            
+                <a class="site-page" href="javascript:void(0);" rel="external nofollow">
+                    <span> 文库</span>
+                </a>
+                <ul class="menus_item_child">
+                    
+                        <li>
+                            <a class="site-page child" href="/archives/">
+                                <i class="fas fa-box-archive"></i>
+                                <span> 文章列表</span>
+                            </a>
+                        </li>
+                    
+                        <li>
+                            <a class="site-page child" href="/categories/">
+                                <i class="fas fa-cube"></i>
+                                <span> 全部分类</span>
+                            </a>
+                        </li>
+                    
+                        <li>
+                            <a class="site-page child" href="/tags/">
+                                <i class="fas fa-tags"></i>
+                                <span> 全部标签</span>
+                            </a>
+                        </li>
+                    
+                </ul>
+             
+        </div>
+    
+        <div class="menus_item">
+            
+                <a class="site-page" href="javascript:void(0);" rel="external nofollow">
+                    <span> 友链</span>
+                </a>
+                <ul class="menus_item_child">
+                    
+                        <li>
+                            <a class="site-page child" href="/fcircle/">
+                                <i class="fas fa-fish-fins"></i>
+                                <span> 友链鱼塘</span>
+                            </a>
+                        </li>
+                    
+                        <li>
+                            <a class="site-page child" href="/links/">
+                                <i class="fas fa-user-group"></i>
+                                <span> 友情链接</span>
+                            </a>
+                        </li>
+                    
+                        <li>
+                            <a class="site-page child" href="javascript:travelling()">
+                                <i class="fas fa-bus"></i>
+                                <span> 宝藏博主</span>
+                            </a>
+                        </li>
+                    
+                </ul>
+             
+        </div>
+    
+        <div class="menus_item">
+            
+                <a class="site-page not-child" href="/says" rel="external nofollow">
+                    <span> 即刻</span>
+                </a>
+             
+        </div>
+    
+        <div class="menus_item">
+            
+                <a class="site-page not-child" target="_blank" href="https://github.com/rootlexblog" rel="external nofollow noopener">
+                    <span> 仓库</span>
+                </a>
+             
+        </div>
+    
+</div>
+        <span class="sidebar-menu-item-title">标签</span>
+        <div class="card-widget card-tags card-archives card-webinfo card-allinfo">
+            <div class="item-headline">
+                <i class="fas fa-tags"></i>
+                <span>标签</span>
+            </div>
+            <div class="card-tag-cloud">
+                
+                    <a href="/tags/%E4%B8%AD%E9%97%B4%E4%BB%B6/" style="font-size: 1em; color: #d3d3d3">中间件
+                        <sup>3</sup>
+                    </a>
+                
+                    <a href="/tags/Go/" style="font-size: 1em; color: #d3d3d3">Go
+                        <sup>3</sup>
+                    </a>
+                
+                    <a href="/tags/Java/" style="font-size: 1em; color: #d3d3d3">Java
+                        <sup>3</sup>
+                    </a>
+                
+                    <a href="/tags/%E5%88%86%E5%B8%83%E5%BC%8F/" style="font-size: 1em; color: #d3d3d3">分布式
+                        <sup>1</sup>
+                    </a>
+                
+                    <a href="/tags/%E8%AF%97%E6%AD%8C/" style="font-size: 1em; color: #d3d3d3">诗歌
+                        <sup>3</sup>
+                    </a>
+                
+            </div>
+        </div>
+    </div>
+</div>    
+        
+            <div class="post" id="body-wrap">
+                <header class="post-bg" id="page-header">
+    <nav id="nav" class="show">
+    <div id="nav-group">
+        <div id="blog_name">
+            
+                <div class="back-home-button" tabindex="-1">
+                    <i class="back-home-button-icon fas fa-grip-vertical"></i>
+                    <div class="back-menu-list-groups">
+    
+      
+      <div class="back-menu-list-group">
+        <div class="back-menu-list-title">
+          我的
+        </div>
+        <div class="back-menu-list">
+          
+            
+            <a class="back-menu-item" href="/" rel="external nofollow" title="博客">
+              <img class="back-menu-item-icon" src="/img/avatar.webp" loading="lazy">
+              <span class="back-menu-item-text">
+                博客
+              </span>
+            </a>
+          
+        </div>
+      </div>
+    
+  </div>
+  
+                </div>
+            
+            <a id="site-name" href="/" title="返回博客主页">
+                    
+            </a>
+        </div>
+        <div id="page-name-mask">
+            <div id="page-name">
+                <a id="page-name-text" onclick="acrylic.toTop()">Go语言设计与实现</a>
+            </div>
+        </div>
+        <div id="menus">
+            <div class="menus_items">
+    
+        <div class="menus_item">
+            
+                <a class="site-page" href="javascript:void(0);" rel="external nofollow">
+                    <span> 文库</span>
+                </a>
+                <ul class="menus_item_child">
+                    
+                        <li>
+                            <a class="site-page child" href="/archives/">
+                                <i class="fas fa-box-archive"></i>
+                                <span> 文章列表</span>
+                            </a>
+                        </li>
+                    
+                        <li>
+                            <a class="site-page child" href="/categories/">
+                                <i class="fas fa-cube"></i>
+                                <span> 全部分类</span>
+                            </a>
+                        </li>
+                    
+                        <li>
+                            <a class="site-page child" href="/tags/">
+                                <i class="fas fa-tags"></i>
+                                <span> 全部标签</span>
+                            </a>
+                        </li>
+                    
+                </ul>
+             
+        </div>
+    
+        <div class="menus_item">
+            
+                <a class="site-page" href="javascript:void(0);" rel="external nofollow">
+                    <span> 友链</span>
+                </a>
+                <ul class="menus_item_child">
+                    
+                        <li>
+                            <a class="site-page child" href="/fcircle/">
+                                <i class="fas fa-fish-fins"></i>
+                                <span> 友链鱼塘</span>
+                            </a>
+                        </li>
+                    
+                        <li>
+                            <a class="site-page child" href="/links/">
+                                <i class="fas fa-user-group"></i>
+                                <span> 友情链接</span>
+                            </a>
+                        </li>
+                    
+                        <li>
+                            <a class="site-page child" href="javascript:travelling()">
+                                <i class="fas fa-bus"></i>
+                                <span> 宝藏博主</span>
+                            </a>
+                        </li>
+                    
+                </ul>
+             
+        </div>
+    
+        <div class="menus_item">
+            
+                <a class="site-page not-child" href="/says" rel="external nofollow">
+                    <span> 即刻</span>
+                </a>
+             
+        </div>
+    
+        <div class="menus_item">
+            
+                <a class="site-page not-child" target="_blank" href="https://github.com/rootlexblog" rel="external nofollow noopener">
+                    <span> 仓库</span>
+                </a>
+             
+        </div>
+    
+</div>
+        </div>
+        <!-- <div id="nav-left">
+            <div id="fps-group">
+                <div id="fps">145</div><span class="fpsText">FPS</span>
+            </div>
+        </div> -->
+        <div id="nav-right">
+            
+    <div class="nav-button only-home" id="travellings_button">
+        <a class="site-page"  target="_blank" rel="noopener external nofollow" href="https://www.travellings.cn/go.html" title="开往-友链接力"  width="120">
+            <i class="fa-solid fa-train-subway" style="font-size: 1rem;"></i>
+        </a>
+    </div>
+
+
+    <div class="nav-button" id="randomPost_button">
+        <a class="site-page" onclick="toRandomPost()"
+            title="随机前往一个文章">
+            <i class="fas fa-shuffle" style="font-size: 1rem;"></i>
+        </a>
+    </div>
+
+
+
+    <div class="nav-button" id="nav-console">
+        <a class="console_switchbutton" onclick="acrylic.showConsole()"
+        title="显示中控台" href="javascript:void(0);" rel="external nofollow">
+        <i class="fas fa-bars-progress" style="font-size: 1rem;"></i>
+        </a>
+    </div>
+
+<div class="nav-button" id="nav-totop" onclick="acrylic.toTop()">
+    <a class="totopbtn">
+        <i class="fas fa-arrow-up"></i>
+        <span id="percent">0</span>
+    </a>
+</div>
+<div id="toggle-menu">
+    <a class="site-page">
+        <i class="fas fa-bars fa-fw" style="font-size: 1rem;"></i>
+    </a>
+</div>
+        </div>
+    </div>
+</nav>
+    
+        <div class="coverdiv" id="coverdiv">
+    <img id="post-cover" class="nolazyload" src="/img/4.jpg" alt="cover">
+</div>
+<div id="post-info">
+    <div id="post-firstinfo">
+        <div class="meta-firstline">
+            <a class="post-meta-original" title="该文章为原创文章，注意版权协议">
+                原创
+            </a>
+            
+            <span class="post-meta-categories">
+                
+                    <a class="post-meta-categories" href="/categories/%E7%AC%94%E8%AE%B0/">笔记</a>
+                
+            </span>
+            
+            <div class="tag_share">
+                <div class="post-meta__tag-list">
+                    
+                        <a class="post-meta__tags" href="/tags/Go/">
+                            <span class="tags-punctuation">#</span>
+                            <span class="tags-name">Go</span>
+                        </a>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+    <h1 class="post-title">Go语言设计与实现</h1>
+    <div id="post-meta">
+        <div class="meta-secondline">
+            <span class="post-meta-date" title="发布于">
+                <i class="post-meta-icon fa-fw fas fa-calendar"></i>
+                <time datetime="2023-03-14T09:10:25+08:00"></time>
+            </span>
+            
+            
+                <span class="post-meta-position" title="作者IP归属地为北京">
+                    <i class="fas fa-location-dot post-meta-icon"></i>
+                    <span>北京</span>
+                </span>
+            
+            
+            
+                
+        </div>
+    </div>
+</div>
+<section class="main-hero-waves-area waves-area"><svg class="waves-svg" xmlns="http://www.w3.org/2000/svg"
+    xlink="http://www.w3.org/1999/xlink" viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto">
+    <defs>
+        <path id="gentle-wave"
+            d="M -160 44 c 30 0 58 -18 88 -18 s 58 18 88 18 s 58 -18 88 -18 s 58 18 88 18 v 44 h -352 Z"></path>
+    </defs>
+    <g class="parallax">
+        <use href="#gentle-wave" x="48" y="0"></use>
+        <use href="#gentle-wave" x="48" y="3"></use>
+        <use href="#gentle-wave" x="48" y="5"></use>
+        <use href="#gentle-wave" x="48" y="7"></use>
+    </g>
+</svg>
+</section>
+
+        
+</header>
+                <main class="layout" id="content-inner">
+    <div id="post">
+        <article class="post-content" id="article-container">
+            <h1 id="Go语言设计与实现"><a href="#Go语言设计与实现" class="headerlink" title="Go语言设计与实现"></a>Go语言设计与实现</h1><h1 id="1-编译原理"><a href="#1-编译原理" class="headerlink" title="1.编译原理:"></a>1.编译原理:</h1><p>go语言编译器的源代码放在src&#x2F;cmd&#x2F;complie中.</p>
+<h2 id="1-1-预备知识"><a href="#1-1-预备知识" class="headerlink" title="1.1 预备知识:"></a>1.1 预备知识:</h2><h3 id="1-1-1-抽象语法树"><a href="#1-1-1-抽象语法树" class="headerlink" title="1.1.1 抽象语法树:"></a>1.1.1 抽象语法树:</h3><p>抽象语法树（abstract syntax code，AST）是源代码的抽象语法结构的树状表示，树上的每个节点都表示源代码中的一种结构，这所以说是抽象的，是因为抽象语法树并不会表示出真实语法出现的每一个细节，比如说，嵌套括号被隐含在树的结构中，并没有以节点的形式呈现。抽象语法树并不依赖于源语言的语法，也就是说语法分析阶段所采用的上下文无文文法，因为在写文法时，经常会对文法进行等价的转换（消除左递归，回溯，二义性等），这样会给文法分析引入一些多余的成分，对后续阶段造成不利影响，甚至会使合个阶段变得混乱。因些，很多编译器经常要独立地构造语法分析树，为前端，后端建立一个清晰的接口。抽象语法树在很多领域有广泛的应用，比如浏览器，智能编辑器，编译器。</p>
+<h3 id="1-1-2-静态单赋值"><a href="#1-1-2-静态单赋值" class="headerlink" title="1.1.2 静态单赋值:"></a>1.1.2 静态单赋值:</h3><p>称为ssa,是编译器后端的一部分,是指每个变量只会被赋值一次,是一种中间代码的特性.</p>
+<h3 id="1-1-3-编译阶段"><a href="#1-1-3-编译阶段" class="headerlink" title="1.1.3 编译阶段:"></a>1.1.3 编译阶段:</h3><h4 id="1-1-3-1-编译器的前后端"><a href="#1-1-3-1-编译器的前后端" class="headerlink" title="1.1.3.1 编译器的前后端:"></a>1.1.3.1 编译器的前后端:</h4><p>编译器一般由前端和后端组成.其中前端负责把源代码转换成语言无关的中间代码,后端主要负责代码的生成和优化.包括中间代码和机器码.                                                                                                                                                                                                                                                                                </p>
+<h4 id="1-1-3-2-词法分析和语法分析"><a href="#1-1-3-2-词法分析和语法分析" class="headerlink" title="1.1.3.2 词法分析和语法分析:"></a>1.1.3.2 词法分析和语法分析:</h4><p>词法分析是解析源代码文件,变成token序列,语法分析是把token序列变成ast.</p>
+<p>出现任何问题编译会即刻终止并在控制台打印问题.</p>
+<h4 id="1-1-3-3-类型检查"><a href="#1-1-3-3-类型检查" class="headerlink" title="1.1.3.3 类型检查:"></a>1.1.3.3 类型检查:</h4><p>对ast进行各种类型的检查,同时更改一些关键字的类型.（如make）。</p>
+<h5 id="1-1-3-3-1-强类型和弱类型："><a href="#1-1-3-3-1-强类型和弱类型：" class="headerlink" title="1.1.3.3.1 强类型和弱类型："></a>1.1.3.3.1 强类型和弱类型：</h5><p>强类型：在语言的编译器有更严格的要求。</p>
+<p>弱类型：编译时期的类型错误会在运行时进行隐式的类型转换，可能会导致错误。</p>
+<h5 id="1-1-3-3-2-静态类型检查和动态类型检查："><a href="#1-1-3-3-2-静态类型检查和动态类型检查：" class="headerlink" title="1.1.3.3.2 静态类型检查和动态类型检查："></a>1.1.3.3.2 静态类型检查和动态类型检查：</h5><p>静态类型检查通过对源代码的分析，判断程序类型是否安全。可以在编译器约束变量的类型。</p>
+<p>动态类型检查是运行时确定程序类型是否安全的过程，这就要求在编译时，为所有的对象加入类型标签等信息，而工程师可以利用这些信息实现反射，动态派发等一系列动态的功能。使用起来非常灵活。</p>
+<p>这两种类型检查并不是完全对立的，很多编程语言同时使用这两种类型检查，使用静态类型检查减少错误，为对象添加类型标签，从而实现语言的动态功能。Go语言就是其中之一。 </p>
+<h4 id="1-1-3-4-中间代码生成"><a href="#1-1-3-4-中间代码生成" class="headerlink" title="1.1.3.4 中间代码生成:"></a>1.1.3.4 中间代码生成:</h4><p>经过前两步之后,就可以认为代码已经不存在问题了,就可以生成中间代码。</p>
+<p>通过goroutine并发编译方式，将每一个函数的ast变成中间代码。</p>
+<h4 id="1-1-3-5-机器码生成："><a href="#1-1-3-5-机器码生成：" class="headerlink" title="1.1.3.5 机器码生成："></a>1.1.3.5 机器码生成：</h4><p>根据不同的架构环境以及中间代码，生成机器码.</p>
+<h1 id="2-数据结构："><a href="#2-数据结构：" class="headerlink" title="2.数据结构："></a>2.数据结构：</h1><h2 id="2-1-数组："><a href="#2-1-数组：" class="headerlink" title="2.1 数组："></a>2.1 数组：</h2><h3 id="2-1-1-初始化"><a href="#2-1-1-初始化" class="headerlink" title="2.1.1 初始化:"></a>2.1.1 初始化:</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">arr := [3]int&#123;1,2,3&#125;</span><br><span class="line">arr := [...]int&#123;1,2,3&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>数组初始化大小后无法改变。</p>
+<h3 id="2-1-2-访问和赋值"><a href="#2-1-2-访问和赋值" class="headerlink" title="2.1.2 访问和赋值:"></a>2.1.2 访问和赋值:</h3><p>数组是一连串的存储空间,通过数组开头的指针,数组的大小,数组中数据元素的大小访问数组中的元素.</p>
+<h2 id="2-2-切片"><a href="#2-2-切片" class="headerlink" title="2.2 切片:"></a>2.2 切片:</h2><p>数组切边,即动态数组.数据结构是一个结构体:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">type SliceHeader struct&#123;</span><br><span class="line">Data uintptr</span><br><span class="line">len int</span><br><span class="line">cap int</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>data是一个数组的一部分，连续片段的引用。len是当前切片的长度，cap是data数组的大小。</p>
+<h3 id="2-2-1-初始化："><a href="#2-2-1-初始化：" class="headerlink" title="2.2.1 初始化："></a>2.2.1 初始化：</h3><p>使用make关键字。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">slice := make([]int,10)</span><br></pre></td></tr></table></figure>
+
+<p>当切片长度不够的时候，会发生扩容，具体过程是新建一个更大的切片然后把原先切片的内容复制过去。</p>
+<h2 id="2-3-哈希表："><a href="#2-3-哈希表：" class="headerlink" title="2.3 哈希表："></a>2.3 哈希表：</h2><h3 id="2-3-1-设计原理："><a href="#2-3-1-设计原理：" class="headerlink" title="2.3.1 设计原理："></a>2.3.1 设计原理：</h3><p>两个关键点：哈希函数和解决冲突的方法。</p>
+<h4 id="2-3-1-1：哈希函数："><a href="#2-3-1-1：哈希函数：" class="headerlink" title="2.3.1.1：哈希函数："></a>2.3.1.1：哈希函数：</h4><p>理想情况：输出范围远远大于输入范围.</p>
+<p>实际解决方案：输出结果尽可能的均匀，通过工程手段解决冲突问题。</p>
+<h4 id="2-3-1-2-解决冲突方法："><a href="#2-3-1-2-解决冲突方法：" class="headerlink" title="2.3.1.2 解决冲突方法："></a>2.3.1.2 解决冲突方法：</h4><p>开放地址法和拉链法。</p>
+<h3 id="2-3-2-使用："><a href="#2-3-2-使用：" class="headerlink" title="2.3.2 使用："></a>2.3.2 使用：</h3><h4 id="2-3-2-1-初始化："><a href="#2-3-2-1-初始化：" class="headerlink" title="2.3.2.1 初始化："></a>2.3.2.1 初始化：</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">//使用make</span><br><span class="line">hash := make(map[string]int,3)</span><br><span class="line">//使用字面量</span><br><span class="line">hash := map[string]int &#123;</span><br><span class="line"> &quot;1&quot;: 1,</span><br><span class="line"> &quot;2&quot;: 2,</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="2-3-2-2-使用"><a href="#2-3-2-2-使用" class="headerlink" title="2.3.2.2 使用:"></a>2.3.2.2 使用:</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">a = hash[key]</span><br><span class="line"></span><br><span class="line">for k,v := range hash&#123;</span><br><span class="line"> 	//k,v</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="2-3-2-3-数据结构"><a href="#2-3-2-3-数据结构" class="headerlink" title="2.3.2.3 数据结构:"></a>2.3.2.3 数据结构:</h4><p>核心是一个hmap,包括count:数量,hash0:哈希表种子等.还有 buckets,指向正常桶和溢出桶的数组(他们是连续存储的),数组中的元素存储</p>
+<p>的是哈希键的前八位.一个桶存储8个键值对,一旦有更多的键值对,就会装载到溢出桶中,超过一定的范围就会引发扩容,使桶的数量翻倍.</p>
+<h2 id="2-4-字符串"><a href="#2-4-字符串" class="headerlink" title="2.4 字符串:"></a>2.4 字符串:</h2><h3 id="2-4-1-数据结构"><a href="#2-4-1-数据结构" class="headerlink" title="2.4.1 数据结构:"></a>2.4.1 数据结构:</h3><p> 与切片高度相似,包含指向字节数组的指针,和数组的大小.</p>
+<p>与Java,Python等语言一样,Go的字符串也是只读的,不可变的.因此所有字符串上的操作都是通过复制实现的. </p>
+<h3 id="2-4-2-使用"><a href="#2-4-2-使用" class="headerlink" title="2.4.2 使用:"></a>2.4.2 使用:</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">str := &quot;123&quot;</span><br></pre></td></tr></table></figure>
+
+<p>在进行拼接和类型转换时,string和[]byte之间转换,可能会造成性能问题. </p>
+<h1 id="3-语言特性"><a href="#3-语言特性" class="headerlink" title="3. 语言特性:"></a>3. 语言特性:</h1><h2 id="3-1-函数调用"><a href="#3-1-函数调用" class="headerlink" title="3.1 函数调用:"></a>3.1 函数调用:</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">func myFunction(a,b int)(int ,int)&#123;</span><br><span class="line"> 	return a+b,a-b</span><br><span class="line">&#125;</span><br><span class="line">myFunction(66,77)</span><br></pre></td></tr></table></figure>
+
+<p>与c语言传递参数时同时使用寄存器(前六个参数)和栈,用寄存器传递返回值的方式,go语言选择使用完全栈传递参数和返回值.牺牲了部分函数调用的性能,但是不需要考虑寄存器的具体设计,同时更加简单,支持多返回值.</p>
+<h2 id="3-2-参数传递"><a href="#3-2-参数传递" class="headerlink" title="3.2 参数传递:"></a>3.2 参数传递:</h2><p>向函数传递参数一般有两种方式,一种是传值,双方持有两份不同的数据,另一种是传递引用,双方持有同一份数据.</p>
+<p>而在Go语言中,选择了传值的方式,无论是何种数据类型,都会进行复制.对于一般的数据类型,比如整数,数组,结构体等,都会复制全部内容.而对于指针,会复制一个指针,指向原有指针指向的对象.</p>
+<p>所以在向函数传递很大的数组或者结构体是,尽量传递指针而不是其本身,避免发生大规模的数据复制从而影响性能.</p>
+<h2 id="3-3-接口"><a href="#3-3-接口" class="headerlink" title="3.3 接口:"></a>3.3 接口:</h2><p>代码必须能够被人阅读，只是机器恰好可以执行.</p>
+<p>接口用于隐藏实现底层,解耦依赖关系等等功能,很多面向对象语言都有接口这一概念，例如 Java 和 C#。</p>
+<h3 id="3-3-1-定义"><a href="#3-3-1-定义" class="headerlink" title="3.3.1 定义:"></a>3.3.1 定义:</h3><p>定义接口需要使用 <code>interface</code> 关键字，在接口中我们只能定义方法签名，不能包含成员变量.与定义结构体非常相近.</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">type error interface &#123;</span><br><span class="line">	Error() string</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>Go语言中的接口实现是隐式的,只需要实现接口下面的所有的方法,就详单与实现了接口,而不需要像Java一样显式的声明出来.</p>
+<h3 id="3-3-2-接口检查"><a href="#3-3-2-接口检查" class="headerlink" title="3.3.2 接口检查:"></a>3.3.2 接口检查:</h3><figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">type</span> <span class="type">error</span> <span class="keyword">interface</span> &#123;</span><br><span class="line">	Error() <span class="type">string</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">type</span> RPCError <span class="keyword">struct</span> &#123;</span><br><span class="line">	Code    <span class="type">int64</span></span><br><span class="line">	Message <span class="type">string</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="params">(e *RPCError)</span></span> Error() <span class="type">string</span> &#123;</span><br><span class="line">	<span class="keyword">return</span> fmt.Sprintf(<span class="string">&quot;%s, code=%d&quot;</span>, e.Message, e.Code)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">	<span class="keyword">var</span> rpcErr <span class="type">error</span> = NewRPCError(<span class="number">400</span>, <span class="string">&quot;unknown err&quot;</span>) <span class="comment">// typecheck1</span></span><br><span class="line">	err := AsErr(rpcErr) <span class="comment">// typecheck2</span></span><br><span class="line">	<span class="built_in">println</span>(err)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">NewRPCError</span><span class="params">(code <span class="type">int64</span>, msg <span class="type">string</span>)</span></span> <span class="type">error</span> &#123;</span><br><span class="line">	<span class="keyword">return</span> &amp;RPCError&#123; <span class="comment">// typecheck3</span></span><br><span class="line">		Code:    code,</span><br><span class="line">		Message: msg,</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">AsErr</span><span class="params">(err <span class="type">error</span>)</span></span> <span class="type">error</span> &#123;</span><br><span class="line">	<span class="keyword">return</span> err</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>Go 语言在<a target="_blank" rel="noopener" href="https://draveness.me/golang/docs/part1-prerequisite/ch02-compile/golang-compile-intro/">编译期间</a>对代码进行类型检查，上述代码总共触发了三次类型检查：</p>
+<ol>
+<li>将 <code>*RPCError</code> 类型的变量赋值给 <code>error</code> 类型的变量 <code>rpcErr</code>；</li>
+<li>将 <code>*RPCError</code> 类型的变量 <code>rpcErr</code> 传递给签名中参数类型为 <code>error</code> 的 <code>AsErr</code> 函数；</li>
+<li>将 <code>*RPCError</code> 类型的变量从函数签名的返回值类型为 <code>error</code> 的 <code>NewRPCError</code> 函数中返回；</li>
+</ol>
+<h3 id="3-3-3-类型"><a href="#3-3-3-类型" class="headerlink" title="3.3.3 类型:"></a>3.3.3 类型:</h3><p> Go 语言中有两种略微不同的接口，一种是带有一组方法的接口，另一种是不带任何方法的 <code>interface&#123;&#125;</code>：Go 语言使用 <a target="_blank" rel="noopener" href="https://draveness.me/golang/tree/runtime.iface"><code>runtime.iface</code></a> 表示第一种接口，使用 <a target="_blank" rel="noopener" href="https://draveness.me/golang/tree/runtime.eface"><code>runtime.eface</code></a> 表示第二种不包含任何方法的接口 <code>interface&#123;&#125;</code>，两种接口虽然都使用 <code>interface</code> 声明，但是由于后者在 Go 语言中很常见，所以在实现时使用了特殊的类型。</p>
+<h3 id="3-3-4-指针和接口"><a href="#3-3-4-指针和接口" class="headerlink" title="3.3.4 指针和接口:"></a>3.3.4 指针和接口:</h3><figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">type</span> Duck <span class="keyword">interface</span> &#123;</span><br><span class="line">	Quack()</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">type</span> Cat <span class="keyword">struct</span>&#123;&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="params">(c Cat)</span></span> Quack() &#123;</span><br><span class="line">	fmt.Println(<span class="string">&quot;meow&quot;</span>)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">	<span class="keyword">var</span> c Duck = &amp;Cat&#123;&#125;</span><br><span class="line">	c.Quack()</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>这段代码使用结构体作为参数实现接口,而在初始化变量的时候使用指针的方式.也就是说,c是一个指针,指向一个cat结构体,当运行c.quack方法时,会复制一个指针,同样指向cat,所以可以正常运行.</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">type</span> Duck <span class="keyword">interface</span> &#123;</span><br><span class="line">	Quack()</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">type</span> Cat <span class="keyword">struct</span>&#123;&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="params">(c *Cat)</span></span> Quack() &#123;</span><br><span class="line">	fmt.Println(<span class="string">&quot;meow&quot;</span>)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">	<span class="keyword">var</span> c Duck = Cat&#123;&#125;</span><br><span class="line">	c.Quack()</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>这段代码使用指针作为参数实现接口,而初始化变量的时候使用结构体的方式,这样是不行的,因为这个方法需要的是一个指针变量,而这个现在并没有指针变量,所以无法通过.</p>
+<h2 id="3-4-反射"><a href="#3-4-反射" class="headerlink" title="3.4 反射:"></a>3.4 反射:</h2><p>主要依靠”reflect”包.主要包括两个函数和类型,他们是一一对应的.</p>
+<p>1.类型reflect.Type是反射包定义的一个接口，我们可以使用reflect.TypeOf()函数获取任意变量的类型.</p>
+<p>2.类型reflect.Value是反射包定义的一个结构体,可以使用reflect.ValueOf()函数获取任意变量的值.</p>
+<p>反射包中的所有方法基本都是围绕着 reflect.Type 和reflect.Value两个类型设计的。我们通过 reflect.TypeOf()、reflect.ValueOf()可以将一个普通的变量转换成反射包中提供的reflect.Type  和 reflect.Value随后就可以使用反射包中的方法对它们进行复杂的操作。</p>
+<h3 id="3-4-1-第一法则"><a href="#3-4-1-第一法则" class="headerlink" title="3.4.1 第一法则:"></a>3.4.1 第一法则:</h3><p>从 <code>interface&#123;&#125;</code> 变量可以反射出反射对象.</p>
+<p>两个重要的方法的参数都是接口类型.使用时会发生类型转换.</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> main</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> (</span><br><span class="line">	<span class="string">&quot;fmt&quot;</span></span><br><span class="line">	<span class="string">&quot;reflect&quot;</span></span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">	author := <span class="string">&quot;draven&quot;</span></span><br><span class="line">	fmt.Println(<span class="string">&quot;TypeOf author:&quot;</span>, reflect.TypeOf(author))</span><br><span class="line">	fmt.Println(<span class="string">&quot;ValueOf author:&quot;</span>, reflect.ValueOf(author))</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">$ <span class="keyword">go</span> run main.<span class="keyword">go</span></span><br><span class="line">TypeOf author: <span class="type">string</span></span><br><span class="line">ValueOf author: draven</span><br></pre></td></tr></table></figure>
+
+<h3 id="3-4-2-第二法则"><a href="#3-4-2-第二法则" class="headerlink" title="3.4.2 第二法则:"></a>3.4.2 第二法则:</h3><p>从反射对象可以获取 <code>interface&#123;&#125;</code> 变量；</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">v := reflect.ValueOf(<span class="number">1</span>)</span><br><span class="line">v.Interface().(<span class="type">int</span>)</span><br></pre></td></tr></table></figure>
+
+<h3 id="3-4-3-第三法则"><a href="#3-4-3-第三法则" class="headerlink" title="3.4.3 第三法则:"></a>3.4.3 第三法则:</h3><p>要修改反射对象，其值必须可设置；</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">	i := <span class="number">1</span></span><br><span class="line">	v := reflect.ValueOf(&amp;i)</span><br><span class="line">	v.Elem().SetInt(<span class="number">10</span>)</span><br><span class="line">	fmt.Println(i)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">$ <span class="keyword">go</span> run reflect.<span class="keyword">go</span></span><br><span class="line"><span class="number">10</span></span><br></pre></td></tr></table></figure>
+
+<p>修改反射对象值的过程,由于传值特性,这种过程类似于</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">	i := <span class="number">1</span></span><br><span class="line">	v := &amp;i</span><br><span class="line">	*v = <span class="number">10</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h1 id="4-关键字"><a href="#4-关键字" class="headerlink" title="4.关键字:"></a>4.关键字:</h1>
+        </article>
+        <div class="post-tools" id="post-tools">
+            <div class="post-tools-left">
+                
+                <div class="share-link mobile">
+    <div class="share-qrcode">
+        <div class="share-button" title="使用手机访问这篇文章">
+            <i class="fas fa-qrcode"></i>
+        </div>
+        <div class="share-main">
+            <div class="share-main-all">
+                <div id="qrcode" title="http://example.com/2023/03/14/Go%E8%AF%AD%E8%A8%80%E8%AE%BE%E8%AE%A1%E4%B8%8E%E5%AE%9E%E7%8E%B0/">
+                </div>
+                <div class="reward-dec">使用手机访问这篇文章</div>
+            </div>
+        </div>
+        <script type="text/javascript">
+            new QRCode(document.getElementById("qrcode"), "http://example.com/2023/03/14/Go%E8%AF%AD%E8%A8%80%E8%AE%BE%E8%AE%A1%E4%B8%8E%E5%AE%9E%E7%8E%B0/");
+        </script>
+    </div>
+</div>
+                <div class="share-link weibo"><a class="share-button" target="_blank"
+    href="https://service.weibo.com/share/share.php?title=Go语言设计与实现&amp;url=http://example.com/2023/03/14/Go%E8%AF%AD%E8%A8%80%E8%AE%BE%E8%AE%A1%E4%B8%8E%E5%AE%9E%E7%8E%B0/&amp;pic=/img/4.jpg"
+    title="分享到微博" rel="noopener external nofollow noreferrer noopener">
+    <i class="fab fa-weibo" style="font-size:22px"></i>
+</a>
+</div>
+<div class="share-link copyurl">
+<div class="share-button" id="post-share-url" title="复制链接" onclick="acrylic.copyPageUrl()">
+    <i class="fas fa-link"></i>
+</div>
+</div>
+            </div>
+            <div class="post-tools-right">
+                <div class="tag_share">
+                    <div class="post-meta__tag-list">
+                        
+                            <a href="/tags/Go/" class="post-meta__tags">
+                                <span class="tags-punctuation">#</span>
+                                Go
+                                <span class="tagsPageCount">3</span>
+                            </a>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="post-copyright">
+    <div class="post-copyright__author">
+        <a class="post-copyright__original" title="该文章为原创文章，注意版权协议">原创</a>
+        <a class="post-copyright-title" href="#">
+            <span>Go语言设计与实现</span>
+        </a>
+    </div>
+    <div class="post-copyright__type">
+        <span class="post-copyright-info" id="post-copyright-url">
+            <a href="/2023/03/14/Go%E8%AF%AD%E8%A8%80%E8%AE%BE%E8%AE%A1%E4%B8%8E%E5%AE%9E%E7%8E%B0/">http://example.com/2023/03/14/Go%E8%AF%AD%E8%A8%80%E8%AE%BE%E8%AE%A1%E4%B8%8E%E5%AE%9E%E7%8E%B0/</a>
+        </span>
+        <button class="post-copyright-copybtn" onclick="acrylic.copyPageUrl()">
+            <i class="fas fa-paste copy-btn"></i>
+        </button>
+    </div>
+    <div class="post-copyright__notice"><span class="post-copyright-info">本文是原创文章，采用 <a
+                href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank">CC BY-NC-ND 4.0</a> 协议，完整转载请注明来自 <a
+                href="/">风凌渡</a>
+            </span>
+        </div>
+</div>
+        <nav class="pagination-post" id="pagination">
+    
+        <div class="prev-post pull-left">
+            <a href="/2023/04/28/ClickHouse/">
+                <div class="pagination-info">
+                    <div class="label">上一篇</div>
+                    <div class="prev_info">ClickHouse</div>
+                </div>
+            </a>
+        </div>
+        <div class="next-post pull-right">
+            <a href="/2023/03/13/Git/">
+                <div class="pagination-info">
+                    <div class="label">下一篇</div>
+                    <div class="next_info">Git</div>
+                </div>
+            </a>
+        </div>
+    
+</nav>
+            
+    </div>
+    <div class="aside-content" id="aside-content">
+    
+    
+        
+        <div class="card-widget card-info">
+    <div class="card-content">
+        <div class="card-info-avatar is-center">
+            <div class="author-info__sayhi" id="author-info__sayhi">
+            </div>
+            <div class="author-info__name">
+                抒情熊
+            </div>
+            <div class="author-info__description">这有关于<b>后端开发</b>、<b>基础架构</b>的相关笔记分享，还有对于的一些<b>诗歌</b>和<b>小说</b>。<br>相信你可以在这里找到对你有用的知识和文章.</div>
+        </div>
+    </div>
+    <div class="banner-button-group">
+        <a class="banner-button" href="/">
+            <i class="fas fa-circle-chevron-right"></i>
+            <span class="banner-button-text">个人主页</span>
+        </a>
+    </div>
+    <div class="card-info-social-icons is-center">
+        
+            <a class="social-icon" target="_blank" rel="noopener" href="https://github.com/bearslyricattack" title="Github">
+                <i class="fa-brands fa-github"></i>
+            </a>
+        
+            <a class="social-icon" target="_blank" rel="noopener" href="https://user.qzone.qq.com/2669184984" title="Mail">
+                <i class="fa-solid fa-envelope"></i>
+            </a>
+        
+    </div>
+</div>
+     
+    
+    <div class="sticky_layout">
+        
+            <div class="card-widget" id="card-toc">
+    <div class="item-headline">
+        <i class="fas fa-bars"></i>
+        <span>文章目录</span>
+    </div>
+    <div class="toc-content" id="toc-content">
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Go%E8%AF%AD%E8%A8%80%E8%AE%BE%E8%AE%A1%E4%B8%8E%E5%AE%9E%E7%8E%B0"><span class="toc-text">Go语言设计与实现</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#1-%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86"><span class="toc-text">1.编译原理:</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-1-%E9%A2%84%E5%A4%87%E7%9F%A5%E8%AF%86"><span class="toc-text">1.1 预备知识:</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-1-1-%E6%8A%BD%E8%B1%A1%E8%AF%AD%E6%B3%95%E6%A0%91"><span class="toc-text">1.1.1 抽象语法树:</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-1-2-%E9%9D%99%E6%80%81%E5%8D%95%E8%B5%8B%E5%80%BC"><span class="toc-text">1.1.2 静态单赋值:</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-1-3-%E7%BC%96%E8%AF%91%E9%98%B6%E6%AE%B5"><span class="toc-text">1.1.3 编译阶段:</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-1-3-1-%E7%BC%96%E8%AF%91%E5%99%A8%E7%9A%84%E5%89%8D%E5%90%8E%E7%AB%AF"><span class="toc-text">1.1.3.1 编译器的前后端:</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-1-3-2-%E8%AF%8D%E6%B3%95%E5%88%86%E6%9E%90%E5%92%8C%E8%AF%AD%E6%B3%95%E5%88%86%E6%9E%90"><span class="toc-text">1.1.3.2 词法分析和语法分析:</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-1-3-3-%E7%B1%BB%E5%9E%8B%E6%A3%80%E6%9F%A5"><span class="toc-text">1.1.3.3 类型检查:</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#1-1-3-3-1-%E5%BC%BA%E7%B1%BB%E5%9E%8B%E5%92%8C%E5%BC%B1%E7%B1%BB%E5%9E%8B%EF%BC%9A"><span class="toc-text">1.1.3.3.1 强类型和弱类型：</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#1-1-3-3-2-%E9%9D%99%E6%80%81%E7%B1%BB%E5%9E%8B%E6%A3%80%E6%9F%A5%E5%92%8C%E5%8A%A8%E6%80%81%E7%B1%BB%E5%9E%8B%E6%A3%80%E6%9F%A5%EF%BC%9A"><span class="toc-text">1.1.3.3.2 静态类型检查和动态类型检查：</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-1-3-4-%E4%B8%AD%E9%97%B4%E4%BB%A3%E7%A0%81%E7%94%9F%E6%88%90"><span class="toc-text">1.1.3.4 中间代码生成:</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-1-3-5-%E6%9C%BA%E5%99%A8%E7%A0%81%E7%94%9F%E6%88%90%EF%BC%9A"><span class="toc-text">1.1.3.5 机器码生成：</span></a></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#2-%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%EF%BC%9A"><span class="toc-text">2.数据结构：</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#2-1-%E6%95%B0%E7%BB%84%EF%BC%9A"><span class="toc-text">2.1 数组：</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#2-1-1-%E5%88%9D%E5%A7%8B%E5%8C%96"><span class="toc-text">2.1.1 初始化:</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-1-2-%E8%AE%BF%E9%97%AE%E5%92%8C%E8%B5%8B%E5%80%BC"><span class="toc-text">2.1.2 访问和赋值:</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-2-%E5%88%87%E7%89%87"><span class="toc-text">2.2 切片:</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#2-2-1-%E5%88%9D%E5%A7%8B%E5%8C%96%EF%BC%9A"><span class="toc-text">2.2.1 初始化：</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-3-%E5%93%88%E5%B8%8C%E8%A1%A8%EF%BC%9A"><span class="toc-text">2.3 哈希表：</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#2-3-1-%E8%AE%BE%E8%AE%A1%E5%8E%9F%E7%90%86%EF%BC%9A"><span class="toc-text">2.3.1 设计原理：</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#2-3-1-1%EF%BC%9A%E5%93%88%E5%B8%8C%E5%87%BD%E6%95%B0%EF%BC%9A"><span class="toc-text">2.3.1.1：哈希函数：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-3-1-2-%E8%A7%A3%E5%86%B3%E5%86%B2%E7%AA%81%E6%96%B9%E6%B3%95%EF%BC%9A"><span class="toc-text">2.3.1.2 解决冲突方法：</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-3-2-%E4%BD%BF%E7%94%A8%EF%BC%9A"><span class="toc-text">2.3.2 使用：</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#2-3-2-1-%E5%88%9D%E5%A7%8B%E5%8C%96%EF%BC%9A"><span class="toc-text">2.3.2.1 初始化：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-3-2-2-%E4%BD%BF%E7%94%A8"><span class="toc-text">2.3.2.2 使用:</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-3-2-3-%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84"><span class="toc-text">2.3.2.3 数据结构:</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-4-%E5%AD%97%E7%AC%A6%E4%B8%B2"><span class="toc-text">2.4 字符串:</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#2-4-1-%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84"><span class="toc-text">2.4.1 数据结构:</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-4-2-%E4%BD%BF%E7%94%A8"><span class="toc-text">2.4.2 使用:</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#3-%E8%AF%AD%E8%A8%80%E7%89%B9%E6%80%A7"><span class="toc-text">3. 语言特性:</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#3-1-%E5%87%BD%E6%95%B0%E8%B0%83%E7%94%A8"><span class="toc-text">3.1 函数调用:</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-2-%E5%8F%82%E6%95%B0%E4%BC%A0%E9%80%92"><span class="toc-text">3.2 参数传递:</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-3-%E6%8E%A5%E5%8F%A3"><span class="toc-text">3.3 接口:</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#3-3-1-%E5%AE%9A%E4%B9%89"><span class="toc-text">3.3.1 定义:</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-3-2-%E6%8E%A5%E5%8F%A3%E6%A3%80%E6%9F%A5"><span class="toc-text">3.3.2 接口检查:</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-3-3-%E7%B1%BB%E5%9E%8B"><span class="toc-text">3.3.3 类型:</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-3-4-%E6%8C%87%E9%92%88%E5%92%8C%E6%8E%A5%E5%8F%A3"><span class="toc-text">3.3.4 指针和接口:</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-4-%E5%8F%8D%E5%B0%84"><span class="toc-text">3.4 反射:</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#3-4-1-%E7%AC%AC%E4%B8%80%E6%B3%95%E5%88%99"><span class="toc-text">3.4.1 第一法则:</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-4-2-%E7%AC%AC%E4%BA%8C%E6%B3%95%E5%88%99"><span class="toc-text">3.4.2 第二法则:</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-4-3-%E7%AC%AC%E4%B8%89%E6%B3%95%E5%88%99"><span class="toc-text">3.4.3 第三法则:</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#4-%E5%85%B3%E9%94%AE%E5%AD%97"><span class="toc-text">4.关键字:</span></a></li></ol>
+    </div>
+</div>
+            
+        
+            
+        <div class="card-widget card-recent-post">
+    <div class="item-headline">
+        <i class="fas fa-list-ol"></i>
+        <span>最近发布</span>
+    </div>
+    <div class="aside-list">
+        
+        
+            <div class="aside-list-item">
+                <a class="thumbnail" href="/2023/04/28/ClickHouse/" title="ClickHouse">
+                    <img
+                        alt="ClickHouse"
+                        src="/img/1.jpg">
+                </a>
+                <div class="content">
+                    
+                        <a class="article-recent_post_categories" href="/2023/04/28/ClickHouse/">
+                            笔记
+                        </a>
+                    
+                    <a class="title" href="/2023/04/28/ClickHouse/" title="ClickHouse">
+                        ClickHouse
+                    </a>
+                </div>
+            </div>
+                
+        
+            <div class="aside-list-item">
+                <a class="thumbnail" href="/2023/03/14/Go%E8%AF%AD%E8%A8%80%E8%AE%BE%E8%AE%A1%E4%B8%8E%E5%AE%9E%E7%8E%B0/" title="Go语言设计与实现">
+                    <img
+                        alt="Go语言设计与实现"
+                        src="/img/4.jpg">
+                </a>
+                <div class="content">
+                    
+                        <a class="article-recent_post_categories" href="/2023/03/14/Go%E8%AF%AD%E8%A8%80%E8%AE%BE%E8%AE%A1%E4%B8%8E%E5%AE%9E%E7%8E%B0/">
+                            笔记
+                        </a>
+                    
+                    <a class="title" href="/2023/03/14/Go%E8%AF%AD%E8%A8%80%E8%AE%BE%E8%AE%A1%E4%B8%8E%E5%AE%9E%E7%8E%B0/" title="Go语言设计与实现">
+                        Go语言设计与实现
+                    </a>
+                </div>
+            </div>
+                
+        
+            <div class="aside-list-item">
+                <a class="thumbnail" href="/2023/03/13/Git/" title="Git">
+                    <img
+                        alt="Git"
+                        src="/img/2.jpg">
+                </a>
+                <div class="content">
+                    
+                        <a class="article-recent_post_categories" href="/2023/03/13/Git/">
+                            笔记
+                        </a>
+                    
+                    <a class="title" href="/2023/03/13/Git/" title="Git">
+                        Git
+                    </a>
+                </div>
+            </div>
+                
+        
+            <div class="aside-list-item">
+                <a class="thumbnail" href="/2023/02/10/%E9%A3%8E%E5%87%8C%E5%A4%9C%E8%AF%9D/" title="风凌夜话">
+                    <img
+                        alt="风凌夜话"
+                        src="/img/13.jpg">
+                </a>
+                <div class="content">
+                    
+                        <a class="article-recent_post_categories" href="/2023/02/10/%E9%A3%8E%E5%87%8C%E5%A4%9C%E8%AF%9D/">
+                            创作
+                        </a>
+                    
+                    <a class="title" href="/2023/02/10/%E9%A3%8E%E5%87%8C%E5%A4%9C%E8%AF%9D/" title="风凌夜话">
+                        风凌夜话
+                    </a>
+                </div>
+            </div>
+                
+        
+            <div class="aside-list-item">
+                <a class="thumbnail" href="/2023/02/04/Hertz/" title="Hertz">
+                    <img
+                        alt="Hertz"
+                        src="/img/5.jpg">
+                </a>
+                <div class="content">
+                    
+                        <a class="article-recent_post_categories" href="/2023/02/04/Hertz/">
+                            笔记
+                        </a>
+                    
+                    <a class="title" href="/2023/02/04/Hertz/" title="Hertz">
+                        Hertz
+                    </a>
+                </div>
+            </div>
+            
+    </div>
+</div>
+     
+        
+    </div>
+</div> 
+</main>
+                <footer id="footer">
+                    <div id="footer_deal">
+    
+        <a class="deal_link" target="_blank" href="https://github.com/bearslyricattack" rel="external nofollow noopener" title="Github">
+            <i class="fa-brands fa-github"></i>
+        </a>
+    
+        <a class="deal_link" target="_blank" href="https://user.qzone.qq.com/2669184984" rel="external nofollow noopener" title="Mail">
+            <i class="fa-solid fa-envelope"></i>
+        </a>
+    
+    <img class="footer_mini_logo" src="/img/avatar.webp"
+        title="返回顶部" onclick="acrylic.toTop()">
+    
+        <a class="deal_link" target="_blank" href="https://music.163.com/#/user/follows?id=436327083" rel="external nofollow noopener" title="网易云">
+            <i class="fa-solid fa-music"></i>
+        </a>
+    
+        <a class="deal_link" target="_blank" href="https://space.bilibili.com/701779878?spm_id_from=333.1007.0.0" rel="external nofollow noopener" title="bilibili">
+            <i class="fa-brands fa-bilibili"></i>
+        </a>
+    
+</div>    
+<div id="heo-footer">
+    
+    
+</div>
+<div id="footer-section">
+    <div class="footer-section-links">
+        <div class="footer-section-left">
+            <div id="footer-section-tips">
+                <div class="copyright">©2021 - 2023 By 
+                    <a class="footer-section-link" href="/" rel="external nofollow">抒情熊</a>
+                    <a class="footer-section-link" href="https://github.com/hexo-theme-Acrylic/Hexo-Theme-Acrylic-Next" rel="external nofollow" target="_blank"> Theme By Acrylic-Next</a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-section-right">
+            <a class="footer-section-link" href="/rss/">订阅</a>
+            
+            <a class="footer-section-link cc" target="_blank" href="https://creativecommons.org/licenses/by/4.0/" title="cc协议">
+                <i class="fa-solid fa-closed-captioning"></i>
+            </a>
+        </div>
+    </div>
+</div>
+                </footer>
+            </div>
+         
+        <div>
+    <script type="text/javascript" src="/js/utils.js"></script>
+    <script type="text/javascript" src="/js/main.js"></script>
+    
+
+<script src="/lib/pjax.min.js"></script>
+
+
+
+<script src="/lib/snackbar.min.js"></script>
+
+
+    
+<script src="/lib/view-image.min.js"></script>
+
+
+
+    
+<link rel="stylesheet" href="/lib/swiper.min.css">
+
+    
+<script src="/lib/swiper.min.js"></script>
+
+
+<div id="js-pjax">
+    
+     
+</div>
+
+
+    
+<script src="/js/extend/covercolor/web.js"></script>
+
+        
+
+    <script>
+  let pjaxSelectors = [
+    'title',
+    '#body-wrap',
+    '#site-config',
+    'meta[name="description"]',
+    '#js-pjax'
+  ]
+  
+  const pjax = new Pjax({
+    elements: 'a:not([target="_blank"])',
+    selectors: pjaxSelectors,
+    cacheBust: false,
+    analytics: false,
+    scrollRestoration: false
+  })
+
+  document.querySelectorAll('script[data-pjax]').forEach(item => {
+      const newScript = document.createElement('script')
+      const content = item.text || item.textContent || item.innerHTML || ""
+      Array.from(item.attributes).forEach(attr => newScript.setAttribute(attr.name, attr.value))
+      newScript.appendChild(document.createTextNode(content))
+      item.parentNode.replaceChild(newScript, item)
+  })
+
+  document.addEventListener('pjax:error', (e) => {
+    if (e.request.status === 404) {
+      pjax.loadUrl('/404.html')
+    }
+  })
+</script>
+    
+</div>
+        
+     
+        <div class="needEndHide" id="nav-music" onclick="acrylic.musicToggle()">
+    <div id="nav-music-hoverTips">音乐已暂停</div>
+    <meting-js id="1708664797" server="tencent" type="playlist" mutex="true"
+        preload="none" data-lrctype="0" order="random" theme="var(--heo-main)"></meting-js>
+</div>
+    
+    </body>
+</html>
+<script>const posts=["2023/04/28/ClickHouse/","2023/03/14/Go语言设计与实现/","2023/03/13/Git/","2023/02/10/风凌夜话/","2023/02/04/Hertz/","2023/01/17/白马遥/","2023/01/17/彩云辞/","2023/01/17/Java虚拟机/","2023/01/17/Web基本原理/","2023/01/17/Springboot入门/","2023/01/17/分布式/","2023/01/17/Golang/","2023/01/17/Redis/"];function toRandomPost(){ window.pjax ? pjax.loadUrl('/'+posts[Math.floor(Math.random()*posts.length)]) : window.open('/'+posts[Math.floor(Math.random()*posts.length)], "_self"); };</script>
