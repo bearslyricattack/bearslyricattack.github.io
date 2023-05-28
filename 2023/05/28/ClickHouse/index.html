@@ -4,7 +4,7 @@
         <meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Hello World | 风凌渡</title>
+<title>ClickHouse | 风凌渡</title>
 <noscript>开启Javascript是必要的</noscript>
 <link rel="icon" type="image/x-icon" href="/img/avatar.webp">
 <link rel="apple-touch-icon" href="/img/avatar.webp">
@@ -173,7 +173,7 @@
         </div>
         <div id="page-name-mask">
             <div id="page-name">
-                <a id="page-name-text" onclick="acrylic.toTop()">Hello World</a>
+                <a id="page-name-text" onclick="acrylic.toTop()">ClickHouse</a>
             </div>
         </div>
         <div id="menus">
@@ -307,7 +307,7 @@
 </nav>
     
         <div class="coverdiv" id="coverdiv">
-    <img id="post-cover" class="nolazyload" src="/img/hello.jpg" alt="cover">
+    <img id="post-cover" class="nolazyload" src="/img/1.jpg" alt="cover">
 </div>
 <div id="post-info">
     <div id="post-firstinfo">
@@ -316,19 +316,30 @@
                 原创
             </a>
             
+            <span class="post-meta-categories">
+                
+                    <a class="post-meta-categories" href="/categories/%E7%AC%94%E8%AE%B0/">笔记</a>
+                
+            </span>
+            
             <div class="tag_share">
                 <div class="post-meta__tag-list">
+                    
+                        <a class="post-meta__tags" href="/tags/%E4%B8%AD%E9%97%B4%E4%BB%B6/">
+                            <span class="tags-punctuation">#</span>
+                            <span class="tags-name">中间件</span>
+                        </a>
                     
                 </div>
             </div>
         </div>
     </div>
-    <h1 class="post-title">Hello World</h1>
+    <h1 class="post-title">ClickHouse</h1>
     <div id="post-meta">
         <div class="meta-secondline">
             <span class="post-meta-date" title="发布于">
                 <i class="post-meta-icon fa-fw fas fa-calendar"></i>
-                <time datetime="2023-05-28T12:33:09+08:00"></time>
+                <time datetime="2023-05-28T16:40:09+08:00"></time>
             </span>
             
             
@@ -363,19 +374,97 @@
                 <main class="layout" id="content-inner">
     <div id="post">
         <article class="post-content" id="article-container">
-            <p>Welcome to <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a target="_blank" rel="noopener" href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a target="_blank" rel="noopener" href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a target="_blank" rel="noopener" href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
+            <h1 id="ClickHouse"><a href="#ClickHouse" class="headerlink" title="ClickHouse:"></a>ClickHouse:</h1><p>一款查询引擎.</p>
+<h1 id="1-数据库基本概念"><a href="#1-数据库基本概念" class="headerlink" title="1.数据库基本概念:"></a>1.数据库基本概念:</h1><p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230301095032.png" alt="QQ截图20230301095032"></p>
+<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230301095221.png" alt="QQ截图20230301095221"></p>
+<h2 id="1-1分类"><a href="#1-1分类" class="headerlink" title="1.1分类:"></a>1.1分类:</h2><p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230301095333.png" alt="QQ截图20230301095333"></p>
+<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230301095426.png" alt="QQ截图20230301095426"></p>
+<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230301095500.png" alt="QQ截图20230301095500"></p>
+<h2 id="1-2-OLAP数据库"><a href="#1-2-OLAP数据库" class="headerlink" title="1.2 OLAP数据库:"></a>1.2 OLAP数据库:</h2><p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230301095547.png" alt="QQ截图20230301095547"></p>
+<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230301095724.png" alt="QQ截图20230301095724"></p>
+<h2 id="1-3-sql"><a href="#1-3-sql" class="headerlink" title="1.3 sql:"></a>1.3 sql:</h2><p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230301095816.png" alt="QQ截图20230301095816"></p>
+<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230301095833.png" alt="QQ截图20230301095833"></p>
+<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230301100008.png" alt="QQ截图20230301100008"></p>
+<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230301100111.png" alt="QQ截图20230301100111"></p>
+<h2 id="1-4-数据库架构"><a href="#1-4-数据库架构" class="headerlink" title="1.4 数据库架构:"></a>1.4 数据库架构:</h2><p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230301100203.png" alt="QQ截图20230301100203"></p>
+<h3 id="1-4-1解释器"><a href="#1-4-1解释器" class="headerlink" title="1.4.1解释器:"></a>1.4.1解释器:</h3><p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230301100321.png" alt="QQ截图20230301100321"></p>
+<h3 id="1-4-2分析器"><a href="#1-4-2分析器" class="headerlink" title="1.4.2分析器:"></a>1.4.2分析器:</h3><p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230301100359.png" alt="QQ截图20230301100359"></p>
+<h3 id="1-4-3优化器"><a href="#1-4-3优化器" class="headerlink" title="1.4.3优化器:"></a>1.4.3优化器:</h3><p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230301100511.png" alt="QQ截图20230301100511"></p>
+<p>把ast变成一个一个的算子(执行计划).</p>
+<h3 id="1-4-4执行引擎"><a href="#1-4-4执行引擎" class="headerlink" title="1.4.4执行引擎:"></a>1.4.4执行引擎:</h3><p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230301100611.png" alt="QQ截图20230301100611"></p>
+<h3 id="1-4-5存储引擎"><a href="#1-4-5存储引擎" class="headerlink" title="1.4.5存储引擎:"></a>1.4.5存储引擎:</h3><p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230301100659.png" alt="QQ截图20230301100659"></p>
+<h1 id="2-列式存储"><a href="#2-列式存储" class="headerlink" title="2.列式存储:"></a>2.列式存储:</h1><p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230301100818.png" alt="QQ截图20230301100818"></p>
+<h2 id="2-1-行式存储与列式存储"><a href="#2-1-行式存储与列式存储" class="headerlink" title="2.1 行式存储与列式存储:"></a>2.1 行式存储与列式存储:</h2><p>行式存储:每一行的顺序,连续的写到存储介质当中去.</p>
+<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230301100929.png" alt="QQ截图20230301100929"></p>
+<p>列式存储:一列一列的写入.</p>
+<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230301101022.png" alt="QQ截图20230301101022"></p>
+<h2 id="2-2-列式存储的优点"><a href="#2-2-列式存储的优点" class="headerlink" title="2.2 列式存储的优点:"></a>2.2 列式存储的优点:</h2><h3 id="2-2-1-数据压缩"><a href="#2-2-1-数据压缩" class="headerlink" title="2.2.1 数据压缩:"></a>2.2.1 数据压缩:</h3><p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230301101148.png" alt="QQ截图20230301101148"></p>
+<p>比如主键在列上存储有某种规律(递增).</p>
+<h4 id="压缩算法"><a href="#压缩算法" class="headerlink" title="压缩算法:"></a>压缩算法:</h4><p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230301101241.png" alt="QQ截图20230301101241"></p>
+<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230301101330.png" alt="QQ截图20230301101330"></p>
+<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230301101418.png" alt="QQ截图20230301101418"></p>
+<h3 id="2-2-2-聚合计算："><a href="#2-2-2-聚合计算：" class="headerlink" title="2.2.2 聚合计算："></a>2.2.2 聚合计算：</h3><p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230301101459.png" alt="QQ截图20230301101459"></p>
+<h3 id="2-2-3-延迟物化："><a href="#2-2-3-延迟物化：" class="headerlink" title="2.2.3 延迟物化："></a>2.2.3 延迟物化：</h3><p>把一种数据格式变成另一种数据格式。</p>
+<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230301101619.png" alt="QQ截图20230301101619"></p>
+<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230301101718.png" alt="QQ截图20230301101718"></p>
+<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230301101806.png" alt="QQ截图20230301101806"></p>
+<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230301101847.png" alt="QQ截图20230301101847"></p>
+<h3 id="2-2-4-向量化："><a href="#2-2-4-向量化：" class="headerlink" title="2.2.4 向量化："></a>2.2.4 向量化：</h3><p>解释：</p>
+<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230301102311.png" alt="QQ截图20230301102311"></p>
+<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230301102428.png" alt="QQ截图20230301102428"></p>
+<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230301102512.png" alt="QQ截图20230301102512"></p>
+<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230301145624.png" alt="QQ截图20230301145624"></p>
+<h2 id="2-3-优缺点分析"><a href="#2-3-优缺点分析" class="headerlink" title="2.3 优缺点分析:"></a>2.3 优缺点分析:</h2><p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230301193053.png" alt="QQ截图20230301193053"></p>
+<h1 id="3-存储设计"><a href="#3-存储设计" class="headerlink" title="3.存储设计:"></a>3.存储设计:</h1><h2 id="3-1-表定义和结构"><a href="#3-1-表定义和结构" class="headerlink" title="3.1 表定义和结构:"></a>3.1 表定义和结构:</h2><p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230301193925.png" alt="QQ截图20230301193925"></p>
+<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230301194207.png" alt="QQ截图20230301194207"></p>
+<p>distable不存储数据,相当于view的功能.</p>
+<p>localtable存储数据.</p>
+<h2 id="3-2-引擎架构"><a href="#3-2-引擎架构" class="headerlink" title="3.2 引擎架构:"></a>3.2 引擎架构:</h2><p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230301194359.png" alt="QQ截图20230301194359"></p>
+<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230301194533.png" alt="QQ截图20230301194533"></p>
+<p>bin存储数据,mrk存储索引.</p>
+<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230301194648.png" alt="QQ截图20230301194648"></p>
+<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230301194736.png" alt="QQ截图20230301194736"></p>
+<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230301194801.png" alt="QQ截图20230301194801"></p>
+<h2 id="3-3-索引设计"><a href="#3-3-索引设计" class="headerlink" title="3.3 索引设计:"></a>3.3 索引设计:</h2><h3 id="3-3-1-hash-index"><a href="#3-3-1-hash-index" class="headerlink" title="3.3.1 hash index:"></a>3.3.1 hash index:</h3><p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230301194820.png" alt="QQ截图20230301194820"></p>
+<h3 id="3-3-2-b-tree"><a href="#3-3-2-b-tree" class="headerlink" title="3.3.2 b-tree:"></a>3.3.2 b-tree:</h3><p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230301194859.png" alt="QQ截图20230301194859"></p>
+<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230301195006.png" alt="QQ截图20230301195006"></p>
+<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230301195155.png" alt="QQ截图20230301195155"></p>
+<h3 id="3-3-3-LSM-tree"><a href="#3-3-3-LSM-tree" class="headerlink" title="3.3.3 LSM tree:"></a>3.3.3 LSM tree:</h3><p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230301195321.png" alt="QQ截图20230301195321"></p>
+<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230301195347.png" alt="QQ截图20230301195347"></p>
+<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230301195533.png" alt="QQ截图20230301195533"></p>
+<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230301195632.png" alt="QQ截图20230301195632"></p>
+<p>稀疏索引:一些特定的数据,用于缩小查找范围.</p>
+<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230301195740.png" alt="QQ截图20230301195740"></p>
+<h2 id="3-4-索引实现"><a href="#3-4-索引实现" class="headerlink" title="3.4 索引实现:"></a>3.4 索引实现:</h2><p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230301200018.png" alt="QQ截图20230301200018"></p>
+<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230301200038.png" alt="QQ截图20230301200038"></p>
+<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230301200107.png" alt="QQ截图20230301200107"></p>
+<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230301200229.png" alt="QQ截图20230301200229"></p>
+<p>普通的mark都存储的是这个mark中的最小值,但是由于最后一个mark并没有装满,为了获得确定的区间,primaryindex存储的是所有数据的最大值.</p>
+<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230301200436.png" alt="QQ截图20230301200436"></p>
+<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230301201204.png" alt="QQ截图20230301201204"></p>
+<p>优化:二级索引:</p>
+<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230301201427.png" alt="QQ截图20230301201427"></p>
+<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230301201535.png" alt="QQ截图20230301201535"></p>
+<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230301201615.png" alt="QQ截图20230301201615"></p>
+<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230301201638.png" alt="QQ截图20230301201638"></p>
+<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230301201729.png" alt="QQ截图20230301201729"></p>
+<h2 id="3-5-数据合并"><a href="#3-5-数据合并" class="headerlink" title="3.5 数据合并:"></a>3.5 数据合并:</h2><p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230301201804.png" alt="QQ截图20230301201804"></p>
+<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230301201915.png" alt="QQ截图20230301201915"></p>
+<h2 id="3-6-数据查询"><a href="#3-6-数据查询" class="headerlink" title="3.6 数据查询:"></a>3.6 数据查询:</h2><p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230301202034.png" alt="QQ截图20230301202034"></p>
+<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230301202042.png" alt="QQ截图20230301202042"></p>
+<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230301202132.png" alt="QQ截图20230301202132"></p>
+<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230301202203.png" alt="QQ截图20230301202203"></p>
+<h1 id="4-应用场景"><a href="#4-应用场景" class="headerlink" title="4.应用场景:"></a>4.应用场景:</h1><p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230301202248.png" alt="QQ截图20230301202248"></p>
+<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230301202359.png" alt="QQ截图20230301202359"></p>
+<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230301202449.png" alt="QQ截图20230301202449"></p>
+<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230301202542.png" alt="QQ截图20230301202542"></p>
+<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230301202720.png" alt="QQ截图20230301202720"></p>
+<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230301202809.png" alt="QQ截图20230301202809"></p>
+<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230301202916.png" alt="QQ截图20230301202916"></p>
+<p>map:kv.</p>
+<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230301203027.png" alt="QQ截图20230301203027"></p>
+<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230301203145.png" alt="QQ截图20230301203145"></p>
+<h1 id="5-总结："><a href="#5-总结：" class="headerlink" title="5.总结："></a>5.总结：</h1><p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230301203304.png" alt="QQ截图20230301203304"></p>
 
         </article>
         <div class="post-tools" id="post-tools">
@@ -388,18 +477,18 @@
         </div>
         <div class="share-main">
             <div class="share-main-all">
-                <div id="qrcode" title="http://example.com/2023/05/28/hello-world/">
+                <div id="qrcode" title="http://example.com/2023/05/28/ClickHouse/">
                 </div>
                 <div class="reward-dec">使用手机访问这篇文章</div>
             </div>
         </div>
         <script type="text/javascript">
-            new QRCode(document.getElementById("qrcode"), "http://example.com/2023/05/28/hello-world/");
+            new QRCode(document.getElementById("qrcode"), "http://example.com/2023/05/28/ClickHouse/");
         </script>
     </div>
 </div>
                 <div class="share-link weibo"><a class="share-button" target="_blank"
-    href="https://service.weibo.com/share/share.php?title=Hello World&amp;url=http://example.com/2023/05/28/hello-world/&amp;pic=/img/hello.jpg"
+    href="https://service.weibo.com/share/share.php?title=ClickHouse&amp;url=http://example.com/2023/05/28/ClickHouse/&amp;pic=/img/1.jpg"
     title="分享到微博" rel="noopener external nofollow noreferrer noopener">
     <i class="fab fa-weibo" style="font-size:22px"></i>
 </a>
@@ -414,6 +503,12 @@
                 <div class="tag_share">
                     <div class="post-meta__tag-list">
                         
+                            <a href="/tags/%E4%B8%AD%E9%97%B4%E4%BB%B6/" class="post-meta__tags">
+                                <span class="tags-punctuation">#</span>
+                                中间件
+                                <span class="tagsPageCount">1</span>
+                            </a>
+                        
                     </div>
                 </div>
             </div>
@@ -422,12 +517,12 @@
     <div class="post-copyright__author">
         <a class="post-copyright__original" title="该文章为原创文章，注意版权协议">原创</a>
         <a class="post-copyright-title" href="#">
-            <span>Hello World</span>
+            <span>ClickHouse</span>
         </a>
     </div>
     <div class="post-copyright__type">
         <span class="post-copyright-info" id="post-copyright-url">
-            <a href="/2023/05/28/hello-world/">http://example.com/2023/05/28/hello-world/</a>
+            <a href="/2023/05/28/ClickHouse/">http://example.com/2023/05/28/ClickHouse/</a>
         </span>
         <button class="post-copyright-copybtn" onclick="acrylic.copyPageUrl()">
             <i class="fas fa-paste copy-btn"></i>
@@ -441,16 +536,16 @@
 </div>
         <nav class="pagination-post" id="pagination">
     
-                
         
-            <div class="prev-post pull-full">
-                <a href="/2023/05/28/ClickHouse/">
+            <div class="next-post pull-full">
+                <a href="/2023/05/28/hello-world/">
                     <div class="pagination-info">
-                        <div class="label">上一篇</div>
-                        <div class="prev_info">ClickHouse</div>
+                        <div class="label">下一篇</div>
+                        <div class="next_info">Hello World</div>
                     </div>
                 </a>
             </div>
+                
         
     
 </nav>
@@ -499,7 +594,7 @@
         <span>文章目录</span>
     </div>
     <div class="toc-content" id="toc-content">
-        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Quick-Start"><span class="toc-text">Quick Start</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Create-a-new-post"><span class="toc-text">Create a new post</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Run-server"><span class="toc-text">Run server</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Generate-static-files"><span class="toc-text">Generate static files</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Deploy-to-remote-sites"><span class="toc-text">Deploy to remote sites</span></a></li></ol></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#ClickHouse"><span class="toc-text">ClickHouse:</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#1-%E6%95%B0%E6%8D%AE%E5%BA%93%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5"><span class="toc-text">1.数据库基本概念:</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-1%E5%88%86%E7%B1%BB"><span class="toc-text">1.1分类:</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-2-OLAP%E6%95%B0%E6%8D%AE%E5%BA%93"><span class="toc-text">1.2 OLAP数据库:</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-3-sql"><span class="toc-text">1.3 sql:</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-4-%E6%95%B0%E6%8D%AE%E5%BA%93%E6%9E%B6%E6%9E%84"><span class="toc-text">1.4 数据库架构:</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-4-1%E8%A7%A3%E9%87%8A%E5%99%A8"><span class="toc-text">1.4.1解释器:</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-4-2%E5%88%86%E6%9E%90%E5%99%A8"><span class="toc-text">1.4.2分析器:</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-4-3%E4%BC%98%E5%8C%96%E5%99%A8"><span class="toc-text">1.4.3优化器:</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-4-4%E6%89%A7%E8%A1%8C%E5%BC%95%E6%93%8E"><span class="toc-text">1.4.4执行引擎:</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-4-5%E5%AD%98%E5%82%A8%E5%BC%95%E6%93%8E"><span class="toc-text">1.4.5存储引擎:</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#2-%E5%88%97%E5%BC%8F%E5%AD%98%E5%82%A8"><span class="toc-text">2.列式存储:</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#2-1-%E8%A1%8C%E5%BC%8F%E5%AD%98%E5%82%A8%E4%B8%8E%E5%88%97%E5%BC%8F%E5%AD%98%E5%82%A8"><span class="toc-text">2.1 行式存储与列式存储:</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-2-%E5%88%97%E5%BC%8F%E5%AD%98%E5%82%A8%E7%9A%84%E4%BC%98%E7%82%B9"><span class="toc-text">2.2 列式存储的优点:</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#2-2-1-%E6%95%B0%E6%8D%AE%E5%8E%8B%E7%BC%A9"><span class="toc-text">2.2.1 数据压缩:</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%8E%8B%E7%BC%A9%E7%AE%97%E6%B3%95"><span class="toc-text">压缩算法:</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-2-2-%E8%81%9A%E5%90%88%E8%AE%A1%E7%AE%97%EF%BC%9A"><span class="toc-text">2.2.2 聚合计算：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-2-3-%E5%BB%B6%E8%BF%9F%E7%89%A9%E5%8C%96%EF%BC%9A"><span class="toc-text">2.2.3 延迟物化：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-2-4-%E5%90%91%E9%87%8F%E5%8C%96%EF%BC%9A"><span class="toc-text">2.2.4 向量化：</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-3-%E4%BC%98%E7%BC%BA%E7%82%B9%E5%88%86%E6%9E%90"><span class="toc-text">2.3 优缺点分析:</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#3-%E5%AD%98%E5%82%A8%E8%AE%BE%E8%AE%A1"><span class="toc-text">3.存储设计:</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#3-1-%E8%A1%A8%E5%AE%9A%E4%B9%89%E5%92%8C%E7%BB%93%E6%9E%84"><span class="toc-text">3.1 表定义和结构:</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-2-%E5%BC%95%E6%93%8E%E6%9E%B6%E6%9E%84"><span class="toc-text">3.2 引擎架构:</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-3-%E7%B4%A2%E5%BC%95%E8%AE%BE%E8%AE%A1"><span class="toc-text">3.3 索引设计:</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#3-3-1-hash-index"><span class="toc-text">3.3.1 hash index:</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-3-2-b-tree"><span class="toc-text">3.3.2 b-tree:</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-3-3-LSM-tree"><span class="toc-text">3.3.3 LSM tree:</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-4-%E7%B4%A2%E5%BC%95%E5%AE%9E%E7%8E%B0"><span class="toc-text">3.4 索引实现:</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-5-%E6%95%B0%E6%8D%AE%E5%90%88%E5%B9%B6"><span class="toc-text">3.5 数据合并:</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-6-%E6%95%B0%E6%8D%AE%E6%9F%A5%E8%AF%A2"><span class="toc-text">3.6 数据查询:</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#4-%E5%BA%94%E7%94%A8%E5%9C%BA%E6%99%AF"><span class="toc-text">4.应用场景:</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#5-%E6%80%BB%E7%BB%93%EF%BC%9A"><span class="toc-text">5.总结：</span></a></li></ol>
     </div>
 </div>
             
