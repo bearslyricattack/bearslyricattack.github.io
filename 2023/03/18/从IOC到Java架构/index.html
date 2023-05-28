@@ -1,0 +1,945 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-theme="light">
+    <head>
+        <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>从IOC到java架构 | 风凌渡</title>
+<noscript>开启Javascript是必要的</noscript>
+<link rel="icon" type="image/x-icon" href="/img/avatar.webp">
+<link rel="apple-touch-icon" href="/img/avatar.webp">
+<meta name="apple-mobile-web-app-title" content="风凌渡">
+<link rel="bookmark" href="/img/avatar.webp">
+<link rel="apple-touch-icon-precomposed" sizes="180x180" href="/img/avatar.webp">
+<meta name="description" content="a blog 一个分享技术与生活的博客">
+<meta name="theme-color" content="#1C1C1F">
+<link rel="stylesheet" href="/css/var.css">
+<link rel="stylesheet" href="/css/main.css">
+<link rel="stylesheet" href="/css/custom.css">
+
+
+
+<link rel="stylesheet" href="https://cdn.bootcdn.net/ajax/libs/font-awesome/6.3.0/css/all.min.css">
+    
+
+<link rel="stylesheet" href="/lib/snackbar.min.css">
+
+
+<script src="/lib/qrcode.min.js"></script>
+
+
+
+
+
+<script>var GLOBALCONFIG = {"root":"/","runtime":"2022-5-21 00:00:00","lazyload":{"enable":false,"error":"/img/acrylic.png"},"hightlight":{"enable":false,"limit":200},"lightbox":true,"randomlinks":false,"lang":{"theme":{"dark":"已切换至深色模式","light":"已切换至浅色模式"},"copy":{"success":"复制成功","error":"复制失败"},"backtop":"返回顶部","time":{"recent":"最近","yesterday":"昨天","berforeyesterday":"前天","daybefore":"天前","runtime":"天"},"sayhello":{"morning":"早上好","noon":"中午好","afternoon":"下午好","night":"晚上好","goodnight":"晚安","iam":"!  我是"},"search":{"empty":"搜索结果为空","hit":"已为您找到 ${query} 条结果","placeholder":"输入关键词快速查找"}},"covercolor":false,"localsearch":{"preload":false,"path":"/search.xml"}};</script><script id="site-config">var PAGECONFIG = {"is_home":false,"is_post":true,"is_page":false,"page":false,"toc":true,"comment":false};</script>
+    <meta name="generator" content="Hexo 6.3.0"></head>
+    <body id="body">
+        
+        <div id="console" style="zoom: 1;" class="">
+    <div class="close-btn" onclick="acrylic.hideConsole()" href="javascript:void(0);">
+        <i class="fas fa-circle-xmark"></i>
+    </div>
+    <div class="button-group">
+        <div class="console-btn-item"> <a class="darkmode_switchbutton" onclick="acrylic.switchDarkMode()" title="显示模式切换"
+                href="javascript:void(0);" rel="external nofollow" data-pjax-state=""><i class="fas fa-moon"
+                    style="font-size: 1rem;"></i></a></div>
+                    
+            <div class="console-btn-item" id="consoleMusic" onclick="acrylic.musicToggle()" title="音乐开关"><a class="music-switch"><i class="fas fa-music"></i></a></div>
+        
+        <div class="console-btn-item" id="consoleFPS" onclick="acrylic.FPSToggle()" title="帧率显示开关"><a class="FPS-switch"
+                data-pjax-state=""><i class="fas fa-gauge"></i></a></div>
+    </div>
+    <div class="console-mask" onclick="acrylic.hideConsole()" href="javascript:void(0);" rel="external nofollow"></div>
+</div>
+        <div id="sidebar" style="zoom: 1;">
+    <div id="menu-mask" style="display: none;"></div>
+    <div id="sidebar-menus" class>
+        <span class="sidebar-menu-item-title">功能</span>
+        <div class="sidebar-menu-item">
+            <a class="darkmode_switchbutton menu-child" onclick="acrylic.switchDarkMode()" title="显示模式切换"
+                href="javascript:void(0);" rel="external nofollow">
+                <i class="fas fa-moon" style="font-size: 1rem;"></i>
+                <span>显示模式</span>
+            </a>
+        </div>
+        
+            <div class="back-menu-list-groups">
+    
+      
+      <div class="back-menu-list-group">
+        <div class="back-menu-list-title">
+          我的
+        </div>
+        <div class="back-menu-list">
+          
+            
+            <a class="back-menu-item" href="/" rel="external nofollow" title="博客">
+              <img class="back-menu-item-icon" src="/img/avatar.webp" loading="lazy">
+              <span class="back-menu-item-text">
+                博客
+              </span>
+            </a>
+          
+        </div>
+      </div>
+    
+  </div>
+  
+        
+        <div class="menus_items">
+    
+        <div class="menus_item">
+            
+                <a class="site-page" href="javascript:void(0);" rel="external nofollow">
+                    <span> 文库</span>
+                </a>
+                <ul class="menus_item_child">
+                    
+                        <li>
+                            <a class="site-page child" href="/archives/">
+                                <i class="fas fa-box-archive"></i>
+                                <span> 文章列表</span>
+                            </a>
+                        </li>
+                    
+                        <li>
+                            <a class="site-page child" href="/categories/">
+                                <i class="fas fa-cube"></i>
+                                <span> 全部分类</span>
+                            </a>
+                        </li>
+                    
+                        <li>
+                            <a class="site-page child" href="/tags/">
+                                <i class="fas fa-tags"></i>
+                                <span> 全部标签</span>
+                            </a>
+                        </li>
+                    
+                </ul>
+             
+        </div>
+    
+        <div class="menus_item">
+            
+                <a class="site-page not-child" target="_blank" href="https://github.com/bearslyricattack" rel="external nofollow noopener">
+                    <span> 仓库</span>
+                </a>
+             
+        </div>
+    
+</div>
+        <span class="sidebar-menu-item-title">标签</span>
+        <div class="card-widget card-tags card-archives card-webinfo card-allinfo">
+            <div class="item-headline">
+                <i class="fas fa-tags"></i>
+                <span>标签</span>
+            </div>
+            <div class="card-tag-cloud">
+                
+                    <a href="/tags/%E4%B8%AD%E9%97%B4%E4%BB%B6/" style="font-size: 1em; color: #d3d3d3">中间件
+                        <sup>4</sup>
+                    </a>
+                
+                    <a href="/tags/Go/" style="font-size: 1em; color: #d3d3d3">Go
+                        <sup>3</sup>
+                    </a>
+                
+                    <a href="/tags/Java/" style="font-size: 1em; color: #d3d3d3">Java
+                        <sup>3</sup>
+                    </a>
+                
+                    <a href="/tags/%E5%BD%B1%E8%AF%84/" style="font-size: 1em; color: #d3d3d3">影评
+                        <sup>1</sup>
+                    </a>
+                
+                    <a href="/tags/%E6%9E%B6%E6%9E%84/" style="font-size: 1em; color: #d3d3d3">架构
+                        <sup>3</sup>
+                    </a>
+                
+                    <a href="/tags/%E5%88%86%E5%B8%83%E5%BC%8F/" style="font-size: 1em; color: #d3d3d3">分布式
+                        <sup>1</sup>
+                    </a>
+                
+                    <a href="/tags/%E8%AF%97%E6%AD%8C/" style="font-size: 1em; color: #d3d3d3">诗歌
+                        <sup>9</sup>
+                    </a>
+                
+                    <a href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/" style="font-size: 1em; color: #d3d3d3">数据库
+                        <sup>1</sup>
+                    </a>
+                
+                    <a href="/tags/%E8%AF%BE%E7%A8%8B/" style="font-size: 1em; color: #d3d3d3">课程
+                        <sup>6</sup>
+                    </a>
+                
+                    <a href="/tags/%E6%9C%8D%E5%8A%A1%E5%99%A8/" style="font-size: 1em; color: #d3d3d3">服务器
+                        <sup>1</sup>
+                    </a>
+                
+            </div>
+        </div>
+    </div>
+</div>    
+        
+            <div class="post" id="body-wrap">
+                <header class="post-bg" id="page-header">
+    <nav id="nav" class="show">
+    <div id="nav-group">
+        <div id="blog_name">
+            
+                <div class="back-home-button" tabindex="-1">
+                    <i class="back-home-button-icon fas fa-grip-vertical"></i>
+                    <div class="back-menu-list-groups">
+    
+      
+      <div class="back-menu-list-group">
+        <div class="back-menu-list-title">
+          我的
+        </div>
+        <div class="back-menu-list">
+          
+            
+            <a class="back-menu-item" href="/" rel="external nofollow" title="博客">
+              <img class="back-menu-item-icon" src="/img/avatar.webp" loading="lazy">
+              <span class="back-menu-item-text">
+                博客
+              </span>
+            </a>
+          
+        </div>
+      </div>
+    
+  </div>
+  
+                </div>
+            
+            <a id="site-name" href="/" title="返回博客主页">
+                    
+            </a>
+        </div>
+        <div id="page-name-mask">
+            <div id="page-name">
+                <a id="page-name-text" onclick="acrylic.toTop()">从IOC到java架构</a>
+            </div>
+        </div>
+        <div id="menus">
+            <div class="menus_items">
+    
+        <div class="menus_item">
+            
+                <a class="site-page" href="javascript:void(0);" rel="external nofollow">
+                    <span> 文库</span>
+                </a>
+                <ul class="menus_item_child">
+                    
+                        <li>
+                            <a class="site-page child" href="/archives/">
+                                <i class="fas fa-box-archive"></i>
+                                <span> 文章列表</span>
+                            </a>
+                        </li>
+                    
+                        <li>
+                            <a class="site-page child" href="/categories/">
+                                <i class="fas fa-cube"></i>
+                                <span> 全部分类</span>
+                            </a>
+                        </li>
+                    
+                        <li>
+                            <a class="site-page child" href="/tags/">
+                                <i class="fas fa-tags"></i>
+                                <span> 全部标签</span>
+                            </a>
+                        </li>
+                    
+                </ul>
+             
+        </div>
+    
+        <div class="menus_item">
+            
+                <a class="site-page not-child" target="_blank" href="https://github.com/bearslyricattack" rel="external nofollow noopener">
+                    <span> 仓库</span>
+                </a>
+             
+        </div>
+    
+</div>
+        </div>
+        <!-- <div id="nav-left">
+            <div id="fps-group">
+                <div id="fps">145</div><span class="fpsText">FPS</span>
+            </div>
+        </div> -->
+        <div id="nav-right">
+            
+    <div class="nav-button only-home" id="travellings_button">
+        <a class="site-page"  target="_blank" rel="noopener external nofollow" href="https://www.travellings.cn/go.html" title="开往-友链接力"  width="120">
+            <i class="fa-solid fa-train-subway" style="font-size: 1rem;"></i>
+        </a>
+    </div>
+
+
+    <div class="nav-button" id="randomPost_button">
+        <a class="site-page" onclick="toRandomPost()"
+            title="随机前往一个文章">
+            <i class="fas fa-shuffle" style="font-size: 1rem;"></i>
+        </a>
+    </div>
+
+
+    <div class="nav-button" id="search-button">
+        <a class="site-page social-icon search" title="站内搜索"
+            href="javascript:void(0);" rel="external nofollow">
+            <i class="fas fa-magnifying-glass" style="font-size: 1rem;"></i>
+        </a>
+    </div>
+
+
+    <div class="nav-button" id="nav-console">
+        <a class="console_switchbutton" onclick="acrylic.showConsole()"
+        title="显示中控台" href="javascript:void(0);" rel="external nofollow">
+        <i class="fas fa-bars-progress" style="font-size: 1rem;"></i>
+        </a>
+    </div>
+
+<div class="nav-button" id="nav-totop" onclick="acrylic.toTop()">
+    <a class="totopbtn">
+        <i class="fas fa-arrow-up"></i>
+        <span id="percent">0</span>
+    </a>
+</div>
+<div id="toggle-menu">
+    <a class="site-page">
+        <i class="fas fa-bars fa-fw" style="font-size: 1rem;"></i>
+    </a>
+</div>
+        </div>
+    </div>
+</nav>
+    
+        <div class="coverdiv" id="coverdiv">
+    <img id="post-cover" class="nolazyload" src="/img/25.jpg" alt="cover">
+</div>
+<div id="post-info">
+    <div id="post-firstinfo">
+        <div class="meta-firstline">
+            <a class="post-meta-original" title="该文章为原创文章，注意版权协议">
+                原创
+            </a>
+            
+            <span class="post-meta-categories">
+                
+                    <a class="post-meta-categories" href="/categories/%E7%AC%94%E8%AE%B0/">笔记</a>
+                
+            </span>
+            
+            <div class="tag_share">
+                <div class="post-meta__tag-list">
+                    
+                        <a class="post-meta__tags" href="/tags/%E6%9E%B6%E6%9E%84/">
+                            <span class="tags-punctuation">#</span>
+                            <span class="tags-name">架构</span>
+                        </a>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+    <h1 class="post-title">从IOC到java架构</h1>
+    <div id="post-meta">
+        <div class="meta-secondline">
+            <span class="post-meta-date" title="发布于">
+                <i class="post-meta-icon fa-fw fas fa-calendar"></i>
+                <time datetime="2023-03-18T11:43:08+08:00"></time>
+            </span>
+            
+            
+                <span class="post-meta-position" title="作者IP归属地为山东·威海">
+                    <i class="fas fa-location-dot post-meta-icon"></i>
+                    <span>山东·威海</span>
+                </span>
+            
+            
+                
+                
+            
+            
+                
+        </div>
+    </div>
+</div>
+<section class="main-hero-waves-area waves-area"><svg class="waves-svg" xmlns="http://www.w3.org/2000/svg"
+    xlink="http://www.w3.org/1999/xlink" viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto">
+    <defs>
+        <path id="gentle-wave"
+            d="M -160 44 c 30 0 58 -18 88 -18 s 58 18 88 18 s 58 -18 88 -18 s 58 18 88 18 v 44 h -352 Z"></path>
+    </defs>
+    <g class="parallax">
+        <use href="#gentle-wave" x="48" y="0"></use>
+        <use href="#gentle-wave" x="48" y="3"></use>
+        <use href="#gentle-wave" x="48" y="5"></use>
+        <use href="#gentle-wave" x="48" y="7"></use>
+    </g>
+</svg>
+</section>
+
+        
+</header>
+                <main class="layout" id="content-inner">
+    <div id="post">
+        <article class="post-content" id="article-container">
+            <h1 id="从SpringIOC到架构设计"><a href="#从SpringIOC到架构设计" class="headerlink" title="从SpringIOC到架构设计"></a>从SpringIOC到架构设计</h1><h1 id="1-目的"><a href="#1-目的" class="headerlink" title="1.目的:"></a>1.目的:</h1><p>从Spring框架的IOC,DI,SpringBoot的自动装配原理产生原因,作用,实现原理入手,浅析框架的简化开发作用,以及框架的设计思路.</p>
+<h1 id="2-流程"><a href="#2-流程" class="headerlink" title="2.流程:"></a>2.流程:</h1><h2 id="2-1-引入"><a href="#2-1-引入" class="headerlink" title="2.1 引入:"></a>2.1 引入:</h2><h5 id="使用框架的感受-SpringBoot框架"><a href="#使用框架的感受-SpringBoot框架" class="headerlink" title="使用框架的感受?(SpringBoot框架)"></a>使用框架的感受?(SpringBoot框架)</h5><p>方便快捷.快速开发,调试,部署.</p>
+<p>编程语言从汇编语言到高级语言,程序员开发的工具越来越简单.而现在的主流开发,尤其是后端开发,越来越依赖于框架.框架的作用有很多,其核心目的就是简化开发.使编程人员能够更加专注于业务逻辑而最大程度上忽略其他的东西.</p>
+<p>如何简化开发?不同的语言的框架,有很多不同的实现方式.接下来我们主要关注Java语言.</p>
+<h5 id="Java语言的核心是什么"><a href="#Java语言的核心是什么" class="headerlink" title="Java语言的核心是什么?"></a>Java语言的核心是什么?</h5><p> 面向对象程序设计,一切皆对象,在所有的程序中都会出现的一点就是类和对象的管理.同时这也是java程序所面临的最大的问题.</p>
+<p>对象管理包括:</p>
+<p>1.对象的产生</p>
+<p>2.对象的使用</p>
+<p>3.对象的销毁</p>
+<p>我们先来看对象的销毁.</p>
+<h5 id="首先-回答一下c语言和c-的对象的销毁方式"><a href="#首先-回答一下c语言和c-的对象的销毁方式" class="headerlink" title="首先,回答一下c语言和c++的对象的销毁方式,"></a>首先,回答一下c语言和c++的对象的销毁方式,</h5><p>是由程序主动关闭.</p>
+<p>而Java程序对象是如何销毁的?是由JVM自动进行垃圾回收的.这就是简化开发的角度上java比c和c++先进的地方,但是现在,对象的销毁问题解决了,对象的创建和使用问题怎么办呢?这是单纯地Java所不能解决的.</p>
+<h2 id="2-2-DI"><a href="#2-2-DI" class="headerlink" title="2.2 DI:"></a>2.2 DI:</h2><p>先来看两段代码:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">Class Car()&#123;</span><br><span class="line"></span><br><span class="line">	private Bottom bottom;</span><br><span class="line">	</span><br><span class="line">	public Car()&#123;</span><br><span class="line">	this.bottom = new Bottom();</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line">Class Bottom()&#123;</span><br><span class="line"></span><br><span class="line">	int a;</span><br><span class="line">	</span><br><span class="line">	public Bottom()&#123;</span><br><span class="line">	this.a = 1;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">Class Car()&#123;</span><br><span class="line"></span><br><span class="line">	private Bottom bottom;</span><br><span class="line">	</span><br><span class="line">	public Car(Bottom bottom)&#123;</span><br><span class="line">	this.bottom = Bottom bottom;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line">Class Bottom()&#123;</span><br><span class="line">	int a;</span><br><span class="line">	</span><br><span class="line">	public Bottom()&#123;</span><br><span class="line">	this.a = 1;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>这两种写法在程序的调用时候略有不同，第一种是在主程序中直接new一个car（）对象就完成了。而第二种则需要先new一个bottom对象，然后再new一个car对象。这样看来，似乎第一种写法更加简练一些，可是，事实真的是如此吗？</p>
+<p>让我们考虑一种情况：</p>
+<p>当bottom发生修改时，比如a的值通过传入一个变量来确定的时候，这样对于第一种写法，所有的构造函数全部都需要修改，而对于第二种方式则只需要修改一个构造函数即可。</p>
+<p>对于第一种设计来说，<strong>这样的设计基本是不可维护的</strong>，因为在实际工程中，有些类会有几千个底层，如果要一一修改，所耗费的成本太大了。</p>
+<p>而且，在第一种写法中，创建car对象必然会创建一个新的bottom对象，纵使会被销毁，但是也在一定程度上增加了开销。</p>
+<p>所以现在我们知道，采用第二种写法是比较合理的，即：</p>
+<h5 id="所有的new对象的过程都写在程序运行时，而不是再类的构造方法中。构造方法中统一更改为传入所需要的类的对象这种格式。"><a href="#所有的new对象的过程都写在程序运行时，而不是再类的构造方法中。构造方法中统一更改为传入所需要的类的对象这种格式。" class="headerlink" title="所有的new对象的过程都写在程序运行时，而不是再类的构造方法中。构造方法中统一更改为传入所需要的类的对象这种格式。"></a>所有的new对象的过程都写在程序运行时，而不是再类的构造方法中。构造方法中统一更改为传入所需要的类的对象这种格式。</h5><h5 id="这就是依赖注入（Dependency-Injection）。"><a href="#这就是依赖注入（Dependency-Injection）。" class="headerlink" title="这就是依赖注入（Dependency Injection）。"></a>这就是依赖注入（<strong>Dependency Injection</strong>）。</h5><p>依赖注入的主谓宾补充完整，就是将调用者所依赖的类实例对象注入到调用者类。而在这个例子中，car依赖于bottom，car开放了一个接口（这里其实是构造方法）使它的依赖bottom对象可以注入到自己的对象中来。提高了系统的可维护性和可扩展性。</p>
+<h2 id="2-3-IOC："><a href="#2-3-IOC：" class="headerlink" title="2.3 IOC："></a>2.3 IOC：</h2><p>好了，在有了上面的基础之后，我们再来看我们的程序，现在它已经变成了大概这样：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">public static void main(String[] args) &#123;</span><br><span class="line">    A a  = new A();</span><br><span class="line">    //a发挥作用</span><br><span class="line">    B b = new B();</span><br><span class="line">    //b发挥作用</span><br><span class="line">    C c = new C():</span><br><span class="line">    //c发挥作用</span><br><span class="line">    ......</span><br><span class="line">    A a  = new A();</span><br><span class="line">    //a发挥作用</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>但是这样，仍然会出现很多问题.</p>
+<p>如果a是某个接口的实现类，现在需要修改a的实现类，换成另一个类，这样就需要修改所有的new A的方法，这样仍然是十分复杂而不可维护的。</p>
+<p>那么，能不能有一种机制来解决这个问题呢？这就体现出框架的作用了。</p>
+<h5 id="框架可以帮助我们创建对象"><a href="#框架可以帮助我们创建对象" class="headerlink" title="框架可以帮助我们创建对象."></a>框架可以帮助我们创建对象.</h5><p>只需要我们通过一些语法告诉框架我们需要什么样的对象，它的名字是什么，它的类在什么地方，程序就会自动的帮我们创建对象，我们只需要在需要这个对象的时候问框架要这个对象就可以了. 来看一个例子：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">package com.spring.demo;</span><br><span class="line"></span><br><span class="line">public class Person &#123;</span><br><span class="line">	private String name;</span><br><span class="line">	private int age;</span><br><span class="line">	public String getName() &#123;</span><br><span class="line">		return name;</span><br><span class="line">	&#125;</span><br><span class="line">	public void setName(String name) &#123;</span><br><span class="line">		this.name = name;</span><br><span class="line">	&#125;</span><br><span class="line">	public int getAge() &#123;</span><br><span class="line">		return age;</span><br><span class="line">	&#125;</span><br><span class="line">	public void setAge(int age) &#123;</span><br><span class="line">		this.age = age;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line">	</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;</span><br><span class="line">&lt;beans xmlns=&quot;http://www.springframework.org/schema/beans&quot;</span><br><span class="line">    xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;</span><br><span class="line">    xsi:schemaLocation=&quot;</span><br><span class="line">        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd&quot;&gt;</span><br><span class="line"> </span><br><span class="line">	&lt;bean id=&quot;person&quot; class=&quot;com.spring.demo.Person&quot;&gt;</span><br><span class="line">		&lt;property name=&quot;name&quot; value=&quot;zje&quot;&gt;&lt;/property&gt;</span><br><span class="line">		&lt;property name=&quot;age&quot; value=&quot;24&quot;&gt;&lt;/property&gt;</span><br><span class="line">	&lt;/bean&gt;</span><br><span class="line"> </span><br><span class="line">&lt;/beans&gt;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">package com.spring.demo;</span><br><span class="line"> </span><br><span class="line">import org.junit.Test;</span><br><span class="line">import org.springframework.context.ApplicationContext;</span><br><span class="line">import org.springframework.context.support.ClassPathXmlApplicationContext;</span><br><span class="line"> </span><br><span class="line">public class TextIoc &#123;</span><br><span class="line">	@Test</span><br><span class="line">	public void textUser()</span><br><span class="line">	&#123;</span><br><span class="line">		//1.获取spring配置文件</span><br><span class="line">		 ApplicationContext context = new ClassPathXmlApplicationContext(&quot;Bean.xml&quot;);</span><br><span class="line">		 //2.由配置文件返回对象</span><br><span class="line">		 Person p = (Person)context.getBean(&quot;person&quot;);</span><br><span class="line">		 System.out.println(p);</span><br><span class="line">		 p.info();</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>这种机制主要由三个组成:</p>
+<p>1.框架读取配置文件(也有可能是某些注解),获取类的有关信息.</p>
+<p>2.根据类文件生成对象(bean)</p>
+<p>3.在程序中通过(bean)方法获取对象.</p>
+<p>这样在发生修改时,只需要修改配置文件中的相关信息,就可以实现修改,而不需要修改代码中的所有new 语句.</p>
+<p>在这种框架下,我们再也不需要手动的创建对象,而是由框架帮我们创建对象,换句话说,我们把对象的控制权完全的交给了程序(框架)(以前是销毁权利,现在是全部的权利).</p>
+<h5 id="这就是控制反转（Inversion-of-Control）-同样也是轻量级的Spring框架的核心。"><a href="#这就是控制反转（Inversion-of-Control）-同样也是轻量级的Spring框架的核心。" class="headerlink" title="这就是控制反转（Inversion of Control）.同样也是轻量级的Spring框架的核心。"></a>这就是控制反转（Inversion of Control）.同样也是轻量级的Spring框架的核心。</h5><p>不同的教程和文章对这两个词有很多种不同的解读,我认为,这样解读是最通俗易懂和符合常理的一种方式.</p>
+<p>接下来我们主要关注Java语言,Java语言的核心是面向对象设计,在Java中,一切皆对象,在所有的程序中都会出现的一点就是类和对象的管理.同时这也是java程序所面临的最大的问题.</p>
+<h5 id="这样，我们就把java的对象创建和使用的问题，变成了bean的创建和获取的问题。"><a href="#这样，我们就把java的对象创建和使用的问题，变成了bean的创建和获取的问题。" class="headerlink" title="这样，我们就把java的对象创建和使用的问题，变成了bean的创建和获取的问题。"></a>这样，我们就把java的对象创建和使用的问题，变成了bean的创建和获取的问题。</h5><h3 id="2-3-1-简单的手写一个IOC容器"><a href="#2-3-1-简单的手写一个IOC容器" class="headerlink" title="2.3.1 简单的手写一个IOC容器:"></a>2.3.1 简单的手写一个IOC容器:</h3><p>容器类：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br></pre></td><td class="code"><pre><span class="line">package com;</span><br><span class="line"></span><br><span class="line">import java.lang.reflect.Constructor;</span><br><span class="line">import java.lang.reflect.Field;</span><br><span class="line">import java.util.HashMap;</span><br><span class="line">import java.util.Map;</span><br><span class="line"></span><br><span class="line">public class IOCContainer &#123;</span><br><span class="line">    private Map&lt;String, Object&gt; beans; // 存储对象实例的 Map</span><br><span class="line"></span><br><span class="line">​    //初始化</span><br><span class="line">​    public IOCContainer() &#123;</span><br><span class="line">​        beans = new HashMap&lt;&gt;();</span><br><span class="line">​    &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    // 获取 bean 对象</span><br><span class="line">    public Object getBean(String name) &#123;</span><br><span class="line">        return beans.get(name);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">​    // 注册 bean 到容器中</span><br><span class="line">​    private Object registerBean(String name,Class&lt;?&gt; clazz, Map&lt;String, Object&gt; properties) throws Exception &#123;</span><br><span class="line">​        try &#123;</span><br><span class="line">​            // 获取无参数的构造函数</span><br><span class="line">​            Constructor&lt;?&gt;[] constructors = clazz.getDeclaredConstructors();</span><br><span class="line">​            Constructor&lt;?&gt; constructor = null;</span><br><span class="line">​            for (Constructor&lt;?&gt; c : constructors) &#123;</span><br><span class="line">​                if (c.getParameterCount() == 0) &#123;</span><br><span class="line">​                    constructor = c;</span><br><span class="line">​                    break;</span><br><span class="line">​                &#125;</span><br><span class="line">​            &#125;</span><br><span class="line"></span><br><span class="line">​            if (constructor == null) &#123;</span><br><span class="line">​                throw new RuntimeException(&quot;No default constructor found for bean: &quot; + clazz);</span><br><span class="line">​            &#125;</span><br><span class="line"></span><br><span class="line">​            //生成实例</span><br><span class="line">​            Object bean = constructor.newInstance();</span><br><span class="line"></span><br><span class="line">​            // 获取变量属性，进行注入</span><br><span class="line">​            for (Field field : clazz.getDeclaredFields()) &#123;</span><br><span class="line">​                if (properties.containsKey(field.getName())) &#123;</span><br><span class="line">​                    field.setAccessible(true);</span><br><span class="line">​                    field.set(bean, properties.get(field.getName()));</span><br><span class="line">​                &#125;</span><br><span class="line">​            &#125;</span><br><span class="line"></span><br><span class="line">​            //注册到bean容器中</span><br><span class="line">​            beans.put(name,bean);</span><br><span class="line">​            return bean;</span><br><span class="line"></span><br><span class="line">​        &#125; catch (Exception e) &#123;</span><br><span class="line">​            throw new RuntimeException(&quot;Failed to create bean: &quot; + clazz, e);</span><br><span class="line">​        &#125;</span><br><span class="line">​    &#125;</span><br><span class="line">​    public static void main(String[] args) throws Exception &#123;</span><br><span class="line">​        IOCContainer iocContainer = new IOCContainer();</span><br><span class="line"></span><br><span class="line">​        // 注册 test到容器中</span><br><span class="line">​        Map&lt;String, Object&gt; testProperties = new HashMap&lt;&gt;();</span><br><span class="line">​        testProperties.put(&quot;name&quot;, &quot;张三&quot;);</span><br><span class="line">​        iocContainer.registerBean(&quot;test&quot;, Test.class, testProperties);</span><br><span class="line"></span><br><span class="line">​        // 获取 test对象并调用方法</span><br><span class="line">​        Test test = (Test) iocContainer.getBean(&quot;test&quot;);</span><br><span class="line">​        test.Hello();</span><br><span class="line">​    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>测试类：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">package com;</span><br><span class="line"></span><br><span class="line">public class Test &#123;</span><br><span class="line"></span><br><span class="line">​    private String name;</span><br><span class="line">​    public void Hello()&#123;</span><br><span class="line">​        System.*out*.println(&quot;Hello!&quot;+this.name);</span><br><span class="line">​    &#125;</span><br><span class="line"></span><br><span class="line">​    public  Test()&#123;</span><br><span class="line"></span><br><span class="line">​    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="2-4-Autowried"><a href="#2-4-Autowried" class="headerlink" title="2.4 @Autowried:"></a>2.4 @Autowried:</h2><p>我们先来看bean的获取。</p>
+<p>现在,我们的程序已经变成了这样:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">public static void main(String[] args) &#123;</span><br><span class="line">     A a  = （A） context.getBean(&quot;A&quot;);</span><br><span class="line">     //a发挥作用</span><br><span class="line">     B b = (B) context.getBean(&quot;A&quot;);</span><br><span class="line">     //b发挥作用</span><br><span class="line">     C c = (C) context.getBean(&quot;A&quot;):</span><br><span class="line">     //c发挥作用</span><br><span class="line">     ......</span><br><span class="line">     A a  = (A) context.getBean(&quot;A&quot;);</span><br><span class="line">     //a发挥作用</span><br><span class="line"> &#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">import org.springframework.context.ApplicationContext;</span><br><span class="line">import org.springframework.context.support.ClassPathXmlApplicationContext;</span><br><span class="line"></span><br><span class="line">public class MyApplication &#123;</span><br><span class="line">    public static void main(String[] args) &#123;</span><br><span class="line">        ApplicationContext context = new ClassPathXmlApplicationContext(&quot;applicationContext.xml&quot;);</span><br><span class="line">        MyBean myBean = (MyBean) context.getBean(&quot;myBean&quot;);</span><br><span class="line">        myBean.doSomething();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>这样手动获取bean的方式仍然是非常繁琐和容易出错的，因为我们需要同时指定bean的类型和名称。</p>
+<p>那么可不可以自动的获取bean呢？只要我创建一个变量就好了。</p>
+<p>使用自动装配（<code>@Autowired</code>注解）的好处包括：</p>
+<ol>
+<li><p>简化代码：自动装配可以大大减少手动装配的代码，特别是在大型应用程序中，手动装配可能非常繁琐和易错。</p>
+</li>
+<li><p>更加可读性：通过使用自动装配，代码可以更加清晰和易于理解。不再需要在代码中指定显式的依赖注入，而是通过注解告诉Spring容器应该注入哪些依赖项。</p>
+</li>
+<li><p>更加灵活：使用自动装配可以使代码更加灵活，因为它可以在运行时自动解析依赖关系。这使得代码更加易于维护和测试，因为您不需要手动维护依赖关系。</p>
+</li>
+<li><p>可扩展性：使用自动装配可以使代码更加易于扩展。例如，如果您需要添加新的组件或服务，您可以使用自动装配来自动解析它们的依赖关系，而不需要手动修改现有代码。</p>
+</li>
+<li><p>更高的生产率：使用自动装配可以提高生产率，因为它可以使您的代码更加简洁、易于理解和易于维护。这意味着您可以更快地编写代码，并且更容易开发和维护复杂的应用程序。</p>
+</li>
+</ol>
+<p>这就是@Autowried注解，它的意思是自动注入，补充完整是自动把IOC中的bean注入到它所需要的地方去。请注意这里的自动注入和下文的自动装配，和上文的依赖注入都有所区别，注意区分。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">@Autowired</span><br><span class="line">UserScoreRecordRepository userScoreRecordRepository;</span><br><span class="line"></span><br><span class="line">@PostMapping(&quot;/addstrip&quot;)</span><br><span class="line">public Result addScore(@RequestParam(&quot;name&quot;) String name,</span><br><span class="line">                       @RequestBody() List&lt;AddStrip&gt; addStrips) &#123;</span><br><span class="line">    return activityService.addScore(name, addStrips);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">@PostMapping(&quot;/searchActivity&quot;)</span><br><span class="line">@RequestParam(&quot;status&quot;) Integer status) &#123;</span><br><span class="line">        return activityService.searchScore(status);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="2-5-自动装配："><a href="#2-5-自动装配：" class="headerlink" title="2.5 自动装配："></a>2.5 自动装配：</h2><p>现在看来，似乎一切都非常完美……除了各种恶心的配置.</p>
+<p>现在我们的开发过程是怎么样的呢? 新建项目,引入依赖,编写各种xml配置文件或者JavaConfig类,然后开始代码开发.</p>
+<p>这是一个实际组件的例子:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">@Configuration</span><br><span class="line">public class CorsConfig &#123;</span><br><span class="line">    @Bean</span><br><span class="line">    public CorsFilter corsFilter() &#123;</span><br><span class="line">        UrlBasedCorsConfigurationSource urlBasedCorsConfigurationSource = new</span><br><span class="line">                UrlBasedCorsConfigurationSource();</span><br><span class="line">        CorsConfiguration corsConfiguration = new CorsConfiguration();</span><br><span class="line">        corsConfiguration.addAllowedHeader(&quot;*&quot;);</span><br><span class="line">        corsConfiguration.addAllowedMethod(&quot;*&quot;);</span><br><span class="line">        corsConfiguration.addAllowedOrigin(&quot;*&quot;);</span><br><span class="line">        corsConfiguration.setAllowCredentials(false);</span><br><span class="line">        urlBasedCorsConfigurationSource.registerCorsConfiguration(&quot;/**&quot;, corsConfiguration);</span><br><span class="line">        CorsFilter corsFilter = new CorsFilter(urlBasedCorsConfigurationSource);</span><br><span class="line">        return corsFilter;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>但是,在实际的开发中,我们需要依赖的第三方组件是非常多的,比如tommat,mybatis等等,每当我引入这些依赖的时候,由于这协议来本身还依赖于其他的一些bean,我就需要写一大堆的配置才能完整配置,然后进行开发.</p>
+<p>但是在很多时候,我们可以发现,在大多数情况下,所写出来的配置文件的细节都是差不多的,这时候就不禁引起我们思考了:能不能自动的导入这些配置文件呢?</p>
+<h5 id="这就是自动装配-简单来说-就是在约定大于配置的基础上-在第三方组件引入的时候-自动的带上一份配置文件-然后由框架自动的加载这些配置文件-自动的注入IOC容器生成bean"><a href="#这就是自动装配-简单来说-就是在约定大于配置的基础上-在第三方组件引入的时候-自动的带上一份配置文件-然后由框架自动的加载这些配置文件-自动的注入IOC容器生成bean" class="headerlink" title="这就是自动装配.简单来说,就是在约定大于配置的基础上,在第三方组件引入的时候,自动的带上一份配置文件,然后由框架自动的加载这些配置文件,自动的注入IOC容器生成bean."></a>这就是自动装配.简单来说,就是在约定大于配置的基础上,在第三方组件引入的时候,自动的带上一份配置文件,然后由框架自动的加载这些配置文件,自动的注入IOC容器生成bean.</h5><p>这样就不需要我们为大多数组件手动的配置编写配置文件了。</p>
+<p>这里就有同学要问了，那我在spingboot中为那些组件写的@bean注解是什么？不是已经有自动装配了吗？</p>
+<p>但是在一些特定的情况下,仍然需要我们手动的配置文件.</p>
+<ol>
+<li>需要使用自定义的第三方组件，而该组件的配置无法通过自动配置来完成。</li>
+<li>需要使用一些较为复杂的配置，比如多数据源配置、分布式事务配置等。</li>
+<li>需要对一些组件的配置进行细粒度的控制，比如缓存的 TTL、连接池的大小等。</li>
+<li>需要对一些组件进行自定义扩展，比如自定义错误处理、自定义消息转换等。</li>
+</ol>
+<p>就像在上文的跨域配置中，因为需要配置的东西特别多，而且在不同的应用场景下不太一样，所以仍然需要自己手动配置。</p>
+<p>浅浅总结一下：</p>
+<p>Spring Boot的自动装配和<code>@Autowired</code>注解都是基于Spring框架的IoC容器实现的，不同的是它们自动化的实现方式略有不同。</p>
+<p>在Spring Boot中，自动装配的核心是自动读取并配置各种组件和依赖项。Spring Boot会自动扫描应用程序的类路径，查找并读取各种配置文件（例如<code>application.properties</code>或<code>application.yml</code>），并根据这些配置信息自动配置和初始化各种组件和依赖项。这样，我们就不需要手动配置和初始化每个组件和依赖项，从而简化了应用程序的开发和部署。</p>
+<p>而<code>@Autowired</code>注解的自动则是指自动查找和注入符合类型要求的Bean对象。当我们在代码中使用<code>@Autowired</code>注解时，Spring IoC容器会自动查找并创建符合类型要求的Bean对象，并将它们注入到我们的类中。这样，我们就不需要手动创建和配置每个Bean对象，从而简化了依赖注入的实现。</p>
+<p>总之，Spring Boot的自动装配和<code>@Autowired</code>注解都是基于Spring框架的IoC容器实现的，它们通过不同的自动化方式简化了应用程序的开发和部署。</p>
+<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/20210629121733256.png" alt="20210629121733256"></p>
+<h2 id="2-6-代码生成："><a href="#2-6-代码生成：" class="headerlink" title="2.6 代码生成："></a>2.6 代码生成：</h2><p>(探讨部分)</p>
+<p>现在，我们对框架的介绍已经进行到了实际开发的地步，日常开发中我们使用的spring boot基本上就是基于以上的原理和方法在进行简化开发的，但是框架的开发是没有尽头的，这不由得再次引发我们的思考，这就是最优秀的框架了吗?</p>
+<p>事实上,虽然spring什么都能做,但是它最大的用处还是用来进行后端的那种crud开发,而这种开发一般都是遵循mvc模式,在这种情况下,有没有过这种疑惑?</p>
+<p>来看一个service和controller:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">@Override</span><br><span class="line"> public Result createActivity(String year, Integer type, String name, String</span><br><span class="line">         explanation, String icon, String organization, String time, String site) &#123;</span><br><span class="line">     try &#123;</span><br><span class="line">         if(activityRepository.findActivityByName(name)!=null)&#123;</span><br><span class="line">             return Result.error(400,&quot;活动名称已存在!&quot;);</span><br><span class="line">         &#125;</span><br><span class="line">         Activity activity = new Activity();</span><br><span class="line">         activity.setYear(year);</span><br><span class="line">         activity.setActivityType(type);</span><br><span class="line">         activity.setAname(name);</span><br><span class="line">         activity.setExplanation(explanation);</span><br><span class="line">         activity.setIcon(icon);</span><br><span class="line">         activity.setOrganization(organization);</span><br><span class="line">         activity.setTime(time);</span><br><span class="line">         activity.setSite(site);</span><br><span class="line">         activity.setDeleteStatus(1);</span><br><span class="line">         activity.setStatus(0);</span><br><span class="line">         SimpleDateFormat tempDate = new SimpleDateFormat(&quot;yyyy-MM-dd HH:mm:ss&quot;);</span><br><span class="line">         String datetime = tempDate.format(new java.util.Date());</span><br><span class="line">         activity.setCreateTime(datetime);</span><br><span class="line">         activityRepository.save(activity);</span><br><span class="line">         return Result.success(200,&quot;新建活动成功!&quot;);</span><br><span class="line">     &#125;catch (Exception e)&#123;</span><br><span class="line">         return Result.error(500,&quot;新建活动失败!&quot;);</span><br><span class="line">     &#125;</span><br><span class="line"> &#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">@PostMapping(&quot;/addactivity&quot;)</span><br><span class="line">@ApiOperation(&quot;创建活动&quot;)</span><br><span class="line">public Result createActivity(@ApiParam(&quot;活动年份形如2023春，2023秋&quot;) @RequestParam(&quot;year&quot;) String year,</span><br><span class="line">                             @ApiParam(&quot;活动加分类型,1表示加日常行为分,2表示加个性发展分,3表示加创新创业分,4表示加创新创业讲座学分,&quot;) @RequestParam(&quot;type&quot;) Integer type,</span><br><span class="line">                             @ApiParam(&quot;活动名称&quot;) @RequestParam(&quot;name&quot;) String aname,</span><br><span class="line">                             @ApiParam(&quot;活动备注&quot;) @RequestParam(&quot;explanation&quot;) String explanation,</span><br><span class="line">                             @ApiParam(&quot;活动图片的url&quot;) @RequestParam(&quot;icon&quot;) String icon,</span><br><span class="line">                             @ApiParam(&quot;活动所属社团&quot;) @RequestParam(&quot;organization&quot;) String organization,</span><br><span class="line">                             @ApiParam(&quot;活动进行时间&quot;) @RequestParam(&quot;time&quot;) String time,</span><br><span class="line">                             @ApiParam(&quot;活动进行地点&quot;) @RequestParam(&quot;site&quot;) String site)&#123;</span><br><span class="line">    return activityService.createActivity(year,type,aname,explanation,icon,organization,time,site);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>在这个例子中,controller其实只做了两件事,调用了service的方法,这一点是非常重复的,完全属于重复劳动.为方法所属的参数加上了注释.而这些个注释最后会生成接口文档.</p>
+<p>有趣的是,在实际的项目开发中,有很多时候是先有接口文档,然后后端程序员根据接口文档去编写代码.那么在这些的基础上,有没有什么更好地编写mvc模式的crud的方式呢?没有多余的东西,只有业务逻辑</p>
+<h5 id="代码生成-根据某种接口定义-自动的生成出了业务逻辑值外的其他所有代码-而一个接口的业务逻辑被抽象成一个方法-程序员只需要关注这个方法即可"><a href="#代码生成-根据某种接口定义-自动的生成出了业务逻辑值外的其他所有代码-而一个接口的业务逻辑被抽象成一个方法-程序员只需要关注这个方法即可" class="headerlink" title="代码生成:根据某种接口定义,自动的生成出了业务逻辑值外的其他所有代码,而一个接口的业务逻辑被抽象成一个方法,程序员只需要关注这个方法即可."></a>代码生成:根据某种接口定义,自动的生成出了业务逻辑值外的其他所有代码,而一个接口的业务逻辑被抽象成一个方法,程序员只需要关注这个方法即可.</h5><p>下面展示的是hertz的代码生成:</p>
+<p>接口定义:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">struct RegisterRequest &#123;</span><br><span class="line">	1: string username</span><br><span class="line">	2: string password</span><br><span class="line">&#125;</span><br><span class="line">struct RegisterResponse &#123;</span><br><span class="line">	1: string code</span><br><span class="line">	2: string msg</span><br><span class="line">	3: i64 userid</span><br><span class="line">	4: string token</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>生成代码:出了方法内部语句,其余都为框架自动生成.</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">func (s *UserImpl) Register(ctx context.Context, req *api.RegisterRequest) (resp *api.RegisterResponse, err error) &#123;</span><br><span class="line">	//建立数据库连接，数据库名：数据库密码</span><br><span class="line">	dsn := &quot;root:123456@tcp(127.0.0.1:3306)/dbgotest&quot;</span><br><span class="line">	db, err := gorm.Open(mysql.Open(dsn), &amp;gorm.Config&#123;&#125;)</span><br><span class="line">	//处理错误</span><br><span class="line">	if err != nil &#123;</span><br><span class="line">		//控制台打印错误日志</span><br><span class="line">		panic(&quot;数据库连接失败!&quot;)</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	var user User</span><br><span class="line">	db.First(&amp;user, &quot;name = ?&quot;, req.Username)</span><br><span class="line">	if db.RowsAffected != 0 &#123;</span><br><span class="line">		resp = &amp;api.RegisterResponse&#123;Code: &quot;1&quot;, Msg: &quot;用户名已经存在!&quot;&#125;</span><br><span class="line">		return</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	//创建一条数据，传入一个对象</span><br><span class="line">	db.Create(&amp;User&#123;Username: req.Username, Password: req.Password, FollowCount: 0, FollowerCount: 0&#125;)</span><br><span class="line">	resp = &amp;api.RegisterResponse&#123;Code: &quot;0&quot;, Msg: &quot;用户注册成功!&quot;, Token: req.Username&#125;</span><br><span class="line">	return</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>代码结构:</p>
+<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230422225847.png" alt="QQ截图20230422225847"></p>
+<p>这未必是最好的实践方式，只能说，框架的开发和使用是永无止境的，没有最好的框架，只有最合适的框架。</p>
+<h1 id="3-参考资料："><a href="#3-参考资料：" class="headerlink" title="3.参考资料："></a>3.参考资料：</h1><p>1.《Inversion of Control Containers and the Dependency Injection pattern》</p>
+<p>IOC领域的元老级文章，首次提出了DI的确切概念。</p>
+<p>2.掘金：</p>
+<p><a target="_blank" rel="noopener" href="https://juejin.cn/post/6844904161775976456#heading-7">https://juejin.cn/post/6844904161775976456#heading-7</a></p>
+<p><a target="_blank" rel="noopener" href="https://juejin.cn/post/7215507413779611707">https://juejin.cn/post/7215507413779611707</a></p>
+<p><a target="_blank" rel="noopener" href="https://juejin.cn/post/6844903793637720071">https://juejin.cn/post/6844903793637720071</a></p>
+<p><a target="_blank" rel="noopener" href="https://juejin.cn/post/7162568709955911717">https://juejin.cn/post/7162568709955911717</a></p>
+<p>3.CSDN:</p>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_54514751/article/details/126055383?ops_request_misc=&request_id=&biz_id=102&utm_term=springioc&utm_medium=distribute.pc_search_result.none-task-blog-2~all~sobaiduweb~default-7-126055383.nonecase&spm=1018.2226.3001.4187">https://blog.csdn.net/weixin_54514751/article/details/126055383?ops_request_misc=&amp;request_id=&amp;biz_id=102&amp;utm_term=springioc&amp;utm_medium=distribute.pc_search_result.none-task-blog-2~all~sobaiduweb~default-7-126055383.nonecase&amp;spm=1018.2226.3001.4187</a></p>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_52731337/article/details/119170446">https://blog.csdn.net/weixin_52731337/article/details/119170446</a></p>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_43826242/article/details/106005176?spm=1001.2014.3001.5506">https://blog.csdn.net/weixin_43826242/article/details/106005176?spm=1001.2014.3001.5506</a></p>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_24313635/article/details/109431324">https://blog.csdn.net/qq_24313635/article/details/109431324</a></p>
+
+        </article>
+        <div class="post-tools" id="post-tools">
+            <div class="post-tools-left">
+                
+                <div class="share-link mobile">
+    <div class="share-qrcode">
+        <div class="share-button" title="使用手机访问这篇文章">
+            <i class="fas fa-qrcode"></i>
+        </div>
+        <div class="share-main">
+            <div class="share-main-all">
+                <div id="qrcode" title="http://example.com/2023/03/18/%E4%BB%8EIOC%E5%88%B0Java%E6%9E%B6%E6%9E%84/">
+                </div>
+                <div class="reward-dec">使用手机访问这篇文章</div>
+            </div>
+        </div>
+        <script type="text/javascript">
+            new QRCode(document.getElementById("qrcode"), "http://example.com/2023/03/18/%E4%BB%8EIOC%E5%88%B0Java%E6%9E%B6%E6%9E%84/");
+        </script>
+    </div>
+</div>
+                <div class="share-link weibo"><a class="share-button" target="_blank"
+    href="https://service.weibo.com/share/share.php?title=从IOC到java架构&amp;url=http://example.com/2023/03/18/%E4%BB%8EIOC%E5%88%B0Java%E6%9E%B6%E6%9E%84/&amp;pic=/img/25.jpg"
+    title="分享到微博" rel="noopener external nofollow noreferrer noopener">
+    <i class="fab fa-weibo" style="font-size:22px"></i>
+</a>
+</div>
+<div class="share-link copyurl">
+<div class="share-button" id="post-share-url" title="复制链接" onclick="acrylic.copyPageUrl()">
+    <i class="fas fa-link"></i>
+</div>
+</div>
+            </div>
+            <div class="post-tools-right">
+                <div class="tag_share">
+                    <div class="post-meta__tag-list">
+                        
+                            <a href="/tags/%E6%9E%B6%E6%9E%84/" class="post-meta__tags">
+                                <span class="tags-punctuation">#</span>
+                                架构
+                                <span class="tagsPageCount">3</span>
+                            </a>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="post-copyright">
+    <div class="post-copyright__author">
+        <a class="post-copyright__original" title="该文章为原创文章，注意版权协议">原创</a>
+        <a class="post-copyright-title" href="#">
+            <span>从IOC到java架构</span>
+        </a>
+    </div>
+    <div class="post-copyright__type">
+        <span class="post-copyright-info" id="post-copyright-url">
+            <a href="/2023/03/18/%E4%BB%8EIOC%E5%88%B0Java%E6%9E%B6%E6%9E%84/">http://example.com/2023/03/18/%E4%BB%8EIOC%E5%88%B0Java%E6%9E%B6%E6%9E%84/</a>
+        </span>
+        <button class="post-copyright-copybtn" onclick="acrylic.copyPageUrl()">
+            <i class="fas fa-paste copy-btn"></i>
+        </button>
+    </div>
+    <div class="post-copyright__notice"><span class="post-copyright-info">本文是原创文章，采用 <a
+                href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank">CC BY-NC-ND 4.0</a> 协议，完整转载请注明来自 <a
+                href="/">风凌渡</a>
+            </span>
+        </div>
+</div>
+        <nav class="pagination-post" id="pagination">
+    
+        <div class="prev-post pull-left">
+            <a href="/2023/04/28/ClickHouse/">
+                <div class="pagination-info">
+                    <div class="label">上一篇</div>
+                    <div class="prev_info">ClickHouse</div>
+                </div>
+            </a>
+        </div>
+        <div class="next-post pull-right">
+            <a href="/2023/03/18/%E6%95%B0%E6%8D%AE%E5%BA%93%E6%A6%82%E8%BF%B0/">
+                <div class="pagination-info">
+                    <div class="label">下一篇</div>
+                    <div class="next_info">数据库概述</div>
+                </div>
+            </a>
+        </div>
+    
+</nav>
+            
+    </div>
+    <div class="aside-content" id="aside-content">
+    
+    
+        
+        <div class="card-widget card-info">
+    <div class="card-content">
+        <div class="card-info-avatar is-center">
+            <div class="author-info__sayhi" id="author-info__sayhi">
+            </div>
+            <div class="author-info__name">
+                抒情熊
+            </div>
+            <div class="author-info__description">这有关于<b>后端</b>、<b>架构</b>的相关笔记分享，还有拙作<b>诗歌</b>和<b>小说</b>，另有如<b>奎桑提</b>和<b>奥恩</b>的相关教学。<br>相信会对你有所帮助.</div>
+        </div>
+    </div>
+    <div class="banner-button-group">
+        <a class="banner-button" href="/about/">
+            <i class="fas fa-circle-chevron-right"></i>
+            <span class="banner-button-text">了解更多</span>
+        </a>
+    </div>
+    <div class="card-info-social-icons is-center">
+        
+            <a class="social-icon" target="_blank" rel="noopener" href="https://github.com/bearslyricattack" title="Github">
+                <i class="fa-brands fa-github"></i>
+            </a>
+        
+            <a class="social-icon" target="_blank" rel="noopener" href="https://user.qzone.qq.com/2669184984" title="Mail">
+                <i class="fa-solid fa-envelope"></i>
+            </a>
+        
+    </div>
+</div>
+     
+    
+    <div class="sticky_layout">
+        
+            <div class="card-widget" id="card-toc">
+    <div class="item-headline">
+        <i class="fas fa-bars"></i>
+        <span>文章目录</span>
+    </div>
+    <div class="toc-content" id="toc-content">
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%BB%8ESpringIOC%E5%88%B0%E6%9E%B6%E6%9E%84%E8%AE%BE%E8%AE%A1"><span class="toc-text">从SpringIOC到架构设计</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#1-%E7%9B%AE%E7%9A%84"><span class="toc-text">1.目的:</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#2-%E6%B5%81%E7%A8%8B"><span class="toc-text">2.流程:</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#2-1-%E5%BC%95%E5%85%A5"><span class="toc-text">2.1 引入:</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8%E6%A1%86%E6%9E%B6%E7%9A%84%E6%84%9F%E5%8F%97-SpringBoot%E6%A1%86%E6%9E%B6"><span class="toc-text">使用框架的感受?(SpringBoot框架)</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#Java%E8%AF%AD%E8%A8%80%E7%9A%84%E6%A0%B8%E5%BF%83%E6%98%AF%E4%BB%80%E4%B9%88"><span class="toc-text">Java语言的核心是什么?</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E9%A6%96%E5%85%88-%E5%9B%9E%E7%AD%94%E4%B8%80%E4%B8%8Bc%E8%AF%AD%E8%A8%80%E5%92%8Cc-%E7%9A%84%E5%AF%B9%E8%B1%A1%E7%9A%84%E9%94%80%E6%AF%81%E6%96%B9%E5%BC%8F"><span class="toc-text">首先,回答一下c语言和c++的对象的销毁方式,</span></a></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-2-DI"><span class="toc-text">2.2 DI:</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E6%89%80%E6%9C%89%E7%9A%84new%E5%AF%B9%E8%B1%A1%E7%9A%84%E8%BF%87%E7%A8%8B%E9%83%BD%E5%86%99%E5%9C%A8%E7%A8%8B%E5%BA%8F%E8%BF%90%E8%A1%8C%E6%97%B6%EF%BC%8C%E8%80%8C%E4%B8%8D%E6%98%AF%E5%86%8D%E7%B1%BB%E7%9A%84%E6%9E%84%E9%80%A0%E6%96%B9%E6%B3%95%E4%B8%AD%E3%80%82%E6%9E%84%E9%80%A0%E6%96%B9%E6%B3%95%E4%B8%AD%E7%BB%9F%E4%B8%80%E6%9B%B4%E6%94%B9%E4%B8%BA%E4%BC%A0%E5%85%A5%E6%89%80%E9%9C%80%E8%A6%81%E7%9A%84%E7%B1%BB%E7%9A%84%E5%AF%B9%E8%B1%A1%E8%BF%99%E7%A7%8D%E6%A0%BC%E5%BC%8F%E3%80%82"><span class="toc-text">所有的new对象的过程都写在程序运行时，而不是再类的构造方法中。构造方法中统一更改为传入所需要的类的对象这种格式。</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E8%BF%99%E5%B0%B1%E6%98%AF%E4%BE%9D%E8%B5%96%E6%B3%A8%E5%85%A5%EF%BC%88Dependency-Injection%EF%BC%89%E3%80%82"><span class="toc-text">这就是依赖注入（Dependency Injection）。</span></a></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-3-IOC%EF%BC%9A"><span class="toc-text">2.3 IOC：</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E6%A1%86%E6%9E%B6%E5%8F%AF%E4%BB%A5%E5%B8%AE%E5%8A%A9%E6%88%91%E4%BB%AC%E5%88%9B%E5%BB%BA%E5%AF%B9%E8%B1%A1"><span class="toc-text">框架可以帮助我们创建对象.</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E8%BF%99%E5%B0%B1%E6%98%AF%E6%8E%A7%E5%88%B6%E5%8F%8D%E8%BD%AC%EF%BC%88Inversion-of-Control%EF%BC%89-%E5%90%8C%E6%A0%B7%E4%B9%9F%E6%98%AF%E8%BD%BB%E9%87%8F%E7%BA%A7%E7%9A%84Spring%E6%A1%86%E6%9E%B6%E7%9A%84%E6%A0%B8%E5%BF%83%E3%80%82"><span class="toc-text">这就是控制反转（Inversion of Control）.同样也是轻量级的Spring框架的核心。</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E8%BF%99%E6%A0%B7%EF%BC%8C%E6%88%91%E4%BB%AC%E5%B0%B1%E6%8A%8Ajava%E7%9A%84%E5%AF%B9%E8%B1%A1%E5%88%9B%E5%BB%BA%E5%92%8C%E4%BD%BF%E7%94%A8%E7%9A%84%E9%97%AE%E9%A2%98%EF%BC%8C%E5%8F%98%E6%88%90%E4%BA%86bean%E7%9A%84%E5%88%9B%E5%BB%BA%E5%92%8C%E8%8E%B7%E5%8F%96%E7%9A%84%E9%97%AE%E9%A2%98%E3%80%82"><span class="toc-text">这样，我们就把java的对象创建和使用的问题，变成了bean的创建和获取的问题。</span></a></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-3-1-%E7%AE%80%E5%8D%95%E7%9A%84%E6%89%8B%E5%86%99%E4%B8%80%E4%B8%AAIOC%E5%AE%B9%E5%99%A8"><span class="toc-text">2.3.1 简单的手写一个IOC容器:</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-4-Autowried"><span class="toc-text">2.4 @Autowried:</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-5-%E8%87%AA%E5%8A%A8%E8%A3%85%E9%85%8D%EF%BC%9A"><span class="toc-text">2.5 自动装配：</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E8%BF%99%E5%B0%B1%E6%98%AF%E8%87%AA%E5%8A%A8%E8%A3%85%E9%85%8D-%E7%AE%80%E5%8D%95%E6%9D%A5%E8%AF%B4-%E5%B0%B1%E6%98%AF%E5%9C%A8%E7%BA%A6%E5%AE%9A%E5%A4%A7%E4%BA%8E%E9%85%8D%E7%BD%AE%E7%9A%84%E5%9F%BA%E7%A1%80%E4%B8%8A-%E5%9C%A8%E7%AC%AC%E4%B8%89%E6%96%B9%E7%BB%84%E4%BB%B6%E5%BC%95%E5%85%A5%E7%9A%84%E6%97%B6%E5%80%99-%E8%87%AA%E5%8A%A8%E7%9A%84%E5%B8%A6%E4%B8%8A%E4%B8%80%E4%BB%BD%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6-%E7%84%B6%E5%90%8E%E7%94%B1%E6%A1%86%E6%9E%B6%E8%87%AA%E5%8A%A8%E7%9A%84%E5%8A%A0%E8%BD%BD%E8%BF%99%E4%BA%9B%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6-%E8%87%AA%E5%8A%A8%E7%9A%84%E6%B3%A8%E5%85%A5IOC%E5%AE%B9%E5%99%A8%E7%94%9F%E6%88%90bean"><span class="toc-text">这就是自动装配.简单来说,就是在约定大于配置的基础上,在第三方组件引入的时候,自动的带上一份配置文件,然后由框架自动的加载这些配置文件,自动的注入IOC容器生成bean.</span></a></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-6-%E4%BB%A3%E7%A0%81%E7%94%9F%E6%88%90%EF%BC%9A"><span class="toc-text">2.6 代码生成：</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E4%BB%A3%E7%A0%81%E7%94%9F%E6%88%90-%E6%A0%B9%E6%8D%AE%E6%9F%90%E7%A7%8D%E6%8E%A5%E5%8F%A3%E5%AE%9A%E4%B9%89-%E8%87%AA%E5%8A%A8%E7%9A%84%E7%94%9F%E6%88%90%E5%87%BA%E4%BA%86%E4%B8%9A%E5%8A%A1%E9%80%BB%E8%BE%91%E5%80%BC%E5%A4%96%E7%9A%84%E5%85%B6%E4%BB%96%E6%89%80%E6%9C%89%E4%BB%A3%E7%A0%81-%E8%80%8C%E4%B8%80%E4%B8%AA%E6%8E%A5%E5%8F%A3%E7%9A%84%E4%B8%9A%E5%8A%A1%E9%80%BB%E8%BE%91%E8%A2%AB%E6%8A%BD%E8%B1%A1%E6%88%90%E4%B8%80%E4%B8%AA%E6%96%B9%E6%B3%95-%E7%A8%8B%E5%BA%8F%E5%91%98%E5%8F%AA%E9%9C%80%E8%A6%81%E5%85%B3%E6%B3%A8%E8%BF%99%E4%B8%AA%E6%96%B9%E6%B3%95%E5%8D%B3%E5%8F%AF"><span class="toc-text">代码生成:根据某种接口定义,自动的生成出了业务逻辑值外的其他所有代码,而一个接口的业务逻辑被抽象成一个方法,程序员只需要关注这个方法即可.</span></a></li></ol></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#3-%E5%8F%82%E8%80%83%E8%B5%84%E6%96%99%EF%BC%9A"><span class="toc-text">3.参考资料：</span></a></li></ol>
+    </div>
+</div>
+            
+        
+            
+        <div class="card-widget card-recent-post">
+    <div class="item-headline">
+        <i class="fas fa-list-ol"></i>
+        <span>最近发布</span>
+    </div>
+    <div class="aside-list">
+        
+        
+            <div class="aside-list-item">
+                <a class="thumbnail" href="/2023/04/28/ClickHouse/" title="ClickHouse">
+                    <img
+                        alt="ClickHouse"
+                        src="/img/1.jpg">
+                </a>
+                <div class="content">
+                    
+                        <a class="article-recent_post_categories" href="/2023/04/28/ClickHouse/">
+                            笔记
+                        </a>
+                    
+                    <a class="title" href="/2023/04/28/ClickHouse/" title="ClickHouse">
+                        ClickHouse
+                    </a>
+                </div>
+            </div>
+                
+        
+            <div class="aside-list-item">
+                <a class="thumbnail" href="/2023/03/18/%E4%BB%8EIOC%E5%88%B0Java%E6%9E%B6%E6%9E%84/" title="从IOC到java架构">
+                    <img
+                        alt="从IOC到java架构"
+                        src="/img/25.jpg">
+                </a>
+                <div class="content">
+                    
+                        <a class="article-recent_post_categories" href="/2023/03/18/%E4%BB%8EIOC%E5%88%B0Java%E6%9E%B6%E6%9E%84/">
+                            笔记
+                        </a>
+                    
+                    <a class="title" href="/2023/03/18/%E4%BB%8EIOC%E5%88%B0Java%E6%9E%B6%E6%9E%84/" title="从IOC到java架构">
+                        从IOC到java架构
+                    </a>
+                </div>
+            </div>
+                
+        
+            <div class="aside-list-item">
+                <a class="thumbnail" href="/2023/03/18/%E6%95%B0%E6%8D%AE%E5%BA%93%E6%A6%82%E8%BF%B0/" title="数据库概述">
+                    <img
+                        alt="数据库概述"
+                        src="/img/28.jpg">
+                </a>
+                <div class="content">
+                    
+                        <a class="article-recent_post_categories" href="/2023/03/18/%E6%95%B0%E6%8D%AE%E5%BA%93%E6%A6%82%E8%BF%B0/">
+                            笔记
+                        </a>
+                    
+                    <a class="title" href="/2023/03/18/%E6%95%B0%E6%8D%AE%E5%BA%93%E6%A6%82%E8%BF%B0/" title="数据库概述">
+                        数据库概述
+                    </a>
+                </div>
+            </div>
+                
+        
+            <div class="aside-list-item">
+                <a class="thumbnail" href="/2023/03/18/%E5%BE%AE%E6%9C%8D%E5%8A%A1/" title="微服务">
+                    <img
+                        alt="微服务"
+                        src="/img/29.jpg">
+                </a>
+                <div class="content">
+                    
+                        <a class="article-recent_post_categories" href="/2023/03/18/%E5%BE%AE%E6%9C%8D%E5%8A%A1/">
+                            笔记
+                        </a>
+                    
+                    <a class="title" href="/2023/03/18/%E5%BE%AE%E6%9C%8D%E5%8A%A1/" title="微服务">
+                        微服务
+                    </a>
+                </div>
+            </div>
+                
+        
+            <div class="aside-list-item">
+                <a class="thumbnail" href="/2023/03/18/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" title="数据结构">
+                    <img
+                        alt="数据结构"
+                        src="/img/27.jpg">
+                </a>
+                <div class="content">
+                    
+                        <a class="article-recent_post_categories" href="/2023/03/18/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">
+                            笔记
+                        </a>
+                    
+                    <a class="title" href="/2023/03/18/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" title="数据结构">
+                        数据结构
+                    </a>
+                </div>
+            </div>
+            
+    </div>
+</div>
+     
+        
+    </div>
+</div> 
+</main>
+                <footer id="footer">
+                    <div id="footer_deal">
+    
+        <a class="deal_link" target="_blank" href="https://github.com/bearslyricattack" rel="external nofollow noopener" title="Github">
+            <i class="fa-brands fa-github"></i>
+        </a>
+    
+        <a class="deal_link" target="_blank" href="https://user.qzone.qq.com/2669184984" rel="external nofollow noopener" title="Mail">
+            <i class="fa-solid fa-envelope"></i>
+        </a>
+    
+    <img class="footer_mini_logo" src="/img/avatar.webp"
+        title="返回顶部" onclick="acrylic.toTop()">
+    
+        <a class="deal_link" target="_blank" href="https://music.163.com/#/user/follows?id=436327083" rel="external nofollow noopener" title="网易云">
+            <i class="fa-solid fa-music"></i>
+        </a>
+    
+        <a class="deal_link" target="_blank" href="https://space.bilibili.com/701779878?spm_id_from=333.1007.0.0" rel="external nofollow noopener" title="bilibili">
+            <i class="fa-brands fa-bilibili"></i>
+        </a>
+    
+</div>    
+<div id="heo-footer">
+    
+    
+</div>
+<div id="footer-section">
+    <div class="footer-section-links">
+        <div class="footer-section-left">
+            <div id="footer-section-tips">
+                <div class="copyright">©2022 - 2023 By 
+                    <a class="footer-section-link" href="/" rel="external nofollow">抒情熊</a>
+                    <a class="footer-section-link" href="https://github.com/hexo-theme-Acrylic/Hexo-Theme-Acrylic-Next" rel="external nofollow" target="_blank"> Theme By Acrylic-Next</a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-section-right">
+            <a class="footer-section-link" href="/rss/">订阅</a>
+            
+            <a class="footer-section-link cc" target="_blank" href="https://creativecommons.org/licenses/by/4.0/" title="cc协议">
+                <i class="fa-solid fa-closed-captioning"></i>
+            </a>
+        </div>
+    </div>
+</div>
+                </footer>
+            </div>
+         
+        <div>
+    <script type="text/javascript" src="/js/utils.js"></script>
+    <script type="text/javascript" src="/js/main.js"></script>
+    
+
+<script src="/lib/pjax.min.js"></script>
+
+
+
+<script src="/lib/snackbar.min.js"></script>
+
+
+    
+<script src="/lib/view-image.min.js"></script>
+
+
+
+    
+<link rel="stylesheet" href="/lib/swiper.min.css">
+
+    
+<script src="/lib/swiper.min.js"></script>
+
+
+<div id="js-pjax">
+    
+    
+        <script async src="https://npm.elemecdn.com/penndu@1.0.0/bsz.js"></script>
+     
+</div>
+
+    
+<link rel="stylesheet" href="https://lf9-cdn-tos.bytecdntp.com/cdn/expire-1-M/aplayer/1.10.1/APlayer.min.css">
+
+    
+<script src="https://lf3-cdn-tos.bytecdntp.com/cdn/expire-1-M/aplayer/1.10.1/APlayer.min.js"></script>
+
+    
+<script src="https://cdn1.tianli0.top/npm/meting@2.0.1/dist/Meting.min.js"></script>
+
+
+
+    
+<script src="/js/extend/covercolor/web.js"></script>
+
+        
+
+    <script>
+  let pjaxSelectors = [
+    'title',
+    '#body-wrap',
+    '#site-config',
+    'meta[name="description"]',
+    '#js-pjax'
+  ]
+  
+  const pjax = new Pjax({
+    elements: 'a:not([target="_blank"])',
+    selectors: pjaxSelectors,
+    cacheBust: false,
+    analytics: false,
+    scrollRestoration: false
+  })
+
+  document.querySelectorAll('script[data-pjax]').forEach(item => {
+      const newScript = document.createElement('script')
+      const content = item.text || item.textContent || item.innerHTML || ""
+      Array.from(item.attributes).forEach(attr => newScript.setAttribute(attr.name, attr.value))
+      newScript.appendChild(document.createTextNode(content))
+      item.parentNode.replaceChild(newScript, item)
+  })
+
+  document.addEventListener('pjax:error', (e) => {
+    if (e.request.status === 404) {
+      pjax.loadUrl('/404.html')
+    }
+  })
+</script>
+    
+</div>
+        
+    <div id="local-search">
+    <div class="search-dialog">
+        <nav class="search-nav">
+            <span class="search-dialog-title">搜索</span>
+            <button class="search-close-button">
+                <i class="fas fa-times"></i>
+            </button>
+        </nav>
+        <div id="loading-database">
+            <i class="fas fa-spinner fa-pulse"></i>
+            <span>加载中</span>
+        </div>
+        <div class="search-wrap">
+            <div class="search-box">
+                <input class="search-box-input" placeholder="输入关键词快速查找" type="text" id="search-input" autocomplete="off" spellcheck="false" autocorrect="off" autocapitalize="off">
+            </div>
+            <div id="loading-status"></div>
+            <div id="search-results"></div>
+        </div>
+    </div>
+    <div id="search-mask"></div>
+</div>
+    
+<link rel="stylesheet" href="/css/search/local-search.css">
+
+    
+<script src="/js/extend/search/local-search.js"></script>
+
+
+     
+        <div class="needEndHide" id="nav-music" onclick="acrylic.musicToggle()">
+    <div id="nav-music-hoverTips">音乐已暂停</div>
+    <meting-js id="7315994021" server="tencent" type="playlist" mutex="true"
+        preload="none" data-lrctype="0" order="random" theme="var(--heo-main)"></meting-js>
+</div>
+    
+    </body>
+</html>
+<script>const posts=["2023/04/28/ClickHouse/","2023/03/18/从IOC到Java架构/","2023/03/18/数据库概述/","2023/03/18/微服务/","2023/03/18/数据结构/","2023/03/18/系统分析与设计/","2023/03/18/面向对象建模技术/","2023/03/14/Go语言设计与实现/","2023/03/13/Git/","2023/02/10/服务器部署/","2023/02/10/规则引擎/","2023/02/10/风凌夜话/","2023/02/10/青萍/","2023/02/10/巷/","2023/02/10/乱世佳人/","2023/02/10/马克思主义原理/","2023/02/04/Hertz/","2023/01/17/架构设计/","2023/01/17/计算机组成原理/","2023/01/17/鹤扶摇/","2023/01/17/泠音泛海/","2023/01/17/江城一梦/","2023/01/17/近世代数/","2023/01/17/白马遥/","2023/01/17/塑鸿/","2023/01/17/彩云辞/","2023/01/17/Java虚拟机/","2023/01/17/Web基本原理/","2023/01/17/Springboot入门/","2023/01/17/分布式/","2023/01/17/Golang/","2023/01/17/Redis/"];function toRandomPost(){ window.pjax ? pjax.loadUrl('/'+posts[Math.floor(Math.random()*posts.length)]) : window.open('/'+posts[Math.floor(Math.random()*posts.length)], "_self"); };</script>

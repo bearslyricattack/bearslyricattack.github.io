@@ -1,0 +1,947 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-theme="light">
+    <head>
+        <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>数据结构 | 风凌渡</title>
+<noscript>开启Javascript是必要的</noscript>
+<link rel="icon" type="image/x-icon" href="/img/avatar.webp">
+<link rel="apple-touch-icon" href="/img/avatar.webp">
+<meta name="apple-mobile-web-app-title" content="风凌渡">
+<link rel="bookmark" href="/img/avatar.webp">
+<link rel="apple-touch-icon-precomposed" sizes="180x180" href="/img/avatar.webp">
+<meta name="description" content="a blog 一个分享技术与生活的博客">
+<meta name="theme-color" content="#1C1C1F">
+<link rel="stylesheet" href="/css/var.css">
+<link rel="stylesheet" href="/css/main.css">
+<link rel="stylesheet" href="/css/custom.css">
+
+
+
+<link rel="stylesheet" href="https://cdn.bootcdn.net/ajax/libs/font-awesome/6.3.0/css/all.min.css">
+    
+
+<link rel="stylesheet" href="/lib/snackbar.min.css">
+
+
+<script src="/lib/qrcode.min.js"></script>
+
+
+
+
+
+<script>var GLOBALCONFIG = {"root":"/","runtime":"2022-5-21 00:00:00","lazyload":{"enable":false,"error":"/img/acrylic.png"},"hightlight":{"enable":false,"limit":200},"lightbox":true,"randomlinks":false,"lang":{"theme":{"dark":"已切换至深色模式","light":"已切换至浅色模式"},"copy":{"success":"复制成功","error":"复制失败"},"backtop":"返回顶部","time":{"recent":"最近","yesterday":"昨天","berforeyesterday":"前天","daybefore":"天前","runtime":"天"},"sayhello":{"morning":"早上好","noon":"中午好","afternoon":"下午好","night":"晚上好","goodnight":"晚安","iam":"!  我是"},"search":{"empty":"搜索结果为空","hit":"已为您找到 ${query} 条结果","placeholder":"输入关键词快速查找"}},"covercolor":false,"localsearch":{"preload":false,"path":"/search.xml"}};</script><script id="site-config">var PAGECONFIG = {"is_home":false,"is_post":true,"is_page":false,"page":false,"toc":true,"comment":false};</script>
+    <meta name="generator" content="Hexo 6.3.0"></head>
+    <body id="body">
+        
+        <div id="console" style="zoom: 1;" class="">
+    <div class="close-btn" onclick="acrylic.hideConsole()" href="javascript:void(0);">
+        <i class="fas fa-circle-xmark"></i>
+    </div>
+    <div class="button-group">
+        <div class="console-btn-item"> <a class="darkmode_switchbutton" onclick="acrylic.switchDarkMode()" title="显示模式切换"
+                href="javascript:void(0);" rel="external nofollow" data-pjax-state=""><i class="fas fa-moon"
+                    style="font-size: 1rem;"></i></a></div>
+                    
+            <div class="console-btn-item" id="consoleMusic" onclick="acrylic.musicToggle()" title="音乐开关"><a class="music-switch"><i class="fas fa-music"></i></a></div>
+        
+        <div class="console-btn-item" id="consoleFPS" onclick="acrylic.FPSToggle()" title="帧率显示开关"><a class="FPS-switch"
+                data-pjax-state=""><i class="fas fa-gauge"></i></a></div>
+    </div>
+    <div class="console-mask" onclick="acrylic.hideConsole()" href="javascript:void(0);" rel="external nofollow"></div>
+</div>
+        <div id="sidebar" style="zoom: 1;">
+    <div id="menu-mask" style="display: none;"></div>
+    <div id="sidebar-menus" class>
+        <span class="sidebar-menu-item-title">功能</span>
+        <div class="sidebar-menu-item">
+            <a class="darkmode_switchbutton menu-child" onclick="acrylic.switchDarkMode()" title="显示模式切换"
+                href="javascript:void(0);" rel="external nofollow">
+                <i class="fas fa-moon" style="font-size: 1rem;"></i>
+                <span>显示模式</span>
+            </a>
+        </div>
+        
+            <div class="back-menu-list-groups">
+    
+      
+      <div class="back-menu-list-group">
+        <div class="back-menu-list-title">
+          我的
+        </div>
+        <div class="back-menu-list">
+          
+            
+            <a class="back-menu-item" href="/" rel="external nofollow" title="博客">
+              <img class="back-menu-item-icon" src="/img/avatar.webp" loading="lazy">
+              <span class="back-menu-item-text">
+                博客
+              </span>
+            </a>
+          
+        </div>
+      </div>
+    
+  </div>
+  
+        
+        <div class="menus_items">
+    
+        <div class="menus_item">
+            
+                <a class="site-page" href="javascript:void(0);" rel="external nofollow">
+                    <span> 文库</span>
+                </a>
+                <ul class="menus_item_child">
+                    
+                        <li>
+                            <a class="site-page child" href="/archives/">
+                                <i class="fas fa-box-archive"></i>
+                                <span> 文章列表</span>
+                            </a>
+                        </li>
+                    
+                        <li>
+                            <a class="site-page child" href="/categories/">
+                                <i class="fas fa-cube"></i>
+                                <span> 全部分类</span>
+                            </a>
+                        </li>
+                    
+                        <li>
+                            <a class="site-page child" href="/tags/">
+                                <i class="fas fa-tags"></i>
+                                <span> 全部标签</span>
+                            </a>
+                        </li>
+                    
+                </ul>
+             
+        </div>
+    
+        <div class="menus_item">
+            
+                <a class="site-page not-child" target="_blank" href="https://github.com/bearslyricattack" rel="external nofollow noopener">
+                    <span> 仓库</span>
+                </a>
+             
+        </div>
+    
+</div>
+        <span class="sidebar-menu-item-title">标签</span>
+        <div class="card-widget card-tags card-archives card-webinfo card-allinfo">
+            <div class="item-headline">
+                <i class="fas fa-tags"></i>
+                <span>标签</span>
+            </div>
+            <div class="card-tag-cloud">
+                
+                    <a href="/tags/%E4%B8%AD%E9%97%B4%E4%BB%B6/" style="font-size: 1em; color: #d3d3d3">中间件
+                        <sup>4</sup>
+                    </a>
+                
+                    <a href="/tags/Go/" style="font-size: 1em; color: #d3d3d3">Go
+                        <sup>3</sup>
+                    </a>
+                
+                    <a href="/tags/Java/" style="font-size: 1em; color: #d3d3d3">Java
+                        <sup>3</sup>
+                    </a>
+                
+                    <a href="/tags/%E5%BD%B1%E8%AF%84/" style="font-size: 1em; color: #d3d3d3">影评
+                        <sup>1</sup>
+                    </a>
+                
+                    <a href="/tags/%E6%9E%B6%E6%9E%84/" style="font-size: 1em; color: #d3d3d3">架构
+                        <sup>3</sup>
+                    </a>
+                
+                    <a href="/tags/%E5%88%86%E5%B8%83%E5%BC%8F/" style="font-size: 1em; color: #d3d3d3">分布式
+                        <sup>1</sup>
+                    </a>
+                
+                    <a href="/tags/%E8%AF%97%E6%AD%8C/" style="font-size: 1em; color: #d3d3d3">诗歌
+                        <sup>9</sup>
+                    </a>
+                
+                    <a href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/" style="font-size: 1em; color: #d3d3d3">数据库
+                        <sup>1</sup>
+                    </a>
+                
+                    <a href="/tags/%E8%AF%BE%E7%A8%8B/" style="font-size: 1em; color: #d3d3d3">课程
+                        <sup>6</sup>
+                    </a>
+                
+                    <a href="/tags/%E6%9C%8D%E5%8A%A1%E5%99%A8/" style="font-size: 1em; color: #d3d3d3">服务器
+                        <sup>1</sup>
+                    </a>
+                
+            </div>
+        </div>
+    </div>
+</div>    
+        
+            <div class="post" id="body-wrap">
+                <header class="post-bg" id="page-header">
+    <nav id="nav" class="show">
+    <div id="nav-group">
+        <div id="blog_name">
+            
+                <div class="back-home-button" tabindex="-1">
+                    <i class="back-home-button-icon fas fa-grip-vertical"></i>
+                    <div class="back-menu-list-groups">
+    
+      
+      <div class="back-menu-list-group">
+        <div class="back-menu-list-title">
+          我的
+        </div>
+        <div class="back-menu-list">
+          
+            
+            <a class="back-menu-item" href="/" rel="external nofollow" title="博客">
+              <img class="back-menu-item-icon" src="/img/avatar.webp" loading="lazy">
+              <span class="back-menu-item-text">
+                博客
+              </span>
+            </a>
+          
+        </div>
+      </div>
+    
+  </div>
+  
+                </div>
+            
+            <a id="site-name" href="/" title="返回博客主页">
+                    
+            </a>
+        </div>
+        <div id="page-name-mask">
+            <div id="page-name">
+                <a id="page-name-text" onclick="acrylic.toTop()">数据结构</a>
+            </div>
+        </div>
+        <div id="menus">
+            <div class="menus_items">
+    
+        <div class="menus_item">
+            
+                <a class="site-page" href="javascript:void(0);" rel="external nofollow">
+                    <span> 文库</span>
+                </a>
+                <ul class="menus_item_child">
+                    
+                        <li>
+                            <a class="site-page child" href="/archives/">
+                                <i class="fas fa-box-archive"></i>
+                                <span> 文章列表</span>
+                            </a>
+                        </li>
+                    
+                        <li>
+                            <a class="site-page child" href="/categories/">
+                                <i class="fas fa-cube"></i>
+                                <span> 全部分类</span>
+                            </a>
+                        </li>
+                    
+                        <li>
+                            <a class="site-page child" href="/tags/">
+                                <i class="fas fa-tags"></i>
+                                <span> 全部标签</span>
+                            </a>
+                        </li>
+                    
+                </ul>
+             
+        </div>
+    
+        <div class="menus_item">
+            
+                <a class="site-page not-child" target="_blank" href="https://github.com/bearslyricattack" rel="external nofollow noopener">
+                    <span> 仓库</span>
+                </a>
+             
+        </div>
+    
+</div>
+        </div>
+        <!-- <div id="nav-left">
+            <div id="fps-group">
+                <div id="fps">145</div><span class="fpsText">FPS</span>
+            </div>
+        </div> -->
+        <div id="nav-right">
+            
+    <div class="nav-button only-home" id="travellings_button">
+        <a class="site-page"  target="_blank" rel="noopener external nofollow" href="https://www.travellings.cn/go.html" title="开往-友链接力"  width="120">
+            <i class="fa-solid fa-train-subway" style="font-size: 1rem;"></i>
+        </a>
+    </div>
+
+
+    <div class="nav-button" id="randomPost_button">
+        <a class="site-page" onclick="toRandomPost()"
+            title="随机前往一个文章">
+            <i class="fas fa-shuffle" style="font-size: 1rem;"></i>
+        </a>
+    </div>
+
+
+    <div class="nav-button" id="search-button">
+        <a class="site-page social-icon search" title="站内搜索"
+            href="javascript:void(0);" rel="external nofollow">
+            <i class="fas fa-magnifying-glass" style="font-size: 1rem;"></i>
+        </a>
+    </div>
+
+
+    <div class="nav-button" id="nav-console">
+        <a class="console_switchbutton" onclick="acrylic.showConsole()"
+        title="显示中控台" href="javascript:void(0);" rel="external nofollow">
+        <i class="fas fa-bars-progress" style="font-size: 1rem;"></i>
+        </a>
+    </div>
+
+<div class="nav-button" id="nav-totop" onclick="acrylic.toTop()">
+    <a class="totopbtn">
+        <i class="fas fa-arrow-up"></i>
+        <span id="percent">0</span>
+    </a>
+</div>
+<div id="toggle-menu">
+    <a class="site-page">
+        <i class="fas fa-bars fa-fw" style="font-size: 1rem;"></i>
+    </a>
+</div>
+        </div>
+    </div>
+</nav>
+    
+        <div class="coverdiv" id="coverdiv">
+    <img id="post-cover" class="nolazyload" src="/img/27.jpg" alt="cover">
+</div>
+<div id="post-info">
+    <div id="post-firstinfo">
+        <div class="meta-firstline">
+            <a class="post-meta-original" title="该文章为原创文章，注意版权协议">
+                原创
+            </a>
+            
+            <span class="post-meta-categories">
+                
+                    <a class="post-meta-categories" href="/categories/%E7%AC%94%E8%AE%B0/">笔记</a>
+                
+            </span>
+            
+            <div class="tag_share">
+                <div class="post-meta__tag-list">
+                    
+                        <a class="post-meta__tags" href="/tags/%E8%AF%BE%E7%A8%8B/">
+                            <span class="tags-punctuation">#</span>
+                            <span class="tags-name">课程</span>
+                        </a>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+    <h1 class="post-title">数据结构</h1>
+    <div id="post-meta">
+        <div class="meta-secondline">
+            <span class="post-meta-date" title="发布于">
+                <i class="post-meta-icon fa-fw fas fa-calendar"></i>
+                <time datetime="2023-03-18T11:43:08+08:00"></time>
+            </span>
+            
+            
+                <span class="post-meta-position" title="作者IP归属地为山东·威海">
+                    <i class="fas fa-location-dot post-meta-icon"></i>
+                    <span>山东·威海</span>
+                </span>
+            
+            
+                
+                
+            
+            
+                
+        </div>
+    </div>
+</div>
+<section class="main-hero-waves-area waves-area"><svg class="waves-svg" xmlns="http://www.w3.org/2000/svg"
+    xlink="http://www.w3.org/1999/xlink" viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto">
+    <defs>
+        <path id="gentle-wave"
+            d="M -160 44 c 30 0 58 -18 88 -18 s 58 18 88 18 s 58 -18 88 -18 s 58 18 88 18 v 44 h -352 Z"></path>
+    </defs>
+    <g class="parallax">
+        <use href="#gentle-wave" x="48" y="0"></use>
+        <use href="#gentle-wave" x="48" y="3"></use>
+        <use href="#gentle-wave" x="48" y="5"></use>
+        <use href="#gentle-wave" x="48" y="7"></use>
+    </g>
+</svg>
+</section>
+
+        
+</header>
+                <main class="layout" id="content-inner">
+    <div id="post">
+        <article class="post-content" id="article-container">
+            <h1 id="数据结构"><a href="#数据结构" class="headerlink" title="数据结构"></a>数据结构</h1><h1 id="1-绪论"><a href="#1-绪论" class="headerlink" title="1.绪论:"></a>1.绪论:</h1><h2 id="1-1-定义"><a href="#1-1-定义" class="headerlink" title="1. 1 定义:"></a>1. 1 定义:</h2><p><strong>数据</strong>是对信息的一种符号表示。在计算机科学中是指所有能输入到计算机中并被计算机程序处理的符号的总称。</p>
+<p>数据结构十数据对象在计算机中的组织方式.<strong>数据结构</strong>是一个二元组 Data_Structure ＝（D，R），其中，D 是数据元素的有限集，R 是 D 上关系的有限集。</p>
+<h2 id="1-2-逻辑结构与存储结构"><a href="#1-2-逻辑结构与存储结构" class="headerlink" title="1.2 逻辑结构与存储结构:"></a>1.2 逻辑结构与存储结构:</h2><p>逻辑结构是指数据间的相互关系.通常分为四类结构:线性结构,集合,树,图或网.(还有什么有序表之类的)</p>
+<p><strong>存储结构</strong>是指数据结构在计算机中的表示，又称为数据的物理结构。通常由四种基本的存储方法实现：</p>
+<p>（1）顺序存储方式</p>
+<p>（2）链式存储方式</p>
+<p>（3）索引存储方式</p>
+<p>（4）散列存储方式</p>
+<h2 id="1-3-算法复杂度"><a href="#1-3-算法复杂度" class="headerlink" title="1.3 算法复杂度:"></a>1.3 算法复杂度:</h2><p>主要分为时间复杂度和空间复杂度.</p>
+<h3 id="1-3-1-空间复杂度"><a href="#1-3-1-空间复杂度" class="headerlink" title="1.3.1 空间复杂度:"></a>1.3.1 空间复杂度:</h3><p>空间复杂度是指执行程序时,额外占用的存储空间的大小.</p>
+<h3 id="1-3-2-时间复杂度"><a href="#1-3-2-时间复杂度" class="headerlink" title="1.3.2 时间复杂度:"></a>1.3.2 时间复杂度:</h3><p>时间复杂度是指执行程序时,占用时间的大小.</p>
+<p>时间复杂度只与待解决问题的规模(n)有关,与一步基本操作的工作量无关.</p>
+<p>时间复杂度只考虑问题的宏观渐进性,意识是求解的难度随着问题规模的增大逐渐增大的趋势.如线性增长(o(n)).</p>
+<h3 id="1-3-3-算法特性"><a href="#1-3-3-算法特性" class="headerlink" title="1.3.3 算法特性:"></a>1.3.3 算法特性:</h3><p>输入.输出.有穷性.确定性.可行性.</p>
+<h1 id="2-线性表"><a href="#2-线性表" class="headerlink" title="2.线性表:"></a>2.线性表:</h1><h2 id="2-1-定义"><a href="#2-1-定义" class="headerlink" title="2.1 定义:"></a>2.1 定义:</h2><p>线性表是n个相同类型的数据元素组成的有限序列.是最简单的.最基础的数据结构(逻辑结构).线性表包括顺序表(数组)和链表.</p>
+<h2 id="2-2-特征"><a href="#2-2-特征" class="headerlink" title="2.2 特征:"></a>2.2 特征:</h2><p>线性表的第一个元素叫第一元素,最后一个元素是最后元素,中间元素的上一个元素叫前驱,后一个元素叫后继.</p>
+<h2 id="2-3-顺序表基本运算的复杂度"><a href="#2-3-顺序表基本运算的复杂度" class="headerlink" title="2.3 顺序表基本运算的复杂度:"></a>2.3 顺序表基本运算的复杂度:</h2><p>插入,删除都是o(n).</p>
+<h2 id="2-4-顺序表优缺点"><a href="#2-4-顺序表优缺点" class="headerlink" title="2.4 顺序表优缺点:"></a>2.4 顺序表优缺点:</h2><p>优点: 节省空间,查找元素第i个元素比较简单(头+元素大小✖i)</p>
+<p>缺点:插入.删除都需要移动数据.比较不容易确定存储空间.</p>
+<h2 id="2-5-链表"><a href="#2-5-链表" class="headerlink" title="2.5 链表:"></a>2.5 链表:</h2><h3 id="2-5-1-头结点"><a href="#2-5-1-头结点" class="headerlink" title="2.5.1: 头结点:"></a>2.5.1: 头结点:</h3><p>头结点不存储数据.指针指向第一个节点.</p>
+<p>头插法:读入的数据元素的顺序与生成的链表中元素的顺序是相反的。</p>
+<p>尾插法读入的数据元素的顺序与生成的链表中元素的顺序是一致的。</p>
+<h1 id="3-栈和队列"><a href="#3-栈和队列" class="headerlink" title="3.栈和队列:"></a>3.栈和队列:</h1><h2 id="3-1-定义"><a href="#3-1-定义" class="headerlink" title="3.1 定义:"></a>3.1 定义:</h2><p>栈和队列是一种特殊的线性表.先进后出为栈,先进先出为队列.</p>
+<h2 id="3-2-栈"><a href="#3-2-栈" class="headerlink" title="3.2 栈:"></a>3.2 栈:</h2><p>插入和删除均在特定的一端进行.</p>
+<p>最先进入的一端叫栈底,进行操作的一端叫栈顶.入栈成为Push,出栈称为Pop.</p>
+<p>栈的一种定义：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">#define STACK_INIT_SIZE 100</span><br><span class="line"></span><br><span class="line">#define STACKINCREMENT 10</span><br><span class="line"></span><br><span class="line">typedef struct</span><br><span class="line">&#123;</span><br><span class="line"> SElemType *base;</span><br><span class="line"></span><br><span class="line">SElemType *top;</span><br><span class="line"></span><br><span class="line">int stacksize;</span><br><span class="line"></span><br><span class="line">&#125;SqStack;</span><br></pre></td></tr></table></figure>
+
+<p>top指针表示栈顶，入栈时，top指针存入数据后移动，成为新的栈顶。出栈时，top指针回退。</p>
+<h2 id="3-3-队列："><a href="#3-3-队列：" class="headerlink" title="3.3 队列："></a>3.3 队列：</h2><p>一种先进先出的线性表。</p>
+<p>入队的地方称为队尾，出队的地方称为队头，队尾指针rear,队头指针front。</p>
+<h1 id="4-串"><a href="#4-串" class="headerlink" title="4.串:"></a>4.串:</h1><h1 id="5-数组和广义表："><a href="#5-数组和广义表：" class="headerlink" title="5.数组和广义表："></a>5.数组和广义表：</h1><h1 id="6-树："><a href="#6-树：" class="headerlink" title="6.树："></a>6.树：</h1><h1 id="7-图："><a href="#7-图：" class="headerlink" title="7.图："></a>7.图：</h1><h2 id="7-1-定义："><a href="#7-1-定义：" class="headerlink" title="7.1 定义："></a>7.1 定义：</h2><p>由点的集合和边的集合构成的集合，任意两个结点之间都可能相关，即结点之间的邻接关系可以是任意的。</p>
+<h2 id="7-2-图的相关术语："><a href="#7-2-图的相关术语：" class="headerlink" title="7.2 图的相关术语："></a>7.2 图的相关术语：</h2><p>度：节点的边数。入读是指向该节点的边数，出度是从该节点出发的边数。</p>
+<p>强连通图：任意两点之间都联通的图</p>
+<p>路径、路径长度：顶点 vp到顶点 vq之间的路径是指顶点序列 vp,vi1,vi2, …, vim,vq.。路径上边的数目称为路径长度。</p>
+<h2 id="7-3-图的存储："><a href="#7-3-图的存储：" class="headerlink" title="7.3 图的存储："></a>7.3 图的存储：</h2><h3 id="7-3-1-邻接矩阵："><a href="#7-3-1-邻接矩阵：" class="headerlink" title="7.3.1 邻接矩阵："></a>7.3.1 邻接矩阵：</h3><h3 id="7-3-2-邻接表："><a href="#7-3-2-邻接表：" class="headerlink" title="7.3.2 邻接表："></a>7.3.2 邻接表：</h3><p>是图的一种顺序存储与链式存储结合的存储方法，类似于树的孩子链表表示法。就是对于图 G 中的每个顶点 vi，将所有邻接于 vi的顶点 vj链成一个单链表，这个单链表就称为顶点 vi的邻接表，再将所有点的邻接表表头放到数组中，就构成了图的邻接表。</p>
+<p>在邻接表中，每条边都会出现两次，如果是n个顶点，e条边的邻接表，总共需要n个头节点和2e个表节点，比较适合存储比较稀疏的图。</p>
+<h2 id="7-4：图的遍历："><a href="#7-4：图的遍历：" class="headerlink" title="7.4：图的遍历："></a>7.4：图的遍历：</h2><p>从图的某一个顶点出发，访问所有的顶点。</p>
+<h3 id="7-4-1-深度优先搜索："><a href="#7-4-1-深度优先搜索：" class="headerlink" title="7.4.1 深度优先搜索："></a>7.4.1 深度优先搜索：</h3><p>从某一个顶点开始，访问一个顶点后，接着访问与这个顶点相邻的，未被访问过的顶点，直到所有的顶点都被访问过为止。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">void DFS(Graph G,int v ) /*从第 v 个顶点出发递归地深度优先遍历图 G*/</span><br><span class="line"></span><br><span class="line">&#123; </span><br><span class="line">visited[v]=TRUE;Visit(v); /*访问第 v 个顶点*/</span><br><span class="line"></span><br><span class="line">for(w=FisrtAdjVex(G,v);w&gt;=0; w=NextAdjVex(G,v,w))</span><br><span class="line"></span><br><span class="line">if (!visited[w]) DFS(G,w); /*对 v 的尚未访问的邻接顶点 w 递归调用 DFS*/</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>遍历图的过程实质上是对每个顶点查找其邻接点的过程，其耗费的时间则取决于所采用的存储结构。当以邻接矩阵为图的存储结构时，查找每个顶点的邻接点所需时间为O(n2 ) ，其中 n 为图中顶点数。而当以邻接表作图的存储结构时，找邻接点所需时间为 O(e)，其中e 为无向图中边的数或有向图中弧的数。由此，当以邻接表作存储结构时，深度优先搜索遍历图的时间复杂度为 O(n+e) 。</p>
+<h3 id="7-4-2-广度优先搜索："><a href="#7-4-2-广度优先搜索：" class="headerlink" title="7.4.2: 广度优先搜索："></a>7.4.2: 广度优先搜索：</h3><p>从某一个顶点开始，先访问该顶点，再访问与该顶点相邻的所有未访问过的顶点，然后在对这些邻接顶点的邻接顶点做相同的操作。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">void BFS (Graph G,int v)</span><br><span class="line"></span><br><span class="line">&#123;</span><br><span class="line">InitQueue(Q); /*置空的辅助队列 Q*/</span><br><span class="line"></span><br><span class="line">visited[v]=TRUE; Visit(v); /*访问 v*/</span><br><span class="line"></span><br><span class="line">EnQueue(Q,v); /*v 入队列*/</span><br><span class="line"></span><br><span class="line">while (!QueueEmpty(Q)) </span><br><span class="line"></span><br><span class="line">&#123;DeQueue(Q,u); /*队头元素出队并置为 u*/</span><br><span class="line"></span><br><span class="line">for(w=FistAdjVex(G,u); w&gt;=0; w=NextAdjVex(G,u,w))</span><br><span class="line"></span><br><span class="line">if(!visited[w])</span><br><span class="line"></span><br><span class="line">&#123;visited[w]=TRUE; Visit(w);</span><br><span class="line"></span><br><span class="line"> EnQueue(Q,w); /*u 尚未访问的邻接顶点 w 入队列 Q*/</span><br><span class="line">&#125;&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line">注意入队列的顺序，先入队列的点先出队列进行的下一步的bfs，可能会影响遍历顺序。</span><br></pre></td></tr></table></figure>
+
+<p>广度优先搜索遍历图的过程实质是通过边或弧找邻接点的过程，其时间复杂度和深度优先搜索遍历相同，两者不同之处仅仅在于对顶点访问的顺序不同。</p>
+<h2 id="7-5-最小生成树："><a href="#7-5-最小生成树：" class="headerlink" title="7.5 最小生成树："></a>7.5 最小生成树：</h2><p><strong>生成树：</strong>所谓连通图 G 的生成树，是 G 的包含其全部 n 个顶点的一个极小连通子图。它必定包含且仅包含 G 的 n-1 条边。</p>
+<p>最小生成树是指在图的所有生成树中，边权和最小的树。</p>
+<p>下面给出两种求最小生成数的算法。</p>
+<h3 id="7-5-1：Prim算法："><a href="#7-5-1：Prim算法：" class="headerlink" title="7.5.1：Prim算法："></a>7.5.1：Prim算法：</h3><p>建立u，v(所有顶点集合)，t三个集合。任选一个顶点开始。把该顶点加入u，寻找一条边，这条边的两个顶点一个在u中，一个在v-u中，而且这条边的权值在符合所有的边中最小，把v-u中的那个点加入u，把这条边加入t，反复进行操作，知道u中包括了所有的顶点为止。</p>
+<p>时间复杂度o（n2）(邻接矩阵)o(n+e)(邻接表)，比较适合于边稠密的网。</p>
+<h3 id="7-5-2-Kruskal-算法"><a href="#7-5-2-Kruskal-算法" class="headerlink" title="7.5.2:  Kruskal 算法:"></a>7.5.2:  Kruskal 算法:</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">void Kruskal (G,T)&#123;</span><br><span class="line">T=V;</span><br><span class="line">ncomp=N;</span><br><span class="line">while（ncomp&gt;1）</span><br><span class="line">&#123;</span><br><span class="line">	从G中找到取出并删除权值最小的边，记为x.</span><br><span class="line">	if(x的两个顶点在T中并没有相连相连)</span><br><span class="line">	&#123;</span><br><span class="line">		把这条边加入t；</span><br><span class="line">		ncomp--；</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>时间复杂度o（enlog2e）比较适合边稀疏的网。</p>
+<h2 id="7-6：最短路径："><a href="#7-6：最短路径：" class="headerlink" title="7.6：最短路径："></a>7.6：最短路径：</h2><h3 id="7-6-1-单源最短路："><a href="#7-6-1-单源最短路：" class="headerlink" title="7.6.1:单源最短路："></a>7.6.1:单源最短路：</h3><p>给定有向图g和源点v，求该点到所有顶点的最短距离。</p>
+<p>Dijkstra 算法:</p>
+<p>s是已经求出最短路的集合,v-s是未求出最短路的集合.</p>
+<p>首先把顶点加入s,把与v最近的v1也加入s.</p>
+<p>然后在v-s中寻找vx到vo与vx到v1,遍历找最短的加入s.</p>
+<p>依次进行操作.</p>
+<p>时间复杂度是 O(n 2 ).</p>
+<h3 id="7-6-2-多源最短路"><a href="#7-6-2-多源最短路" class="headerlink" title="7.6.2: 多源最短路:"></a>7.6.2: 多源最短路:</h3><p>从 Vi到 Vj的所有可能存在的路径中，选出一条长度最短的路径。时间复杂度是 O(n 3 ).</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">for(int k = 0 ; k &lt; size ; k ++)</span><br><span class="line">&#123;</span><br><span class="line">    for(int i = 0 ; i &lt; size ; i ++)</span><br><span class="line">    &#123;</span><br><span class="line">        for(int j = 0 ; j &lt; size ; j ++)</span><br><span class="line">        &#123;</span><br><span class="line">            if(zu[i][j] &gt; zu[i][k] + zu[k][j])&#123;</span><br><span class="line">            	zu[i][j] = zu[i][k] + zu[k][j];</span><br><span class="line">            &#125; </span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;	 </span><br></pre></td></tr></table></figure>
+
+<h2 id="7-7-拓扑排序"><a href="#7-7-拓扑排序" class="headerlink" title="7.7: 拓扑排序:"></a>7.7: 拓扑排序:</h2><h3 id="7-7-1-AOE网"><a href="#7-7-1-AOE网" class="headerlink" title="7.7.1: AOE网:"></a>7.7.1: AOE网:</h3><p>是一张有向无环图.</p>
+<p>顶点表示事件,边表示事件.</p>
+<p>拓扑序列:如果存在vi到vj的路径,则在这个序列中i位于j之前.有向图的序列不唯一,无环图一定有拓扑序列,有环图一定没有拓扑序列.</p>
+<p>算法:</p>
+<p>(1)选图中入度为0的顶点输出.</p>
+<p>(2)删除该顶点以及预期相连的所有边.</p>
+<p>(3)重复进行 直到所以的顶点都被输出.</p>
+<p>整个算法的时间复杂度 为 O（e+n）。<strong>拓扑排序的序列可能不唯一。</strong> </p>
+<h3 id="7-7-2-关键路径"><a href="#7-7-2-关键路径" class="headerlink" title="7.7.2: 关键路径:"></a>7.7.2: 关键路径:</h3><p>首先要搞清楚几个概念:</p>
+<h4 id="7-7-2-1-事件的最早发生时间"><a href="#7-7-2-1-事件的最早发生时间" class="headerlink" title="7.7.2.1:事件的最早发生时间:"></a>7.7.2.1:事件的最早发生时间:</h4><p>记为ve[k]</p>
+<p>是从原点到发生事件的点的最长的路径长度.(含义是这个事件要在前面所有的事件都结束了之后这个事件才能就开始,所以所需要时间最长的活动为制约条件)</p>
+<h4 id="7-7-2-2-事件的最晚发生时间"><a href="#7-7-2-2-事件的最晚发生时间" class="headerlink" title="7.7.2.2:事件的最晚发生时间:"></a>7.7.2.2:事件的最晚发生时间:</h4><p>记为vl[k]</p>
+<p>开始节点为0,汇点为其最早开始时间.对于其他节点,从汇点开始减去其到上一个顶点的路径长度.</p>
+<h4 id="7-7-2-3-活动的最晚发生时间"><a href="#7-7-2-3-活动的最晚发生时间" class="headerlink" title="7.7.2.3:活动的最晚发生时间:"></a>7.7.2.3:活动的最晚发生时间:</h4><p>事件最晚时间减去活动边.</p>
+<h4 id="7-7-2-2-活动的最早发生时间"><a href="#7-7-2-2-活动的最早发生时间" class="headerlink" title="7.7.2.2:活动的最早发生时间:"></a>7.7.2.2:活动的最早发生时间:</h4><p>就是活动源头一侧的时间的最早发生时间.</p>
+<p>活动的最早和最晚开始时间相同的活动就是关键活动.由关键活动组成的路径被称为关键路径.</p>
+<p>整个工程完成的时间为：从有向图的<strong>源点</strong>到<strong>汇点</strong>的最长路径。</p>
+<h1 id="8-查找"><a href="#8-查找" class="headerlink" title="8.查找:"></a>8.查找:</h1><h2 id="8-1-顺序查找"><a href="#8-1-顺序查找" class="headerlink" title="8.1: 顺序查找:"></a>8.1: 顺序查找:</h2><p>第一个元素向后,依次顺序查找.</p>
+<h2 id="8-2-折半查找"><a href="#8-2-折半查找" class="headerlink" title="8.2: 折半查找:"></a>8.2: 折半查找:</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">int Search_Bin (SSTable ST, KeyType key ) </span><br><span class="line"></span><br><span class="line">&#123;low = 1; high = ST.length; /*置区间初值*/</span><br><span class="line"></span><br><span class="line">while(low &lt;= high)</span><br><span class="line"></span><br><span class="line"> &#123;mid=(low + high)/2;</span><br><span class="line"></span><br><span class="line"> if（</span><br><span class="line"></span><br><span class="line">key == ST.elem[mid].key )</span><br><span class="line"></span><br><span class="line"> return mid; /*找到待查元素*/</span><br><span class="line"></span><br><span class="line"> else if(key&lt;ST.elem[mid].key) )</span><br><span class="line"></span><br><span class="line"> high = mid - 1; /*继续在前半区间进行查找*/</span><br><span class="line"></span><br><span class="line"> else low = mid + 1;/*继续在后半区间进行查找*/</span><br><span class="line"></span><br><span class="line"> &#125;</span><br><span class="line"></span><br><span class="line"> return 0; /*顺序表中不存在待查元素*/</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>要求数据顺序存储 且有序。</p>
+<p>o（logn）</p>
+<h2 id="8-3：索引查找："><a href="#8-3：索引查找：" class="headerlink" title="8.3：索引查找："></a>8.3：索引查找：</h2><p>①查找表要求顺序存储；②查找表分成 n 块，当 i&gt;j 时，第 i 块中的最小元素大于第 j 块中的最大元素。</p>
+<p>过程：①首先确定所要查找关键字在哪一块中。②在所确定的块中用顺序查找查找关键字。</p>
+<p>平均查找长度n+l+2➗2 其中l是每块长度 n是总长度  若要使平均次数最小 每块的长度是根号n</p>
+<h2 id="8-4：-监视哨："><a href="#8-4：-监视哨：" class="headerlink" title="8.4： 监视哨："></a>8.4： 监视哨：</h2><p>不是带查找元素，是人为构造的一个数据，放在特定的位置，用来处理数组越界等情况。所以有监视哨的表，查询的元素要比待查元素多一个（失败时）成功就不需要了。</p>
+<h2 id="8-4：二叉排序树："><a href="#8-4：二叉排序树：" class="headerlink" title="8.4：二叉排序树："></a>8.4：二叉排序树：</h2><h3 id="8-4-1：-静态查找表与动态查找表："><a href="#8-4-1：-静态查找表与动态查找表：" class="headerlink" title="8.4.1： 静态查找表与动态查找表："></a>8.4.1： 静态查找表与动态查找表：</h3><p>动态查找表：有时在查询之后，还需要将“查询”结果为“不在查找表中”的数据元素插入到查找表中；或者，从查找表中删除其“查询”结果为“在查找表中”的数据元素。</p>
+<h3 id="8-4-2：-定义："><a href="#8-4-2：-定义：" class="headerlink" title="8.4.2： 定义："></a>8.4.2： 定义：</h3><p>空树或者对于所有的子树都有：左子树＜根节点＜右子树</p>
+<p>查找时：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">BSTree SearchBST(BiTree bt, KeyType key)/*在根指针 bt 所指二叉排序树中，递归查</span><br><span class="line">找某关键字等于 key 的元素，若查找成功，则返回指向该元素结点指针，否则返回空指针 */</span><br><span class="line">&#123;if(!bt) return NULL; </span><br><span class="line"></span><br><span class="line">else if(bt-&gt;key==key) return bt; /*查找成功*/ </span><br><span class="line"></span><br><span class="line">else if(key＜bt-&gt;key)</span><br><span class="line"></span><br><span class="line">return SearchBST(bt-&gt;lchild,key); /*在左子树中继续查找*/</span><br><span class="line"></span><br><span class="line"> else return SearchBST(bt-&gt;rchild, key); /*在右子树中继续查找*/</span><br><span class="line"></span><br><span class="line">&#125; </span><br></pre></td></tr></table></figure>
+
+<h2 id="8-5：平衡二叉树："><a href="#8-5：平衡二叉树：" class="headerlink" title="8.5：平衡二叉树："></a>8.5：平衡二叉树：</h2><p>或者是一棵空树，或者是具有下列性质的二叉排序树：它的左子树和右子树都是平衡二叉树，且左子树和右子树高度之差的绝对值不超过 1。</p>
+<p>在插入过程中，采用平衡旋转技术：左单旋转；右单旋转；先左后右双向旋转；先右后左双向旋转。</p>
+<p>在平衡树上进行查找的过程和二叉排序树相同，因此，查找过程中和给定值进行比较的关键字的个数不超过平衡 树的深度，和 log2n 相当。</p>
+<h2 id="8-6：哈希表："><a href="#8-6：哈希表：" class="headerlink" title="8.6：哈希表："></a>8.6：哈希表：</h2><p>基本思想是首先在元素的关键字 key 和元素的存储位置 p 之间建立一个对应关系 H，使得 p&#x3D;H(key)，H 称为散列函数。创建散列表时，把关键字为 key 的元素直接存入地址为 H(key)的单元；以后当查找关键字为 key 的元素时，再利用散列函数计算出该元素的存储位置 p&#x3D;H(key)，从而达到按关键字直接存取元素的目的。</p>
+<p>装填因子：</p>
+<p>a&#x3D;填入结点数&#x2F;空间大小</p>
+<p>①直接定址法：H(key) &#x3D; a  key + b</p>
+<p>适合于：地址集合的大小 &#x3D; &#x3D; 关键字集合的大小</p>
+<p>⑤除留余数法：H(key) &#x3D; key MOD p ，其中 p≤m (表长)并且 p 应为不大于 m 的素数</p>
+<h3 id="8-6-2：-解决冲突方法："><a href="#8-6-2：-解决冲突方法：" class="headerlink" title="8.6.2： 解决冲突方法："></a>8.6.2： 解决冲突方法：</h3><p>①开放定址法：当关键字 key 的散列地址 p&#x3D; H（key）出现冲突时，以 p 为基础，产生另一</p>
+<p>个散列地址 p1，如果 p1仍然冲突，再以 p 为基础，产生另一个散列地址 p2，……，直到找</p>
+<p>出一个不冲突的散列地址 pi，将相应元素存入其中。</p>
+<p>主要有以下三种：</p>
+<p>●线性探测再散列 </p>
+<p>di&#x3D;1，2，3，…:， m-1</p>
+<p>特点：冲突发生时，顺序查看表中下一单元，直到找出一个空单元或查遍全表。</p>
+<p>●二次探测再散列 </p>
+<p>di&#x3D;±1 2，±2 2，…，±k 2 (k≤m&#x2F;2)</p>
+<p>特点：冲突发生时，在表的左右进行跳跃式探测，比较灵活。</p>
+<p>●伪随机探测再散列 </p>
+<p>di&#x3D;伪随机数序列。</p>
+<p>②链地址法：将所有散列地址为 i 的元素构成一个称为同义词链的单链表，并将单链表的</p>
+<p>头指针存在散列表的第 i 个单元中，因而查找、插入和删除主要在同义词链中进行。 链地</p>
+<p>址法适用于经常进行插入和删除的情况。</p>
+<p>平均查找长度与a（装填因子）和处理冲突的方法有关，与问题的规模无关。</p>
+<h1 id="9-排序："><a href="#9-排序：" class="headerlink" title="9.排序："></a>9.排序：</h1><p>排序的基本操作使比较数据和移动数据。</p>
+<h2 id="9-1：-内部排序与外部排序："><a href="#9-1：-内部排序与外部排序：" class="headerlink" title="9.1： 内部排序与外部排序："></a>9.1： 内部排序与外部排序：</h2><p>只使用内存的排序称之为内部排序，需要借助计算机外存的排序称为外部排序，外部排序的主要影响因素是内外存之间的交换次数。</p>
+<h2 id="9-2：插入排序："><a href="#9-2：插入排序：" class="headerlink" title="9.2：插入排序："></a>9.2：插入排序：</h2><p>将第一个元素看作是有序。第一趟使前两个元素有序，第二趟使前三个元素有序．．．．直到第n-１趟，使整体有序。</p>
+<p>是稳定排序。（排序中存在相同关键字时，其相对位置保持不变）ｏ（ｎ２）.</p>
+<h2 id="9-３：折半插入排序："><a href="#9-３：折半插入排序：" class="headerlink" title="9.３：折半插入排序："></a>9.３：折半插入排序：</h2><p>在插入排序的基础上，使用折半搜索的思想进行插入。</p>
+<h2 id="9-４：希尔排序："><a href="#9-４：希尔排序：" class="headerlink" title="9.４：希尔排序："></a>9.４：希尔排序：</h2><p>先将序列分为子序列，然后将子序列分别进行插入排序。</p>
+<h2 id="9-５：冒泡排序："><a href="#9-５：冒泡排序：" class="headerlink" title="9.５：冒泡排序："></a>9.５：冒泡排序：</h2><p>在有序时比较过一次之后直接结束，比较快。</p>
+<h2 id="9-６：快速排序："><a href="#9-６：快速排序：" class="headerlink" title="9.６：快速排序："></a>9.６：快速排序：</h2><p>找一个记录作为轴，小于的放在轴前，大于的放在轴后，然后对形成的子序列分别递归使用快速排序。</p>
+<p>左右指针移动。</p>
+<p>数据有序时会发生退化o(n2),平均分成两部分时效率最高。</p>
+<h2 id="9-７：选择排序："><a href="#9-７：选择排序：" class="headerlink" title="9.７：选择排序："></a>9.７：选择排序：</h2><h2 id="9-８：堆排序："><a href="#9-８：堆排序：" class="headerlink" title="9.８：堆排序："></a>9.８：堆排序：</h2><p>建立堆，取走堆顶元素，重新建立堆，不断循环。</p>
+<p>找出10000个元素中最大的十个元素最快的方法就是使用堆排序。</p>
+<h2 id="9-9-归并排序："><a href="#9-9-归并排序：" class="headerlink" title="9.9: 归并排序："></a>9.9: 归并排序：</h2><p>消耗辅助空间最多的排序。稳定。</p>
+<p>将两个以上的有序序列合并成一个有序序列。</p>
+<p>o（nlogn）</p>
+<p>合并时最多需要移动m+n-1（两个序列的个数）次</p>
+
+        </article>
+        <div class="post-tools" id="post-tools">
+            <div class="post-tools-left">
+                
+                <div class="share-link mobile">
+    <div class="share-qrcode">
+        <div class="share-button" title="使用手机访问这篇文章">
+            <i class="fas fa-qrcode"></i>
+        </div>
+        <div class="share-main">
+            <div class="share-main-all">
+                <div id="qrcode" title="http://example.com/2023/03/18/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">
+                </div>
+                <div class="reward-dec">使用手机访问这篇文章</div>
+            </div>
+        </div>
+        <script type="text/javascript">
+            new QRCode(document.getElementById("qrcode"), "http://example.com/2023/03/18/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/");
+        </script>
+    </div>
+</div>
+                <div class="share-link weibo"><a class="share-button" target="_blank"
+    href="https://service.weibo.com/share/share.php?title=数据结构&amp;url=http://example.com/2023/03/18/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/&amp;pic=/img/27.jpg"
+    title="分享到微博" rel="noopener external nofollow noreferrer noopener">
+    <i class="fab fa-weibo" style="font-size:22px"></i>
+</a>
+</div>
+<div class="share-link copyurl">
+<div class="share-button" id="post-share-url" title="复制链接" onclick="acrylic.copyPageUrl()">
+    <i class="fas fa-link"></i>
+</div>
+</div>
+            </div>
+            <div class="post-tools-right">
+                <div class="tag_share">
+                    <div class="post-meta__tag-list">
+                        
+                            <a href="/tags/%E8%AF%BE%E7%A8%8B/" class="post-meta__tags">
+                                <span class="tags-punctuation">#</span>
+                                课程
+                                <span class="tagsPageCount">6</span>
+                            </a>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="post-copyright">
+    <div class="post-copyright__author">
+        <a class="post-copyright__original" title="该文章为原创文章，注意版权协议">原创</a>
+        <a class="post-copyright-title" href="#">
+            <span>数据结构</span>
+        </a>
+    </div>
+    <div class="post-copyright__type">
+        <span class="post-copyright-info" id="post-copyright-url">
+            <a href="/2023/03/18/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">http://example.com/2023/03/18/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/</a>
+        </span>
+        <button class="post-copyright-copybtn" onclick="acrylic.copyPageUrl()">
+            <i class="fas fa-paste copy-btn"></i>
+        </button>
+    </div>
+    <div class="post-copyright__notice"><span class="post-copyright-info">本文是原创文章，采用 <a
+                href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank">CC BY-NC-ND 4.0</a> 协议，完整转载请注明来自 <a
+                href="/">风凌渡</a>
+            </span>
+        </div>
+</div>
+        <nav class="pagination-post" id="pagination">
+    
+        <div class="prev-post pull-left">
+            <a href="/2023/03/18/%E5%BE%AE%E6%9C%8D%E5%8A%A1/">
+                <div class="pagination-info">
+                    <div class="label">上一篇</div>
+                    <div class="prev_info">微服务</div>
+                </div>
+            </a>
+        </div>
+        <div class="next-post pull-right">
+            <a href="/2023/03/18/%E7%B3%BB%E7%BB%9F%E5%88%86%E6%9E%90%E4%B8%8E%E8%AE%BE%E8%AE%A1/">
+                <div class="pagination-info">
+                    <div class="label">下一篇</div>
+                    <div class="next_info">系统分析与设计</div>
+                </div>
+            </a>
+        </div>
+    
+</nav>
+            
+    </div>
+    <div class="aside-content" id="aside-content">
+    
+    
+        
+        <div class="card-widget card-info">
+    <div class="card-content">
+        <div class="card-info-avatar is-center">
+            <div class="author-info__sayhi" id="author-info__sayhi">
+            </div>
+            <div class="author-info__name">
+                抒情熊
+            </div>
+            <div class="author-info__description">这有关于<b>后端</b>、<b>架构</b>的相关笔记分享，还有拙作<b>诗歌</b>和<b>小说</b>，另有如<b>奎桑提</b>和<b>奥恩</b>的相关教学。<br>相信会对你有所帮助.</div>
+        </div>
+    </div>
+    <div class="banner-button-group">
+        <a class="banner-button" href="/about/">
+            <i class="fas fa-circle-chevron-right"></i>
+            <span class="banner-button-text">了解更多</span>
+        </a>
+    </div>
+    <div class="card-info-social-icons is-center">
+        
+            <a class="social-icon" target="_blank" rel="noopener" href="https://github.com/bearslyricattack" title="Github">
+                <i class="fa-brands fa-github"></i>
+            </a>
+        
+            <a class="social-icon" target="_blank" rel="noopener" href="https://user.qzone.qq.com/2669184984" title="Mail">
+                <i class="fa-solid fa-envelope"></i>
+            </a>
+        
+    </div>
+</div>
+     
+    
+    <div class="sticky_layout">
+        
+            <div class="card-widget" id="card-toc">
+    <div class="item-headline">
+        <i class="fas fa-bars"></i>
+        <span>文章目录</span>
+    </div>
+    <div class="toc-content" id="toc-content">
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84"><span class="toc-text">数据结构</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#1-%E7%BB%AA%E8%AE%BA"><span class="toc-text">1.绪论:</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-1-%E5%AE%9A%E4%B9%89"><span class="toc-text">1. 1 定义:</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-2-%E9%80%BB%E8%BE%91%E7%BB%93%E6%9E%84%E4%B8%8E%E5%AD%98%E5%82%A8%E7%BB%93%E6%9E%84"><span class="toc-text">1.2 逻辑结构与存储结构:</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-3-%E7%AE%97%E6%B3%95%E5%A4%8D%E6%9D%82%E5%BA%A6"><span class="toc-text">1.3 算法复杂度:</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-3-1-%E7%A9%BA%E9%97%B4%E5%A4%8D%E6%9D%82%E5%BA%A6"><span class="toc-text">1.3.1 空间复杂度:</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-3-2-%E6%97%B6%E9%97%B4%E5%A4%8D%E6%9D%82%E5%BA%A6"><span class="toc-text">1.3.2 时间复杂度:</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-3-3-%E7%AE%97%E6%B3%95%E7%89%B9%E6%80%A7"><span class="toc-text">1.3.3 算法特性:</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#2-%E7%BA%BF%E6%80%A7%E8%A1%A8"><span class="toc-text">2.线性表:</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#2-1-%E5%AE%9A%E4%B9%89"><span class="toc-text">2.1 定义:</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-2-%E7%89%B9%E5%BE%81"><span class="toc-text">2.2 特征:</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-3-%E9%A1%BA%E5%BA%8F%E8%A1%A8%E5%9F%BA%E6%9C%AC%E8%BF%90%E7%AE%97%E7%9A%84%E5%A4%8D%E6%9D%82%E5%BA%A6"><span class="toc-text">2.3 顺序表基本运算的复杂度:</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-4-%E9%A1%BA%E5%BA%8F%E8%A1%A8%E4%BC%98%E7%BC%BA%E7%82%B9"><span class="toc-text">2.4 顺序表优缺点:</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-5-%E9%93%BE%E8%A1%A8"><span class="toc-text">2.5 链表:</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#2-5-1-%E5%A4%B4%E7%BB%93%E7%82%B9"><span class="toc-text">2.5.1: 头结点:</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#3-%E6%A0%88%E5%92%8C%E9%98%9F%E5%88%97"><span class="toc-text">3.栈和队列:</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#3-1-%E5%AE%9A%E4%B9%89"><span class="toc-text">3.1 定义:</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-2-%E6%A0%88"><span class="toc-text">3.2 栈:</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-3-%E9%98%9F%E5%88%97%EF%BC%9A"><span class="toc-text">3.3 队列：</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#4-%E4%B8%B2"><span class="toc-text">4.串:</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#5-%E6%95%B0%E7%BB%84%E5%92%8C%E5%B9%BF%E4%B9%89%E8%A1%A8%EF%BC%9A"><span class="toc-text">5.数组和广义表：</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#6-%E6%A0%91%EF%BC%9A"><span class="toc-text">6.树：</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#7-%E5%9B%BE%EF%BC%9A"><span class="toc-text">7.图：</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#7-1-%E5%AE%9A%E4%B9%89%EF%BC%9A"><span class="toc-text">7.1 定义：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#7-2-%E5%9B%BE%E7%9A%84%E7%9B%B8%E5%85%B3%E6%9C%AF%E8%AF%AD%EF%BC%9A"><span class="toc-text">7.2 图的相关术语：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#7-3-%E5%9B%BE%E7%9A%84%E5%AD%98%E5%82%A8%EF%BC%9A"><span class="toc-text">7.3 图的存储：</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#7-3-1-%E9%82%BB%E6%8E%A5%E7%9F%A9%E9%98%B5%EF%BC%9A"><span class="toc-text">7.3.1 邻接矩阵：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#7-3-2-%E9%82%BB%E6%8E%A5%E8%A1%A8%EF%BC%9A"><span class="toc-text">7.3.2 邻接表：</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#7-4%EF%BC%9A%E5%9B%BE%E7%9A%84%E9%81%8D%E5%8E%86%EF%BC%9A"><span class="toc-text">7.4：图的遍历：</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#7-4-1-%E6%B7%B1%E5%BA%A6%E4%BC%98%E5%85%88%E6%90%9C%E7%B4%A2%EF%BC%9A"><span class="toc-text">7.4.1 深度优先搜索：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#7-4-2-%E5%B9%BF%E5%BA%A6%E4%BC%98%E5%85%88%E6%90%9C%E7%B4%A2%EF%BC%9A"><span class="toc-text">7.4.2: 广度优先搜索：</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#7-5-%E6%9C%80%E5%B0%8F%E7%94%9F%E6%88%90%E6%A0%91%EF%BC%9A"><span class="toc-text">7.5 最小生成树：</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#7-5-1%EF%BC%9APrim%E7%AE%97%E6%B3%95%EF%BC%9A"><span class="toc-text">7.5.1：Prim算法：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#7-5-2-Kruskal-%E7%AE%97%E6%B3%95"><span class="toc-text">7.5.2:  Kruskal 算法:</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#7-6%EF%BC%9A%E6%9C%80%E7%9F%AD%E8%B7%AF%E5%BE%84%EF%BC%9A"><span class="toc-text">7.6：最短路径：</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#7-6-1-%E5%8D%95%E6%BA%90%E6%9C%80%E7%9F%AD%E8%B7%AF%EF%BC%9A"><span class="toc-text">7.6.1:单源最短路：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#7-6-2-%E5%A4%9A%E6%BA%90%E6%9C%80%E7%9F%AD%E8%B7%AF"><span class="toc-text">7.6.2: 多源最短路:</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#7-7-%E6%8B%93%E6%89%91%E6%8E%92%E5%BA%8F"><span class="toc-text">7.7: 拓扑排序:</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#7-7-1-AOE%E7%BD%91"><span class="toc-text">7.7.1: AOE网:</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#7-7-2-%E5%85%B3%E9%94%AE%E8%B7%AF%E5%BE%84"><span class="toc-text">7.7.2: 关键路径:</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#7-7-2-1-%E4%BA%8B%E4%BB%B6%E7%9A%84%E6%9C%80%E6%97%A9%E5%8F%91%E7%94%9F%E6%97%B6%E9%97%B4"><span class="toc-text">7.7.2.1:事件的最早发生时间:</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#7-7-2-2-%E4%BA%8B%E4%BB%B6%E7%9A%84%E6%9C%80%E6%99%9A%E5%8F%91%E7%94%9F%E6%97%B6%E9%97%B4"><span class="toc-text">7.7.2.2:事件的最晚发生时间:</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#7-7-2-3-%E6%B4%BB%E5%8A%A8%E7%9A%84%E6%9C%80%E6%99%9A%E5%8F%91%E7%94%9F%E6%97%B6%E9%97%B4"><span class="toc-text">7.7.2.3:活动的最晚发生时间:</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#7-7-2-2-%E6%B4%BB%E5%8A%A8%E7%9A%84%E6%9C%80%E6%97%A9%E5%8F%91%E7%94%9F%E6%97%B6%E9%97%B4"><span class="toc-text">7.7.2.2:活动的最早发生时间:</span></a></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#8-%E6%9F%A5%E6%89%BE"><span class="toc-text">8.查找:</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#8-1-%E9%A1%BA%E5%BA%8F%E6%9F%A5%E6%89%BE"><span class="toc-text">8.1: 顺序查找:</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#8-2-%E6%8A%98%E5%8D%8A%E6%9F%A5%E6%89%BE"><span class="toc-text">8.2: 折半查找:</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#8-3%EF%BC%9A%E7%B4%A2%E5%BC%95%E6%9F%A5%E6%89%BE%EF%BC%9A"><span class="toc-text">8.3：索引查找：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#8-4%EF%BC%9A-%E7%9B%91%E8%A7%86%E5%93%A8%EF%BC%9A"><span class="toc-text">8.4： 监视哨：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#8-4%EF%BC%9A%E4%BA%8C%E5%8F%89%E6%8E%92%E5%BA%8F%E6%A0%91%EF%BC%9A"><span class="toc-text">8.4：二叉排序树：</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#8-4-1%EF%BC%9A-%E9%9D%99%E6%80%81%E6%9F%A5%E6%89%BE%E8%A1%A8%E4%B8%8E%E5%8A%A8%E6%80%81%E6%9F%A5%E6%89%BE%E8%A1%A8%EF%BC%9A"><span class="toc-text">8.4.1： 静态查找表与动态查找表：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#8-4-2%EF%BC%9A-%E5%AE%9A%E4%B9%89%EF%BC%9A"><span class="toc-text">8.4.2： 定义：</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#8-5%EF%BC%9A%E5%B9%B3%E8%A1%A1%E4%BA%8C%E5%8F%89%E6%A0%91%EF%BC%9A"><span class="toc-text">8.5：平衡二叉树：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#8-6%EF%BC%9A%E5%93%88%E5%B8%8C%E8%A1%A8%EF%BC%9A"><span class="toc-text">8.6：哈希表：</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#8-6-2%EF%BC%9A-%E8%A7%A3%E5%86%B3%E5%86%B2%E7%AA%81%E6%96%B9%E6%B3%95%EF%BC%9A"><span class="toc-text">8.6.2： 解决冲突方法：</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#9-%E6%8E%92%E5%BA%8F%EF%BC%9A"><span class="toc-text">9.排序：</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#9-1%EF%BC%9A-%E5%86%85%E9%83%A8%E6%8E%92%E5%BA%8F%E4%B8%8E%E5%A4%96%E9%83%A8%E6%8E%92%E5%BA%8F%EF%BC%9A"><span class="toc-text">9.1： 内部排序与外部排序：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#9-2%EF%BC%9A%E6%8F%92%E5%85%A5%E6%8E%92%E5%BA%8F%EF%BC%9A"><span class="toc-text">9.2：插入排序：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#9-%EF%BC%93%EF%BC%9A%E6%8A%98%E5%8D%8A%E6%8F%92%E5%85%A5%E6%8E%92%E5%BA%8F%EF%BC%9A"><span class="toc-text">9.３：折半插入排序：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#9-%EF%BC%94%EF%BC%9A%E5%B8%8C%E5%B0%94%E6%8E%92%E5%BA%8F%EF%BC%9A"><span class="toc-text">9.４：希尔排序：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#9-%EF%BC%95%EF%BC%9A%E5%86%92%E6%B3%A1%E6%8E%92%E5%BA%8F%EF%BC%9A"><span class="toc-text">9.５：冒泡排序：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#9-%EF%BC%96%EF%BC%9A%E5%BF%AB%E9%80%9F%E6%8E%92%E5%BA%8F%EF%BC%9A"><span class="toc-text">9.６：快速排序：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#9-%EF%BC%97%EF%BC%9A%E9%80%89%E6%8B%A9%E6%8E%92%E5%BA%8F%EF%BC%9A"><span class="toc-text">9.７：选择排序：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#9-%EF%BC%98%EF%BC%9A%E5%A0%86%E6%8E%92%E5%BA%8F%EF%BC%9A"><span class="toc-text">9.８：堆排序：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#9-9-%E5%BD%92%E5%B9%B6%E6%8E%92%E5%BA%8F%EF%BC%9A"><span class="toc-text">9.9: 归并排序：</span></a></li></ol></li></ol>
+    </div>
+</div>
+            
+        
+            
+        <div class="card-widget card-recent-post">
+    <div class="item-headline">
+        <i class="fas fa-list-ol"></i>
+        <span>最近发布</span>
+    </div>
+    <div class="aside-list">
+        
+        
+            <div class="aside-list-item">
+                <a class="thumbnail" href="/2023/04/28/ClickHouse/" title="ClickHouse">
+                    <img
+                        alt="ClickHouse"
+                        src="/img/1.jpg">
+                </a>
+                <div class="content">
+                    
+                        <a class="article-recent_post_categories" href="/2023/04/28/ClickHouse/">
+                            笔记
+                        </a>
+                    
+                    <a class="title" href="/2023/04/28/ClickHouse/" title="ClickHouse">
+                        ClickHouse
+                    </a>
+                </div>
+            </div>
+                
+        
+            <div class="aside-list-item">
+                <a class="thumbnail" href="/2023/03/18/%E4%BB%8EIOC%E5%88%B0Java%E6%9E%B6%E6%9E%84/" title="从IOC到java架构">
+                    <img
+                        alt="从IOC到java架构"
+                        src="/img/25.jpg">
+                </a>
+                <div class="content">
+                    
+                        <a class="article-recent_post_categories" href="/2023/03/18/%E4%BB%8EIOC%E5%88%B0Java%E6%9E%B6%E6%9E%84/">
+                            笔记
+                        </a>
+                    
+                    <a class="title" href="/2023/03/18/%E4%BB%8EIOC%E5%88%B0Java%E6%9E%B6%E6%9E%84/" title="从IOC到java架构">
+                        从IOC到java架构
+                    </a>
+                </div>
+            </div>
+                
+        
+            <div class="aside-list-item">
+                <a class="thumbnail" href="/2023/03/18/%E6%95%B0%E6%8D%AE%E5%BA%93%E6%A6%82%E8%BF%B0/" title="数据库概述">
+                    <img
+                        alt="数据库概述"
+                        src="/img/28.jpg">
+                </a>
+                <div class="content">
+                    
+                        <a class="article-recent_post_categories" href="/2023/03/18/%E6%95%B0%E6%8D%AE%E5%BA%93%E6%A6%82%E8%BF%B0/">
+                            笔记
+                        </a>
+                    
+                    <a class="title" href="/2023/03/18/%E6%95%B0%E6%8D%AE%E5%BA%93%E6%A6%82%E8%BF%B0/" title="数据库概述">
+                        数据库概述
+                    </a>
+                </div>
+            </div>
+                
+        
+            <div class="aside-list-item">
+                <a class="thumbnail" href="/2023/03/18/%E5%BE%AE%E6%9C%8D%E5%8A%A1/" title="微服务">
+                    <img
+                        alt="微服务"
+                        src="/img/29.jpg">
+                </a>
+                <div class="content">
+                    
+                        <a class="article-recent_post_categories" href="/2023/03/18/%E5%BE%AE%E6%9C%8D%E5%8A%A1/">
+                            笔记
+                        </a>
+                    
+                    <a class="title" href="/2023/03/18/%E5%BE%AE%E6%9C%8D%E5%8A%A1/" title="微服务">
+                        微服务
+                    </a>
+                </div>
+            </div>
+                
+        
+            <div class="aside-list-item">
+                <a class="thumbnail" href="/2023/03/18/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" title="数据结构">
+                    <img
+                        alt="数据结构"
+                        src="/img/27.jpg">
+                </a>
+                <div class="content">
+                    
+                        <a class="article-recent_post_categories" href="/2023/03/18/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">
+                            笔记
+                        </a>
+                    
+                    <a class="title" href="/2023/03/18/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" title="数据结构">
+                        数据结构
+                    </a>
+                </div>
+            </div>
+            
+    </div>
+</div>
+     
+        
+    </div>
+</div> 
+</main>
+                <footer id="footer">
+                    <div id="footer_deal">
+    
+        <a class="deal_link" target="_blank" href="https://github.com/bearslyricattack" rel="external nofollow noopener" title="Github">
+            <i class="fa-brands fa-github"></i>
+        </a>
+    
+        <a class="deal_link" target="_blank" href="https://user.qzone.qq.com/2669184984" rel="external nofollow noopener" title="Mail">
+            <i class="fa-solid fa-envelope"></i>
+        </a>
+    
+    <img class="footer_mini_logo" src="/img/avatar.webp"
+        title="返回顶部" onclick="acrylic.toTop()">
+    
+        <a class="deal_link" target="_blank" href="https://music.163.com/#/user/follows?id=436327083" rel="external nofollow noopener" title="网易云">
+            <i class="fa-solid fa-music"></i>
+        </a>
+    
+        <a class="deal_link" target="_blank" href="https://space.bilibili.com/701779878?spm_id_from=333.1007.0.0" rel="external nofollow noopener" title="bilibili">
+            <i class="fa-brands fa-bilibili"></i>
+        </a>
+    
+</div>    
+<div id="heo-footer">
+    
+    
+</div>
+<div id="footer-section">
+    <div class="footer-section-links">
+        <div class="footer-section-left">
+            <div id="footer-section-tips">
+                <div class="copyright">©2022 - 2023 By 
+                    <a class="footer-section-link" href="/" rel="external nofollow">抒情熊</a>
+                    <a class="footer-section-link" href="https://github.com/hexo-theme-Acrylic/Hexo-Theme-Acrylic-Next" rel="external nofollow" target="_blank"> Theme By Acrylic-Next</a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-section-right">
+            <a class="footer-section-link" href="/rss/">订阅</a>
+            
+            <a class="footer-section-link cc" target="_blank" href="https://creativecommons.org/licenses/by/4.0/" title="cc协议">
+                <i class="fa-solid fa-closed-captioning"></i>
+            </a>
+        </div>
+    </div>
+</div>
+                </footer>
+            </div>
+         
+        <div>
+    <script type="text/javascript" src="/js/utils.js"></script>
+    <script type="text/javascript" src="/js/main.js"></script>
+    
+
+<script src="/lib/pjax.min.js"></script>
+
+
+
+<script src="/lib/snackbar.min.js"></script>
+
+
+    
+<script src="/lib/view-image.min.js"></script>
+
+
+
+    
+<link rel="stylesheet" href="/lib/swiper.min.css">
+
+    
+<script src="/lib/swiper.min.js"></script>
+
+
+<div id="js-pjax">
+    
+    
+        <script async src="https://npm.elemecdn.com/penndu@1.0.0/bsz.js"></script>
+     
+</div>
+
+    
+<link rel="stylesheet" href="https://lf9-cdn-tos.bytecdntp.com/cdn/expire-1-M/aplayer/1.10.1/APlayer.min.css">
+
+    
+<script src="https://lf3-cdn-tos.bytecdntp.com/cdn/expire-1-M/aplayer/1.10.1/APlayer.min.js"></script>
+
+    
+<script src="https://cdn1.tianli0.top/npm/meting@2.0.1/dist/Meting.min.js"></script>
+
+
+
+    
+<script src="/js/extend/covercolor/web.js"></script>
+
+        
+
+    <script>
+  let pjaxSelectors = [
+    'title',
+    '#body-wrap',
+    '#site-config',
+    'meta[name="description"]',
+    '#js-pjax'
+  ]
+  
+  const pjax = new Pjax({
+    elements: 'a:not([target="_blank"])',
+    selectors: pjaxSelectors,
+    cacheBust: false,
+    analytics: false,
+    scrollRestoration: false
+  })
+
+  document.querySelectorAll('script[data-pjax]').forEach(item => {
+      const newScript = document.createElement('script')
+      const content = item.text || item.textContent || item.innerHTML || ""
+      Array.from(item.attributes).forEach(attr => newScript.setAttribute(attr.name, attr.value))
+      newScript.appendChild(document.createTextNode(content))
+      item.parentNode.replaceChild(newScript, item)
+  })
+
+  document.addEventListener('pjax:error', (e) => {
+    if (e.request.status === 404) {
+      pjax.loadUrl('/404.html')
+    }
+  })
+</script>
+    
+</div>
+        
+    <div id="local-search">
+    <div class="search-dialog">
+        <nav class="search-nav">
+            <span class="search-dialog-title">搜索</span>
+            <button class="search-close-button">
+                <i class="fas fa-times"></i>
+            </button>
+        </nav>
+        <div id="loading-database">
+            <i class="fas fa-spinner fa-pulse"></i>
+            <span>加载中</span>
+        </div>
+        <div class="search-wrap">
+            <div class="search-box">
+                <input class="search-box-input" placeholder="输入关键词快速查找" type="text" id="search-input" autocomplete="off" spellcheck="false" autocorrect="off" autocapitalize="off">
+            </div>
+            <div id="loading-status"></div>
+            <div id="search-results"></div>
+        </div>
+    </div>
+    <div id="search-mask"></div>
+</div>
+    
+<link rel="stylesheet" href="/css/search/local-search.css">
+
+    
+<script src="/js/extend/search/local-search.js"></script>
+
+
+     
+        <div class="needEndHide" id="nav-music" onclick="acrylic.musicToggle()">
+    <div id="nav-music-hoverTips">音乐已暂停</div>
+    <meting-js id="7315994021" server="tencent" type="playlist" mutex="true"
+        preload="none" data-lrctype="0" order="random" theme="var(--heo-main)"></meting-js>
+</div>
+    
+    </body>
+</html>
+<script>const posts=["2023/04/28/ClickHouse/","2023/03/18/从IOC到Java架构/","2023/03/18/数据库概述/","2023/03/18/微服务/","2023/03/18/数据结构/","2023/03/18/系统分析与设计/","2023/03/18/面向对象建模技术/","2023/03/14/Go语言设计与实现/","2023/03/13/Git/","2023/02/10/服务器部署/","2023/02/10/规则引擎/","2023/02/10/风凌夜话/","2023/02/10/青萍/","2023/02/10/巷/","2023/02/10/乱世佳人/","2023/02/10/马克思主义原理/","2023/02/04/Hertz/","2023/01/17/架构设计/","2023/01/17/计算机组成原理/","2023/01/17/鹤扶摇/","2023/01/17/泠音泛海/","2023/01/17/江城一梦/","2023/01/17/近世代数/","2023/01/17/白马遥/","2023/01/17/塑鸿/","2023/01/17/彩云辞/","2023/01/17/Java虚拟机/","2023/01/17/Web基本原理/","2023/01/17/Springboot入门/","2023/01/17/分布式/","2023/01/17/Golang/","2023/01/17/Redis/"];function toRandomPost(){ window.pjax ? pjax.loadUrl('/'+posts[Math.floor(Math.random()*posts.length)]) : window.open('/'+posts[Math.floor(Math.random()*posts.length)], "_self"); };</script>

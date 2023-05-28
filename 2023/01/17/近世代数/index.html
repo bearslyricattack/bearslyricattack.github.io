@@ -1,0 +1,922 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-theme="light">
+    <head>
+        <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>近世代数 | 风凌渡</title>
+<noscript>开启Javascript是必要的</noscript>
+<link rel="icon" type="image/x-icon" href="/img/avatar.webp">
+<link rel="apple-touch-icon" href="/img/avatar.webp">
+<meta name="apple-mobile-web-app-title" content="风凌渡">
+<link rel="bookmark" href="/img/avatar.webp">
+<link rel="apple-touch-icon-precomposed" sizes="180x180" href="/img/avatar.webp">
+<meta name="description" content="a blog 一个分享技术与生活的博客">
+<meta name="theme-color" content="#1C1C1F">
+<link rel="stylesheet" href="/css/var.css">
+<link rel="stylesheet" href="/css/main.css">
+<link rel="stylesheet" href="/css/custom.css">
+
+
+
+<link rel="stylesheet" href="https://cdn.bootcdn.net/ajax/libs/font-awesome/6.3.0/css/all.min.css">
+    
+
+<link rel="stylesheet" href="/lib/snackbar.min.css">
+
+
+<script src="/lib/qrcode.min.js"></script>
+
+
+
+
+
+<script>var GLOBALCONFIG = {"root":"/","runtime":"2022-5-21 00:00:00","lazyload":{"enable":false,"error":"/img/acrylic.png"},"hightlight":{"enable":false,"limit":200},"lightbox":true,"randomlinks":false,"lang":{"theme":{"dark":"已切换至深色模式","light":"已切换至浅色模式"},"copy":{"success":"复制成功","error":"复制失败"},"backtop":"返回顶部","time":{"recent":"最近","yesterday":"昨天","berforeyesterday":"前天","daybefore":"天前","runtime":"天"},"sayhello":{"morning":"早上好","noon":"中午好","afternoon":"下午好","night":"晚上好","goodnight":"晚安","iam":"!  我是"},"search":{"empty":"搜索结果为空","hit":"已为您找到 ${query} 条结果","placeholder":"输入关键词快速查找"}},"covercolor":false,"localsearch":{"preload":false,"path":"/search.xml"}};</script><script id="site-config">var PAGECONFIG = {"is_home":false,"is_post":true,"is_page":false,"page":false,"toc":true,"comment":false};</script>
+    <meta name="generator" content="Hexo 6.3.0"></head>
+    <body id="body">
+        
+        <div id="console" style="zoom: 1;" class="">
+    <div class="close-btn" onclick="acrylic.hideConsole()" href="javascript:void(0);">
+        <i class="fas fa-circle-xmark"></i>
+    </div>
+    <div class="button-group">
+        <div class="console-btn-item"> <a class="darkmode_switchbutton" onclick="acrylic.switchDarkMode()" title="显示模式切换"
+                href="javascript:void(0);" rel="external nofollow" data-pjax-state=""><i class="fas fa-moon"
+                    style="font-size: 1rem;"></i></a></div>
+                    
+            <div class="console-btn-item" id="consoleMusic" onclick="acrylic.musicToggle()" title="音乐开关"><a class="music-switch"><i class="fas fa-music"></i></a></div>
+        
+        <div class="console-btn-item" id="consoleFPS" onclick="acrylic.FPSToggle()" title="帧率显示开关"><a class="FPS-switch"
+                data-pjax-state=""><i class="fas fa-gauge"></i></a></div>
+    </div>
+    <div class="console-mask" onclick="acrylic.hideConsole()" href="javascript:void(0);" rel="external nofollow"></div>
+</div>
+        <div id="sidebar" style="zoom: 1;">
+    <div id="menu-mask" style="display: none;"></div>
+    <div id="sidebar-menus" class>
+        <span class="sidebar-menu-item-title">功能</span>
+        <div class="sidebar-menu-item">
+            <a class="darkmode_switchbutton menu-child" onclick="acrylic.switchDarkMode()" title="显示模式切换"
+                href="javascript:void(0);" rel="external nofollow">
+                <i class="fas fa-moon" style="font-size: 1rem;"></i>
+                <span>显示模式</span>
+            </a>
+        </div>
+        
+            <div class="back-menu-list-groups">
+    
+      
+      <div class="back-menu-list-group">
+        <div class="back-menu-list-title">
+          我的
+        </div>
+        <div class="back-menu-list">
+          
+            
+            <a class="back-menu-item" href="/" rel="external nofollow" title="博客">
+              <img class="back-menu-item-icon" src="/img/avatar.webp" loading="lazy">
+              <span class="back-menu-item-text">
+                博客
+              </span>
+            </a>
+          
+        </div>
+      </div>
+    
+  </div>
+  
+        
+        <div class="menus_items">
+    
+        <div class="menus_item">
+            
+                <a class="site-page" href="javascript:void(0);" rel="external nofollow">
+                    <span> 文库</span>
+                </a>
+                <ul class="menus_item_child">
+                    
+                        <li>
+                            <a class="site-page child" href="/archives/">
+                                <i class="fas fa-box-archive"></i>
+                                <span> 文章列表</span>
+                            </a>
+                        </li>
+                    
+                        <li>
+                            <a class="site-page child" href="/categories/">
+                                <i class="fas fa-cube"></i>
+                                <span> 全部分类</span>
+                            </a>
+                        </li>
+                    
+                        <li>
+                            <a class="site-page child" href="/tags/">
+                                <i class="fas fa-tags"></i>
+                                <span> 全部标签</span>
+                            </a>
+                        </li>
+                    
+                </ul>
+             
+        </div>
+    
+        <div class="menus_item">
+            
+                <a class="site-page not-child" target="_blank" href="https://github.com/bearslyricattack" rel="external nofollow noopener">
+                    <span> 仓库</span>
+                </a>
+             
+        </div>
+    
+</div>
+        <span class="sidebar-menu-item-title">标签</span>
+        <div class="card-widget card-tags card-archives card-webinfo card-allinfo">
+            <div class="item-headline">
+                <i class="fas fa-tags"></i>
+                <span>标签</span>
+            </div>
+            <div class="card-tag-cloud">
+                
+                    <a href="/tags/%E4%B8%AD%E9%97%B4%E4%BB%B6/" style="font-size: 1em; color: #d3d3d3">中间件
+                        <sup>4</sup>
+                    </a>
+                
+                    <a href="/tags/Go/" style="font-size: 1em; color: #d3d3d3">Go
+                        <sup>3</sup>
+                    </a>
+                
+                    <a href="/tags/Java/" style="font-size: 1em; color: #d3d3d3">Java
+                        <sup>3</sup>
+                    </a>
+                
+                    <a href="/tags/%E5%BD%B1%E8%AF%84/" style="font-size: 1em; color: #d3d3d3">影评
+                        <sup>1</sup>
+                    </a>
+                
+                    <a href="/tags/%E6%9E%B6%E6%9E%84/" style="font-size: 1em; color: #d3d3d3">架构
+                        <sup>3</sup>
+                    </a>
+                
+                    <a href="/tags/%E5%88%86%E5%B8%83%E5%BC%8F/" style="font-size: 1em; color: #d3d3d3">分布式
+                        <sup>1</sup>
+                    </a>
+                
+                    <a href="/tags/%E8%AF%97%E6%AD%8C/" style="font-size: 1em; color: #d3d3d3">诗歌
+                        <sup>9</sup>
+                    </a>
+                
+                    <a href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/" style="font-size: 1em; color: #d3d3d3">数据库
+                        <sup>1</sup>
+                    </a>
+                
+                    <a href="/tags/%E8%AF%BE%E7%A8%8B/" style="font-size: 1em; color: #d3d3d3">课程
+                        <sup>6</sup>
+                    </a>
+                
+                    <a href="/tags/%E6%9C%8D%E5%8A%A1%E5%99%A8/" style="font-size: 1em; color: #d3d3d3">服务器
+                        <sup>1</sup>
+                    </a>
+                
+            </div>
+        </div>
+    </div>
+</div>    
+        
+            <div class="post" id="body-wrap">
+                <header class="post-bg" id="page-header">
+    <nav id="nav" class="show">
+    <div id="nav-group">
+        <div id="blog_name">
+            
+                <div class="back-home-button" tabindex="-1">
+                    <i class="back-home-button-icon fas fa-grip-vertical"></i>
+                    <div class="back-menu-list-groups">
+    
+      
+      <div class="back-menu-list-group">
+        <div class="back-menu-list-title">
+          我的
+        </div>
+        <div class="back-menu-list">
+          
+            
+            <a class="back-menu-item" href="/" rel="external nofollow" title="博客">
+              <img class="back-menu-item-icon" src="/img/avatar.webp" loading="lazy">
+              <span class="back-menu-item-text">
+                博客
+              </span>
+            </a>
+          
+        </div>
+      </div>
+    
+  </div>
+  
+                </div>
+            
+            <a id="site-name" href="/" title="返回博客主页">
+                    
+            </a>
+        </div>
+        <div id="page-name-mask">
+            <div id="page-name">
+                <a id="page-name-text" onclick="acrylic.toTop()">近世代数</a>
+            </div>
+        </div>
+        <div id="menus">
+            <div class="menus_items">
+    
+        <div class="menus_item">
+            
+                <a class="site-page" href="javascript:void(0);" rel="external nofollow">
+                    <span> 文库</span>
+                </a>
+                <ul class="menus_item_child">
+                    
+                        <li>
+                            <a class="site-page child" href="/archives/">
+                                <i class="fas fa-box-archive"></i>
+                                <span> 文章列表</span>
+                            </a>
+                        </li>
+                    
+                        <li>
+                            <a class="site-page child" href="/categories/">
+                                <i class="fas fa-cube"></i>
+                                <span> 全部分类</span>
+                            </a>
+                        </li>
+                    
+                        <li>
+                            <a class="site-page child" href="/tags/">
+                                <i class="fas fa-tags"></i>
+                                <span> 全部标签</span>
+                            </a>
+                        </li>
+                    
+                </ul>
+             
+        </div>
+    
+        <div class="menus_item">
+            
+                <a class="site-page not-child" target="_blank" href="https://github.com/bearslyricattack" rel="external nofollow noopener">
+                    <span> 仓库</span>
+                </a>
+             
+        </div>
+    
+</div>
+        </div>
+        <!-- <div id="nav-left">
+            <div id="fps-group">
+                <div id="fps">145</div><span class="fpsText">FPS</span>
+            </div>
+        </div> -->
+        <div id="nav-right">
+            
+    <div class="nav-button only-home" id="travellings_button">
+        <a class="site-page"  target="_blank" rel="noopener external nofollow" href="https://www.travellings.cn/go.html" title="开往-友链接力"  width="120">
+            <i class="fa-solid fa-train-subway" style="font-size: 1rem;"></i>
+        </a>
+    </div>
+
+
+    <div class="nav-button" id="randomPost_button">
+        <a class="site-page" onclick="toRandomPost()"
+            title="随机前往一个文章">
+            <i class="fas fa-shuffle" style="font-size: 1rem;"></i>
+        </a>
+    </div>
+
+
+    <div class="nav-button" id="search-button">
+        <a class="site-page social-icon search" title="站内搜索"
+            href="javascript:void(0);" rel="external nofollow">
+            <i class="fas fa-magnifying-glass" style="font-size: 1rem;"></i>
+        </a>
+    </div>
+
+
+    <div class="nav-button" id="nav-console">
+        <a class="console_switchbutton" onclick="acrylic.showConsole()"
+        title="显示中控台" href="javascript:void(0);" rel="external nofollow">
+        <i class="fas fa-bars-progress" style="font-size: 1rem;"></i>
+        </a>
+    </div>
+
+<div class="nav-button" id="nav-totop" onclick="acrylic.toTop()">
+    <a class="totopbtn">
+        <i class="fas fa-arrow-up"></i>
+        <span id="percent">0</span>
+    </a>
+</div>
+<div id="toggle-menu">
+    <a class="site-page">
+        <i class="fas fa-bars fa-fw" style="font-size: 1rem;"></i>
+    </a>
+</div>
+        </div>
+    </div>
+</nav>
+    
+        <div class="coverdiv" id="coverdiv">
+    <img id="post-cover" class="nolazyload" src="/img/20.jpg" alt="cover">
+</div>
+<div id="post-info">
+    <div id="post-firstinfo">
+        <div class="meta-firstline">
+            <a class="post-meta-original" title="该文章为原创文章，注意版权协议">
+                原创
+            </a>
+            
+            <span class="post-meta-categories">
+                
+                    <a class="post-meta-categories" href="/categories/%E7%AC%94%E8%AE%B0/">笔记</a>
+                
+            </span>
+            
+            <div class="tag_share">
+                <div class="post-meta__tag-list">
+                    
+                        <a class="post-meta__tags" href="/tags/%E8%AF%BE%E7%A8%8B/">
+                            <span class="tags-punctuation">#</span>
+                            <span class="tags-name">课程</span>
+                        </a>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+    <h1 class="post-title">近世代数</h1>
+    <div id="post-meta">
+        <div class="meta-secondline">
+            <span class="post-meta-date" title="发布于">
+                <i class="post-meta-icon fa-fw fas fa-calendar"></i>
+                <time datetime="2023-01-17T23:17:07+08:00"></time>
+            </span>
+            
+            
+                <span class="post-meta-position" title="作者IP归属地为山东·威海">
+                    <i class="fas fa-location-dot post-meta-icon"></i>
+                    <span>山东·威海</span>
+                </span>
+            
+            
+                
+                
+            
+            
+                
+        </div>
+    </div>
+</div>
+<section class="main-hero-waves-area waves-area"><svg class="waves-svg" xmlns="http://www.w3.org/2000/svg"
+    xlink="http://www.w3.org/1999/xlink" viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto">
+    <defs>
+        <path id="gentle-wave"
+            d="M -160 44 c 30 0 58 -18 88 -18 s 58 18 88 18 s 58 -18 88 -18 s 58 18 88 18 v 44 h -352 Z"></path>
+    </defs>
+    <g class="parallax">
+        <use href="#gentle-wave" x="48" y="0"></use>
+        <use href="#gentle-wave" x="48" y="3"></use>
+        <use href="#gentle-wave" x="48" y="5"></use>
+        <use href="#gentle-wave" x="48" y="7"></use>
+    </g>
+</svg>
+</section>
+
+        
+</header>
+                <main class="layout" id="content-inner">
+    <div id="post">
+        <article class="post-content" id="article-container">
+            <h1 id="近世代数"><a href="#近世代数" class="headerlink" title="近世代数"></a>近世代数</h1><h1 id="1-引入"><a href="#1-引入" class="headerlink" title="1.引入:"></a>1.引入:</h1><p>近世代数主要研究所谓的代数系统,即带有运算的集合；研究代数运算的规律和各种代数系统的性质。</p>
+<h1 id="2-基本概念"><a href="#2-基本概念" class="headerlink" title="2.基本概念:"></a>2.基本概念:</h1><h2 id="2-1-二元运算"><a href="#2-1-二元运算" class="headerlink" title="2.1 二元运算:"></a>2.1 二元运算:</h2><p>s为集合,sxs到s的映射,成为s上的一个二元运算.</p>
+<p>S中任何两个元素的运算结果都属于S，这个性质称为运算的封闭性. (后面常说S对某运算封闭).</p>
+<p>实例:</p>
+<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230206215025.png" alt="QQ截图20230206215025"></p>
+<h2 id="2-2-一元运算"><a href="#2-2-一元运算" class="headerlink" title="2.2 一元运算:"></a>2.2 一元运算:</h2><p>s到s的映射.</p>
+<p>表示:</p>
+<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230206215025-1675691574119-2.png" alt="QQ截图20230206215025"></p>
+<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230206215215.png" alt="QQ截图20230206215215"></p>
+<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230206215227.png" alt="QQ截图20230206215227"></p>
+<h2 id="2-3-二元运算的规律"><a href="#2-3-二元运算的规律" class="headerlink" title="2.3 二元运算的规律:"></a>2.3 二元运算的规律:</h2><p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230206215406.png" alt="QQ截图20230206215406"></p>
+<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230206215515.png" alt="QQ截图20230206215515"></p>
+<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230207150210.png" alt="QQ截图20230207150210"></p>
+<h2 id="2-4-单位元"><a href="#2-4-单位元" class="headerlink" title="2.4 单位元:"></a>2.4 单位元:</h2><p>类似乘法里面的1.</p>
+<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230206215633.png" alt="QQ截图20230206215633"></p>
+<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230206215652.png" alt="QQ截图20230206215652"></p>
+<h2 id="2-5-零元"><a href="#2-5-零元" class="headerlink" title="2.5 零元:"></a>2.5 零元:</h2><p>类似乘法中的0.</p>
+<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230206215840.png" alt="QQ截图20230206215840"></p>
+<h2 id="2-6-逆元"><a href="#2-6-逆元" class="headerlink" title="2.6 逆元:"></a>2.6 逆元:</h2><p>类似倒数.</p>
+<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230207150035.png" alt="QQ截图20230207150035"></p>
+<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230207150103.png" alt="QQ截图20230207150103"></p>
+<h2 id="2-7-代数系统"><a href="#2-7-代数系统" class="headerlink" title="2.7 代数系统:"></a>2.7 代数系<img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230207150253.png" alt="QQ截图20230207150253">统:</h2><p>一个集合+集合上的一些二元运算.</p>
+<p>近世代数（或抽象代数）的主要研究内容就是研究所谓的代数系统，即带有运算的集合。在近世代数里，不管是在群、环里还是在其它代数系统里，研究一种代数系统就是要解决这一系统的存在问题、数量问题和构造问题。如果对于一个代数系统，这三个问题能得到圆满的解答，研究的目的就算达到了 <strong>。</strong></p>
+<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230207150539.png" alt="QQ截图20230207150539"></p>
+<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230207150635.png" alt="QQ截图20230207150635"></p>
+<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230207150649.png" alt="QQ截图20230207150649"></p>
+<h1 id="3-半群"><a href="#3-半群" class="headerlink" title="3.半群:"></a>3.半群:</h1><h2 id="3-1-定义"><a href="#3-1-定义" class="headerlink" title="3.1 定义:"></a>3.1 定义:</h2><p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230207151020.png" alt="QQ截图20230207151020"></p>
+<p>结合律:半群</p>
+<p>交换律:交换半群,可换半群.</p>
+<h2 id="3-2-半群的术语"><a href="#3-2-半群的术语" class="headerlink" title="3.2 半群的术语:"></a>3.2 半群的术语:</h2><p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230207151407.png" alt="QQ截图20230207151407"></p>
+<p>单位元问题:</p>
+<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230207151446.png" alt="QQ截图20230207151446"></p>
+<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230207151558.png" alt="QQ截图20230207151558"></p>
+<h2 id="3-3-子半群"><a href="#3-3-子半群" class="headerlink" title="3.3 子半群:"></a>3.3 子半群:</h2><p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230207151724.png" alt="QQ截图20230207151724"></p>
+<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230207152024.png" alt="QQ截图20230207152024"></p>
+<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230207152328.png" alt="QQ截图20230207152328"></p>
+<h2 id="3-4-理想"><a href="#3-4-理想" class="headerlink" title="3.4 理想:"></a>3.4 理想:</h2><p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230207152359.png" alt="QQ截图20230207152359"></p>
+<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230207152451.png" alt="QQ截图20230207152451"></p>
+<p>两个集合,不加符号,表示两个集合里面任意两个元素进行操作.</p>
+<h2 id="3-5-循环半群"><a href="#3-5-循环半群" class="headerlink" title="3.5 循环半群:"></a>3.5 循环半群:</h2><p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230211155421.png" alt="QQ截图20230211155421"></p>
+<h2 id="3-6-半群的同态和同构"><a href="#3-6-半群的同态和同构" class="headerlink" title="3.6 半群的同态和同构:"></a>3.6 半群的同态和同构:</h2><p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230211155550.png" alt="QQ截图20230211155550"></p>
+<h2 id="3-7-商半群"><a href="#3-7-商半群" class="headerlink" title="3.7 商半群:"></a>3.7 商半群:</h2><p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230211155650.png" alt="QQ截图20230211155650"></p>
+<h1 id="4-幺半群"><a href="#4-幺半群" class="headerlink" title="4.幺半群:"></a>4.幺半群:</h1><p>有单位元的半群.</p>
+<p>有单位元,符合集合律的代数系统.</p>
+<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230211155934.png" alt="QQ截图20230211155934"></p>
+<h2 id="4-1-幺半群的性质"><a href="#4-1-幺半群的性质" class="headerlink" title="4.1 幺半群的性质:"></a>4.1 幺半群的性质:</h2><p>有限与无限. S集合的基数成为幺半群的阶.</p>
+<p>有的有零元,有的没有零元.</p>
+<h2 id="4-2-逆元问题"><a href="#4-2-逆元问题" class="headerlink" title="4.2 逆元问题:"></a>4.2 逆元问题:</h2><p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230211160315.png" alt="QQ截图20230211160315"></p>
+<h1 id="5-群"><a href="#5-群" class="headerlink" title="5.群:"></a>5.群:</h1><h2 id="5-1-定义"><a href="#5-1-定义" class="headerlink" title="5.1 定义:"></a>5.1 定义:</h2><p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230211160658.png" alt="QQ截图20230211160658"></p>
+<h1 id="6-有限群和子群"><a href="#6-有限群和子群" class="headerlink" title="6.有限群和子群:"></a>6.有限群和子群:</h1><p>在群的定义上加上有限集合的限制条件.</p>
+<h2 id="6-1-有限群的性质"><a href="#6-1-有限群的性质" class="headerlink" title="6.1 有限群的性质:"></a>6.1 有限群的性质:</h2><p>有限群的每个元素的阶均为有限且不超过群的阶.</p>
+<h2 id="6-2-子群的定义"><a href="#6-2-子群的定义" class="headerlink" title="6.2 子群的定义:"></a>6.2 子群的定义:</h2><p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230211161340.png" alt="QQ截图20230211161340"></p>
+<p>子集,运算封闭,构成群.</p>
+<h2 id="6-3-子群的性质"><a href="#6-3-子群的性质" class="headerlink" title="6.3 子群的性质:"></a>6.3 子群的性质:</h2><p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230211161509.png" alt="QQ截图20230211161509"></p>
+<h3 id="判别子群的方法"><a href="#判别子群的方法" class="headerlink" title="判别子群的方法:"></a>判别子群的方法:</h3><p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/fwefsedsf.png" alt="fwefsedsf"></p>
+<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230211161614.png" alt="QQ截图20230211161614"></p>
+<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230211161632.png" alt="QQ截图20230211161632"></p>
+<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230211161708.png" alt="QQ截图20230211161708"></p>
+<h1 id="7-变换群"><a href="#7-变换群" class="headerlink" title="7.变换群:"></a>7.变换群:</h1><h2 id="7-1-变换"><a href="#7-1-变换" class="headerlink" title="7.1 变换:"></a>7.1 变换:</h2><p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230211161915.png" alt="QQ截图20230211161915"></p>
+<h2 id="7-2-变换群"><a href="#7-2-变换群" class="headerlink" title="7.2 变换群:"></a>7.2 变换群:</h2><p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230211162051.png" alt="QQ截图20230211162051"></p>
+<h2 id="7-3-群的同构"><a href="#7-3-群的同构" class="headerlink" title="7.3 群的同构:"></a>7.3 群的同构:</h2><p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230211162120.png" alt="QQ截图20230211162120"></p>
+<h2 id="7-4-群的Cayley定理"><a href="#7-4-群的Cayley定理" class="headerlink" title="7.4 群的Cayley定理:"></a>7.4 群的Cayley定理:</h2><p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230211162300.png" alt="QQ截图20230211162300"></p>
+<h1 id="8-置换群"><a href="#8-置换群" class="headerlink" title="8.置换群:"></a>8.置换群:</h1><h2 id="8-1-定义"><a href="#8-1-定义" class="headerlink" title="8.1 定义:"></a>8.1 定义:</h2><p>特殊的变换群.</p>
+<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230211162432.png" alt="QQ截图20230211162432"></p>
+<h2 id="8-2-n元置换的乘法"><a href="#8-2-n元置换的乘法" class="headerlink" title="8.2 n元置换的乘法:"></a>8.2 n元置换的乘法:</h2><p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230211162648.png" alt="QQ截图20230211162648"></p>
+<h2 id="8-3-n元置换的性质"><a href="#8-3-n元置换的性质" class="headerlink" title="8.3 n元置换的性质:"></a>8.3 n元置换的性质:</h2><p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230211162738.png" alt="QQ截图20230211162738"></p>
+<h2 id="8-4-置换群"><a href="#8-4-置换群" class="headerlink" title="8.4 置换群:"></a>8.4 置换群:</h2><p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230211162820.png" alt="QQ截图20230211162820"></p>
+<h1 id="9-循环群"><a href="#9-循环群" class="headerlink" title="9.循环群:"></a>9.循环群:</h1><h2 id="9-1-定义"><a href="#9-1-定义" class="headerlink" title="9.1 定义:"></a>9.1 定义:</h2><p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230211162949.png" alt="QQ截图20230211162949"></p>
+<p>循环群必定是交换群.</p>
+<h2 id="9-2-循环群的性质"><a href="#9-2-循环群的性质" class="headerlink" title="9.2 循环群的性质:"></a>9.2 循环群的性质:</h2><p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230211163226.png" alt="QQ截图20230211163226"></p>
+<h2 id="9-3-循环群的子群"><a href="#9-3-循环群的子群" class="headerlink" title="9.3 循环群的子群:"></a>9.3 循环群的子群:</h2><p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230211163340.png" alt="QQ截图20230211163340"></p>
+<h1 id="10-子群的陪集"><a href="#10-子群的陪集" class="headerlink" title="10. 子群的陪集:"></a>10. 子群的陪集:</h1><h2 id="10-1-陪集的定义"><a href="#10-1-陪集的定义" class="headerlink" title="10.1 陪集的定义:"></a>10.1 陪集的定义:</h2><p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230211164730.png" alt="QQ截图20230211164730"></p>
+<h2 id="10-2-左陪集的基本性质"><a href="#10-2-左陪集的基本性质" class="headerlink" title="10.2 左陪集的基本性质:"></a>10.2 左陪集的基本性质:</h2><p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230211165008.png" alt="QQ截图20230211165008"></p>
+<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230211165019.png" alt="QQ截图20230211165019"></p>
+<h2 id="10-3-右陪集的基本性质"><a href="#10-3-右陪集的基本性质" class="headerlink" title="10.3 右陪集的基本性质:"></a>10.3 右陪集的基本性质:</h2><p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230211165111.png" alt="QQ截图20230211165111"></p>
+<h2 id="10-4-陪集的基本性质"><a href="#10-4-陪集的基本性质" class="headerlink" title="10.4 陪集的基本性质:"></a>10.4 陪集的基本性质:</h2><p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230211165158.png" alt="QQ截图20230211165158"></p>
+<h2 id="10-5-Lagrange定理"><a href="#10-5-Lagrange定理" class="headerlink" title="10.5 Lagrange定理:"></a>10.5 Lagrange定理:</h2><p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230211165259.png" alt="QQ截图20230211165259"></p>
+<h1 id="11-群的同态基本定理"><a href="#11-群的同态基本定理" class="headerlink" title="11. 群的同态基本定理:"></a>11. 群的同态基本定理:</h1><h2 id="11-1-正规子群与商群"><a href="#11-1-正规子群与商群" class="headerlink" title="11.1 正规子群与商群:"></a>11.1 正规子群与商群:</h2><p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230211165646.png" alt="QQ截图20230211165646"></p>
+<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230211165708.png" alt="QQ截图20230211165708"></p>
+<h2 id="11-2-正规子群的判别定理"><a href="#11-2-正规子群的判别定理" class="headerlink" title="11.2 正规子群的判别定理:"></a>11.2 正规子群的判别定理:</h2><p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230211165821.png" alt="QQ截图20230211165821"></p>
+<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230211170106.png" alt="QQ截图20230211170106"></p>
+<h1 id="12-环"><a href="#12-环" class="headerlink" title="12.环:"></a>12.环:</h1><h2 id="12-1-环的定义"><a href="#12-1-环的定义" class="headerlink" title="12.1 环的定义:"></a>12.1 环的定义:</h2><p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230211170310.png" alt="QQ截图20230211170310"></p>
+<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230211170331.png" alt="QQ截图20230211170331"></p>
+<h2 id="12-2-环的运算性质"><a href="#12-2-环的运算性质" class="headerlink" title="12.2 环的运算性质:"></a>12.2 环的运算性质:</h2><p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230211170428.png" alt="QQ截图20230211170428"></p>
+<h2 id="12-3-零因子"><a href="#12-3-零因子" class="headerlink" title="12.3 零因子:"></a>12.3 零因子:</h2><p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230211170532.png" alt="QQ截图20230211170532"></p>
+<h2 id="12-4-特殊的环"><a href="#12-4-特殊的环" class="headerlink" title="12.4 特殊的环:"></a>12.4 特殊的环:</h2><p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230211170740.png" alt="QQ截图20230211170740"></p>
+<h1 id="13-格"><a href="#13-格" class="headerlink" title="13.格:"></a>13.格:</h1><h2 id="13-1-定义"><a href="#13-1-定义" class="headerlink" title="13.1 定义:"></a>13.1 定义:</h2><p>偏序关系,自反,反对称,传递的关系称为偏序关系.</p>
+<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230214110232.png" alt="QQ截图20230214110232"></p>
+<p>上确界:比两者都大,而却在这个偏序集中.符合这些条件的数里面最小的.</p>
+<h2 id="13-2-格的对偶原理"><a href="#13-2-格的对偶原理" class="headerlink" title="13.2 格的对偶原理:"></a>13.2 格的对偶原理:</h2><p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230214110703.png" alt="QQ截图20230214110703"></p>
+<h2 id="13-3-格的性质"><a href="#13-3-格的性质" class="headerlink" title="13.3 格的性质:"></a>13.3 格的性质:</h2><p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230214111418.png" alt="QQ截图20230214111418"></p>
+<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230214112440.png" alt="QQ截图20230214112440"></p>
+<h2 id="13-4-格作为代数系统"><a href="#13-4-格作为代数系统" class="headerlink" title="13.4 格作为代数系统:"></a>13.4 格作为代数系统:</h2><p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230214115726.png" alt="QQ截图20230214115726"></p>
+<h2 id="13-5-子格"><a href="#13-5-子格" class="headerlink" title="13.5 子格:"></a>13.5 子格:</h2><p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230214115835.png" alt="QQ截图20230214115835"></p>
+<p>判别法:</p>
+<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230214115906.png" alt="QQ截图20230214115906"></p>
+<h2 id="13-6-格的同态和同构"><a href="#13-6-格的同态和同构" class="headerlink" title="13.6 格的同态和同构:"></a>13.6 格的同态和同构:</h2><p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230214120020.png" alt="QQ截图20230214120020"></p>
+<h2 id="13-7-有界格"><a href="#13-7-有界格" class="headerlink" title="13.7 有界格:"></a>13.7 有界格:</h2><p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230214120107.png" alt="QQ截图20230214120107"></p>
+<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230214120134.png" alt="QQ截图20230214120134"></p>
+<p>补元:</p>
+<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230214120210.png" alt="QQ截图20230214120210"></p>
+<h2 id="13-8-分配格"><a href="#13-8-分配格" class="headerlink" title="13.8 分配格:"></a>13.8 分配格:</h2><p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230214153931.png" alt="QQ截图20230214153931"></p>
+<p>符合分配率的格.</p>
+<p>性质:</p>
+<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230214154040.png" alt="QQ截图20230214154040"></p>
+<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230214154052.png" alt="QQ截图20230214154052"></p>
+<h1 id="14-布尔代数"><a href="#14-布尔代数" class="headerlink" title="14.布尔代数:"></a>14.布尔代数:</h1><h2 id="14-1-定义"><a href="#14-1-定义" class="headerlink" title="14.1 定义:"></a>14.1 定义:</h2><p>有补分配格称为布尔代数.</p>
+<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230214154214.png" alt="QQ截图20230214154214"></p>
+<h2 id="14-2-性质"><a href="#14-2-性质" class="headerlink" title="14.2 性质:"></a>14.2 性质:</h2><p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230214154247.png" alt="QQ截图20230214154247"></p>
+<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230214154256.png" alt="QQ截图20230214154256"></p>
+<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230214154310.png" alt="QQ截图20230214154310"></p>
+
+        </article>
+        <div class="post-tools" id="post-tools">
+            <div class="post-tools-left">
+                
+                <div class="share-link mobile">
+    <div class="share-qrcode">
+        <div class="share-button" title="使用手机访问这篇文章">
+            <i class="fas fa-qrcode"></i>
+        </div>
+        <div class="share-main">
+            <div class="share-main-all">
+                <div id="qrcode" title="http://example.com/2023/01/17/%E8%BF%91%E4%B8%96%E4%BB%A3%E6%95%B0/">
+                </div>
+                <div class="reward-dec">使用手机访问这篇文章</div>
+            </div>
+        </div>
+        <script type="text/javascript">
+            new QRCode(document.getElementById("qrcode"), "http://example.com/2023/01/17/%E8%BF%91%E4%B8%96%E4%BB%A3%E6%95%B0/");
+        </script>
+    </div>
+</div>
+                <div class="share-link weibo"><a class="share-button" target="_blank"
+    href="https://service.weibo.com/share/share.php?title=近世代数&amp;url=http://example.com/2023/01/17/%E8%BF%91%E4%B8%96%E4%BB%A3%E6%95%B0/&amp;pic=/img/20.jpg"
+    title="分享到微博" rel="noopener external nofollow noreferrer noopener">
+    <i class="fab fa-weibo" style="font-size:22px"></i>
+</a>
+</div>
+<div class="share-link copyurl">
+<div class="share-button" id="post-share-url" title="复制链接" onclick="acrylic.copyPageUrl()">
+    <i class="fas fa-link"></i>
+</div>
+</div>
+            </div>
+            <div class="post-tools-right">
+                <div class="tag_share">
+                    <div class="post-meta__tag-list">
+                        
+                            <a href="/tags/%E8%AF%BE%E7%A8%8B/" class="post-meta__tags">
+                                <span class="tags-punctuation">#</span>
+                                课程
+                                <span class="tagsPageCount">6</span>
+                            </a>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="post-copyright">
+    <div class="post-copyright__author">
+        <a class="post-copyright__original" title="该文章为原创文章，注意版权协议">原创</a>
+        <a class="post-copyright-title" href="#">
+            <span>近世代数</span>
+        </a>
+    </div>
+    <div class="post-copyright__type">
+        <span class="post-copyright-info" id="post-copyright-url">
+            <a href="/2023/01/17/%E8%BF%91%E4%B8%96%E4%BB%A3%E6%95%B0/">http://example.com/2023/01/17/%E8%BF%91%E4%B8%96%E4%BB%A3%E6%95%B0/</a>
+        </span>
+        <button class="post-copyright-copybtn" onclick="acrylic.copyPageUrl()">
+            <i class="fas fa-paste copy-btn"></i>
+        </button>
+    </div>
+    <div class="post-copyright__notice"><span class="post-copyright-info">本文是原创文章，采用 <a
+                href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank">CC BY-NC-ND 4.0</a> 协议，完整转载请注明来自 <a
+                href="/">风凌渡</a>
+            </span>
+        </div>
+</div>
+        <nav class="pagination-post" id="pagination">
+    
+        <div class="prev-post pull-left">
+            <a href="/2023/01/17/%E6%B1%9F%E5%9F%8E%E4%B8%80%E6%A2%A6/">
+                <div class="pagination-info">
+                    <div class="label">上一篇</div>
+                    <div class="prev_info">江城一梦</div>
+                </div>
+            </a>
+        </div>
+        <div class="next-post pull-right">
+            <a href="/2023/01/17/%E7%99%BD%E9%A9%AC%E9%81%A5/">
+                <div class="pagination-info">
+                    <div class="label">下一篇</div>
+                    <div class="next_info">白马遥</div>
+                </div>
+            </a>
+        </div>
+    
+</nav>
+            
+    </div>
+    <div class="aside-content" id="aside-content">
+    
+    
+        
+        <div class="card-widget card-info">
+    <div class="card-content">
+        <div class="card-info-avatar is-center">
+            <div class="author-info__sayhi" id="author-info__sayhi">
+            </div>
+            <div class="author-info__name">
+                抒情熊
+            </div>
+            <div class="author-info__description">这有关于<b>后端</b>、<b>架构</b>的相关笔记分享，还有拙作<b>诗歌</b>和<b>小说</b>，另有如<b>奎桑提</b>和<b>奥恩</b>的相关教学。<br>相信会对你有所帮助.</div>
+        </div>
+    </div>
+    <div class="banner-button-group">
+        <a class="banner-button" href="/about/">
+            <i class="fas fa-circle-chevron-right"></i>
+            <span class="banner-button-text">了解更多</span>
+        </a>
+    </div>
+    <div class="card-info-social-icons is-center">
+        
+            <a class="social-icon" target="_blank" rel="noopener" href="https://github.com/bearslyricattack" title="Github">
+                <i class="fa-brands fa-github"></i>
+            </a>
+        
+            <a class="social-icon" target="_blank" rel="noopener" href="https://user.qzone.qq.com/2669184984" title="Mail">
+                <i class="fa-solid fa-envelope"></i>
+            </a>
+        
+    </div>
+</div>
+     
+    
+    <div class="sticky_layout">
+        
+            <div class="card-widget" id="card-toc">
+    <div class="item-headline">
+        <i class="fas fa-bars"></i>
+        <span>文章目录</span>
+    </div>
+    <div class="toc-content" id="toc-content">
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E8%BF%91%E4%B8%96%E4%BB%A3%E6%95%B0"><span class="toc-text">近世代数</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#1-%E5%BC%95%E5%85%A5"><span class="toc-text">1.引入:</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#2-%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5"><span class="toc-text">2.基本概念:</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#2-1-%E4%BA%8C%E5%85%83%E8%BF%90%E7%AE%97"><span class="toc-text">2.1 二元运算:</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-2-%E4%B8%80%E5%85%83%E8%BF%90%E7%AE%97"><span class="toc-text">2.2 一元运算:</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-3-%E4%BA%8C%E5%85%83%E8%BF%90%E7%AE%97%E7%9A%84%E8%A7%84%E5%BE%8B"><span class="toc-text">2.3 二元运算的规律:</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-4-%E5%8D%95%E4%BD%8D%E5%85%83"><span class="toc-text">2.4 单位元:</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-5-%E9%9B%B6%E5%85%83"><span class="toc-text">2.5 零元:</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-6-%E9%80%86%E5%85%83"><span class="toc-text">2.6 逆元:</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-7-%E4%BB%A3%E6%95%B0%E7%B3%BB%E7%BB%9F"><span class="toc-text">2.7 代数系统:</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#3-%E5%8D%8A%E7%BE%A4"><span class="toc-text">3.半群:</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#3-1-%E5%AE%9A%E4%B9%89"><span class="toc-text">3.1 定义:</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-2-%E5%8D%8A%E7%BE%A4%E7%9A%84%E6%9C%AF%E8%AF%AD"><span class="toc-text">3.2 半群的术语:</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-3-%E5%AD%90%E5%8D%8A%E7%BE%A4"><span class="toc-text">3.3 子半群:</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-4-%E7%90%86%E6%83%B3"><span class="toc-text">3.4 理想:</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-5-%E5%BE%AA%E7%8E%AF%E5%8D%8A%E7%BE%A4"><span class="toc-text">3.5 循环半群:</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-6-%E5%8D%8A%E7%BE%A4%E7%9A%84%E5%90%8C%E6%80%81%E5%92%8C%E5%90%8C%E6%9E%84"><span class="toc-text">3.6 半群的同态和同构:</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-7-%E5%95%86%E5%8D%8A%E7%BE%A4"><span class="toc-text">3.7 商半群:</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#4-%E5%B9%BA%E5%8D%8A%E7%BE%A4"><span class="toc-text">4.幺半群:</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#4-1-%E5%B9%BA%E5%8D%8A%E7%BE%A4%E7%9A%84%E6%80%A7%E8%B4%A8"><span class="toc-text">4.1 幺半群的性质:</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-2-%E9%80%86%E5%85%83%E9%97%AE%E9%A2%98"><span class="toc-text">4.2 逆元问题:</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#5-%E7%BE%A4"><span class="toc-text">5.群:</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#5-1-%E5%AE%9A%E4%B9%89"><span class="toc-text">5.1 定义:</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#6-%E6%9C%89%E9%99%90%E7%BE%A4%E5%92%8C%E5%AD%90%E7%BE%A4"><span class="toc-text">6.有限群和子群:</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#6-1-%E6%9C%89%E9%99%90%E7%BE%A4%E7%9A%84%E6%80%A7%E8%B4%A8"><span class="toc-text">6.1 有限群的性质:</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6-2-%E5%AD%90%E7%BE%A4%E7%9A%84%E5%AE%9A%E4%B9%89"><span class="toc-text">6.2 子群的定义:</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6-3-%E5%AD%90%E7%BE%A4%E7%9A%84%E6%80%A7%E8%B4%A8"><span class="toc-text">6.3 子群的性质:</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%88%A4%E5%88%AB%E5%AD%90%E7%BE%A4%E7%9A%84%E6%96%B9%E6%B3%95"><span class="toc-text">判别子群的方法:</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#7-%E5%8F%98%E6%8D%A2%E7%BE%A4"><span class="toc-text">7.变换群:</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#7-1-%E5%8F%98%E6%8D%A2"><span class="toc-text">7.1 变换:</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#7-2-%E5%8F%98%E6%8D%A2%E7%BE%A4"><span class="toc-text">7.2 变换群:</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#7-3-%E7%BE%A4%E7%9A%84%E5%90%8C%E6%9E%84"><span class="toc-text">7.3 群的同构:</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#7-4-%E7%BE%A4%E7%9A%84Cayley%E5%AE%9A%E7%90%86"><span class="toc-text">7.4 群的Cayley定理:</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#8-%E7%BD%AE%E6%8D%A2%E7%BE%A4"><span class="toc-text">8.置换群:</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#8-1-%E5%AE%9A%E4%B9%89"><span class="toc-text">8.1 定义:</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#8-2-n%E5%85%83%E7%BD%AE%E6%8D%A2%E7%9A%84%E4%B9%98%E6%B3%95"><span class="toc-text">8.2 n元置换的乘法:</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#8-3-n%E5%85%83%E7%BD%AE%E6%8D%A2%E7%9A%84%E6%80%A7%E8%B4%A8"><span class="toc-text">8.3 n元置换的性质:</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#8-4-%E7%BD%AE%E6%8D%A2%E7%BE%A4"><span class="toc-text">8.4 置换群:</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#9-%E5%BE%AA%E7%8E%AF%E7%BE%A4"><span class="toc-text">9.循环群:</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#9-1-%E5%AE%9A%E4%B9%89"><span class="toc-text">9.1 定义:</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#9-2-%E5%BE%AA%E7%8E%AF%E7%BE%A4%E7%9A%84%E6%80%A7%E8%B4%A8"><span class="toc-text">9.2 循环群的性质:</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#9-3-%E5%BE%AA%E7%8E%AF%E7%BE%A4%E7%9A%84%E5%AD%90%E7%BE%A4"><span class="toc-text">9.3 循环群的子群:</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#10-%E5%AD%90%E7%BE%A4%E7%9A%84%E9%99%AA%E9%9B%86"><span class="toc-text">10. 子群的陪集:</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#10-1-%E9%99%AA%E9%9B%86%E7%9A%84%E5%AE%9A%E4%B9%89"><span class="toc-text">10.1 陪集的定义:</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#10-2-%E5%B7%A6%E9%99%AA%E9%9B%86%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%80%A7%E8%B4%A8"><span class="toc-text">10.2 左陪集的基本性质:</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#10-3-%E5%8F%B3%E9%99%AA%E9%9B%86%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%80%A7%E8%B4%A8"><span class="toc-text">10.3 右陪集的基本性质:</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#10-4-%E9%99%AA%E9%9B%86%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%80%A7%E8%B4%A8"><span class="toc-text">10.4 陪集的基本性质:</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#10-5-Lagrange%E5%AE%9A%E7%90%86"><span class="toc-text">10.5 Lagrange定理:</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#11-%E7%BE%A4%E7%9A%84%E5%90%8C%E6%80%81%E5%9F%BA%E6%9C%AC%E5%AE%9A%E7%90%86"><span class="toc-text">11. 群的同态基本定理:</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#11-1-%E6%AD%A3%E8%A7%84%E5%AD%90%E7%BE%A4%E4%B8%8E%E5%95%86%E7%BE%A4"><span class="toc-text">11.1 正规子群与商群:</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#11-2-%E6%AD%A3%E8%A7%84%E5%AD%90%E7%BE%A4%E7%9A%84%E5%88%A4%E5%88%AB%E5%AE%9A%E7%90%86"><span class="toc-text">11.2 正规子群的判别定理:</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#12-%E7%8E%AF"><span class="toc-text">12.环:</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#12-1-%E7%8E%AF%E7%9A%84%E5%AE%9A%E4%B9%89"><span class="toc-text">12.1 环的定义:</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#12-2-%E7%8E%AF%E7%9A%84%E8%BF%90%E7%AE%97%E6%80%A7%E8%B4%A8"><span class="toc-text">12.2 环的运算性质:</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#12-3-%E9%9B%B6%E5%9B%A0%E5%AD%90"><span class="toc-text">12.3 零因子:</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#12-4-%E7%89%B9%E6%AE%8A%E7%9A%84%E7%8E%AF"><span class="toc-text">12.4 特殊的环:</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#13-%E6%A0%BC"><span class="toc-text">13.格:</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#13-1-%E5%AE%9A%E4%B9%89"><span class="toc-text">13.1 定义:</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#13-2-%E6%A0%BC%E7%9A%84%E5%AF%B9%E5%81%B6%E5%8E%9F%E7%90%86"><span class="toc-text">13.2 格的对偶原理:</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#13-3-%E6%A0%BC%E7%9A%84%E6%80%A7%E8%B4%A8"><span class="toc-text">13.3 格的性质:</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#13-4-%E6%A0%BC%E4%BD%9C%E4%B8%BA%E4%BB%A3%E6%95%B0%E7%B3%BB%E7%BB%9F"><span class="toc-text">13.4 格作为代数系统:</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#13-5-%E5%AD%90%E6%A0%BC"><span class="toc-text">13.5 子格:</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#13-6-%E6%A0%BC%E7%9A%84%E5%90%8C%E6%80%81%E5%92%8C%E5%90%8C%E6%9E%84"><span class="toc-text">13.6 格的同态和同构:</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#13-7-%E6%9C%89%E7%95%8C%E6%A0%BC"><span class="toc-text">13.7 有界格:</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#13-8-%E5%88%86%E9%85%8D%E6%A0%BC"><span class="toc-text">13.8 分配格:</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#14-%E5%B8%83%E5%B0%94%E4%BB%A3%E6%95%B0"><span class="toc-text">14.布尔代数:</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#14-1-%E5%AE%9A%E4%B9%89"><span class="toc-text">14.1 定义:</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#14-2-%E6%80%A7%E8%B4%A8"><span class="toc-text">14.2 性质:</span></a></li></ol></li></ol>
+    </div>
+</div>
+            
+        
+            
+        <div class="card-widget card-recent-post">
+    <div class="item-headline">
+        <i class="fas fa-list-ol"></i>
+        <span>最近发布</span>
+    </div>
+    <div class="aside-list">
+        
+        
+            <div class="aside-list-item">
+                <a class="thumbnail" href="/2023/04/28/ClickHouse/" title="ClickHouse">
+                    <img
+                        alt="ClickHouse"
+                        src="/img/1.jpg">
+                </a>
+                <div class="content">
+                    
+                        <a class="article-recent_post_categories" href="/2023/04/28/ClickHouse/">
+                            笔记
+                        </a>
+                    
+                    <a class="title" href="/2023/04/28/ClickHouse/" title="ClickHouse">
+                        ClickHouse
+                    </a>
+                </div>
+            </div>
+                
+        
+            <div class="aside-list-item">
+                <a class="thumbnail" href="/2023/03/18/%E4%BB%8EIOC%E5%88%B0Java%E6%9E%B6%E6%9E%84/" title="从IOC到java架构">
+                    <img
+                        alt="从IOC到java架构"
+                        src="/img/25.jpg">
+                </a>
+                <div class="content">
+                    
+                        <a class="article-recent_post_categories" href="/2023/03/18/%E4%BB%8EIOC%E5%88%B0Java%E6%9E%B6%E6%9E%84/">
+                            笔记
+                        </a>
+                    
+                    <a class="title" href="/2023/03/18/%E4%BB%8EIOC%E5%88%B0Java%E6%9E%B6%E6%9E%84/" title="从IOC到java架构">
+                        从IOC到java架构
+                    </a>
+                </div>
+            </div>
+                
+        
+            <div class="aside-list-item">
+                <a class="thumbnail" href="/2023/03/18/%E6%95%B0%E6%8D%AE%E5%BA%93%E6%A6%82%E8%BF%B0/" title="数据库概述">
+                    <img
+                        alt="数据库概述"
+                        src="/img/28.jpg">
+                </a>
+                <div class="content">
+                    
+                        <a class="article-recent_post_categories" href="/2023/03/18/%E6%95%B0%E6%8D%AE%E5%BA%93%E6%A6%82%E8%BF%B0/">
+                            笔记
+                        </a>
+                    
+                    <a class="title" href="/2023/03/18/%E6%95%B0%E6%8D%AE%E5%BA%93%E6%A6%82%E8%BF%B0/" title="数据库概述">
+                        数据库概述
+                    </a>
+                </div>
+            </div>
+                
+        
+            <div class="aside-list-item">
+                <a class="thumbnail" href="/2023/03/18/%E5%BE%AE%E6%9C%8D%E5%8A%A1/" title="微服务">
+                    <img
+                        alt="微服务"
+                        src="/img/29.jpg">
+                </a>
+                <div class="content">
+                    
+                        <a class="article-recent_post_categories" href="/2023/03/18/%E5%BE%AE%E6%9C%8D%E5%8A%A1/">
+                            笔记
+                        </a>
+                    
+                    <a class="title" href="/2023/03/18/%E5%BE%AE%E6%9C%8D%E5%8A%A1/" title="微服务">
+                        微服务
+                    </a>
+                </div>
+            </div>
+                
+        
+            <div class="aside-list-item">
+                <a class="thumbnail" href="/2023/03/18/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" title="数据结构">
+                    <img
+                        alt="数据结构"
+                        src="/img/27.jpg">
+                </a>
+                <div class="content">
+                    
+                        <a class="article-recent_post_categories" href="/2023/03/18/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">
+                            笔记
+                        </a>
+                    
+                    <a class="title" href="/2023/03/18/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" title="数据结构">
+                        数据结构
+                    </a>
+                </div>
+            </div>
+            
+    </div>
+</div>
+     
+        
+    </div>
+</div> 
+</main>
+                <footer id="footer">
+                    <div id="footer_deal">
+    
+        <a class="deal_link" target="_blank" href="https://github.com/bearslyricattack" rel="external nofollow noopener" title="Github">
+            <i class="fa-brands fa-github"></i>
+        </a>
+    
+        <a class="deal_link" target="_blank" href="https://user.qzone.qq.com/2669184984" rel="external nofollow noopener" title="Mail">
+            <i class="fa-solid fa-envelope"></i>
+        </a>
+    
+    <img class="footer_mini_logo" src="/img/avatar.webp"
+        title="返回顶部" onclick="acrylic.toTop()">
+    
+        <a class="deal_link" target="_blank" href="https://music.163.com/#/user/follows?id=436327083" rel="external nofollow noopener" title="网易云">
+            <i class="fa-solid fa-music"></i>
+        </a>
+    
+        <a class="deal_link" target="_blank" href="https://space.bilibili.com/701779878?spm_id_from=333.1007.0.0" rel="external nofollow noopener" title="bilibili">
+            <i class="fa-brands fa-bilibili"></i>
+        </a>
+    
+</div>    
+<div id="heo-footer">
+    
+    
+</div>
+<div id="footer-section">
+    <div class="footer-section-links">
+        <div class="footer-section-left">
+            <div id="footer-section-tips">
+                <div class="copyright">©2022 - 2023 By 
+                    <a class="footer-section-link" href="/" rel="external nofollow">抒情熊</a>
+                    <a class="footer-section-link" href="https://github.com/hexo-theme-Acrylic/Hexo-Theme-Acrylic-Next" rel="external nofollow" target="_blank"> Theme By Acrylic-Next</a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-section-right">
+            <a class="footer-section-link" href="/rss/">订阅</a>
+            
+            <a class="footer-section-link cc" target="_blank" href="https://creativecommons.org/licenses/by/4.0/" title="cc协议">
+                <i class="fa-solid fa-closed-captioning"></i>
+            </a>
+        </div>
+    </div>
+</div>
+                </footer>
+            </div>
+         
+        <div>
+    <script type="text/javascript" src="/js/utils.js"></script>
+    <script type="text/javascript" src="/js/main.js"></script>
+    
+
+<script src="/lib/pjax.min.js"></script>
+
+
+
+<script src="/lib/snackbar.min.js"></script>
+
+
+    
+<script src="/lib/view-image.min.js"></script>
+
+
+
+    
+<link rel="stylesheet" href="/lib/swiper.min.css">
+
+    
+<script src="/lib/swiper.min.js"></script>
+
+
+<div id="js-pjax">
+    
+    
+        <script async src="https://npm.elemecdn.com/penndu@1.0.0/bsz.js"></script>
+     
+</div>
+
+    
+<link rel="stylesheet" href="https://lf9-cdn-tos.bytecdntp.com/cdn/expire-1-M/aplayer/1.10.1/APlayer.min.css">
+
+    
+<script src="https://lf3-cdn-tos.bytecdntp.com/cdn/expire-1-M/aplayer/1.10.1/APlayer.min.js"></script>
+
+    
+<script src="https://cdn1.tianli0.top/npm/meting@2.0.1/dist/Meting.min.js"></script>
+
+
+
+    
+<script src="/js/extend/covercolor/web.js"></script>
+
+        
+
+    <script>
+  let pjaxSelectors = [
+    'title',
+    '#body-wrap',
+    '#site-config',
+    'meta[name="description"]',
+    '#js-pjax'
+  ]
+  
+  const pjax = new Pjax({
+    elements: 'a:not([target="_blank"])',
+    selectors: pjaxSelectors,
+    cacheBust: false,
+    analytics: false,
+    scrollRestoration: false
+  })
+
+  document.querySelectorAll('script[data-pjax]').forEach(item => {
+      const newScript = document.createElement('script')
+      const content = item.text || item.textContent || item.innerHTML || ""
+      Array.from(item.attributes).forEach(attr => newScript.setAttribute(attr.name, attr.value))
+      newScript.appendChild(document.createTextNode(content))
+      item.parentNode.replaceChild(newScript, item)
+  })
+
+  document.addEventListener('pjax:error', (e) => {
+    if (e.request.status === 404) {
+      pjax.loadUrl('/404.html')
+    }
+  })
+</script>
+    
+</div>
+        
+    <div id="local-search">
+    <div class="search-dialog">
+        <nav class="search-nav">
+            <span class="search-dialog-title">搜索</span>
+            <button class="search-close-button">
+                <i class="fas fa-times"></i>
+            </button>
+        </nav>
+        <div id="loading-database">
+            <i class="fas fa-spinner fa-pulse"></i>
+            <span>加载中</span>
+        </div>
+        <div class="search-wrap">
+            <div class="search-box">
+                <input class="search-box-input" placeholder="输入关键词快速查找" type="text" id="search-input" autocomplete="off" spellcheck="false" autocorrect="off" autocapitalize="off">
+            </div>
+            <div id="loading-status"></div>
+            <div id="search-results"></div>
+        </div>
+    </div>
+    <div id="search-mask"></div>
+</div>
+    
+<link rel="stylesheet" href="/css/search/local-search.css">
+
+    
+<script src="/js/extend/search/local-search.js"></script>
+
+
+     
+        <div class="needEndHide" id="nav-music" onclick="acrylic.musicToggle()">
+    <div id="nav-music-hoverTips">音乐已暂停</div>
+    <meting-js id="7315994021" server="tencent" type="playlist" mutex="true"
+        preload="none" data-lrctype="0" order="random" theme="var(--heo-main)"></meting-js>
+</div>
+    
+    </body>
+</html>
+<script>const posts=["2023/04/28/ClickHouse/","2023/03/18/从IOC到Java架构/","2023/03/18/数据库概述/","2023/03/18/微服务/","2023/03/18/数据结构/","2023/03/18/系统分析与设计/","2023/03/18/面向对象建模技术/","2023/03/14/Go语言设计与实现/","2023/03/13/Git/","2023/02/10/服务器部署/","2023/02/10/规则引擎/","2023/02/10/风凌夜话/","2023/02/10/青萍/","2023/02/10/巷/","2023/02/10/乱世佳人/","2023/02/10/马克思主义原理/","2023/02/04/Hertz/","2023/01/17/架构设计/","2023/01/17/计算机组成原理/","2023/01/17/鹤扶摇/","2023/01/17/泠音泛海/","2023/01/17/江城一梦/","2023/01/17/近世代数/","2023/01/17/白马遥/","2023/01/17/塑鸿/","2023/01/17/彩云辞/","2023/01/17/Java虚拟机/","2023/01/17/Web基本原理/","2023/01/17/Springboot入门/","2023/01/17/分布式/","2023/01/17/Golang/","2023/01/17/Redis/"];function toRandomPost(){ window.pjax ? pjax.loadUrl('/'+posts[Math.floor(Math.random()*posts.length)]) : window.open('/'+posts[Math.floor(Math.random()*posts.length)], "_self"); };</script>

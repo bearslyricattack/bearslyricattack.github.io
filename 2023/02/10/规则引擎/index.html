@@ -1,0 +1,891 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-theme="light">
+    <head>
+        <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>规则引擎 | 风凌渡</title>
+<noscript>开启Javascript是必要的</noscript>
+<link rel="icon" type="image/x-icon" href="/img/avatar.webp">
+<link rel="apple-touch-icon" href="/img/avatar.webp">
+<meta name="apple-mobile-web-app-title" content="风凌渡">
+<link rel="bookmark" href="/img/avatar.webp">
+<link rel="apple-touch-icon-precomposed" sizes="180x180" href="/img/avatar.webp">
+<meta name="description" content="a blog 一个分享技术与生活的博客">
+<meta name="theme-color" content="#1C1C1F">
+<link rel="stylesheet" href="/css/var.css">
+<link rel="stylesheet" href="/css/main.css">
+<link rel="stylesheet" href="/css/custom.css">
+
+
+
+<link rel="stylesheet" href="https://cdn.bootcdn.net/ajax/libs/font-awesome/6.3.0/css/all.min.css">
+    
+
+<link rel="stylesheet" href="/lib/snackbar.min.css">
+
+
+<script src="/lib/qrcode.min.js"></script>
+
+
+
+
+
+<script>var GLOBALCONFIG = {"root":"/","runtime":"2022-5-21 00:00:00","lazyload":{"enable":false,"error":"/img/acrylic.png"},"hightlight":{"enable":false,"limit":200},"lightbox":true,"randomlinks":false,"lang":{"theme":{"dark":"已切换至深色模式","light":"已切换至浅色模式"},"copy":{"success":"复制成功","error":"复制失败"},"backtop":"返回顶部","time":{"recent":"最近","yesterday":"昨天","berforeyesterday":"前天","daybefore":"天前","runtime":"天"},"sayhello":{"morning":"早上好","noon":"中午好","afternoon":"下午好","night":"晚上好","goodnight":"晚安","iam":"!  我是"},"search":{"empty":"搜索结果为空","hit":"已为您找到 ${query} 条结果","placeholder":"输入关键词快速查找"}},"covercolor":false,"localsearch":{"preload":false,"path":"/search.xml"}};</script><script id="site-config">var PAGECONFIG = {"is_home":false,"is_post":true,"is_page":false,"page":false,"toc":true,"comment":false};</script>
+    <meta name="generator" content="Hexo 6.3.0"></head>
+    <body id="body">
+        
+        <div id="console" style="zoom: 1;" class="">
+    <div class="close-btn" onclick="acrylic.hideConsole()" href="javascript:void(0);">
+        <i class="fas fa-circle-xmark"></i>
+    </div>
+    <div class="button-group">
+        <div class="console-btn-item"> <a class="darkmode_switchbutton" onclick="acrylic.switchDarkMode()" title="显示模式切换"
+                href="javascript:void(0);" rel="external nofollow" data-pjax-state=""><i class="fas fa-moon"
+                    style="font-size: 1rem;"></i></a></div>
+                    
+            <div class="console-btn-item" id="consoleMusic" onclick="acrylic.musicToggle()" title="音乐开关"><a class="music-switch"><i class="fas fa-music"></i></a></div>
+        
+        <div class="console-btn-item" id="consoleFPS" onclick="acrylic.FPSToggle()" title="帧率显示开关"><a class="FPS-switch"
+                data-pjax-state=""><i class="fas fa-gauge"></i></a></div>
+    </div>
+    <div class="console-mask" onclick="acrylic.hideConsole()" href="javascript:void(0);" rel="external nofollow"></div>
+</div>
+        <div id="sidebar" style="zoom: 1;">
+    <div id="menu-mask" style="display: none;"></div>
+    <div id="sidebar-menus" class>
+        <span class="sidebar-menu-item-title">功能</span>
+        <div class="sidebar-menu-item">
+            <a class="darkmode_switchbutton menu-child" onclick="acrylic.switchDarkMode()" title="显示模式切换"
+                href="javascript:void(0);" rel="external nofollow">
+                <i class="fas fa-moon" style="font-size: 1rem;"></i>
+                <span>显示模式</span>
+            </a>
+        </div>
+        
+            <div class="back-menu-list-groups">
+    
+      
+      <div class="back-menu-list-group">
+        <div class="back-menu-list-title">
+          我的
+        </div>
+        <div class="back-menu-list">
+          
+            
+            <a class="back-menu-item" href="/" rel="external nofollow" title="博客">
+              <img class="back-menu-item-icon" src="/img/avatar.webp" loading="lazy">
+              <span class="back-menu-item-text">
+                博客
+              </span>
+            </a>
+          
+        </div>
+      </div>
+    
+  </div>
+  
+        
+        <div class="menus_items">
+    
+        <div class="menus_item">
+            
+                <a class="site-page" href="javascript:void(0);" rel="external nofollow">
+                    <span> 文库</span>
+                </a>
+                <ul class="menus_item_child">
+                    
+                        <li>
+                            <a class="site-page child" href="/archives/">
+                                <i class="fas fa-box-archive"></i>
+                                <span> 文章列表</span>
+                            </a>
+                        </li>
+                    
+                        <li>
+                            <a class="site-page child" href="/categories/">
+                                <i class="fas fa-cube"></i>
+                                <span> 全部分类</span>
+                            </a>
+                        </li>
+                    
+                        <li>
+                            <a class="site-page child" href="/tags/">
+                                <i class="fas fa-tags"></i>
+                                <span> 全部标签</span>
+                            </a>
+                        </li>
+                    
+                </ul>
+             
+        </div>
+    
+        <div class="menus_item">
+            
+                <a class="site-page not-child" target="_blank" href="https://github.com/bearslyricattack" rel="external nofollow noopener">
+                    <span> 仓库</span>
+                </a>
+             
+        </div>
+    
+</div>
+        <span class="sidebar-menu-item-title">标签</span>
+        <div class="card-widget card-tags card-archives card-webinfo card-allinfo">
+            <div class="item-headline">
+                <i class="fas fa-tags"></i>
+                <span>标签</span>
+            </div>
+            <div class="card-tag-cloud">
+                
+                    <a href="/tags/%E4%B8%AD%E9%97%B4%E4%BB%B6/" style="font-size: 1em; color: #d3d3d3">中间件
+                        <sup>4</sup>
+                    </a>
+                
+                    <a href="/tags/Go/" style="font-size: 1em; color: #d3d3d3">Go
+                        <sup>3</sup>
+                    </a>
+                
+                    <a href="/tags/Java/" style="font-size: 1em; color: #d3d3d3">Java
+                        <sup>3</sup>
+                    </a>
+                
+                    <a href="/tags/%E5%BD%B1%E8%AF%84/" style="font-size: 1em; color: #d3d3d3">影评
+                        <sup>1</sup>
+                    </a>
+                
+                    <a href="/tags/%E6%9E%B6%E6%9E%84/" style="font-size: 1em; color: #d3d3d3">架构
+                        <sup>3</sup>
+                    </a>
+                
+                    <a href="/tags/%E5%88%86%E5%B8%83%E5%BC%8F/" style="font-size: 1em; color: #d3d3d3">分布式
+                        <sup>1</sup>
+                    </a>
+                
+                    <a href="/tags/%E8%AF%97%E6%AD%8C/" style="font-size: 1em; color: #d3d3d3">诗歌
+                        <sup>9</sup>
+                    </a>
+                
+                    <a href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/" style="font-size: 1em; color: #d3d3d3">数据库
+                        <sup>1</sup>
+                    </a>
+                
+                    <a href="/tags/%E8%AF%BE%E7%A8%8B/" style="font-size: 1em; color: #d3d3d3">课程
+                        <sup>6</sup>
+                    </a>
+                
+                    <a href="/tags/%E6%9C%8D%E5%8A%A1%E5%99%A8/" style="font-size: 1em; color: #d3d3d3">服务器
+                        <sup>1</sup>
+                    </a>
+                
+            </div>
+        </div>
+    </div>
+</div>    
+        
+            <div class="post" id="body-wrap">
+                <header class="post-bg" id="page-header">
+    <nav id="nav" class="show">
+    <div id="nav-group">
+        <div id="blog_name">
+            
+                <div class="back-home-button" tabindex="-1">
+                    <i class="back-home-button-icon fas fa-grip-vertical"></i>
+                    <div class="back-menu-list-groups">
+    
+      
+      <div class="back-menu-list-group">
+        <div class="back-menu-list-title">
+          我的
+        </div>
+        <div class="back-menu-list">
+          
+            
+            <a class="back-menu-item" href="/" rel="external nofollow" title="博客">
+              <img class="back-menu-item-icon" src="/img/avatar.webp" loading="lazy">
+              <span class="back-menu-item-text">
+                博客
+              </span>
+            </a>
+          
+        </div>
+      </div>
+    
+  </div>
+  
+                </div>
+            
+            <a id="site-name" href="/" title="返回博客主页">
+                    
+            </a>
+        </div>
+        <div id="page-name-mask">
+            <div id="page-name">
+                <a id="page-name-text" onclick="acrylic.toTop()">规则引擎</a>
+            </div>
+        </div>
+        <div id="menus">
+            <div class="menus_items">
+    
+        <div class="menus_item">
+            
+                <a class="site-page" href="javascript:void(0);" rel="external nofollow">
+                    <span> 文库</span>
+                </a>
+                <ul class="menus_item_child">
+                    
+                        <li>
+                            <a class="site-page child" href="/archives/">
+                                <i class="fas fa-box-archive"></i>
+                                <span> 文章列表</span>
+                            </a>
+                        </li>
+                    
+                        <li>
+                            <a class="site-page child" href="/categories/">
+                                <i class="fas fa-cube"></i>
+                                <span> 全部分类</span>
+                            </a>
+                        </li>
+                    
+                        <li>
+                            <a class="site-page child" href="/tags/">
+                                <i class="fas fa-tags"></i>
+                                <span> 全部标签</span>
+                            </a>
+                        </li>
+                    
+                </ul>
+             
+        </div>
+    
+        <div class="menus_item">
+            
+                <a class="site-page not-child" target="_blank" href="https://github.com/bearslyricattack" rel="external nofollow noopener">
+                    <span> 仓库</span>
+                </a>
+             
+        </div>
+    
+</div>
+        </div>
+        <!-- <div id="nav-left">
+            <div id="fps-group">
+                <div id="fps">145</div><span class="fpsText">FPS</span>
+            </div>
+        </div> -->
+        <div id="nav-right">
+            
+    <div class="nav-button only-home" id="travellings_button">
+        <a class="site-page"  target="_blank" rel="noopener external nofollow" href="https://www.travellings.cn/go.html" title="开往-友链接力"  width="120">
+            <i class="fa-solid fa-train-subway" style="font-size: 1rem;"></i>
+        </a>
+    </div>
+
+
+    <div class="nav-button" id="randomPost_button">
+        <a class="site-page" onclick="toRandomPost()"
+            title="随机前往一个文章">
+            <i class="fas fa-shuffle" style="font-size: 1rem;"></i>
+        </a>
+    </div>
+
+
+    <div class="nav-button" id="search-button">
+        <a class="site-page social-icon search" title="站内搜索"
+            href="javascript:void(0);" rel="external nofollow">
+            <i class="fas fa-magnifying-glass" style="font-size: 1rem;"></i>
+        </a>
+    </div>
+
+
+    <div class="nav-button" id="nav-console">
+        <a class="console_switchbutton" onclick="acrylic.showConsole()"
+        title="显示中控台" href="javascript:void(0);" rel="external nofollow">
+        <i class="fas fa-bars-progress" style="font-size: 1rem;"></i>
+        </a>
+    </div>
+
+<div class="nav-button" id="nav-totop" onclick="acrylic.toTop()">
+    <a class="totopbtn">
+        <i class="fas fa-arrow-up"></i>
+        <span id="percent">0</span>
+    </a>
+</div>
+<div id="toggle-menu">
+    <a class="site-page">
+        <i class="fas fa-bars fa-fw" style="font-size: 1rem;"></i>
+    </a>
+</div>
+        </div>
+    </div>
+</nav>
+    
+        <div class="coverdiv" id="coverdiv">
+    <img id="post-cover" class="nolazyload" src="/img/15.jpg" alt="cover">
+</div>
+<div id="post-info">
+    <div id="post-firstinfo">
+        <div class="meta-firstline">
+            <a class="post-meta-original" title="该文章为原创文章，注意版权协议">
+                原创
+            </a>
+            
+            <span class="post-meta-categories">
+                
+                    <a class="post-meta-categories" href="/categories/%E7%AC%94%E8%AE%B0/">笔记</a>
+                
+            </span>
+            
+            <div class="tag_share">
+                <div class="post-meta__tag-list">
+                    
+                        <a class="post-meta__tags" href="/tags/%E4%B8%AD%E9%97%B4%E4%BB%B6/">
+                            <span class="tags-punctuation">#</span>
+                            <span class="tags-name">中间件</span>
+                        </a>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+    <h1 class="post-title">规则引擎</h1>
+    <div id="post-meta">
+        <div class="meta-secondline">
+            <span class="post-meta-date" title="发布于">
+                <i class="post-meta-icon fa-fw fas fa-calendar"></i>
+                <time datetime="2023-02-10T22:36:44+08:00"></time>
+            </span>
+            
+            
+                <span class="post-meta-position" title="作者IP归属地为山东·威海">
+                    <i class="fas fa-location-dot post-meta-icon"></i>
+                    <span>山东·威海</span>
+                </span>
+            
+            
+                
+                
+            
+            
+                
+        </div>
+    </div>
+</div>
+<section class="main-hero-waves-area waves-area"><svg class="waves-svg" xmlns="http://www.w3.org/2000/svg"
+    xlink="http://www.w3.org/1999/xlink" viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto">
+    <defs>
+        <path id="gentle-wave"
+            d="M -160 44 c 30 0 58 -18 88 -18 s 58 18 88 18 s 58 -18 88 -18 s 58 18 88 18 v 44 h -352 Z"></path>
+    </defs>
+    <g class="parallax">
+        <use href="#gentle-wave" x="48" y="0"></use>
+        <use href="#gentle-wave" x="48" y="3"></use>
+        <use href="#gentle-wave" x="48" y="5"></use>
+        <use href="#gentle-wave" x="48" y="7"></use>
+    </g>
+</svg>
+</section>
+
+        
+</header>
+                <main class="layout" id="content-inner">
+    <div id="post">
+        <article class="post-content" id="article-container">
+            <h1 id="规则引擎-设计与实现"><a href="#规则引擎-设计与实现" class="headerlink" title="规则引擎:设计与实现"></a>规则引擎:设计与实现</h1><h1 id="1-介绍"><a href="#1-介绍" class="headerlink" title="1.介绍:"></a>1.介绍:</h1><p>规则引擎是一种嵌入在应用服务中的组件，可以将灵活多变的业务决策从服务代码中分离出来。通过使用预定义的语义模块来编写业务逻辑规则。在执行时接受数据输入、解释业务规则，并做出决策。规则引擎能大大提高系统的灵活性和扩展性。<img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E5%9B%BE%E7%89%8720230131170454.jpg" alt="QQ图片20230131170454"></p>
+<p>在字节跳动，规则引擎已经在风控识别、活动运营、配置下发等场景得到了广泛的应用。开发人员可以将业务逻辑与服务代码解耦，实现灵活、高效的业务策略发布。目前公司内部基于规则引擎的动态决策系统已经承接了千万级别QPS的决策请求。</p>
+<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230131162850.png" alt="QQ截图20230131162850"></p>
+<p>规则引擎的实现需要在满足大容量、高请求、低延迟的基础上尽可能做到简单易上手。本次课程将会带领大家实现一个简单版的规则引擎。</p>
+<p>规则引擎的本质呢就是我们自己定义一套语法，然后去解析用这套语法写的表达式，然后根据解析的内容执行表达式。这个过程其实就是编译和执行的过程。<img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230131162144.png" alt="QQ截图20230131162144"></p>
+<h2 id="1-1-组成部分"><a href="#1-1-组成部分" class="headerlink" title="1.1 组成部分:"></a>1.1 组成部分:</h2><p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230131162831.png" alt="QQ截图20230131162831"></p>
+<h1 id="2-编译原理基本概念"><a href="#2-编译原理基本概念" class="headerlink" title="2.编译原理基本概念:"></a>2.编译原理基本概念:</h1><h2 id="2-1-编译"><a href="#2-1-编译" class="headerlink" title="2.1 编译:"></a>2.1 编译:</h2><p>编译的过程就是把某种语言的源程序，<strong>在不改变语义的条件下</strong>，转换成另一种语言程序(目标语言程序)</p>
+<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230131163222.png" alt="QQ截图20230131163222"></p>
+<ul>
+<li>如果源代码编译后要在操作系统上运行，那目标代码就是汇编&#x2F;机器代码。</li>
+<li>如果编译后是在虚拟机里执行，那目标代码就可以不是汇编代码，而是一种解释器可以理解的中间形式的代码即可。</li>
+</ul>
+<h3 id="2-1-1-解释型语言和编译型语言"><a href="#2-1-1-解释型语言和编译型语言" class="headerlink" title="2.1.1 解释型语言和编译型语言:"></a><strong>2.1.1 解释型语言和编译型语言:</strong></h3><ul>
+<li>有的语言提前把代码一次性转换完毕，这种就是编译型语言，用的转换工具就叫编译器，比如C、C++、Go。一次编译可重复执行<ul>
+<li>编译后产物不能跨平台，不同系统对可执行文件的要求不同。.exe</li>
+<li>特殊的，c、c++、汇编、源代码也不能跨平台</li>
+</ul>
+</li>
+<li>有的语言则可以一边执行一边转化，用到哪里了就转哪里，这种就是解释性语言，用的转化工具叫虚拟机或者解释器，比如java python、javascript</li>
+</ul>
+<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230131163240.png" alt="QQ截图20230131163240"></p>
+<p><strong>关于</strong> <strong>Java</strong> <strong>和</strong> <strong>Python</strong> <strong>.</strong></p>
+<ul>
+<li>Java既有编译又有解释。但是编译并没有直接编译成机器码，而是编译成字节码，然后再放到虚拟机中执行。</li>
+<li>Python执行过程也是经过两个阶段，先编译成字节码 .pyc 再放到虚拟机中去执行</li>
+</ul>
+<p><a href="https://link.juejin.cn/?target=https://stackoverflow.com/questions/441824/java-virtual-machine-vs-python-interpreter-parlance/441973%23441973">JVM 和 Python解释器</a> | 为什么一个叫虚拟机一个叫解释器</p>
+<ol>
+<li>“虚拟机”对二进制字节码进行解释，而“解释器”是对程序文本进行解释。</li>
+<li>从历史上看，Java 是为解释二进制字节码而设计和实现的，而 Python 最初是为解释程序文本而设计和实现的。因此，“Java 虚拟机”这个术语在 Java 社区中具有历史意义并且非常成熟，“Python 解释器”这个术语在 Python 社区中具有历史意义并且非常成熟。人们倾向于延长传统并使用很久以前使用的相同术语。</li>
+<li>对于 Java，二进制字节码解释是程序执行的主要方式，而 JIT 编译只是一种可选的和透明的优化。而对于 Python，目前，程序文本解释是 Python 程序执行的主要方式，而编译成 Python VM 字节码只是一种可选的透明优化。</li>
+</ol>
+<h2 id="2-2-过程"><a href="#2-2-过程" class="headerlink" title="2.2: 过程:"></a>2.2: 过程:</h2><p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230131163934.png" alt="QQ截图20230131163934"></p>
+<h3 id="2-2-1-词法分析："><a href="#2-2-1-词法分析：" class="headerlink" title="2.2.1: 词法分析："></a>2.2.1: 词法分析：</h3><p>词法分析是规则引擎的第一步，通过逐行解析源代码，把源代码当成字符串解析，转换为词法单元(Token)的过程。</p>
+<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230131164026.png" alt="QQ截图20230131164026"></p>
+<p>识别token的核心就是有限自动机。</p>
+<p>确定的有限自动机就是一个状态机，它的状态数量是有限的。该状态机在任何一个状态，基于输入的字符，都能做一个确定的状态转换。</p>
+<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230131164038.png" alt="QQ截图20230131164038"></p>
+<h3 id="2-2-2-语法分析："><a href="#2-2-2-语法分析：" class="headerlink" title="2.2.2: 语法分析："></a>2.2.2: 语法分析：</h3><p>词法分析是识别一个个的单词，而语法分析就是在词法分析的基础上识别出程序的语法结构。这个结构是一个树状结构。这棵树叫做抽象语法树（Abstract Syntax Tree，AST）。树的每个节点（子树）是一个语法单元，这个单元的构成规则就叫“语法”。每个节点还可以有下级节点。</p>
+<h3 id="2-2-3-上下文无关语法："><a href="#2-2-3-上下文无关语法：" class="headerlink" title="2.2.3: 上下文无关语法："></a>2.2.3: 上下文无关语法：</h3><p><strong>上下文无关语法 Context-Free Grammar</strong>：语言句子无需考虑上下文，就可以判断正确性。</p>
+<p>编程语言不使用人类的语言（自然语言），而是采用上下文无关语法。</p>
+<p>原因：</p>
+<p>1.便于设计编译器。 客观上技术目前无法实现，如果使用了上下文相关文法，那就是真正实现了人工智能，NLP领域将会有重大突破。</p>
+<p>2.便于代码开发维护。 如果开发出来的代码像高考的语文阅读理解一样，每个人都有不同的理解，那么，到底哪个才是作者真正想要表达的？如果人类都确定不了含义，那计算机同样也确定不了，最终结果就是错误执行或无法执行。</p>
+<p>3.汇编语言&#x2F;机器语言是上下文无关的。CPU执行指令时，读到哪条执行哪条。如果CPU需要考虑上下文，来决定一个语句到底要做什么，那么CPU执行一条语句会比现在慢千倍万倍。考虑上下文的事情，完全可以用户在编程的时候用算法实现。既然机器语言是上下文无关的，那高级语言也基本上是上下文无关的，可能有某些个别语法为了方便使用，设计成了上下文相关的，比如脚本语言的弱类型。在便于使用的同时，增加了解析器的复杂度。</p>
+<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230131170022.png" alt="QQ截图20230131170022"></p>
+<h4 id="2-2-3-1：语法简介："><a href="#2-2-3-1：语法简介：" class="headerlink" title="2.2.3.1：语法简介："></a>2.2.3.1：语法简介：</h4><p><strong>上下文无关语法G：终结符集合T + 非终结符集合N + 产生式集合P + 起始符号S</strong></p>
+<p>G由T、N、S和P组成，由语法G推导出来的所有句子的集合称为G语言！</p>
+<p><strong>终结符：</strong> 组成串的基本符号。可以理解为词法分析器产生的token集合。比如 <code>+</code> <code>Id</code> <code>(</code> <code>)</code> 等</p>
+<p><strong>非终结符：</strong> 表示token的的集合的语法变量。比如 <code>stmt</code> <code>varDecl</code> 等等</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">start：blockStmts ;               //起始</span><br><span class="line">block : &#x27;&#123;&#x27; blockStmts &#x27;&#125;&#x27; ;      //语句块</span><br><span class="line">blockStmts : stmt* ;              //语句块中的语句</span><br><span class="line">stmt = varDecl | expStmt | returnStmt | block;   //语句</span><br><span class="line">varDecl : type Id varInitializer？ &#x27;;&#x27; ;         //变量声明</span><br><span class="line">type : Int | Long ;                              //类型</span><br><span class="line">varInitializer : &#x27;=&#x27; exp ;                       //变量初始化</span><br><span class="line">expStmt : exp &#x27;;&#x27; ;                              //表达式语句</span><br><span class="line">returnStmt : Return exp &#x27;;&#x27; ;                    //return语句</span><br><span class="line">exp : add ;                                      //表达式       </span><br><span class="line">add : add &#x27;+&#x27; mul | mul;                         //加法表达式</span><br><span class="line">mul : mul &#x27;*&#x27; pri | pri;                         //乘法表达式</span><br><span class="line">pri : IntLiteral | Id | &#x27;(&#x27; exp &#x27;)&#x27; ;            //基础表达式 </span><br></pre></td></tr></table></figure>
+
+<p>产生式：表示形式，S : AB ，就是说S的含义可以用语法AB进行表达</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">S : AB </span><br><span class="line">A : aA | ε </span><br><span class="line">B : b | bB</span><br></pre></td></tr></table></figure>
+
+<p><code>展开</code>(expand)：将P(A-&gt;<em>u</em> )应用到符号串vAw中，得到新串v<em>u</em> **w</p>
+<p><code>折叠</code>(reduce)：将P(A-&gt;<em>uu</em> )应用到符号串v<em>uu</em> w中，得到新串vAw</p>
+<p><code>推导</code>(derivate)：符号串<em>u</em> 应用一系列产生式，变成符号串<em>v</em> ，则<em>u</em> &#x3D;&gt;<em>v：S &#x3D;&gt; ab | b | bb</em></p>
+<h4 id="2-2-3-2：巴科斯范式："><a href="#2-2-3-2：巴科斯范式：" class="headerlink" title="2.2.3.2：巴科斯范式："></a>2.2.3.2：巴科斯范式：</h4><p>BNF是描述上下文无关理论的一种具体方法，通过BNF可以实现上下文无关文法的具体化、公式化、科学化，是实现代码解析的必要条件。</p>
+<p>BNF本质上就是树形分解，分解成一棵抽象语法树。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">&lt;expr&gt; ::= &lt;expr&gt; + &lt;term&gt;</span><br><span class="line">         | &lt;expr&gt; - &lt;term&gt;</span><br><span class="line">         | &lt;term&gt;</span><br><span class="line"></span><br><span class="line">&lt;term&gt; ::= &lt;term&gt; * &lt;factor&gt;</span><br><span class="line">         | &lt;term&gt; / &lt;factor&gt;</span><br><span class="line">         | &lt;factor&gt;</span><br><span class="line"></span><br><span class="line">&lt;factor&gt; ::= ( &lt;expr&gt; )</span><br><span class="line">           | Num</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>每个产生式就是一个子树，在写编译器时，每个子树对应一个解析函数。</li>
+<li>叶子节点叫做 <strong>终结符</strong>，非叶子节点叫做 <strong>非终结符</strong>。</li>
+</ul>
+<h4 id="2-2-3-3：递归下降算法-Recursive-Descent-Parsing："><a href="#2-2-3-3：递归下降算法-Recursive-Descent-Parsing：" class="headerlink" title="2.2.3.3：递归下降算法 Recursive Descent Parsing："></a>2.2.3.3：<strong>递归下降算法 Recursive Descent Parsing</strong>：</h4><p>基本思路就是按照语法规则去匹配 Token 串。比如说，变量声明语句的规则如下：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">varDecl : types Id varInitializer？ &#x27;;&#x27; ;        //变量声明</span><br><span class="line">varInitializer : &#x27;=&#x27; exp ;                       //变量初始化</span><br><span class="line">exp : add ;                                      //表达式       </span><br><span class="line">add : add &#x27;+&#x27; mul | mul;                         //加法表达式</span><br><span class="line">mul : mul &#x27;*&#x27; pri | pri;                         //乘法表达式</span><br><span class="line">pri : IntLiteral | Id | &#x27;(&#x27; exp &#x27;)&#x27; ;            //基础表达式</span><br></pre></td></tr></table></figure>
+
+<p>如果写成产生式格式，是下面这样：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">varDecl -&gt; types Id varInitializer &#x27;;&#x27; </span><br><span class="line">varInitializer -&gt; &#x27;=&#x27; exp             </span><br><span class="line">varInitializer -&gt; ε</span><br><span class="line">exp -&gt; add</span><br><span class="line">add -&gt; add + mul</span><br><span class="line">add -&gt; mul</span><br><span class="line">mul -&gt; mul * pri</span><br><span class="line">mul -&gt; pri</span><br><span class="line">pri -&gt; IntLiteral</span><br><span class="line">pri -&gt; Id</span><br><span class="line">pri -&gt; ( exp )</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">匹配一个数据类型(types)</span><br><span class="line">匹配一个标识符(Id)，作为变量名称</span><br><span class="line">匹配初始化部分(varInitializer)，而这会导致下降一层，使用一个新的语法规则：</span><br><span class="line">   匹配一个等号</span><br><span class="line">   匹配一个表达式(在这个步骤会导致多层下降：exp-&gt;add-&gt;mul-&gt;pri-&gt;IntLiteral)</span><br><span class="line">   创建一个varInitializer对应的AST节点并返回</span><br><span class="line">如果没有成功地匹配初始化部分，则回溯，匹配ε，也就是没有初始化部分。</span><br><span class="line">匹配一个分号   </span><br><span class="line">创建一个varDecl对应的AST节点并返回</span><br></pre></td></tr></table></figure>
+
+<p>对于一个非终结符，要从左到右依次匹配其产生式中的每个项，包括非终结符和终结符。</p>
+<p>在匹配产生式右边的非终结符时，要下降一层，继续匹配该非终结符的产生式。</p>
+<p>如果一个语法规则有多个可选的产生式，那么只要有一个产生式匹配成功就行。如果一个产生式匹配不成功，那就回退回来，尝试另一个产生式。这种回退过程，叫做回溯（Backtracking）。</p>
+<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230131165906.png" alt="QQ截图20230131165906"></p>
+<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230131170131.png" alt="QQ截图20230131170131"></p>
+<h4 id="2-2-3-4-类型检查："><a href="#2-2-3-4-类型检查：" class="headerlink" title="2.2.3.4: 类型检查："></a>2.2.3.4: 类型检查：</h4><p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230131170225.png" alt="QQ截图20230131170225"></p>
+
+        </article>
+        <div class="post-tools" id="post-tools">
+            <div class="post-tools-left">
+                
+                <div class="share-link mobile">
+    <div class="share-qrcode">
+        <div class="share-button" title="使用手机访问这篇文章">
+            <i class="fas fa-qrcode"></i>
+        </div>
+        <div class="share-main">
+            <div class="share-main-all">
+                <div id="qrcode" title="http://example.com/2023/02/10/%E8%A7%84%E5%88%99%E5%BC%95%E6%93%8E/">
+                </div>
+                <div class="reward-dec">使用手机访问这篇文章</div>
+            </div>
+        </div>
+        <script type="text/javascript">
+            new QRCode(document.getElementById("qrcode"), "http://example.com/2023/02/10/%E8%A7%84%E5%88%99%E5%BC%95%E6%93%8E/");
+        </script>
+    </div>
+</div>
+                <div class="share-link weibo"><a class="share-button" target="_blank"
+    href="https://service.weibo.com/share/share.php?title=规则引擎&amp;url=http://example.com/2023/02/10/%E8%A7%84%E5%88%99%E5%BC%95%E6%93%8E/&amp;pic=/img/15.jpg"
+    title="分享到微博" rel="noopener external nofollow noreferrer noopener">
+    <i class="fab fa-weibo" style="font-size:22px"></i>
+</a>
+</div>
+<div class="share-link copyurl">
+<div class="share-button" id="post-share-url" title="复制链接" onclick="acrylic.copyPageUrl()">
+    <i class="fas fa-link"></i>
+</div>
+</div>
+            </div>
+            <div class="post-tools-right">
+                <div class="tag_share">
+                    <div class="post-meta__tag-list">
+                        
+                            <a href="/tags/%E4%B8%AD%E9%97%B4%E4%BB%B6/" class="post-meta__tags">
+                                <span class="tags-punctuation">#</span>
+                                中间件
+                                <span class="tagsPageCount">4</span>
+                            </a>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="post-copyright">
+    <div class="post-copyright__author">
+        <a class="post-copyright__original" title="该文章为原创文章，注意版权协议">原创</a>
+        <a class="post-copyright-title" href="#">
+            <span>规则引擎</span>
+        </a>
+    </div>
+    <div class="post-copyright__type">
+        <span class="post-copyright-info" id="post-copyright-url">
+            <a href="/2023/02/10/%E8%A7%84%E5%88%99%E5%BC%95%E6%93%8E/">http://example.com/2023/02/10/%E8%A7%84%E5%88%99%E5%BC%95%E6%93%8E/</a>
+        </span>
+        <button class="post-copyright-copybtn" onclick="acrylic.copyPageUrl()">
+            <i class="fas fa-paste copy-btn"></i>
+        </button>
+    </div>
+    <div class="post-copyright__notice"><span class="post-copyright-info">本文是原创文章，采用 <a
+                href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank">CC BY-NC-ND 4.0</a> 协议，完整转载请注明来自 <a
+                href="/">风凌渡</a>
+            </span>
+        </div>
+</div>
+        <nav class="pagination-post" id="pagination">
+    
+        <div class="prev-post pull-left">
+            <a href="/2023/02/10/%E6%9C%8D%E5%8A%A1%E5%99%A8%E9%83%A8%E7%BD%B2/">
+                <div class="pagination-info">
+                    <div class="label">上一篇</div>
+                    <div class="prev_info">服务器部署</div>
+                </div>
+            </a>
+        </div>
+        <div class="next-post pull-right">
+            <a href="/2023/02/10/%E9%A3%8E%E5%87%8C%E5%A4%9C%E8%AF%9D/">
+                <div class="pagination-info">
+                    <div class="label">下一篇</div>
+                    <div class="next_info">风凌夜话</div>
+                </div>
+            </a>
+        </div>
+    
+</nav>
+            
+    </div>
+    <div class="aside-content" id="aside-content">
+    
+    
+        
+        <div class="card-widget card-info">
+    <div class="card-content">
+        <div class="card-info-avatar is-center">
+            <div class="author-info__sayhi" id="author-info__sayhi">
+            </div>
+            <div class="author-info__name">
+                抒情熊
+            </div>
+            <div class="author-info__description">这有关于<b>后端</b>、<b>架构</b>的相关笔记分享，还有拙作<b>诗歌</b>和<b>小说</b>，另有如<b>奎桑提</b>和<b>奥恩</b>的相关教学。<br>相信会对你有所帮助.</div>
+        </div>
+    </div>
+    <div class="banner-button-group">
+        <a class="banner-button" href="/about/">
+            <i class="fas fa-circle-chevron-right"></i>
+            <span class="banner-button-text">了解更多</span>
+        </a>
+    </div>
+    <div class="card-info-social-icons is-center">
+        
+            <a class="social-icon" target="_blank" rel="noopener" href="https://github.com/bearslyricattack" title="Github">
+                <i class="fa-brands fa-github"></i>
+            </a>
+        
+            <a class="social-icon" target="_blank" rel="noopener" href="https://user.qzone.qq.com/2669184984" title="Mail">
+                <i class="fa-solid fa-envelope"></i>
+            </a>
+        
+    </div>
+</div>
+     
+    
+    <div class="sticky_layout">
+        
+            <div class="card-widget" id="card-toc">
+    <div class="item-headline">
+        <i class="fas fa-bars"></i>
+        <span>文章目录</span>
+    </div>
+    <div class="toc-content" id="toc-content">
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E8%A7%84%E5%88%99%E5%BC%95%E6%93%8E-%E8%AE%BE%E8%AE%A1%E4%B8%8E%E5%AE%9E%E7%8E%B0"><span class="toc-text">规则引擎:设计与实现</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#1-%E4%BB%8B%E7%BB%8D"><span class="toc-text">1.介绍:</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-1-%E7%BB%84%E6%88%90%E9%83%A8%E5%88%86"><span class="toc-text">1.1 组成部分:</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#2-%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5"><span class="toc-text">2.编译原理基本概念:</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#2-1-%E7%BC%96%E8%AF%91"><span class="toc-text">2.1 编译:</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#2-1-1-%E8%A7%A3%E9%87%8A%E5%9E%8B%E8%AF%AD%E8%A8%80%E5%92%8C%E7%BC%96%E8%AF%91%E5%9E%8B%E8%AF%AD%E8%A8%80"><span class="toc-text">2.1.1 解释型语言和编译型语言:</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-2-%E8%BF%87%E7%A8%8B"><span class="toc-text">2.2: 过程:</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#2-2-1-%E8%AF%8D%E6%B3%95%E5%88%86%E6%9E%90%EF%BC%9A"><span class="toc-text">2.2.1: 词法分析：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-2-2-%E8%AF%AD%E6%B3%95%E5%88%86%E6%9E%90%EF%BC%9A"><span class="toc-text">2.2.2: 语法分析：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-2-3-%E4%B8%8A%E4%B8%8B%E6%96%87%E6%97%A0%E5%85%B3%E8%AF%AD%E6%B3%95%EF%BC%9A"><span class="toc-text">2.2.3: 上下文无关语法：</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#2-2-3-1%EF%BC%9A%E8%AF%AD%E6%B3%95%E7%AE%80%E4%BB%8B%EF%BC%9A"><span class="toc-text">2.2.3.1：语法简介：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-2-3-2%EF%BC%9A%E5%B7%B4%E7%A7%91%E6%96%AF%E8%8C%83%E5%BC%8F%EF%BC%9A"><span class="toc-text">2.2.3.2：巴科斯范式：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-2-3-3%EF%BC%9A%E9%80%92%E5%BD%92%E4%B8%8B%E9%99%8D%E7%AE%97%E6%B3%95-Recursive-Descent-Parsing%EF%BC%9A"><span class="toc-text">2.2.3.3：递归下降算法 Recursive Descent Parsing：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-2-3-4-%E7%B1%BB%E5%9E%8B%E6%A3%80%E6%9F%A5%EF%BC%9A"><span class="toc-text">2.2.3.4: 类型检查：</span></a></li></ol></li></ol></li></ol></li></ol>
+    </div>
+</div>
+            
+        
+            
+        <div class="card-widget card-recent-post">
+    <div class="item-headline">
+        <i class="fas fa-list-ol"></i>
+        <span>最近发布</span>
+    </div>
+    <div class="aside-list">
+        
+        
+            <div class="aside-list-item">
+                <a class="thumbnail" href="/2023/04/28/ClickHouse/" title="ClickHouse">
+                    <img
+                        alt="ClickHouse"
+                        src="/img/1.jpg">
+                </a>
+                <div class="content">
+                    
+                        <a class="article-recent_post_categories" href="/2023/04/28/ClickHouse/">
+                            笔记
+                        </a>
+                    
+                    <a class="title" href="/2023/04/28/ClickHouse/" title="ClickHouse">
+                        ClickHouse
+                    </a>
+                </div>
+            </div>
+                
+        
+            <div class="aside-list-item">
+                <a class="thumbnail" href="/2023/03/18/%E4%BB%8EIOC%E5%88%B0Java%E6%9E%B6%E6%9E%84/" title="从IOC到java架构">
+                    <img
+                        alt="从IOC到java架构"
+                        src="/img/25.jpg">
+                </a>
+                <div class="content">
+                    
+                        <a class="article-recent_post_categories" href="/2023/03/18/%E4%BB%8EIOC%E5%88%B0Java%E6%9E%B6%E6%9E%84/">
+                            笔记
+                        </a>
+                    
+                    <a class="title" href="/2023/03/18/%E4%BB%8EIOC%E5%88%B0Java%E6%9E%B6%E6%9E%84/" title="从IOC到java架构">
+                        从IOC到java架构
+                    </a>
+                </div>
+            </div>
+                
+        
+            <div class="aside-list-item">
+                <a class="thumbnail" href="/2023/03/18/%E6%95%B0%E6%8D%AE%E5%BA%93%E6%A6%82%E8%BF%B0/" title="数据库概述">
+                    <img
+                        alt="数据库概述"
+                        src="/img/28.jpg">
+                </a>
+                <div class="content">
+                    
+                        <a class="article-recent_post_categories" href="/2023/03/18/%E6%95%B0%E6%8D%AE%E5%BA%93%E6%A6%82%E8%BF%B0/">
+                            笔记
+                        </a>
+                    
+                    <a class="title" href="/2023/03/18/%E6%95%B0%E6%8D%AE%E5%BA%93%E6%A6%82%E8%BF%B0/" title="数据库概述">
+                        数据库概述
+                    </a>
+                </div>
+            </div>
+                
+        
+            <div class="aside-list-item">
+                <a class="thumbnail" href="/2023/03/18/%E5%BE%AE%E6%9C%8D%E5%8A%A1/" title="微服务">
+                    <img
+                        alt="微服务"
+                        src="/img/29.jpg">
+                </a>
+                <div class="content">
+                    
+                        <a class="article-recent_post_categories" href="/2023/03/18/%E5%BE%AE%E6%9C%8D%E5%8A%A1/">
+                            笔记
+                        </a>
+                    
+                    <a class="title" href="/2023/03/18/%E5%BE%AE%E6%9C%8D%E5%8A%A1/" title="微服务">
+                        微服务
+                    </a>
+                </div>
+            </div>
+                
+        
+            <div class="aside-list-item">
+                <a class="thumbnail" href="/2023/03/18/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" title="数据结构">
+                    <img
+                        alt="数据结构"
+                        src="/img/27.jpg">
+                </a>
+                <div class="content">
+                    
+                        <a class="article-recent_post_categories" href="/2023/03/18/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">
+                            笔记
+                        </a>
+                    
+                    <a class="title" href="/2023/03/18/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" title="数据结构">
+                        数据结构
+                    </a>
+                </div>
+            </div>
+            
+    </div>
+</div>
+     
+        
+    </div>
+</div> 
+</main>
+                <footer id="footer">
+                    <div id="footer_deal">
+    
+        <a class="deal_link" target="_blank" href="https://github.com/bearslyricattack" rel="external nofollow noopener" title="Github">
+            <i class="fa-brands fa-github"></i>
+        </a>
+    
+        <a class="deal_link" target="_blank" href="https://user.qzone.qq.com/2669184984" rel="external nofollow noopener" title="Mail">
+            <i class="fa-solid fa-envelope"></i>
+        </a>
+    
+    <img class="footer_mini_logo" src="/img/avatar.webp"
+        title="返回顶部" onclick="acrylic.toTop()">
+    
+        <a class="deal_link" target="_blank" href="https://music.163.com/#/user/follows?id=436327083" rel="external nofollow noopener" title="网易云">
+            <i class="fa-solid fa-music"></i>
+        </a>
+    
+        <a class="deal_link" target="_blank" href="https://space.bilibili.com/701779878?spm_id_from=333.1007.0.0" rel="external nofollow noopener" title="bilibili">
+            <i class="fa-brands fa-bilibili"></i>
+        </a>
+    
+</div>    
+<div id="heo-footer">
+    
+    
+</div>
+<div id="footer-section">
+    <div class="footer-section-links">
+        <div class="footer-section-left">
+            <div id="footer-section-tips">
+                <div class="copyright">©2022 - 2023 By 
+                    <a class="footer-section-link" href="/" rel="external nofollow">抒情熊</a>
+                    <a class="footer-section-link" href="https://github.com/hexo-theme-Acrylic/Hexo-Theme-Acrylic-Next" rel="external nofollow" target="_blank"> Theme By Acrylic-Next</a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-section-right">
+            <a class="footer-section-link" href="/rss/">订阅</a>
+            
+            <a class="footer-section-link cc" target="_blank" href="https://creativecommons.org/licenses/by/4.0/" title="cc协议">
+                <i class="fa-solid fa-closed-captioning"></i>
+            </a>
+        </div>
+    </div>
+</div>
+                </footer>
+            </div>
+         
+        <div>
+    <script type="text/javascript" src="/js/utils.js"></script>
+    <script type="text/javascript" src="/js/main.js"></script>
+    
+
+<script src="/lib/pjax.min.js"></script>
+
+
+
+<script src="/lib/snackbar.min.js"></script>
+
+
+    
+<script src="/lib/view-image.min.js"></script>
+
+
+
+    
+<link rel="stylesheet" href="/lib/swiper.min.css">
+
+    
+<script src="/lib/swiper.min.js"></script>
+
+
+<div id="js-pjax">
+    
+    
+        <script async src="https://npm.elemecdn.com/penndu@1.0.0/bsz.js"></script>
+     
+</div>
+
+    
+<link rel="stylesheet" href="https://lf9-cdn-tos.bytecdntp.com/cdn/expire-1-M/aplayer/1.10.1/APlayer.min.css">
+
+    
+<script src="https://lf3-cdn-tos.bytecdntp.com/cdn/expire-1-M/aplayer/1.10.1/APlayer.min.js"></script>
+
+    
+<script src="https://cdn1.tianli0.top/npm/meting@2.0.1/dist/Meting.min.js"></script>
+
+
+
+    
+<script src="/js/extend/covercolor/web.js"></script>
+
+        
+
+    <script>
+  let pjaxSelectors = [
+    'title',
+    '#body-wrap',
+    '#site-config',
+    'meta[name="description"]',
+    '#js-pjax'
+  ]
+  
+  const pjax = new Pjax({
+    elements: 'a:not([target="_blank"])',
+    selectors: pjaxSelectors,
+    cacheBust: false,
+    analytics: false,
+    scrollRestoration: false
+  })
+
+  document.querySelectorAll('script[data-pjax]').forEach(item => {
+      const newScript = document.createElement('script')
+      const content = item.text || item.textContent || item.innerHTML || ""
+      Array.from(item.attributes).forEach(attr => newScript.setAttribute(attr.name, attr.value))
+      newScript.appendChild(document.createTextNode(content))
+      item.parentNode.replaceChild(newScript, item)
+  })
+
+  document.addEventListener('pjax:error', (e) => {
+    if (e.request.status === 404) {
+      pjax.loadUrl('/404.html')
+    }
+  })
+</script>
+    
+</div>
+        
+    <div id="local-search">
+    <div class="search-dialog">
+        <nav class="search-nav">
+            <span class="search-dialog-title">搜索</span>
+            <button class="search-close-button">
+                <i class="fas fa-times"></i>
+            </button>
+        </nav>
+        <div id="loading-database">
+            <i class="fas fa-spinner fa-pulse"></i>
+            <span>加载中</span>
+        </div>
+        <div class="search-wrap">
+            <div class="search-box">
+                <input class="search-box-input" placeholder="输入关键词快速查找" type="text" id="search-input" autocomplete="off" spellcheck="false" autocorrect="off" autocapitalize="off">
+            </div>
+            <div id="loading-status"></div>
+            <div id="search-results"></div>
+        </div>
+    </div>
+    <div id="search-mask"></div>
+</div>
+    
+<link rel="stylesheet" href="/css/search/local-search.css">
+
+    
+<script src="/js/extend/search/local-search.js"></script>
+
+
+     
+        <div class="needEndHide" id="nav-music" onclick="acrylic.musicToggle()">
+    <div id="nav-music-hoverTips">音乐已暂停</div>
+    <meting-js id="7315994021" server="tencent" type="playlist" mutex="true"
+        preload="none" data-lrctype="0" order="random" theme="var(--heo-main)"></meting-js>
+</div>
+    
+    </body>
+</html>
+<script>const posts=["2023/04/28/ClickHouse/","2023/03/18/从IOC到Java架构/","2023/03/18/数据库概述/","2023/03/18/微服务/","2023/03/18/数据结构/","2023/03/18/系统分析与设计/","2023/03/18/面向对象建模技术/","2023/03/14/Go语言设计与实现/","2023/03/13/Git/","2023/02/10/服务器部署/","2023/02/10/规则引擎/","2023/02/10/风凌夜话/","2023/02/10/青萍/","2023/02/10/巷/","2023/02/10/乱世佳人/","2023/02/10/马克思主义原理/","2023/02/04/Hertz/","2023/01/17/架构设计/","2023/01/17/计算机组成原理/","2023/01/17/鹤扶摇/","2023/01/17/泠音泛海/","2023/01/17/江城一梦/","2023/01/17/近世代数/","2023/01/17/白马遥/","2023/01/17/塑鸿/","2023/01/17/彩云辞/","2023/01/17/Java虚拟机/","2023/01/17/Web基本原理/","2023/01/17/Springboot入门/","2023/01/17/分布式/","2023/01/17/Golang/","2023/01/17/Redis/"];function toRandomPost(){ window.pjax ? pjax.loadUrl('/'+posts[Math.floor(Math.random()*posts.length)]) : window.open('/'+posts[Math.floor(Math.random()*posts.length)], "_self"); };</script>

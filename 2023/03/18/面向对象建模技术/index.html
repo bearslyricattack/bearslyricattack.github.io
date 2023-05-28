@@ -1,0 +1,1170 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-theme="light">
+    <head>
+        <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>面向对象建模技术 | 风凌渡</title>
+<noscript>开启Javascript是必要的</noscript>
+<link rel="icon" type="image/x-icon" href="/img/avatar.webp">
+<link rel="apple-touch-icon" href="/img/avatar.webp">
+<meta name="apple-mobile-web-app-title" content="风凌渡">
+<link rel="bookmark" href="/img/avatar.webp">
+<link rel="apple-touch-icon-precomposed" sizes="180x180" href="/img/avatar.webp">
+<meta name="description" content="a blog 一个分享技术与生活的博客">
+<meta name="theme-color" content="#1C1C1F">
+<link rel="stylesheet" href="/css/var.css">
+<link rel="stylesheet" href="/css/main.css">
+<link rel="stylesheet" href="/css/custom.css">
+
+
+
+<link rel="stylesheet" href="https://cdn.bootcdn.net/ajax/libs/font-awesome/6.3.0/css/all.min.css">
+    
+
+<link rel="stylesheet" href="/lib/snackbar.min.css">
+
+
+<script src="/lib/qrcode.min.js"></script>
+
+
+
+
+
+<script>var GLOBALCONFIG = {"root":"/","runtime":"2022-5-21 00:00:00","lazyload":{"enable":false,"error":"/img/acrylic.png"},"hightlight":{"enable":false,"limit":200},"lightbox":true,"randomlinks":false,"lang":{"theme":{"dark":"已切换至深色模式","light":"已切换至浅色模式"},"copy":{"success":"复制成功","error":"复制失败"},"backtop":"返回顶部","time":{"recent":"最近","yesterday":"昨天","berforeyesterday":"前天","daybefore":"天前","runtime":"天"},"sayhello":{"morning":"早上好","noon":"中午好","afternoon":"下午好","night":"晚上好","goodnight":"晚安","iam":"!  我是"},"search":{"empty":"搜索结果为空","hit":"已为您找到 ${query} 条结果","placeholder":"输入关键词快速查找"}},"covercolor":false,"localsearch":{"preload":false,"path":"/search.xml"}};</script><script id="site-config">var PAGECONFIG = {"is_home":false,"is_post":true,"is_page":false,"page":false,"toc":true,"comment":false};</script>
+    <meta name="generator" content="Hexo 6.3.0"></head>
+    <body id="body">
+        
+        <div id="console" style="zoom: 1;" class="">
+    <div class="close-btn" onclick="acrylic.hideConsole()" href="javascript:void(0);">
+        <i class="fas fa-circle-xmark"></i>
+    </div>
+    <div class="button-group">
+        <div class="console-btn-item"> <a class="darkmode_switchbutton" onclick="acrylic.switchDarkMode()" title="显示模式切换"
+                href="javascript:void(0);" rel="external nofollow" data-pjax-state=""><i class="fas fa-moon"
+                    style="font-size: 1rem;"></i></a></div>
+                    
+            <div class="console-btn-item" id="consoleMusic" onclick="acrylic.musicToggle()" title="音乐开关"><a class="music-switch"><i class="fas fa-music"></i></a></div>
+        
+        <div class="console-btn-item" id="consoleFPS" onclick="acrylic.FPSToggle()" title="帧率显示开关"><a class="FPS-switch"
+                data-pjax-state=""><i class="fas fa-gauge"></i></a></div>
+    </div>
+    <div class="console-mask" onclick="acrylic.hideConsole()" href="javascript:void(0);" rel="external nofollow"></div>
+</div>
+        <div id="sidebar" style="zoom: 1;">
+    <div id="menu-mask" style="display: none;"></div>
+    <div id="sidebar-menus" class>
+        <span class="sidebar-menu-item-title">功能</span>
+        <div class="sidebar-menu-item">
+            <a class="darkmode_switchbutton menu-child" onclick="acrylic.switchDarkMode()" title="显示模式切换"
+                href="javascript:void(0);" rel="external nofollow">
+                <i class="fas fa-moon" style="font-size: 1rem;"></i>
+                <span>显示模式</span>
+            </a>
+        </div>
+        
+            <div class="back-menu-list-groups">
+    
+      
+      <div class="back-menu-list-group">
+        <div class="back-menu-list-title">
+          我的
+        </div>
+        <div class="back-menu-list">
+          
+            
+            <a class="back-menu-item" href="/" rel="external nofollow" title="博客">
+              <img class="back-menu-item-icon" src="/img/avatar.webp" loading="lazy">
+              <span class="back-menu-item-text">
+                博客
+              </span>
+            </a>
+          
+        </div>
+      </div>
+    
+  </div>
+  
+        
+        <div class="menus_items">
+    
+        <div class="menus_item">
+            
+                <a class="site-page" href="javascript:void(0);" rel="external nofollow">
+                    <span> 文库</span>
+                </a>
+                <ul class="menus_item_child">
+                    
+                        <li>
+                            <a class="site-page child" href="/archives/">
+                                <i class="fas fa-box-archive"></i>
+                                <span> 文章列表</span>
+                            </a>
+                        </li>
+                    
+                        <li>
+                            <a class="site-page child" href="/categories/">
+                                <i class="fas fa-cube"></i>
+                                <span> 全部分类</span>
+                            </a>
+                        </li>
+                    
+                        <li>
+                            <a class="site-page child" href="/tags/">
+                                <i class="fas fa-tags"></i>
+                                <span> 全部标签</span>
+                            </a>
+                        </li>
+                    
+                </ul>
+             
+        </div>
+    
+        <div class="menus_item">
+            
+                <a class="site-page not-child" target="_blank" href="https://github.com/bearslyricattack" rel="external nofollow noopener">
+                    <span> 仓库</span>
+                </a>
+             
+        </div>
+    
+</div>
+        <span class="sidebar-menu-item-title">标签</span>
+        <div class="card-widget card-tags card-archives card-webinfo card-allinfo">
+            <div class="item-headline">
+                <i class="fas fa-tags"></i>
+                <span>标签</span>
+            </div>
+            <div class="card-tag-cloud">
+                
+                    <a href="/tags/%E4%B8%AD%E9%97%B4%E4%BB%B6/" style="font-size: 1em; color: #d3d3d3">中间件
+                        <sup>4</sup>
+                    </a>
+                
+                    <a href="/tags/Go/" style="font-size: 1em; color: #d3d3d3">Go
+                        <sup>3</sup>
+                    </a>
+                
+                    <a href="/tags/Java/" style="font-size: 1em; color: #d3d3d3">Java
+                        <sup>3</sup>
+                    </a>
+                
+                    <a href="/tags/%E5%BD%B1%E8%AF%84/" style="font-size: 1em; color: #d3d3d3">影评
+                        <sup>1</sup>
+                    </a>
+                
+                    <a href="/tags/%E6%9E%B6%E6%9E%84/" style="font-size: 1em; color: #d3d3d3">架构
+                        <sup>3</sup>
+                    </a>
+                
+                    <a href="/tags/%E5%88%86%E5%B8%83%E5%BC%8F/" style="font-size: 1em; color: #d3d3d3">分布式
+                        <sup>1</sup>
+                    </a>
+                
+                    <a href="/tags/%E8%AF%97%E6%AD%8C/" style="font-size: 1em; color: #d3d3d3">诗歌
+                        <sup>9</sup>
+                    </a>
+                
+                    <a href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/" style="font-size: 1em; color: #d3d3d3">数据库
+                        <sup>1</sup>
+                    </a>
+                
+                    <a href="/tags/%E8%AF%BE%E7%A8%8B/" style="font-size: 1em; color: #d3d3d3">课程
+                        <sup>6</sup>
+                    </a>
+                
+                    <a href="/tags/%E6%9C%8D%E5%8A%A1%E5%99%A8/" style="font-size: 1em; color: #d3d3d3">服务器
+                        <sup>1</sup>
+                    </a>
+                
+            </div>
+        </div>
+    </div>
+</div>    
+        
+            <div class="post" id="body-wrap">
+                <header class="post-bg" id="page-header">
+    <nav id="nav" class="show">
+    <div id="nav-group">
+        <div id="blog_name">
+            
+                <div class="back-home-button" tabindex="-1">
+                    <i class="back-home-button-icon fas fa-grip-vertical"></i>
+                    <div class="back-menu-list-groups">
+    
+      
+      <div class="back-menu-list-group">
+        <div class="back-menu-list-title">
+          我的
+        </div>
+        <div class="back-menu-list">
+          
+            
+            <a class="back-menu-item" href="/" rel="external nofollow" title="博客">
+              <img class="back-menu-item-icon" src="/img/avatar.webp" loading="lazy">
+              <span class="back-menu-item-text">
+                博客
+              </span>
+            </a>
+          
+        </div>
+      </div>
+    
+  </div>
+  
+                </div>
+            
+            <a id="site-name" href="/" title="返回博客主页">
+                    
+            </a>
+        </div>
+        <div id="page-name-mask">
+            <div id="page-name">
+                <a id="page-name-text" onclick="acrylic.toTop()">面向对象建模技术</a>
+            </div>
+        </div>
+        <div id="menus">
+            <div class="menus_items">
+    
+        <div class="menus_item">
+            
+                <a class="site-page" href="javascript:void(0);" rel="external nofollow">
+                    <span> 文库</span>
+                </a>
+                <ul class="menus_item_child">
+                    
+                        <li>
+                            <a class="site-page child" href="/archives/">
+                                <i class="fas fa-box-archive"></i>
+                                <span> 文章列表</span>
+                            </a>
+                        </li>
+                    
+                        <li>
+                            <a class="site-page child" href="/categories/">
+                                <i class="fas fa-cube"></i>
+                                <span> 全部分类</span>
+                            </a>
+                        </li>
+                    
+                        <li>
+                            <a class="site-page child" href="/tags/">
+                                <i class="fas fa-tags"></i>
+                                <span> 全部标签</span>
+                            </a>
+                        </li>
+                    
+                </ul>
+             
+        </div>
+    
+        <div class="menus_item">
+            
+                <a class="site-page not-child" target="_blank" href="https://github.com/bearslyricattack" rel="external nofollow noopener">
+                    <span> 仓库</span>
+                </a>
+             
+        </div>
+    
+</div>
+        </div>
+        <!-- <div id="nav-left">
+            <div id="fps-group">
+                <div id="fps">145</div><span class="fpsText">FPS</span>
+            </div>
+        </div> -->
+        <div id="nav-right">
+            
+    <div class="nav-button only-home" id="travellings_button">
+        <a class="site-page"  target="_blank" rel="noopener external nofollow" href="https://www.travellings.cn/go.html" title="开往-友链接力"  width="120">
+            <i class="fa-solid fa-train-subway" style="font-size: 1rem;"></i>
+        </a>
+    </div>
+
+
+    <div class="nav-button" id="randomPost_button">
+        <a class="site-page" onclick="toRandomPost()"
+            title="随机前往一个文章">
+            <i class="fas fa-shuffle" style="font-size: 1rem;"></i>
+        </a>
+    </div>
+
+
+    <div class="nav-button" id="search-button">
+        <a class="site-page social-icon search" title="站内搜索"
+            href="javascript:void(0);" rel="external nofollow">
+            <i class="fas fa-magnifying-glass" style="font-size: 1rem;"></i>
+        </a>
+    </div>
+
+
+    <div class="nav-button" id="nav-console">
+        <a class="console_switchbutton" onclick="acrylic.showConsole()"
+        title="显示中控台" href="javascript:void(0);" rel="external nofollow">
+        <i class="fas fa-bars-progress" style="font-size: 1rem;"></i>
+        </a>
+    </div>
+
+<div class="nav-button" id="nav-totop" onclick="acrylic.toTop()">
+    <a class="totopbtn">
+        <i class="fas fa-arrow-up"></i>
+        <span id="percent">0</span>
+    </a>
+</div>
+<div id="toggle-menu">
+    <a class="site-page">
+        <i class="fas fa-bars fa-fw" style="font-size: 1rem;"></i>
+    </a>
+</div>
+        </div>
+    </div>
+</nav>
+    
+        <div class="coverdiv" id="coverdiv">
+    <img id="post-cover" class="nolazyload" src="/img/24.jpg" alt="cover">
+</div>
+<div id="post-info">
+    <div id="post-firstinfo">
+        <div class="meta-firstline">
+            <a class="post-meta-original" title="该文章为原创文章，注意版权协议">
+                原创
+            </a>
+            
+            <span class="post-meta-categories">
+                
+                    <a class="post-meta-categories" href="/categories/%E7%AC%94%E8%AE%B0/">笔记</a>
+                
+            </span>
+            
+            <div class="tag_share">
+                <div class="post-meta__tag-list">
+                    
+                        <a class="post-meta__tags" href="/tags/%E8%AF%BE%E7%A8%8B/">
+                            <span class="tags-punctuation">#</span>
+                            <span class="tags-name">课程</span>
+                        </a>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+    <h1 class="post-title">面向对象建模技术</h1>
+    <div id="post-meta">
+        <div class="meta-secondline">
+            <span class="post-meta-date" title="发布于">
+                <i class="post-meta-icon fa-fw fas fa-calendar"></i>
+                <time datetime="2023-03-18T11:43:08+08:00"></time>
+            </span>
+            
+            
+                <span class="post-meta-position" title="作者IP归属地为山东·威海">
+                    <i class="fas fa-location-dot post-meta-icon"></i>
+                    <span>山东·威海</span>
+                </span>
+            
+            
+                
+                
+            
+            
+                
+        </div>
+    </div>
+</div>
+<section class="main-hero-waves-area waves-area"><svg class="waves-svg" xmlns="http://www.w3.org/2000/svg"
+    xlink="http://www.w3.org/1999/xlink" viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto">
+    <defs>
+        <path id="gentle-wave"
+            d="M -160 44 c 30 0 58 -18 88 -18 s 58 18 88 18 s 58 -18 88 -18 s 58 18 88 18 v 44 h -352 Z"></path>
+    </defs>
+    <g class="parallax">
+        <use href="#gentle-wave" x="48" y="0"></use>
+        <use href="#gentle-wave" x="48" y="3"></use>
+        <use href="#gentle-wave" x="48" y="5"></use>
+        <use href="#gentle-wave" x="48" y="7"></use>
+    </g>
+</svg>
+</section>
+
+        
+</header>
+                <main class="layout" id="content-inner">
+    <div id="post">
+        <article class="post-content" id="article-container">
+            <h1 id="面向对象建模技术"><a href="#面向对象建模技术" class="headerlink" title="面向对象建模技术                      "></a>面向对象建模技术                     <a href="af://n2"> </a></h1><h2 id="1-从结构化到面向对象模型"><a href="#1-从结构化到面向对象模型" class="headerlink" title="1.从结构化到面向对象模型:                 "></a>1.从结构化到面向对象模型:                <a href="af://n3"> </a></h2><h3 id="1-1-结构化与面向对象的区别"><a href="#1-1-结构化与面向对象的区别" class="headerlink" title="1.1 结构化与面向对象的区别:                          "></a>1.1 结构化与面向对象的区别:                         <a href="af://n4"> </a></h3><p>结构化思维用过程刻画数据间关系.对象思维直接用类表达数据间关系.结构化中，数据是死的，全部依赖 算法操作.对象思维中，数据是活的，  “她”知道自己的信息(属性)，并能完成自己的工作(操作)  .结构 化思维更像是一个人在解决所有问题.对象思维更像是一个团队的分工协作.</p>
+<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/wps1.png" alt="img"> </p>
+<h3 id="1-2-面向对象方法"><a href="#1-2-面向对象方法" class="headerlink" title="1.2: 面向对象方法:                                   "></a>1.2: 面向对象方法:                                  <a href="af://n7"> </a></h3><p>面向对象方法(Object-Oriented Method)是一种把面向对象的思想应用于软件开发过程中，指导开发  活动的系统方法，简称OO (Object-Oriented)方法.面向对象方法的作用和意义决不只限于编程技术.它 是一种程序设计范型-面向对象程序设计范型；是软件系统开发的方法论-面向对象方法学；是流行的技  术-面向对象技术。</p>
+<h3 id="1-3-面向对象技术"><a href="#1-3-面向对象技术" class="headerlink" title="1.3: 面向对象技术:                                   "></a>1.3: 面向对象技术:                                  <a href="af://n9"> </a></h3><p>面向对象技术是一系列指导软件构造的原则(如抽象、封装、多态等)，并通过语言、数据库和其它工 具来支持这些原则.从本质上讲，对象技术是对一系列相关原则的应用OO&#x3D;类+对象+抽象+封装+继承+多 态+消息 … …</p>
+<h3 id="1-4-面向对象技术基本点"><a href="#1-4-面向对象技术基本点" class="headerlink" title="1.4: 面向对象技术基本点:                              "></a>1.4: 面向对象技术基本点:                             <a href="af://n11"> </a></h3><p>1.任何客观的事物或实体都是对象。对象组成客观世界，复杂对象可以由简单的对象组成。</p>
+<p>2.具有相同数据和操作的对象可以归并为一个类(class ) ，对象是对象类的一个实例。   3.类可以派生出子类，子类继承父类的全部特性(数据和操作)，又可以有自己的新特性。</p>
+<p>4.子类与父类形成类的层次结构。  对象之间通过消息传递相互联系。</p>
+<h3 id="1-5-面向对象技术的优势"><a href="#1-5-面向对象技术的优势" class="headerlink" title="1.5: 面向对象技术的优势:                              "></a>1.5: 面向对象技术的优势:                             <a href="af://n16"> </a></h3><p>1.顺应人类思维习惯，让软件开发人员在解空间中直接模拟问题空间中的对象及其行为.更要容易被开发 人员所接受.</p>
+<p>2.稳定较小的需求变化不会导致系统结构大的改变.</p>
+<p>功能最不稳定,数据次之,对象相对最稳定,而面向对象用对象承载功能和数据,用相对稳定的把不稳定 的”包”起来.</p>
+<p>3.复用代码重用：类库、框架等重用机制能提高质量，减少由于编制新的系统代码而产生的成本通过继 承、关联、封装等手段.</p>
+<p>软件开发组越大，组中每个成员的生产率就越低–Philippe Kahn, Borland公司创始人.</p>
+<h3 id="1-6-对象定义"><a href="#1-6-对象定义" class="headerlink" title="1.6: 对象定义:                                       "></a>1.6: 对象定义:                                      <a href="af://n22"> </a></h3><p>对象是一个实体，该实体：</p>
+<p>1.具有明确定义的边界和标识边界意味着对象是一个封装体，通过封装来与其它对象分隔.标识则表明每 一个对象都是唯一的(在程序运行的时候，用计算机内存地址表示对象)</p>
+<p>2.对象封装了状态和行为对象的状态通过对象的属性(attribute)和关系(relationship)来表达.对象的行为 通过对象的操作(operation),方法(method)和状态机(state machine)来表达</p>
+<h3 id="1-7-面向对象相关原则"><a href="#1-7-面向对象相关原则" class="headerlink" title="1.7: 面向对象相关原则:                               "></a>1.7: 面向对象相关原则:                              <a href="af://n26"> </a></h3><h4 id="1-7-1-抽象-Abstraction"><a href="#1-7-1-抽象-Abstraction" class="headerlink" title="1.7.1: 抽象-Abstraction:"></a>1.7.1: 抽象-Abstraction:</h4><p>对象到类的过程就是抽象即将所见到的具体实体抽象成概念，从而在计算机世界中进行描述和各种操作.</p>
+<h4 id="1-7-2-封装-Encapsulation"><a href="#1-7-2-封装-Encapsulation" class="headerlink" title="1.7.2: 封装-Encapsulation:"></a>1.7.2: 封装-Encapsulation:</h4><p>封装是对客户(使用者)隐藏具体实现细节.客户只依赖于接口通过封装实现信息隐藏和数据抽象.</p>
+<p>比如在c语言中,对数据的访问没有限制.这就导致操作这个数据结构的程序员，必须严格遵守一系列业务 逻辑规则，否则很容易破坏数据的一致性.结构化程序设计处理大项目时，多人协同开发时，本质上无法 保证数据的一致性.</p>
+<p>但在面向对象的设计方法中,通过封装把数据隐藏起来,使得该数据无法被其他开发人员随意的修改.</p>
+<h4 id="1-7-3-分解-Decomposition"><a href="#1-7-3-分解-Decomposition" class="headerlink" title="1.7.3: 分解-Decomposition:"></a>1.7.3: 分解-Decomposition:</h4><p>分解是指将单个大规模复杂系统划分为多个不同的小构件分解的构件通过抽象、封装等技术形成相对独 立的单元，可以独立设计和开发，从而实现化繁为简、分而治之.</p>
+<p>面向对象设计中的模块化，将根据需要将类分组放在一些包中.</p>
+<h4 id="1-7-4-泛化-Generalization"><a href="#1-7-4-泛化-Generalization" class="headerlink" title="1.7.4: 泛化-Generalization:"></a>1.7.4: 泛化-Generalization:</h4><p>泛化是类之间的一种isa&#x2F; is kind of 关系,通过该关系一个类(子类)可以共享另外一个或多个类(父 类)的结构和行为.</p>
+<p>采用继承(Inheritance)实现泛化关系通过泛化关系，可以建立类之间的层次结构，根据继承层次中父 类的个数不同，分为：单一继承.多重继承(Java不允许).</p>
+<h4 id="1-7-5-多态-Polymorphism"><a href="#1-7-5-多态-Polymorphism" class="headerlink" title="1.7.5: 多态-Polymorphism:"></a>1.7.5: 多态-Polymorphism:</h4><p>多态是在统一外表(接口)下隐藏不同实现的能力.</p>
+<p>即一个接口可以有不同的实现行为.</p>
+<p>是面向对象技术的本质特征.</p>
+<p>多态是类型理论中的概念，其中，一个名字可以代表许多不同类的实例，只要它们有共同的超类。</p>
+<h4 id="1-7-6-分层-Hierarchy"><a href="#1-7-6-分层-Hierarchy" class="headerlink" title="1.7.6: 分层-Hierarchy:"></a>1.7.6: 分层-Hierarchy:</h4><p>分层是指面向不同的目标建立不同的抽象级别层次，从而在不同的抽象层次对系统进行分解，进一步简 化对系统的理解.</p>
+<p>两种分层结构类层次结构：</p>
+<p>(1)在不同的抽象级别进行对象的抽象，通过泛化关系，形成类间的继承层次结构.</p>
+<p>(2)对象层次结构：是指对象间的组成结构，即大的对象由小的对象组成.</p>
+<h4 id="1-7-7-复用-Reuse"><a href="#1-7-7-复用-Reuse" class="headerlink" title="1.7.7: 复用-Reuse:"></a>1.7.7: 复用-Reuse:</h4><p>复用是借助于已有软件的各种有关知识建立新的软件的过程.</p>
+<p>将软件看成是由不同功能部分的构件所组成的有机体，每个构件在设计编写时可以被设计成完成同类工 作的通用工具.</p>
+<p>如果完成各种工作的构件被建立起来以后，编写特定软件的工作就变成了将各种不同构件进行组合的简 单问题，从而对软件产品的最终质量和维护工作都有本质性的改变.</p>
+<p>系统开发各个阶段都可能涉及到复用.</p>
+<p>从最底层的代码复用，到设计复用、架构复用，再到需求复用，甚至于延伸到特定业务领域的复用.</p>
+<p>复用原则要求设计者不仅针对当前的业务需求开展设计，还需要考虑业务的通用性和可扩展性等问题， 从而设计抽象层次高、复用粒度大的组件.</p>
+<h1 id="2-可视化建模"><a href="#2-可视化建模" class="headerlink" title="2.可视化建模:                             "></a>2.可视化建模:                            <a href="af://n56"> </a></h1><h2 id="2-1-瀑布模型"><a href="#2-1-瀑布模型" class="headerlink" title="2.1: 瀑布模型:                                       "></a>2.1: 瀑布模型:                                      <a href="af://n57"> </a></h2><p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/wps2.jpg" alt="img"> </p>
+<p>1.瀑布模型的性质:</p>
+<p>不同的开发阶段应该被连贯地进行.每个阶段都有文档，上一个阶段的文档是下一个阶段文档工作的基础. 系统部署后，进入维护阶段.</p>
+<p>2.瀑布模型的优点:</p>
+<p>将软件开发当做工程对待.</p>
+<p>3.瀑布模型的缺点:</p>
+<p>没有引入迭代.</p>
+<h2 id="2-2-统一过程模型"><a href="#2-2-统一过程模型" class="headerlink" title="2.2: 统一过程模型:                                   "></a>2.2: 统一过程模型:                                  <a href="af://n64"> </a></h2><p>统一过程(THE UNIFIED PROCESS)试图在整体开发过程模型中结合迭代与渐增两种思想.</p>
+<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/wps3.jpg" alt="img"> </p>
+<p>特点:</p>
+<p>每项活动都可以在任何一次迭代发生，但是重心随着开发过程的进行，每次迭代的重心都不同.</p>
+<h2 id="2-3-UML-统一建模语言"><a href="#2-3-UML-统一建模语言" class="headerlink" title="2.3: UML:统一建模语言                           "></a>2.3: UML:统一建模语言                          <a href="af://n69"> </a></h2><p>UML — Unified Modeling Language.</p>
+<p>UML是一种标准的图形化建模语言，是面向对象分析与设计的标准表示，它不是一种程序设计语言，而 是一种可视化的建模语言(用于分析设计).</p>
+<p>Unified Modeling Language (统一建模语言)是对象管理组织(OMG)制定的一个通用的、可视化的 建模语言标准，可以用来可视化(visualize)  、描述(specify)、构造(construct)和文档化      (document)软件密集型系统的各种工件(artifacts，又译制品)  .</p>
+<h2 id="2-4-结构"><a href="#2-4-结构" class="headerlink" title="2.4: 结构:                                           "></a>2.4: 结构:                                          <a href="af://n73"> </a></h2><p>UML主要包括两类图:</p>
+<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/wps4.png" alt="img"> </p>
+<p>结构图: 结构图用于表示系统中元素的静态结构，例如系统组织结构，例如，类图系统的物理元素，例 如，包，组件图运行时配置等.</p>
+<p>行为图: 用来描述动态行为对象的创建与销毁对象按照顺序发送消息外部事件引发了特定的对象的操作.</p>
+<h2 id="2-5-4-1模型"><a href="#2-5-4-1模型" class="headerlink" title="2.5: 4+1模型:                                        "></a>2.5: 4+1模型:                                       <a href="af://n77"> </a></h2><p>UML试图在5个方面刻画一个软件.</p>
+<p>系统的结构用五个视图(Views)描述，用例视图在集成其他四个视图的内容中起着特殊的作用。</p>
+<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/wps5.jpg" alt="img"> </p>
+<h2 id="2-6-类图"><a href="#2-6-类图" class="headerlink" title="2.6: 类图:                                           "></a>2.6: 类图:                                          <a href="af://n81"> </a></h2><p>类图表示类的存在以及从逻辑层面表达它们之间的关系.</p>
+<p>类图的基本要素：类，以及它们之间的关系.</p>
+<p>类图中一个类的结构:</p>
+<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/wps6.png" alt="img"> </p>
+<p>类图中类之间的关系:</p>
+<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/wps7.jpg" alt="img"><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/wps8.png" alt="img"><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/wps9.png" alt="img"> </p>
+<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/wps10.png" alt="img"></p>
+<h2 id="2-7-聚合与组合"><a href="#2-7-聚合与组合" class="headerlink" title="2.7: 聚合与组合:"></a>2.7: 聚合与组合:</h2><p>聚合 (aggregation): “part of” 关系.不是物理包含关系.表示一种弱关联.有独立的生命周期. </p>
+<p>组合(composition)的概念：整体包括部分,是一种物理包含.一个部分对象仅仅对应于1个整体对象；该整 体对象如果不存在，则部分对象也就没有存在的必要组合中，创建“整体”对象，则要创建“部分”对象；消 灭“整体”对象，其组合的“部分”也必须被消灭。相反，如果“部分”对象被消灭，则“整体”对象也必须被消 灭.一般在构造函数中引入.</p>
+<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/wps11.png" alt="img"> </p>
+<h2 id="2-8-类的可视性记号"><a href="#2-8-类的可视性记号" class="headerlink" title="2.8: 类的可视性记号:                                 "></a>2.8: 类的可视性记号:                                <a href="af://n94"> </a></h2><p>出现在uml类图中的符号:</p>
+<p>Public (+)：所有的其它类都可以访问 .</p>
+<p>Protected (#)：类中的元素以及子类中的元素可访问 .</p>
+<p>Private (-): 仅类中的元素可以访问.</p>
+<p>Package (~): 仅仅同一个包中的元素可以访问.</p>
+<h3 id="2-8-2-对象图"><a href="#2-8-2-对象图" class="headerlink" title="2.8.2: 对象图:"></a>2.8.2: 对象图:</h3><p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/wps12.png" alt="img"> </p>
+<h2 id="2-9-构件图"><a href="#2-9-构件图" class="headerlink" title="2.9: 构件图:                                         "></a>2.9: 构件图:                                        <a href="af://n103"> </a></h2><p>构件(Component)是系统中遵从一组接口且提供其实现的物理的、可替换的部分。</p>
+<p>构件图(Component diagram)则是显示一组组件以及它们之间的相互关系，包括编译、链接还在执 行时组件之间的依赖关系。</p>
+<p>一个构件代表一个可复用的软件；提供一批有意义的功能在最底层，一个构件是一群(自己内聚的)松散耦 合的类系统中的每一个类必须在一个构件之中，或者在系统的顶层；一个构件可以包含其它构件.</p>
+<p>可以利用构件层次地分解一个系统与表达系统的逻辑结构 (这是在UML2.0中新引进的；面向构件编程).</p>
+<h3 id="2-9-1-基本元素"><a href="#2-9-1-基本元素" class="headerlink" title="2.9.1: 基本元素:"></a>2.9.1: 基本元素:</h3><p>components,构件</p>
+<p>their interfaces, 接口</p>
+<p>their realizations. 接口实现</p>
+<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/wps14.png" alt="img"> </p>
+<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/wps15.png" alt="img"> </p>
+<h2 id="2-10-部署图-Deployment-Diagram"><a href="#2-10-部署图-Deployment-Diagram" class="headerlink" title="2.10: 部署图(Deployment Diagram):                  "></a>2.10: 部署图(Deployment Diagram):                 <a href="af://n114"> </a></h2><p>部署图被用来表示将工件分配到系统的各个物理设计节点的情况。部署图代表系统的工件结构的视图. 使用部署图表示系统执行平台的物理节点的集合；这些节点组成了系统的执行平台。</p>
+<p>三个基本的部署图元素：工件、节点、连接符号.</p>
+<h2 id="2-11-用例图"><a href="#2-11-用例图" class="headerlink" title="2.11: 用例图:                                        "></a>2.11: 用例图:                                       <a href="af://n118"> </a></h2><p>用例图：描述将要创建的系统的环境与系统应该提供的功能描述谁与系统交互；即(外部世界) 用户让系 统做什么.</p>
+<p>用例描述包括将系统作为一个黑匣子。描述人与系统之间的交互。</p>
+<p>比如一个人去银行.他与系统进行的交互就是存现金,取现金,那么这就是两个用例.</p>
+<h2 id="2-12-活动图"><a href="#2-12-活动图" class="headerlink" title="2.12: 活动图:                                        "></a>2.12: 活动图:                                       <a href="af://n122"> </a></h2><p>与流程图比较类似.</p>
+<p>]活动图提供了活动流的可视化描述(系统中，业务中，工作流，其它流程中)；</p>
+<p>活动图关注应有的活动，以及谁负责完成这些活动.</p>
+<h1 id="3-建模过程"><a href="#3-建模过程" class="headerlink" title="3.建模过程:                               "></a>3.建模过程:                              <a href="af://n126"> </a></h1><p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/wps16.png" alt="img"> </p>
+<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/wps17.png" alt="img"> </p>
+<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/wps18.png" alt="img"> </p>
+<h2 id="3-1-领域模型"><a href="#3-1-领域模型" class="headerlink" title="3.1: 领域模型:                                       "></a>3.1: 领域模型:                                      <a href="af://n130"> </a></h2><p>领域模型捕捉业务环境最重要的对象(产生类图).</p>
+<p>领域模型代表存在的“实物” 或业务环境中出现的事件.</p>
+<p>专注于分析问题领域本身，发掘重要的业务领域概念，并建立业务领域概念之间的关系。</p>
+<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/wps19.png" alt="img"> </p>
+<h2 id="3-2-用例模型"><a href="#3-2-用例模型" class="headerlink" title="3.2: 用例模型:                                       "></a>3.2: 用例模型:                                      <a href="af://n135"> </a></h2><p>一个用例图涉及到一个参与者与一个用例.表达的是功能化的需求.</p>
+<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/wps20.jpg" alt="img"> </p>
+<h3 id="3-2-1-参与者："><a href="#3-2-1-参与者：" class="headerlink" title="3.2.1: 参与者："></a>3.2.1: 参与者：</h3><p>在系统之外，透过系统边界与系统进行有意义交互的任何事物.参与者透过系统边界直接与系统交互，参 与者的确定代表系统边界的确定.</p>
+<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/wps21.png" alt="img"> </p>
+<p>参与者可以通过泛化关系来定义，在这种泛化关系中，一个参与者的抽象描述可以被一个或多个具体的 参与者所共享.</p>
+<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/wps22.png" alt="img"> </p>
+<p>识别参与者:</p>
+<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/wps23.jpg" alt="img"> </p>
+<h3 id="3-2-2-用例"><a href="#3-2-2-用例" class="headerlink" title="3.2.2: 用例:"></a>3.2.2: 用例:</h3><p>例描述的是参与者与系统的交互，而不是系统内在的活动。因此用例的定义也应该只关注系统对外所体 现的行为，即用例止于系统边界.将系统视为黑匣子描述的不是内在的系统活动.</p>
+<p>每个用例都会对参与者产生一个有价值的结果。</p>
+<p>购买商品的会员构造一个”购买商品”的用例是合理的.倘若构造”查询商品”,”购买”这两个用例就是不好的 用例.</p>
+<h3 id="3-2-3-用例其他注意事项"><a href="#3-2-3-用例其他注意事项" class="headerlink" title="3.2.3: 用例其他注意事项:"></a>3.2.3: 用例其他注意事项:</h3><p>(1)系统执行，每个用例所产生的结果值都是由系统生成的。</p>
+<p>(2)用例从参与者的观点出发,而不是从系统的观点出发.</p>
+<p>(3)粒度问题:</p>
+<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/wps24.png" alt="img"> </p>
+<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/wps25.jpg" alt="img"> </p>
+<p>处理方式:</p>
+<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/wps26.png" alt="img"> </p>
+<h3 id="3-2-4-用例图"><a href="#3-2-4-用例图" class="headerlink" title="3.2.4: 用例图:"></a>3.2.4: 用例图:</h3><p>用例图：表达参与者与用例关系图形.</p>
+<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/wps27.png" alt="img"> </p>
+<p>一个用例图实例:</p>
+<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/wps28.png" alt="img"> </p>
+<h2 id="3-3-用例文档"><a href="#3-3-用例文档" class="headerlink" title="3.3: 用例文档:                                       "></a>3.3: 用例文档:                                      <a href="af://n161"> </a></h2><p>用例文档：描述用户与系统交互的需求说明书.</p>
+<p>用例描述是需求的核心内容,而用例图作为用例文档的索引图.</p>
+<p>用例文档要考虑到每个用例的各种场景.文档中每一句话都有其价值.</p>
+<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/wps29.png" alt="img"> </p>
+<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/wps30.jpg" alt="img"><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/wps31.jpg" alt="img"> </p>
+<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/wps32.png" alt="img"></p>
+<h2 id="3-4-重构用例模型"><a href="#3-4-重构用例模型" class="headerlink" title="3.4: 重构用例模型:"></a>3.4: 重构用例模型:</h2><p>(1)用例关系:</p>
+<p>通过用例关系将复杂的用例进行适当的分解，以便于提高需求的复用性和可扩展性等，从而使用例模型 的结构更合理.</p>
+<p>(2)用例分级:</p>
+<p>可以根据用例的重要程度进行分级，以便后续迭代计划的制定，高级别的用例优先考虑用例分包将相关 的.</p>
+<p>(3)用例分包:</p>
+<p>将相关的用例打包，通过分包的方式可以将用例图分层表示，以用于大规模系统的用例建模。</p>
+<h3 id="3-4-1-用例关系："><a href="#3-4-1-用例关系：" class="headerlink" title="3.4.1: 用例关系："></a>3.4.1: 用例关系：</h3><p>(1)Include(包含):</p>
+<p>基用例中复用被包含用例的行为提取公共步骤，便于复用.</p>
+<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/wps33.png" alt="img"> </p>
+<p>(2)Extend(扩展):</p>
+<p>通过扩展用例对基用例增加附加的行为.</p>
+<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/wps34.jpg" alt="img"> </p>
+<p>(3)Generalization(泛化):</p>
+<p>派生用例继承泛化用例的行为并添加新行为.</p>
+<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/wps35.png" alt="img"> </p>
+<p>重构的用例模型例子：</p>
+<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/wps36.png" alt="img"> </p>
+<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/wps37.jpg" alt="img"></p>
+<h3 id="3-4-2：注意事项："><a href="#3-4-2：注意事项：" class="headerlink" title="3.4.2：注意事项："></a>3.4.2：注意事项：</h3><p>用例不是功能分解.使用用例进行功能分解，是用例使用过程中最容易出现的问题.用例是目标，不是过 程；用例不代表功能模块.</p>
+<p>用例说明了系统所能提供的功能、服务，而软件分析&#x2F;设计者可能会进行不同的设计.</p>
+<h2 id="3-5-用例分析："><a href="#3-5-用例分析：" class="headerlink" title="3.5: 用例分析：                                  "></a>3.5: 用例分析：                                 <a href="af://n188"> </a></h2><p>得到用例模型之后，进行用例分析，根据分析进行设计，从而得到类图，并编写代码。</p>
+<p>分析：为了满足需求模型中所描述的功能，系统内部应该有什么样的业务核心机制(需要几个对象互相协 作呢？ )</p>
+<p>分析的目标是开发一系列模型，以描述软件核心成分，从而满足客户定义的需求：称为分析模型。</p>
+<p>需求模型以用户的角度描述系统所要实现的目标，而分析模型表示在系统内部应该提供哪些核心业务元 素和关系，以实现需求模型提出的目标(例如，要有哪些对象(类)的配合才能完成需求中所提出的功   能)。</p>
+<p>用例模型被“翻译”成分析模型(用例描述  顺序图，用例描述中的重要名词被翻译成类名及其属性)</p>
+<h3 id="3-5-1-用例实现："><a href="#3-5-1-用例实现：" class="headerlink" title="3.5.1:用例实现："></a>3.5.1:用例实现：</h3><p>用例实现：  将用例行为分配给类</p>
+<p>用例实现是分析&#x2F;设计模型中系统用例的表达式。</p>
+<p>用例实现描述了对象间的协作以完成用例目标。</p>
+<p>用例实现将用例模型中的用例和设计(分析)模型中的类和关系连接在一起，说明了每个用例必须用那些类 来实现。提供了从分析和设计到需求的可跟踪性。</p>
+<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/wps38.png" alt="img"> </p>
+<p>用例实现和用例是两个不同的概念，它们关注的重点不同.</p>
+<p>用例(描述)面向用户，描述功能。</p>
+<p>用例实现则面向分析设计人员，描述软件的内部结构。</p>
+<p>构造用例实现是分析最核心的工作。</p>
+<p>获得实现用例行为所必须的分析类，利用这些分析类来描述其实现逻辑。</p>
+<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/wps39.png" alt="img"><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/wps40.jpg" alt="img"><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/wps41.jpg" alt="img"> </p>
+<h3 id="3-5-2-顺序图"><a href="#3-5-2-顺序图" class="headerlink" title="3.5.2: 顺序图:"></a>3.5.2: 顺序图:</h3><p>顺序图是一种交互图，描述对象之间的动态交互关系，着重体现对象间消息传递的时间顺序.</p>
+<p>对象(Object)：对象、对象的生命线、对象的执行发生和对象的删除.</p>
+<p>消息(Message)：简单消息、同步消息、异步消息、返回消息.</p>
+<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/wps42.png" alt="img"></p>
+<h3 id="3-5-3-专家模式"><a href="#3-5-3-专家模式" class="headerlink" title="3.5.3: 专家模式:"></a>3.5.3: 专家模式:</h3><p>是怎样将职责分配到分析类的指南.</p>
+<p>将职责分配给具有当前职责所需要的数据的类如果一个类有这个数据，就将职责分配给这个类.<img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/wps43.jpg" alt="img"> </p>
+<h3 id="3-5-4-VOPC图"><a href="#3-5-4-VOPC图" class="headerlink" title="3.5.4: VOPC图:"></a>3.5.4: VOPC图:</h3><p>对于每一个“用例实现”，需要绘制与之相关的类图，即VOPC图.</p>
+<p>参与类类图(VOPC, View Of Participating Classes Class Diagram).</p>
+<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/wps44.png" alt="img"> </p>
+<p>当所有的用例的VOPC图都画完了以后，就由此可以推导出分析类图.</p>
+<h2 id="3-6-架构分析："><a href="#3-6-架构分析：" class="headerlink" title="3.6: 架构分析：                                  "></a>3.6: 架构分析：                                 <a href="af://n219"> </a></h2><p>架构分析的过程就是定义系统高层组织结构和核心架构机制的过程。</p>
+<p>​	( 1)定义系统的备选架构来描述系统的高层组织结构—备选架构(选取层次结构，  Client-server, MVC 等).</p>
+<p>​	( 2)提取系统的关键抽象以揭示系统必须能够处理的核心概念—关键抽象(领域模型图).</p>
+<p>​	( 3)创建用例实现来启动用例分析—用例实现 .</p>
+<p>架构模式(软件体系结构，架构)表示了对软件系统的一个基础结构组织形式。它提供了一套预定义子系 统，详细说明它们的职责，并且包括组织它们之间的规则和指南。</p>
+<p>经典的架构有：</p>
+<p>​	( 1)分层架构(层次架构)</p>
+<p>​	( 2)  模型-视图-控制器(M-V-C)</p>
+<p>​	( 3)  客户端-服务器架构 …</p>
+<h2 id="3-7-分析类图"><a href="#3-7-分析类图" class="headerlink" title="3.7: 分析类图:                                       "></a>3.7: 分析类图:                                      <a href="af://n229"> </a></h2><p>最终目标是从系统的角度明确说明每一个分析类的职责和属性以及类之间的关系, 从而构造系统的分析类 视图。</p>
+<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/wps45.png" alt="img"> </p>
+<p>分析阶段的重点在于找出体现系统核心业务所需数据的实体类，而界面和业务逻辑细节分别由边界类和 控制类隐藏.</p>
+<p>在很多UML模型中，分析阶段的工作就是找到这些实体类.</p>
+<p>这些实体类组成系统概念模型(分析类图).</p>
+<p>通过比较各个用例的VOPC图，删除重复的与那些没有引用的实体类，即可得到由实体类组成的分析类 图，这些是分析的关键.</p>
+<h3 id="3-7-1-类之间的关系："><a href="#3-7-1-类之间的关系：" class="headerlink" title="3.7.1: 类之间的关系："></a>3.7.1: 类之间的关系：</h3><p>​	( 1)关联：关联是类之间的一种结构化关系，是类之间的语义联系表明类的对象之间存在着链接对象是 类的实例，而链接是关联的实例。</p>
+<p>​	( 2)自反关联：自反关联是指一个类自身之间存在关联，它表明同一个类的不同对象之间存在链接。</p>
+<p>​	( 3)聚合：聚合(Aggregation)关系是一种特殊的关联关系。</p>
+<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/wps46.jpg" alt="img"><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/wps47.jpg" alt="img">除了拥有关联关系所有的基本特征之外,两个关联的类还分别代表“整体”和“部分” .         (4)泛化：泛化是指类间的结构关系、亲子关系子类继承父类所具有的属性、操作和关联。</p>
+<p>分析类图实例：</p>
+<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/wps48.png" alt="img"> </p>
+<h1 id="4-面向对象的设计原则"><a href="#4-面向对象的设计原则" class="headerlink" title="4.面向对象的设计原则:"></a>4.面向对象的设计原则:</h1><p>面向对象的设计原则是面向对象设计的基本指导思想.</p>
+<p>是评价面向对象设计的价值观体系.</p>
+<p>是设计模式的出发点和归宿.</p>
+<p>是构造高质量软件的出发点.</p>
+<h2 id="4-1-好的设计"><a href="#4-1-好的设计" class="headerlink" title="4.1: 好的设计:"></a>4.1: 好的设计:</h2><p>好的设计:</p>
+<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/wps49.jpg" alt="img"> </p>
+<h2 id="4-2-LSP-替换原则"><a href="#4-2-LSP-替换原则" class="headerlink" title="4.2: LSP-替换原则:                                   "></a>4.2: LSP-替换原则:                                  <a href="af://n254"> </a></h2><p>LSP(The Liskov Substitution Principle, Liskov替换原则).</p>
+<p>“若对于类型S的任一对象o1，均有类型T的对象o2存在，使得在T定义的所有程序P中，用o1替换o2之 后，程序的行为不变，则S是T的子类型” .</p>
+<p>如果在任何情况下，子类(或子类型)或实现类与超类对象都是可以互换的，那么继承的使用就是合适 的。为了达到这一目标，子类不能添加任何父类没有的附加约束.</p>
+<p>“子类对象必须可以替换超类对象” .</p>
+<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/wps50.png" alt="img"> </p>
+<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/wps51.jpg" alt="img">当设计违背LSP原则时,可参考一下思路:</p>
+<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/wps52.png" alt="img"> </p>
+<h2 id="4-3-OCP-开闭原则"><a href="#4-3-OCP-开闭原则" class="headerlink" title="4.3: OCP-开闭原则:                                   "></a>4.3: OCP-开闭原则:                                  <a href="af://n261"> </a></h2><p>开闭原则:  ( OCP-The Open-Close Principle)</p>
+<p>开闭原则说明软件实体应该对扩展开放，对修改关闭；即在不修改已经存在的源代码的情况下，修改其 行为.</p>
+<p>这在软件生产环境中尤其有价值，因为在生产环境下可能需要更改源代码。然后，极有可能对源代码进 行代码评审；单元测试，集成测试等符合开闭原则的代码可以做到在不修改源代码的情况下扩展功能， 因此从经济方面非常节省。</p>
+<p>实现开闭原则的两种策略:</p>
+<h3 id="4-3-1-复用代码"><a href="#4-3-1-复用代码" class="headerlink" title="4.3.1: 复用代码:"></a>4.3.1: 复用代码:</h3><p>只有在更正代码错误的情况下才能修改一个类；新增或改变功能需要创建不同的类。</p>
+<p>新类通过继承的方式复用原来的类的代码 子类可能与超类可能有不同的接口.</p>
+<p>主要思想是：复用实现(代码)，而不复用接口现有实现代码不允许修改，新实现不需要实现现有接 口。</p>
+<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/wps53.png" alt="img"> </p>
+<h3 id="4-3-2-复用接口"><a href="#4-3-2-复用接口" class="headerlink" title="4.3.2: 复用接口:"></a>4.3.2: 复用接口:</h3><p>重用抽象接口，而不是重用实现(代码)  .<img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/wps54.png" alt="img"> </p>
+<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/wps55.png" alt="img"> </p>
+<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/wps56.png" alt="img"> </p>
+<h2 id="4-4-SRP-单一职责原则"><a href="#4-4-SRP-单一职责原则" class="headerlink" title="4.4: SRP-单一职责原则:                               "></a>4.4: SRP-单一职责原则:                              <a href="af://n276"> </a></h2><p>SRP(The Single Responsibility Principle).</p>
+<p>就一个类而言，应该仅有一个引起它变化的原因.</p>
+<p>有关类的职责分配问题，是面向对象设计中最重要的基本原则.</p>
+<p>SRP体现了内聚性(Cohesion)  .</p>
+<p>内聚性：一个模块的组成元素之间的功能相关性类的职责定义为“变化的原因”，每个职责都是变化的一 个轴线；当需求变化时，该变化会反映为类的职责的变化如果一个类承担了多于一个的职责，那么引起 它变化的原因就会有多个.</p>
+<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/wps57.png" alt="img"> </p>
+<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/wps58.png" alt="img"> </p>
+<h2 id="4-5-ISP-接口隔离原则"><a href="#4-5-ISP-接口隔离原则" class="headerlink" title="4.5: ISP-接口隔离原则:                                "></a>4.5: ISP-接口隔离原则:                               <a href="af://n284"> </a></h2><p>ISP(The Interface Segregation Principle).</p>
+<p>将很大的接口拆分成较小的，更具体的接口；使得客户类只需要知道它所感兴趣的方法。  ISP原则的意图 是使得一个系统保持较低的耦合，以便于更容易重构，修改与部署。</p>
+<p>使用多个专门的接口比使用单一的接口好一个类对另一个类的依赖性应当是建立在最小的接口上的避免 接口污染(Interface Pollution).</p>
+<h2 id="4-6-DIP-依赖倒转原则"><a href="#4-6-DIP-依赖倒转原则" class="headerlink" title="4.6: DIP-依赖倒转原则:                               "></a>4.6: DIP-依赖倒转原则:                              <a href="af://n288"> </a></h2><p>(DIP-The Dependency Inversion Principle).</p>
+<p>高层模块不依赖于低层模块，二者都依赖于抽象.抽象不依赖于细节，细节依赖于抽象.</p>
+<p>针对接口编程，不要针对实现编程.</p>
+<p>又称控制反转(IoC ，  Inversion of Control)、依赖注入.</p>
+<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/wps59.png" alt="img"> </p>
+<p>结构化设计，上层调用下层，上层依赖于下层，当下层剧烈变动时上层也要跟着变动，这就会导致模块 的复用性降低而且大大提高了开发的成本。面向对象设计中的依赖倒转：一般情况下抽象的变化概率很 小，让客户类依赖于抽象，实现的细节也依赖于抽象。即使实现细节不断变动，只要抽象不变，客户程 序也不需要变化。这大大降低了客户程序与实现细节的耦合度。</p>
+<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/wps60.png" alt="img"> </p>
+<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/wps61.jpg" alt="img"> </p>
+<p>ps: 这个带菱形的箭头表示为类之间的聚合关系.</p>
+<h1 id="5-设计模式"><a href="#5-设计模式" class="headerlink" title="5.设计模式:                              "></a>5.设计模式:                             <a href="af://n300"> </a></h1><p>设计模式是在构件设计阶段，通过定义类或特定对象之间的结构和行为，从而解决每类设计问题的通用 解决方案.</p>
+<p>设计就是解决方案—对某个问题的解决.如果某个解决方案对某类问题都很有用.这时就把它总结出来.这就产生了设计模式.</p>
+<p>设计模式是：优秀的设计范例,从优秀设计方案中发现和总结出来的经验,在实践中反复出现的设计问题的优秀解决方案,设计者相互交流的基本术语,设计语言培养优秀设计师的一条捷径.</p>
+<h2 id="5-1-设计模式与设计原则"><a href="#5-1-设计模式与设计原则" class="headerlink" title="5.1: 设计模式与设计原则:                              "></a>5.1: 设计模式与设计原则:                             <a href="af://n304"> </a></h2><p>设计原则是面向对象设计的指导思想,设计模式只是更好地遵循这一指导思想的手段之一.  设计模式是面向对象设计的具体技术,设计模式抽象出成功设计的共性，并进行分类与标识. 设计模式通过描述对象、协作和职责将设计中的意图抽取出来.</p>
+<h2 id="5-2-GRASP"><a href="#5-2-GRASP" class="headerlink" title="5.2: GRASP:"></a>5.2: GRASP:</h2><p>GRASP ( General Responsibility Assignment Software Pattern，通用职责分配软件模式)  . GRASP模式描述了将职责分配给对象的基本原则，这些原则被表示成模式.</p>
+<p>职责和职责分配是面向对象分析和设计的最核心工作，合理的职责分配直接决定了设计的质量.</p>
+<p>GRASP就是用于指导职责分配的原则和模式.</p>
+<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/wps64.png" alt="img"> </p>
+<h2 id="5-3-信息专家模式"><a href="#5-3-信息专家模式" class="headerlink" title="5.3: 信息专家模式:                                   "></a>5.3: 信息专家模式:                                  <a href="af://n314"> </a></h2><p>信息专家模式：将责任分配给信息专家类(拥有实现该责任的信息的类)  .</p>
+<p>将职责分配拥有履行一个职责所必需信息的类，即信息专家信息专家模式在职责分配中的应用比任何其 他模式都广泛，它是面向对象的设计中的一个基本指导.</p>
+<p>原则信息专家不是一个模糊或者新奇的设计概念，它表述了最普遍的一种“直觉”，即对象所能完成的工 作要依赖于它所掌握的信息.</p>
+<p>优点：</p>
+<p>(1)封装能够得以维持，因为对象只使用他们自己包含的信息来完成任务(低耦合)  .</p>
+<p>(2)系统行为只分布在具有所需信息的类中(高内聚)  .</p>
+<h2 id="5-4-创建者模式"><a href="#5-4-创建者模式" class="headerlink" title="5.4: 创建者模式:                                     "></a>5.4: 创建者模式:                                    <a href="af://n321"> </a></h2><p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/wps65.png" alt="img"> </p>
+<p>使用创建者模式的好处支持低耦合，从而意味着低维护依赖，高复用机会.</p>
+<h2 id="5-5-低耦合模式"><a href="#5-5-低耦合模式" class="headerlink" title="5.5: 低耦合模式:                                     "></a>5.5: 低耦合模式:                                    <a href="af://n324"> </a></h2><p>低耦合模式：通过分配责任使得得到低耦合的设计.</p>
+<p>高耦合的设计:</p>
+<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/wps66.png" alt="img"> </p>
+<p>低耦合的改进方法:</p>
+<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/wps67.png" alt="img"> </p>
+<h2 id="5-6-高内聚模式"><a href="#5-6-高内聚模式" class="headerlink" title="5.6: 高内聚模式:                                     "></a>5.6: 高内聚模式:                                    <a href="af://n330"> </a></h2><h2 id="5-7-控制器模式"><a href="#5-7-控制器模式" class="headerlink" title="5.7: 控制器模式:                                     "></a>5.7: 控制器模式:                                    <a href="af://n331"> </a></h2><p>控制器模式：将接受(处理)系统事件消息的责任分配给一个代表整体系统(子系统、设备)的类，叫 做门面控制器或者代表一个用例场景的类，称为用例控制器的类。</p>
+<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/wps68.png" alt="img"> </p>
+<p>控制器是一个非用户图形界面对象。控制器负责接收或处理系统消息。控制器决定调用哪些系统操作。 优点：</p>
+<p>Controller类对象代表了应用层的控制器，它提供了用户图形界面所需要的方法。这样， ChartDrawerGUI类就可以不和Chart层次类产生关联，而只要调用Controller类即可。</p>
+<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/wps69.jpg" alt="img"><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/wps70.png" alt="img">用户图形界面ChartDrawerGUI是可插拔的，可以轻松地替换的.</p>
+<p>增加用户图形界面的复用，产生可插拔的用户图形界面可能性.  保证应用逻辑不包含在GUI层.  将系统操 作代理给一个Controller类的好处是支持应用逻辑在将来的应用程序中的复用.</p>
+<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/wps71.png" alt="img">5.8: 多态模式:</p>
+<p>如果一个程序使用了条件语句，则当有新的条件被加入的话，则需要修改原来的条件语句组的逻辑缺 点：程序不容易扩展。原因是如果程序有了新变化的时候，则可能会涉及到多处的修改。</p>
+<p>解决方案：使用多态模式。当相关的行为基于类型而变化，使用多态操作，将行为责任分配给相关的类 型</p>
+<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/wps72.png" alt="img"> </p>
+<p>。</p>
+<p>简单地说,就是把复杂的方法”退化”到类,避免了因为需求的变化大幅度的修改和重新编译原有类的操作.</p>
+<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/wps73.png" alt="img"></p>
+<h2 id="5-9-纯虚构模式"><a href="#5-9-纯虚构模式" class="headerlink" title="5.9: 纯虚构模式:                                     "></a>5.9: 纯虚构模式:                                    <a href="af://n344"> </a></h2><p>将一组高内聚的责任分配给一个不代表领域类概念的虚构的类。该虚构的类的存在支持高内聚，低耦合 与复用.</p>
+<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/wps74.png" alt="img"> </p>
+<p>这种设计不好：数据库操作方法与这3个类没有概念上的关系，如果数据库操作包含在3个类中，那么您 将得到一个低内聚的设计(导致低内聚的设计);这样做将生成一个与数据库接口(例如JDBC)紧密耦合的 类图.</p>
+<p>一方面，按照信息专家模式，三个领域类类都应该拥有数据库访问的职责，而另一方面，如果这样做， 会导致低内聚，高耦合与可重用性差的设计。</p>
+<p>使用纯虚构模式进行设计:</p>
+<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/wps75.png" alt="img"> </p>
+<h2 id="5-10-间接模式"><a href="#5-10-间接模式" class="headerlink" title="5.10: 间接模式:                                      "></a>5.10: 间接模式:                                     <a href="af://n351"> </a></h2><p>将责任分配给中介对象，以便在其它组件之间进行协调，以使它们不直接耦合。</p>
+<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/wps76.png" alt="img"> </p>
+<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/wps77.png" alt="img"> </p>
+<h2 id="5-11-受保护模式"><a href="#5-11-受保护模式" class="headerlink" title="5.11: 受保护模式:                                    "></a>5.11: 受保护模式:                                   <a href="af://n355"> </a></h2><p>如何设计对象、子系统和系统，以使这些元素中的变化或不稳定对其他元素不会产生不良影响？ 确定能预测到的(类型)变化或不稳定点；分配责任以建立一个稳定的接口.</p>
+<p>PV是大多数编程和设计的机制和模式的基本动机之一，它使得系统能适应和隔离变化.</p>
+<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/wps78.png" alt="img"> </p>
+<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/wps79.png" alt="img"> </p>
+<p>改善之后的设计容易维护,容易扩展,而且符合开闭原则.</p>
+<h2 id="5-12-Demeter定律"><a href="#5-12-Demeter定律" class="headerlink" title="5.12: Demeter定律:                                 "></a>5.12: Demeter定律:                                <a href="af://n362"> </a></h2><p>类的方法不应该依赖于其它的类的结构，而只能依赖于自己所在的类或者其最靠近的超类。 不符合此定律的设计:</p>
+<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/wps80.png" alt="img"> </p>
+<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/wps81.png" alt="img"> </p>
+<p>符合此定律的设计:</p>
+<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/wps82.jpg" alt="img"> </p>
+<p>应用Demeter定律的基本效果是可以创建松散耦合的类，其实现秘密被封装了；因此，为了理解一个类 的意图，不必理解许多其它类的细节。</p>
+<h1 id="6-分析与设计"><a href="#6-分析与设计" class="headerlink" title="6.分析与设计:                             "></a>6.分析与设计:                            <a href="af://n370"> </a></h1><h2 id="6-1-设计策略"><a href="#6-1-设计策略" class="headerlink" title="6.1: 设计策略:                                       "></a>6.1: 设计策略:                                      <a href="af://n371"> </a></h2><p>D-设计(分解设计，  Decomposition design)将系统映射为构件片(component pieces)，再对各个 构件片进行内部设计；是应用广泛的设计策略。</p>
+<p>FP-设计(Family Patterndesign)是一种探求一定范围的通用性设计策略，不从需求入手，而去探求问 题的本质特征。主要用于通用产品设计，例如通用财务软件的设计。</p>
+<p>I-设计(Invention design)基于概念化原型作系统分析，定义系统以满足所发现的需要和需求.</p>
+<h2 id="6-2-从分析到设计："><a href="#6-2-从分析到设计：" class="headerlink" title="6.2: 从分析到设计：                               "></a>6.2: 从分析到设计：                              <a href="af://n374"> </a></h2><p>面向对象分析是面向对象设计的输入，设计是分析的细化方法。</p>
+<p>相同点：都产生类图，分析类图，设计类图)。。</p>
+<p>分析：做什么(What)分析有效地确定了将要构建的内容分析重点关注业务(business)问题。</p>
+<p>设计：怎么做(How)设计定义如何构建目标系统：采用何种技术、何种平台(如JavaEE，前后端分离开发) 来实现分析模型设计关注于系统的技术(technical)和实现(implementation)细节。</p>
+<p>分析集中在系统需求，而设计集中在待生产的软件的结构.</p>
+<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/wps83.png" alt="img"> </p>
+<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/wps84.png" alt="img"> </p>
+<p>OO设计是对OO分析的进一步细化，其根本思想是：对分析模型中的分析类进行进一步的设计，添加实 现细节，这些分析类最终转变成设计元素面向对象的方法中，设计是分析的自然延续，在分析模型中添 加特定的实现机制，得到可以实现的设计元素.</p>
+<h1 id="7-架构设计基础"><a href="#7-架构设计基础" class="headerlink" title="7.架构设计基础:                           "></a>7.架构设计基础:                          <a href="af://n383"> </a></h1><h2 id="7-1-架构与架构设计"><a href="#7-1-架构与架构设计" class="headerlink" title="7.1: 架构与架构设计:                                 "></a>7.1: 架构与架构设计:                                <a href="af://n384"> </a></h2><p>架构是一个系统的组织结构，包括系统分解成的各个部分、它们的连接性、交互机制和指导系统设计的 相关规则.</p>
+<p>架构设计的活动在分析阶段就已经开始，分析阶段主要关注基础架构的选型和并确定核心的分析机制.</p>
+<p>设计阶段，要针对分析阶段的备选架构的各个方面进行详细的定义，以设计出符合特定系统的架构.</p>
+<h2 id="7-2-架构设计内容"><a href="#7-2-架构设计内容" class="headerlink" title="7.2: 架构设计内容:                                   "></a>7.2: 架构设计内容:                                  <a href="af://n388"> </a></h2><p>(1)确定核心元素：在架构的中高层，以“分析类”为出发点，确定相应的“核心设计元素”  (设计类，接口， 子系统等)  </p>
+<p>(2)优化组织结构：按照高内聚、低耦合的基本原则，整理并逐渐充实架构的层次和内容(在架构的哪些 层，具体地包含哪些包，在哪些包中，包含哪些类)  .</p>
+<p>(3)定义设计后的组织结构：架构设计还应该考虑设计完成后系统实现、运行以及部署等阶段的组织结构 (JavaEE, 前后端分离开发，服务器，数据存储，软件部署)  .</p>
+<h2 id="7-3-包图"><a href="#7-3-包图" class="headerlink" title="7.3: 包图:                                           "></a>7.3: 包图:                                          <a href="af://n392"> </a></h2><p>包图是一种将模型元素分组的机制.</p>
+<p>包主要用于组织模型元素配置管理单元.</p>
+<p>分包的原则：职责相似，将一组职责相似、但以不同方式实现的类归为一组有意义的包；如java类库中 的javax.swing.border.</p>
+<p>协作关系：包图包含了各种不同类型的类，它们之间通过相互协作实现一个意义重大的职责.</p>
+<p>可以使用包记号表示大的系统架构与局部的结构表示架构，可以依据架构层依据用户功能.</p>
+<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/wps85.png" alt="img"> </p>
+<h3 id="7-3-1-包的关系"><a href="#7-3-1-包的关系" class="headerlink" title="7.3.1: 包的关系:"></a>7.3.1: 包的关系:</h3><p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/wps86.jpg" alt="img"> </p>
+<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/wps87.jpg" alt="img"> </p>
+<h3 id="7-3-2-包的设计原则"><a href="#7-3-2-包的设计原则" class="headerlink" title="7.3.2: 包的设计原则:"></a>7.3.2: 包的设计原则:</h3><p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/wps88.png" alt="img"> </p>
+<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/wps89.jpg" alt="img"> </p>
+<h2 id="7-4-设计元素"><a href="#7-4-设计元素" class="headerlink" title="7.4: 设计元素:                                       "></a>7.4: 设计元素:                                      <a href="af://n407"> </a></h2><p>设计元素(Design Elements)是指能够直接用于实现(编码)的模型要素.</p>
+<p>主要包括:</p>
+<p>包(Package).</p>
+<p>设计类(Design Classes).</p>
+<p>子系统(Subsystem).</p>
+<p>接口(Interface).</p>
+<p>主动类(Active Class).</p>
+<p>确定设计元素的目的是改进(调整)分析类，使之成为适当的设计模型元素.</p>
+<h3 id="7-4-1-分析类到设计元素"><a href="#7-4-1-分析类到设计元素" class="headerlink" title="7.4.1: 分析类到设计元素:"></a>7.4.1: 分析类到设计元素:</h3><p>(1)简单的分析类被直接映射到设计类，如果：若一个分析类是一个简单类(表示一个简单逻辑抽象)则 将此分析类增加详细内容(属性，方法的参数，返回值)，从而成为设计类.</p>
+<p>(2)更复杂的分析类可能被分成:</p>
+<p>多个设计类.</p>
+<p>设计为一个包.</p>
+<p>设计为一个接口和子系统.</p>
+<h3 id="7-4-2-接口"><a href="#7-4-2-接口" class="headerlink" title="7.4.2: 接口:"></a>7.4.2: 接口:</h3><p>接口(Interface)是类、子系统或构件提供的操作的集合接口允许用户以公开的方式定义多态，并且和实 现没有直接联系接口支持“即插即用”的结构.</p>
+<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/wps90.jpg" alt="img"><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/wps91.jpg" alt="img"> </p>
+<h3 id="7-4-3-子系统与接口"><a href="#7-4-3-子系统与接口" class="headerlink" title="7.4.3: 子系统与接口:"></a>7.4.3: 子系统与接口:</h3><p>子系统(Subsystem)是一种介于包和类之间的一种设计机制，它实现一个或多个接口所定义的行为. 具有包的语义：能够包含其它模型元素.</p>
+<p>具有类的语义：具有行为.</p>
+<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/wps92.png" alt="img"> </p>
+<p>子系统可以将系统划分成独立的部分，将被实现为独立的构件，这些构件在保持结构不变的情况下，可 以独立地开发和部署，适应变更，而不影响到其它系统.</p>
+<p>子系统也可用于将系统划分成若干单元表示设计中的既存产品或外部系统.</p>
+<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/wps93.jpg" alt="img"> </p>
+<h2 id="7-5-永久数据存储"><a href="#7-5-永久数据存储" class="headerlink" title="7.5: 永久数据存储:                                   "></a>7.5: 永久数据存储:                                  <a href="af://n483"> </a></h2><h1 id="8-类的设计理论"><a href="#8-类的设计理论" class="headerlink" title="8.类的设计理论:                           "></a>8.类的设计理论:                          <a href="af://n438"> </a></h1><p>类设计(Class Design)目标确保类可为用例实现提供必需的操作确保提供足够的信息可明确无误地实现处 理和类相关的非功能需求(例如，可扩展性).</p>
+<p>输入:用例实现(设计).</p>
+<p>输出:设计类.</p>
+<h2 id="8-1-主要内容"><a href="#8-1-主要内容" class="headerlink" title="8.1: 主要内容:"></a>8.1: 主要内容:</h2><ol>
+<li><p>创建初始设计类.</p>
+</li>
+<li><p>定义操作.</p>
+</li>
+<li><p>定义属性.</p>
+</li>
+<li><p>定义关系.</p>
+</li>
+</ol>
+<h2 id="8-2-初始设计类"><a href="#8-2-初始设计类" class="headerlink" title="8.2: 初始设计类:                                     "></a>8.2: 初始设计类:                                    <a href="af://n452"> </a></h2><p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/wps94.png" alt="img"> </p>
+<h3 id="8-2-1-边界类"><a href="#8-2-1-边界类" class="headerlink" title="8.2.1: 边界类:"></a>8.2.1: 边界类:</h3><p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/wps95.png" alt="img"> </p>
+<h3 id="8-2-2-实体类"><a href="#8-2-2-实体类" class="headerlink" title="8.2.2: 实体类:"></a>8.2.2: 实体类:</h3><p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/wps96.png" alt="img"> </p>
+<h3 id="8-2-3-控制类"><a href="#8-2-3-控制类" class="headerlink" title="8.2.3: 控制类:"></a>8.2.3: 控制类:</h3><p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/wps97.png" alt="img"> </p>
+<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/wps98.png" alt="img"> </p>
+<h2 id="8-4-定义属性"><a href="#8-4-定义属性" class="headerlink" title="8.4: 定义属性:                                       "></a>8.4: 定义属性:                                      <a href="af://n462"> </a></h2><h2 id="8-5-定义关系"><a href="#8-5-定义关系" class="headerlink" title="8.5: 定义关系:                                       "></a>8.5: 定义关系:                                      <a href="af://n463"> </a></h2><p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/wps99.png" alt="img"> </p>
+<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/wps100.jpg" alt="img"> </p>
+<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/wps101.jpg" alt="img"> </p>
+
+        </article>
+        <div class="post-tools" id="post-tools">
+            <div class="post-tools-left">
+                
+                <div class="share-link mobile">
+    <div class="share-qrcode">
+        <div class="share-button" title="使用手机访问这篇文章">
+            <i class="fas fa-qrcode"></i>
+        </div>
+        <div class="share-main">
+            <div class="share-main-all">
+                <div id="qrcode" title="http://example.com/2023/03/18/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E5%BB%BA%E6%A8%A1%E6%8A%80%E6%9C%AF/">
+                </div>
+                <div class="reward-dec">使用手机访问这篇文章</div>
+            </div>
+        </div>
+        <script type="text/javascript">
+            new QRCode(document.getElementById("qrcode"), "http://example.com/2023/03/18/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E5%BB%BA%E6%A8%A1%E6%8A%80%E6%9C%AF/");
+        </script>
+    </div>
+</div>
+                <div class="share-link weibo"><a class="share-button" target="_blank"
+    href="https://service.weibo.com/share/share.php?title=面向对象建模技术&amp;url=http://example.com/2023/03/18/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E5%BB%BA%E6%A8%A1%E6%8A%80%E6%9C%AF/&amp;pic=/img/24.jpg"
+    title="分享到微博" rel="noopener external nofollow noreferrer noopener">
+    <i class="fab fa-weibo" style="font-size:22px"></i>
+</a>
+</div>
+<div class="share-link copyurl">
+<div class="share-button" id="post-share-url" title="复制链接" onclick="acrylic.copyPageUrl()">
+    <i class="fas fa-link"></i>
+</div>
+</div>
+            </div>
+            <div class="post-tools-right">
+                <div class="tag_share">
+                    <div class="post-meta__tag-list">
+                        
+                            <a href="/tags/%E8%AF%BE%E7%A8%8B/" class="post-meta__tags">
+                                <span class="tags-punctuation">#</span>
+                                课程
+                                <span class="tagsPageCount">6</span>
+                            </a>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="post-copyright">
+    <div class="post-copyright__author">
+        <a class="post-copyright__original" title="该文章为原创文章，注意版权协议">原创</a>
+        <a class="post-copyright-title" href="#">
+            <span>面向对象建模技术</span>
+        </a>
+    </div>
+    <div class="post-copyright__type">
+        <span class="post-copyright-info" id="post-copyright-url">
+            <a href="/2023/03/18/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E5%BB%BA%E6%A8%A1%E6%8A%80%E6%9C%AF/">http://example.com/2023/03/18/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E5%BB%BA%E6%A8%A1%E6%8A%80%E6%9C%AF/</a>
+        </span>
+        <button class="post-copyright-copybtn" onclick="acrylic.copyPageUrl()">
+            <i class="fas fa-paste copy-btn"></i>
+        </button>
+    </div>
+    <div class="post-copyright__notice"><span class="post-copyright-info">本文是原创文章，采用 <a
+                href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank">CC BY-NC-ND 4.0</a> 协议，完整转载请注明来自 <a
+                href="/">风凌渡</a>
+            </span>
+        </div>
+</div>
+        <nav class="pagination-post" id="pagination">
+    
+        <div class="prev-post pull-left">
+            <a href="/2023/03/18/%E7%B3%BB%E7%BB%9F%E5%88%86%E6%9E%90%E4%B8%8E%E8%AE%BE%E8%AE%A1/">
+                <div class="pagination-info">
+                    <div class="label">上一篇</div>
+                    <div class="prev_info">系统分析与设计</div>
+                </div>
+            </a>
+        </div>
+        <div class="next-post pull-right">
+            <a href="/2023/03/14/Go%E8%AF%AD%E8%A8%80%E8%AE%BE%E8%AE%A1%E4%B8%8E%E5%AE%9E%E7%8E%B0/">
+                <div class="pagination-info">
+                    <div class="label">下一篇</div>
+                    <div class="next_info">Go语言设计与实现</div>
+                </div>
+            </a>
+        </div>
+    
+</nav>
+            
+    </div>
+    <div class="aside-content" id="aside-content">
+    
+    
+        
+        <div class="card-widget card-info">
+    <div class="card-content">
+        <div class="card-info-avatar is-center">
+            <div class="author-info__sayhi" id="author-info__sayhi">
+            </div>
+            <div class="author-info__name">
+                抒情熊
+            </div>
+            <div class="author-info__description">这有关于<b>后端</b>、<b>架构</b>的相关笔记分享，还有拙作<b>诗歌</b>和<b>小说</b>，另有如<b>奎桑提</b>和<b>奥恩</b>的相关教学。<br>相信会对你有所帮助.</div>
+        </div>
+    </div>
+    <div class="banner-button-group">
+        <a class="banner-button" href="/about/">
+            <i class="fas fa-circle-chevron-right"></i>
+            <span class="banner-button-text">了解更多</span>
+        </a>
+    </div>
+    <div class="card-info-social-icons is-center">
+        
+            <a class="social-icon" target="_blank" rel="noopener" href="https://github.com/bearslyricattack" title="Github">
+                <i class="fa-brands fa-github"></i>
+            </a>
+        
+            <a class="social-icon" target="_blank" rel="noopener" href="https://user.qzone.qq.com/2669184984" title="Mail">
+                <i class="fa-solid fa-envelope"></i>
+            </a>
+        
+    </div>
+</div>
+     
+    
+    <div class="sticky_layout">
+        
+            <div class="card-widget" id="card-toc">
+    <div class="item-headline">
+        <i class="fas fa-bars"></i>
+        <span>文章目录</span>
+    </div>
+    <div class="toc-content" id="toc-content">
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E5%BB%BA%E6%A8%A1%E6%8A%80%E6%9C%AF"><span class="toc-text">面向对象建模技术                     </span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-%E4%BB%8E%E7%BB%93%E6%9E%84%E5%8C%96%E5%88%B0%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E6%A8%A1%E5%9E%8B"><span class="toc-text">1.从结构化到面向对象模型:                </span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-1-%E7%BB%93%E6%9E%84%E5%8C%96%E4%B8%8E%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%9A%84%E5%8C%BA%E5%88%AB"><span class="toc-text">1.1 结构化与面向对象的区别:                         </span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-2-%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E6%96%B9%E6%B3%95"><span class="toc-text">1.2: 面向对象方法:                                  </span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-3-%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E6%8A%80%E6%9C%AF"><span class="toc-text">1.3: 面向对象技术:                                  </span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-4-%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E6%8A%80%E6%9C%AF%E5%9F%BA%E6%9C%AC%E7%82%B9"><span class="toc-text">1.4: 面向对象技术基本点:                             </span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-5-%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E6%8A%80%E6%9C%AF%E7%9A%84%E4%BC%98%E5%8A%BF"><span class="toc-text">1.5: 面向对象技术的优势:                             </span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-6-%E5%AF%B9%E8%B1%A1%E5%AE%9A%E4%B9%89"><span class="toc-text">1.6: 对象定义:                                      </span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-7-%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%9B%B8%E5%85%B3%E5%8E%9F%E5%88%99"><span class="toc-text">1.7: 面向对象相关原则:                              </span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-7-1-%E6%8A%BD%E8%B1%A1-Abstraction"><span class="toc-text">1.7.1: 抽象-Abstraction:</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-7-2-%E5%B0%81%E8%A3%85-Encapsulation"><span class="toc-text">1.7.2: 封装-Encapsulation:</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-7-3-%E5%88%86%E8%A7%A3-Decomposition"><span class="toc-text">1.7.3: 分解-Decomposition:</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-7-4-%E6%B3%9B%E5%8C%96-Generalization"><span class="toc-text">1.7.4: 泛化-Generalization:</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-7-5-%E5%A4%9A%E6%80%81-Polymorphism"><span class="toc-text">1.7.5: 多态-Polymorphism:</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-7-6-%E5%88%86%E5%B1%82-Hierarchy"><span class="toc-text">1.7.6: 分层-Hierarchy:</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-7-7-%E5%A4%8D%E7%94%A8-Reuse"><span class="toc-text">1.7.7: 复用-Reuse:</span></a></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#2-%E5%8F%AF%E8%A7%86%E5%8C%96%E5%BB%BA%E6%A8%A1"><span class="toc-text">2.可视化建模:                            </span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#2-1-%E7%80%91%E5%B8%83%E6%A8%A1%E5%9E%8B"><span class="toc-text">2.1: 瀑布模型:                                      </span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-2-%E7%BB%9F%E4%B8%80%E8%BF%87%E7%A8%8B%E6%A8%A1%E5%9E%8B"><span class="toc-text">2.2: 统一过程模型:                                  </span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-3-UML-%E7%BB%9F%E4%B8%80%E5%BB%BA%E6%A8%A1%E8%AF%AD%E8%A8%80"><span class="toc-text">2.3: UML:统一建模语言                          </span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-4-%E7%BB%93%E6%9E%84"><span class="toc-text">2.4: 结构:                                          </span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-5-4-1%E6%A8%A1%E5%9E%8B"><span class="toc-text">2.5: 4+1模型:                                       </span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-6-%E7%B1%BB%E5%9B%BE"><span class="toc-text">2.6: 类图:                                          </span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-7-%E8%81%9A%E5%90%88%E4%B8%8E%E7%BB%84%E5%90%88"><span class="toc-text">2.7: 聚合与组合:</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-8-%E7%B1%BB%E7%9A%84%E5%8F%AF%E8%A7%86%E6%80%A7%E8%AE%B0%E5%8F%B7"><span class="toc-text">2.8: 类的可视性记号:                                </span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#2-8-2-%E5%AF%B9%E8%B1%A1%E5%9B%BE"><span class="toc-text">2.8.2: 对象图:</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-9-%E6%9E%84%E4%BB%B6%E5%9B%BE"><span class="toc-text">2.9: 构件图:                                        </span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#2-9-1-%E5%9F%BA%E6%9C%AC%E5%85%83%E7%B4%A0"><span class="toc-text">2.9.1: 基本元素:</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-10-%E9%83%A8%E7%BD%B2%E5%9B%BE-Deployment-Diagram"><span class="toc-text">2.10: 部署图(Deployment Diagram):                 </span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-11-%E7%94%A8%E4%BE%8B%E5%9B%BE"><span class="toc-text">2.11: 用例图:                                       </span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-12-%E6%B4%BB%E5%8A%A8%E5%9B%BE"><span class="toc-text">2.12: 活动图:                                       </span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#3-%E5%BB%BA%E6%A8%A1%E8%BF%87%E7%A8%8B"><span class="toc-text">3.建模过程:                              </span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#3-1-%E9%A2%86%E5%9F%9F%E6%A8%A1%E5%9E%8B"><span class="toc-text">3.1: 领域模型:                                      </span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-2-%E7%94%A8%E4%BE%8B%E6%A8%A1%E5%9E%8B"><span class="toc-text">3.2: 用例模型:                                      </span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#3-2-1-%E5%8F%82%E4%B8%8E%E8%80%85%EF%BC%9A"><span class="toc-text">3.2.1: 参与者：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-2-2-%E7%94%A8%E4%BE%8B"><span class="toc-text">3.2.2: 用例:</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-2-3-%E7%94%A8%E4%BE%8B%E5%85%B6%E4%BB%96%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9"><span class="toc-text">3.2.3: 用例其他注意事项:</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-2-4-%E7%94%A8%E4%BE%8B%E5%9B%BE"><span class="toc-text">3.2.4: 用例图:</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-3-%E7%94%A8%E4%BE%8B%E6%96%87%E6%A1%A3"><span class="toc-text">3.3: 用例文档:                                      </span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-4-%E9%87%8D%E6%9E%84%E7%94%A8%E4%BE%8B%E6%A8%A1%E5%9E%8B"><span class="toc-text">3.4: 重构用例模型:</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#3-4-1-%E7%94%A8%E4%BE%8B%E5%85%B3%E7%B3%BB%EF%BC%9A"><span class="toc-text">3.4.1: 用例关系：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-4-2%EF%BC%9A%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9%EF%BC%9A"><span class="toc-text">3.4.2：注意事项：</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-5-%E7%94%A8%E4%BE%8B%E5%88%86%E6%9E%90%EF%BC%9A"><span class="toc-text">3.5: 用例分析：                                 </span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#3-5-1-%E7%94%A8%E4%BE%8B%E5%AE%9E%E7%8E%B0%EF%BC%9A"><span class="toc-text">3.5.1:用例实现：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-5-2-%E9%A1%BA%E5%BA%8F%E5%9B%BE"><span class="toc-text">3.5.2: 顺序图:</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-5-3-%E4%B8%93%E5%AE%B6%E6%A8%A1%E5%BC%8F"><span class="toc-text">3.5.3: 专家模式:</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-5-4-VOPC%E5%9B%BE"><span class="toc-text">3.5.4: VOPC图:</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-6-%E6%9E%B6%E6%9E%84%E5%88%86%E6%9E%90%EF%BC%9A"><span class="toc-text">3.6: 架构分析：                                 </span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-7-%E5%88%86%E6%9E%90%E7%B1%BB%E5%9B%BE"><span class="toc-text">3.7: 分析类图:                                      </span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#3-7-1-%E7%B1%BB%E4%B9%8B%E9%97%B4%E7%9A%84%E5%85%B3%E7%B3%BB%EF%BC%9A"><span class="toc-text">3.7.1: 类之间的关系：</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#4-%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%9A%84%E8%AE%BE%E8%AE%A1%E5%8E%9F%E5%88%99"><span class="toc-text">4.面向对象的设计原则:</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#4-1-%E5%A5%BD%E7%9A%84%E8%AE%BE%E8%AE%A1"><span class="toc-text">4.1: 好的设计:</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-2-LSP-%E6%9B%BF%E6%8D%A2%E5%8E%9F%E5%88%99"><span class="toc-text">4.2: LSP-替换原则:                                  </span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-3-OCP-%E5%BC%80%E9%97%AD%E5%8E%9F%E5%88%99"><span class="toc-text">4.3: OCP-开闭原则:                                  </span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#4-3-1-%E5%A4%8D%E7%94%A8%E4%BB%A3%E7%A0%81"><span class="toc-text">4.3.1: 复用代码:</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-3-2-%E5%A4%8D%E7%94%A8%E6%8E%A5%E5%8F%A3"><span class="toc-text">4.3.2: 复用接口:</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-4-SRP-%E5%8D%95%E4%B8%80%E8%81%8C%E8%B4%A3%E5%8E%9F%E5%88%99"><span class="toc-text">4.4: SRP-单一职责原则:                              </span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-5-ISP-%E6%8E%A5%E5%8F%A3%E9%9A%94%E7%A6%BB%E5%8E%9F%E5%88%99"><span class="toc-text">4.5: ISP-接口隔离原则:                               </span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-6-DIP-%E4%BE%9D%E8%B5%96%E5%80%92%E8%BD%AC%E5%8E%9F%E5%88%99"><span class="toc-text">4.6: DIP-依赖倒转原则:                              </span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#5-%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F"><span class="toc-text">5.设计模式:                             </span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#5-1-%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E4%B8%8E%E8%AE%BE%E8%AE%A1%E5%8E%9F%E5%88%99"><span class="toc-text">5.1: 设计模式与设计原则:                             </span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-2-GRASP"><span class="toc-text">5.2: GRASP:</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-3-%E4%BF%A1%E6%81%AF%E4%B8%93%E5%AE%B6%E6%A8%A1%E5%BC%8F"><span class="toc-text">5.3: 信息专家模式:                                  </span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-4-%E5%88%9B%E5%BB%BA%E8%80%85%E6%A8%A1%E5%BC%8F"><span class="toc-text">5.4: 创建者模式:                                    </span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-5-%E4%BD%8E%E8%80%A6%E5%90%88%E6%A8%A1%E5%BC%8F"><span class="toc-text">5.5: 低耦合模式:                                    </span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-6-%E9%AB%98%E5%86%85%E8%81%9A%E6%A8%A1%E5%BC%8F"><span class="toc-text">5.6: 高内聚模式:                                    </span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-7-%E6%8E%A7%E5%88%B6%E5%99%A8%E6%A8%A1%E5%BC%8F"><span class="toc-text">5.7: 控制器模式:                                    </span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-9-%E7%BA%AF%E8%99%9A%E6%9E%84%E6%A8%A1%E5%BC%8F"><span class="toc-text">5.9: 纯虚构模式:                                    </span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-10-%E9%97%B4%E6%8E%A5%E6%A8%A1%E5%BC%8F"><span class="toc-text">5.10: 间接模式:                                     </span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-11-%E5%8F%97%E4%BF%9D%E6%8A%A4%E6%A8%A1%E5%BC%8F"><span class="toc-text">5.11: 受保护模式:                                   </span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-12-Demeter%E5%AE%9A%E5%BE%8B"><span class="toc-text">5.12: Demeter定律:                                </span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#6-%E5%88%86%E6%9E%90%E4%B8%8E%E8%AE%BE%E8%AE%A1"><span class="toc-text">6.分析与设计:                            </span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#6-1-%E8%AE%BE%E8%AE%A1%E7%AD%96%E7%95%A5"><span class="toc-text">6.1: 设计策略:                                      </span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6-2-%E4%BB%8E%E5%88%86%E6%9E%90%E5%88%B0%E8%AE%BE%E8%AE%A1%EF%BC%9A"><span class="toc-text">6.2: 从分析到设计：                              </span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#7-%E6%9E%B6%E6%9E%84%E8%AE%BE%E8%AE%A1%E5%9F%BA%E7%A1%80"><span class="toc-text">7.架构设计基础:                          </span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#7-1-%E6%9E%B6%E6%9E%84%E4%B8%8E%E6%9E%B6%E6%9E%84%E8%AE%BE%E8%AE%A1"><span class="toc-text">7.1: 架构与架构设计:                                </span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#7-2-%E6%9E%B6%E6%9E%84%E8%AE%BE%E8%AE%A1%E5%86%85%E5%AE%B9"><span class="toc-text">7.2: 架构设计内容:                                  </span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#7-3-%E5%8C%85%E5%9B%BE"><span class="toc-text">7.3: 包图:                                          </span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#7-3-1-%E5%8C%85%E7%9A%84%E5%85%B3%E7%B3%BB"><span class="toc-text">7.3.1: 包的关系:</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#7-3-2-%E5%8C%85%E7%9A%84%E8%AE%BE%E8%AE%A1%E5%8E%9F%E5%88%99"><span class="toc-text">7.3.2: 包的设计原则:</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#7-4-%E8%AE%BE%E8%AE%A1%E5%85%83%E7%B4%A0"><span class="toc-text">7.4: 设计元素:                                      </span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#7-4-1-%E5%88%86%E6%9E%90%E7%B1%BB%E5%88%B0%E8%AE%BE%E8%AE%A1%E5%85%83%E7%B4%A0"><span class="toc-text">7.4.1: 分析类到设计元素:</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#7-4-2-%E6%8E%A5%E5%8F%A3"><span class="toc-text">7.4.2: 接口:</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#7-4-3-%E5%AD%90%E7%B3%BB%E7%BB%9F%E4%B8%8E%E6%8E%A5%E5%8F%A3"><span class="toc-text">7.4.3: 子系统与接口:</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#7-5-%E6%B0%B8%E4%B9%85%E6%95%B0%E6%8D%AE%E5%AD%98%E5%82%A8"><span class="toc-text">7.5: 永久数据存储:                                  </span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#8-%E7%B1%BB%E7%9A%84%E8%AE%BE%E8%AE%A1%E7%90%86%E8%AE%BA"><span class="toc-text">8.类的设计理论:                          </span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#8-1-%E4%B8%BB%E8%A6%81%E5%86%85%E5%AE%B9"><span class="toc-text">8.1: 主要内容:</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#8-2-%E5%88%9D%E5%A7%8B%E8%AE%BE%E8%AE%A1%E7%B1%BB"><span class="toc-text">8.2: 初始设计类:                                    </span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#8-2-1-%E8%BE%B9%E7%95%8C%E7%B1%BB"><span class="toc-text">8.2.1: 边界类:</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#8-2-2-%E5%AE%9E%E4%BD%93%E7%B1%BB"><span class="toc-text">8.2.2: 实体类:</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#8-2-3-%E6%8E%A7%E5%88%B6%E7%B1%BB"><span class="toc-text">8.2.3: 控制类:</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#8-4-%E5%AE%9A%E4%B9%89%E5%B1%9E%E6%80%A7"><span class="toc-text">8.4: 定义属性:                                      </span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#8-5-%E5%AE%9A%E4%B9%89%E5%85%B3%E7%B3%BB"><span class="toc-text">8.5: 定义关系:                                      </span></a></li></ol></li></ol>
+    </div>
+</div>
+            
+        
+            
+        <div class="card-widget card-recent-post">
+    <div class="item-headline">
+        <i class="fas fa-list-ol"></i>
+        <span>最近发布</span>
+    </div>
+    <div class="aside-list">
+        
+        
+            <div class="aside-list-item">
+                <a class="thumbnail" href="/2023/04/28/ClickHouse/" title="ClickHouse">
+                    <img
+                        alt="ClickHouse"
+                        src="/img/1.jpg">
+                </a>
+                <div class="content">
+                    
+                        <a class="article-recent_post_categories" href="/2023/04/28/ClickHouse/">
+                            笔记
+                        </a>
+                    
+                    <a class="title" href="/2023/04/28/ClickHouse/" title="ClickHouse">
+                        ClickHouse
+                    </a>
+                </div>
+            </div>
+                
+        
+            <div class="aside-list-item">
+                <a class="thumbnail" href="/2023/03/18/%E4%BB%8EIOC%E5%88%B0Java%E6%9E%B6%E6%9E%84/" title="从IOC到java架构">
+                    <img
+                        alt="从IOC到java架构"
+                        src="/img/25.jpg">
+                </a>
+                <div class="content">
+                    
+                        <a class="article-recent_post_categories" href="/2023/03/18/%E4%BB%8EIOC%E5%88%B0Java%E6%9E%B6%E6%9E%84/">
+                            笔记
+                        </a>
+                    
+                    <a class="title" href="/2023/03/18/%E4%BB%8EIOC%E5%88%B0Java%E6%9E%B6%E6%9E%84/" title="从IOC到java架构">
+                        从IOC到java架构
+                    </a>
+                </div>
+            </div>
+                
+        
+            <div class="aside-list-item">
+                <a class="thumbnail" href="/2023/03/18/%E6%95%B0%E6%8D%AE%E5%BA%93%E6%A6%82%E8%BF%B0/" title="数据库概述">
+                    <img
+                        alt="数据库概述"
+                        src="/img/28.jpg">
+                </a>
+                <div class="content">
+                    
+                        <a class="article-recent_post_categories" href="/2023/03/18/%E6%95%B0%E6%8D%AE%E5%BA%93%E6%A6%82%E8%BF%B0/">
+                            笔记
+                        </a>
+                    
+                    <a class="title" href="/2023/03/18/%E6%95%B0%E6%8D%AE%E5%BA%93%E6%A6%82%E8%BF%B0/" title="数据库概述">
+                        数据库概述
+                    </a>
+                </div>
+            </div>
+                
+        
+            <div class="aside-list-item">
+                <a class="thumbnail" href="/2023/03/18/%E5%BE%AE%E6%9C%8D%E5%8A%A1/" title="微服务">
+                    <img
+                        alt="微服务"
+                        src="/img/29.jpg">
+                </a>
+                <div class="content">
+                    
+                        <a class="article-recent_post_categories" href="/2023/03/18/%E5%BE%AE%E6%9C%8D%E5%8A%A1/">
+                            笔记
+                        </a>
+                    
+                    <a class="title" href="/2023/03/18/%E5%BE%AE%E6%9C%8D%E5%8A%A1/" title="微服务">
+                        微服务
+                    </a>
+                </div>
+            </div>
+                
+        
+            <div class="aside-list-item">
+                <a class="thumbnail" href="/2023/03/18/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" title="数据结构">
+                    <img
+                        alt="数据结构"
+                        src="/img/27.jpg">
+                </a>
+                <div class="content">
+                    
+                        <a class="article-recent_post_categories" href="/2023/03/18/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">
+                            笔记
+                        </a>
+                    
+                    <a class="title" href="/2023/03/18/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" title="数据结构">
+                        数据结构
+                    </a>
+                </div>
+            </div>
+            
+    </div>
+</div>
+     
+        
+    </div>
+</div> 
+</main>
+                <footer id="footer">
+                    <div id="footer_deal">
+    
+        <a class="deal_link" target="_blank" href="https://github.com/bearslyricattack" rel="external nofollow noopener" title="Github">
+            <i class="fa-brands fa-github"></i>
+        </a>
+    
+        <a class="deal_link" target="_blank" href="https://user.qzone.qq.com/2669184984" rel="external nofollow noopener" title="Mail">
+            <i class="fa-solid fa-envelope"></i>
+        </a>
+    
+    <img class="footer_mini_logo" src="/img/avatar.webp"
+        title="返回顶部" onclick="acrylic.toTop()">
+    
+        <a class="deal_link" target="_blank" href="https://music.163.com/#/user/follows?id=436327083" rel="external nofollow noopener" title="网易云">
+            <i class="fa-solid fa-music"></i>
+        </a>
+    
+        <a class="deal_link" target="_blank" href="https://space.bilibili.com/701779878?spm_id_from=333.1007.0.0" rel="external nofollow noopener" title="bilibili">
+            <i class="fa-brands fa-bilibili"></i>
+        </a>
+    
+</div>    
+<div id="heo-footer">
+    
+    
+</div>
+<div id="footer-section">
+    <div class="footer-section-links">
+        <div class="footer-section-left">
+            <div id="footer-section-tips">
+                <div class="copyright">©2022 - 2023 By 
+                    <a class="footer-section-link" href="/" rel="external nofollow">抒情熊</a>
+                    <a class="footer-section-link" href="https://github.com/hexo-theme-Acrylic/Hexo-Theme-Acrylic-Next" rel="external nofollow" target="_blank"> Theme By Acrylic-Next</a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-section-right">
+            <a class="footer-section-link" href="/rss/">订阅</a>
+            
+            <a class="footer-section-link cc" target="_blank" href="https://creativecommons.org/licenses/by/4.0/" title="cc协议">
+                <i class="fa-solid fa-closed-captioning"></i>
+            </a>
+        </div>
+    </div>
+</div>
+                </footer>
+            </div>
+         
+        <div>
+    <script type="text/javascript" src="/js/utils.js"></script>
+    <script type="text/javascript" src="/js/main.js"></script>
+    
+
+<script src="/lib/pjax.min.js"></script>
+
+
+
+<script src="/lib/snackbar.min.js"></script>
+
+
+    
+<script src="/lib/view-image.min.js"></script>
+
+
+
+    
+<link rel="stylesheet" href="/lib/swiper.min.css">
+
+    
+<script src="/lib/swiper.min.js"></script>
+
+
+<div id="js-pjax">
+    
+    
+        <script async src="https://npm.elemecdn.com/penndu@1.0.0/bsz.js"></script>
+     
+</div>
+
+    
+<link rel="stylesheet" href="https://lf9-cdn-tos.bytecdntp.com/cdn/expire-1-M/aplayer/1.10.1/APlayer.min.css">
+
+    
+<script src="https://lf3-cdn-tos.bytecdntp.com/cdn/expire-1-M/aplayer/1.10.1/APlayer.min.js"></script>
+
+    
+<script src="https://cdn1.tianli0.top/npm/meting@2.0.1/dist/Meting.min.js"></script>
+
+
+
+    
+<script src="/js/extend/covercolor/web.js"></script>
+
+        
+
+    <script>
+  let pjaxSelectors = [
+    'title',
+    '#body-wrap',
+    '#site-config',
+    'meta[name="description"]',
+    '#js-pjax'
+  ]
+  
+  const pjax = new Pjax({
+    elements: 'a:not([target="_blank"])',
+    selectors: pjaxSelectors,
+    cacheBust: false,
+    analytics: false,
+    scrollRestoration: false
+  })
+
+  document.querySelectorAll('script[data-pjax]').forEach(item => {
+      const newScript = document.createElement('script')
+      const content = item.text || item.textContent || item.innerHTML || ""
+      Array.from(item.attributes).forEach(attr => newScript.setAttribute(attr.name, attr.value))
+      newScript.appendChild(document.createTextNode(content))
+      item.parentNode.replaceChild(newScript, item)
+  })
+
+  document.addEventListener('pjax:error', (e) => {
+    if (e.request.status === 404) {
+      pjax.loadUrl('/404.html')
+    }
+  })
+</script>
+    
+</div>
+        
+    <div id="local-search">
+    <div class="search-dialog">
+        <nav class="search-nav">
+            <span class="search-dialog-title">搜索</span>
+            <button class="search-close-button">
+                <i class="fas fa-times"></i>
+            </button>
+        </nav>
+        <div id="loading-database">
+            <i class="fas fa-spinner fa-pulse"></i>
+            <span>加载中</span>
+        </div>
+        <div class="search-wrap">
+            <div class="search-box">
+                <input class="search-box-input" placeholder="输入关键词快速查找" type="text" id="search-input" autocomplete="off" spellcheck="false" autocorrect="off" autocapitalize="off">
+            </div>
+            <div id="loading-status"></div>
+            <div id="search-results"></div>
+        </div>
+    </div>
+    <div id="search-mask"></div>
+</div>
+    
+<link rel="stylesheet" href="/css/search/local-search.css">
+
+    
+<script src="/js/extend/search/local-search.js"></script>
+
+
+     
+        <div class="needEndHide" id="nav-music" onclick="acrylic.musicToggle()">
+    <div id="nav-music-hoverTips">音乐已暂停</div>
+    <meting-js id="7315994021" server="tencent" type="playlist" mutex="true"
+        preload="none" data-lrctype="0" order="random" theme="var(--heo-main)"></meting-js>
+</div>
+    
+    </body>
+</html>
+<script>const posts=["2023/04/28/ClickHouse/","2023/03/18/从IOC到Java架构/","2023/03/18/数据库概述/","2023/03/18/微服务/","2023/03/18/数据结构/","2023/03/18/系统分析与设计/","2023/03/18/面向对象建模技术/","2023/03/14/Go语言设计与实现/","2023/03/13/Git/","2023/02/10/服务器部署/","2023/02/10/规则引擎/","2023/02/10/风凌夜话/","2023/02/10/青萍/","2023/02/10/巷/","2023/02/10/乱世佳人/","2023/02/10/马克思主义原理/","2023/02/04/Hertz/","2023/01/17/架构设计/","2023/01/17/计算机组成原理/","2023/01/17/鹤扶摇/","2023/01/17/泠音泛海/","2023/01/17/江城一梦/","2023/01/17/近世代数/","2023/01/17/白马遥/","2023/01/17/塑鸿/","2023/01/17/彩云辞/","2023/01/17/Java虚拟机/","2023/01/17/Web基本原理/","2023/01/17/Springboot入门/","2023/01/17/分布式/","2023/01/17/Golang/","2023/01/17/Redis/"];function toRandomPost(){ window.pjax ? pjax.loadUrl('/'+posts[Math.floor(Math.random()*posts.length)]) : window.open('/'+posts[Math.floor(Math.random()*posts.length)], "_self"); };</script>

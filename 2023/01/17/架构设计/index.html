@@ -1,0 +1,918 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-theme="light">
+    <head>
+        <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>架构设计 | 风凌渡</title>
+<noscript>开启Javascript是必要的</noscript>
+<link rel="icon" type="image/x-icon" href="/img/avatar.webp">
+<link rel="apple-touch-icon" href="/img/avatar.webp">
+<meta name="apple-mobile-web-app-title" content="风凌渡">
+<link rel="bookmark" href="/img/avatar.webp">
+<link rel="apple-touch-icon-precomposed" sizes="180x180" href="/img/avatar.webp">
+<meta name="description" content="a blog 一个分享技术与生活的博客">
+<meta name="theme-color" content="#1C1C1F">
+<link rel="stylesheet" href="/css/var.css">
+<link rel="stylesheet" href="/css/main.css">
+<link rel="stylesheet" href="/css/custom.css">
+
+
+
+<link rel="stylesheet" href="https://cdn.bootcdn.net/ajax/libs/font-awesome/6.3.0/css/all.min.css">
+    
+
+<link rel="stylesheet" href="/lib/snackbar.min.css">
+
+
+<script src="/lib/qrcode.min.js"></script>
+
+
+
+
+
+<script>var GLOBALCONFIG = {"root":"/","runtime":"2022-5-21 00:00:00","lazyload":{"enable":false,"error":"/img/acrylic.png"},"hightlight":{"enable":false,"limit":200},"lightbox":true,"randomlinks":false,"lang":{"theme":{"dark":"已切换至深色模式","light":"已切换至浅色模式"},"copy":{"success":"复制成功","error":"复制失败"},"backtop":"返回顶部","time":{"recent":"最近","yesterday":"昨天","berforeyesterday":"前天","daybefore":"天前","runtime":"天"},"sayhello":{"morning":"早上好","noon":"中午好","afternoon":"下午好","night":"晚上好","goodnight":"晚安","iam":"!  我是"},"search":{"empty":"搜索结果为空","hit":"已为您找到 ${query} 条结果","placeholder":"输入关键词快速查找"}},"covercolor":false,"localsearch":{"preload":false,"path":"/search.xml"}};</script><script id="site-config">var PAGECONFIG = {"is_home":false,"is_post":true,"is_page":false,"page":false,"toc":true,"comment":false};</script>
+    <meta name="generator" content="Hexo 6.3.0"></head>
+    <body id="body">
+        
+        <div id="console" style="zoom: 1;" class="">
+    <div class="close-btn" onclick="acrylic.hideConsole()" href="javascript:void(0);">
+        <i class="fas fa-circle-xmark"></i>
+    </div>
+    <div class="button-group">
+        <div class="console-btn-item"> <a class="darkmode_switchbutton" onclick="acrylic.switchDarkMode()" title="显示模式切换"
+                href="javascript:void(0);" rel="external nofollow" data-pjax-state=""><i class="fas fa-moon"
+                    style="font-size: 1rem;"></i></a></div>
+                    
+            <div class="console-btn-item" id="consoleMusic" onclick="acrylic.musicToggle()" title="音乐开关"><a class="music-switch"><i class="fas fa-music"></i></a></div>
+        
+        <div class="console-btn-item" id="consoleFPS" onclick="acrylic.FPSToggle()" title="帧率显示开关"><a class="FPS-switch"
+                data-pjax-state=""><i class="fas fa-gauge"></i></a></div>
+    </div>
+    <div class="console-mask" onclick="acrylic.hideConsole()" href="javascript:void(0);" rel="external nofollow"></div>
+</div>
+        <div id="sidebar" style="zoom: 1;">
+    <div id="menu-mask" style="display: none;"></div>
+    <div id="sidebar-menus" class>
+        <span class="sidebar-menu-item-title">功能</span>
+        <div class="sidebar-menu-item">
+            <a class="darkmode_switchbutton menu-child" onclick="acrylic.switchDarkMode()" title="显示模式切换"
+                href="javascript:void(0);" rel="external nofollow">
+                <i class="fas fa-moon" style="font-size: 1rem;"></i>
+                <span>显示模式</span>
+            </a>
+        </div>
+        
+            <div class="back-menu-list-groups">
+    
+      
+      <div class="back-menu-list-group">
+        <div class="back-menu-list-title">
+          我的
+        </div>
+        <div class="back-menu-list">
+          
+            
+            <a class="back-menu-item" href="/" rel="external nofollow" title="博客">
+              <img class="back-menu-item-icon" src="/img/avatar.webp" loading="lazy">
+              <span class="back-menu-item-text">
+                博客
+              </span>
+            </a>
+          
+        </div>
+      </div>
+    
+  </div>
+  
+        
+        <div class="menus_items">
+    
+        <div class="menus_item">
+            
+                <a class="site-page" href="javascript:void(0);" rel="external nofollow">
+                    <span> 文库</span>
+                </a>
+                <ul class="menus_item_child">
+                    
+                        <li>
+                            <a class="site-page child" href="/archives/">
+                                <i class="fas fa-box-archive"></i>
+                                <span> 文章列表</span>
+                            </a>
+                        </li>
+                    
+                        <li>
+                            <a class="site-page child" href="/categories/">
+                                <i class="fas fa-cube"></i>
+                                <span> 全部分类</span>
+                            </a>
+                        </li>
+                    
+                        <li>
+                            <a class="site-page child" href="/tags/">
+                                <i class="fas fa-tags"></i>
+                                <span> 全部标签</span>
+                            </a>
+                        </li>
+                    
+                </ul>
+             
+        </div>
+    
+        <div class="menus_item">
+            
+                <a class="site-page not-child" target="_blank" href="https://github.com/bearslyricattack" rel="external nofollow noopener">
+                    <span> 仓库</span>
+                </a>
+             
+        </div>
+    
+</div>
+        <span class="sidebar-menu-item-title">标签</span>
+        <div class="card-widget card-tags card-archives card-webinfo card-allinfo">
+            <div class="item-headline">
+                <i class="fas fa-tags"></i>
+                <span>标签</span>
+            </div>
+            <div class="card-tag-cloud">
+                
+                    <a href="/tags/%E4%B8%AD%E9%97%B4%E4%BB%B6/" style="font-size: 1em; color: #d3d3d3">中间件
+                        <sup>4</sup>
+                    </a>
+                
+                    <a href="/tags/Go/" style="font-size: 1em; color: #d3d3d3">Go
+                        <sup>3</sup>
+                    </a>
+                
+                    <a href="/tags/Java/" style="font-size: 1em; color: #d3d3d3">Java
+                        <sup>3</sup>
+                    </a>
+                
+                    <a href="/tags/%E5%BD%B1%E8%AF%84/" style="font-size: 1em; color: #d3d3d3">影评
+                        <sup>1</sup>
+                    </a>
+                
+                    <a href="/tags/%E6%9E%B6%E6%9E%84/" style="font-size: 1em; color: #d3d3d3">架构
+                        <sup>3</sup>
+                    </a>
+                
+                    <a href="/tags/%E5%88%86%E5%B8%83%E5%BC%8F/" style="font-size: 1em; color: #d3d3d3">分布式
+                        <sup>1</sup>
+                    </a>
+                
+                    <a href="/tags/%E8%AF%97%E6%AD%8C/" style="font-size: 1em; color: #d3d3d3">诗歌
+                        <sup>9</sup>
+                    </a>
+                
+                    <a href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/" style="font-size: 1em; color: #d3d3d3">数据库
+                        <sup>1</sup>
+                    </a>
+                
+                    <a href="/tags/%E8%AF%BE%E7%A8%8B/" style="font-size: 1em; color: #d3d3d3">课程
+                        <sup>6</sup>
+                    </a>
+                
+                    <a href="/tags/%E6%9C%8D%E5%8A%A1%E5%99%A8/" style="font-size: 1em; color: #d3d3d3">服务器
+                        <sup>1</sup>
+                    </a>
+                
+            </div>
+        </div>
+    </div>
+</div>    
+        
+            <div class="post" id="body-wrap">
+                <header class="post-bg" id="page-header">
+    <nav id="nav" class="show">
+    <div id="nav-group">
+        <div id="blog_name">
+            
+                <div class="back-home-button" tabindex="-1">
+                    <i class="back-home-button-icon fas fa-grip-vertical"></i>
+                    <div class="back-menu-list-groups">
+    
+      
+      <div class="back-menu-list-group">
+        <div class="back-menu-list-title">
+          我的
+        </div>
+        <div class="back-menu-list">
+          
+            
+            <a class="back-menu-item" href="/" rel="external nofollow" title="博客">
+              <img class="back-menu-item-icon" src="/img/avatar.webp" loading="lazy">
+              <span class="back-menu-item-text">
+                博客
+              </span>
+            </a>
+          
+        </div>
+      </div>
+    
+  </div>
+  
+                </div>
+            
+            <a id="site-name" href="/" title="返回博客主页">
+                    
+            </a>
+        </div>
+        <div id="page-name-mask">
+            <div id="page-name">
+                <a id="page-name-text" onclick="acrylic.toTop()">架构设计</a>
+            </div>
+        </div>
+        <div id="menus">
+            <div class="menus_items">
+    
+        <div class="menus_item">
+            
+                <a class="site-page" href="javascript:void(0);" rel="external nofollow">
+                    <span> 文库</span>
+                </a>
+                <ul class="menus_item_child">
+                    
+                        <li>
+                            <a class="site-page child" href="/archives/">
+                                <i class="fas fa-box-archive"></i>
+                                <span> 文章列表</span>
+                            </a>
+                        </li>
+                    
+                        <li>
+                            <a class="site-page child" href="/categories/">
+                                <i class="fas fa-cube"></i>
+                                <span> 全部分类</span>
+                            </a>
+                        </li>
+                    
+                        <li>
+                            <a class="site-page child" href="/tags/">
+                                <i class="fas fa-tags"></i>
+                                <span> 全部标签</span>
+                            </a>
+                        </li>
+                    
+                </ul>
+             
+        </div>
+    
+        <div class="menus_item">
+            
+                <a class="site-page not-child" target="_blank" href="https://github.com/bearslyricattack" rel="external nofollow noopener">
+                    <span> 仓库</span>
+                </a>
+             
+        </div>
+    
+</div>
+        </div>
+        <!-- <div id="nav-left">
+            <div id="fps-group">
+                <div id="fps">145</div><span class="fpsText">FPS</span>
+            </div>
+        </div> -->
+        <div id="nav-right">
+            
+    <div class="nav-button only-home" id="travellings_button">
+        <a class="site-page"  target="_blank" rel="noopener external nofollow" href="https://www.travellings.cn/go.html" title="开往-友链接力"  width="120">
+            <i class="fa-solid fa-train-subway" style="font-size: 1rem;"></i>
+        </a>
+    </div>
+
+
+    <div class="nav-button" id="randomPost_button">
+        <a class="site-page" onclick="toRandomPost()"
+            title="随机前往一个文章">
+            <i class="fas fa-shuffle" style="font-size: 1rem;"></i>
+        </a>
+    </div>
+
+
+    <div class="nav-button" id="search-button">
+        <a class="site-page social-icon search" title="站内搜索"
+            href="javascript:void(0);" rel="external nofollow">
+            <i class="fas fa-magnifying-glass" style="font-size: 1rem;"></i>
+        </a>
+    </div>
+
+
+    <div class="nav-button" id="nav-console">
+        <a class="console_switchbutton" onclick="acrylic.showConsole()"
+        title="显示中控台" href="javascript:void(0);" rel="external nofollow">
+        <i class="fas fa-bars-progress" style="font-size: 1rem;"></i>
+        </a>
+    </div>
+
+<div class="nav-button" id="nav-totop" onclick="acrylic.toTop()">
+    <a class="totopbtn">
+        <i class="fas fa-arrow-up"></i>
+        <span id="percent">0</span>
+    </a>
+</div>
+<div id="toggle-menu">
+    <a class="site-page">
+        <i class="fas fa-bars fa-fw" style="font-size: 1rem;"></i>
+    </a>
+</div>
+        </div>
+    </div>
+</nav>
+    
+        <div class="coverdiv" id="coverdiv">
+    <img id="post-cover" class="nolazyload" src="/img/18.jpg" alt="cover">
+</div>
+<div id="post-info">
+    <div id="post-firstinfo">
+        <div class="meta-firstline">
+            <a class="post-meta-original" title="该文章为原创文章，注意版权协议">
+                原创
+            </a>
+            
+            <span class="post-meta-categories">
+                
+                    <a class="post-meta-categories" href="/categories/%E7%AC%94%E8%AE%B0/">笔记</a>
+                
+            </span>
+            
+            <div class="tag_share">
+                <div class="post-meta__tag-list">
+                    
+                        <a class="post-meta__tags" href="/tags/%E6%9E%B6%E6%9E%84/">
+                            <span class="tags-punctuation">#</span>
+                            <span class="tags-name">架构</span>
+                        </a>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+    <h1 class="post-title">架构设计</h1>
+    <div id="post-meta">
+        <div class="meta-secondline">
+            <span class="post-meta-date" title="发布于">
+                <i class="post-meta-icon fa-fw fas fa-calendar"></i>
+                <time datetime="2023-01-17T23:23:32+08:00"></time>
+            </span>
+            
+            
+                <span class="post-meta-position" title="作者IP归属地为山东·威海">
+                    <i class="fas fa-location-dot post-meta-icon"></i>
+                    <span>山东·威海</span>
+                </span>
+            
+            
+                
+                
+            
+            
+                
+        </div>
+    </div>
+</div>
+<section class="main-hero-waves-area waves-area"><svg class="waves-svg" xmlns="http://www.w3.org/2000/svg"
+    xlink="http://www.w3.org/1999/xlink" viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto">
+    <defs>
+        <path id="gentle-wave"
+            d="M -160 44 c 30 0 58 -18 88 -18 s 58 18 88 18 s 58 -18 88 -18 s 58 18 88 18 v 44 h -352 Z"></path>
+    </defs>
+    <g class="parallax">
+        <use href="#gentle-wave" x="48" y="0"></use>
+        <use href="#gentle-wave" x="48" y="3"></use>
+        <use href="#gentle-wave" x="48" y="5"></use>
+        <use href="#gentle-wave" x="48" y="7"></use>
+    </g>
+</svg>
+</section>
+
+        
+</header>
+                <main class="layout" id="content-inner">
+    <div id="post">
+        <article class="post-content" id="article-container">
+            <h1 id="架构"><a href="#架构" class="headerlink" title="架构:"></a>架构:</h1><h1 id="1-定义"><a href="#1-定义" class="headerlink" title="1.定义"></a>1.定义<img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230201100838.png" alt="QQ截图20230201100838"></h1><p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230201101208.png" alt="QQ截图20230201101208"></p>
+<h1 id="2-架构分类以及演进"><a href="#2-架构分类以及演进" class="headerlink" title="2.架构分类以及演进:"></a>2.架构分类以及演进:</h1><h2 id="2-1-单机架构"><a href="#2-1-单机架构" class="headerlink" title="2.1 单机架构:"></a>2.1 单机架构:</h2><p>核心是部署在一台机器上,稳定性较差.</p>
+<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230201101528.png" alt="QQ截图20230201101528"></p>
+<h2 id="2-2-单体架构"><a href="#2-2-单体架构" class="headerlink" title="2.2 单体架构:"></a>2.2 单体架构:</h2><p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230201102143.png" alt="QQ截图20230201102143"></p>
+<h2 id="2-3-垂直应用架构"><a href="#2-3-垂直应用架构" class="headerlink" title="2.3 垂直应用架构:"></a>2.3 垂直应用架构:</h2><p>按照职责对单体架构进行划分.</p>
+<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230201101934.png" alt="QQ截图20230201101934"></p>
+<h2 id="2-4-SOA架构"><a href="#2-4-SOA架构" class="headerlink" title="2.4 SOA架构:"></a>2.4 SOA架构:</h2><p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230201102211.png" alt="QQ截图20230201102211"></p>
+<p>类似于专家模式.</p>
+<p>架构以服务为中心,服务之间按照特定的通信标准进行交互.</p>
+<p>对程序进行了一层水平切分.</p>
+<h2 id="2-5-微服务架构"><a href="#2-5-微服务架构" class="headerlink" title="2.5 微服务架构:"></a>2.5 微服务架构:</h2><p>在SOA架构中,明显的可以看到,兰师傅的沟通技巧是这个系统的核心,几乎所有的部门都需要通过这个进行交互,这样就会带来一系列的问题.比如每个服务都需要有复杂的设计.</p>
+<p>而在微服务架构中,职责和服务拆分的会更加的细致,服务之间可以自由的建立连接方式,使程序的运行更加的高效.</p>
+<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230201103119.png" alt="QQ截图20230201103119"></p>
+<h2 id="2-6-总结"><a href="#2-6-总结" class="headerlink" title="2.6 总结:"></a>2.6 总结:</h2><p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230201103942.png" alt="QQ截图20230201103942"></p>
+<h1 id="3-企业级后端架构分析"><a href="#3-企业级后端架构分析" class="headerlink" title="3.企业级后端架构分析:"></a>3.企业级后端架构分析:</h1><h2 id="3-1-引入"><a href="#3-1-引入" class="headerlink" title="3.1 引入:"></a>3.1 引入:</h2><p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230201104251.png" alt="QQ截图20230201104251"></p>
+<h2 id="3-2-云计算"><a href="#3-2-云计算" class="headerlink" title="3.2 云计算:"></a>3.2 云计算:</h2><p><img src="C:\Users\wpy\Desktop\blog\source\images\架构设计\QQ截图20230201104538.png" alt="QQ截图20230201104538"></p>
+<p>在图中,如果使用云计算能力的话,只需要关注云计算服务的上层服务,而无需关心下层服务.</p>
+<p>可以把精力更加专注的放在业务能力上面,而无需分心.</p>
+<h3 id="3-2-1-IaaS"><a href="#3-2-1-IaaS" class="headerlink" title="3.2.1 IaaS:"></a>3.2.1 IaaS:</h3><p>一个跨区域的组织,好比蛋糕店买房子,使用云计算的IaaS服务就好比找了一家房屋中介,屏蔽了物力资源的概念,用户不需要知道机房(服务器)在什么地方,所使用的电脑是什么型号等信息.</p>
+<h3 id="3-2-2-PaaS"><a href="#3-2-2-PaaS" class="headerlink" title="3.2.2 PaaS:"></a>3.2.2 PaaS:</h3><p>好比蛋糕店房子的装修,使用云计算的PaaS服务,就好比找了一家装修公司.对服务器进行维护和处理问题.</p>
+<h3 id="3-2-3-SaaS"><a href="#3-2-3-SaaS" class="headerlink" title="3.2.3 SaaS:"></a>3.2.3 SaaS:</h3><p>好比蛋糕师傅的培训机构,使用云计算的SaaS服务,类似于从蛋糕师傅培训机构寻找蛋糕师傅,他们专业技能强,上手快有保障,可以很快的进入店铺进行工作,类似于服务里面的成熟的组件.</p>
+<h3 id="3-2-4-FaaS"><a href="#3-2-4-FaaS" class="headerlink" title="3.2.4 FaaS:"></a>3.2.4 FaaS:</h3><p>好比使用蛋糕机,使用云计算的FaaS服务,就好比省略掉其他的所有部分,直接得到结果,类比使用成熟的服务(组件更大规模的集成).</p>
+<h2 id="3-3-云原生"><a href="#3-3-云原生" class="headerlink" title="3.3 云原生:"></a>3.3 云原生:</h2><p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230201110046.png" alt="QQ截图20230201110046"></p>
+<h3 id="3-3-1-弹性资源"><a href="#3-3-1-弹性资源" class="headerlink" title="3.3.1:弹性资源:"></a>3.3.1:弹性资源:</h3><p>不使用物理机而是使用虚拟机,扩展非常的容易,使用户不需要考虑底层.</p>
+<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230201110806.png" alt="QQ截图20230201110806"></p>
+<p>资源存储类型:</p>
+<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230201111420.png" alt="QQ截图20230201111420"></p>
+<h3 id="3-3-2-微服务架构"><a href="#3-3-2-微服务架构" class="headerlink" title="3.3.2:微服务架构:"></a>3.3.2:微服务架构:</h3><p>微服务架构:软件的组织方式.易于扩展.服务部署之间是松耦合的,但是可以有非常复杂的调用逻辑.</p>
+<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230201111905.png" alt="QQ截图20230201111905"></p>
+<p>负载均衡层类似于大堂经理,对服务做一个分发.</p>
+<p>不同的服务类型对应的不同的程序.</p>
+<p>rpc服务存在着通信的压缩,在性能上要对http高一些,而且自带服务治理的能力.</p>
+<p>而http服务大多使用json,内容上不存在压缩,可解释性相对较高.</p>
+<p>RPC（Remote Procedure Call）叫作远程过程调用，它是利用网络从远程计算机上请求服务，可以理解为把程序的一部分放在其他远程计算机上执行。通过网络通信将调用请求发送至远程计算机后，利用远程计算机的系统资源执行这部分程序，最终返回远程计算机上的执行结果。</p>
+<h3 id="3-3-3-敏捷开发"><a href="#3-3-3-敏捷开发" class="headerlink" title="3.3.3:敏捷开发:"></a>3.3.3:敏捷开发:</h3><p>敏捷开发:在服务上线之后如何进行修改和运行维护.</p>
+<p>本质上是一种适配于软件开发的工作流.</p>
+<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230201111605.png" alt="QQ截图20230201111605"></p>
+<h3 id="3-3-4-服务网格"><a href="#3-3-4-服务网格" class="headerlink" title="3.3.4:服务网格:"></a>3.3.4:服务网格:</h3><p>服务网格:服务与网络通信做一个解耦,对不同的语言所编写的代码做统一的治理.</p>
+<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230202101912.png" alt="QQ截图20230202101912"></p>
+<p>如果不使用通信网格,则由不同容器之间的rpc&#x2F;http框架之间进行通信.</p>
+<p>而使用通信网格之后,则统一使用容器中的数据面进行通信,相当于多加了一层统一的代理.</p>
+<h3 id="3-3-5-蛋糕店"><a href="#3-3-5-蛋糕店" class="headerlink" title="3.3.5:蛋糕店:"></a>3.3.5:蛋糕店:</h3><p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230202102429.png" alt="QQ截图20230202102429"></p>
+<h1 id="4-企业级后端架构的挑战"><a href="#4-企业级后端架构的挑战" class="headerlink" title="4.企业级后端架构的挑战:"></a>4.企业级后端架构的挑战:</h1><h2 id="4-1-引入"><a href="#4-1-引入" class="headerlink" title="4.1 引入:"></a>4.1 引入:</h2><p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230202103020.png" alt="QQ截图20230202103020"></p>
+<p>pod可以理解为是虚拟机.</p>
+<h2 id="4-2-离在线资源并池"><a href="#4-2-离在线资源并池" class="headerlink" title="4.2 离在线资源并池:"></a>4.2 离在线资源并池:</h2><p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230202103453.png" alt="QQ截图20230202103453"></p>
+<p>把整体的资源都分配给同一个进程,分为离线资源与在线资源,按照时间等因素进行调配.</p>
+<p>随着在线资源进一步压缩,离线资源会逐步减少.</p>
+<p>同一个机器怎么进行在线隔离?</p>
+<h2 id="4-3-自动扩缩容"><a href="#4-3-自动扩缩容" class="headerlink" title="4.3 自动扩缩容:"></a>4.3 自动扩缩容:</h2><p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230202104114.png" alt="QQ截图20230202104114"></p>
+<p>扩缩容指标:因为一般的微服务主要对cpu压力比较大,故一般以cpu的使用情况来判断.而对于某些特定的内存密集型,则使用内存.</p>
+<p>而对io,kps的判断在业界有一定难度.</p>
+<h2 id="4-4-微服务亲合性部署"><a href="#4-4-微服务亲合性部署" class="headerlink" title="4.4 微服务亲合性部署:"></a>4.4 微服务亲合性部署:</h2><p>不同的服务之间,耦合性非常的大,但确实是不同的人所维护的服务,通过某种方式降低成本.</p>
+<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230202104611.png" alt="QQ截图20230202104611"></p>
+<p>就是把服务之间的网络通信,转换为物理机内部(共享内存等方式)的信息传输.</p>
+<p>IPC是Inter-Process Communication的缩写，意为进程间通信或者跨进程通信，是指两个进程进行数据交换的过程。</p>
+<h2 id="4-5-流量治理"><a href="#4-5-流量治理" class="headerlink" title="4.5 流量治理:"></a>4.5 流量治理:</h2><p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230202105111.png" alt="QQ截图20230202105111"></p>
+<h2 id="4-6-CPU水位负载均衡"><a href="#4-6-CPU水位负载均衡" class="headerlink" title="4.6 CPU水位负载均衡:"></a>4.6 CPU水位负载均衡:</h2><p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230202105255.png" alt="QQ截图20230202105255"></p>
+<p>一开始,a容器中的服务,均衡的调动两个b容器中的服务,在接收反馈的时候,发现第一个b容器所在的物理机由于cpu型号老旧等问题,导致占用内存较高,处理时间较长,通过负载均衡,那么就可以在调用这两个负载时,有选择性的调用高的负载,从而实现水位负载均衡.</p>
+<h1 id="5-架构实战"><a href="#5-架构实战" class="headerlink" title="5.架构实战:"></a>5.架构实战:</h1><h2 id="5-1-引入"><a href="#5-1-引入" class="headerlink" title="5.1 引入:"></a>5.1 引入:</h2><p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230202110344.png" alt="QQ截图20230202110344"></p>
+<p>提炼问题：</p>
+<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230202110409.png" alt="QQ截图20230202110409"></p>
+<p>权重越高，意味着这个容器性能更好，可以分配更多的访问和任务。</p>
+<h2 id="5-2-静态自适应权重："><a href="#5-2-静态自适应权重：" class="headerlink" title="5.2 静态自适应权重："></a>5.2 静态自适应权重：</h2><p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230202110744.png" alt="QQ截图20230202110744"></p>
+<p>加一层代理。</p>
+<p>对业务进程无感知。</p>
+<h3 id="5-3-1-Alpha版本："><a href="#5-3-1-Alpha版本：" class="headerlink" title="5.3.1 Alpha版本："></a>5.3.1 Alpha版本：</h3><p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230202110920.png" alt="QQ截图20230202110920"></p>
+<p>通过回归存储的静态权重，解决紧急回滚问题。</p>
+<h3 id="5-3-2-Beta版本："><a href="#5-3-2-Beta版本：" class="headerlink" title="5.3.2 Beta版本："></a>5.3.2 Beta版本：</h3><p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230202111237.png" alt="QQ截图20230202111237"></p>
+<p>在这种情况下，动态权重决策中心似乎变成了一个单体架构，那么职责太多时候怎么办呢？</p>
+<p>就像架构一样，再做一层微服务的拆分。</p>
+<h3 id="5-3-3-Release版本："><a href="#5-3-3-Release版本：" class="headerlink" title="5.3.3 Release版本："></a>5.3.3 Release版本：</h3><p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230202111741.png" alt="QQ截图20230202111741"></p>
+<p>对动态权重决策中心做微服务拆分.</p>
+<h1 id="6-总结："><a href="#6-总结：" class="headerlink" title="6.总结："></a>6.总结：</h1><p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230202111908.png" alt="QQ截图20230202111908"></p>
+<p>架构只是解决问题的一种方法.</p>
+<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230202112134.png" alt="QQ截图20230202112134"></p>
+<p>代码重复撰写.</p>
+<p>用户画像？</p>
+<p>可拓展性.</p>
+<h1 id="7-秒杀系统"><a href="#7-秒杀系统" class="headerlink" title="7.秒杀系统:"></a>7.秒杀系统:</h1><h2 id="7-1-系统设计方法论"><a href="#7-1-系统设计方法论" class="headerlink" title="7.1 系统设计方法论:"></a>7.1 系统设计方法论:</h2><p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230206100022.png" alt="QQ截图20230206100022"></p>
+<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230206100047.png" alt="QQ截图20230206100047"></p>
+<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230206100348.png" alt="QQ截图20230206100348"></p>
+<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230206100717.png" alt="QQ截图20230206100717"></p>
+<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230206100907.png" alt="QQ截图20230206100907"></p>
+<h2 id="7-2-电商介绍"><a href="#7-2-电商介绍" class="headerlink" title="7.2 电商介绍:"></a>7.2 电商介绍:</h2><p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230206101152.png" alt="QQ截图20230206101152"></p>
+<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230206101230.png" alt="QQ截图20230206101230"></p>
+<p>社交电商:加强人与货的联系.</p>
+<h2 id="7-3-秒杀业务"><a href="#7-3-秒杀业务" class="headerlink" title="7.3 秒杀业务:"></a>7.3 秒杀业务:</h2><h3 id="7-3-1-特点"><a href="#7-3-1-特点" class="headerlink" title="7.3.1 特点:"></a>7.3.1 特点:</h3><p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230206101356.png" alt="QQ截图20230206101356"></p>
+<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230206101501.png" alt="QQ截图20230206101501"></p>
+<h3 id="7-3-2-场景"><a href="#7-3-2-场景" class="headerlink" title="7.3.2 场景:"></a>7.3.2 场景:</h3><p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230206101637.png" alt="QQ截图20230206101637"></p>
+<h3 id="7-3-3-存储"><a href="#7-3-3-存储" class="headerlink" title="7.3.3 存储:"></a>7.3.3 存储:</h3><p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230206101949.png" alt="QQ截图20230206101949"></p>
+<p>电商数据库表:</p>
+<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230206102008.png" alt="QQ截图20230206102008"></p>
+<h3 id="7-3-4-服务"><a href="#7-3-4-服务" class="headerlink" title="7.3.4 服务:"></a>7.3.4 服务:</h3><p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230206102236.png" alt="QQ截图20230206102236"></p>
+<h3 id="7-3-5-扩展"><a href="#7-3-5-扩展" class="headerlink" title="7.3.5 扩展:"></a>7.3.5 扩展:</h3><p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230206102321.png" alt="QQ截图20230206102321"></p>
+<p>CDN 提高静态资源访问请求的工具.</p>
+<h3 id="7-3-6-系统架构"><a href="#7-3-6-系统架构" class="headerlink" title="7.3.6 系统架构:"></a>7.3.6 系统架构:</h3><p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230206102514.png" alt="QQ截图20230206102514"></p>
+<h3 id="7-3-7-流程图"><a href="#7-3-7-流程图" class="headerlink" title="7.3.7 流程图:"></a>7.3.7 流程图:</h3><p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230206102553.png" alt="QQ截图20230206102553"></p>
+<h3 id="7-3-8-函数式编程"><a href="#7-3-8-函数式编程" class="headerlink" title="7.3.8: 函数式编程:"></a>7.3.8: 函数式编程:</h3><p>把request变成model?</p>
+<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230206103346.png" alt="QQ截图20230206103346"></p>
+<h3 id="7-3-9-总结"><a href="#7-3-9-总结" class="headerlink" title="7.3.9 总结:"></a>7.3.9 总结:</h3><p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230206104218.png" alt="QQ截图20230206104218"></p>
+<p>无状态:服务不存储状态(数据).</p>
+<p>批量写入:降低压力.</p>
+<p>最终一致性:过程中短暂不一致,最终一致.</p>
+<h1 id="8-黑灰产监控与防御"><a href="#8-黑灰产监控与防御" class="headerlink" title="8.黑灰产监控与防御:"></a>8.黑灰产监控与防御:</h1><h2 id="8-1-常见的黑灰产"><a href="#8-1-常见的黑灰产" class="headerlink" title="8.1 常见的黑灰产:"></a>8.1 常见的黑灰产:</h2><p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230206110239.png" alt="QQ截图20230206110239"></p>
+<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230206110331.png" alt="QQ截图20230206110331"></p>
+<h2 id="8-2-常见的黑灰产业技术"><a href="#8-2-常见的黑灰产业技术" class="headerlink" title="8.2 常见的黑灰产业技术:"></a>8.2 常见的黑灰产业技术:</h2><p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230206111554.png" alt="QQ截图20230206111554"></p>
+<h2 id="8-3-安全防护体系建设"><a href="#8-3-安全防护体系建设" class="headerlink" title="8.3 安全防护体系建设:"></a>8.3 安全防护体系建设:</h2><p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230206113720.png" alt="QQ截图20230206113720"></p>
+
+        </article>
+        <div class="post-tools" id="post-tools">
+            <div class="post-tools-left">
+                
+                <div class="share-link mobile">
+    <div class="share-qrcode">
+        <div class="share-button" title="使用手机访问这篇文章">
+            <i class="fas fa-qrcode"></i>
+        </div>
+        <div class="share-main">
+            <div class="share-main-all">
+                <div id="qrcode" title="http://example.com/2023/01/17/%E6%9E%B6%E6%9E%84%E8%AE%BE%E8%AE%A1/">
+                </div>
+                <div class="reward-dec">使用手机访问这篇文章</div>
+            </div>
+        </div>
+        <script type="text/javascript">
+            new QRCode(document.getElementById("qrcode"), "http://example.com/2023/01/17/%E6%9E%B6%E6%9E%84%E8%AE%BE%E8%AE%A1/");
+        </script>
+    </div>
+</div>
+                <div class="share-link weibo"><a class="share-button" target="_blank"
+    href="https://service.weibo.com/share/share.php?title=架构设计&amp;url=http://example.com/2023/01/17/%E6%9E%B6%E6%9E%84%E8%AE%BE%E8%AE%A1/&amp;pic=/img/18.jpg"
+    title="分享到微博" rel="noopener external nofollow noreferrer noopener">
+    <i class="fab fa-weibo" style="font-size:22px"></i>
+</a>
+</div>
+<div class="share-link copyurl">
+<div class="share-button" id="post-share-url" title="复制链接" onclick="acrylic.copyPageUrl()">
+    <i class="fas fa-link"></i>
+</div>
+</div>
+            </div>
+            <div class="post-tools-right">
+                <div class="tag_share">
+                    <div class="post-meta__tag-list">
+                        
+                            <a href="/tags/%E6%9E%B6%E6%9E%84/" class="post-meta__tags">
+                                <span class="tags-punctuation">#</span>
+                                架构
+                                <span class="tagsPageCount">3</span>
+                            </a>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="post-copyright">
+    <div class="post-copyright__author">
+        <a class="post-copyright__original" title="该文章为原创文章，注意版权协议">原创</a>
+        <a class="post-copyright-title" href="#">
+            <span>架构设计</span>
+        </a>
+    </div>
+    <div class="post-copyright__type">
+        <span class="post-copyright-info" id="post-copyright-url">
+            <a href="/2023/01/17/%E6%9E%B6%E6%9E%84%E8%AE%BE%E8%AE%A1/">http://example.com/2023/01/17/%E6%9E%B6%E6%9E%84%E8%AE%BE%E8%AE%A1/</a>
+        </span>
+        <button class="post-copyright-copybtn" onclick="acrylic.copyPageUrl()">
+            <i class="fas fa-paste copy-btn"></i>
+        </button>
+    </div>
+    <div class="post-copyright__notice"><span class="post-copyright-info">本文是原创文章，采用 <a
+                href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank">CC BY-NC-ND 4.0</a> 协议，完整转载请注明来自 <a
+                href="/">风凌渡</a>
+            </span>
+        </div>
+</div>
+        <nav class="pagination-post" id="pagination">
+    
+        <div class="prev-post pull-left">
+            <a href="/2023/02/04/Hertz/">
+                <div class="pagination-info">
+                    <div class="label">上一篇</div>
+                    <div class="prev_info">Hertz</div>
+                </div>
+            </a>
+        </div>
+        <div class="next-post pull-right">
+            <a href="/2023/01/17/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86/">
+                <div class="pagination-info">
+                    <div class="label">下一篇</div>
+                    <div class="next_info">计算机组成原理</div>
+                </div>
+            </a>
+        </div>
+    
+</nav>
+            
+    </div>
+    <div class="aside-content" id="aside-content">
+    
+    
+        
+        <div class="card-widget card-info">
+    <div class="card-content">
+        <div class="card-info-avatar is-center">
+            <div class="author-info__sayhi" id="author-info__sayhi">
+            </div>
+            <div class="author-info__name">
+                抒情熊
+            </div>
+            <div class="author-info__description">这有关于<b>后端</b>、<b>架构</b>的相关笔记分享，还有拙作<b>诗歌</b>和<b>小说</b>，另有如<b>奎桑提</b>和<b>奥恩</b>的相关教学。<br>相信会对你有所帮助.</div>
+        </div>
+    </div>
+    <div class="banner-button-group">
+        <a class="banner-button" href="/about/">
+            <i class="fas fa-circle-chevron-right"></i>
+            <span class="banner-button-text">了解更多</span>
+        </a>
+    </div>
+    <div class="card-info-social-icons is-center">
+        
+            <a class="social-icon" target="_blank" rel="noopener" href="https://github.com/bearslyricattack" title="Github">
+                <i class="fa-brands fa-github"></i>
+            </a>
+        
+            <a class="social-icon" target="_blank" rel="noopener" href="https://user.qzone.qq.com/2669184984" title="Mail">
+                <i class="fa-solid fa-envelope"></i>
+            </a>
+        
+    </div>
+</div>
+     
+    
+    <div class="sticky_layout">
+        
+            <div class="card-widget" id="card-toc">
+    <div class="item-headline">
+        <i class="fas fa-bars"></i>
+        <span>文章目录</span>
+    </div>
+    <div class="toc-content" id="toc-content">
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%9E%B6%E6%9E%84"><span class="toc-text">架构:</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#1-%E5%AE%9A%E4%B9%89"><span class="toc-text">1.定义</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#2-%E6%9E%B6%E6%9E%84%E5%88%86%E7%B1%BB%E4%BB%A5%E5%8F%8A%E6%BC%94%E8%BF%9B"><span class="toc-text">2.架构分类以及演进:</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#2-1-%E5%8D%95%E6%9C%BA%E6%9E%B6%E6%9E%84"><span class="toc-text">2.1 单机架构:</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-2-%E5%8D%95%E4%BD%93%E6%9E%B6%E6%9E%84"><span class="toc-text">2.2 单体架构:</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-3-%E5%9E%82%E7%9B%B4%E5%BA%94%E7%94%A8%E6%9E%B6%E6%9E%84"><span class="toc-text">2.3 垂直应用架构:</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-4-SOA%E6%9E%B6%E6%9E%84"><span class="toc-text">2.4 SOA架构:</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-5-%E5%BE%AE%E6%9C%8D%E5%8A%A1%E6%9E%B6%E6%9E%84"><span class="toc-text">2.5 微服务架构:</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-6-%E6%80%BB%E7%BB%93"><span class="toc-text">2.6 总结:</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#3-%E4%BC%81%E4%B8%9A%E7%BA%A7%E5%90%8E%E7%AB%AF%E6%9E%B6%E6%9E%84%E5%88%86%E6%9E%90"><span class="toc-text">3.企业级后端架构分析:</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#3-1-%E5%BC%95%E5%85%A5"><span class="toc-text">3.1 引入:</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-2-%E4%BA%91%E8%AE%A1%E7%AE%97"><span class="toc-text">3.2 云计算:</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#3-2-1-IaaS"><span class="toc-text">3.2.1 IaaS:</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-2-2-PaaS"><span class="toc-text">3.2.2 PaaS:</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-2-3-SaaS"><span class="toc-text">3.2.3 SaaS:</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-2-4-FaaS"><span class="toc-text">3.2.4 FaaS:</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-3-%E4%BA%91%E5%8E%9F%E7%94%9F"><span class="toc-text">3.3 云原生:</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#3-3-1-%E5%BC%B9%E6%80%A7%E8%B5%84%E6%BA%90"><span class="toc-text">3.3.1:弹性资源:</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-3-2-%E5%BE%AE%E6%9C%8D%E5%8A%A1%E6%9E%B6%E6%9E%84"><span class="toc-text">3.3.2:微服务架构:</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-3-3-%E6%95%8F%E6%8D%B7%E5%BC%80%E5%8F%91"><span class="toc-text">3.3.3:敏捷开发:</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-3-4-%E6%9C%8D%E5%8A%A1%E7%BD%91%E6%A0%BC"><span class="toc-text">3.3.4:服务网格:</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-3-5-%E8%9B%8B%E7%B3%95%E5%BA%97"><span class="toc-text">3.3.5:蛋糕店:</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#4-%E4%BC%81%E4%B8%9A%E7%BA%A7%E5%90%8E%E7%AB%AF%E6%9E%B6%E6%9E%84%E7%9A%84%E6%8C%91%E6%88%98"><span class="toc-text">4.企业级后端架构的挑战:</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#4-1-%E5%BC%95%E5%85%A5"><span class="toc-text">4.1 引入:</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-2-%E7%A6%BB%E5%9C%A8%E7%BA%BF%E8%B5%84%E6%BA%90%E5%B9%B6%E6%B1%A0"><span class="toc-text">4.2 离在线资源并池:</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-3-%E8%87%AA%E5%8A%A8%E6%89%A9%E7%BC%A9%E5%AE%B9"><span class="toc-text">4.3 自动扩缩容:</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-4-%E5%BE%AE%E6%9C%8D%E5%8A%A1%E4%BA%B2%E5%90%88%E6%80%A7%E9%83%A8%E7%BD%B2"><span class="toc-text">4.4 微服务亲合性部署:</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-5-%E6%B5%81%E9%87%8F%E6%B2%BB%E7%90%86"><span class="toc-text">4.5 流量治理:</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-6-CPU%E6%B0%B4%E4%BD%8D%E8%B4%9F%E8%BD%BD%E5%9D%87%E8%A1%A1"><span class="toc-text">4.6 CPU水位负载均衡:</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#5-%E6%9E%B6%E6%9E%84%E5%AE%9E%E6%88%98"><span class="toc-text">5.架构实战:</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#5-1-%E5%BC%95%E5%85%A5"><span class="toc-text">5.1 引入:</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-2-%E9%9D%99%E6%80%81%E8%87%AA%E9%80%82%E5%BA%94%E6%9D%83%E9%87%8D%EF%BC%9A"><span class="toc-text">5.2 静态自适应权重：</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#5-3-1-Alpha%E7%89%88%E6%9C%AC%EF%BC%9A"><span class="toc-text">5.3.1 Alpha版本：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-3-2-Beta%E7%89%88%E6%9C%AC%EF%BC%9A"><span class="toc-text">5.3.2 Beta版本：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-3-3-Release%E7%89%88%E6%9C%AC%EF%BC%9A"><span class="toc-text">5.3.3 Release版本：</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#6-%E6%80%BB%E7%BB%93%EF%BC%9A"><span class="toc-text">6.总结：</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#7-%E7%A7%92%E6%9D%80%E7%B3%BB%E7%BB%9F"><span class="toc-text">7.秒杀系统:</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#7-1-%E7%B3%BB%E7%BB%9F%E8%AE%BE%E8%AE%A1%E6%96%B9%E6%B3%95%E8%AE%BA"><span class="toc-text">7.1 系统设计方法论:</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#7-2-%E7%94%B5%E5%95%86%E4%BB%8B%E7%BB%8D"><span class="toc-text">7.2 电商介绍:</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#7-3-%E7%A7%92%E6%9D%80%E4%B8%9A%E5%8A%A1"><span class="toc-text">7.3 秒杀业务:</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#7-3-1-%E7%89%B9%E7%82%B9"><span class="toc-text">7.3.1 特点:</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#7-3-2-%E5%9C%BA%E6%99%AF"><span class="toc-text">7.3.2 场景:</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#7-3-3-%E5%AD%98%E5%82%A8"><span class="toc-text">7.3.3 存储:</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#7-3-4-%E6%9C%8D%E5%8A%A1"><span class="toc-text">7.3.4 服务:</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#7-3-5-%E6%89%A9%E5%B1%95"><span class="toc-text">7.3.5 扩展:</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#7-3-6-%E7%B3%BB%E7%BB%9F%E6%9E%B6%E6%9E%84"><span class="toc-text">7.3.6 系统架构:</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#7-3-7-%E6%B5%81%E7%A8%8B%E5%9B%BE"><span class="toc-text">7.3.7 流程图:</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#7-3-8-%E5%87%BD%E6%95%B0%E5%BC%8F%E7%BC%96%E7%A8%8B"><span class="toc-text">7.3.8: 函数式编程:</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#7-3-9-%E6%80%BB%E7%BB%93"><span class="toc-text">7.3.9 总结:</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#8-%E9%BB%91%E7%81%B0%E4%BA%A7%E7%9B%91%E6%8E%A7%E4%B8%8E%E9%98%B2%E5%BE%A1"><span class="toc-text">8.黑灰产监控与防御:</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#8-1-%E5%B8%B8%E8%A7%81%E7%9A%84%E9%BB%91%E7%81%B0%E4%BA%A7"><span class="toc-text">8.1 常见的黑灰产:</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#8-2-%E5%B8%B8%E8%A7%81%E7%9A%84%E9%BB%91%E7%81%B0%E4%BA%A7%E4%B8%9A%E6%8A%80%E6%9C%AF"><span class="toc-text">8.2 常见的黑灰产业技术:</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#8-3-%E5%AE%89%E5%85%A8%E9%98%B2%E6%8A%A4%E4%BD%93%E7%B3%BB%E5%BB%BA%E8%AE%BE"><span class="toc-text">8.3 安全防护体系建设:</span></a></li></ol></li></ol>
+    </div>
+</div>
+            
+        
+            
+        <div class="card-widget card-recent-post">
+    <div class="item-headline">
+        <i class="fas fa-list-ol"></i>
+        <span>最近发布</span>
+    </div>
+    <div class="aside-list">
+        
+        
+            <div class="aside-list-item">
+                <a class="thumbnail" href="/2023/04/28/ClickHouse/" title="ClickHouse">
+                    <img
+                        alt="ClickHouse"
+                        src="/img/1.jpg">
+                </a>
+                <div class="content">
+                    
+                        <a class="article-recent_post_categories" href="/2023/04/28/ClickHouse/">
+                            笔记
+                        </a>
+                    
+                    <a class="title" href="/2023/04/28/ClickHouse/" title="ClickHouse">
+                        ClickHouse
+                    </a>
+                </div>
+            </div>
+                
+        
+            <div class="aside-list-item">
+                <a class="thumbnail" href="/2023/03/18/%E4%BB%8EIOC%E5%88%B0Java%E6%9E%B6%E6%9E%84/" title="从IOC到java架构">
+                    <img
+                        alt="从IOC到java架构"
+                        src="/img/25.jpg">
+                </a>
+                <div class="content">
+                    
+                        <a class="article-recent_post_categories" href="/2023/03/18/%E4%BB%8EIOC%E5%88%B0Java%E6%9E%B6%E6%9E%84/">
+                            笔记
+                        </a>
+                    
+                    <a class="title" href="/2023/03/18/%E4%BB%8EIOC%E5%88%B0Java%E6%9E%B6%E6%9E%84/" title="从IOC到java架构">
+                        从IOC到java架构
+                    </a>
+                </div>
+            </div>
+                
+        
+            <div class="aside-list-item">
+                <a class="thumbnail" href="/2023/03/18/%E6%95%B0%E6%8D%AE%E5%BA%93%E6%A6%82%E8%BF%B0/" title="数据库概述">
+                    <img
+                        alt="数据库概述"
+                        src="/img/28.jpg">
+                </a>
+                <div class="content">
+                    
+                        <a class="article-recent_post_categories" href="/2023/03/18/%E6%95%B0%E6%8D%AE%E5%BA%93%E6%A6%82%E8%BF%B0/">
+                            笔记
+                        </a>
+                    
+                    <a class="title" href="/2023/03/18/%E6%95%B0%E6%8D%AE%E5%BA%93%E6%A6%82%E8%BF%B0/" title="数据库概述">
+                        数据库概述
+                    </a>
+                </div>
+            </div>
+                
+        
+            <div class="aside-list-item">
+                <a class="thumbnail" href="/2023/03/18/%E5%BE%AE%E6%9C%8D%E5%8A%A1/" title="微服务">
+                    <img
+                        alt="微服务"
+                        src="/img/29.jpg">
+                </a>
+                <div class="content">
+                    
+                        <a class="article-recent_post_categories" href="/2023/03/18/%E5%BE%AE%E6%9C%8D%E5%8A%A1/">
+                            笔记
+                        </a>
+                    
+                    <a class="title" href="/2023/03/18/%E5%BE%AE%E6%9C%8D%E5%8A%A1/" title="微服务">
+                        微服务
+                    </a>
+                </div>
+            </div>
+                
+        
+            <div class="aside-list-item">
+                <a class="thumbnail" href="/2023/03/18/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" title="数据结构">
+                    <img
+                        alt="数据结构"
+                        src="/img/27.jpg">
+                </a>
+                <div class="content">
+                    
+                        <a class="article-recent_post_categories" href="/2023/03/18/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">
+                            笔记
+                        </a>
+                    
+                    <a class="title" href="/2023/03/18/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" title="数据结构">
+                        数据结构
+                    </a>
+                </div>
+            </div>
+            
+    </div>
+</div>
+     
+        
+    </div>
+</div> 
+</main>
+                <footer id="footer">
+                    <div id="footer_deal">
+    
+        <a class="deal_link" target="_blank" href="https://github.com/bearslyricattack" rel="external nofollow noopener" title="Github">
+            <i class="fa-brands fa-github"></i>
+        </a>
+    
+        <a class="deal_link" target="_blank" href="https://user.qzone.qq.com/2669184984" rel="external nofollow noopener" title="Mail">
+            <i class="fa-solid fa-envelope"></i>
+        </a>
+    
+    <img class="footer_mini_logo" src="/img/avatar.webp"
+        title="返回顶部" onclick="acrylic.toTop()">
+    
+        <a class="deal_link" target="_blank" href="https://music.163.com/#/user/follows?id=436327083" rel="external nofollow noopener" title="网易云">
+            <i class="fa-solid fa-music"></i>
+        </a>
+    
+        <a class="deal_link" target="_blank" href="https://space.bilibili.com/701779878?spm_id_from=333.1007.0.0" rel="external nofollow noopener" title="bilibili">
+            <i class="fa-brands fa-bilibili"></i>
+        </a>
+    
+</div>    
+<div id="heo-footer">
+    
+    
+</div>
+<div id="footer-section">
+    <div class="footer-section-links">
+        <div class="footer-section-left">
+            <div id="footer-section-tips">
+                <div class="copyright">©2022 - 2023 By 
+                    <a class="footer-section-link" href="/" rel="external nofollow">抒情熊</a>
+                    <a class="footer-section-link" href="https://github.com/hexo-theme-Acrylic/Hexo-Theme-Acrylic-Next" rel="external nofollow" target="_blank"> Theme By Acrylic-Next</a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-section-right">
+            <a class="footer-section-link" href="/rss/">订阅</a>
+            
+            <a class="footer-section-link cc" target="_blank" href="https://creativecommons.org/licenses/by/4.0/" title="cc协议">
+                <i class="fa-solid fa-closed-captioning"></i>
+            </a>
+        </div>
+    </div>
+</div>
+                </footer>
+            </div>
+         
+        <div>
+    <script type="text/javascript" src="/js/utils.js"></script>
+    <script type="text/javascript" src="/js/main.js"></script>
+    
+
+<script src="/lib/pjax.min.js"></script>
+
+
+
+<script src="/lib/snackbar.min.js"></script>
+
+
+    
+<script src="/lib/view-image.min.js"></script>
+
+
+
+    
+<link rel="stylesheet" href="/lib/swiper.min.css">
+
+    
+<script src="/lib/swiper.min.js"></script>
+
+
+<div id="js-pjax">
+    
+    
+        <script async src="https://npm.elemecdn.com/penndu@1.0.0/bsz.js"></script>
+     
+</div>
+
+    
+<link rel="stylesheet" href="https://lf9-cdn-tos.bytecdntp.com/cdn/expire-1-M/aplayer/1.10.1/APlayer.min.css">
+
+    
+<script src="https://lf3-cdn-tos.bytecdntp.com/cdn/expire-1-M/aplayer/1.10.1/APlayer.min.js"></script>
+
+    
+<script src="https://cdn1.tianli0.top/npm/meting@2.0.1/dist/Meting.min.js"></script>
+
+
+
+    
+<script src="/js/extend/covercolor/web.js"></script>
+
+        
+
+    <script>
+  let pjaxSelectors = [
+    'title',
+    '#body-wrap',
+    '#site-config',
+    'meta[name="description"]',
+    '#js-pjax'
+  ]
+  
+  const pjax = new Pjax({
+    elements: 'a:not([target="_blank"])',
+    selectors: pjaxSelectors,
+    cacheBust: false,
+    analytics: false,
+    scrollRestoration: false
+  })
+
+  document.querySelectorAll('script[data-pjax]').forEach(item => {
+      const newScript = document.createElement('script')
+      const content = item.text || item.textContent || item.innerHTML || ""
+      Array.from(item.attributes).forEach(attr => newScript.setAttribute(attr.name, attr.value))
+      newScript.appendChild(document.createTextNode(content))
+      item.parentNode.replaceChild(newScript, item)
+  })
+
+  document.addEventListener('pjax:error', (e) => {
+    if (e.request.status === 404) {
+      pjax.loadUrl('/404.html')
+    }
+  })
+</script>
+    
+</div>
+        
+    <div id="local-search">
+    <div class="search-dialog">
+        <nav class="search-nav">
+            <span class="search-dialog-title">搜索</span>
+            <button class="search-close-button">
+                <i class="fas fa-times"></i>
+            </button>
+        </nav>
+        <div id="loading-database">
+            <i class="fas fa-spinner fa-pulse"></i>
+            <span>加载中</span>
+        </div>
+        <div class="search-wrap">
+            <div class="search-box">
+                <input class="search-box-input" placeholder="输入关键词快速查找" type="text" id="search-input" autocomplete="off" spellcheck="false" autocorrect="off" autocapitalize="off">
+            </div>
+            <div id="loading-status"></div>
+            <div id="search-results"></div>
+        </div>
+    </div>
+    <div id="search-mask"></div>
+</div>
+    
+<link rel="stylesheet" href="/css/search/local-search.css">
+
+    
+<script src="/js/extend/search/local-search.js"></script>
+
+
+     
+        <div class="needEndHide" id="nav-music" onclick="acrylic.musicToggle()">
+    <div id="nav-music-hoverTips">音乐已暂停</div>
+    <meting-js id="7315994021" server="tencent" type="playlist" mutex="true"
+        preload="none" data-lrctype="0" order="random" theme="var(--heo-main)"></meting-js>
+</div>
+    
+    </body>
+</html>
+<script>const posts=["2023/04/28/ClickHouse/","2023/03/18/从IOC到Java架构/","2023/03/18/数据库概述/","2023/03/18/微服务/","2023/03/18/数据结构/","2023/03/18/系统分析与设计/","2023/03/18/面向对象建模技术/","2023/03/14/Go语言设计与实现/","2023/03/13/Git/","2023/02/10/服务器部署/","2023/02/10/规则引擎/","2023/02/10/风凌夜话/","2023/02/10/青萍/","2023/02/10/巷/","2023/02/10/乱世佳人/","2023/02/10/马克思主义原理/","2023/02/04/Hertz/","2023/01/17/架构设计/","2023/01/17/计算机组成原理/","2023/01/17/鹤扶摇/","2023/01/17/泠音泛海/","2023/01/17/江城一梦/","2023/01/17/近世代数/","2023/01/17/白马遥/","2023/01/17/塑鸿/","2023/01/17/彩云辞/","2023/01/17/Java虚拟机/","2023/01/17/Web基本原理/","2023/01/17/Springboot入门/","2023/01/17/分布式/","2023/01/17/Golang/","2023/01/17/Redis/"];function toRandomPost(){ window.pjax ? pjax.loadUrl('/'+posts[Math.floor(Math.random()*posts.length)]) : window.open('/'+posts[Math.floor(Math.random()*posts.length)], "_self"); };</script>

@@ -1,0 +1,1037 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-theme="light">
+    <head>
+        <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>计算机组成原理 | 风凌渡</title>
+<noscript>开启Javascript是必要的</noscript>
+<link rel="icon" type="image/x-icon" href="/img/avatar.webp">
+<link rel="apple-touch-icon" href="/img/avatar.webp">
+<meta name="apple-mobile-web-app-title" content="风凌渡">
+<link rel="bookmark" href="/img/avatar.webp">
+<link rel="apple-touch-icon-precomposed" sizes="180x180" href="/img/avatar.webp">
+<meta name="description" content="a blog 一个分享技术与生活的博客">
+<meta name="theme-color" content="#1C1C1F">
+<link rel="stylesheet" href="/css/var.css">
+<link rel="stylesheet" href="/css/main.css">
+<link rel="stylesheet" href="/css/custom.css">
+
+
+
+<link rel="stylesheet" href="https://cdn.bootcdn.net/ajax/libs/font-awesome/6.3.0/css/all.min.css">
+    
+
+<link rel="stylesheet" href="/lib/snackbar.min.css">
+
+
+<script src="/lib/qrcode.min.js"></script>
+
+
+
+
+
+<script>var GLOBALCONFIG = {"root":"/","runtime":"2022-5-21 00:00:00","lazyload":{"enable":false,"error":"/img/acrylic.png"},"hightlight":{"enable":false,"limit":200},"lightbox":true,"randomlinks":false,"lang":{"theme":{"dark":"已切换至深色模式","light":"已切换至浅色模式"},"copy":{"success":"复制成功","error":"复制失败"},"backtop":"返回顶部","time":{"recent":"最近","yesterday":"昨天","berforeyesterday":"前天","daybefore":"天前","runtime":"天"},"sayhello":{"morning":"早上好","noon":"中午好","afternoon":"下午好","night":"晚上好","goodnight":"晚安","iam":"!  我是"},"search":{"empty":"搜索结果为空","hit":"已为您找到 ${query} 条结果","placeholder":"输入关键词快速查找"}},"covercolor":false,"localsearch":{"preload":false,"path":"/search.xml"}};</script><script id="site-config">var PAGECONFIG = {"is_home":false,"is_post":true,"is_page":false,"page":false,"toc":true,"comment":false};</script>
+    <meta name="generator" content="Hexo 6.3.0"></head>
+    <body id="body">
+        
+        <div id="console" style="zoom: 1;" class="">
+    <div class="close-btn" onclick="acrylic.hideConsole()" href="javascript:void(0);">
+        <i class="fas fa-circle-xmark"></i>
+    </div>
+    <div class="button-group">
+        <div class="console-btn-item"> <a class="darkmode_switchbutton" onclick="acrylic.switchDarkMode()" title="显示模式切换"
+                href="javascript:void(0);" rel="external nofollow" data-pjax-state=""><i class="fas fa-moon"
+                    style="font-size: 1rem;"></i></a></div>
+                    
+            <div class="console-btn-item" id="consoleMusic" onclick="acrylic.musicToggle()" title="音乐开关"><a class="music-switch"><i class="fas fa-music"></i></a></div>
+        
+        <div class="console-btn-item" id="consoleFPS" onclick="acrylic.FPSToggle()" title="帧率显示开关"><a class="FPS-switch"
+                data-pjax-state=""><i class="fas fa-gauge"></i></a></div>
+    </div>
+    <div class="console-mask" onclick="acrylic.hideConsole()" href="javascript:void(0);" rel="external nofollow"></div>
+</div>
+        <div id="sidebar" style="zoom: 1;">
+    <div id="menu-mask" style="display: none;"></div>
+    <div id="sidebar-menus" class>
+        <span class="sidebar-menu-item-title">功能</span>
+        <div class="sidebar-menu-item">
+            <a class="darkmode_switchbutton menu-child" onclick="acrylic.switchDarkMode()" title="显示模式切换"
+                href="javascript:void(0);" rel="external nofollow">
+                <i class="fas fa-moon" style="font-size: 1rem;"></i>
+                <span>显示模式</span>
+            </a>
+        </div>
+        
+            <div class="back-menu-list-groups">
+    
+      
+      <div class="back-menu-list-group">
+        <div class="back-menu-list-title">
+          我的
+        </div>
+        <div class="back-menu-list">
+          
+            
+            <a class="back-menu-item" href="/" rel="external nofollow" title="博客">
+              <img class="back-menu-item-icon" src="/img/avatar.webp" loading="lazy">
+              <span class="back-menu-item-text">
+                博客
+              </span>
+            </a>
+          
+        </div>
+      </div>
+    
+  </div>
+  
+        
+        <div class="menus_items">
+    
+        <div class="menus_item">
+            
+                <a class="site-page" href="javascript:void(0);" rel="external nofollow">
+                    <span> 文库</span>
+                </a>
+                <ul class="menus_item_child">
+                    
+                        <li>
+                            <a class="site-page child" href="/archives/">
+                                <i class="fas fa-box-archive"></i>
+                                <span> 文章列表</span>
+                            </a>
+                        </li>
+                    
+                        <li>
+                            <a class="site-page child" href="/categories/">
+                                <i class="fas fa-cube"></i>
+                                <span> 全部分类</span>
+                            </a>
+                        </li>
+                    
+                        <li>
+                            <a class="site-page child" href="/tags/">
+                                <i class="fas fa-tags"></i>
+                                <span> 全部标签</span>
+                            </a>
+                        </li>
+                    
+                </ul>
+             
+        </div>
+    
+        <div class="menus_item">
+            
+                <a class="site-page not-child" target="_blank" href="https://github.com/bearslyricattack" rel="external nofollow noopener">
+                    <span> 仓库</span>
+                </a>
+             
+        </div>
+    
+</div>
+        <span class="sidebar-menu-item-title">标签</span>
+        <div class="card-widget card-tags card-archives card-webinfo card-allinfo">
+            <div class="item-headline">
+                <i class="fas fa-tags"></i>
+                <span>标签</span>
+            </div>
+            <div class="card-tag-cloud">
+                
+                    <a href="/tags/%E4%B8%AD%E9%97%B4%E4%BB%B6/" style="font-size: 1em; color: #d3d3d3">中间件
+                        <sup>4</sup>
+                    </a>
+                
+                    <a href="/tags/Go/" style="font-size: 1em; color: #d3d3d3">Go
+                        <sup>3</sup>
+                    </a>
+                
+                    <a href="/tags/Java/" style="font-size: 1em; color: #d3d3d3">Java
+                        <sup>3</sup>
+                    </a>
+                
+                    <a href="/tags/%E5%BD%B1%E8%AF%84/" style="font-size: 1em; color: #d3d3d3">影评
+                        <sup>1</sup>
+                    </a>
+                
+                    <a href="/tags/%E6%9E%B6%E6%9E%84/" style="font-size: 1em; color: #d3d3d3">架构
+                        <sup>3</sup>
+                    </a>
+                
+                    <a href="/tags/%E5%88%86%E5%B8%83%E5%BC%8F/" style="font-size: 1em; color: #d3d3d3">分布式
+                        <sup>1</sup>
+                    </a>
+                
+                    <a href="/tags/%E8%AF%97%E6%AD%8C/" style="font-size: 1em; color: #d3d3d3">诗歌
+                        <sup>9</sup>
+                    </a>
+                
+                    <a href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/" style="font-size: 1em; color: #d3d3d3">数据库
+                        <sup>1</sup>
+                    </a>
+                
+                    <a href="/tags/%E8%AF%BE%E7%A8%8B/" style="font-size: 1em; color: #d3d3d3">课程
+                        <sup>6</sup>
+                    </a>
+                
+                    <a href="/tags/%E6%9C%8D%E5%8A%A1%E5%99%A8/" style="font-size: 1em; color: #d3d3d3">服务器
+                        <sup>1</sup>
+                    </a>
+                
+            </div>
+        </div>
+    </div>
+</div>    
+        
+            <div class="post" id="body-wrap">
+                <header class="post-bg" id="page-header">
+    <nav id="nav" class="show">
+    <div id="nav-group">
+        <div id="blog_name">
+            
+                <div class="back-home-button" tabindex="-1">
+                    <i class="back-home-button-icon fas fa-grip-vertical"></i>
+                    <div class="back-menu-list-groups">
+    
+      
+      <div class="back-menu-list-group">
+        <div class="back-menu-list-title">
+          我的
+        </div>
+        <div class="back-menu-list">
+          
+            
+            <a class="back-menu-item" href="/" rel="external nofollow" title="博客">
+              <img class="back-menu-item-icon" src="/img/avatar.webp" loading="lazy">
+              <span class="back-menu-item-text">
+                博客
+              </span>
+            </a>
+          
+        </div>
+      </div>
+    
+  </div>
+  
+                </div>
+            
+            <a id="site-name" href="/" title="返回博客主页">
+                    
+            </a>
+        </div>
+        <div id="page-name-mask">
+            <div id="page-name">
+                <a id="page-name-text" onclick="acrylic.toTop()">计算机组成原理</a>
+            </div>
+        </div>
+        <div id="menus">
+            <div class="menus_items">
+    
+        <div class="menus_item">
+            
+                <a class="site-page" href="javascript:void(0);" rel="external nofollow">
+                    <span> 文库</span>
+                </a>
+                <ul class="menus_item_child">
+                    
+                        <li>
+                            <a class="site-page child" href="/archives/">
+                                <i class="fas fa-box-archive"></i>
+                                <span> 文章列表</span>
+                            </a>
+                        </li>
+                    
+                        <li>
+                            <a class="site-page child" href="/categories/">
+                                <i class="fas fa-cube"></i>
+                                <span> 全部分类</span>
+                            </a>
+                        </li>
+                    
+                        <li>
+                            <a class="site-page child" href="/tags/">
+                                <i class="fas fa-tags"></i>
+                                <span> 全部标签</span>
+                            </a>
+                        </li>
+                    
+                </ul>
+             
+        </div>
+    
+        <div class="menus_item">
+            
+                <a class="site-page not-child" target="_blank" href="https://github.com/bearslyricattack" rel="external nofollow noopener">
+                    <span> 仓库</span>
+                </a>
+             
+        </div>
+    
+</div>
+        </div>
+        <!-- <div id="nav-left">
+            <div id="fps-group">
+                <div id="fps">145</div><span class="fpsText">FPS</span>
+            </div>
+        </div> -->
+        <div id="nav-right">
+            
+    <div class="nav-button only-home" id="travellings_button">
+        <a class="site-page"  target="_blank" rel="noopener external nofollow" href="https://www.travellings.cn/go.html" title="开往-友链接力"  width="120">
+            <i class="fa-solid fa-train-subway" style="font-size: 1rem;"></i>
+        </a>
+    </div>
+
+
+    <div class="nav-button" id="randomPost_button">
+        <a class="site-page" onclick="toRandomPost()"
+            title="随机前往一个文章">
+            <i class="fas fa-shuffle" style="font-size: 1rem;"></i>
+        </a>
+    </div>
+
+
+    <div class="nav-button" id="search-button">
+        <a class="site-page social-icon search" title="站内搜索"
+            href="javascript:void(0);" rel="external nofollow">
+            <i class="fas fa-magnifying-glass" style="font-size: 1rem;"></i>
+        </a>
+    </div>
+
+
+    <div class="nav-button" id="nav-console">
+        <a class="console_switchbutton" onclick="acrylic.showConsole()"
+        title="显示中控台" href="javascript:void(0);" rel="external nofollow">
+        <i class="fas fa-bars-progress" style="font-size: 1rem;"></i>
+        </a>
+    </div>
+
+<div class="nav-button" id="nav-totop" onclick="acrylic.toTop()">
+    <a class="totopbtn">
+        <i class="fas fa-arrow-up"></i>
+        <span id="percent">0</span>
+    </a>
+</div>
+<div id="toggle-menu">
+    <a class="site-page">
+        <i class="fas fa-bars fa-fw" style="font-size: 1rem;"></i>
+    </a>
+</div>
+        </div>
+    </div>
+</nav>
+    
+        <div class="coverdiv" id="coverdiv">
+    <img id="post-cover" class="nolazyload" src="/img/17.jpg" alt="cover">
+</div>
+<div id="post-info">
+    <div id="post-firstinfo">
+        <div class="meta-firstline">
+            <a class="post-meta-original" title="该文章为原创文章，注意版权协议">
+                原创
+            </a>
+            
+            <span class="post-meta-categories">
+                
+                    <a class="post-meta-categories" href="/categories/%E7%AC%94%E8%AE%B0/">笔记</a>
+                
+            </span>
+            
+            <div class="tag_share">
+                <div class="post-meta__tag-list">
+                    
+                        <a class="post-meta__tags" href="/tags/%E8%AF%BE%E7%A8%8B/">
+                            <span class="tags-punctuation">#</span>
+                            <span class="tags-name">课程</span>
+                        </a>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+    <h1 class="post-title">计算机组成原理</h1>
+    <div id="post-meta">
+        <div class="meta-secondline">
+            <span class="post-meta-date" title="发布于">
+                <i class="post-meta-icon fa-fw fas fa-calendar"></i>
+                <time datetime="2023-01-17T23:23:32+08:00"></time>
+            </span>
+            
+            
+                <span class="post-meta-position" title="作者IP归属地为山东·威海">
+                    <i class="fas fa-location-dot post-meta-icon"></i>
+                    <span>山东·威海</span>
+                </span>
+            
+            
+                
+                
+            
+            
+                
+        </div>
+    </div>
+</div>
+<section class="main-hero-waves-area waves-area"><svg class="waves-svg" xmlns="http://www.w3.org/2000/svg"
+    xlink="http://www.w3.org/1999/xlink" viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto">
+    <defs>
+        <path id="gentle-wave"
+            d="M -160 44 c 30 0 58 -18 88 -18 s 58 18 88 18 s 58 -18 88 -18 s 58 18 88 18 v 44 h -352 Z"></path>
+    </defs>
+    <g class="parallax">
+        <use href="#gentle-wave" x="48" y="0"></use>
+        <use href="#gentle-wave" x="48" y="3"></use>
+        <use href="#gentle-wave" x="48" y="5"></use>
+        <use href="#gentle-wave" x="48" y="7"></use>
+    </g>
+</svg>
+</section>
+
+        
+</header>
+                <main class="layout" id="content-inner">
+    <div id="post">
+        <article class="post-content" id="article-container">
+            <h1 id="计算机组成原理"><a href="#计算机组成原理" class="headerlink" title="计算机组成原理"></a>计算机组成原理</h1><h1 id="1-目录"><a href="#1-目录" class="headerlink" title="1.目录:"></a>1.目录:</h1><p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230204152953.png" alt="QQ截图20230204152953"></p>
+<h1 id="2-冯诺依曼计算机模型"><a href="#2-冯诺依曼计算机模型" class="headerlink" title="2.冯诺依曼计算机模型:"></a>2.冯诺依曼计算机模型:</h1><h2 id="2-1-基本组成"><a href="#2-1-基本组成" class="headerlink" title="2.1 基本组成:"></a>2.1 基本组成:</h2><p>运算器,存储器,输入单元,输出单元,控制器.</p>
+<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230204153113.png" alt="QQ截图20230204153113"></p>
+<p>改进型:以存储器为中心:</p>
+<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230204153233.png" alt="QQ截图20230204153233"></p>
+<h2 id="2-2-基本特征"><a href="#2-2-基本特征" class="headerlink" title="2.2 基本特征:"></a>2.2 基本特征:</h2><p>组成,存储器,程序.</p>
+<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230204153137.png" alt="QQ截图20230204153137"></p>
+<p>二进制,相同,pc</p>
+<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230204153151.png" alt="QQ截图20230204153151"></p>
+<h1 id="3-计算机基本组成"><a href="#3-计算机基本组成" class="headerlink" title="3.计算机基本组成:"></a>3.计算机基本组成:</h1><p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230204153312.png" alt="QQ截图20230204153312"></p>
+<h2 id="3-1-硬件"><a href="#3-1-硬件" class="headerlink" title="3.1 硬件:"></a>3.1 硬件:</h2><p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230204153355.png" alt="QQ截图20230204153355"></p>
+<h3 id="3-1-1-辅存"><a href="#3-1-1-辅存" class="headerlink" title="3.1.1 辅存:"></a>3.1.1 辅存:</h3><p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230204153432.png" alt="QQ截图20230204153432"></p>
+<h3 id="3-1-2-处理单元-PU"><a href="#3-1-2-处理单元-PU" class="headerlink" title="3.1.2 处理单元:PU"></a>3.1.2 处理单元:PU</h3><p>运算单元＋控制单元+暂存单元等于处理单元.</p>
+<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230204153709.png" alt="QQ截图20230204153709"></p>
+<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230204153812.png" alt="QQ截图20230204153812"></p>
+<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230204153842.png" alt="QQ截图20230204153842"></p>
+<h2 id="3-2-软件"><a href="#3-2-软件" class="headerlink" title="3.2 软件:"></a>3.2 软件:</h2><p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230204154038.png" alt="QQ截图20230204154038"></p>
+<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230204154114.png" alt="QQ截图20230204154050"></p>
+<h2 id="3-3-计算机组成与计算机实现"><a href="#3-3-计算机组成与计算机实现" class="headerlink" title="3.3 计算机组成与计算机实现:"></a>3.3 计算机组成与计算机实现:</h2><p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230204154155.png" alt="QQ截图20230204154155"></p>
+<h2 id="3-4-指令集"><a href="#3-4-指令集" class="headerlink" title="3.4 指令集:"></a>3.4 指令集:</h2><p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230204154509.png" alt="QQ截图20230204154509"></p>
+<h2 id="3-5-计算机性能评价"><a href="#3-5-计算机性能评价" class="headerlink" title="3.5 计算机性能评价:"></a>3.5 计算机性能评价:</h2><h3 id="3-5-1-机器字长"><a href="#3-5-1-机器字长" class="headerlink" title="3.5.1 机器字长"></a>3.5.1 机器字长</h3><p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230204154530.png" alt="QQ截图20230204154530"></p>
+<h3 id="3-5-2-主存储器容量"><a href="#3-5-2-主存储器容量" class="headerlink" title="3.5.2 主存储器容量"></a>3.5.2 主存储器容量</h3><p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230204154550.png" alt="QQ截图20230204154550"></p>
+<h3 id="3-5-3-处理速度"><a href="#3-5-3-处理速度" class="headerlink" title="3.5.3 处理速度:"></a>3.5.3 处理速度:</h3><p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230204154603.png" alt="QQ截图20230204154603"></p>
+<h3 id="3-5-4-主频"><a href="#3-5-4-主频" class="headerlink" title="3.5.4 主频:"></a>3.5.4 主频:</h3><p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230204154615.png" alt="QQ截图20230204154615"></p>
+<h1 id="4-总线技术"><a href="#4-总线技术" class="headerlink" title="4. 总线技术:"></a>4. 总线技术:</h1><h2 id="4-1-概述"><a href="#4-1-概述" class="headerlink" title="4.1 概述:"></a>4.1 概述:</h2><p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230204154939.png" alt="QQ截图20230204154939"></p>
+<h2 id="4-2-特性"><a href="#4-2-特性" class="headerlink" title="4.2 特性:"></a>4.2 特性:</h2><h3 id="4-2-1-功能特性"><a href="#4-2-1-功能特性" class="headerlink" title="4.2.1 功能特性"></a>4.2.1 功能特性</h3><p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230204155020.png" alt="QQ截图20230204155020"></p>
+<h3 id="4-2-2-物理特性"><a href="#4-2-2-物理特性" class="headerlink" title="4.2.2 物理特性:"></a>4.2.2 物理特性:</h3><p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230204155035.png" alt="QQ截图20230204155035"></p>
+<h3 id="4-2-3-电气特性"><a href="#4-2-3-电气特性" class="headerlink" title="4.2.3 电气特性:"></a>4.2.3 电气特性:</h3><p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230204155047.png" alt="QQ截图20230204155047"></p>
+<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230204155113.png" alt="QQ截图20230204155113"></p>
+<h3 id="4-2-4-时间特性"><a href="#4-2-4-时间特性" class="headerlink" title="4.2.4 时间特性:"></a>4.2.4 时间特性:</h3><p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230204155227.png" alt="QQ截图20230204155227"></p>
+<h3 id="4-2-5-收发特性-最重要"><a href="#4-2-5-收发特性-最重要" class="headerlink" title="4.2.5 收发特性(最重要):"></a>4.2.5 收发特性(最重要):</h3><p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230204155322.png" alt="QQ截图20230204155322"></p>
+<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230204155346.png" alt="QQ截图20230204155346"></p>
+<h2 id="4-3-分类"><a href="#4-3-分类" class="headerlink" title="4.3 分类:"></a>4.3 分类:</h2><h3 id="4-3-1-位置分类"><a href="#4-3-1-位置分类" class="headerlink" title="4.3.1 位置分类:"></a>4.3.1 位置分类:</h3><p>片内总线.cpu芯片内.</p>
+<p>系统总线.各个部件之间信息传输.</p>
+<h3 id="4-3-2-功能分类"><a href="#4-3-2-功能分类" class="headerlink" title="4.3.2 功能分类:"></a>4.3.2 功能分类:</h3><p>数据总线:db:双向.</p>
+<p>地址总线:一组用来指出数据总线上的数据所对应的内存单元地址或I&#x2F;O外设地址的总线。单向,由cpu发出.</p>
+<p>控制总线:发送控制信号.单&#x2F;双向.</p>
+<p>外总线:用于两个系统之间的连接通信.</p>
+<h3 id="4-3-3-总线小结"><a href="#4-3-3-总线小结" class="headerlink" title="4.3.3 总线小结:"></a>4.3.3 总线小结:</h3><p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230206151023.png" alt="QQ截图20230206151023"></p>
+<h2 id="4-4-总线结构"><a href="#4-4-总线结构" class="headerlink" title="4.4 总线结构:"></a>4.4 总线结构:</h2><h3 id="4-4-1-单总线结构"><a href="#4-4-1-单总线结构" class="headerlink" title="4.4.1 单总线结构:"></a>4.4.1 单总线结构:</h3><p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230206151155.png" alt="QQ截图20230206151155"></p>
+<h3 id="4-4-2-双总线结构"><a href="#4-4-2-双总线结构" class="headerlink" title="4.4.2 双总线结构:"></a>4.4.2 双总线结构:</h3><p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230206151231.png" alt="QQ截图20230206151231"></p>
+<h3 id="4-4-3-三总线结构"><a href="#4-4-3-三总线结构" class="headerlink" title="4.4.3 三总线结构:"></a>4.4.3 三总线结构:</h3><p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230206151300.png" alt="QQ截图20230206151300"></p>
+<h2 id="4-5-总线控制"><a href="#4-5-总线控制" class="headerlink" title="4.5 总线控制:"></a>4.5 总线控制:</h2><h3 id="4-5-1-总线的基本特性"><a href="#4-5-1-总线的基本特性" class="headerlink" title="4.5.1 总线的基本特性:"></a>4.5.1 总线的基本特性:</h3><p>电子计算机的总线具有两个特性：发送的互斥性和接受的共享性。</p>
+<p>为了协调总线上各个部件对总线的争用、避免发生总线冲突，必须有一个总线控制器来对总线的使用进行分配和管理。</p>
+<p>拥有总线控制权的总线部件，称为总线的主部件&#x2F;主设备. 被主部件访问的部件称为从部件&#x2F;从设备。 </p>
+<h3 id="4-5-2-总线仲裁"><a href="#4-5-2-总线仲裁" class="headerlink" title="4.5.2 总线仲裁:"></a>4.5.2 总线仲裁:</h3><p>当总线上有多个候选的主部件同时申请使用总线时，必须有一个总线控制机构按照某种策略（优先次序）对申请进行裁决，这就叫做总线仲裁。</p>
+<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230206151503.png" alt="QQ截图20230206151503"></p>
+<h4 id="4-5-2-1-链式查询方式"><a href="#4-5-2-1-链式查询方式" class="headerlink" title="4.5.2.1 链式查询方式:"></a>4.5.2.1 链式查询方式:</h4><p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230206151624.png" alt="QQ截图20230206151624"></p>
+<h4 id="4-5-2-2-计数器定时"><a href="#4-5-2-2-计数器定时" class="headerlink" title="4.5.2.2 计数器定时:"></a>4.5.2.2 计数器定时:</h4><p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230206151719.png" alt="QQ截图20230206151719"></p>
+<h3 id="4-5-3-通信控制"><a href="#4-5-3-通信控制" class="headerlink" title="4.5.3 通信控制:"></a>4.5.3 通信控制:</h3><p>总线通信中，发出数据的部件称为源部件，                         接收数据的部件称为目的部件。</p>
+<p>为了完成一次有效的通信，源部件与目的部件之间需要进行一系列有时序限制的操作。</p>
+<p>基于“无须感知”观点进行总线通信控制的通信称为同步通信.</p>
+<p>基于“需要感知”观点进行总线通信控制的通信称为异步通信.</p>
+<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230206152301.png" alt="QQ截图20230206152301"></p>
+<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230206152316.png" alt="QQ截图20230206152316"></p>
+<h4 id="4-5-3-1-半同步通信"><a href="#4-5-3-1-半同步通信" class="headerlink" title="4.5.3.1 半同步通信:"></a>4.5.3.1 半同步通信:</h4><p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230206152407.png" alt="QQ截图20230206152407"></p>
+<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230206152428.png" alt="QQ截图20230206152428"></p>
+<h4 id="4-5-3-2-分离式通信"><a href="#4-5-3-2-分离式通信" class="headerlink" title="4.5.3.2 分离式通信:"></a>4.5.3.2 分离式通信:</h4><p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230206152636.png" alt="QQ截图20230206152636"></p>
+<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230206213009.png" alt="QQ截图20230206213009"></p>
+<h4 id="4-5-3-3-总结"><a href="#4-5-3-3-总结" class="headerlink" title="4.5.3.3 总结:"></a>4.5.3.3 总结:</h4><p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230206213130.png" alt="QQ截图20230206213130"></p>
+<h2 id="4-6-总线的性能指标："><a href="#4-6-总线的性能指标：" class="headerlink" title="4.6 总线的性能指标："></a>4.6 总线的性能指标：</h2><p>位宽：总线一次同时传送的信息位数或所需的线数。即一次操作可以传输的数据位数。主要是指数据总线的数目。</p>
+<p>总线宽度不会超过微处理器外部数据总线的宽度。</p>
+<p>工作时钟频率：控制总线中的时钟信号线所提供的时钟频率。 ISA和EISA总线为8MHz， PCI总线为33.3 MHz。 </p>
+<p>标准传输率：总线带宽。总线本身所能达到的最高传送速率。</p>
+<p> 总线带宽＝总线位宽×总线工作频率&#x2F;8。</p>
+<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230206213511.png" alt="QQ截图20230206213511"></p>
+<h2 id="4-7-总线标准："><a href="#4-7-总线标准：" class="headerlink" title="4.7 总线标准："></a>4.7 总线标准：</h2><p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230206213548.png" alt="QQ截图20230206213548"></p>
+<p> ISA(Industrial Standard Architecture)工业标准结构总线。工作频率为8MHz左右，数据线为16位（即16位插槽）；地址线为24位。EISA(Extended Industrial Standard Architecture)扩展工业标准结构总线.</p>
+<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230206213753.png" alt="QQ截图20230206213753"></p>
+<h2 id="4-8-总线重点题："><a href="#4-8-总线重点题：" class="headerlink" title="4.8 总线重点题："></a>4.8 总线重点题：</h2><p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230206213942.png" alt="QQ截图20230206213942"></p>
+<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230206214014.png" alt="QQ截图20230206214014"></p>
+<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230206214021.png" alt="QQ截图20230206214021"></p>
+<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230206214142.png" alt="QQ截图20230206214142"></p>
+<p> 总线带宽＝总线位宽×(总线工作频率(位数))&#x2F;8。</p>
+<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230206214414.png" alt="QQ截图20230206214414"></p>
+<h1 id="5-存储系统"><a href="#5-存储系统" class="headerlink" title="5. 存储系统:"></a>5. 存储系统:</h1><h2 id="5-1-存储器的分类"><a href="#5-1-存储器的分类" class="headerlink" title="5.1 存储器的分类:"></a>5.1 存储器的分类:</h2><p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230210093233.png" alt="QQ截图20230210093233"></p>
+<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230210093255.png" alt="QQ截图20230210093255"></p>
+<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230210093453.png" alt="QQ截图20230210093453"></p>
+<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230210093528.png" alt="QQ截图20230210093528"></p>
+<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230210093553.png" alt="QQ截图20230210093553"></p>
+<p>主存可以直接被cpu访问,辅存无法直接被CPU访问.</p>
+<h2 id="5-2-存储器性能评价"><a href="#5-2-存储器性能评价" class="headerlink" title="5.2 存储器性能评价:"></a>5.2 存储器性能评价:</h2><h3 id="5-2-1-容量"><a href="#5-2-1-容量" class="headerlink" title="5.2.1 容量:"></a>5.2.1 容量:</h3><p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230210093729.png" alt="QQ截图20230210093729"></p>
+<h3 id="5-2-2-速度"><a href="#5-2-2-速度" class="headerlink" title="5.2.2 速度:"></a>5.2.2 速度:</h3><p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230210093817.png" alt="QQ截图20230210093817"></p>
+<p>存储周期＝存取时间+间隔时间.</p>
+<h5 id="带宽"><a href="#带宽" class="headerlink" title="带宽:"></a>带宽:</h5><p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230210093956.png" alt="QQ截图20230210093956"></p>
+<h3 id="5-2-3-功耗与可靠性"><a href="#5-2-3-功耗与可靠性" class="headerlink" title="5.2.3 功耗与可靠性:"></a>5.2.3 功耗与可靠性:</h3><p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230210094031.png" alt="QQ截图20230210094031"></p>
+<h2 id="5-3-存储器访问的局部性原理"><a href="#5-3-存储器访问的局部性原理" class="headerlink" title="5.3 存储器访问的局部性原理:"></a>5.3 存储器访问的局部性原理:</h2><p>经过对处理器访问主存储器情况的统计发现，无论是取指令还是存取数据,处理器访问的存储单元趋向于聚集在一个相对较小的连续存储单元区域内.</p>
+<p> 这种现象称为存储器访问的局部性原理。</p>
+<p>分为时间局部性和空间局部性.</p>
+<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230210094159.png" alt="QQ截图20230210094159"></p>
+<p>时间局部性是访问程序,空间局部性是访问连续大容量存放的数据.<img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230210094239.png" alt="QQ截图20230210094239"></p>
+<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230210094416.png" alt="QQ截图20230210094416"></p>
+<h3 id="5-3-1-层次访问存储系统"><a href="#5-3-1-层次访问存储系统" class="headerlink" title="5.3.1 层次访问存储系统:"></a>5.3.1 层次访问存储系统:</h3><p>频繁访问的抽出来,放到特定的存储模块内.</p>
+<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230210094611.png" alt="QQ截图20230210094611"></p>
+<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230210094646.png" alt="QQ截图20230210094646"></p>
+<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230210094743.png" alt="QQ截图20230210094743"></p>
+<p>如果不采用这种策略,那么所有的数据都会通过m1读到,命中率自然也就是百分百了.</p>
+<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230210094936.png" alt="QQ截图20230210094936"></p>
+<p>尽量要让周期要短,而价格更低.</p>
+<h2 id="5-4-半导体存储器"><a href="#5-4-半导体存储器" class="headerlink" title="5.4 半导体存储器:"></a>5.4 半导体存储器:</h2><p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230210095050.png" alt="QQ截图20230210095050"></p>
+<p>半导体存储器都是随机访问型的,访问任何一块地址所有的时间都是相等的,与单元地址的大小无关,根据地址进行搜索.</p>
+<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230210095206.png" alt="QQ截图20230210095206"></p>
+<h3 id="5-4-1-sRAM"><a href="#5-4-1-sRAM" class="headerlink" title="5.4.1 sRAM:"></a>5.4.1 sRAM:</h3><p>主要分两种类型.双极型和MOS型.</p>
+<p>存储1和0的原理:导通:</p>
+<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230210095512.png" alt="QQ截图20230210095512"></p>
+<p>存储并联拓展.</p>
+<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230210095529.png" alt="QQ截图20230210095529"></p>
+<p>举例:</p>
+<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230210095630.png" alt="QQ截图20230210095630"></p>
+<h3 id="组成与地址译码"><a href="#组成与地址译码" class="headerlink" title="组成与地址译码:"></a>组成与地址译码:</h3><p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230210095753.png" alt="QQ截图20230210095753"></p>
+<h3 id="单译码"><a href="#单译码" class="headerlink" title="单译码:"></a>单译码:</h3><p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230210095835.png" alt="QQ截图20230210095835"></p>
+<h3 id="双译码"><a href="#双译码" class="headerlink" title="双译码:"></a>双译码:</h3><p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230210095916.png" alt="QQ截图20230210095916"></p>
+<h3 id="典型芯片"><a href="#典型芯片" class="headerlink" title="典型芯片:"></a>典型芯片:</h3><p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230210100000.png" alt="QQ截图20230210100000"></p>
+<h3 id="5-4-2-dRAM"><a href="#5-4-2-dRAM" class="headerlink" title="5.4.2 dRAM:"></a>5.4.2 dRAM:</h3><p>动态RAM.</p>
+<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230210100341.png" alt="QQ截图20230210100341"></p>
+<p>用电容的充电,放电来表示0.1.</p>
+<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230210100428.png" alt="QQ截图20230210100428"></p>
+<h3 id="刷新"><a href="#刷新" class="headerlink" title="刷新:"></a>刷新:</h3><p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230210100506.png" alt="QQ截图20230210100506"></p>
+<p>集中式刷新是在一个刷新间隔内，集中一段时间对全部存储单元进行逐行   刷新，在此期间正常的读&#x2F;写操作将被停止，所以这段时间称为死时间。</p>
+<p>分散式刷新是指将存取周期分为两段，读写时间＋刷新时间,即将刷新分散到每个读&#x2F;写周期内完成。</p>
+<p>把这两者结合起来，就形成了异步刷新。不是每次刷新全部数据，而是一次刷新一部分数据。</p>
+<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230210111756.png" alt="QQ截图20230210111756"></p>
+<p>二者的区别：</p>
+<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230210112004.png" alt="QQ截图20230210112004"></p>
+<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230210112016.png" alt="QQ截图20230210112016"></p>
+<p>静态存储大数据，动态存储热点数据。</p>
+<h2 id="5-5-只读半导体：ROM"><a href="#5-5-只读半导体：ROM" class="headerlink" title="5.5 只读半导体：ROM."></a>5.5 只读半导体：ROM.</h2><p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230210112202.png" alt="QQ截图20230210112202">MROM:以晶体管（如二极管、双极型三极管或MOS管)的“有&#x2F;无”来代表“0&#x2F;1”，即每个存储基元的信息是由制造集成电路的掩模来决定的，制造完成后无法改变.</p>
+<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230210112249.png" alt="QQ截图20230210112249"></p>
+<h3 id="可编程"><a href="#可编程" class="headerlink" title="可编程:"></a>可编程:</h3><p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230210112332.png" alt="QQ截图20230210112332"></p>
+<p>只能写一次.</p>
+<p>所谓“编程”就是选择某些PN结将其击穿，使其导通。烧断熔丝或击穿PN结，都是不可逆的，所以PROM只允许1次编程。</p>
+<h3 id="可擦除可编程"><a href="#可擦除可编程" class="headerlink" title="可擦除可编程:"></a>可擦除可编程:</h3><p>一种可由用户进行编程并可用紫外光擦除的只读存储器。存储在EPROM中内容能够长期保存达几十年之久，而且掉电后其内容也不会丢失。 <img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230210112620.png" alt="QQ截图20230210112620"></p>
+<h2 id="5-6-主存储器"><a href="#5-6-主存储器" class="headerlink" title="5.6 主存储器:"></a>5.6 主存储器:</h2><h3 id="5-6-1-构成"><a href="#5-6-1-构成" class="headerlink" title="5.6.1 构成:"></a>5.6.1 构成:</h3><p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230210112744.png" alt="QQ截图20230210112744"></p>
+<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230210113040.png" alt="QQ截图20230210113040"></p>
+<h3 id="位扩展"><a href="#位扩展" class="headerlink" title="位扩展:"></a>位扩展:</h3><p>多片芯片同时工作,只增加存储字长.</p>
+<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230210113309.png" alt="QQ截图20230210113309"></p>
+<p>看看在类似时序图的图中,是否是同在进行工作.</p>
+<h3 id="字扩展"><a href="#字扩展" class="headerlink" title="字扩展:"></a>字扩展:</h3><p>增加拓展字的容量.</p>
+<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230210113548.png" alt="QQ截图20230210113548"></p>
+<p>在时序图中分部工作.</p>
+<p>一部分芯片连接同一个译码器的接口.</p>
+<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230210113657.png" alt="QQ截图20230210113657"></p>
+<h3 id="同时扩展"><a href="#同时扩展" class="headerlink" title="同时扩展:"></a>同时扩展:</h3><p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230210113734.png" alt="QQ截图20230210113734"></p>
+<h3 id="5-6-2-与CPU连接"><a href="#5-6-2-与CPU连接" class="headerlink" title="5.6.2 与CPU连接:"></a>5.6.2 与CPU连接:</h3><p>CPU与存储器通过三总线(即系统总线)的连接！</p>
+<p>地址总线,数据总线,控制总线.</p>
+<h3 id="片选信号形成方法"><a href="#片选信号形成方法" class="headerlink" title="片选信号形成方法:"></a>片选信号形成方法:</h3><h4 id="全译码"><a href="#全译码" class="headerlink" title="全译码:"></a>全译码:</h4><p>除了将地址总线的低位地址直接连至各存储芯片的地址线外，将所有余下的高位地址全部用于译码，译码输出作为各存储芯片片选信号.</p>
+<p>高位全部译码.</p>
+<h4 id="部分译码"><a href="#部分译码" class="headerlink" title="部分译码:"></a>部分译码:</h4><p>只选用地址总线的一部分进行译码.</p>
+<h4 id="线选法"><a href="#线选法" class="headerlink" title="线选法:"></a>线选法:</h4><p>高位每一根线代表一块芯片.</p>
+<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230210114324.png" alt="QQ截图20230210114324"></p>
+<p>特点:</p>
+<p>线选方式的突出优点是无须使用片选译码器</p>
+<p>缺点是存储地址空间被分成了相互隔离的区段，造成地址空间的不连续。(片选线多于一位为“0”以及片选线为全“1”的地址空间不能使用)</p>
+<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230211213651.png" alt="QQ截图20230211213651"></p>
+<h2 id="5-7-高速缓冲存储器-Cache"><a href="#5-7-高速缓冲存储器-Cache" class="headerlink" title="5.7 高速缓冲存储器: Cache."></a>5.7 高速缓冲存储器: Cache.</h2><p>提升速度.</p>
+<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230210114804.png" alt="QQ截图20230210114804"></p>
+<p>Cache所体现的是一种思想： “缓存” ，即将经常被用到的东西，放到更加容易方便获取的地方。</p>
+<p>没有Cache，计算机照常工作，有了Cache, 计算机工作得快一点！</p>
+<p>工作原理:</p>
+<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230210114927.png" alt="QQ截图20230210114927"></p>
+<h3 id="块"><a href="#块" class="headerlink" title="块:"></a>块:</h3><p>若干个存储单元被称之为一块.</p>
+<p>内存与Cache之间是以数据块为单位进行交换的。通常在主存与Cache之间设置一条多字宽的局部数据线。</p>
+<p>当Cache不命中时，CPU将在访问目标数据的同时，一并从主存读出来的M   个字，并将其作为一个 块 传送给Cache。这样CPU的下一次访问基本上能够在Cache中命中了.</p>
+<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230210115134.png" alt="QQ截图20230210115134"></p>
+<h3 id="命中率"><a href="#命中率" class="headerlink" title="命中率:"></a>命中率:</h3><p>命中率：——CPU访问的信息在Cache中的比率。</p>
+<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230210115233.png" alt="QQ截图20230210115233"></p>
+<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230211214246.png" alt="QQ截图20230211214246"></p>
+<h1 id="6-输入输出-I-x2F-O-接口"><a href="#6-输入输出-I-x2F-O-接口" class="headerlink" title="6.输入输出(I&#x2F;O)接口:"></a>6.输入输出(I&#x2F;O)接口:</h1><h2 id="6-1-概述"><a href="#6-1-概述" class="headerlink" title="6.1 概述:"></a>6.1 概述:</h2><p>接口是两个系统或两个部件之间的衔接部分.主要分为软件接口和硬件接口.</p>
+<p>IO接口是连接主机与I&#x2F;O设备之间的中间电路或部件，由硬件电路,控制软件构成,是信息传送的桥梁和纽带.</p>
+<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230210134116.png" alt="QQ截图20230210134116"></p>
+<h3 id="接口与端口"><a href="#接口与端口" class="headerlink" title="接口与端口:"></a>接口与端口:</h3><p>端口（Port）：I&#x2F;o接口电路中可通过编程寻址并进行读&#x2F;写的寄存器.CPU对接口的访问基本上可以认为是对端口的读&#x2F;写。</p>
+<p>接口包含端口.</p>
+<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230210134229.png" alt="QQ截图20230210134229"></p>
+<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230210134520.png" alt="QQ截图20230210134520"></p>
+<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230210134601.png" alt="QQ截图20230210134601"></p>
+<h2 id="6-2-程序查询方式"><a href="#6-2-程序查询方式" class="headerlink" title="6.2 程序查询方式:"></a>6.2 程序查询方式:</h2><p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230210134707.png" alt="QQ截图20230210134707"></p>
+<h3 id="中断"><a href="#中断" class="headerlink" title="中断:"></a>中断:</h3><p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230210134825.png" alt="QQ截图20230210134825"></p>
+<p>不管一个程序在执行的过程中，是否被中断，    中断多少次，其最终的运行结果必须是唯一的。</p>
+<p>当有多个中断源向CPU提出中断请求时，CPU必须坚持的原则是:在任何一个时刻只能为一个中断源的请求提供服务！</p>
+<h4 id="中断系统"><a href="#中断系统" class="headerlink" title="中断系统:"></a>中断系统:</h4><p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230210135138.png" alt="QQ截图20230210135138"></p>
+<h4 id="处理过程"><a href="#处理过程" class="headerlink" title="处理过程:"></a>处理过程:</h4><p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230210135227.png" alt="QQ截图20230210135227"></p>
+<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230210135220.png" alt="QQ截图20230210135220"></p>
+<p>流程:</p>
+<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230210180027.png" alt="QQ截图20230210180027"></p>
+<h4 id="单重中断与多重中断"><a href="#单重中断与多重中断" class="headerlink" title="单重中断与多重中断:"></a>单重中断与多重中断:</h4><p>在处理中断的过程中，可能有新的、优先级更高的中断请求到来。当这种现象发生时，若允许CPU暂停现行的中断服务程序，转去处理新的中断请求,这种现象称为多重中断或中断嵌套，否则为单重中断。</p>
+<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230210180202.png" alt="QQ截图20230210180202"></p>
+<h4 id="中断屏蔽"><a href="#中断屏蔽" class="headerlink" title="中断屏蔽:"></a>中断屏蔽:</h4><p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230210180324.png" alt="QQ截图20230210180324"></p>
+<h2 id="6-3-DMA-技术"><a href="#6-3-DMA-技术" class="headerlink" title="6.3 DMA 技术:"></a>6.3 DMA 技术:</h2><p>DMA (Direct Memory Access):直接内存访问。</p>
+<p>CPU暂时让出总线的控制权，由专用接口芯片DMAC——DMA控制器，全权控制存储器与I&#x2F;O之间直接进行高速的数据传送。</p>
+<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230210180555.png" alt="QQ截图20230210180555"></p>
+<h3 id="工作过程"><a href="#工作过程" class="headerlink" title="工作过程:"></a>工作过程:</h3><p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230210180718.png" alt="QQ截图20230210180718"></p>
+<h3 id="共享方式"><a href="#共享方式" class="headerlink" title="共享方式:"></a>共享方式:</h3><h1 id="7-信息的表述与运算"><a href="#7-信息的表述与运算" class="headerlink" title="7. 信息的表述与运算:"></a>7. 信息的表述与运算:</h1><h2 id="7-1-数据表示"><a href="#7-1-数据表示" class="headerlink" title="7.1 数据表示:"></a>7.1 数据表示:</h2><p>定点数: 默认小数点在数值的最前方或者最后方。</p>
+<p>真值：真正的数值，即带“＋”、“－”号的数.</p>
+<p>机器数： 将符号数字化之后的数。</p>
+<h3 id="定点数表示"><a href="#定点数表示" class="headerlink" title="定点数表示:"></a>定点数表示:</h3><h4 id="原码"><a href="#原码" class="headerlink" title="原码:"></a>原码:</h4><p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230210181556.png" alt="QQ截图20230210181556"></p>
+<p>规律: 正数不变,负数加一.</p>
+<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230210181707.png" alt="QQ截图20230210181707"></p>
+<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230210181748.png" alt="QQ截图20230210181748"></p>
+<h4 id="补码"><a href="#补码" class="headerlink" title="补码:"></a>补码:</h4><p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230210182301.png" alt="QQ截图20230210182301"></p>
+<h4 id="反码"><a href="#反码" class="headerlink" title="反码:"></a>反码:</h4><p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230210220326.png" alt="QQ截图20230210220326"></p>
+<h4 id="移码"><a href="#移码" class="headerlink" title="移码:"></a>移码:</h4><p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230210220505.png" alt="QQ截图20230210220505"></p>
+<p>最小真值的移码为全 0.</p>
+<h3 id="浮点数表示"><a href="#浮点数表示" class="headerlink" title="浮点数表示:"></a>浮点数表示:</h3><p>借助于数学中的“科学记数法”，把浮点数转化成定点数。</p>
+<p>个浮点数N将被表示成：N &#x3D; M *R的E次方 。</p>
+<p>M为尾数,是一个定点小数.</p>
+<p>R为基值,是一个整数.</p>
+<p>E为阶码,是一个整数.</p>
+<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230210220853.png" alt="QQ截图20230210220853"></p>
+<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230210220933.png" alt="QQ截图20230210220933"></p>
+<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230210221020.png" alt="QQ截图20230210221020"></p>
+<p>左移减，右移加。</p>
+<h4 id="下溢："><a href="#下溢：" class="headerlink" title="下溢："></a>下溢：</h4><p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230210221107.png" alt="QQ截图20230210221107"></p>
+<h4 id="上溢："><a href="#上溢：" class="headerlink" title="上溢："></a>上溢：</h4><p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230210221206.png" alt="QQ截图20230210221206"></p>
+<h2 id="7-2-定点数运算："><a href="#7-2-定点数运算：" class="headerlink" title="7.2 定点数运算："></a>7.2 定点数运算：</h2><h3 id="7-2-1-逻辑运算："><a href="#7-2-1-逻辑运算：" class="headerlink" title="7.2.1 逻辑运算："></a>7.2.1 逻辑运算：</h3><p>逻辑运算的特点是按位进行，每一位运算后得到一个独立的结果，对其他位   没有影响。因此，逻辑运算不存在进位、借位、溢出等问题。</p>
+<h4 id="非："><a href="#非：" class="headerlink" title="非："></a>非：</h4><p>按位取反.</p>
+<h4 id="加："><a href="#加：" class="headerlink" title="加："></a>加：</h4><p>按位求或.</p>
+<h4 id="乘："><a href="#乘：" class="headerlink" title="乘："></a>乘：</h4><p>按位求与.</p>
+<h4 id="异或："><a href="#异或：" class="headerlink" title="异或："></a>异或：</h4><p>按照位置异或.</p>
+<h3 id="7-2-2-移位运算："><a href="#7-2-2-移位运算：" class="headerlink" title="7.2.2 移位运算："></a>7.2.2 移位运算：</h3><p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230210221640.png" alt="QQ截图20230210221640"></p>
+<p>总原则：符号位不变。<img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230210221726.png" alt="QQ截图20230210221726"></p>
+<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230210221755.png" alt="QQ截图20230210221755"></p>
+<h3 id="7-2-3-加减法运算："><a href="#7-2-3-加减法运算：" class="headerlink" title="7.2.3 加减法运算："></a>7.2.3 加减法运算：</h3><p>计算机通过引入补码将定点数的加、减运算都统一成加法运算，所以参加加、减运算的操作数都必须表示成补码。</p>
+<p> 采用补码进行计算还有一个好处，结果的符号位不用单独处理，它是在运算过程中自然形成的。这是采用原码进行计算所不具有的，大大简化了硬件设计。 </p>
+<p>公式：</p>
+<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230210221916.png" alt="QQ截图20230210221916"></p>
+<p>和的补码等于补码的和。</p>
+
+        </article>
+        <div class="post-tools" id="post-tools">
+            <div class="post-tools-left">
+                
+                <div class="share-link mobile">
+    <div class="share-qrcode">
+        <div class="share-button" title="使用手机访问这篇文章">
+            <i class="fas fa-qrcode"></i>
+        </div>
+        <div class="share-main">
+            <div class="share-main-all">
+                <div id="qrcode" title="http://example.com/2023/01/17/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86/">
+                </div>
+                <div class="reward-dec">使用手机访问这篇文章</div>
+            </div>
+        </div>
+        <script type="text/javascript">
+            new QRCode(document.getElementById("qrcode"), "http://example.com/2023/01/17/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86/");
+        </script>
+    </div>
+</div>
+                <div class="share-link weibo"><a class="share-button" target="_blank"
+    href="https://service.weibo.com/share/share.php?title=计算机组成原理&amp;url=http://example.com/2023/01/17/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86/&amp;pic=/img/17.jpg"
+    title="分享到微博" rel="noopener external nofollow noreferrer noopener">
+    <i class="fab fa-weibo" style="font-size:22px"></i>
+</a>
+</div>
+<div class="share-link copyurl">
+<div class="share-button" id="post-share-url" title="复制链接" onclick="acrylic.copyPageUrl()">
+    <i class="fas fa-link"></i>
+</div>
+</div>
+            </div>
+            <div class="post-tools-right">
+                <div class="tag_share">
+                    <div class="post-meta__tag-list">
+                        
+                            <a href="/tags/%E8%AF%BE%E7%A8%8B/" class="post-meta__tags">
+                                <span class="tags-punctuation">#</span>
+                                课程
+                                <span class="tagsPageCount">6</span>
+                            </a>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="post-copyright">
+    <div class="post-copyright__author">
+        <a class="post-copyright__original" title="该文章为原创文章，注意版权协议">原创</a>
+        <a class="post-copyright-title" href="#">
+            <span>计算机组成原理</span>
+        </a>
+    </div>
+    <div class="post-copyright__type">
+        <span class="post-copyright-info" id="post-copyright-url">
+            <a href="/2023/01/17/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86/">http://example.com/2023/01/17/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86/</a>
+        </span>
+        <button class="post-copyright-copybtn" onclick="acrylic.copyPageUrl()">
+            <i class="fas fa-paste copy-btn"></i>
+        </button>
+    </div>
+    <div class="post-copyright__notice"><span class="post-copyright-info">本文是原创文章，采用 <a
+                href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank">CC BY-NC-ND 4.0</a> 协议，完整转载请注明来自 <a
+                href="/">风凌渡</a>
+            </span>
+        </div>
+</div>
+        <nav class="pagination-post" id="pagination">
+    
+        <div class="prev-post pull-left">
+            <a href="/2023/01/17/%E6%9E%B6%E6%9E%84%E8%AE%BE%E8%AE%A1/">
+                <div class="pagination-info">
+                    <div class="label">上一篇</div>
+                    <div class="prev_info">架构设计</div>
+                </div>
+            </a>
+        </div>
+        <div class="next-post pull-right">
+            <a href="/2023/01/17/%E9%B9%A4%E6%89%B6%E6%91%87/">
+                <div class="pagination-info">
+                    <div class="label">下一篇</div>
+                    <div class="next_info">鹤扶摇</div>
+                </div>
+            </a>
+        </div>
+    
+</nav>
+            
+    </div>
+    <div class="aside-content" id="aside-content">
+    
+    
+        
+        <div class="card-widget card-info">
+    <div class="card-content">
+        <div class="card-info-avatar is-center">
+            <div class="author-info__sayhi" id="author-info__sayhi">
+            </div>
+            <div class="author-info__name">
+                抒情熊
+            </div>
+            <div class="author-info__description">这有关于<b>后端</b>、<b>架构</b>的相关笔记分享，还有拙作<b>诗歌</b>和<b>小说</b>，另有如<b>奎桑提</b>和<b>奥恩</b>的相关教学。<br>相信会对你有所帮助.</div>
+        </div>
+    </div>
+    <div class="banner-button-group">
+        <a class="banner-button" href="/about/">
+            <i class="fas fa-circle-chevron-right"></i>
+            <span class="banner-button-text">了解更多</span>
+        </a>
+    </div>
+    <div class="card-info-social-icons is-center">
+        
+            <a class="social-icon" target="_blank" rel="noopener" href="https://github.com/bearslyricattack" title="Github">
+                <i class="fa-brands fa-github"></i>
+            </a>
+        
+            <a class="social-icon" target="_blank" rel="noopener" href="https://user.qzone.qq.com/2669184984" title="Mail">
+                <i class="fa-solid fa-envelope"></i>
+            </a>
+        
+    </div>
+</div>
+     
+    
+    <div class="sticky_layout">
+        
+            <div class="card-widget" id="card-toc">
+    <div class="item-headline">
+        <i class="fas fa-bars"></i>
+        <span>文章目录</span>
+    </div>
+    <div class="toc-content" id="toc-content">
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86"><span class="toc-text">计算机组成原理</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#1-%E7%9B%AE%E5%BD%95"><span class="toc-text">1.目录:</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#2-%E5%86%AF%E8%AF%BA%E4%BE%9D%E6%9B%BC%E8%AE%A1%E7%AE%97%E6%9C%BA%E6%A8%A1%E5%9E%8B"><span class="toc-text">2.冯诺依曼计算机模型:</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#2-1-%E5%9F%BA%E6%9C%AC%E7%BB%84%E6%88%90"><span class="toc-text">2.1 基本组成:</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-2-%E5%9F%BA%E6%9C%AC%E7%89%B9%E5%BE%81"><span class="toc-text">2.2 基本特征:</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#3-%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E6%9C%AC%E7%BB%84%E6%88%90"><span class="toc-text">3.计算机基本组成:</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#3-1-%E7%A1%AC%E4%BB%B6"><span class="toc-text">3.1 硬件:</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#3-1-1-%E8%BE%85%E5%AD%98"><span class="toc-text">3.1.1 辅存:</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-1-2-%E5%A4%84%E7%90%86%E5%8D%95%E5%85%83-PU"><span class="toc-text">3.1.2 处理单元:PU</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-2-%E8%BD%AF%E4%BB%B6"><span class="toc-text">3.2 软件:</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-3-%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E4%B8%8E%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%AE%9E%E7%8E%B0"><span class="toc-text">3.3 计算机组成与计算机实现:</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-4-%E6%8C%87%E4%BB%A4%E9%9B%86"><span class="toc-text">3.4 指令集:</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-5-%E8%AE%A1%E7%AE%97%E6%9C%BA%E6%80%A7%E8%83%BD%E8%AF%84%E4%BB%B7"><span class="toc-text">3.5 计算机性能评价:</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#3-5-1-%E6%9C%BA%E5%99%A8%E5%AD%97%E9%95%BF"><span class="toc-text">3.5.1 机器字长</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-5-2-%E4%B8%BB%E5%AD%98%E5%82%A8%E5%99%A8%E5%AE%B9%E9%87%8F"><span class="toc-text">3.5.2 主存储器容量</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-5-3-%E5%A4%84%E7%90%86%E9%80%9F%E5%BA%A6"><span class="toc-text">3.5.3 处理速度:</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-5-4-%E4%B8%BB%E9%A2%91"><span class="toc-text">3.5.4 主频:</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#4-%E6%80%BB%E7%BA%BF%E6%8A%80%E6%9C%AF"><span class="toc-text">4. 总线技术:</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#4-1-%E6%A6%82%E8%BF%B0"><span class="toc-text">4.1 概述:</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-2-%E7%89%B9%E6%80%A7"><span class="toc-text">4.2 特性:</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#4-2-1-%E5%8A%9F%E8%83%BD%E7%89%B9%E6%80%A7"><span class="toc-text">4.2.1 功能特性</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-2-2-%E7%89%A9%E7%90%86%E7%89%B9%E6%80%A7"><span class="toc-text">4.2.2 物理特性:</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-2-3-%E7%94%B5%E6%B0%94%E7%89%B9%E6%80%A7"><span class="toc-text">4.2.3 电气特性:</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-2-4-%E6%97%B6%E9%97%B4%E7%89%B9%E6%80%A7"><span class="toc-text">4.2.4 时间特性:</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-2-5-%E6%94%B6%E5%8F%91%E7%89%B9%E6%80%A7-%E6%9C%80%E9%87%8D%E8%A6%81"><span class="toc-text">4.2.5 收发特性(最重要):</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-3-%E5%88%86%E7%B1%BB"><span class="toc-text">4.3 分类:</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#4-3-1-%E4%BD%8D%E7%BD%AE%E5%88%86%E7%B1%BB"><span class="toc-text">4.3.1 位置分类:</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-3-2-%E5%8A%9F%E8%83%BD%E5%88%86%E7%B1%BB"><span class="toc-text">4.3.2 功能分类:</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-3-3-%E6%80%BB%E7%BA%BF%E5%B0%8F%E7%BB%93"><span class="toc-text">4.3.3 总线小结:</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-4-%E6%80%BB%E7%BA%BF%E7%BB%93%E6%9E%84"><span class="toc-text">4.4 总线结构:</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#4-4-1-%E5%8D%95%E6%80%BB%E7%BA%BF%E7%BB%93%E6%9E%84"><span class="toc-text">4.4.1 单总线结构:</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-4-2-%E5%8F%8C%E6%80%BB%E7%BA%BF%E7%BB%93%E6%9E%84"><span class="toc-text">4.4.2 双总线结构:</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-4-3-%E4%B8%89%E6%80%BB%E7%BA%BF%E7%BB%93%E6%9E%84"><span class="toc-text">4.4.3 三总线结构:</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-5-%E6%80%BB%E7%BA%BF%E6%8E%A7%E5%88%B6"><span class="toc-text">4.5 总线控制:</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#4-5-1-%E6%80%BB%E7%BA%BF%E7%9A%84%E5%9F%BA%E6%9C%AC%E7%89%B9%E6%80%A7"><span class="toc-text">4.5.1 总线的基本特性:</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-5-2-%E6%80%BB%E7%BA%BF%E4%BB%B2%E8%A3%81"><span class="toc-text">4.5.2 总线仲裁:</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#4-5-2-1-%E9%93%BE%E5%BC%8F%E6%9F%A5%E8%AF%A2%E6%96%B9%E5%BC%8F"><span class="toc-text">4.5.2.1 链式查询方式:</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4-5-2-2-%E8%AE%A1%E6%95%B0%E5%99%A8%E5%AE%9A%E6%97%B6"><span class="toc-text">4.5.2.2 计数器定时:</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-5-3-%E9%80%9A%E4%BF%A1%E6%8E%A7%E5%88%B6"><span class="toc-text">4.5.3 通信控制:</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#4-5-3-1-%E5%8D%8A%E5%90%8C%E6%AD%A5%E9%80%9A%E4%BF%A1"><span class="toc-text">4.5.3.1 半同步通信:</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4-5-3-2-%E5%88%86%E7%A6%BB%E5%BC%8F%E9%80%9A%E4%BF%A1"><span class="toc-text">4.5.3.2 分离式通信:</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4-5-3-3-%E6%80%BB%E7%BB%93"><span class="toc-text">4.5.3.3 总结:</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-6-%E6%80%BB%E7%BA%BF%E7%9A%84%E6%80%A7%E8%83%BD%E6%8C%87%E6%A0%87%EF%BC%9A"><span class="toc-text">4.6 总线的性能指标：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-7-%E6%80%BB%E7%BA%BF%E6%A0%87%E5%87%86%EF%BC%9A"><span class="toc-text">4.7 总线标准：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-8-%E6%80%BB%E7%BA%BF%E9%87%8D%E7%82%B9%E9%A2%98%EF%BC%9A"><span class="toc-text">4.8 总线重点题：</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#5-%E5%AD%98%E5%82%A8%E7%B3%BB%E7%BB%9F"><span class="toc-text">5. 存储系统:</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#5-1-%E5%AD%98%E5%82%A8%E5%99%A8%E7%9A%84%E5%88%86%E7%B1%BB"><span class="toc-text">5.1 存储器的分类:</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-2-%E5%AD%98%E5%82%A8%E5%99%A8%E6%80%A7%E8%83%BD%E8%AF%84%E4%BB%B7"><span class="toc-text">5.2 存储器性能评价:</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#5-2-1-%E5%AE%B9%E9%87%8F"><span class="toc-text">5.2.1 容量:</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-2-2-%E9%80%9F%E5%BA%A6"><span class="toc-text">5.2.2 速度:</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%B8%A6%E5%AE%BD"><span class="toc-text">带宽:</span></a></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-2-3-%E5%8A%9F%E8%80%97%E4%B8%8E%E5%8F%AF%E9%9D%A0%E6%80%A7"><span class="toc-text">5.2.3 功耗与可靠性:</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-3-%E5%AD%98%E5%82%A8%E5%99%A8%E8%AE%BF%E9%97%AE%E7%9A%84%E5%B1%80%E9%83%A8%E6%80%A7%E5%8E%9F%E7%90%86"><span class="toc-text">5.3 存储器访问的局部性原理:</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#5-3-1-%E5%B1%82%E6%AC%A1%E8%AE%BF%E9%97%AE%E5%AD%98%E5%82%A8%E7%B3%BB%E7%BB%9F"><span class="toc-text">5.3.1 层次访问存储系统:</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-4-%E5%8D%8A%E5%AF%BC%E4%BD%93%E5%AD%98%E5%82%A8%E5%99%A8"><span class="toc-text">5.4 半导体存储器:</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#5-4-1-sRAM"><span class="toc-text">5.4.1 sRAM:</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BB%84%E6%88%90%E4%B8%8E%E5%9C%B0%E5%9D%80%E8%AF%91%E7%A0%81"><span class="toc-text">组成与地址译码:</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8D%95%E8%AF%91%E7%A0%81"><span class="toc-text">单译码:</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8F%8C%E8%AF%91%E7%A0%81"><span class="toc-text">双译码:</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%85%B8%E5%9E%8B%E8%8A%AF%E7%89%87"><span class="toc-text">典型芯片:</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-4-2-dRAM"><span class="toc-text">5.4.2 dRAM:</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%88%B7%E6%96%B0"><span class="toc-text">刷新:</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-5-%E5%8F%AA%E8%AF%BB%E5%8D%8A%E5%AF%BC%E4%BD%93%EF%BC%9AROM"><span class="toc-text">5.5 只读半导体：ROM.</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8F%AF%E7%BC%96%E7%A8%8B"><span class="toc-text">可编程:</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8F%AF%E6%93%A6%E9%99%A4%E5%8F%AF%E7%BC%96%E7%A8%8B"><span class="toc-text">可擦除可编程:</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-6-%E4%B8%BB%E5%AD%98%E5%82%A8%E5%99%A8"><span class="toc-text">5.6 主存储器:</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#5-6-1-%E6%9E%84%E6%88%90"><span class="toc-text">5.6.1 构成:</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BD%8D%E6%89%A9%E5%B1%95"><span class="toc-text">位扩展:</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AD%97%E6%89%A9%E5%B1%95"><span class="toc-text">字扩展:</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%90%8C%E6%97%B6%E6%89%A9%E5%B1%95"><span class="toc-text">同时扩展:</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-6-2-%E4%B8%8ECPU%E8%BF%9E%E6%8E%A5"><span class="toc-text">5.6.2 与CPU连接:</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%89%87%E9%80%89%E4%BF%A1%E5%8F%B7%E5%BD%A2%E6%88%90%E6%96%B9%E6%B3%95"><span class="toc-text">片选信号形成方法:</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%85%A8%E8%AF%91%E7%A0%81"><span class="toc-text">全译码:</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%83%A8%E5%88%86%E8%AF%91%E7%A0%81"><span class="toc-text">部分译码:</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%BA%BF%E9%80%89%E6%B3%95"><span class="toc-text">线选法:</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-7-%E9%AB%98%E9%80%9F%E7%BC%93%E5%86%B2%E5%AD%98%E5%82%A8%E5%99%A8-Cache"><span class="toc-text">5.7 高速缓冲存储器: Cache.</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9D%97"><span class="toc-text">块:</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%91%BD%E4%B8%AD%E7%8E%87"><span class="toc-text">命中率:</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#6-%E8%BE%93%E5%85%A5%E8%BE%93%E5%87%BA-I-x2F-O-%E6%8E%A5%E5%8F%A3"><span class="toc-text">6.输入输出(I&#x2F;O)接口:</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#6-1-%E6%A6%82%E8%BF%B0"><span class="toc-text">6.1 概述:</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%8E%A5%E5%8F%A3%E4%B8%8E%E7%AB%AF%E5%8F%A3"><span class="toc-text">接口与端口:</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6-2-%E7%A8%8B%E5%BA%8F%E6%9F%A5%E8%AF%A2%E6%96%B9%E5%BC%8F"><span class="toc-text">6.2 程序查询方式:</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%AD%E6%96%AD"><span class="toc-text">中断:</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%B8%AD%E6%96%AD%E7%B3%BB%E7%BB%9F"><span class="toc-text">中断系统:</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%A4%84%E7%90%86%E8%BF%87%E7%A8%8B"><span class="toc-text">处理过程:</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%8D%95%E9%87%8D%E4%B8%AD%E6%96%AD%E4%B8%8E%E5%A4%9A%E9%87%8D%E4%B8%AD%E6%96%AD"><span class="toc-text">单重中断与多重中断:</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%B8%AD%E6%96%AD%E5%B1%8F%E8%94%BD"><span class="toc-text">中断屏蔽:</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6-3-DMA-%E6%8A%80%E6%9C%AF"><span class="toc-text">6.3 DMA 技术:</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B7%A5%E4%BD%9C%E8%BF%87%E7%A8%8B"><span class="toc-text">工作过程:</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%85%B1%E4%BA%AB%E6%96%B9%E5%BC%8F"><span class="toc-text">共享方式:</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#7-%E4%BF%A1%E6%81%AF%E7%9A%84%E8%A1%A8%E8%BF%B0%E4%B8%8E%E8%BF%90%E7%AE%97"><span class="toc-text">7. 信息的表述与运算:</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#7-1-%E6%95%B0%E6%8D%AE%E8%A1%A8%E7%A4%BA"><span class="toc-text">7.1 数据表示:</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%9A%E7%82%B9%E6%95%B0%E8%A1%A8%E7%A4%BA"><span class="toc-text">定点数表示:</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%8E%9F%E7%A0%81"><span class="toc-text">原码:</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%A1%A5%E7%A0%81"><span class="toc-text">补码:</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%8F%8D%E7%A0%81"><span class="toc-text">反码:</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%A7%BB%E7%A0%81"><span class="toc-text">移码:</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%B5%AE%E7%82%B9%E6%95%B0%E8%A1%A8%E7%A4%BA"><span class="toc-text">浮点数表示:</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%B8%8B%E6%BA%A2%EF%BC%9A"><span class="toc-text">下溢：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%B8%8A%E6%BA%A2%EF%BC%9A"><span class="toc-text">上溢：</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#7-2-%E5%AE%9A%E7%82%B9%E6%95%B0%E8%BF%90%E7%AE%97%EF%BC%9A"><span class="toc-text">7.2 定点数运算：</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#7-2-1-%E9%80%BB%E8%BE%91%E8%BF%90%E7%AE%97%EF%BC%9A"><span class="toc-text">7.2.1 逻辑运算：</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%9D%9E%EF%BC%9A"><span class="toc-text">非：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%8A%A0%EF%BC%9A"><span class="toc-text">加：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%B9%98%EF%BC%9A"><span class="toc-text">乘：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%BC%82%E6%88%96%EF%BC%9A"><span class="toc-text">异或：</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#7-2-2-%E7%A7%BB%E4%BD%8D%E8%BF%90%E7%AE%97%EF%BC%9A"><span class="toc-text">7.2.2 移位运算：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#7-2-3-%E5%8A%A0%E5%87%8F%E6%B3%95%E8%BF%90%E7%AE%97%EF%BC%9A"><span class="toc-text">7.2.3 加减法运算：</span></a></li></ol></li></ol></li></ol>
+    </div>
+</div>
+            
+        
+            
+        <div class="card-widget card-recent-post">
+    <div class="item-headline">
+        <i class="fas fa-list-ol"></i>
+        <span>最近发布</span>
+    </div>
+    <div class="aside-list">
+        
+        
+            <div class="aside-list-item">
+                <a class="thumbnail" href="/2023/04/28/ClickHouse/" title="ClickHouse">
+                    <img
+                        alt="ClickHouse"
+                        src="/img/1.jpg">
+                </a>
+                <div class="content">
+                    
+                        <a class="article-recent_post_categories" href="/2023/04/28/ClickHouse/">
+                            笔记
+                        </a>
+                    
+                    <a class="title" href="/2023/04/28/ClickHouse/" title="ClickHouse">
+                        ClickHouse
+                    </a>
+                </div>
+            </div>
+                
+        
+            <div class="aside-list-item">
+                <a class="thumbnail" href="/2023/03/18/%E4%BB%8EIOC%E5%88%B0Java%E6%9E%B6%E6%9E%84/" title="从IOC到java架构">
+                    <img
+                        alt="从IOC到java架构"
+                        src="/img/25.jpg">
+                </a>
+                <div class="content">
+                    
+                        <a class="article-recent_post_categories" href="/2023/03/18/%E4%BB%8EIOC%E5%88%B0Java%E6%9E%B6%E6%9E%84/">
+                            笔记
+                        </a>
+                    
+                    <a class="title" href="/2023/03/18/%E4%BB%8EIOC%E5%88%B0Java%E6%9E%B6%E6%9E%84/" title="从IOC到java架构">
+                        从IOC到java架构
+                    </a>
+                </div>
+            </div>
+                
+        
+            <div class="aside-list-item">
+                <a class="thumbnail" href="/2023/03/18/%E6%95%B0%E6%8D%AE%E5%BA%93%E6%A6%82%E8%BF%B0/" title="数据库概述">
+                    <img
+                        alt="数据库概述"
+                        src="/img/28.jpg">
+                </a>
+                <div class="content">
+                    
+                        <a class="article-recent_post_categories" href="/2023/03/18/%E6%95%B0%E6%8D%AE%E5%BA%93%E6%A6%82%E8%BF%B0/">
+                            笔记
+                        </a>
+                    
+                    <a class="title" href="/2023/03/18/%E6%95%B0%E6%8D%AE%E5%BA%93%E6%A6%82%E8%BF%B0/" title="数据库概述">
+                        数据库概述
+                    </a>
+                </div>
+            </div>
+                
+        
+            <div class="aside-list-item">
+                <a class="thumbnail" href="/2023/03/18/%E5%BE%AE%E6%9C%8D%E5%8A%A1/" title="微服务">
+                    <img
+                        alt="微服务"
+                        src="/img/29.jpg">
+                </a>
+                <div class="content">
+                    
+                        <a class="article-recent_post_categories" href="/2023/03/18/%E5%BE%AE%E6%9C%8D%E5%8A%A1/">
+                            笔记
+                        </a>
+                    
+                    <a class="title" href="/2023/03/18/%E5%BE%AE%E6%9C%8D%E5%8A%A1/" title="微服务">
+                        微服务
+                    </a>
+                </div>
+            </div>
+                
+        
+            <div class="aside-list-item">
+                <a class="thumbnail" href="/2023/03/18/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" title="数据结构">
+                    <img
+                        alt="数据结构"
+                        src="/img/27.jpg">
+                </a>
+                <div class="content">
+                    
+                        <a class="article-recent_post_categories" href="/2023/03/18/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">
+                            笔记
+                        </a>
+                    
+                    <a class="title" href="/2023/03/18/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" title="数据结构">
+                        数据结构
+                    </a>
+                </div>
+            </div>
+            
+    </div>
+</div>
+     
+        
+    </div>
+</div> 
+</main>
+                <footer id="footer">
+                    <div id="footer_deal">
+    
+        <a class="deal_link" target="_blank" href="https://github.com/bearslyricattack" rel="external nofollow noopener" title="Github">
+            <i class="fa-brands fa-github"></i>
+        </a>
+    
+        <a class="deal_link" target="_blank" href="https://user.qzone.qq.com/2669184984" rel="external nofollow noopener" title="Mail">
+            <i class="fa-solid fa-envelope"></i>
+        </a>
+    
+    <img class="footer_mini_logo" src="/img/avatar.webp"
+        title="返回顶部" onclick="acrylic.toTop()">
+    
+        <a class="deal_link" target="_blank" href="https://music.163.com/#/user/follows?id=436327083" rel="external nofollow noopener" title="网易云">
+            <i class="fa-solid fa-music"></i>
+        </a>
+    
+        <a class="deal_link" target="_blank" href="https://space.bilibili.com/701779878?spm_id_from=333.1007.0.0" rel="external nofollow noopener" title="bilibili">
+            <i class="fa-brands fa-bilibili"></i>
+        </a>
+    
+</div>    
+<div id="heo-footer">
+    
+    
+</div>
+<div id="footer-section">
+    <div class="footer-section-links">
+        <div class="footer-section-left">
+            <div id="footer-section-tips">
+                <div class="copyright">©2022 - 2023 By 
+                    <a class="footer-section-link" href="/" rel="external nofollow">抒情熊</a>
+                    <a class="footer-section-link" href="https://github.com/hexo-theme-Acrylic/Hexo-Theme-Acrylic-Next" rel="external nofollow" target="_blank"> Theme By Acrylic-Next</a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-section-right">
+            <a class="footer-section-link" href="/rss/">订阅</a>
+            
+            <a class="footer-section-link cc" target="_blank" href="https://creativecommons.org/licenses/by/4.0/" title="cc协议">
+                <i class="fa-solid fa-closed-captioning"></i>
+            </a>
+        </div>
+    </div>
+</div>
+                </footer>
+            </div>
+         
+        <div>
+    <script type="text/javascript" src="/js/utils.js"></script>
+    <script type="text/javascript" src="/js/main.js"></script>
+    
+
+<script src="/lib/pjax.min.js"></script>
+
+
+
+<script src="/lib/snackbar.min.js"></script>
+
+
+    
+<script src="/lib/view-image.min.js"></script>
+
+
+
+    
+<link rel="stylesheet" href="/lib/swiper.min.css">
+
+    
+<script src="/lib/swiper.min.js"></script>
+
+
+<div id="js-pjax">
+    
+    
+        <script async src="https://npm.elemecdn.com/penndu@1.0.0/bsz.js"></script>
+     
+</div>
+
+    
+<link rel="stylesheet" href="https://lf9-cdn-tos.bytecdntp.com/cdn/expire-1-M/aplayer/1.10.1/APlayer.min.css">
+
+    
+<script src="https://lf3-cdn-tos.bytecdntp.com/cdn/expire-1-M/aplayer/1.10.1/APlayer.min.js"></script>
+
+    
+<script src="https://cdn1.tianli0.top/npm/meting@2.0.1/dist/Meting.min.js"></script>
+
+
+
+    
+<script src="/js/extend/covercolor/web.js"></script>
+
+        
+
+    <script>
+  let pjaxSelectors = [
+    'title',
+    '#body-wrap',
+    '#site-config',
+    'meta[name="description"]',
+    '#js-pjax'
+  ]
+  
+  const pjax = new Pjax({
+    elements: 'a:not([target="_blank"])',
+    selectors: pjaxSelectors,
+    cacheBust: false,
+    analytics: false,
+    scrollRestoration: false
+  })
+
+  document.querySelectorAll('script[data-pjax]').forEach(item => {
+      const newScript = document.createElement('script')
+      const content = item.text || item.textContent || item.innerHTML || ""
+      Array.from(item.attributes).forEach(attr => newScript.setAttribute(attr.name, attr.value))
+      newScript.appendChild(document.createTextNode(content))
+      item.parentNode.replaceChild(newScript, item)
+  })
+
+  document.addEventListener('pjax:error', (e) => {
+    if (e.request.status === 404) {
+      pjax.loadUrl('/404.html')
+    }
+  })
+</script>
+    
+</div>
+        
+    <div id="local-search">
+    <div class="search-dialog">
+        <nav class="search-nav">
+            <span class="search-dialog-title">搜索</span>
+            <button class="search-close-button">
+                <i class="fas fa-times"></i>
+            </button>
+        </nav>
+        <div id="loading-database">
+            <i class="fas fa-spinner fa-pulse"></i>
+            <span>加载中</span>
+        </div>
+        <div class="search-wrap">
+            <div class="search-box">
+                <input class="search-box-input" placeholder="输入关键词快速查找" type="text" id="search-input" autocomplete="off" spellcheck="false" autocorrect="off" autocapitalize="off">
+            </div>
+            <div id="loading-status"></div>
+            <div id="search-results"></div>
+        </div>
+    </div>
+    <div id="search-mask"></div>
+</div>
+    
+<link rel="stylesheet" href="/css/search/local-search.css">
+
+    
+<script src="/js/extend/search/local-search.js"></script>
+
+
+     
+        <div class="needEndHide" id="nav-music" onclick="acrylic.musicToggle()">
+    <div id="nav-music-hoverTips">音乐已暂停</div>
+    <meting-js id="7315994021" server="tencent" type="playlist" mutex="true"
+        preload="none" data-lrctype="0" order="random" theme="var(--heo-main)"></meting-js>
+</div>
+    
+    </body>
+</html>
+<script>const posts=["2023/04/28/ClickHouse/","2023/03/18/从IOC到Java架构/","2023/03/18/数据库概述/","2023/03/18/微服务/","2023/03/18/数据结构/","2023/03/18/系统分析与设计/","2023/03/18/面向对象建模技术/","2023/03/14/Go语言设计与实现/","2023/03/13/Git/","2023/02/10/服务器部署/","2023/02/10/规则引擎/","2023/02/10/风凌夜话/","2023/02/10/青萍/","2023/02/10/巷/","2023/02/10/乱世佳人/","2023/02/10/马克思主义原理/","2023/02/04/Hertz/","2023/01/17/架构设计/","2023/01/17/计算机组成原理/","2023/01/17/鹤扶摇/","2023/01/17/泠音泛海/","2023/01/17/江城一梦/","2023/01/17/近世代数/","2023/01/17/白马遥/","2023/01/17/塑鸿/","2023/01/17/彩云辞/","2023/01/17/Java虚拟机/","2023/01/17/Web基本原理/","2023/01/17/Springboot入门/","2023/01/17/分布式/","2023/01/17/Golang/","2023/01/17/Redis/"];function toRandomPost(){ window.pjax ? pjax.loadUrl('/'+posts[Math.floor(Math.random()*posts.length)]) : window.open('/'+posts[Math.floor(Math.random()*posts.length)], "_self"); };</script>
