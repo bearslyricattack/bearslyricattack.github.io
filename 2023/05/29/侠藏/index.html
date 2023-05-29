@@ -1,0 +1,824 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-theme="light">
+    <head>
+        <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>侠藏 | 风凌渡</title>
+<noscript>开启Javascript是必要的</noscript>
+<link rel="icon" type="image/x-icon" href="/img/avatar.webp">
+<link rel="apple-touch-icon" href="/img/avatar.webp">
+<meta name="apple-mobile-web-app-title" content="风凌渡">
+<link rel="bookmark" href="/img/avatar.webp">
+<link rel="apple-touch-icon-precomposed" sizes="180x180" href="/img/avatar.webp">
+<meta name="description" content="a blog 一个分享技术与生活的博客">
+<meta name="theme-color" content="#1C1C1F">
+<link rel="stylesheet" href="/css/var.css">
+<link rel="stylesheet" href="/css/main.css">
+<link rel="stylesheet" href="/css/custom.css">
+
+
+
+<link rel="stylesheet" href="https://cdn.bootcdn.net/ajax/libs/font-awesome/6.3.0/css/all.min.css">
+    
+
+<link rel="stylesheet" href="/lib/snackbar.min.css">
+
+
+<script src="/lib/qrcode.min.js"></script>
+
+
+
+
+
+<script>var GLOBALCONFIG = {"root":"/","runtime":"2022-5-21 00:00:00","lazyload":{"enable":false,"error":"/img/acrylic.png"},"hightlight":{"enable":false,"limit":200},"lightbox":true,"randomlinks":false,"lang":{"theme":{"dark":"已切换至深色模式","light":"已切换至浅色模式"},"copy":{"success":"复制成功","error":"复制失败"},"backtop":"返回顶部","time":{"recent":"最近","yesterday":"昨天","berforeyesterday":"前天","daybefore":"天前","runtime":"天"},"sayhello":{"morning":"早上好","noon":"中午好","afternoon":"下午好","night":"晚上好","goodnight":"晚安","iam":"!  我是"},"search":{"empty":"搜索结果为空","hit":"已为您找到 ${query} 条结果","placeholder":"输入关键词快速查找"}},"covercolor":false,"localsearch":{"preload":false,"path":"/search.xml"}};</script><script id="site-config">var PAGECONFIG = {"is_home":false,"is_post":true,"is_page":false,"page":false,"toc":true,"comment":false};</script>
+    <meta name="generator" content="Hexo 6.3.0"></head>
+    <body id="body">
+        
+        <div id="console" style="zoom: 1;" class="">
+    <div class="close-btn" onclick="acrylic.hideConsole()" href="javascript:void(0);">
+        <i class="fas fa-circle-xmark"></i>
+    </div>
+    <div class="button-group">
+        <div class="console-btn-item"> <a class="darkmode_switchbutton" onclick="acrylic.switchDarkMode()" title="显示模式切换"
+                href="javascript:void(0);" rel="external nofollow" data-pjax-state=""><i class="fas fa-moon"
+                    style="font-size: 1rem;"></i></a></div>
+                    
+            <div class="console-btn-item" id="consoleMusic" onclick="acrylic.musicToggle()" title="音乐开关"><a class="music-switch"><i class="fas fa-music"></i></a></div>
+        
+        <div class="console-btn-item" id="consoleFPS" onclick="acrylic.FPSToggle()" title="帧率显示开关"><a class="FPS-switch"
+                data-pjax-state=""><i class="fas fa-gauge"></i></a></div>
+    </div>
+    <div class="console-mask" onclick="acrylic.hideConsole()" href="javascript:void(0);" rel="external nofollow"></div>
+</div>
+        <div id="sidebar" style="zoom: 1;">
+    <div id="menu-mask" style="display: none;"></div>
+    <div id="sidebar-menus" class>
+        <span class="sidebar-menu-item-title">功能</span>
+        <div class="sidebar-menu-item">
+            <a class="darkmode_switchbutton menu-child" onclick="acrylic.switchDarkMode()" title="显示模式切换"
+                href="javascript:void(0);" rel="external nofollow">
+                <i class="fas fa-moon" style="font-size: 1rem;"></i>
+                <span>显示模式</span>
+            </a>
+        </div>
+        
+            <div class="back-menu-list-groups">
+    
+      
+      <div class="back-menu-list-group">
+        <div class="back-menu-list-title">
+          我的
+        </div>
+        <div class="back-menu-list">
+          
+            
+            <a class="back-menu-item" href="/" rel="external nofollow" title="博客">
+              <img class="back-menu-item-icon" src="/img/avatar.webp" loading="lazy">
+              <span class="back-menu-item-text">
+                博客
+              </span>
+            </a>
+          
+        </div>
+      </div>
+    
+  </div>
+  
+        
+        <div class="menus_items">
+    
+        <div class="menus_item">
+            
+                <a class="site-page" href="javascript:void(0);" rel="external nofollow">
+                    <span> 文库</span>
+                </a>
+                <ul class="menus_item_child">
+                    
+                        <li>
+                            <a class="site-page child" href="/archives/">
+                                <i class="fas fa-box-archive"></i>
+                                <span> 文章列表</span>
+                            </a>
+                        </li>
+                    
+                        <li>
+                            <a class="site-page child" href="/categories/">
+                                <i class="fas fa-cube"></i>
+                                <span> 全部分类</span>
+                            </a>
+                        </li>
+                    
+                        <li>
+                            <a class="site-page child" href="/tags/">
+                                <i class="fas fa-tags"></i>
+                                <span> 全部标签</span>
+                            </a>
+                        </li>
+                    
+                </ul>
+             
+        </div>
+    
+        <div class="menus_item">
+            
+                <a class="site-page not-child" target="_blank" href="https://github.com/bearslyricattack" rel="external nofollow noopener">
+                    <span> 仓库</span>
+                </a>
+             
+        </div>
+    
+</div>
+        <span class="sidebar-menu-item-title">标签</span>
+        <div class="card-widget card-tags card-archives card-webinfo card-allinfo">
+            <div class="item-headline">
+                <i class="fas fa-tags"></i>
+                <span>标签</span>
+            </div>
+            <div class="card-tag-cloud">
+                
+                    <a href="/tags/%E4%B8%AD%E9%97%B4%E4%BB%B6/" style="font-size: 1em; color: #d3d3d3">中间件
+                        <sup>4</sup>
+                    </a>
+                
+                    <a href="/tags/Go/" style="font-size: 1em; color: #d3d3d3">Go
+                        <sup>3</sup>
+                    </a>
+                
+                    <a href="/tags/Java/" style="font-size: 1em; color: #d3d3d3">Java
+                        <sup>3</sup>
+                    </a>
+                
+                    <a href="/tags/%E5%BD%B1%E8%AF%84/" style="font-size: 1em; color: #d3d3d3">影评
+                        <sup>1</sup>
+                    </a>
+                
+                    <a href="/tags/%E6%9E%B6%E6%9E%84/" style="font-size: 1em; color: #d3d3d3">架构
+                        <sup>3</sup>
+                    </a>
+                
+                    <a href="/tags/%E8%AF%97%E6%AD%8C/" style="font-size: 1em; color: #d3d3d3">诗歌
+                        <sup>14</sup>
+                    </a>
+                
+                    <a href="/tags/%E5%88%86%E5%B8%83%E5%BC%8F/" style="font-size: 1em; color: #d3d3d3">分布式
+                        <sup>1</sup>
+                    </a>
+                
+                    <a href="/tags/%E5%A5%8E%E6%A1%91%E6%8F%90/" style="font-size: 1em; color: #d3d3d3">奎桑提
+                        <sup>1</sup>
+                    </a>
+                
+                    <a href="/tags/%E5%A5%A5%E6%81%A9/" style="font-size: 1em; color: #d3d3d3">奥恩
+                        <sup>1</sup>
+                    </a>
+                
+                    <a href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/" style="font-size: 1em; color: #d3d3d3">数据库
+                        <sup>1</sup>
+                    </a>
+                
+                    <a href="/tags/%E8%AF%BE%E7%A8%8B/" style="font-size: 1em; color: #d3d3d3">课程
+                        <sup>7</sup>
+                    </a>
+                
+                    <a href="/tags/%E6%9C%8D%E5%8A%A1%E5%99%A8/" style="font-size: 1em; color: #d3d3d3">服务器
+                        <sup>1</sup>
+                    </a>
+                
+                    <a href="/tags/%E6%A1%8C%E6%90%AD/" style="font-size: 1em; color: #d3d3d3">桌搭
+                        <sup>1</sup>
+                    </a>
+                
+            </div>
+        </div>
+    </div>
+</div>    
+        
+            <div class="post" id="body-wrap">
+                <header class="post-bg" id="page-header">
+    <nav id="nav" class="show">
+    <div id="nav-group">
+        <div id="blog_name">
+            
+                <div class="back-home-button" tabindex="-1">
+                    <i class="back-home-button-icon fas fa-grip-vertical"></i>
+                    <div class="back-menu-list-groups">
+    
+      
+      <div class="back-menu-list-group">
+        <div class="back-menu-list-title">
+          我的
+        </div>
+        <div class="back-menu-list">
+          
+            
+            <a class="back-menu-item" href="/" rel="external nofollow" title="博客">
+              <img class="back-menu-item-icon" src="/img/avatar.webp" loading="lazy">
+              <span class="back-menu-item-text">
+                博客
+              </span>
+            </a>
+          
+        </div>
+      </div>
+    
+  </div>
+  
+                </div>
+            
+            <a id="site-name" href="/" title="返回博客主页">
+                    
+            </a>
+        </div>
+        <div id="page-name-mask">
+            <div id="page-name">
+                <a id="page-name-text" onclick="acrylic.toTop()">侠藏</a>
+            </div>
+        </div>
+        <div id="menus">
+            <div class="menus_items">
+    
+        <div class="menus_item">
+            
+                <a class="site-page" href="javascript:void(0);" rel="external nofollow">
+                    <span> 文库</span>
+                </a>
+                <ul class="menus_item_child">
+                    
+                        <li>
+                            <a class="site-page child" href="/archives/">
+                                <i class="fas fa-box-archive"></i>
+                                <span> 文章列表</span>
+                            </a>
+                        </li>
+                    
+                        <li>
+                            <a class="site-page child" href="/categories/">
+                                <i class="fas fa-cube"></i>
+                                <span> 全部分类</span>
+                            </a>
+                        </li>
+                    
+                        <li>
+                            <a class="site-page child" href="/tags/">
+                                <i class="fas fa-tags"></i>
+                                <span> 全部标签</span>
+                            </a>
+                        </li>
+                    
+                </ul>
+             
+        </div>
+    
+        <div class="menus_item">
+            
+                <a class="site-page not-child" target="_blank" href="https://github.com/bearslyricattack" rel="external nofollow noopener">
+                    <span> 仓库</span>
+                </a>
+             
+        </div>
+    
+</div>
+        </div>
+        <!-- <div id="nav-left">
+            <div id="fps-group">
+                <div id="fps">145</div><span class="fpsText">FPS</span>
+            </div>
+        </div> -->
+        <div id="nav-right">
+            
+    <div class="nav-button only-home" id="travellings_button">
+        <a class="site-page"  target="_blank" rel="noopener external nofollow" href="https://www.travellings.cn/go.html" title="开往-友链接力"  width="120">
+            <i class="fa-solid fa-train-subway" style="font-size: 1rem;"></i>
+        </a>
+    </div>
+
+
+    <div class="nav-button" id="randomPost_button">
+        <a class="site-page" onclick="toRandomPost()"
+            title="随机前往一个文章">
+            <i class="fas fa-shuffle" style="font-size: 1rem;"></i>
+        </a>
+    </div>
+
+
+    <div class="nav-button" id="search-button">
+        <a class="site-page social-icon search" title="站内搜索"
+            href="javascript:void(0);" rel="external nofollow">
+            <i class="fas fa-magnifying-glass" style="font-size: 1rem;"></i>
+        </a>
+    </div>
+
+
+    <div class="nav-button" id="nav-console">
+        <a class="console_switchbutton" onclick="acrylic.showConsole()"
+        title="显示中控台" href="javascript:void(0);" rel="external nofollow">
+        <i class="fas fa-bars-progress" style="font-size: 1rem;"></i>
+        </a>
+    </div>
+
+<div class="nav-button" id="nav-totop" onclick="acrylic.toTop()">
+    <a class="totopbtn">
+        <i class="fas fa-arrow-up"></i>
+        <span id="percent">0</span>
+    </a>
+</div>
+<div id="toggle-menu">
+    <a class="site-page">
+        <i class="fas fa-bars fa-fw" style="font-size: 1rem;"></i>
+    </a>
+</div>
+        </div>
+    </div>
+</nav>
+    
+        <div class="coverdiv" id="coverdiv">
+    <img id="post-cover" class="nolazyload" src="/img/40.jpg" alt="cover">
+</div>
+<div id="post-info">
+    <div id="post-firstinfo">
+        <div class="meta-firstline">
+            <a class="post-meta-original" title="该文章为原创文章，注意版权协议">
+                原创
+            </a>
+            
+            <span class="post-meta-categories">
+                
+                    <a class="post-meta-categories" href="/categories/%E5%88%9B%E4%BD%9C/">创作</a>
+                
+            </span>
+            
+            <div class="tag_share">
+                <div class="post-meta__tag-list">
+                    
+                        <a class="post-meta__tags" href="/tags/%E8%AF%97%E6%AD%8C/">
+                            <span class="tags-punctuation">#</span>
+                            <span class="tags-name">诗歌</span>
+                        </a>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+    <h1 class="post-title">侠藏</h1>
+    <div id="post-meta">
+        <div class="meta-secondline">
+            <span class="post-meta-date" title="发布于">
+                <i class="post-meta-icon fa-fw fas fa-calendar"></i>
+                <time datetime="2023-05-29T09:49:48+08:00"></time>
+            </span>
+            
+            
+                <span class="post-meta-position" title="作者IP归属地为山东·威海">
+                    <i class="fas fa-location-dot post-meta-icon"></i>
+                    <span>山东·威海</span>
+                </span>
+            
+            
+                
+                
+            
+            
+                
+        </div>
+    </div>
+</div>
+<section class="main-hero-waves-area waves-area"><svg class="waves-svg" xmlns="http://www.w3.org/2000/svg"
+    xlink="http://www.w3.org/1999/xlink" viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto">
+    <defs>
+        <path id="gentle-wave"
+            d="M -160 44 c 30 0 58 -18 88 -18 s 58 18 88 18 s 58 -18 88 -18 s 58 18 88 18 v 44 h -352 Z"></path>
+    </defs>
+    <g class="parallax">
+        <use href="#gentle-wave" x="48" y="0"></use>
+        <use href="#gentle-wave" x="48" y="3"></use>
+        <use href="#gentle-wave" x="48" y="5"></use>
+        <use href="#gentle-wave" x="48" y="7"></use>
+    </g>
+</svg>
+</section>
+
+        
+</header>
+                <main class="layout" id="content-inner">
+    <div id="post">
+        <article class="post-content" id="article-container">
+            <p>侠藏<br>（一）<br>天启六年，辽东。<br>北风一阵阵呼啸而过，却吹不出几家灯火。<br>自从后金起兵，似乎浓墨重彩的黑夜更使人留恋起来，只因为黑夜里没有战争,没有死亡，只有好梦和安眠。但此刻，天边已有一抹纯白，未升的阳光和未落的月色一同， 映在这关外唯一的城里。<br>城外，是精锐的后金骑兵。<br>这支以努尔哈赤的仇恨为源火建立的军队，在这荒凉的大漠还未尝一败，更可怕的是，每次他们攻城成功，都会残忍的屠城，把生机和希望一同断绝。<br>而此刻的宁远城，似乎就是他们眼中的下一片废墟。<br>城中仅有一万余守军，且大多是新军和老兵。没有支援，大明的官员们都畏惧后金的凶狠残暴，畏缩在山海关后不敢发兵。而远隔千里之外的京师，甚至都不知道这场战争的发生。<br>他站在城楼上北望，寒风凛冽。<br>天光还未大亮，如今的后金在绝对的实力面前，连都偷袭都不屑起来。<br>“也许今天就要死在这里了吧？”他想，“不过也好，我就是为这一天而活着的。”<br>他不由得开始回忆起从前，无数画面和音律从眼前划过，最后拼凑、融合，凝结成两个并不十分清晰的身影。<br>“我终究要成为一名大侠的。”<br>“好啊，那我定会跟在你身后，与你一同走遍万水千山。”<br>（二）<br>总有那么一个人，你希望永远拉着他的手，走过所有人间苍茫，在年年岁岁里幕影成双，但现实总是不尽如人意，你与他渐走渐散，再无相逢。<br>从初见他的那一刻起，凌就决定守护他一生。<br>那年他十四岁，不同官场世家的顽劣性格，他只喜欢安静沉默地看书写字。凌初至他家的那一天，他正为读一本古书而发愁，凌就站在他的身后，听管家对他说，“以后这就是你的主子了。”闻言，他抬起头，正对上凌的目光。<br>凌至今记得那个眼神，纯净清冽，没有太多世俗的东西，可只是简单的相望就有令人心疼的感觉。仿佛来自异域的弃子，因无人知会而沉默不言。<br>后来的他们形影不离，渐渐超越了主仆之间的关系。<br>凌还记得第一次听他讲故事的那一天。是他的故事让凌第一次知道了世界上还有这样一方净土，那里没有暴力、流浪、战乱，故事里有的，是渺远绮丽的山川江海，是催人泪下的恩怨情仇，是以家国为重的英雄侠客，而这种侠客精神，也正是他们所最爱的。<br>古往今来，侠客们大多一袭青衫薄衣，银鞍白马，仗剑游行于天地之间，且富济贫，敢爱敢恨，放浪形骸，无所畏惧。对于从儿时起，就因贫穷而颠沛流离的凌来说，这种生活就意味着可以自己做出选择，可以自由自在，无所顾忌。但对于出身于书香门第的他，本应立志考取功名，高居庙堂之上，可他却想成为侠客。<br>直到他们分开，他也从未对凌说起过侠对于他的意义。<br>“如今的你，做到你想要的全部了么？”凌这样想着，大声喝道，“我们现在何处？”<br>“距离宁远城还有不足五里，天亮之间应该能赶到城中。”<br>“好！大家再快点！争取在后金发起进攻之前赶到城中！”<br>凌收回思绪。环视四周，浩荡千里的尽是八旗军队的旗帜，却看不到明军的身影。“我们可能是最后的支援了吧？却来自一支毫无编制的民兵，真可笑啊。”凌苦笑，抽出了长刀。他的身后，无数道身影借着微光纵马飞奔。<br>他们本是辽东人，但因为后金的攻城掠地而失去了亲人和家乡。愤怒使他们自发的聚集，但因为主力明军的懦弱，他们已经许久没有用武之地。<br>听说此次的新任宁前道不再退缩而决定一战，他们才从辽东的四面八方赶来此地，为家乡奉献最后一点力量。<br>最终，他们中的很多人最终如愿以偿，与自己的土地共存亡，但那些活下来的人也变得无比强大，因为他们无可失去。<br>谁也未曾想到他们最终变成了后金军队在最擅长的骑术上的梦魇，被冠以响亮的封号，名震四海。<br>关宁铁骑。<br>（三）<br>元宵节。<br>书中说南宋的元宵是最热闹的，平民百姓无论男女都会走上街头看花灯，熙熙攘攘的长街上，叫卖声，笙箫声，挑逗声此起彼伏，放眼望去，无论是御街还是寻常巷陌，皆是张灯结彩，宛如一片片星海。从前的花灯也好看，形态各异，五彩缤纷，令人眼花缭乱，正如那座始终埋没在江南烟雨中的城市，仿佛从始至终蒙着一层飘渺的薄暮，令人看不透。<br>可能每一座城市都有专属的颜色，只是大多都隐匿于城市的角落，隐匿于每个普通人的平凡生活，唯有在熙攘佳节时，这种颜色才会变得格外明亮，使不曾熟悉这座城市的人也能真切地感受到。<br>而天启的京师，惟有一片真切而阴郁的灰色。<br>今年的冬天格外冷。哪怕是元宵佳节，街上还是寥寥无人，赏灯人们都早早回家，享受炉火和家人的温暖。抬眼看城市的高处，唯有几盏单调的花灯，发着微弱的光，好似幕星一般。<br>“这大概就是王朝日薄西山的景象吧。”他这样想着，推开了门。<br>她依旧在弹她的琴。声音并不十分凄婉，只是很压抑，仿佛与清冷的庭院相应和，很容易让人想到那些可望而不可即的东西，比如故乡，比如理想。<br>“我要走啦，”他自顾自地说，“去关外。”<br>琴声依旧，她已经很久没有同他说过话了。<br>“我知道，你想要的不是这些，为身居高位而左右逢源，为投政敌之所好而加害同窗，可是，我别无选择啊。”<br>琴声骤停。<br>“你还记得你娶我的时候么，”她缓缓地说，“那时的你只是一名一无所有的书生，刚刚考中举人，心中只有以天下为己任，立志做一名人皆称道的好官。可现在呢，你做的那些为了升官发财而做的那些恶心的事我永远也不会忘。”<br>他闻言，沉默了很久。<br>“我有没有和你说过，我小时候想成为一名侠客？”<br>他突然用力，猛地拉过她的衣袖，强迫她直视他的眼睛。<br>“一味地正直是没有用的！我需要力量，我需要可以执掌苍生的权力！没有权力，哪怕侠客梦再美，现世里你什么都不是！”<br>他松开手，大口大口地喘息着。<br>“我说过的话我没有忘，”他说，“也永远不会忘。”<br>院门忽的被推开，身着华贵彩衣的随从和身着铁甲的武士鱼贯而入，层层环绕在他身旁。<br>“大人，时候到了，该走了。”一名随从上前，压低声音说。<br>他面色冷峻地推开他，跨上一匹马，走出了大院。<br>“晴，照顾好自己。”<br>一队人策马向京师外飞驰而去，他们的身后，似伴若有若无的琴声。<br>“那么，我相信你，希望你不会让我失望。”<br>（四）<br>城外。<br>后金的骑兵已列队完毕，沉默的武士胯下是嘶鸣的骏马，来自朔北的风呼啸而过，他们却纹丝不动。等待着的最后进攻的命令。<br>他从城头回望，同样无言的士兵站在城头，正在最后调试红衣大炮。<br>这是他们最后的仰仗。只有这些来自葡萄牙，被称为“佛郎机”的恐怖巨兽才能遏制住后金军的骏马长刀。<br> 他突然很想说些什么，却又不知道从何说起。<br>其实他从小就不善言谈，只有在面对相知的人他才会知无不言。但多年宦海沉浮，他再也没遇到凌那样知心的人。她也很久不理解他，不言说那些本可以说的万语千言。<br>“你在何方？行何事？你的身旁是否有值得守护的人？”他想。<br>“这里，是我们的土地！”他一字一顿。<br>“我不知道是什么让你们走到现在，但对于我，是我的侠客梦。从很小的时候开始，我就梦想做一名仗剑走江湖的大侠，能劫富济贫，行侠一方，但长大了才发现，侠客精神的存在本就是社会的悖论，一己之力终究改变不了太多。”他叹息了一声，“为了这一天，我已经等待了太久，走过官场的腐朽黑暗，习惯了踩着别人的尸体前行，看惯了勾心斗角，生离死别，我一直在寻找一个可以报国的机会。那个机会，就在我面前，就在我们面前！”<br>“列阵！”他大声的说。<br>（五）<br>“头儿，前面已经开打了！”<br>凌暗自叹息，他终究还是没能在开战之前赶到城下。说实话他对这座孤城的守将还是比较好奇的，本希望能见他一面，但现在怕是没有机会了。<br>“寻找破绽，直接切入战场！”<br>战事如火如荼的进行着，每一刻都有人死去。<br>后金军的骑兵虽然犀利，但却不善于攻城，而明军虽然人数劣势，但有必死的心智，加上有利的地形和怒吼的红衣大炮，竟是挡住了后金的攻势，竟隐隐有反攻地迹象。<br>中军的努尔哈赤有些着急了。对面守将是谁？无名小卒罢了。而堂堂的后金国主竟在此无名小卒面前停滞不前。这是他所不能接受的。<br>“正黄旗压上！我领军做先锋！”他怒吼一声。<br>“报告！西南方出现不明军队，直奔我们中军而来！”<br>努尔哈赤大惊，急忙望去。<br>只见一支飞驰的骑军神兵般降入战场，借着战马的冲击力，所到之处后金军皆人仰马翻。为首的一人身着黑衣，手执双刀，翻飞间手起刀落。似有睥睨八荒之威势。<br>“这才是我想要的对手啊！”努尔哈赤赞叹地说，“不过这样笔直的冲阵，怕是嫌命长了吧？”<br>他握起了他的刀。<br>……<br>他依旧站在城楼上，只不过手中多了一口宝剑。<br>“有人来了！”他看到了骑兵赴死般的冲阵，自然也认出了他心念的人。<br>凌。<br>“打开城门，召集骑兵出城迎战！”<br>“你疯了！你知道他们是什么人！”<br>“我知道，”他头也不回地说，“那是我的故人。”<br>他仰天长啸，城门洞开。<br>“此去经年，你过的好吗？”<br>（六）<br>他还记得与凌的分别。<br>那天他喝了很多酒，似乎把所有剩下的钱都拿来买酒了。<br>“那我走了，你要照顾好自己啊。”<br>“我会的，你也是，别再为了别人那么拼了。”<br>凌笑。<br>“可要好好对她啊，不然我可不放过你。”<br>“好啦好啦，我知道你也喜欢过她，是啊，她那样的人又有几个人不喜欢呢？放心，我会永远对她好的。可是现在，天色已晚啦。”<br>他不再说话，小口啜着酒。<br>凌忽然想起他曾经读到过的一句诗，“桃李春风一杯酒，江湖夜雨十年灯。”<br>可能这句话就是写离别的吧？分开时大家都强撑着把酒言欢，分开后却独行辗转，守心独语，再也不说出心中所想，在每个沉默的夜里走向远方。<br>“那，我走了，再会。”<br>再会。<br>再会吧，希望再会之时，你能实现所有愿望，负剑走在山水江湖间，清傲孤寒，无所牵挂。<br>（七）<br>凌已经无力对他行礼了。<br>硝烟散尽，敌军退去，他们打赢了这场不可能胜利的战争，但他就要死了。<br>所谓故人相逢应该是很美满的吧？毕竟天下有四海，故人却寥寥无几。所以每个相逢应举杯相迎，推杯换盏间，说尽世间沧桑。<br>可战场上的相逢总是意味着分别，而且是以天人两隔的分别，，一人归去，再无相逢执手的可能。<br>“你还是那样，为了别人总是奋不顾身啊。”他不禁回想起小时候凌为了保护他在小巷中与人斗殴至头破血流的时光，发现他从未真正理解过身边的人，只是在自我所信奉的道路上渐行渐远。<br>“没办法，本就一无所有，所以每次才能压上全部，毕竟就算失败了也失去不了什么。凌咳出一口鲜血，“不说这个了，她还好么？”<br>“嗯，不过她现在应该很讨厌我吧？为了身居高位，可以掌兵作战，我做了太多为人所不齿的事。”他苦笑。<br>“还记得我们小时候么？你说你要做一名大侠，我要吵着闹着要跟在你身后，如今的你还留着当年的梦么？只是我不能陪你走了啊。”凌神智已经有些恍惚，“没事，你还有她，她也是懂你的吧？可要好好待她啊，不然我……”<br>“你总是对我说这些。让我想起我父亲。”他打断了凌，转身，走向落日余晖照耀下的、只剩下断壁颓垣的宁远城，一场胜利改变不了什么，后金军还会再来，战火的暗影始终笼罩在辽东这片土地的上空。<br>凌望着他的背影渐行渐远，往事如漫天风雪扑面而来。<br>“你的侠客梦，要一直走下去啊。”凌轻声说着，闭上了双眼。<br>（八）<br>崇祯三年。京师。<br>他望着窗外，盛夏已过，秋的肃杀萧瑟已缓慢入侵了京城。<br>宁远大捷后，他本可以节节攀升，但他却毅然辞官归乡，去寻找他故人眼中的侠的身影。<br>谁也不知道多年以后他为何要重新出山，也没有人能想到他竟然死于最忠诚的帝国之手。<br>而她，就像是不愿看到他的结局一般，一年前已弃他而去。<br>“现在世间，却是没有令我牵挂的人和事了啊。”他暗自想着。回想自己的一生。<br>“追求侠义，心系苍生，错了吗？”<br>“沉浮官场，不择手段，错了吗？”<br>“独守孤城，力战外侮，错了吗？”<br>“我一生追求的侠义，难道是错的吗？还是说面对这个世界，侠的精神就应当被埋藏在每个心怀正义的人的内心而不展露呢？可是这样，那侠客精神存在的意义和目的又是什么呢？”<br>天将明。<br>他这样想着，面对自己和帝国的薄暮，紧紧地闭上了双眼。</p>
+
+        </article>
+        <div class="post-tools" id="post-tools">
+            <div class="post-tools-left">
+                
+                <div class="share-link mobile">
+    <div class="share-qrcode">
+        <div class="share-button" title="使用手机访问这篇文章">
+            <i class="fas fa-qrcode"></i>
+        </div>
+        <div class="share-main">
+            <div class="share-main-all">
+                <div id="qrcode" title="http://example.com/2023/05/29/%E4%BE%A0%E8%97%8F/">
+                </div>
+                <div class="reward-dec">使用手机访问这篇文章</div>
+            </div>
+        </div>
+        <script type="text/javascript">
+            new QRCode(document.getElementById("qrcode"), "http://example.com/2023/05/29/%E4%BE%A0%E8%97%8F/");
+        </script>
+    </div>
+</div>
+                <div class="share-link weibo"><a class="share-button" target="_blank"
+    href="https://service.weibo.com/share/share.php?title=侠藏&amp;url=http://example.com/2023/05/29/%E4%BE%A0%E8%97%8F/&amp;pic=/img/40.jpg"
+    title="分享到微博" rel="noopener external nofollow noreferrer noopener">
+    <i class="fab fa-weibo" style="font-size:22px"></i>
+</a>
+</div>
+<div class="share-link copyurl">
+<div class="share-button" id="post-share-url" title="复制链接" onclick="acrylic.copyPageUrl()">
+    <i class="fas fa-link"></i>
+</div>
+</div>
+            </div>
+            <div class="post-tools-right">
+                <div class="tag_share">
+                    <div class="post-meta__tag-list">
+                        
+                            <a href="/tags/%E8%AF%97%E6%AD%8C/" class="post-meta__tags">
+                                <span class="tags-punctuation">#</span>
+                                诗歌
+                                <span class="tagsPageCount">14</span>
+                            </a>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="post-copyright">
+    <div class="post-copyright__author">
+        <a class="post-copyright__original" title="该文章为原创文章，注意版权协议">原创</a>
+        <a class="post-copyright-title" href="#">
+            <span>侠藏</span>
+        </a>
+    </div>
+    <div class="post-copyright__type">
+        <span class="post-copyright-info" id="post-copyright-url">
+            <a href="/2023/05/29/%E4%BE%A0%E8%97%8F/">http://example.com/2023/05/29/%E4%BE%A0%E8%97%8F/</a>
+        </span>
+        <button class="post-copyright-copybtn" onclick="acrylic.copyPageUrl()">
+            <i class="fas fa-paste copy-btn"></i>
+        </button>
+    </div>
+    <div class="post-copyright__notice"><span class="post-copyright-info">本文是原创文章，采用 <a
+                href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank">CC BY-NC-ND 4.0</a> 协议，完整转载请注明来自 <a
+                href="/">风凌渡</a>
+            </span>
+        </div>
+</div>
+        <nav class="pagination-post" id="pagination">
+    
+        <div class="prev-post pull-left">
+            <a href="/2023/05/29/%E5%8C%97%E9%82%99%E6%98%9F%E6%A2%A6/">
+                <div class="pagination-info">
+                    <div class="label">上一篇</div>
+                    <div class="prev_info">北邙星梦</div>
+                </div>
+            </a>
+        </div>
+        <div class="next-post pull-right">
+            <a href="/2023/05/29/%E5%A4%A9%E9%A3%8E%E7%99%BD%E9%A9%AC/">
+                <div class="pagination-info">
+                    <div class="label">下一篇</div>
+                    <div class="next_info">天风白马</div>
+                </div>
+            </a>
+        </div>
+    
+</nav>
+            
+    </div>
+    <div class="aside-content" id="aside-content">
+    
+    
+        
+        <div class="card-widget card-info">
+    <div class="card-content">
+        <div class="card-info-avatar is-center">
+            <div class="author-info__sayhi" id="author-info__sayhi">
+            </div>
+            <div class="author-info__name">
+                抒情熊
+            </div>
+            <div class="author-info__description">这有关于<b>后端</b>、<b>架构</b>的相关笔记分享，还有拙作<b>诗歌</b>和<b>小说</b>，另有如<b>奎桑提</b>和<b>奥恩</b>的相关教学。<br>相信会对你有所帮助.</div>
+        </div>
+    </div>
+    <div class="banner-button-group">
+        <a class="banner-button" href="/about/">
+            <i class="fas fa-circle-chevron-right"></i>
+            <span class="banner-button-text">了解更多</span>
+        </a>
+    </div>
+    <div class="card-info-social-icons is-center">
+        
+            <a class="social-icon" target="_blank" rel="noopener" href="https://github.com/bearslyricattack" title="Github">
+                <i class="fa-brands fa-github"></i>
+            </a>
+        
+            <a class="social-icon" target="_blank" rel="noopener" href="https://user.qzone.qq.com/2669184984" title="Mail">
+                <i class="fa-solid fa-envelope"></i>
+            </a>
+        
+    </div>
+</div>
+     
+    
+    <div class="sticky_layout">
+        
+            <div class="card-widget" id="card-toc">
+    <div class="item-headline">
+        <i class="fas fa-bars"></i>
+        <span>文章目录</span>
+    </div>
+    <div class="toc-content" id="toc-content">
+        
+    </div>
+</div>
+            
+        
+            
+        <div class="card-widget card-recent-post">
+    <div class="item-headline">
+        <i class="fas fa-list-ol"></i>
+        <span>最近发布</span>
+    </div>
+    <div class="aside-list">
+        
+        
+            <div class="aside-list-item">
+                <a class="thumbnail" href="/2023/05/29/%E6%98%8E%E6%9C%88%E7%AD%96/" title="明月策">
+                    <img
+                        alt="明月策"
+                        src="/img/30.jpg">
+                </a>
+                <div class="content">
+                    
+                        <a class="article-recent_post_categories" href="/2023/05/29/%E6%98%8E%E6%9C%88%E7%AD%96/">
+                            创作
+                        </a>
+                    
+                    <a class="title" href="/2023/05/29/%E6%98%8E%E6%9C%88%E7%AD%96/" title="明月策">
+                        明月策
+                    </a>
+                </div>
+            </div>
+                
+        
+            <div class="aside-list-item">
+                <a class="thumbnail" href="/2023/05/29/%E5%8C%97%E9%82%99%E6%98%9F%E6%A2%A6/" title="北邙星梦">
+                    <img
+                        alt="北邙星梦"
+                        src="/img/38.jpg">
+                </a>
+                <div class="content">
+                    
+                        <a class="article-recent_post_categories" href="/2023/05/29/%E5%8C%97%E9%82%99%E6%98%9F%E6%A2%A6/">
+                            创作
+                        </a>
+                    
+                    <a class="title" href="/2023/05/29/%E5%8C%97%E9%82%99%E6%98%9F%E6%A2%A6/" title="北邙星梦">
+                        北邙星梦
+                    </a>
+                </div>
+            </div>
+                
+        
+            <div class="aside-list-item">
+                <a class="thumbnail" href="/2023/05/29/%E4%BE%A0%E8%97%8F/" title="侠藏">
+                    <img
+                        alt="侠藏"
+                        src="/img/40.jpg">
+                </a>
+                <div class="content">
+                    
+                        <a class="article-recent_post_categories" href="/2023/05/29/%E4%BE%A0%E8%97%8F/">
+                            创作
+                        </a>
+                    
+                    <a class="title" href="/2023/05/29/%E4%BE%A0%E8%97%8F/" title="侠藏">
+                        侠藏
+                    </a>
+                </div>
+            </div>
+                
+        
+            <div class="aside-list-item">
+                <a class="thumbnail" href="/2023/05/29/%E5%A4%A9%E9%A3%8E%E7%99%BD%E9%A9%AC/" title="天风白马">
+                    <img
+                        alt="天风白马"
+                        src="/img/37.jpg">
+                </a>
+                <div class="content">
+                    
+                        <a class="article-recent_post_categories" href="/2023/05/29/%E5%A4%A9%E9%A3%8E%E7%99%BD%E9%A9%AC/">
+                            创作
+                        </a>
+                    
+                    <a class="title" href="/2023/05/29/%E5%A4%A9%E9%A3%8E%E7%99%BD%E9%A9%AC/" title="天风白马">
+                        天风白马
+                    </a>
+                </div>
+            </div>
+                
+        
+            <div class="aside-list-item">
+                <a class="thumbnail" href="/2023/04/28/ClickHouse/" title="ClickHouse">
+                    <img
+                        alt="ClickHouse"
+                        src="/img/1.jpg">
+                </a>
+                <div class="content">
+                    
+                        <a class="article-recent_post_categories" href="/2023/04/28/ClickHouse/">
+                            笔记
+                        </a>
+                    
+                    <a class="title" href="/2023/04/28/ClickHouse/" title="ClickHouse">
+                        ClickHouse
+                    </a>
+                </div>
+            </div>
+            
+    </div>
+</div>
+     
+        
+    </div>
+</div> 
+</main>
+                <footer id="footer">
+                    <div id="footer_deal">
+    
+        <a class="deal_link" target="_blank" href="https://github.com/bearslyricattack" rel="external nofollow noopener" title="Github">
+            <i class="fa-brands fa-github"></i>
+        </a>
+    
+        <a class="deal_link" target="_blank" href="https://user.qzone.qq.com/2669184984" rel="external nofollow noopener" title="Mail">
+            <i class="fa-solid fa-envelope"></i>
+        </a>
+    
+    <img class="footer_mini_logo" src="/img/avatar.webp"
+        title="返回顶部" onclick="acrylic.toTop()">
+    
+        <a class="deal_link" target="_blank" href="https://music.163.com/#/user/follows?id=436327083" rel="external nofollow noopener" title="网易云">
+            <i class="fa-solid fa-music"></i>
+        </a>
+    
+        <a class="deal_link" target="_blank" href="https://space.bilibili.com/701779878?spm_id_from=333.1007.0.0" rel="external nofollow noopener" title="bilibili">
+            <i class="fa-brands fa-bilibili"></i>
+        </a>
+    
+</div>    
+<div id="heo-footer">
+    
+    
+</div>
+<div id="footer-section">
+    <div class="footer-section-links">
+        <div class="footer-section-left">
+            <div id="footer-section-tips">
+                <div class="copyright">©2022 - 2023 By 
+                    <a class="footer-section-link" href="/" rel="external nofollow">抒情熊</a>
+                    <a class="footer-section-link" href="https://github.com/hexo-theme-Acrylic/Hexo-Theme-Acrylic-Next" rel="external nofollow" target="_blank"> Theme By Acrylic-Next</a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-section-right">
+            <a class="footer-section-link" href="/rss/">订阅</a>
+            
+            <a class="footer-section-link cc" target="_blank" href="https://creativecommons.org/licenses/by/4.0/" title="cc协议">
+                <i class="fa-solid fa-closed-captioning"></i>
+            </a>
+        </div>
+    </div>
+</div>
+                </footer>
+            </div>
+         
+        <div>
+    <script type="text/javascript" src="/js/utils.js"></script>
+    <script type="text/javascript" src="/js/main.js"></script>
+    
+
+<script src="/lib/pjax.min.js"></script>
+
+
+
+<script src="/lib/snackbar.min.js"></script>
+
+
+    
+<script src="/lib/view-image.min.js"></script>
+
+
+
+    
+<link rel="stylesheet" href="/lib/swiper.min.css">
+
+    
+<script src="/lib/swiper.min.js"></script>
+
+
+<div id="js-pjax">
+    
+    
+        <script async src="https://npm.elemecdn.com/penndu@1.0.0/bsz.js"></script>
+     
+</div>
+
+    
+<link rel="stylesheet" href="https://lf9-cdn-tos.bytecdntp.com/cdn/expire-1-M/aplayer/1.10.1/APlayer.min.css">
+
+    
+<script src="https://lf3-cdn-tos.bytecdntp.com/cdn/expire-1-M/aplayer/1.10.1/APlayer.min.js"></script>
+
+    
+<script src="https://cdn1.tianli0.top/npm/meting@2.0.1/dist/Meting.min.js"></script>
+
+
+
+    
+<script src="/js/extend/covercolor/web.js"></script>
+
+        
+
+    <script>
+  let pjaxSelectors = [
+    'title',
+    '#body-wrap',
+    '#site-config',
+    'meta[name="description"]',
+    '#js-pjax'
+  ]
+  
+  const pjax = new Pjax({
+    elements: 'a:not([target="_blank"])',
+    selectors: pjaxSelectors,
+    cacheBust: false,
+    analytics: false,
+    scrollRestoration: false
+  })
+
+  document.querySelectorAll('script[data-pjax]').forEach(item => {
+      const newScript = document.createElement('script')
+      const content = item.text || item.textContent || item.innerHTML || ""
+      Array.from(item.attributes).forEach(attr => newScript.setAttribute(attr.name, attr.value))
+      newScript.appendChild(document.createTextNode(content))
+      item.parentNode.replaceChild(newScript, item)
+  })
+
+  document.addEventListener('pjax:error', (e) => {
+    if (e.request.status === 404) {
+      pjax.loadUrl('/404.html')
+    }
+  })
+</script>
+    
+</div>
+        
+    <div id="local-search">
+    <div class="search-dialog">
+        <nav class="search-nav">
+            <span class="search-dialog-title">搜索</span>
+            <button class="search-close-button">
+                <i class="fas fa-times"></i>
+            </button>
+        </nav>
+        <div id="loading-database">
+            <i class="fas fa-spinner fa-pulse"></i>
+            <span>加载中</span>
+        </div>
+        <div class="search-wrap">
+            <div class="search-box">
+                <input class="search-box-input" placeholder="输入关键词快速查找" type="text" id="search-input" autocomplete="off" spellcheck="false" autocorrect="off" autocapitalize="off">
+            </div>
+            <div id="loading-status"></div>
+            <div id="search-results"></div>
+        </div>
+    </div>
+    <div id="search-mask"></div>
+</div>
+    
+<link rel="stylesheet" href="/css/search/local-search.css">
+
+    
+<script src="/js/extend/search/local-search.js"></script>
+
+
+     
+        <div class="needEndHide" id="nav-music" onclick="acrylic.musicToggle()">
+    <div id="nav-music-hoverTips">音乐已暂停</div>
+    <meting-js id="7315994021" server="tencent" type="playlist" mutex="true"
+        preload="none" data-lrctype="0" order="random" theme="var(--heo-main)"></meting-js>
+</div>
+    
+    </body>
+</html>
+<script>const posts=["2023/05/29/明月策/","2023/05/29/北邙星梦/","2023/05/29/侠藏/","2023/05/29/天风白马/","2023/04/28/ClickHouse/","2023/03/18/从IOC到Java架构/","2023/03/18/微服务/","2023/03/18/数据库概述/","2023/03/18/数据结构/","2023/03/18/桌搭教程/","2023/03/18/算法设计与分析/","2023/03/18/系统分析与设计/","2023/03/18/面向对象建模技术/","2023/03/14/Go语言设计与实现/","2023/03/13/Git/","2023/02/10/奎桑提教学/","2023/02/10/奥恩教学/","2023/02/10/服务器部署/","2023/02/10/规则引擎/","2023/02/10/风凌夜话/","2023/02/10/青萍/","2023/02/10/巷/","2023/02/10/乱世佳人/","2023/02/10/马克思主义原理/","2023/02/04/Hertz/","2023/01/17/架构设计/","2023/01/17/草木森/","2023/01/17/计算机组成原理/","2023/01/17/鹤扶摇/","2023/01/17/泠音泛海/","2023/01/17/江城一梦/","2023/01/17/近世代数/","2023/01/17/白马遥/","2023/01/17/塑鸿/","2023/01/17/彩云辞/","2023/01/17/Java虚拟机/","2023/01/17/Web基本原理/","2023/01/17/Springboot入门/","2023/01/17/分布式/","2023/01/17/Golang/","2023/01/17/Redis/"];function toRandomPost(){ window.pjax ? pjax.loadUrl('/'+posts[Math.floor(Math.random()*posts.length)]) : window.open('/'+posts[Math.floor(Math.random()*posts.length)], "_self"); };</script>
