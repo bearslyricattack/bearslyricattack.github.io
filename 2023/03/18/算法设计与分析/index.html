@@ -157,19 +157,19 @@
                         <sup>3</sup>
                     </a>
                 
-                    <a href="/tags/%E8%AF%97%E6%AD%8C/" style="font-size: 1em; color: #d3d3d3">诗歌
-                        <sup>14</sup>
-                    </a>
-                
                     <a href="/tags/%E5%88%86%E5%B8%83%E5%BC%8F/" style="font-size: 1em; color: #d3d3d3">分布式
                         <sup>1</sup>
                     </a>
                 
-                    <a href="/tags/%E5%A5%8E%E6%A1%91%E6%8F%90/" style="font-size: 1em; color: #d3d3d3">奎桑提
-                        <sup>1</sup>
+                    <a href="/tags/%E8%AF%97%E6%AD%8C/" style="font-size: 1em; color: #d3d3d3">诗歌
+                        <sup>14</sup>
                     </a>
                 
                     <a href="/tags/%E5%A5%A5%E6%81%A9/" style="font-size: 1em; color: #d3d3d3">奥恩
+                        <sup>1</sup>
+                    </a>
+                
+                    <a href="/tags/%E5%A5%8E%E6%A1%91%E6%8F%90/" style="font-size: 1em; color: #d3d3d3">奎桑提
                         <sup>1</sup>
                     </a>
                 
@@ -403,7 +403,220 @@
                 <main class="layout" id="content-inner">
     <div id="post">
         <article class="post-content" id="article-container">
-            <h1 id="算法设计与分析"><a href="#算法设计与分析" class="headerlink" title="算法设计与分析"></a>算法设计与分析</h1>
+            <h1 id="算法设计与分析"><a href="#算法设计与分析" class="headerlink" title="算法设计与分析"></a>算法设计与分析</h1><h1 id="1-绪论："><a href="#1-绪论：" class="headerlink" title="1.绪论："></a>1.绪论：</h1><h2 id="1-1-算法特性："><a href="#1-1-算法特性：" class="headerlink" title="1.1 算法特性："></a>1.1 算法特性：</h2><p>1.输入</p>
+<p>2.输出</p>
+<p>3.可行性</p>
+<p>4.有穷性（终止性）</p>
+<p>5.确定性</p>
+<h2 id="1-2-问题与问题实例："><a href="#1-2-问题与问题实例：" class="headerlink" title="1.2 问题与问题实例："></a>1.2 问题与问题实例：</h2><p>问题是由输入和输出组成的二元组集合，问题实例是其中的一个二元组。</p>
+<p>一个算法求解一个问题，而不是问题实例。</p>
+<h2 id="1-3-算法正确性："><a href="#1-3-算法正确性：" class="headerlink" title="1.3 算法正确性："></a>1.3 算法正确性：</h2><p>一个算法是正确的，如果它对于每一个输入都最终停止,而且产生正确的输出.</p>
+<p>调试程序不能证明算法正确，只能证明算法有错。</p>
+<h3 id="1-3-1-正确性分析："><a href="#1-3-1-正确性分析：" class="headerlink" title="1.3.1 正确性分析："></a>1.3.1 正确性分析：</h3><p>循环不变量方法：主要结构为循环的算法的正确性证明。</p>
+<p>(有点类似数学归纳法)</p>
+<p>1.循环初始：即循环开始前，P成立</p>
+<p>2.循环步骤：循环体每执行一次之后P仍然成立</p>
+<p>3.循环终止：循环结束后，P成立，保证算法正确</p>
+<h2 id="1-4-算法复杂性："><a href="#1-4-算法复杂性：" class="headerlink" title="1.4 算法复杂性："></a>1.4 算法复杂性：</h2><p> 分析算法对不同输入所需资源量</p>
+<h2 id="1-5-输入的大小："><a href="#1-5-输入的大小：" class="headerlink" title="1.5 输入的大小："></a>1.5 输入的大小：</h2><p>设<em>Input</em>是问题<em>P</em>的输入集合，<em>P</em>的输入大小是一个函数</p>
+<p><em>F</em>：<em>Input</em>—<em>N</em>，<em>N</em>是正整数集合.通常用size（a）表示。</p>
+<h2 id="1-6-时间复杂度："><a href="#1-6-时间复杂度：" class="headerlink" title="1.6 时间复杂度："></a>1.6 时间复杂度：</h2><p>算法的时间复杂度是对该输入产生结果所需要的原子操作数。</p>
+<p>是输入大小的函数t（n）</p>
+<h2 id="1-7-空间复杂度："><a href="#1-7-空间复杂度：" class="headerlink" title="1.7 空间复杂度："></a>1.7 空间复杂度：</h2><p>空间复杂性是对该输入所需要的存储空间的大小。</p>
+<h3 id="1-7-1-时间复杂度分析："><a href="#1-7-1-时间复杂度分析：" class="headerlink" title="1.7.1 时间复杂度分析："></a>1.7.1 时间复杂度分析：</h3><p>把每个原子操作所需要的时间假定为常数。</p>
+<p>把程序所有原子操作执行时间的和加起来，作为时间复杂度。</p>
+<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/image-20230529211342766.png" alt="image-20230529211342766"></p>
+<h3 id="1-7-2-对时间复杂度的理解："><a href="#1-7-2-对时间复杂度的理解：" class="headerlink" title="1.7.2 对时间复杂度的理解："></a>1.7.2 对时间复杂度的理解：</h3><p>时间复杂性分析并不是表示一个程序解决问题需要花多少时间，而是当问题规模扩大后，程序需要的时间长度增长得有多快。</p>
+<p>也就是说，对于高速处理数据的计算机来说，处理某一个特定数据的效率不能衡量一个程序的好坏，而应该看当这个数据的规模变大到数百倍后，程序运行时间是否还是一样，或者也慢了数百倍，或者变慢了数万倍。</p>
+<p>如果不管数据有多大，程序处理花的时间始终是那么多的，我们就说这个程序很好，具有O(1)的时间复杂度，也称常数级复杂度。</p>
+<h2 id="1-8-其他定义："><a href="#1-8-其他定义：" class="headerlink" title="1.8 其他定义："></a>1.8 其他定义：</h2><p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/image-20230529211038879.png" alt="image-20230529211038879"></p>
+<h1 id="2-算法分析的数学基础："><a href="#2-算法分析的数学基础：" class="headerlink" title="2.算法分析的数学基础："></a>2.算法分析的数学基础：</h1><h2 id="2-1-复杂函数的阶："><a href="#2-1-复杂函数的阶：" class="headerlink" title="2.1 复杂函数的阶："></a>2.1 复杂函数的阶：</h2><p>影响函数运行时间的主导项。</p>
+<h3 id="2-1-1-同阶："><a href="#2-1-1-同阶：" class="headerlink" title="2.1.1 同阶："></a>2.1.1 同阶：</h3><p>用θ表示。</p>
+<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/image-20230529212227153.png" alt="image-20230529212227153"></p>
+<h3 id="2-1-2-低阶函数集合："><a href="#2-1-2-低阶函数集合：" class="headerlink" title="2.1.2 低阶函数集合："></a>2.1.2 低阶函数集合：</h3><p>用O表示。</p>
+<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/image-20230529212401125.png" alt="image-20230529212401125"></p>
+<h3 id="2-1-3-高阶函数集合："><a href="#2-1-3-高阶函数集合：" class="headerlink" title="2.1.3 高阶函数集合："></a>2.1.3 高阶函数集合：</h3><p>用Ω表示。</p>
+<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/image-20230529212454661.png" alt="image-20230529212454661"></p>
+<p>前面的作为高、低阶函数，后面带系数的是用希腊字母表示的函数。</p>
+<h3 id="2-1-4-三者的关系："><a href="#2-1-4-三者的关系：" class="headerlink" title="2.1.4 三者的关系："></a>2.1.4 三者的关系：</h3><p>θ表示渐进紧界</p>
+<p>O表示渐进上界</p>
+<p>Ω表示渐进下界</p>
+<p>显然，o是最坏情况，Ω是最好情况，一般来说，很少用Ω描述算法的时间复杂度，一般使用O。</p>
+<h3 id="2-1-5-严格低阶函数："><a href="#2-1-5-严格低阶函数：" class="headerlink" title="2.1.5 严格低阶函数："></a>2.1.5 严格低阶函数：</h3><p>与低阶差不多，但是少了等号。</p>
+<h3 id="2-1-6-数学公式中函数阶的定义："><a href="#2-1-6-数学公式中函数阶的定义：" class="headerlink" title="2.1.6 数学公式中函数阶的定义："></a>2.1.6 数学公式中函数阶的定义：</h3><p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/image-20230529213142061.png" alt="image-20230529213142061"></p>
+<h2 id="2-2和式的计算和估计："><a href="#2-2和式的计算和估计：" class="headerlink" title="2.2和式的计算和估计："></a>2.2和式的计算和估计：</h2><h2 id="2-3递归方程："><a href="#2-3递归方程：" class="headerlink" title="2.3递归方程："></a>2.3递归方程：</h2><p>递归方程是使用具有较小输入值的相同方程来描述一个方程。</p>
+<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/image-20230601161711292.png" alt="image-20230601161711292"></p>
+<p>有多种解法.</p>
+<h3 id="2-3-1-替换方法："><a href="#2-3-1-替换方法：" class="headerlink" title="2.3.1 替换方法："></a>2.3.1 替换方法：</h3><p>先猜测解，然后用数学归纳法证明。</p>
+<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/image-20230529213630519.png" alt="image-20230529213630519"></p>
+<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/image-20230529213636789.png" alt="image-20230529213636789"></p>
+<h3 id="2-3-2-迭代计算"><a href="#2-3-2-迭代计算" class="headerlink" title="2.3.2 迭代计算:"></a>2.3.2 迭代计算:</h3><p>通过和式子估计的方式求出结果.</p>
+<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/image-20230601161816030.png" alt="image-20230601161816030"></p>
+<h3 id="2-3-3-master定理"><a href="#2-3-3-master定理" class="headerlink" title="2.3.3 master定理:"></a>2.3.3 master定理:</h3><p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/image-20230601162156649.png" alt="image-20230601162156649"></p>
+<p><img src="C:\Users\wpy\AppData\Roaming\Typora\typora-user-images\image-20230601162223715.png" alt="image-20230601162223715"></p>
+<h1 id="3-排序与分治："><a href="#3-排序与分治：" class="headerlink" title="3.排序与分治："></a>3.排序与分治：</h1><h2 id="3-1-算法设计"><a href="#3-1-算法设计" class="headerlink" title="3.1 算法设计:"></a>3.1 算法设计:</h2><p>1.边界条件:递归的底层调用的条件.</p>
+<p>2.divide:分成多个子问题</p>
+<p>是一个划分,根据某种划分条件,把集合划分成几个部分</p>
+<p>2.conquer:递归调用正在设计的算法</p>
+<p>直接调用当前正在进行的函数即可,返回值肯定是和当前函数的返回值相同.                                                                                                                         </p>
+<p>3.merge:合并子问题的解</p>
+<p>划分成几个部分就对几个部分进行合并,要注意,合并的结果就是当前函数的返回值,也就是conquer的返回值,根据不同的问题,合并的具体逻辑也不相同.</p>
+<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/image-20230530094638937.png" alt="image-20230530094638937"></p>
+<h2 id="3-2-例1-求max-min"><a href="#3-2-例1-求max-min" class="headerlink" title="3.2 例1:求max,min"></a>3.2 例1:求max,min</h2><p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/image-20230530094930240.png" alt="image-20230530094930240"></p>
+<p>简单来说就是通过递归,把运算划归到两个两个数进行运算.</p>
+<p>终止条件:</p>
+<p>只剩两个数的时候比较,后返回</p>
+<p>divide:</p>
+<p>根据数组中点分成两个部分</p>
+<p>conquer:</p>
+<p>对两个部分分别求max,min</p>
+<p>merge:</p>
+<p>分别从两个max,min中找到max,min.</p>
+<h2 id="3-3-例2-快速排序"><a href="#3-3-例2-快速排序" class="headerlink" title="3.3 例2:快速排序"></a>3.3 例2:快速排序</h2><p>划分成两个部分,分别排序,然后在合并起来.</p>
+<p>快速排序:</p>
+<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/image-20230530100407809.png" alt="image-20230530100407809"></p>
+<p>终止条件:</p>
+<p>只剩两个数,直接返回</p>
+<p>divide:</p>
+<p>选定一个数,把一个数组分成三部分:p左边的都比p小,p右边的都比p大.</p>
+<p>couquer:</p>
+<p>对这两个数组分别使用快速排序.</p>
+<p>merge:</p>
+<p>不需要merge,递归的运算完成之后就已经是排序完成了.</p>
+<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/image-20230601163113788.png" alt="image-20230601163113788"></p>
+<p>时间复杂度:</p>
+<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/image-20230601163620365.png" alt="image-20230601163620365"></p>
+<p>注意:此处的时间复杂度是用θ表示的,也就是说,这是一个稳定的算法,不会因为数据排列方式的不同而不同.</p>
+<p>而那些用o来表示的,可以说是不稳定算法,代表了最差的复杂度.</p>
+<h2 id="3-4-排序问题的下界"><a href="#3-4-排序问题的下界" class="headerlink" title="3.4 排序问题的下界:"></a>3.4 排序问题的下界:</h2><p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/image-20230530100802353.png" alt="image-20230530100802353"></p>
+<p> 意义:</p>
+<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/image-20230601163920296.png" alt="image-20230601163920296"></p>
+<h2 id="3-5-例子3-一维空间"><a href="#3-5-例子3-一维空间" class="headerlink" title="3.5 例子3:一维空间:"></a>3.5 例子3:一维空间:</h2><p>divide:</p>
+<p>折半把点分成两部分.</p>
+<p>conquer:</p>
+<p>对两部分别求最近的两个点</p>
+<p>merge:</p>
+<p>在两个集合合并的时候,通过边界条件求出最近的两个点.</p>
+<h2 id="3-6-循环不变量方法"><a href="#3-6-循环不变量方法" class="headerlink" title="3.6 循环不变量方法:"></a>3.6 循环不变量方法:</h2><p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/image-20230601165247849.png" alt="image-20230601165247849"></p>
+<h1 id="4-动态规划"><a href="#4-动态规划" class="headerlink" title="4.动态规划:"></a>4.动态规划:</h1><h2 id="4-1-分治算法的问题"><a href="#4-1-分治算法的问题" class="headerlink" title="4.1 分治算法的问题:"></a>4.1 分治算法的问题:</h2><p>分治算法是把原始问题分解成多个子问题,然后再合并起来.</p>
+<p>在分治算法中,子问题之间是相互独立的,也就是说,执行这些子问题的方式不同,得到的结果都是相同的.(比如在数组里面插入)<br>但是对于有些问题,求解子问题的顺序不同会导致结果不同,这样就不能使用分治算法了.</p>
+<h2 id="4-2-优化问题"><a href="#4-2-优化问题" class="headerlink" title="4.2 优化问题:"></a>4.2 优化问题:</h2><p>问题可能有很多解，每个可能的解都对应有一个值，这个值通常称为代价.</p>
+<p>优化问题是要在该问题所有可能的解中找到具有最优值(最大&#x2F;最小)的解，即问题的一个最优解.</p>
+<p> 一个问题的最优解不一定是唯一的.举例：最短路径，旅行商、任务调度等问题.</p>
+<p>因此我们也可以说：优化问题就是给定一个代价函数，在问题的解空间中搜索具有最小或最大代价的优化解.</p>
+<p>动态规划是解决优化问题的一种常见方法.</p>
+<p>简单来说,优化问题要经过很多个决策,从而得到最终的结果,最优化问题一般是让我们求解这些”决策”,即求解决策变量,而动态规划的算法题则主要让我们根据这些决策求解出最终的结果.</p>
+<h2 id="4-3-动态规划简介"><a href="#4-3-动态规划简介" class="headerlink" title="4.3 动态规划简介:"></a>4.3 动态规划简介:</h2><p>Dynamic Programming ,称为DP.</p>
+<p>把原始问题划分成一系列子问题.</p>
+<p>不同子问题的数目常常只有多项式量级.</p>
+<p>求解每个子问题仅一次，并将其结果保存在一个表中，以后用到时直接存取，不重复计算，节省计算时间.</p>
+<p>自底向上地求解子问题.</p>
+<p>一类优化问题：可分为多个相关子问题，子问题的解被重复使用.</p>
+<h3 id="4-3-1-优化子结构"><a href="#4-3-1-优化子结构" class="headerlink" title="4.3.1 优化子结构:"></a>4.3.1 优化子结构:</h3><p>当一个问题的优化解包含了子问题的优化解时，我们说这</p>
+<p>个问题具有优化子结构。</p>
+<p>子问题是指数据量比较小的原始问题.这句话的意思是,原始问题的解中,属于子问题这一小部分的值放到子问题里面,依旧是最优解.</p>
+<p>举个例子,比如最短路径问题,求a到b的最短路径,他的一个子问题是求a到c的最短路径,设x为最优解,那么x中从a到c的解也一定是这段路径上的最优解.否则x不可能成为最优解.</p>
+<p>(其实就是反证法)</p>
+<h3 id="4-3-2-重叠子问题"><a href="#4-3-2-重叠子问题" class="headerlink" title="4.3.2 重叠子问题:"></a>4.3.2 重叠子问题:</h3><p>在问题的求解过程中，很多子问题的解将被多次使用.</p>
+<p>也就是说可以通过之前的状态得出之后的状态.即可以使用递推方程求解.</p>
+<h2 id="4-4-过程"><a href="#4-4-过程" class="headerlink" title="4.4 过程:"></a>4.4 过程:</h2><p>1.分析最优解的结构</p>
+<p>2.递归的定义最优解的代价</p>
+<p>3.递归地划分子问题 </p>
+<p>4.自底向上计算优化解的代价，记录优化解的构造信息</p>
+<p>5.构造优化解</p>
+<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/image-20230530154906083.png" alt="image-20230530154906083"></p>
+<p>这个过程实在是过于抽象了,下面试图给出一种自己的过程:</p>
+<h3 id="4-4-1-证明动态规划"><a href="#4-4-1-证明动态规划" class="headerlink" title="4.4.1 证明动态规划:"></a>4.4.1 证明动态规划:</h3><p>即验证这个问题具有优化子结构和重叠子问题的特征.</p>
+<h3 id="4-4-2-数学的定义原问题和子问题"><a href="#4-4-2-数学的定义原问题和子问题" class="headerlink" title="4.4.2 数学的定义原问题和子问题:"></a>4.4.2 数学的定义原问题和子问题:</h3><p>子问题是数量更小的原始问题.</p>
+<p>切记,在子问题定义时,涉及到当前决策一定要进行说明,否则会导致递推方程出现错误.</p>
+<p>比如在”打家劫舍”问题中,定义dp数组时一定要加上限定条件:是否已经盗窃了当前房屋.即对当前问题作出决策.</p>
+<h3 id="4-4-3-写出递归方程"><a href="#4-4-3-写出递归方程" class="headerlink" title="4.4.3 写出递归方程:"></a>4.4.3 写出递归方程:</h3><h3 id="4-4-4-求解"><a href="#4-4-4-求解" class="headerlink" title="4.4.4 求解:"></a>4.4.4 求解:</h3><h2 id="4-5-例子1-最长公共子序列"><a href="#4-5-例子1-最长公共子序列" class="headerlink" title="4.5 例子1:最长公共子序列:"></a>4.5 例子1:最长公共子序列:</h2><p>是在做一种选择,对每一个元素,选择要不要这个元素.</p>
+<p>核心递归方程:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">def longestCommonSubsequence(str1, str2) -&gt; int:</span><br><span class="line">    def dp(i, j):</span><br><span class="line">        # 空串的 base case</span><br><span class="line">        if i == -1 or j == -1:</span><br><span class="line">            return 0</span><br><span class="line">        if str1[i] == str2[j]:</span><br><span class="line">            # 这边找到一个 lcs 的元素，继续往前找</span><br><span class="line">            return dp(i - 1, j - 1) + 1</span><br><span class="line">        else:</span><br><span class="line">            # 谁能让 lcs 最长，就听谁的</span><br><span class="line">            return max(dp(i-1, j), dp(i, j-1))</span><br><span class="line">        </span><br><span class="line">    # i 和 j 初始化为最后一个索引</span><br><span class="line">    return dp(len(str1)-1, len(str2)-1)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>O(ij).</p>
+<h2 id="4-6-例子2-背包问题"><a href="#4-6-例子2-背包问题" class="headerlink" title="4.6 例子2:背包问题:"></a>4.6 例子2:背包问题:</h2><h2 id="4-7-例子3-三角形路径问题"><a href="#4-7-例子3-三角形路径问题" class="headerlink" title="4.7 例子3: 三角形路径问题:"></a>4.7 例子3: 三角形路径问题:</h2><h1 id="5-贪心算法："><a href="#5-贪心算法：" class="headerlink" title="5.贪心算法："></a>5.贪心算法：</h1><h2 id="5-1-简介："><a href="#5-1-简介：" class="headerlink" title="5.1 简介："></a>5.1 简介：</h2><p>贪心算法总是做出在当前来看最好的选择。</p>
+<p>并不从整体最优考虑，做出的只是在某种意义上的局部最优解。</p>
+<p>希望通过作出局部优化选择达到全局优化选择。</p>
+<p>贪心算法不能对所有问题都得到整体最优解，但对许多问题它能产生整体最优解，如：单源最短路经问题、最小生成树问题等</p>
+<p>在一些情况下，即使贪心算法不能得到整体最优解，其最终结果却是最优解的很好近似。</p>
+<p>是在最优化问题的决策的过程中,针对如何决策所进行的算法.</p>
+<h2 id="5-2-产生优化解的条件："><a href="#5-2-产生优化解的条件：" class="headerlink" title="5.2 产生优化解的条件："></a>5.2 产生优化解的条件：</h2><h3 id="5-2-1-优化子结构："><a href="#5-2-1-优化子结构：" class="headerlink" title="5.2.1.优化子结构："></a>5.2.1.优化子结构：</h3><p>若一个优化问题的优化解包含它的(剩余)子问题的优化解，则称其具有优化子结构。</p>
+<p>最优子结构指的是，问题的最优解包含子问题的最优解。反过来说就是，我们可以通过子问题的最优解，推导出问题的最优解。如果我们把最优子结构，对应到我们前面定义的动态规划问题模型上，那我们也可以理解为，后面阶段的状态可以通过前面状态推导出来。</p>
+<h3 id="5-2-2-Greedy选择性-Greedy-choice-property-："><a href="#5-2-2-Greedy选择性-Greedy-choice-property-：" class="headerlink" title="5.2.2 Greedy选择性(Greedy-choice property)："></a>5.2.2 Greedy选择性(Greedy-choice property)：</h3><p>一个优化问题的全局优化解可以通过局部优化选择</p>
+<p>得到。</p>
+<p>greedy选择性证明：</p>
+<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/image-20230531212252722.png" alt="image-20230531212252722"></p>
+<p>简单来说,是针对一个全局最优解进行分析,最好对这个全局最优解进行排序.</p>
+<p>然后取出其中一个,与贪心算法所取出的那一个进行比较.</p>
+<p>有两种情况:</p>
+<p>1.是同一个:符合贪心算法要求</p>
+<p>2.不是同一个:则使用剪枝粘贴技术,即把当前这个去掉,然后加上贪心的这一个,然后证明新的这个解是比原来的最优解更优秀的一个解.</p>
+<p>用这两点证明贪心算法可以得到最优秀的解.</p>
+<h2 id="5-3-与动态规划的比较："><a href="#5-3-与动态规划的比较：" class="headerlink" title="5.3 与动态规划的比较："></a>5.3 与动态规划的比较：</h2><p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/image-20230531212318252.png" alt="image-20230531212318252"></p>
+<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/image-20230531212337774.png"></p>
+<p> 最优解问题大部分都可以拆分成一个个的子问题，把解空间的遍历视作对子问题树的遍历，则以某种形式对树整个的遍历一遍就可以求出最优解，大部分情况下这是不可行的。</p>
+<p>贪心算法和动态规划本质上是对子问题树的一种修剪，两种算法要求问题都具有的一个性质就是子问题最优性(组成最优解的每一个子问题的解，对于这个子问题本身肯定也是最优的)。</p>
+<p>动态规划方法代表了这一类问题的一般解法，我们自底向上构造子问题的解，对每一个子树的根，求出下面每一个叶子的值，并且以其中的最优值作为自身的值，其它的值舍弃。</p>
+<p>而贪心算法是动态规划方法的一个特例，可以证明每一个子树的根的值不取决于下面叶子的值，而只取决于当前问题的状况。换句话说，不需要知道一个节点所有子树的情况，就可以求出这个节点的值。由于贪心算法的这个特性，它对解空间树的遍历不需要自底向上，而只需要自根开始，选择最优的路，一直走到底就可以了。</p>
+<h2 id="5-4-设计贪心算法的步骤："><a href="#5-4-设计贪心算法的步骤：" class="headerlink" title="5.4 设计贪心算法的步骤："></a>5.4 设计贪心算法的步骤：</h2><p>1.设计贪心选择方法：</p>
+<p>2.证明方法的优化子结构和选择性</p>
+<p>3.设计算法</p>
+<h2 id="5-5-最小生成树："><a href="#5-5-最小生成树：" class="headerlink" title="5.5 最小生成树："></a>5.5 最小生成树：</h2><h3 id="5-5-1-kruskal算法："><a href="#5-5-1-kruskal算法：" class="headerlink" title="5.5.1 kruskal算法："></a>5.5.1 kruskal算法：</h3><p>每次找一条权值最小的边加入集合。</p>
+<h3 id="5-5-2-prim算法："><a href="#5-5-2-prim算法：" class="headerlink" title="5.5.2 prim算法："></a>5.5.2 prim算法：</h3><p>每次找两个点集合之间连接的边里面，权值最小的加入边集合，同时把点加入点集合.</p>
+<h1 id="6-平摊分析："><a href="#6-平摊分析：" class="headerlink" title="6.平摊分析："></a>6.平摊分析：</h1><h2 id="6-1-简介："><a href="#6-1-简介：" class="headerlink" title="6.1 简介："></a>6.1 简介：</h2><p>目的是分析给定数据结构上的n个操作的上界.</p>
+<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/image-20230531214059911.png" alt="image-20230531214059911"></p>
+<h2 id="6-2-聚集方法："><a href="#6-2-聚集方法：" class="headerlink" title="6.2 聚集方法："></a>6.2 聚集方法：</h2><p>目的是分析n个操作系列中每个操作的复杂性上界。</p>
+<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/image-20230531214216132.png" alt="image-20230531214216132"></p>
+<h2 id="6-3-栈操作："><a href="#6-3-栈操作：" class="headerlink" title="6.3 栈操作："></a>6.3 栈操作：</h2><h3 id="6-3-1-基本操作："><a href="#6-3-1-基本操作：" class="headerlink" title="6.3.1 基本操作："></a>6.3.1 基本操作：</h3><ol>
+<li></li>
+</ol>
+<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/image-20230531214413815.png" alt="image-20230531214413815"></p>
+<ol start="2">
+<li></li>
+</ol>
+<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/image-20230531214359122.png" alt="image-20230531214359122"></p>
+<h3 id="6-3-2-操作分析："><a href="#6-3-2-操作分析：" class="headerlink" title="6.3.2 操作分析："></a>6.3.2 操作分析：</h3><p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/image-20230531214502312.png" alt="image-20230531214502312"></p>
+<h1 id="7-树搜索："><a href="#7-树搜索：" class="headerlink" title="7.树搜索："></a>7.树搜索：</h1><h2 id="7-1-概述"><a href="#7-1-概述" class="headerlink" title="7.1 概述:"></a>7.1 概述:</h2><p>简单来说,就是把问题的数据集合放在树中,运用树搜索的相关知识和方法解决问题.</p>
+<h2 id="7-2-相关搜索方法"><a href="#7-2-相关搜索方法" class="headerlink" title="7.2 相关搜索方法:"></a>7.2 相关搜索方法:</h2><h3 id="7-2-1-DFS"><a href="#7-2-1-DFS" class="headerlink" title="7.2.1 DFS:"></a>7.2.1 DFS:</h3><p>深度优先搜索.</p>
+<h3 id="7-2-2-BFS"><a href="#7-2-2-BFS" class="headerlink" title="7.2.2 BFS:"></a>7.2.2 BFS:</h3><p>广度优先搜索.</p>
+<h3 id="7-2-3-爬山算法"><a href="#7-2-3-爬山算法" class="headerlink" title="7.2.3 爬山算法:"></a>7.2.3 爬山算法:</h3><p>贪心算法加深度优先搜索.</p>
+<p>在选择哪个节点开始深度优先搜索时,使用评估函数,不同的问题评估函数不一样.根据不同节点的评估函数的值确定搜索的先后顺序.</p>
+<p>具有局部优化的特征.</p>
+<h3 id="7-2-4-Best-First算法"><a href="#7-2-4-Best-First算法" class="headerlink" title="7.2.4 Best-First算法:"></a>7.2.4 Best-First算法:</h3><p>贪心算法加广度优先搜索.</p>
+<p>在针对哪些节点开始广度优先搜索时,同样是使用函数进行评估,对函数小(大)的节点进行广度优先搜索.函数值相同的节点都要进行搜索.</p>
+<p>具有全局优化的特征.(其实广度优先搜索本事具有这种特征).</p>
+<h3 id="7-2-5-分支限界算法"><a href="#7-2-5-分支限界算法" class="headerlink" title="7.2.5 分支限界算法:"></a>7.2.5 分支限界算法:</h3><p>同样是对广度优先搜索的一种优化.</p>
+<p>分支限界法的步骤如下：</p>
+<p>1)按宽度优先策略遍历解空间树</p>
+<p>2)在遍历过程中，对处理的每个结点i，根据界限函数，估计沿该结点向下搜索所可能达到的完全解的目标函数的可能取值范围—界限bound(i)&#x3D;[dow(i), up(i)]</p>
+<ol start="3">
+<li>从中选择使目标函数取的极小值的结点优先进行宽度优先搜索，从而不断调整搜索方向，尽快找到问题解。</li>
+</ol>
+<p>在每次分支后，对凡是界限超出已知可行解值那些子集不再做进一步分支。这样，解的许多子集（即搜索树上的许多结点）就可以不予考虑了，从而缩小了搜索范围。</p>
+<h1 id="8-图算法"><a href="#8-图算法" class="headerlink" title="8.图算法:"></a>8.图算法:</h1><h2 id="8-1-最大流"><a href="#8-1-最大流" class="headerlink" title="8.1 最大流:"></a>8.1 最大流:</h2><h3 id="8-1-1-问题概述"><a href="#8-1-1-问题概述" class="headerlink" title="8.1.1 问题概述:"></a>8.1.1 问题概述:</h3><p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/image-20230601225556248.png" alt="image-20230601225556248"></p>
+<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/image-20230601225634141.png" alt="image-20230601225634141"></p>
+<h3 id="8-1-2-解题思路"><a href="#8-1-2-解题思路" class="headerlink" title="8.1.2 解题思路:"></a>8.1.2 解题思路:</h3><h4 id="8-1-2-1-最大流等于最小割"><a href="#8-1-2-1-最大流等于最小割" class="headerlink" title="8.1.2.1 最大流等于最小割:"></a>8.1.2.1 最大流等于最小割:</h4><p>过桥可以很简单的理解.</p>
+<h4 id="8-1-2-2-ford-fulkerson算法"><a href="#8-1-2-2-ford-fulkerson算法" class="headerlink" title="8.1.2.2 ford-fulkerson算法:"></a>8.1.2.2 ford-fulkerson算法:</h4><p>1.选定一个流(注意流和流网络的不同之处,流网络只有最大容量,流除了容量还有余量)</p>
+<p>2.根据这个流找到残留网络</p>
+<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/image-20230601231214792.png" alt="image-20230601231214792"></p>
+<p>3.根据残留网络找到增广路径</p>
+<p>若一条路径上的残余容量大于0,那么这就是一条增广路径.</p>
+<p>4.在增广路径上压入新的流量,形成新的流,然后重复2.</p>
+<p>5.结束:直到找不到增广路径为止.得到的流就是最大流.</p>
+<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/image-20230601231506335.png" alt="image-20230601231506335"></p>
+<h2 id="8-2-单源最短路"><a href="#8-2-单源最短路" class="headerlink" title="8.2 单源最短路:"></a>8.2 单源最短路:</h2><p>\Dijkstra(迪杰斯特拉)算法是计算单源最短路径算法，用于计算一个结点到其他所有结点的最短路径。</p>
+<p>该算法以源点为起始点，不断更新其他点到已经确定距离结点的距离，选取距离最小的结点加入S集合，直到S集合存放有所有的结点.</p>
+<p>步骤:</p>
+<p>现在一张图中有n个结点，有两个集合，S集合和V集合。S集合表示已经选取的结点，V集合表示还没有选取的结点</p>
+<p>1.计算原点到各点的距离.不能直接到达的空着.</p>
+<p>2.选取1中距离最小的点加入s集合</p>
+<p>3.计算经过新加入的点,到其他各个点的距离</p>
+<p>4.取距离里面最小的,把那个点加入s集合.</p>
+<p>……</p>
+<p>不断重复,直到s中包含所有点为止.</p>
+<p>算法复杂度o(n2).</p>
+
         </article>
         <div class="post-tools" id="post-tools">
             <div class="post-tools-left">
@@ -537,7 +750,7 @@
         <span>文章目录</span>
     </div>
     <div class="toc-content" id="toc-content">
-        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%AE%97%E6%B3%95%E8%AE%BE%E8%AE%A1%E4%B8%8E%E5%88%86%E6%9E%90"><span class="toc-text">算法设计与分析</span></a></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%AE%97%E6%B3%95%E8%AE%BE%E8%AE%A1%E4%B8%8E%E5%88%86%E6%9E%90"><span class="toc-text">算法设计与分析</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#1-%E7%BB%AA%E8%AE%BA%EF%BC%9A"><span class="toc-text">1.绪论：</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-1-%E7%AE%97%E6%B3%95%E7%89%B9%E6%80%A7%EF%BC%9A"><span class="toc-text">1.1 算法特性：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-2-%E9%97%AE%E9%A2%98%E4%B8%8E%E9%97%AE%E9%A2%98%E5%AE%9E%E4%BE%8B%EF%BC%9A"><span class="toc-text">1.2 问题与问题实例：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-3-%E7%AE%97%E6%B3%95%E6%AD%A3%E7%A1%AE%E6%80%A7%EF%BC%9A"><span class="toc-text">1.3 算法正确性：</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-3-1-%E6%AD%A3%E7%A1%AE%E6%80%A7%E5%88%86%E6%9E%90%EF%BC%9A"><span class="toc-text">1.3.1 正确性分析：</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-4-%E7%AE%97%E6%B3%95%E5%A4%8D%E6%9D%82%E6%80%A7%EF%BC%9A"><span class="toc-text">1.4 算法复杂性：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-5-%E8%BE%93%E5%85%A5%E7%9A%84%E5%A4%A7%E5%B0%8F%EF%BC%9A"><span class="toc-text">1.5 输入的大小：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-6-%E6%97%B6%E9%97%B4%E5%A4%8D%E6%9D%82%E5%BA%A6%EF%BC%9A"><span class="toc-text">1.6 时间复杂度：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-7-%E7%A9%BA%E9%97%B4%E5%A4%8D%E6%9D%82%E5%BA%A6%EF%BC%9A"><span class="toc-text">1.7 空间复杂度：</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-7-1-%E6%97%B6%E9%97%B4%E5%A4%8D%E6%9D%82%E5%BA%A6%E5%88%86%E6%9E%90%EF%BC%9A"><span class="toc-text">1.7.1 时间复杂度分析：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-7-2-%E5%AF%B9%E6%97%B6%E9%97%B4%E5%A4%8D%E6%9D%82%E5%BA%A6%E7%9A%84%E7%90%86%E8%A7%A3%EF%BC%9A"><span class="toc-text">1.7.2 对时间复杂度的理解：</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-8-%E5%85%B6%E4%BB%96%E5%AE%9A%E4%B9%89%EF%BC%9A"><span class="toc-text">1.8 其他定义：</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#2-%E7%AE%97%E6%B3%95%E5%88%86%E6%9E%90%E7%9A%84%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80%EF%BC%9A"><span class="toc-text">2.算法分析的数学基础：</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#2-1-%E5%A4%8D%E6%9D%82%E5%87%BD%E6%95%B0%E7%9A%84%E9%98%B6%EF%BC%9A"><span class="toc-text">2.1 复杂函数的阶：</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#2-1-1-%E5%90%8C%E9%98%B6%EF%BC%9A"><span class="toc-text">2.1.1 同阶：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-1-2-%E4%BD%8E%E9%98%B6%E5%87%BD%E6%95%B0%E9%9B%86%E5%90%88%EF%BC%9A"><span class="toc-text">2.1.2 低阶函数集合：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-1-3-%E9%AB%98%E9%98%B6%E5%87%BD%E6%95%B0%E9%9B%86%E5%90%88%EF%BC%9A"><span class="toc-text">2.1.3 高阶函数集合：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-1-4-%E4%B8%89%E8%80%85%E7%9A%84%E5%85%B3%E7%B3%BB%EF%BC%9A"><span class="toc-text">2.1.4 三者的关系：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-1-5-%E4%B8%A5%E6%A0%BC%E4%BD%8E%E9%98%B6%E5%87%BD%E6%95%B0%EF%BC%9A"><span class="toc-text">2.1.5 严格低阶函数：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-1-6-%E6%95%B0%E5%AD%A6%E5%85%AC%E5%BC%8F%E4%B8%AD%E5%87%BD%E6%95%B0%E9%98%B6%E7%9A%84%E5%AE%9A%E4%B9%89%EF%BC%9A"><span class="toc-text">2.1.6 数学公式中函数阶的定义：</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-2%E5%92%8C%E5%BC%8F%E7%9A%84%E8%AE%A1%E7%AE%97%E5%92%8C%E4%BC%B0%E8%AE%A1%EF%BC%9A"><span class="toc-text">2.2和式的计算和估计：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-3%E9%80%92%E5%BD%92%E6%96%B9%E7%A8%8B%EF%BC%9A"><span class="toc-text">2.3递归方程：</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#2-3-1-%E6%9B%BF%E6%8D%A2%E6%96%B9%E6%B3%95%EF%BC%9A"><span class="toc-text">2.3.1 替换方法：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-3-2-%E8%BF%AD%E4%BB%A3%E8%AE%A1%E7%AE%97"><span class="toc-text">2.3.2 迭代计算:</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-3-3-master%E5%AE%9A%E7%90%86"><span class="toc-text">2.3.3 master定理:</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#3-%E6%8E%92%E5%BA%8F%E4%B8%8E%E5%88%86%E6%B2%BB%EF%BC%9A"><span class="toc-text">3.排序与分治：</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#3-1-%E7%AE%97%E6%B3%95%E8%AE%BE%E8%AE%A1"><span class="toc-text">3.1 算法设计:</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-2-%E4%BE%8B1-%E6%B1%82max-min"><span class="toc-text">3.2 例1:求max,min</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-3-%E4%BE%8B2-%E5%BF%AB%E9%80%9F%E6%8E%92%E5%BA%8F"><span class="toc-text">3.3 例2:快速排序</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-4-%E6%8E%92%E5%BA%8F%E9%97%AE%E9%A2%98%E7%9A%84%E4%B8%8B%E7%95%8C"><span class="toc-text">3.4 排序问题的下界:</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-5-%E4%BE%8B%E5%AD%903-%E4%B8%80%E7%BB%B4%E7%A9%BA%E9%97%B4"><span class="toc-text">3.5 例子3:一维空间:</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-6-%E5%BE%AA%E7%8E%AF%E4%B8%8D%E5%8F%98%E9%87%8F%E6%96%B9%E6%B3%95"><span class="toc-text">3.6 循环不变量方法:</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#4-%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92"><span class="toc-text">4.动态规划:</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#4-1-%E5%88%86%E6%B2%BB%E7%AE%97%E6%B3%95%E7%9A%84%E9%97%AE%E9%A2%98"><span class="toc-text">4.1 分治算法的问题:</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-2-%E4%BC%98%E5%8C%96%E9%97%AE%E9%A2%98"><span class="toc-text">4.2 优化问题:</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-3-%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92%E7%AE%80%E4%BB%8B"><span class="toc-text">4.3 动态规划简介:</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#4-3-1-%E4%BC%98%E5%8C%96%E5%AD%90%E7%BB%93%E6%9E%84"><span class="toc-text">4.3.1 优化子结构:</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-3-2-%E9%87%8D%E5%8F%A0%E5%AD%90%E9%97%AE%E9%A2%98"><span class="toc-text">4.3.2 重叠子问题:</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-4-%E8%BF%87%E7%A8%8B"><span class="toc-text">4.4 过程:</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#4-4-1-%E8%AF%81%E6%98%8E%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92"><span class="toc-text">4.4.1 证明动态规划:</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-4-2-%E6%95%B0%E5%AD%A6%E7%9A%84%E5%AE%9A%E4%B9%89%E5%8E%9F%E9%97%AE%E9%A2%98%E5%92%8C%E5%AD%90%E9%97%AE%E9%A2%98"><span class="toc-text">4.4.2 数学的定义原问题和子问题:</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-4-3-%E5%86%99%E5%87%BA%E9%80%92%E5%BD%92%E6%96%B9%E7%A8%8B"><span class="toc-text">4.4.3 写出递归方程:</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-4-4-%E6%B1%82%E8%A7%A3"><span class="toc-text">4.4.4 求解:</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-5-%E4%BE%8B%E5%AD%901-%E6%9C%80%E9%95%BF%E5%85%AC%E5%85%B1%E5%AD%90%E5%BA%8F%E5%88%97"><span class="toc-text">4.5 例子1:最长公共子序列:</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-6-%E4%BE%8B%E5%AD%902-%E8%83%8C%E5%8C%85%E9%97%AE%E9%A2%98"><span class="toc-text">4.6 例子2:背包问题:</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-7-%E4%BE%8B%E5%AD%903-%E4%B8%89%E8%A7%92%E5%BD%A2%E8%B7%AF%E5%BE%84%E9%97%AE%E9%A2%98"><span class="toc-text">4.7 例子3: 三角形路径问题:</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#5-%E8%B4%AA%E5%BF%83%E7%AE%97%E6%B3%95%EF%BC%9A"><span class="toc-text">5.贪心算法：</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#5-1-%E7%AE%80%E4%BB%8B%EF%BC%9A"><span class="toc-text">5.1 简介：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-2-%E4%BA%A7%E7%94%9F%E4%BC%98%E5%8C%96%E8%A7%A3%E7%9A%84%E6%9D%A1%E4%BB%B6%EF%BC%9A"><span class="toc-text">5.2 产生优化解的条件：</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#5-2-1-%E4%BC%98%E5%8C%96%E5%AD%90%E7%BB%93%E6%9E%84%EF%BC%9A"><span class="toc-text">5.2.1.优化子结构：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-2-2-Greedy%E9%80%89%E6%8B%A9%E6%80%A7-Greedy-choice-property-%EF%BC%9A"><span class="toc-text">5.2.2 Greedy选择性(Greedy-choice property)：</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-3-%E4%B8%8E%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92%E7%9A%84%E6%AF%94%E8%BE%83%EF%BC%9A"><span class="toc-text">5.3 与动态规划的比较：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-4-%E8%AE%BE%E8%AE%A1%E8%B4%AA%E5%BF%83%E7%AE%97%E6%B3%95%E7%9A%84%E6%AD%A5%E9%AA%A4%EF%BC%9A"><span class="toc-text">5.4 设计贪心算法的步骤：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-5-%E6%9C%80%E5%B0%8F%E7%94%9F%E6%88%90%E6%A0%91%EF%BC%9A"><span class="toc-text">5.5 最小生成树：</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#5-5-1-kruskal%E7%AE%97%E6%B3%95%EF%BC%9A"><span class="toc-text">5.5.1 kruskal算法：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-5-2-prim%E7%AE%97%E6%B3%95%EF%BC%9A"><span class="toc-text">5.5.2 prim算法：</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#6-%E5%B9%B3%E6%91%8A%E5%88%86%E6%9E%90%EF%BC%9A"><span class="toc-text">6.平摊分析：</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#6-1-%E7%AE%80%E4%BB%8B%EF%BC%9A"><span class="toc-text">6.1 简介：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6-2-%E8%81%9A%E9%9B%86%E6%96%B9%E6%B3%95%EF%BC%9A"><span class="toc-text">6.2 聚集方法：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6-3-%E6%A0%88%E6%93%8D%E4%BD%9C%EF%BC%9A"><span class="toc-text">6.3 栈操作：</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#6-3-1-%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C%EF%BC%9A"><span class="toc-text">6.3.1 基本操作：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6-3-2-%E6%93%8D%E4%BD%9C%E5%88%86%E6%9E%90%EF%BC%9A"><span class="toc-text">6.3.2 操作分析：</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#7-%E6%A0%91%E6%90%9C%E7%B4%A2%EF%BC%9A"><span class="toc-text">7.树搜索：</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#7-1-%E6%A6%82%E8%BF%B0"><span class="toc-text">7.1 概述:</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#7-2-%E7%9B%B8%E5%85%B3%E6%90%9C%E7%B4%A2%E6%96%B9%E6%B3%95"><span class="toc-text">7.2 相关搜索方法:</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#7-2-1-DFS"><span class="toc-text">7.2.1 DFS:</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#7-2-2-BFS"><span class="toc-text">7.2.2 BFS:</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#7-2-3-%E7%88%AC%E5%B1%B1%E7%AE%97%E6%B3%95"><span class="toc-text">7.2.3 爬山算法:</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#7-2-4-Best-First%E7%AE%97%E6%B3%95"><span class="toc-text">7.2.4 Best-First算法:</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#7-2-5-%E5%88%86%E6%94%AF%E9%99%90%E7%95%8C%E7%AE%97%E6%B3%95"><span class="toc-text">7.2.5 分支限界算法:</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#8-%E5%9B%BE%E7%AE%97%E6%B3%95"><span class="toc-text">8.图算法:</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#8-1-%E6%9C%80%E5%A4%A7%E6%B5%81"><span class="toc-text">8.1 最大流:</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#8-1-1-%E9%97%AE%E9%A2%98%E6%A6%82%E8%BF%B0"><span class="toc-text">8.1.1 问题概述:</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#8-1-2-%E8%A7%A3%E9%A2%98%E6%80%9D%E8%B7%AF"><span class="toc-text">8.1.2 解题思路:</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#8-1-2-1-%E6%9C%80%E5%A4%A7%E6%B5%81%E7%AD%89%E4%BA%8E%E6%9C%80%E5%B0%8F%E5%89%B2"><span class="toc-text">8.1.2.1 最大流等于最小割:</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#8-1-2-2-ford-fulkerson%E7%AE%97%E6%B3%95"><span class="toc-text">8.1.2.2 ford-fulkerson算法:</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#8-2-%E5%8D%95%E6%BA%90%E6%9C%80%E7%9F%AD%E8%B7%AF"><span class="toc-text">8.2 单源最短路:</span></a></li></ol></li></ol>
     </div>
 </div>
             
@@ -820,4 +1033,4 @@
     
     </body>
 </html>
-<script>const posts=["2023/05/29/明月策/","2023/05/29/北邙星梦/","2023/05/29/侠藏/","2023/05/29/天风白马/","2023/04/28/ClickHouse/","2023/03/18/从IOC到Java架构/","2023/03/18/微服务/","2023/03/18/数据库概述/","2023/03/18/数据结构/","2023/03/18/桌搭教程/","2023/03/18/算法设计与分析/","2023/03/18/系统分析与设计/","2023/03/18/面向对象建模技术/","2023/03/14/Go语言设计与实现/","2023/03/13/Git/","2023/02/10/奎桑提教学/","2023/02/10/奥恩教学/","2023/02/10/服务器部署/","2023/02/10/规则引擎/","2023/02/10/风凌夜话/","2023/02/10/青萍/","2023/02/10/巷/","2023/02/10/乱世佳人/","2023/02/10/马克思主义原理/","2023/02/04/Hertz/","2023/01/17/架构设计/","2023/01/17/草木森/","2023/01/17/计算机组成原理/","2023/01/17/鹤扶摇/","2023/01/17/泠音泛海/","2023/01/17/江城一梦/","2023/01/17/近世代数/","2023/01/17/白马遥/","2023/01/17/塑鸿/","2023/01/17/彩云辞/","2023/01/17/Java虚拟机/","2023/01/17/Web基本原理/","2023/01/17/Springboot入门/","2023/01/17/分布式/","2023/01/17/Golang/","2023/01/17/Redis/"];function toRandomPost(){ window.pjax ? pjax.loadUrl('/'+posts[Math.floor(Math.random()*posts.length)]) : window.open('/'+posts[Math.floor(Math.random()*posts.length)], "_self"); };</script>
+<script>const posts=["2023/05/29/明月策/","2023/05/29/北邙星梦/","2023/05/29/侠藏/","2023/05/29/天风白马/","2023/04/28/ClickHouse/","2023/03/18/从IOC到Java架构/","2023/03/18/数据库概述/","2023/03/18/微服务/","2023/03/18/数据结构/","2023/03/18/桌搭教程/","2023/03/18/算法设计与分析/","2023/03/18/系统分析与设计/","2023/03/18/面向对象建模技术/","2023/03/14/Go语言设计与实现/","2023/03/13/Git/","2023/02/10/奥恩教学/","2023/02/10/奎桑提教学/","2023/02/10/服务器部署/","2023/02/10/规则引擎/","2023/02/10/风凌夜话/","2023/02/10/青萍/","2023/02/10/巷/","2023/02/10/乱世佳人/","2023/02/10/马克思主义原理/","2023/02/04/Hertz/","2023/01/17/架构设计/","2023/01/17/草木森/","2023/01/17/计算机组成原理/","2023/01/17/鹤扶摇/","2023/01/17/泠音泛海/","2023/01/17/江城一梦/","2023/01/17/近世代数/","2023/01/17/白马遥/","2023/01/17/塑鸿/","2023/01/17/彩云辞/","2023/01/17/Java虚拟机/","2023/01/17/Springboot入门/","2023/01/17/Web基本原理/","2023/01/17/分布式/","2023/01/17/Golang/","2023/01/17/Redis/"];function toRandomPost(){ window.pjax ? pjax.loadUrl('/'+posts[Math.floor(Math.random()*posts.length)]) : window.open('/'+posts[Math.floor(Math.random()*posts.length)], "_self"); };</script>
