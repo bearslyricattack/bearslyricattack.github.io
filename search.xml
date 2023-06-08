@@ -668,6 +668,177 @@
       </tags>
   </entry>
   <entry>
+    <title>Web基本原理</title>
+    <url>/2023/01/17/Web%E5%9F%BA%E6%9C%AC%E5%8E%9F%E7%90%86/</url>
+    <content><![CDATA[<h1 id="Web"><a href="#Web" class="headerlink" title="Web"></a>Web</h1><h1 id="1-绪论"><a href="#1-绪论" class="headerlink" title="1.绪论:"></a>1.绪论:</h1><h2 id="1-1-b-x2F-s架构："><a href="#1-1-b-x2F-s架构：" class="headerlink" title="1.1 b&#x2F;s架构："></a>1.1 b&#x2F;s架构：</h2><p>B&#x2F;S 架构：Browser&#x2F;Server，浏览器&#x2F;服务器 架构模式。</p>
+<p>客户端只需要浏览器，应用程序的逻辑和数据都存储在服务器端浏览器只需要请求服务器，获取Web资源，服务器把Web资源发送给浏览器即可。</p>
+<h2 id="1-2-web应用"><a href="#1-2-web应用" class="headerlink" title="1.2 web应用"></a>1.2 web应用</h2><p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/image-20230524094118036.png" alt="image-20230524094118036"></p>
+<p>静态资源直接返回，动态资源转化为静态资源后再返回.</p>
+<h2 id="1-3-前中后台："><a href="#1-3-前中后台：" class="headerlink" title="1.3 前中后台："></a>1.3 前中后台：</h2><p>前台：即包括与用户直接交互的界面，如：web页、app；也包括服务端各种实时响应用户请求的业务逻辑，如：商品查询、订单系统等。后台：面向内部运营人员的管理系统、配置系统，如：电商配置后台的商品管理、订单管理、会员管理、财务管理等。</p>
+<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/image-20230524094249596.png" alt="image-20230524094249596"></p>
+<h1 id="2-HTML"><a href="#2-HTML" class="headerlink" title="2.HTML:"></a>2.HTML:</h1><h2 id="2-1-语法："><a href="#2-1-语法：" class="headerlink" title="2.1 语法："></a>2.1 语法：</h2><h3 id="2-1-1-文字"><a href="#2-1-1-文字" class="headerlink" title="2.1.1 文字:"></a>2.1.1 文字:</h3><p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/image-20230524094525694.png" alt="image-20230524094525694"></p>
+<h3 id="2-1-2图片"><a href="#2-1-2图片" class="headerlink" title="2.1.2图片:"></a>2.1.2图片:</h3><p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/image-20230524094556727.png" alt="image-20230524094556727"></p>
+<h3 id="2-1-3-标签"><a href="#2-1-3-标签" class="headerlink" title="2.1.3 标签:"></a>2.1.3 标签:</h3><p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/image-20230524094624293.png" alt="image-20230524094624293"></p>
+<h3 id="2-1-4-表格"><a href="#2-1-4-表格" class="headerlink" title="2.1.4 表格:"></a>2.1.4 表格:</h3><p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/image-20230524094729208.png" alt="image-20230524094729208"></p>
+<h3 id="2-1-5-表单"><a href="#2-1-5-表单" class="headerlink" title="2.1.5 表单:"></a>2.1.5 表单:</h3><p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/image-20230524094832142.png" alt="image-20230524094832142"></p>
+<h1 id="3-css"><a href="#3-css" class="headerlink" title="3.css:"></a>3.css:</h1><p>Cascading Style Sheets.层叠样式表.</p>
+<h2 id="3-1-页面构成"><a href="#3-1-页面构成" class="headerlink" title="3.1 页面构成:"></a>3.1 页面构成:</h2><p>HTML标签只用于搭建网页的基础结构；样式交由CSS来设置。</p>
+<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/image-20230524095021130.png" alt="image-20230524095021130"></p>
+<h2 id="3-2-引用方式"><a href="#3-2-引用方式" class="headerlink" title="3.2 引用方式:"></a>3.2 引用方式:</h2><h3 id="3-2-1-行内式"><a href="#3-2-1-行内式" class="headerlink" title="3.2.1 行内式:"></a>3.2.1 行内式:</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&lt;html标签名 style=&quot;属性1:属性值1; 属性2:属性值2; &quot;&gt;    </span><br><span class="line">内容 </span><br><span class="line">&lt;/html标签名&gt;</span><br><span class="line"></span><br><span class="line">&lt;div style=&quot;color: red; font-size: 12px;“ &gt;</span><br><span class="line">      日出江花红胜火</span><br><span class="line">&lt;/div&gt;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h3 id="3-2-2-内嵌式"><a href="#3-2-2-内嵌式" class="headerlink" title="3.2.2 内嵌式:"></a>3.2.2 内嵌式:</h3><p>放在head开头:</p>
+<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/image-20230524095327215.png" alt="image-20230524095327215"></p>
+<h3 id="3-2-3-外链式"><a href="#3-2-3-外链式" class="headerlink" title="3.2.3 外链式:"></a>3.2.3 外链式:</h3><p>放在新的文件中. .css结尾 </p>
+<p>这个文件里面的内容和head里面的style内容是一样的,引用这个文件发生在html的head中.</p>
+<h2 id="3-3-语法"><a href="#3-3-语法" class="headerlink" title="3.3 语法:"></a>3.3 语法:</h2><h3 id="3-3-1-普通选择器："><a href="#3-3-1-普通选择器：" class="headerlink" title="3.3.1 普通选择器："></a>3.3.1 普通选择器：</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">选择器 &#123; 属性1:属性值1; 属性2:属性值2; … &#125;</span><br></pre></td></tr></table></figure>
+
+<p>选择器类型：</p>
+<p>1.根据html标签选择。</p>
+<p>2.把css样式写成类，在html的每一个标签上引用：</p>
+<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/image-20230524095829423.png" alt="image-20230524095829423"></p>
+<p>3.id：</p>
+<p>和类差不多 不过是唯一的。就是只能被引用一次</p>
+<p>定义时：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">#blue&#123;</span><br><span class="line">	color: #000ff</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>4.通配：</p>
+<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/image-20230524100103883.png" alt="image-20230524100103883"></p>
+<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/image-20230524100020569.png" alt="image-20230524100020569"></p>
+<h3 id="3-3-2-特殊选择器："><a href="#3-3-2-特殊选择器：" class="headerlink" title="3.3.2 特殊选择器："></a>3.3.2 特殊选择器：</h3><p>1.后代：</p>
+<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/image-20230524100210856.png" alt="image-20230524100210856"></p>
+<p>不管嵌套了多少标签 统称为后代，而直接标签的后代成为儿子标签。</p>
+<p>2.儿子：</p>
+<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/image-20230524100333199.png" alt="image-20230524100333199"></p>
+<p>3.并集：</p>
+<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/image-20230524100419631.png" alt="image-20230524100419631"></p>
+<p>4.交集：</p>
+<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/image-20230524100503788.png" alt="image-20230524100503788"></p>
+<h2 id="3-4-盒子模型："><a href="#3-4-盒子模型：" class="headerlink" title="3.4 盒子模型："></a>3.4 盒子模型：</h2><p>html中的每一个元素可以看作一个盒子。</p>
+<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/image-20230524100615921.png" alt="image-20230524100615921"></p>
+<h2 id="3-5-三大特征："><a href="#3-5-三大特征：" class="headerlink" title="3.5 三大特征："></a>3.5 三大特征：</h2><h3 id="3-5-1-层叠性："><a href="#3-5-1-层叠性：" class="headerlink" title="3.5.1 层叠性："></a>3.5.1 层叠性：</h3><p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/image-20230524100719874.png" alt="image-20230524100719874"></p>
+<h3 id="3-5-2-继承性："><a href="#3-5-2-继承性：" class="headerlink" title="3.5.2 继承性："></a>3.5.2 继承性：</h3><p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/image-20230524100753450.png" alt="image-20230524100753450"></p>
+<h3 id="3-5-3-优先级："><a href="#3-5-3-优先级：" class="headerlink" title="3.5.3 优先级："></a>3.5.3 优先级：</h3><p>根据上文选择器顺序判断。</p>
+<h1 id="4-javascript"><a href="#4-javascript" class="headerlink" title="4.javascript:"></a>4.javascript:</h1><h2 id="4-1-简介"><a href="#4-1-简介" class="headerlink" title="4.1 简介:"></a>4.1 简介:</h2><p>JavaScript 是一门跨平台、面向对象的脚本语言，用来控制网页行为，使网页可交互。JavaScript 和 Java 是完全不同的语言，不论是概念还是设计。但是基础语法类似。</p>
+<p>JavaScript可以改变页面内容,展示动态的相关信息,变更图片,对表单进行校验等等.</p>
+<h2 id="4-2-引入方式"><a href="#4-2-引入方式" class="headerlink" title="4.2 引入方式:"></a>4.2 引入方式:</h2><h3 id="4-2-1-内部脚本"><a href="#4-2-1-内部脚本" class="headerlink" title="4.2.1 内部脚本:"></a>4.2.1 内部脚本:</h3><p>定义在html页面中.</p>
+<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/image-20230525195643499.png" alt="image-20230525195643499"></p>
+<p>此类标签可以出现在任何地方,一般位于最底部.因为浏览器在加载页面的时候会从上往下进行加载并解析。我们应该让用户看到页面内容，然后再展示动态的效果。</p>
+<h3 id="4-2-2-外部脚本"><a href="#4-2-2-外部脚本" class="headerlink" title="4.2.2 外部脚本:"></a>4.2.2 外部脚本:</h3><p>通过编写js文件的方式,引入js.</p>
+<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/image-20230525195832237.png" alt="image-20230525195832237"></p>
+<h2 id="4-3-基础语法"><a href="#4-3-基础语法" class="headerlink" title="4.3 基础语法:"></a>4.3 基础语法:</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&lt;script&gt;            </span><br><span class="line"></span><br><span class="line">//写入警告框            </span><br><span class="line">window.alert(&quot;hello js1~&quot;);            </span><br><span class="line"></span><br><span class="line">//写入html页面     </span><br><span class="line">document.write(&quot;hello js2~&quot;);   </span><br><span class="line"></span><br><span class="line">//写入浏览器的控制台    </span><br><span class="line">console.log(&quot;hello js3~&quot;);   </span><br><span class="line"></span><br><span class="line">&lt;/script&gt;</span><br><span class="line"></span><br><span class="line">var test = 20;</span><br><span class="line">test = &quot;张三&quot;;</span><br><span class="line">alert(test);</span><br><span class="line"></span><br><span class="line">//var定义的变量是全局变量,可以重复定义.</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">// 函数定义方式1    </span><br><span class="line">function add(a, b) &#123;</span><br><span class="line">        return a + b;    </span><br><span class="line">&#125;   </span><br><span class="line"></span><br><span class="line">// 函数定义方式2</span><br><span class="line">var sub = function (a, b) &#123;</span><br><span class="line">return a - b;  &#125;</span><br><span class="line">var subResult = sub(3,5)    </span><br><span class="line">alert(subResult);</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h2 id="4-4-BOM"><a href="#4-4-BOM" class="headerlink" title="4.4 BOM:"></a>4.4 BOM:</h2><p>Browser Object Model 浏览器对象模型.</p>
+<p>也就是 JavaScript 将浏览器的各个组成部分封装为对象。操作浏览器的各个组成部分就可以通过操作 BOM 中的对象来实现。<br><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/image-20230525200410879.png" alt="image-20230525200410879"></p>
+<h2 id="4-5-DOM"><a href="#4-5-DOM" class="headerlink" title="4.5 DOM:"></a>4.5 DOM:</h2><p>Document Object Model 文档对象模型.</p>
+<p>Document Object Model 文档对象模型。即： JavaScript 将 HTML 文档的各个组成部分封装为对象封装的对象分为：document：整个文档对象element：元素对象attribute：属性对象text：文本对象comment：注释对象.</p>
+<p>通过DOM,可以对html进行操作.</p>
+<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/image-20230525200624000.png" alt="image-20230525200624000"></p>
+<p>使用举例:点亮图片:</p>
+<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/image-20230525200726476.png" alt="image-20230525200726476"></p>
+<h2 id="4-6-事件监听"><a href="#4-6-事件监听" class="headerlink" title="4.6 事件监听:"></a>4.6 事件监听:</h2><p>HTML 事件是发生在 HTML 元素上的“事情”。比如：页面上的 按钮被点击、鼠标移动到元素之上、按下键盘按键等都是事件。</p>
+<p>事件监听是 JavaScript 可以在 事件被侦测到时 执行一段逻辑代码。</p>
+<h1 id="5-http"><a href="#5-http" class="headerlink" title="5.http:"></a>5.http:</h1><h2 id="5-1-定义"><a href="#5-1-定义" class="headerlink" title="5.1: 定义:"></a>5.1: 定义:</h2><p>Hyper Text Transfer Protocol 超文本传输协议</p>
+<h2 id="5-2-特点"><a href="#5-2-特点" class="headerlink" title="5.2 特点:"></a>5.2 特点:</h2><p>基于TCP协议：面向连接，安全。</p>
+<p>基于请求&#x2F;响应模型的：一次请求对应一次响应无状态：对于事务处理没有记忆能力。每次请求-响应之间相互独立。</p>
+<p>优点：速度快</p>
+<p>缺点：多次请求间不能共享数据。</p>
+<h2 id="5-3-消息格式"><a href="#5-3-消息格式" class="headerlink" title="5.3 消息格式:"></a>5.3 消息格式:</h2><p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/image-20230524101342314.png"></p>
+<p>空行的作用是分割正文和请求头.</p>
+<p>响应:</p>
+<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/image-20230524101438649.png" alt="image-20230524101438649"></p>
+<h1 id="6-tomcat"><a href="#6-tomcat" class="headerlink" title="6.tomcat:"></a>6.tomcat:</h1><h2 id="6-1-web服务器"><a href="#6-1-web服务器" class="headerlink" title="6.1 web服务器:"></a>6.1 web服务器:</h2><p>Web服务器是一个应用程序，对HTTP协议的操作进行封装，使得程序员不必直接对协议进行操作，让Web开发更加便捷。主要功能是 ”提供网上信息浏览服务 ”.</p>
+<h2 id="6-2-介绍"><a href="#6-2-介绍" class="headerlink" title="6.2 介绍:"></a>6.2 介绍:</h2><p>Tomcat是Apache软件基金会一个核心项目，是一个开源免费的轻量级Web服务器，支持Servlet&#x2F;JSP少量JavaEE规范。</p>
+<h2 id="6-3-项目结构"><a href="#6-3-项目结构" class="headerlink" title="6.3 项目结构:"></a>6.3 项目结构:</h2><p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/image-20230524101627252.png" alt="image-20230524101627252"></p>
+<h2 id="6-4-启动与部署"><a href="#6-4-启动与部署" class="headerlink" title="6.4 启动与部署:"></a>6.4 启动与部署:</h2><p>启动:</p>
+<p>点击bin下 startup.bat.</p>
+<p>部署:</p>
+<p>拷贝到webapps下,也可以打包成war包在进行拷贝.</p>
+<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/image-20230524101919152.png" alt="image-20230524101919152"></p>
+<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/image-20230524101952986.png" alt="image-20230524101952986"></p>
+<h1 id="7-Servlet"><a href="#7-Servlet" class="headerlink" title="7.Servlet:"></a>7.Servlet:</h1><h2 id="7-1-介绍"><a href="#7-1-介绍" class="headerlink" title="7.1 介绍:"></a>7.1 介绍:</h2><p>Servlet 是 java 提供的一门 动态 web资源开发技术。Servlet 是 Java EE 规范之一，是一个接口。</p>
+<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/image-20230524102931979.png" alt="image-20230524102931979"></p>
+<h2 id="7-2-生命周期"><a href="#7-2-生命周期" class="headerlink" title="7.2 生命周期:"></a>7.2 生命周期:</h2><p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/image-20230524165458955.png" alt="image-20230524165458955"></p>
+<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/image-20230524165522763.png" alt="image-20230524165522763"></p>
+<h2 id="7-3-HTTPServlet"><a href="#7-3-HTTPServlet" class="headerlink" title="7.3 HTTPServlet:"></a>7.3 HTTPServlet:</h2><p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/image-20230524165611678.png" alt="image-20230524165611678"></p>
+<p>还有xml的配置方式:</p>
+<p><strong><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/image-20230524165714050.png" alt="image-20230524165714050"></strong></p>
+<h1 id="8-xml"><a href="#8-xml" class="headerlink" title="8.xml:"></a>8.xml:</h1><p>XML（ Extensible Markup Language），可扩展标记语言。是由 W3C 推出一种类似于 HTML 的标记语言。 可扩展体现在：标签都是自定义的。</p>
+<h2 id="8-1-基本格式"><a href="#8-1-基本格式" class="headerlink" title="8.1 基本格式:"></a>8.1 基本格式:</h2><p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/image-20230524165948944.png" alt="image-20230524165948944"></p>
+<h2 id="8-2-约束"><a href="#8-2-约束" class="headerlink" title="8.2 约束:"></a>8.2 约束:</h2><h3 id="8-2-1-DTD"><a href="#8-2-1-DTD" class="headerlink" title="8.2.1 DTD:"></a>8.2.1 DTD:</h3><p>为了规范xml的标签的格式.</p>
+<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/image-20230524170104514.png" alt="image-20230524170104514"></p>
+<h3 id="8-2-2-Schema"><a href="#8-2-2-Schema" class="headerlink" title="8.2.2 Schema:"></a>8.2.2 Schema:</h3><p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/image-20230524170236775.png" alt="image-20230524170236775"></p>
+<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/image-20230524170255144.png" alt="image-20230524170255144"></p>
+<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/image-20230524170317951.png" alt="image-20230524170317951"></p>
+<h1 id="9-Maven"><a href="#9-Maven" class="headerlink" title="9.Maven:"></a>9.Maven:</h1><h2 id="9-1-简介"><a href="#9-1-简介" class="headerlink" title="9.1 简介:"></a>9.1 简介:</h2><p>Maven 是专门用于管理和构建 Java 项目的工具。主要功能提供了一套标准化的项目结构提供了一套标准化的构建流程（编译，测试，打包，发布……）提供了一套依赖管理机制.</p>
+<h2 id="9-2-项目结构"><a href="#9-2-项目结构" class="headerlink" title="9.2 项目结构:"></a>9.2 项目结构:</h2><p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/image-20230524170505576.png" alt="image-20230524170505576"></p>
+<h2 id="9-3-POM"><a href="#9-3-POM" class="headerlink" title="9.3 POM:"></a>9.3 POM:</h2><p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/image-20230524170549767.png" alt="image-20230524170549767"></p>
+<h2 id="9-4-仓库"><a href="#9-4-仓库" class="headerlink" title="9.4 仓库:"></a>9.4 仓库:</h2><p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/image-20230524170641960.png" alt="image-20230524170641960"><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/image-20230524170657281.png" alt="image-20230524170657281"></p>
+<h2 id="9-5-生命周期"><a href="#9-5-生命周期" class="headerlink" title="9.5 生命周期:"></a>9.5 生命周期:</h2><p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/image-20230524170726626.png" alt="image-20230524170726626"></p>
+<h1 id="10-request-amp-response"><a href="#10-request-amp-response" class="headerlink" title="10. request&amp;response:"></a>10. request&amp;response:</h1><h2 id="10-1-语法"><a href="#10-1-语法" class="headerlink" title="10.1: 语法:"></a>10.1: 语法:</h2><p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/image-20230524170853865.png" alt="image-20230524170853865"></p>
+<h2 id="10-2-访问过程"><a href="#10-2-访问过程" class="headerlink" title="10.2 访问过程:"></a>10.2 访问过程:</h2><p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/image-20230524171015404.png" alt="image-20230524171015404"></p>
+<h1 id="11-JDBC"><a href="#11-JDBC" class="headerlink" title="11.JDBC:"></a>11.JDBC:</h1><h2 id="11-1-简介"><a href="#11-1-简介" class="headerlink" title="11.1 简介:"></a>11.1 简介:</h2><p>JDBC：使用Java语言操作关系型数据库的一套API。全称：( Java DataBase Connectivity ) Java 数据库连接</p>
+<h2 id="11-2-语法"><a href="#11-2-语法" class="headerlink" title="11.2 语法:"></a>11.2 语法:</h2><p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/image-20230524171326623.png" alt="image-20230524171326623"></p>
+<h2 id="11-3-数据库连接池"><a href="#11-3-数据库连接池" class="headerlink" title="11.3 数据库连接池:"></a>11.3 数据库连接池:</h2><p>池化技术.</p>
+<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/image-20230524171619940.png" alt="image-20230524171619940"></p>
+<h2 id="11-4-druid"><a href="#11-4-druid" class="headerlink" title="11.4 druid:"></a>11.4 druid:</h2><p>Druid 连接池是阿里巴巴开源的数据库连接池项目功能强大，性能优秀是 Java 语言最好的数据库连接池之一.</p>
+<h3 id="11-4-1-写配置-引依赖"><a href="#11-4-1-写配置-引依赖" class="headerlink" title="11.4.1 写配置 引依赖."></a>11.4.1 写配置 引依赖.</h3><p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/image-20230524171704094.png" alt="image-20230524171704094"></p>
+<h3 id="11-4-2-代码连接"><a href="#11-4-2-代码连接" class="headerlink" title="11.4.2 代码连接:"></a>11.4.2 代码连接:</h3><p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/image-20230524171756673.png" alt="image-20230524171756673"></p>
+<h2 id="11-5-jdbcTemplate"><a href="#11-5-jdbcTemplate" class="headerlink" title="11.5 jdbcTemplate:"></a>11.5 jdbcTemplate:</h2><p>简化操作:</p>
+<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/image-20230524171947128.png" alt="image-20230524171947128"><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/image-20230524172017726.png" alt="image-20230524172017726"></p>
+<h1 id="12-MVC架构"><a href="#12-MVC架构" class="headerlink" title="12.MVC架构:"></a>12.MVC架构:</h1><p>架构示例图:</p>
+<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/image-20230525164114821.png" alt="image-20230525164114821"></p>
+<h1 id="13-会话技术"><a href="#13-会话技术" class="headerlink" title="13. 会话技术:"></a>13. 会话技术:</h1><h2 id="13-1-会话跟踪"><a href="#13-1-会话跟踪" class="headerlink" title="13.1 会话跟踪:"></a>13.1 会话跟踪:</h2><p>浏览器无状态,会话跟踪技术是为了解决这个问题出现的技术.</p>
+<h2 id="13-2-cookie"><a href="#13-2-cookie" class="headerlink" title="13.2 cookie:"></a>13.2 cookie:</h2><p>存储在客户端.认证过程如下:</p>
+<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/web_1684982156224.png" alt="web_1684982156224"></p>
+<h2 id="13-3-session"><a href="#13-3-session" class="headerlink" title="13.3 session:"></a>13.3 session:</h2><p>cookie的升级版,存储在服务器端.认证过程如下:<br><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/web_1684982167273.png" alt="web_1684982167273"></p>
+<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/Screenshot_20230525_103517.jpg" alt="Screenshot_20230525_103517"></p>
+<p>基本使用:</p>
+<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/image-20230525165325065.png" alt="image-20230525165325065"></p>
+<h3 id="13-3-1-钝化和活化"><a href="#13-3-1-钝化和活化" class="headerlink" title="13.3.1 钝化和活化:"></a>13.3.1 钝化和活化:</h3><p>钝化：在服务器正常关闭后，Tomcat 会自动将 Session 数据写入硬盘的文件中。钝化的数据路径为: 项目目录\target\tomcat\work\Tomcat\ localhost\项目名称\SESSIONS.ser.</p>
+<p>活化：再次启动服务器后，从文件中加载数据到 Session 中.</p>
+<h2 id="13-4-小结"><a href="#13-4-小结" class="headerlink" title="13.4 小结:"></a>13.4 小结:</h2><p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/image-20230525165429477.png" alt="image-20230525165429477"></p>
+<h1 id="14-Filter"><a href="#14-Filter" class="headerlink" title="14. Filter:"></a>14. Filter:</h1><h2 id="14-1-简介"><a href="#14-1-简介" class="headerlink" title="14.1 简介:"></a>14.1 简介:</h2><p>拦截特定的请求,并进行一系列操作.</p>
+<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/image-20230525165614821.png" alt="image-20230525165614821"></p>
+<h2 id="14-2-开发"><a href="#14-2-开发" class="headerlink" title="14.2 开发:"></a>14.2 开发:</h2><h3 id="14-2-1-demo"><a href="#14-2-1-demo" class="headerlink" title="14.2.1 demo:"></a>14.2.1 demo:</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">//配置拦截路径.也可以通过xml的方式进行配置</span><br><span class="line">@WebFilter(&quot;/*&quot;)</span><br><span class="line"></span><br><span class="line">//实现filer接口</span><br><span class="line">public class FilterDemo1 implements Filter &#123;    </span><br><span class="line"></span><br><span class="line">//初始化</span><br><span class="line">@Override    </span><br><span class="line">public void init(FilterConfig filterConfig) throws ServletException &#123;    &#125;    </span><br><span class="line"></span><br><span class="line"></span><br><span class="line">//拦截的具体方法</span><br><span class="line">@Override    </span><br><span class="line">public void doFilter(ServletRequest servletRequest,ServletResponse servletResponse,FilterChainfilterChain)throws IOException, ServletException &#123;</span><br><span class="line"></span><br><span class="line">//具体逻辑</span><br><span class="line">System.out.println(“filterDemo1 过滤....&quot;);       </span><br><span class="line"></span><br><span class="line"></span><br><span class="line">//放行语句</span><br><span class="line">filterChain.doFilter(servletRequest,servletResponse);    </span><br><span class="line">&#125;    </span><br><span class="line"></span><br><span class="line">//销毁</span><br><span class="line">@Override    public void destroy() &#123;    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="14-3-过滤器链"><a href="#14-3-过滤器链" class="headerlink" title="14.3 过滤器链:"></a>14.3 过滤器链:</h2><p>当配置多个过滤器时,称为过滤器链.</p>
+<p>执行顺序:</p>
+<p>注解配置时过滤器执行顺序：当使用注解配置多个 Filter 时，用户无法控制它们的执行顺序，Filter的执行顺序按照类名的字符串比较规则比较，值小的先执行AFilter 和 BFilter，AFilter就先执行web.xml配置： <filter-mapping>谁定义在上边，谁先执行</p>
+<h1 id="15-Ajax"><a href="#15-Ajax" class="headerlink" title="15.Ajax:"></a>15.Ajax:</h1><p>Ajax：ASynchronous JavaScript And XML：异步 的 JavaScript 和 XML。</p>
+<p>JavaScript 表明该技术和前端相关XML 是指以此进行数据交换.</p>
+<p>Ajax 的作用：与服务器进行数据交换异步交互.</p>
+<h2 id="15-1-同步-异步交互"><a href="#15-1-同步-异步交互" class="headerlink" title="15.1 同步.异步交互:"></a>15.1 同步.异步交互:</h2><p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/image-20230525170425027.png" alt="image-20230525170425027"></p>
+<h2 id="15-2-体系结构"><a href="#15-2-体系结构" class="headerlink" title="15.2 体系结构:"></a>15.2 体系结构:</h2><p>通过ajax,后端可以不向前端发送html文件,而是发送特定格式的数据.避免了在Java中编写html的复杂情况出现.</p>
+<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/image-20230525170452141.png" alt="image-20230525170452141"></p>
+<h2 id="15-3-入门"><a href="#15-3-入门" class="headerlink" title="15.3 入门:"></a>15.3 入门:</h2><p>服务端:</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">@WebServlet(&quot;/selectUserServlet&quot;)</span><br><span class="line">public class SelectUserServlet extends HttpServlet &#123;    </span><br><span class="line"></span><br><span class="line">@Override</span><br><span class="line">protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException &#123;</span><br><span class="line"></span><br><span class="line"> //1. 接收用户名        </span><br><span class="line"> String username = request.getParameter(&quot;username&quot;);       </span><br><span class="line"> //2. 此处不进行业务逻辑处理，直接给 flag 赋值为 true，表明用户名占用        </span><br><span class="line"> boolean flag = true;        </span><br><span class="line"> //3. 响应标记        </span><br><span class="line"> response.getWriter().write(&quot;&quot; + flag);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">@Override    </span><br><span class="line">protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException &#123;</span><br><span class="line">this.doGet(request, response);    </span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>客户端:</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">//1. 给用户名输入框绑定 失去焦点事件</span><br><span class="line">document.getElementById(&quot;username&quot;).onblur = function () &#123;</span><br><span class="line"></span><br><span class="line">//2. 发送ajax请求    </span><br><span class="line"></span><br><span class="line">// 获取用户名的值    </span><br><span class="line">var username = this.value;    </span><br><span class="line"></span><br><span class="line">//2.1. 创建核心对象    var xhttp;    </span><br><span class="line"></span><br><span class="line">if (window.XMLHttpRequest) &#123;        </span><br><span class="line">xhttp = new XMLHttpRequest();    </span><br><span class="line">&#125;else &#123;</span><br><span class="line">xhttp = new ActiveXObject(&quot;Microsoft.XMLHTTP&quot;);    </span><br><span class="line">&#125;    </span><br><span class="line"></span><br><span class="line">//2.2. 发送请求    </span><br><span class="line">xhttp.open(&quot;GET&quot;, &quot;http://localhost:8080/ajax-demo/selectUserServlet?username=&quot;+username);    </span><br><span class="line">xhttp.send();    </span><br><span class="line"></span><br><span class="line">//2.3. 获取响应    </span><br><span class="line">xhttp.onreadystatechange = function() &#123;</span><br><span class="line">if (this.readyState == 4 &amp;&amp; this.status == 200) &#123;</span><br><span class="line"></span><br><span class="line">if(this.responseText == &quot;true&quot;)&#123;                </span><br><span class="line">//用户名存在，显示提示信息                </span><br><span class="line">document.getElementById(&quot;username_err&quot;).style.display = &#x27;&#x27;;            </span><br><span class="line">&#125;else &#123;</span><br><span class="line">//用户名不存在 ，清楚提示信息</span><br><span class="line">document.getElementById(&quot;username_err&quot;).style.display = &#x27;none&#x27;;            </span><br><span class="line"></span><br><span class="line">&#125;        </span><br><span class="line">&#125;    </span><br><span class="line">&#125;;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="15-4-JQuery"><a href="#15-4-JQuery" class="headerlink" title="15.4 JQuery:"></a>15.4 JQuery:</h2><p>主要包括:</p>
+<p>$.ajax() &#x2F;&#x2F; jQuery 底层 AJAX 实现</p>
+<p>$.get()  &#x2F;&#x2F; get方式</p>
+<p>$.post() &#x2F;&#x2F; post方式</p>
+<p>对原生的ajax进行了封装,使用变得更加的便捷.</p>
+<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/image-20230525172055054.png" alt="image-20230525172055054"></p>
+<p>success和error的值是回调函数:在函数内部定义并使用的函数.</p>
+<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/image-20230525172408869.png" alt="image-20230525172408869"></p>
+<p>post与get类似,只是把.get换成.post.</p>
+<h2 id="15-5-axios"><a href="#15-5-axios" class="headerlink" title="15.5 axios:"></a>15.5 axios:</h2><p>同样是对原生的ajax进行封装没达到简化书写的目的.</p>
+<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/image-20230525172616668.png" alt="image-20230525172616668"></p>
+<p>.then是回调函数.在请求成功响应过后才会被调用. resp是对后端返回的数据进行封装过后的对象.</p>
+<h2 id="15-6-JSON"><a href="#15-6-JSON" class="headerlink" title="15.6 JSON:"></a>15.6 JSON:</h2><p> JavaScript Object Notation:JavaScript 对象表示法</p>
+<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/image-20230525174907410.png" alt="image-20230525174907410"></p>
+]]></content>
+      <categories>
+        <category>笔记</category>
+      </categories>
+      <tags>
+        <tag>Java</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Java虚拟机</title>
     <url>/2023/01/17/Java%E8%99%9A%E6%8B%9F%E6%9C%BA/</url>
     <content><![CDATA[<h1 id="1-走进Java"><a href="#1-走进Java" class="headerlink" title="1.走进Java:"></a>1.走进Java:</h1><h2 id="1-1-Java技术体系"><a href="#1-1-Java技术体系" class="headerlink" title="1.1 Java技术体系:"></a>1.1 Java技术体系:</h2><h3 id="1-1-1-JDK"><a href="#1-1-1-JDK" class="headerlink" title="1.1.1 JDK:"></a>1.1.1 JDK:</h3><p>JDK,全拼为”Java Development Kit”,由Java语言,Java虚拟机,Java类库三部分组成.JDK是支持Java开发所需的最小的环境.经常以JDK代指整个的Java技术体系.</p>
@@ -869,346 +1040,6 @@
       </categories>
       <tags>
         <tag>Java</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Web基本原理</title>
-    <url>/2023/01/17/Web%E5%9F%BA%E6%9C%AC%E5%8E%9F%E7%90%86/</url>
-    <content><![CDATA[<h1 id="Web"><a href="#Web" class="headerlink" title="Web"></a>Web</h1><h1 id="1-绪论"><a href="#1-绪论" class="headerlink" title="1.绪论:"></a>1.绪论:</h1><h2 id="1-1-b-x2F-s架构："><a href="#1-1-b-x2F-s架构：" class="headerlink" title="1.1 b&#x2F;s架构："></a>1.1 b&#x2F;s架构：</h2><p>B&#x2F;S 架构：Browser&#x2F;Server，浏览器&#x2F;服务器 架构模式。</p>
-<p>客户端只需要浏览器，应用程序的逻辑和数据都存储在服务器端浏览器只需要请求服务器，获取Web资源，服务器把Web资源发送给浏览器即可。</p>
-<h2 id="1-2-web应用"><a href="#1-2-web应用" class="headerlink" title="1.2 web应用"></a>1.2 web应用</h2><p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/image-20230524094118036.png" alt="image-20230524094118036"></p>
-<p>静态资源直接返回，动态资源转化为静态资源后再返回.</p>
-<h2 id="1-3-前中后台："><a href="#1-3-前中后台：" class="headerlink" title="1.3 前中后台："></a>1.3 前中后台：</h2><p>前台：即包括与用户直接交互的界面，如：web页、app；也包括服务端各种实时响应用户请求的业务逻辑，如：商品查询、订单系统等。后台：面向内部运营人员的管理系统、配置系统，如：电商配置后台的商品管理、订单管理、会员管理、财务管理等。</p>
-<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/image-20230524094249596.png" alt="image-20230524094249596"></p>
-<h1 id="2-HTML"><a href="#2-HTML" class="headerlink" title="2.HTML:"></a>2.HTML:</h1><h2 id="2-1-语法："><a href="#2-1-语法：" class="headerlink" title="2.1 语法："></a>2.1 语法：</h2><h3 id="2-1-1-文字"><a href="#2-1-1-文字" class="headerlink" title="2.1.1 文字:"></a>2.1.1 文字:</h3><p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/image-20230524094525694.png" alt="image-20230524094525694"></p>
-<h3 id="2-1-2图片"><a href="#2-1-2图片" class="headerlink" title="2.1.2图片:"></a>2.1.2图片:</h3><p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/image-20230524094556727.png" alt="image-20230524094556727"></p>
-<h3 id="2-1-3-标签"><a href="#2-1-3-标签" class="headerlink" title="2.1.3 标签:"></a>2.1.3 标签:</h3><p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/image-20230524094624293.png" alt="image-20230524094624293"></p>
-<h3 id="2-1-4-表格"><a href="#2-1-4-表格" class="headerlink" title="2.1.4 表格:"></a>2.1.4 表格:</h3><p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/image-20230524094729208.png" alt="image-20230524094729208"></p>
-<h3 id="2-1-5-表单"><a href="#2-1-5-表单" class="headerlink" title="2.1.5 表单:"></a>2.1.5 表单:</h3><p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/image-20230524094832142.png" alt="image-20230524094832142"></p>
-<h1 id="3-css"><a href="#3-css" class="headerlink" title="3.css:"></a>3.css:</h1><p>Cascading Style Sheets.层叠样式表.</p>
-<h2 id="3-1-页面构成"><a href="#3-1-页面构成" class="headerlink" title="3.1 页面构成:"></a>3.1 页面构成:</h2><p>HTML标签只用于搭建网页的基础结构；样式交由CSS来设置。</p>
-<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/image-20230524095021130.png" alt="image-20230524095021130"></p>
-<h2 id="3-2-引用方式"><a href="#3-2-引用方式" class="headerlink" title="3.2 引用方式:"></a>3.2 引用方式:</h2><h3 id="3-2-1-行内式"><a href="#3-2-1-行内式" class="headerlink" title="3.2.1 行内式:"></a>3.2.1 行内式:</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&lt;html标签名 style=&quot;属性1:属性值1; 属性2:属性值2; &quot;&gt;    </span><br><span class="line">内容 </span><br><span class="line">&lt;/html标签名&gt;</span><br><span class="line"></span><br><span class="line">&lt;div style=&quot;color: red; font-size: 12px;“ &gt;</span><br><span class="line">      日出江花红胜火</span><br><span class="line">&lt;/div&gt;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<h3 id="3-2-2-内嵌式"><a href="#3-2-2-内嵌式" class="headerlink" title="3.2.2 内嵌式:"></a>3.2.2 内嵌式:</h3><p>放在head开头:</p>
-<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/image-20230524095327215.png" alt="image-20230524095327215"></p>
-<h3 id="3-2-3-外链式"><a href="#3-2-3-外链式" class="headerlink" title="3.2.3 外链式:"></a>3.2.3 外链式:</h3><p>放在新的文件中. .css结尾 </p>
-<p>这个文件里面的内容和head里面的style内容是一样的,引用这个文件发生在html的head中.</p>
-<h2 id="3-3-语法"><a href="#3-3-语法" class="headerlink" title="3.3 语法:"></a>3.3 语法:</h2><h3 id="3-3-1-普通选择器："><a href="#3-3-1-普通选择器：" class="headerlink" title="3.3.1 普通选择器："></a>3.3.1 普通选择器：</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">选择器 &#123; 属性1:属性值1; 属性2:属性值2; … &#125;</span><br></pre></td></tr></table></figure>
-
-<p>选择器类型：</p>
-<p>1.根据html标签选择。</p>
-<p>2.把css样式写成类，在html的每一个标签上引用：</p>
-<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/image-20230524095829423.png" alt="image-20230524095829423"></p>
-<p>3.id：</p>
-<p>和类差不多 不过是唯一的。就是只能被引用一次</p>
-<p>定义时：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">#blue&#123;</span><br><span class="line">	color: #000ff</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>4.通配：</p>
-<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/image-20230524100103883.png" alt="image-20230524100103883"></p>
-<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/image-20230524100020569.png" alt="image-20230524100020569"></p>
-<h3 id="3-3-2-特殊选择器："><a href="#3-3-2-特殊选择器：" class="headerlink" title="3.3.2 特殊选择器："></a>3.3.2 特殊选择器：</h3><p>1.后代：</p>
-<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/image-20230524100210856.png" alt="image-20230524100210856"></p>
-<p>不管嵌套了多少标签 统称为后代，而直接标签的后代成为儿子标签。</p>
-<p>2.儿子：</p>
-<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/image-20230524100333199.png" alt="image-20230524100333199"></p>
-<p>3.并集：</p>
-<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/image-20230524100419631.png" alt="image-20230524100419631"></p>
-<p>4.交集：</p>
-<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/image-20230524100503788.png" alt="image-20230524100503788"></p>
-<h2 id="3-4-盒子模型："><a href="#3-4-盒子模型：" class="headerlink" title="3.4 盒子模型："></a>3.4 盒子模型：</h2><p>html中的每一个元素可以看作一个盒子。</p>
-<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/image-20230524100615921.png" alt="image-20230524100615921"></p>
-<h2 id="3-5-三大特征："><a href="#3-5-三大特征：" class="headerlink" title="3.5 三大特征："></a>3.5 三大特征：</h2><h3 id="3-5-1-层叠性："><a href="#3-5-1-层叠性：" class="headerlink" title="3.5.1 层叠性："></a>3.5.1 层叠性：</h3><p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/image-20230524100719874.png" alt="image-20230524100719874"></p>
-<h3 id="3-5-2-继承性："><a href="#3-5-2-继承性：" class="headerlink" title="3.5.2 继承性："></a>3.5.2 继承性：</h3><p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/image-20230524100753450.png" alt="image-20230524100753450"></p>
-<h3 id="3-5-3-优先级："><a href="#3-5-3-优先级：" class="headerlink" title="3.5.3 优先级："></a>3.5.3 优先级：</h3><p>根据上文选择器顺序判断。</p>
-<h1 id="4-javascript"><a href="#4-javascript" class="headerlink" title="4.javascript:"></a>4.javascript:</h1><h2 id="4-1-简介"><a href="#4-1-简介" class="headerlink" title="4.1 简介:"></a>4.1 简介:</h2><p>JavaScript 是一门跨平台、面向对象的脚本语言，用来控制网页行为，使网页可交互。JavaScript 和 Java 是完全不同的语言，不论是概念还是设计。但是基础语法类似。</p>
-<p>JavaScript可以改变页面内容,展示动态的相关信息,变更图片,对表单进行校验等等.</p>
-<h2 id="4-2-引入方式"><a href="#4-2-引入方式" class="headerlink" title="4.2 引入方式:"></a>4.2 引入方式:</h2><h3 id="4-2-1-内部脚本"><a href="#4-2-1-内部脚本" class="headerlink" title="4.2.1 内部脚本:"></a>4.2.1 内部脚本:</h3><p>定义在html页面中.</p>
-<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/image-20230525195643499.png" alt="image-20230525195643499"></p>
-<p>此类标签可以出现在任何地方,一般位于最底部.因为浏览器在加载页面的时候会从上往下进行加载并解析。我们应该让用户看到页面内容，然后再展示动态的效果。</p>
-<h3 id="4-2-2-外部脚本"><a href="#4-2-2-外部脚本" class="headerlink" title="4.2.2 外部脚本:"></a>4.2.2 外部脚本:</h3><p>通过编写js文件的方式,引入js.</p>
-<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/image-20230525195832237.png" alt="image-20230525195832237"></p>
-<h2 id="4-3-基础语法"><a href="#4-3-基础语法" class="headerlink" title="4.3 基础语法:"></a>4.3 基础语法:</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&lt;script&gt;            </span><br><span class="line"></span><br><span class="line">//写入警告框            </span><br><span class="line">window.alert(&quot;hello js1~&quot;);            </span><br><span class="line"></span><br><span class="line">//写入html页面     </span><br><span class="line">document.write(&quot;hello js2~&quot;);   </span><br><span class="line"></span><br><span class="line">//写入浏览器的控制台    </span><br><span class="line">console.log(&quot;hello js3~&quot;);   </span><br><span class="line"></span><br><span class="line">&lt;/script&gt;</span><br><span class="line"></span><br><span class="line">var test = 20;</span><br><span class="line">test = &quot;张三&quot;;</span><br><span class="line">alert(test);</span><br><span class="line"></span><br><span class="line">//var定义的变量是全局变量,可以重复定义.</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">// 函数定义方式1    </span><br><span class="line">function add(a, b) &#123;</span><br><span class="line">        return a + b;    </span><br><span class="line">&#125;   </span><br><span class="line"></span><br><span class="line">// 函数定义方式2</span><br><span class="line">var sub = function (a, b) &#123;</span><br><span class="line">return a - b;  &#125;</span><br><span class="line">var subResult = sub(3,5)    </span><br><span class="line">alert(subResult);</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<h2 id="4-4-BOM"><a href="#4-4-BOM" class="headerlink" title="4.4 BOM:"></a>4.4 BOM:</h2><p>Browser Object Model 浏览器对象模型.</p>
-<p>也就是 JavaScript 将浏览器的各个组成部分封装为对象。操作浏览器的各个组成部分就可以通过操作 BOM 中的对象来实现。<br><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/image-20230525200410879.png" alt="image-20230525200410879"></p>
-<h2 id="4-5-DOM"><a href="#4-5-DOM" class="headerlink" title="4.5 DOM:"></a>4.5 DOM:</h2><p>Document Object Model 文档对象模型.</p>
-<p>Document Object Model 文档对象模型。即： JavaScript 将 HTML 文档的各个组成部分封装为对象封装的对象分为：document：整个文档对象element：元素对象attribute：属性对象text：文本对象comment：注释对象.</p>
-<p>通过DOM,可以对html进行操作.</p>
-<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/image-20230525200624000.png" alt="image-20230525200624000"></p>
-<p>使用举例:点亮图片:</p>
-<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/image-20230525200726476.png" alt="image-20230525200726476"></p>
-<h2 id="4-6-事件监听"><a href="#4-6-事件监听" class="headerlink" title="4.6 事件监听:"></a>4.6 事件监听:</h2><p>HTML 事件是发生在 HTML 元素上的“事情”。比如：页面上的 按钮被点击、鼠标移动到元素之上、按下键盘按键等都是事件。</p>
-<p>事件监听是 JavaScript 可以在 事件被侦测到时 执行一段逻辑代码。</p>
-<h1 id="5-http"><a href="#5-http" class="headerlink" title="5.http:"></a>5.http:</h1><h2 id="5-1-定义"><a href="#5-1-定义" class="headerlink" title="5.1: 定义:"></a>5.1: 定义:</h2><p>Hyper Text Transfer Protocol 超文本传输协议</p>
-<h2 id="5-2-特点"><a href="#5-2-特点" class="headerlink" title="5.2 特点:"></a>5.2 特点:</h2><p>基于TCP协议：面向连接，安全。</p>
-<p>基于请求&#x2F;响应模型的：一次请求对应一次响应无状态：对于事务处理没有记忆能力。每次请求-响应之间相互独立。</p>
-<p>优点：速度快</p>
-<p>缺点：多次请求间不能共享数据。</p>
-<h2 id="5-3-消息格式"><a href="#5-3-消息格式" class="headerlink" title="5.3 消息格式:"></a>5.3 消息格式:</h2><p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/image-20230524101342314.png"></p>
-<p>空行的作用是分割正文和请求头.</p>
-<p>响应:</p>
-<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/image-20230524101438649.png" alt="image-20230524101438649"></p>
-<h1 id="6-tomcat"><a href="#6-tomcat" class="headerlink" title="6.tomcat:"></a>6.tomcat:</h1><h2 id="6-1-web服务器"><a href="#6-1-web服务器" class="headerlink" title="6.1 web服务器:"></a>6.1 web服务器:</h2><p>Web服务器是一个应用程序，对HTTP协议的操作进行封装，使得程序员不必直接对协议进行操作，让Web开发更加便捷。主要功能是 ”提供网上信息浏览服务 ”.</p>
-<h2 id="6-2-介绍"><a href="#6-2-介绍" class="headerlink" title="6.2 介绍:"></a>6.2 介绍:</h2><p>Tomcat是Apache软件基金会一个核心项目，是一个开源免费的轻量级Web服务器，支持Servlet&#x2F;JSP少量JavaEE规范。</p>
-<h2 id="6-3-项目结构"><a href="#6-3-项目结构" class="headerlink" title="6.3 项目结构:"></a>6.3 项目结构:</h2><p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/image-20230524101627252.png" alt="image-20230524101627252"></p>
-<h2 id="6-4-启动与部署"><a href="#6-4-启动与部署" class="headerlink" title="6.4 启动与部署:"></a>6.4 启动与部署:</h2><p>启动:</p>
-<p>点击bin下 startup.bat.</p>
-<p>部署:</p>
-<p>拷贝到webapps下,也可以打包成war包在进行拷贝.</p>
-<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/image-20230524101919152.png" alt="image-20230524101919152"></p>
-<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/image-20230524101952986.png" alt="image-20230524101952986"></p>
-<h1 id="7-Servlet"><a href="#7-Servlet" class="headerlink" title="7.Servlet:"></a>7.Servlet:</h1><h2 id="7-1-介绍"><a href="#7-1-介绍" class="headerlink" title="7.1 介绍:"></a>7.1 介绍:</h2><p>Servlet 是 java 提供的一门 动态 web资源开发技术。Servlet 是 Java EE 规范之一，是一个接口。</p>
-<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/image-20230524102931979.png" alt="image-20230524102931979"></p>
-<h2 id="7-2-生命周期"><a href="#7-2-生命周期" class="headerlink" title="7.2 生命周期:"></a>7.2 生命周期:</h2><p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/image-20230524165458955.png" alt="image-20230524165458955"></p>
-<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/image-20230524165522763.png" alt="image-20230524165522763"></p>
-<h2 id="7-3-HTTPServlet"><a href="#7-3-HTTPServlet" class="headerlink" title="7.3 HTTPServlet:"></a>7.3 HTTPServlet:</h2><p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/image-20230524165611678.png" alt="image-20230524165611678"></p>
-<p>还有xml的配置方式:</p>
-<p><strong><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/image-20230524165714050.png" alt="image-20230524165714050"></strong></p>
-<h1 id="8-xml"><a href="#8-xml" class="headerlink" title="8.xml:"></a>8.xml:</h1><p>XML（ Extensible Markup Language），可扩展标记语言。是由 W3C 推出一种类似于 HTML 的标记语言。 可扩展体现在：标签都是自定义的。</p>
-<h2 id="8-1-基本格式"><a href="#8-1-基本格式" class="headerlink" title="8.1 基本格式:"></a>8.1 基本格式:</h2><p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/image-20230524165948944.png" alt="image-20230524165948944"></p>
-<h2 id="8-2-约束"><a href="#8-2-约束" class="headerlink" title="8.2 约束:"></a>8.2 约束:</h2><h3 id="8-2-1-DTD"><a href="#8-2-1-DTD" class="headerlink" title="8.2.1 DTD:"></a>8.2.1 DTD:</h3><p>为了规范xml的标签的格式.</p>
-<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/image-20230524170104514.png" alt="image-20230524170104514"></p>
-<h3 id="8-2-2-Schema"><a href="#8-2-2-Schema" class="headerlink" title="8.2.2 Schema:"></a>8.2.2 Schema:</h3><p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/image-20230524170236775.png" alt="image-20230524170236775"></p>
-<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/image-20230524170255144.png" alt="image-20230524170255144"></p>
-<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/image-20230524170317951.png" alt="image-20230524170317951"></p>
-<h1 id="9-Maven"><a href="#9-Maven" class="headerlink" title="9.Maven:"></a>9.Maven:</h1><h2 id="9-1-简介"><a href="#9-1-简介" class="headerlink" title="9.1 简介:"></a>9.1 简介:</h2><p>Maven 是专门用于管理和构建 Java 项目的工具。主要功能提供了一套标准化的项目结构提供了一套标准化的构建流程（编译，测试，打包，发布……）提供了一套依赖管理机制.</p>
-<h2 id="9-2-项目结构"><a href="#9-2-项目结构" class="headerlink" title="9.2 项目结构:"></a>9.2 项目结构:</h2><p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/image-20230524170505576.png" alt="image-20230524170505576"></p>
-<h2 id="9-3-POM"><a href="#9-3-POM" class="headerlink" title="9.3 POM:"></a>9.3 POM:</h2><p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/image-20230524170549767.png" alt="image-20230524170549767"></p>
-<h2 id="9-4-仓库"><a href="#9-4-仓库" class="headerlink" title="9.4 仓库:"></a>9.4 仓库:</h2><p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/image-20230524170641960.png" alt="image-20230524170641960"><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/image-20230524170657281.png" alt="image-20230524170657281"></p>
-<h2 id="9-5-生命周期"><a href="#9-5-生命周期" class="headerlink" title="9.5 生命周期:"></a>9.5 生命周期:</h2><p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/image-20230524170726626.png" alt="image-20230524170726626"></p>
-<h1 id="10-request-amp-response"><a href="#10-request-amp-response" class="headerlink" title="10. request&amp;response:"></a>10. request&amp;response:</h1><h2 id="10-1-语法"><a href="#10-1-语法" class="headerlink" title="10.1: 语法:"></a>10.1: 语法:</h2><p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/image-20230524170853865.png" alt="image-20230524170853865"></p>
-<h2 id="10-2-访问过程"><a href="#10-2-访问过程" class="headerlink" title="10.2 访问过程:"></a>10.2 访问过程:</h2><p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/image-20230524171015404.png" alt="image-20230524171015404"></p>
-<h1 id="11-JDBC"><a href="#11-JDBC" class="headerlink" title="11.JDBC:"></a>11.JDBC:</h1><h2 id="11-1-简介"><a href="#11-1-简介" class="headerlink" title="11.1 简介:"></a>11.1 简介:</h2><p>JDBC：使用Java语言操作关系型数据库的一套API。全称：( Java DataBase Connectivity ) Java 数据库连接</p>
-<h2 id="11-2-语法"><a href="#11-2-语法" class="headerlink" title="11.2 语法:"></a>11.2 语法:</h2><p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/image-20230524171326623.png" alt="image-20230524171326623"></p>
-<h2 id="11-3-数据库连接池"><a href="#11-3-数据库连接池" class="headerlink" title="11.3 数据库连接池:"></a>11.3 数据库连接池:</h2><p>池化技术.</p>
-<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/image-20230524171619940.png" alt="image-20230524171619940"></p>
-<h2 id="11-4-druid"><a href="#11-4-druid" class="headerlink" title="11.4 druid:"></a>11.4 druid:</h2><p>Druid 连接池是阿里巴巴开源的数据库连接池项目功能强大，性能优秀是 Java 语言最好的数据库连接池之一.</p>
-<h3 id="11-4-1-写配置-引依赖"><a href="#11-4-1-写配置-引依赖" class="headerlink" title="11.4.1 写配置 引依赖."></a>11.4.1 写配置 引依赖.</h3><p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/image-20230524171704094.png" alt="image-20230524171704094"></p>
-<h3 id="11-4-2-代码连接"><a href="#11-4-2-代码连接" class="headerlink" title="11.4.2 代码连接:"></a>11.4.2 代码连接:</h3><p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/image-20230524171756673.png" alt="image-20230524171756673"></p>
-<h2 id="11-5-jdbcTemplate"><a href="#11-5-jdbcTemplate" class="headerlink" title="11.5 jdbcTemplate:"></a>11.5 jdbcTemplate:</h2><p>简化操作:</p>
-<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/image-20230524171947128.png" alt="image-20230524171947128"><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/image-20230524172017726.png" alt="image-20230524172017726"></p>
-<h1 id="12-MVC架构"><a href="#12-MVC架构" class="headerlink" title="12.MVC架构:"></a>12.MVC架构:</h1><p>架构示例图:</p>
-<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/image-20230525164114821.png" alt="image-20230525164114821"></p>
-<h1 id="13-会话技术"><a href="#13-会话技术" class="headerlink" title="13. 会话技术:"></a>13. 会话技术:</h1><h2 id="13-1-会话跟踪"><a href="#13-1-会话跟踪" class="headerlink" title="13.1 会话跟踪:"></a>13.1 会话跟踪:</h2><p>浏览器无状态,会话跟踪技术是为了解决这个问题出现的技术.</p>
-<h2 id="13-2-cookie"><a href="#13-2-cookie" class="headerlink" title="13.2 cookie:"></a>13.2 cookie:</h2><p>存储在客户端.认证过程如下:</p>
-<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/web_1684982156224.png" alt="web_1684982156224"></p>
-<h2 id="13-3-session"><a href="#13-3-session" class="headerlink" title="13.3 session:"></a>13.3 session:</h2><p>cookie的升级版,存储在服务器端.认证过程如下:<br><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/web_1684982167273.png" alt="web_1684982167273"></p>
-<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/Screenshot_20230525_103517.jpg" alt="Screenshot_20230525_103517"></p>
-<p>基本使用:</p>
-<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/image-20230525165325065.png" alt="image-20230525165325065"></p>
-<h3 id="13-3-1-钝化和活化"><a href="#13-3-1-钝化和活化" class="headerlink" title="13.3.1 钝化和活化:"></a>13.3.1 钝化和活化:</h3><p>钝化：在服务器正常关闭后，Tomcat 会自动将 Session 数据写入硬盘的文件中。钝化的数据路径为: 项目目录\target\tomcat\work\Tomcat\ localhost\项目名称\SESSIONS.ser.</p>
-<p>活化：再次启动服务器后，从文件中加载数据到 Session 中.</p>
-<h2 id="13-4-小结"><a href="#13-4-小结" class="headerlink" title="13.4 小结:"></a>13.4 小结:</h2><p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/image-20230525165429477.png" alt="image-20230525165429477"></p>
-<h1 id="14-Filter"><a href="#14-Filter" class="headerlink" title="14. Filter:"></a>14. Filter:</h1><h2 id="14-1-简介"><a href="#14-1-简介" class="headerlink" title="14.1 简介:"></a>14.1 简介:</h2><p>拦截特定的请求,并进行一系列操作.</p>
-<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/image-20230525165614821.png" alt="image-20230525165614821"></p>
-<h2 id="14-2-开发"><a href="#14-2-开发" class="headerlink" title="14.2 开发:"></a>14.2 开发:</h2><h3 id="14-2-1-demo"><a href="#14-2-1-demo" class="headerlink" title="14.2.1 demo:"></a>14.2.1 demo:</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">//配置拦截路径.也可以通过xml的方式进行配置</span><br><span class="line">@WebFilter(&quot;/*&quot;)</span><br><span class="line"></span><br><span class="line">//实现filer接口</span><br><span class="line">public class FilterDemo1 implements Filter &#123;    </span><br><span class="line"></span><br><span class="line">//初始化</span><br><span class="line">@Override    </span><br><span class="line">public void init(FilterConfig filterConfig) throws ServletException &#123;    &#125;    </span><br><span class="line"></span><br><span class="line"></span><br><span class="line">//拦截的具体方法</span><br><span class="line">@Override    </span><br><span class="line">public void doFilter(ServletRequest servletRequest,ServletResponse servletResponse,FilterChainfilterChain)throws IOException, ServletException &#123;</span><br><span class="line"></span><br><span class="line">//具体逻辑</span><br><span class="line">System.out.println(“filterDemo1 过滤....&quot;);       </span><br><span class="line"></span><br><span class="line"></span><br><span class="line">//放行语句</span><br><span class="line">filterChain.doFilter(servletRequest,servletResponse);    </span><br><span class="line">&#125;    </span><br><span class="line"></span><br><span class="line">//销毁</span><br><span class="line">@Override    public void destroy() &#123;    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h2 id="14-3-过滤器链"><a href="#14-3-过滤器链" class="headerlink" title="14.3 过滤器链:"></a>14.3 过滤器链:</h2><p>当配置多个过滤器时,称为过滤器链.</p>
-<p>执行顺序:</p>
-<p>注解配置时过滤器执行顺序：当使用注解配置多个 Filter 时，用户无法控制它们的执行顺序，Filter的执行顺序按照类名的字符串比较规则比较，值小的先执行AFilter 和 BFilter，AFilter就先执行web.xml配置： <filter-mapping>谁定义在上边，谁先执行</p>
-<h1 id="15-Ajax"><a href="#15-Ajax" class="headerlink" title="15.Ajax:"></a>15.Ajax:</h1><p>Ajax：ASynchronous JavaScript And XML：异步 的 JavaScript 和 XML。</p>
-<p>JavaScript 表明该技术和前端相关XML 是指以此进行数据交换.</p>
-<p>Ajax 的作用：与服务器进行数据交换异步交互.</p>
-<h2 id="15-1-同步-异步交互"><a href="#15-1-同步-异步交互" class="headerlink" title="15.1 同步.异步交互:"></a>15.1 同步.异步交互:</h2><p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/image-20230525170425027.png" alt="image-20230525170425027"></p>
-<h2 id="15-2-体系结构"><a href="#15-2-体系结构" class="headerlink" title="15.2 体系结构:"></a>15.2 体系结构:</h2><p>通过ajax,后端可以不向前端发送html文件,而是发送特定格式的数据.避免了在Java中编写html的复杂情况出现.</p>
-<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/image-20230525170452141.png" alt="image-20230525170452141"></p>
-<h2 id="15-3-入门"><a href="#15-3-入门" class="headerlink" title="15.3 入门:"></a>15.3 入门:</h2><p>服务端:</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">@WebServlet(&quot;/selectUserServlet&quot;)</span><br><span class="line">public class SelectUserServlet extends HttpServlet &#123;    </span><br><span class="line"></span><br><span class="line">@Override</span><br><span class="line">protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException &#123;</span><br><span class="line"></span><br><span class="line"> //1. 接收用户名        </span><br><span class="line"> String username = request.getParameter(&quot;username&quot;);       </span><br><span class="line"> //2. 此处不进行业务逻辑处理，直接给 flag 赋值为 true，表明用户名占用        </span><br><span class="line"> boolean flag = true;        </span><br><span class="line"> //3. 响应标记        </span><br><span class="line"> response.getWriter().write(&quot;&quot; + flag);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">@Override    </span><br><span class="line">protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException &#123;</span><br><span class="line">this.doGet(request, response);    </span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<p>客户端:</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">//1. 给用户名输入框绑定 失去焦点事件</span><br><span class="line">document.getElementById(&quot;username&quot;).onblur = function () &#123;</span><br><span class="line"></span><br><span class="line">//2. 发送ajax请求    </span><br><span class="line"></span><br><span class="line">// 获取用户名的值    </span><br><span class="line">var username = this.value;    </span><br><span class="line"></span><br><span class="line">//2.1. 创建核心对象    var xhttp;    </span><br><span class="line"></span><br><span class="line">if (window.XMLHttpRequest) &#123;        </span><br><span class="line">xhttp = new XMLHttpRequest();    </span><br><span class="line">&#125;else &#123;</span><br><span class="line">xhttp = new ActiveXObject(&quot;Microsoft.XMLHTTP&quot;);    </span><br><span class="line">&#125;    </span><br><span class="line"></span><br><span class="line">//2.2. 发送请求    </span><br><span class="line">xhttp.open(&quot;GET&quot;, &quot;http://localhost:8080/ajax-demo/selectUserServlet?username=&quot;+username);    </span><br><span class="line">xhttp.send();    </span><br><span class="line"></span><br><span class="line">//2.3. 获取响应    </span><br><span class="line">xhttp.onreadystatechange = function() &#123;</span><br><span class="line">if (this.readyState == 4 &amp;&amp; this.status == 200) &#123;</span><br><span class="line"></span><br><span class="line">if(this.responseText == &quot;true&quot;)&#123;                </span><br><span class="line">//用户名存在，显示提示信息                </span><br><span class="line">document.getElementById(&quot;username_err&quot;).style.display = &#x27;&#x27;;            </span><br><span class="line">&#125;else &#123;</span><br><span class="line">//用户名不存在 ，清楚提示信息</span><br><span class="line">document.getElementById(&quot;username_err&quot;).style.display = &#x27;none&#x27;;            </span><br><span class="line"></span><br><span class="line">&#125;        </span><br><span class="line">&#125;    </span><br><span class="line">&#125;;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h2 id="15-4-JQuery"><a href="#15-4-JQuery" class="headerlink" title="15.4 JQuery:"></a>15.4 JQuery:</h2><p>主要包括:</p>
-<p>$.ajax() &#x2F;&#x2F; jQuery 底层 AJAX 实现</p>
-<p>$.get()  &#x2F;&#x2F; get方式</p>
-<p>$.post() &#x2F;&#x2F; post方式</p>
-<p>对原生的ajax进行了封装,使用变得更加的便捷.</p>
-<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/image-20230525172055054.png" alt="image-20230525172055054"></p>
-<p>success和error的值是回调函数:在函数内部定义并使用的函数.</p>
-<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/image-20230525172408869.png" alt="image-20230525172408869"></p>
-<p>post与get类似,只是把.get换成.post.</p>
-<h2 id="15-5-axios"><a href="#15-5-axios" class="headerlink" title="15.5 axios:"></a>15.5 axios:</h2><p>同样是对原生的ajax进行封装没达到简化书写的目的.</p>
-<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/image-20230525172616668.png" alt="image-20230525172616668"></p>
-<p>.then是回调函数.在请求成功响应过后才会被调用. resp是对后端返回的数据进行封装过后的对象.</p>
-<h2 id="15-6-JSON"><a href="#15-6-JSON" class="headerlink" title="15.6 JSON:"></a>15.6 JSON:</h2><p> JavaScript Object Notation:JavaScript 对象表示法</p>
-<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/image-20230525174907410.png" alt="image-20230525174907410"></p>
-]]></content>
-      <categories>
-        <category>笔记</category>
-      </categories>
-      <tags>
-        <tag>Java</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>乱世佳人</title>
-    <url>/2023/02/10/%E4%B9%B1%E4%B8%96%E4%BD%B3%E4%BA%BA/</url>
-    <content><![CDATA[<h1 id="乱世佳人：乱世中的飘渺与爱"><a href="#乱世佳人：乱世中的飘渺与爱" class="headerlink" title="乱世佳人：乱世中的飘渺与爱"></a><strong>乱世佳人：乱世中的飘渺与爱</strong></h1><h2 id="1-电影简介"><a href="#1-电影简介" class="headerlink" title="1.电影简介:"></a>1.电影简介:</h2><p>《乱世佳人》（英文名：gone with the wind）是一部由是由维克多·弗莱明执导，费雯·丽、克拉克·盖</p>
-<p>博等人所主演的电影，改编自美国作家玛格丽特·米切尔所创作的长篇小说《飘》，于1939年在美国上</p>
-<p>映。曾获第十二届奥斯卡金像奖最佳影片。</p>
-<h2 id="2-内容介绍"><a href="#2-内容介绍" class="headerlink" title="2.内容介绍:"></a>2.内容介绍:</h2><h3 id="1-情窦初开"><a href="#1-情窦初开" class="headerlink" title="1.情窦初开:"></a>1.情窦初开:</h3><p>“这里曾经是骑士和棉花的土地，称为老南方……在这个美丽的世界里，骑士之风已成为过去。如今只是</p>
-<p>梦的追忆……庄园与庄园主……一代文明，随风飘逝……“</p>
-<p>伴随着苍凉悲怆的画外音，故事发生在1861年的春天，美国正值南北战争爆发前夕，南方泰拉庄园的千</p>
-<p>金小姐斯卡莉美丽动人，气质出众，受全郡青年追捧献媚。但她却对十二橡树庄园的艾希利一见钟情，</p>
-<p>但是在艾希莉举行的烤肉宴会上，他却拒绝了斯卡莉热情任性的告白和追问，选择了她的表妹，同样美</p>
-<p>丽却善良温婉的梅兰尼共度一生。而斯卡莉与艾希利的深情对白一幕正好被因对南北战争的悲观言论而</p>
-<p>躲藏起来的巴特勒船长无心之间撞见，二人因此相识，巴特勒也对斯卡莉一见钟情。意外的是，在宴会</p>
-<p>进行中，南北战争突如其来的开始，在祥和宁静突然转向兵荒马乱之时，还是少女的斯卡莉却因艾希利</p>
-<p>的拒绝内心慌乱而愤恨，便半无知半赌气地答应了仰慕她已久梅兰尼的弟弟查尔斯的求婚。盛大而纷乱</p>
-<p>的婚礼过后，艾希利与查尔斯一同赶往前线战场。</p>
-<h3 id="2-跌撞涉世"><a href="#2-跌撞涉世" class="headerlink" title="2.跌撞涉世:"></a>2.跌撞涉世:</h3><p>一纸信笺，打破了两个庄园的短暂平静。查尔斯熬过了轰隆的炮火，却被疟疾夺取了年轻鲜活的生命。</p>
-<p>年仅十六岁的斯卡莉被迫披上黑纱，把自己的大好青春封存于寂寞的闺房中，但天性热烈奔放的她不甘</p>
-<p>于沉寂，也没有时间与理由悲伤，因为她对查尔斯不存在所谓真诚的爱。在她母亲的提议下，她离开家</p>
-<p>乡前往表妹所在的亚特兰大城，并很快又以一袭黑袍出现在了为战争而举行的义卖舞会上，而早已对她</p>
-<p>动心的巴特勒不顾他人的非议，花高价请她跳舞，满足了她跳舞的愿望和虚荣心，也第一次向她表明心</p>
-<p>迹。但此时的斯卡莉仍牵挂着艾希利，对巴特勒的追求不以为意。</p>
-<p>战事推进，正如巴特勒所预言的那样，傲慢的南方军节节败退。而亚特兰大城也挤满了伤兵，每天广场</p>
-<p>都在上演着往昔的贵族家庭主人因为自己子女的死亡而悲伤哭泣的戏码。而斯卡莉与梅兰妮一起，成为</p>
-<p>了照顾伤病的护士，梅兰妮工作尽心尽力，善良体贴，并且温柔天真的希望远方的情人也能有陌生人照</p>
-<p>料其生活，倾听其耳语。而从小养尊处优的生活与明媚热烈的天性使斯卡莉很快就厌倦了每日目睹脏</p>
-<p>乱、伤痛、哀嚎、死亡的生活。然而就在她想要放弃和逃避的时候，前线传来消息，北军即将打到亚特</p>
-<p>兰大，一时之间法律和秩序当然无存，贵族老爷们争相逃亡，陌生人暴露了暴徒的面具。斯卡莉也想迫</p>
-<p>不及待地回到她的泰拉庄园，但是梅兰妮怀上的艾希利的孩子，正要生产，她被迫留在此地。兵荒马乱</p>
-<p>时分，医生都在忙于救治病人，连一个可以接生的人都找不到，万般无奈之下，处于对艾希利好好照顾</p>
-<p>梅兰妮的承诺，斯卡莉第一次由内心的勇敢战胜任性主动承担责任。最终孩子顺利降生，但是在北方的</p>
-<p>大军压境与重重保卫面前，无助的女人和孩子又将何去何从？</p>
-<h4 id="3-月夜奔赴"><a href="#3-月夜奔赴" class="headerlink" title="3.月夜奔赴:"></a>3.月夜奔赴:</h4><p>走投无路之时，先前与巴特勒的相遇，给了斯卡莉一线希望。她派侍女去寻求他的帮助，而自己照顾梅</p>
-<p>兰妮和收拾行李，此时的她已经不是青葱岁月的无知少女，炮火和硝烟的洗礼迫使她快速的变得成熟而</p>
-<p>现实，甚至临行之前执意带上母牛，因为不知道回到家乡后还能找到什么。而巴特勒没有让她失望，用</p>
-<p>钞能力搞来了一辆马车，并以高超的驾驶技术越过了燃烧的炮火和武装的暴徒，成功的把她们带出了</p>
-<p>城。可就在回去的路上，巴特勒却执意抛下她们去参军，去尽他作为南方人的责任，并与斯卡莉深情的</p>
-<p>拥吻告别，斯卡莉无力改变，只好再一次挺身而出，带着她们在被火光照亮的月夜中向着故乡的方向奔赴。当她的华贵衣衫被泪水和风尘沾染，当她的无暇面容被暴雨和狂风褶皱，当她的姣好身形被饥饿和</p>
-<p>忧伤消瘦，当她的海蓝色眼眸灰暗，握紧缰绳的手指苍白，身前的枯木与浮尸交叠，甚至一路陪伴的马</p>
-<p>儿也不堪重负走向死亡，月夜下，却仍然有执着前行的身影，伴随着惊喜的呼号，日夜奔赴的故乡，近</p>
-<p>在眼前。</p>
-<h4 id="4-弘毅持家"><a href="#4-弘毅持家" class="headerlink" title="4.弘毅持家:"></a>4.弘毅持家:</h4><p>斯卡莉越过被烧毁的十二橡树庄园，推开泰拉庄园的大门，看到被北军[洗劫一空的庄园，被战争和苍老</p>
-<p>折磨至疯的父亲，因求助病人而自身染病故去的母亲，再一次因美梦破碎而失声痛哭。但现在的她已经</p>
-<p>不是当年那个任性热情的少女，她明白流泪之后家庭和庄园的责任必须她来承担。在父亲为庄园跃马踏</p>
-<p>围栏可笑而又壮烈的死去后，耳畔再一次回荡着父亲当年的话”土地是世上唯一值得你，为它奉献，为它</p>
-<p>奋斗，为它牺牲的事物，因为他是唯一永存的东西，只要是爱尔兰人就无一例外。”</p>
-<p>魂牵梦萦的土地上，新的生活开始了。斯卡莉使每个人都放下了贵族身段，像以往的黑奴那样辛苦的劳</p>
-<p>作以赚取生存的食物，但是对于心上人的妻子梅兰妮却依旧网开一面，不让她参与任何农事活动，甚至</p>
-<p>在打死闯入家中的异乡人，急于处理尸体来瞒过众人这种十万火急的事情上也依然不让梅兰妮动手而是</p>
-<p>自己解决。这是斯卡莉第一次杀人，这次杀人是她真正成熟的标志，为了自己，为了家人，为了泰拉的</p>
-<p>土地，她勇敢的直面生活，承担责任，不顾个人声望与身段，甚至安危生死。“上帝为我作证，我将不再</p>
-<p>饥饿。”这段泰拉艰难的时光，是斯卡莉一生中的的高光岁月，丰富而全面的展露了她作为女性独有的坚</p>
-<p>强与执着，古人云“士不可以不弘毅，任重而道远”，在这被北方豪强包围的南方市镇中，斯卡莉以弘毅</p>
-<p>的精神持家，维持着祖上的土地与今人的生活，试图恢复以往繁华丰富的时光，任重道远的漫漫长路，</p>
-<p>她把自己热情的内心与渺远的爱情封印，艰难跋涉不再回头。</p>
-<h4 id="5-重回繁华"><a href="#5-重回繁华" class="headerlink" title="5.重回繁华:"></a>5.重回繁华:</h4><p>艾希利回来了，穿着梅兰妮为它缝制的、如今已经残破不堪的衣衫，带着理想主义者失败后特有的灰暗</p>
-<p>的面容，一步一步踱着进入了这个生活刚刚步入正规的泰拉庄园。艾希利的到来重新点燃了斯卡莉对爱</p>
-<p>情和过往生活的喜爱和热情，也是她对现在日夜操劳的生活愈加地厌倦，终于，她再一次和艾希利拥抱</p>
-<p>亲吻并表明心迹。提出要和他私奔到墨西哥，去追寻更好的生活，但艾希利在亲吻过后再一次以仅存的</p>
-<p>良知和南方贵族特有的君子之风拒绝了她，她只好再一次转身直面绝望的生活。</p>
-<p>北方佬严苛的征税是她不得不寻找帮助，这时她再一次想到了巴特勒船长，然而巴特勒船长参军之后却</p>
-<p>被俘虏，被关在监狱不能给她金钱上的帮助，正在回家的路上，心灰意冷的她遇上了她妹妹修伦的未婚</p>
-<p>夫弗兰克，原本一贫如洗的弗兰克因为经营木材生意而成了爆发户，经营着一家商店和木材厂，斯卡莉</p>
-<p>在弗兰克身上看到了金钱和交税的可能，于是她欺骗弗兰克说修伦已经不再爱他，并用自己美貌的外表</p>
-<p>与动人的情话成功打动了弗兰克，成为了他的妻子，也成功接管了木材厂的生意。生活日渐富裕的同</p>
-<p>时，她对金钱的执念也愈加深重，儿时养成的自私性格也愈演愈烈，她开始为了赚钱而不择手段，与摧</p>
-<p>毁她庄园、杀害她丈夫的北方佬大做生意，甚至非法雇佣、压榨囚犯来经营木材厂。</p>
-<p>在一次前往木材厂的路上，她又一次遇上了巴特勒，他已经通过贿赂被释放，重新变成了腰缠万贯的绅</p>
-<p>士。巴特勒再一次感叹于她独自以身犯险穿过贫民窟的勇气，她却因为巴特勒没有伸出援手恶语相向。</p>
-<p>果不其然，在贫民窟她受到了袭击，但是有惊无险的逃过了，可是她的新丈夫弗兰克却与艾希利带着其</p>
-<p>他反政府成员袭击了黑人的贫民窟，并在战斗中不幸中弹死去，艾希利也受了伤，当巴特勒冒险就会受</p>
-<p>伤的艾希利时，斯卡莉却一心关注着艾希利的伤情而对自己的丈夫不闻不问，直到巴特勒说出这个噩</p>
-<p>耗。</p>
-<h4 id="6-终成眷属"><a href="#6-终成眷属" class="headerlink" title="6.终成眷属:"></a>6.终成眷属:</h4><p>时过境迁，巴特勒对第二次成为寡妇的斯卡莉依旧执着，而这一次几乎放弃对艾希利爱情的斯卡莉没有</p>
-<p>在拒绝一直苦苦追求她的巴特勒。结婚一年以后，斯卡莉和巴特勒有了第一个孩子邦妮，而他们也利用</p>
-<p>这段时间和巴特勒多年以来从事粮食和军火走私生意所得的巨额财富把泰拉庄园重新打造的金碧辉煌，</p>
-<p>重现了斯卡莉儿时的梦中时光，斯卡莉再一次过上了养尊处优的上流生活，甚至比以前仍有过有之。但</p>
-<p>是斯卡莉在婚姻短暂的甜蜜蜜月后，仍然对艾希利念念不忘，婚后仍一次一次的地前去艾希利所在的木</p>
-<p>材厂，总是那些钱财对她已不重要。在一个下午，她又一次挑逗艾希利时，艾希利终于忍不住拥抱了她</p>
-<p>并祝她快乐幸福。然而巧合且不幸的是，这一幕正好被进来的其他人看到，很快所有人包括梅兰妮也知道了这件事情，更要命的是斯卡莉不得不去参加艾希利的生日会，在她最尴尬的时候，梅兰妮却选择了</p>
-<p>相信她和艾希利之间是清白的，并主动为她解围，事情才得以解决。</p>
-<p>但是经过这件事情，再加上先前偶然发现发现斯卡莉偷偷翻阅艾希利的照片，巴特勒对斯卡莉彻底心灰</p>
-<p>意冷，然而他却从邦妮身上看到了当年斯卡莉没有被现实和金钱玷污的模样，于是把全部心思都放在培</p>
-<p>养和教育他们的女儿上，先是带她去外国旅行，后因为女儿对母亲的思念不得不回国，又教女儿骑马等</p>
-<p>运动，什么事都顺着她，完全以新式教育的观点培养宝贝女儿，这点也与从小接受老式南方贵族教育的</p>
-<p>斯卡莉渐行渐远。经年终成眷属的两人，逐渐渐行渐远，形同陌路。</p>
-<h4 id="7-不说再见"><a href="#7-不说再见" class="headerlink" title="7.不说再见:"></a>7.不说再见:</h4><p>泰拉庄园的一个清晨，骑在小马上英姿飒爽的小邦妮伴着清晨的阳光来到争吵的父母亲面前，要给他们</p>
-<p>表演跨越栅栏，斯卡莉见状不禁想起当年换上痴呆的父亲翻阅栅栏跌下马而死的惨状，慌忙让巴特勒去</p>
-<p>拦下她，巴特勒大声呼喊她停下，然而为时已晚。父亲和女儿，奇异而悲惨的经历了同样的命运，令人</p>
-<p>感到可笑而又不禁潸然泪下。</p>
-<p>邦妮死后，巴特勒追悔莫及，万念俱灰，他不能接受宝贝女儿突然去世的结局，甚至固执地认为女儿没</p>
-<p>有死而不肯为她下葬，为了葬礼的顺利举行，同样悲伤的斯卡莉只好请佣人去找梅兰妮帮忙，已有身孕</p>
-<p>的梅兰妮听到之后立即赶来安慰巴特勒，在刚刚说服巴特勒同意为小邦妮下葬之时，梅兰妮却突然晕</p>
-<p>倒，原本没有生育能力的她，为了这一传递生命的神圣事业，已经倾尽所有。</p>
-<p>孩子安全出生，而梅兰妮却已经奄奄一息，在弥留之际，她执意要见斯卡莉，并对说出了自己最后的遗</p>
-<p>言：替我照顾好艾希利，好好爱巴特勒，他真的很爱你。温柔一生的梅兰妮故去了，只留下斯卡莉独自</p>
-<p>面对失去生活最后希望的艾希利和要毅然决然离开她，去他乡追求爱与美的巴特勒，短时间内连续经历</p>
-<p>生离与死别打击的斯卡莉，孤身一人的斯卡莉，面对未来的生活仍旧没有失去希望，而是哭泣着，继续</p>
-<p>聚集起对世界和生活的热情，再一次出发。</p>
-<p>故事的最后，斯卡莉独自一人站在儿时与父亲并肩而立的苍天大树下，微风缓缓，古木的枯枝已经萌发</p>
-<p>新芽，举目远眺，远处的泰拉庄园笼罩在一片朦胧的烟火中，天边火红色的云彩飘摇，夕阳正好。</p>
-<h2 id="3-艺术成就"><a href="#3-艺术成就" class="headerlink" title="3.艺术成就:"></a>3.艺术成就:</h2><h3 id="1-画面"><a href="#1-画面" class="headerlink" title="1.画面:"></a>1.画面:</h3><p>影片大多数情节展现在油画般的布景当中，画面本身所带来的朦胧气氛，配合上费雯丽梦幻、沉浸、甚</p>
-<p>至可以说是有些做作的表演，让人感觉仿佛置身南方庄园的美丽童话当中，美丽的画面甚至任意截取出</p>
-<p>一个瞬间都可以被当作经典，而部分紧促残酷的场景则转向写实画风，如斯卡莉逃亡过程中目睹的悲惨</p>
-<p>景象、她枪杀强盗瞬间鲜血四溅的场景，通过这种画风的改变较好的衬托了影片节奏和情绪的变化，也</p>
-<p>表现了对战争的厌恶以及悲天悯人的人性温暖。而影片为数不多的长镜头更是聚焦拥抱、深思等场面，</p>
-<p>直面人物内心，仿佛在通过镜头的退役来展现人物丰富的心理活动和说不出的万语千言，极其富有艺术</p>
-<p>感染力。</p>
-<h4 id="2-布局"><a href="#2-布局" class="headerlink" title="2.布局:"></a>2.布局:</h4><p>影片的布局十分巧妙，采用双线结构，主线是斯卡莉与艾希利、巴特勒与其他丈夫的感情纠葛，暗线则</p>
-<p>是美国南北战争前后的社会发展与人心变化。以成长式的剧情体现了时间地点跨度下一个人的转变。叙</p>
-<p>事上冷静与热情相结合，张弛有度，配合斯卡莉的主要视角与必要时推动剧情的其他视角，使观众能够</p>
-<p>在全面的感受剧情的同时沉浸式的体验女主角的情感与追求变化。</p>
-<p>影片在艺术上还有诸多成就与亮点，如亮丽的色彩使用，大气磅礴的气势，豪华奢靡的场景，逼真的战</p>
-<p>争场面等等，此处受制于篇幅不再一一赘述。</p>
-<h2 id="4-人物形象"><a href="#4-人物形象" class="headerlink" title="4.人物形象:"></a>4.人物形象:</h2><h4 id="1-斯卡莉"><a href="#1-斯卡莉" class="headerlink" title="1.斯卡莉:"></a>1.斯卡莉:</h4><p>斯卡莉是影片的主角，南方种植园主的千金，她有着美丽的身形与无暇的笑容，对生命和生活怀有着无</p>
-<p>比的热情，无论经历多大的苦难都能勇敢的面对生活，同时，她又虚荣而自私，现实而贪婪，痴情而残</p>
-<p>忍，形象饱满而极具多维层次感，她的笑容让人沉醉，她的热情让人动容，她的残忍让人心寒，一场似</p>
-<p>乎酝酿已久的战争出现在她的生命中，这场战争使她感受到了前所未有的痛苦，爱情的消亡，亲情的逝</p>
-<p>去，让她在苦难中得到成长，明白了爱的意味，从自私到无私的转变，从而唤醒了当代女性意识觉醒，</p>
-<p>思想自由解放，这与18、19世纪哲学思想家如康德等人所倡导的”天赋人权”、自由平等等思想不谋而</p>
-<p>合。</p>
-<h4 id="2-巴特勒"><a href="#2-巴特勒" class="headerlink" title="2.巴特勒:"></a>2.巴特勒:</h4><p>巴特勒影片的男主角。他是典型的英伦绅士形象，智慧，勇敢，敏锐，正义，无论对谁都是笑容和煦、</p>
-<p>彬彬有礼，举止翩翩，同时家财万贯，是万千少女的梦中情人形象，为此还产生了瑞德巴特勒情结，但</p>
-<p>他同时又有属于自己的自私与骄傲，他的自私要求他做任何事都要有最终的回报，他的骄傲不允许他在</p>
-<p>国家危难之时带着女人逃避，这是这种性格成就了他，却也因此让他始终得不到斯卡莉最真挚的爱。</p>
-<h4 id="3-艾希利"><a href="#3-艾希利" class="headerlink" title="3.艾希利:"></a>3.艾希利:</h4><p>艾希利是典型的理想主义者形象，他也是一位绅士，南北战争前对战争充满信心，战斗时勇敢作战，战</p>
-<p>后仍积极参加反政府组织，在事业上他的一生奋斗具有古希腊式的悲剧色彩，令人唏嘘感叹。而在感情</p>
-<p>上他又是懦弱的、模棱两可的、没有担当的，他始终出于贵族的操守于内心的底线没有答应斯卡莉的表</p>
-<p>白，但是又经常克制不住内心的冲动与斯卡莉拥吻，说着绵绵情话。在生活中他又是脆弱的，会被挫折</p>
-<p>打倒，会变得一蹶不振，找不到生活的方向。与巴特勒相比，他有缺点，却更加真实，或许这也是斯卡</p>
-<p>莉自始至终钟情于他的原因。</p>
-<h4 id="4-梅兰妮"><a href="#4-梅兰妮" class="headerlink" title="4.梅兰妮:"></a>4.梅兰妮:</h4><p>梅兰妮是古典温柔女性的代表，巴特勒称她为”十分伟大、完美的女人“，与热烈奔放的斯卡莉相比，她</p>
-<p>性格沉静温婉，待人平和宽容，永远选择相信别人，始终看到别人好的一面。纵使在所有人都质疑艾希</p>
-<p>利和斯卡莉时，她仍然选择相信斯卡莉，并在故去之时把艾希利托付给斯卡莉。在温柔的同时，梅兰妮</p>
-<p>又有勇敢的一面，她在明知生育会面临极大危险的情况下，依旧毅然决然选择这神圣的使命，最终坦然</p>
-<p>地面对死亡。她和巴特勒一样，都用有着近乎完美的人设，是无数男人心目中的温暖情人形象。</p>
-<h2 id="5-影片主题"><a href="#5-影片主题" class="headerlink" title="5.影片主题:"></a>5.影片主题:</h2><h3 id="1-乱世爱情与婚姻：坚守、背叛、遗忘"><a href="#1-乱世爱情与婚姻：坚守、背叛、遗忘" class="headerlink" title="1.乱世爱情与婚姻：坚守、背叛、遗忘"></a>1.乱世爱情与婚姻：坚守、背叛、遗忘</h3><p>爱情贯穿《乱世佳人》的始终，是重要的影片线索和主题之一。斯卡莉始终对艾希利有着热烈明媚的，</p>
-<p>爱，为了这份爱情她牺牲了自己的第一任丈夫，把他当作自己感情的玩物，她的第二次婚姻是出于生存</p>
-<p>所需，只是把婚姻当作生存的工具，而她对巴特勒怀有的则是一种介于信任和喜爱之间的感情，不能说</p>
-<p>她完全不爱巴特勒，但未必对着堪称完美的男人有多迷恋。斯卡莉的三次婚姻都已悲剧收场，她的爱情</p>
-<p>更是始终没有收到真挚的回应，斯卡莉的爱情与婚姻是失败的，这种失败有她自己的原因，有艾希利的</p>
-<p>原因，也有时代的原因，但她对爱情的坚持与追求却没有失败，是感人至深并且应收到尊敬的。</p>
-<p>艾希利虽然没有明确的出轨，但他确实对斯卡莉和梅兰妮都怀有十分的喜爱，从这种意义上说，他确实</p>
-<p>背叛了自己的感情，背叛了自己专一忠贞的誓言，确实，很难有人能拒绝斯卡莉动人的外表与如一热烈</p>
-<p>的示爱，艾希利爱情与婚姻的问题，其实是男人在选择和追求时普遍的问题，在追求爱情时希望爱的炽</p>
-<p>热如骄阳，正如斯卡莉的爱，然而面对平淡生活与事业的失意时，又渴望温柔如水的安慰和陪伴，正如</p>
-<p>梅兰妮的爱。有人说乱世佳人教会我们如何去爱，倒不如说教会我们如何在爱情和婚姻之间取舍，最终做到像巴特勒</p>
-<p>像那样冷静的追求爱情。巴特勒对斯卡莉一见钟情，然后想尽各种办法追求她，但是后来发现自己不再</p>
-<p>喜欢她的时候又把自己的爱全部给了自己的孩子小邦妮，又在小邦妮死后冷静而又不失了风度的告别斯</p>
-<p>卡莉，去追求新的美好爱情。始终把爱情与婚姻紧紧握在一起，斯卡莉的爱太浓列梦幻，艾希利的爱太</p>
-<p>犹豫怯懦，或许只有巴特勒的爱情和对爱情的态度才是我们所追求和推崇的。</p>
-<h3 id="2-Gone-with-the-wind：西风吹彻的土地"><a href="#2-Gone-with-the-wind：西风吹彻的土地" class="headerlink" title="2. Gone with the wind：西风吹彻的土地"></a>2. Gone with the wind：西风吹彻的土地</h3><p>乱世佳人英文名是gone with the wind，随风而逝，在小说原文中作者曾经解释说意思是斯卡莉的故乡</p>
-<p>泰拉庄园已经随风飘去，乱世之中，佳人摧折，命途多舛，飘零四海，乱世之中，佳人奋发，爱的炽烈</p>
-<p>明媚，生活的独立自由，乱世之中始终怀有对土地与生活的坚守与热爱。”没有比你更深重的苦难，没有</p>
-<p>比你更自由的意志“，观毕乱世佳人，置身盛世，或许我们应当学会如何去生存，如何去尽力生活，如何</p>
-<p>去爱，爱土地与土地上的人，爱希望与未来，爱人性中每一丝丝明亮的闪光。</p>
-<p>最后以影片的结尾作结:</p>
-<p>Home,I want to go home,I have to think of a way to get him back,no matter what,tomorrow is a</p>
-<p>new day.</p>
-<p>抒情熊</p>
-<p>2022.3.18</p>
-]]></content>
-      <categories>
-        <category>创作</category>
-      </categories>
-      <tags>
-        <tag>影评</tag>
       </tags>
   </entry>
   <entry>
@@ -1547,6 +1378,175 @@
       </tags>
   </entry>
   <entry>
+    <title>乱世佳人</title>
+    <url>/2023/02/10/%E4%B9%B1%E4%B8%96%E4%BD%B3%E4%BA%BA/</url>
+    <content><![CDATA[<h1 id="乱世佳人：乱世中的飘渺与爱"><a href="#乱世佳人：乱世中的飘渺与爱" class="headerlink" title="乱世佳人：乱世中的飘渺与爱"></a><strong>乱世佳人：乱世中的飘渺与爱</strong></h1><h2 id="1-电影简介"><a href="#1-电影简介" class="headerlink" title="1.电影简介:"></a>1.电影简介:</h2><p>《乱世佳人》（英文名：gone with the wind）是一部由是由维克多·弗莱明执导，费雯·丽、克拉克·盖</p>
+<p>博等人所主演的电影，改编自美国作家玛格丽特·米切尔所创作的长篇小说《飘》，于1939年在美国上</p>
+<p>映。曾获第十二届奥斯卡金像奖最佳影片。</p>
+<h2 id="2-内容介绍"><a href="#2-内容介绍" class="headerlink" title="2.内容介绍:"></a>2.内容介绍:</h2><h3 id="1-情窦初开"><a href="#1-情窦初开" class="headerlink" title="1.情窦初开:"></a>1.情窦初开:</h3><p>“这里曾经是骑士和棉花的土地，称为老南方……在这个美丽的世界里，骑士之风已成为过去。如今只是</p>
+<p>梦的追忆……庄园与庄园主……一代文明，随风飘逝……“</p>
+<p>伴随着苍凉悲怆的画外音，故事发生在1861年的春天，美国正值南北战争爆发前夕，南方泰拉庄园的千</p>
+<p>金小姐斯卡莉美丽动人，气质出众，受全郡青年追捧献媚。但她却对十二橡树庄园的艾希利一见钟情，</p>
+<p>但是在艾希莉举行的烤肉宴会上，他却拒绝了斯卡莉热情任性的告白和追问，选择了她的表妹，同样美</p>
+<p>丽却善良温婉的梅兰尼共度一生。而斯卡莉与艾希利的深情对白一幕正好被因对南北战争的悲观言论而</p>
+<p>躲藏起来的巴特勒船长无心之间撞见，二人因此相识，巴特勒也对斯卡莉一见钟情。意外的是，在宴会</p>
+<p>进行中，南北战争突如其来的开始，在祥和宁静突然转向兵荒马乱之时，还是少女的斯卡莉却因艾希利</p>
+<p>的拒绝内心慌乱而愤恨，便半无知半赌气地答应了仰慕她已久梅兰尼的弟弟查尔斯的求婚。盛大而纷乱</p>
+<p>的婚礼过后，艾希利与查尔斯一同赶往前线战场。</p>
+<h3 id="2-跌撞涉世"><a href="#2-跌撞涉世" class="headerlink" title="2.跌撞涉世:"></a>2.跌撞涉世:</h3><p>一纸信笺，打破了两个庄园的短暂平静。查尔斯熬过了轰隆的炮火，却被疟疾夺取了年轻鲜活的生命。</p>
+<p>年仅十六岁的斯卡莉被迫披上黑纱，把自己的大好青春封存于寂寞的闺房中，但天性热烈奔放的她不甘</p>
+<p>于沉寂，也没有时间与理由悲伤，因为她对查尔斯不存在所谓真诚的爱。在她母亲的提议下，她离开家</p>
+<p>乡前往表妹所在的亚特兰大城，并很快又以一袭黑袍出现在了为战争而举行的义卖舞会上，而早已对她</p>
+<p>动心的巴特勒不顾他人的非议，花高价请她跳舞，满足了她跳舞的愿望和虚荣心，也第一次向她表明心</p>
+<p>迹。但此时的斯卡莉仍牵挂着艾希利，对巴特勒的追求不以为意。</p>
+<p>战事推进，正如巴特勒所预言的那样，傲慢的南方军节节败退。而亚特兰大城也挤满了伤兵，每天广场</p>
+<p>都在上演着往昔的贵族家庭主人因为自己子女的死亡而悲伤哭泣的戏码。而斯卡莉与梅兰妮一起，成为</p>
+<p>了照顾伤病的护士，梅兰妮工作尽心尽力，善良体贴，并且温柔天真的希望远方的情人也能有陌生人照</p>
+<p>料其生活，倾听其耳语。而从小养尊处优的生活与明媚热烈的天性使斯卡莉很快就厌倦了每日目睹脏</p>
+<p>乱、伤痛、哀嚎、死亡的生活。然而就在她想要放弃和逃避的时候，前线传来消息，北军即将打到亚特</p>
+<p>兰大，一时之间法律和秩序当然无存，贵族老爷们争相逃亡，陌生人暴露了暴徒的面具。斯卡莉也想迫</p>
+<p>不及待地回到她的泰拉庄园，但是梅兰妮怀上的艾希利的孩子，正要生产，她被迫留在此地。兵荒马乱</p>
+<p>时分，医生都在忙于救治病人，连一个可以接生的人都找不到，万般无奈之下，处于对艾希利好好照顾</p>
+<p>梅兰妮的承诺，斯卡莉第一次由内心的勇敢战胜任性主动承担责任。最终孩子顺利降生，但是在北方的</p>
+<p>大军压境与重重保卫面前，无助的女人和孩子又将何去何从？</p>
+<h4 id="3-月夜奔赴"><a href="#3-月夜奔赴" class="headerlink" title="3.月夜奔赴:"></a>3.月夜奔赴:</h4><p>走投无路之时，先前与巴特勒的相遇，给了斯卡莉一线希望。她派侍女去寻求他的帮助，而自己照顾梅</p>
+<p>兰妮和收拾行李，此时的她已经不是青葱岁月的无知少女，炮火和硝烟的洗礼迫使她快速的变得成熟而</p>
+<p>现实，甚至临行之前执意带上母牛，因为不知道回到家乡后还能找到什么。而巴特勒没有让她失望，用</p>
+<p>钞能力搞来了一辆马车，并以高超的驾驶技术越过了燃烧的炮火和武装的暴徒，成功的把她们带出了</p>
+<p>城。可就在回去的路上，巴特勒却执意抛下她们去参军，去尽他作为南方人的责任，并与斯卡莉深情的</p>
+<p>拥吻告别，斯卡莉无力改变，只好再一次挺身而出，带着她们在被火光照亮的月夜中向着故乡的方向奔赴。当她的华贵衣衫被泪水和风尘沾染，当她的无暇面容被暴雨和狂风褶皱，当她的姣好身形被饥饿和</p>
+<p>忧伤消瘦，当她的海蓝色眼眸灰暗，握紧缰绳的手指苍白，身前的枯木与浮尸交叠，甚至一路陪伴的马</p>
+<p>儿也不堪重负走向死亡，月夜下，却仍然有执着前行的身影，伴随着惊喜的呼号，日夜奔赴的故乡，近</p>
+<p>在眼前。</p>
+<h4 id="4-弘毅持家"><a href="#4-弘毅持家" class="headerlink" title="4.弘毅持家:"></a>4.弘毅持家:</h4><p>斯卡莉越过被烧毁的十二橡树庄园，推开泰拉庄园的大门，看到被北军[洗劫一空的庄园，被战争和苍老</p>
+<p>折磨至疯的父亲，因求助病人而自身染病故去的母亲，再一次因美梦破碎而失声痛哭。但现在的她已经</p>
+<p>不是当年那个任性热情的少女，她明白流泪之后家庭和庄园的责任必须她来承担。在父亲为庄园跃马踏</p>
+<p>围栏可笑而又壮烈的死去后，耳畔再一次回荡着父亲当年的话”土地是世上唯一值得你，为它奉献，为它</p>
+<p>奋斗，为它牺牲的事物，因为他是唯一永存的东西，只要是爱尔兰人就无一例外。”</p>
+<p>魂牵梦萦的土地上，新的生活开始了。斯卡莉使每个人都放下了贵族身段，像以往的黑奴那样辛苦的劳</p>
+<p>作以赚取生存的食物，但是对于心上人的妻子梅兰妮却依旧网开一面，不让她参与任何农事活动，甚至</p>
+<p>在打死闯入家中的异乡人，急于处理尸体来瞒过众人这种十万火急的事情上也依然不让梅兰妮动手而是</p>
+<p>自己解决。这是斯卡莉第一次杀人，这次杀人是她真正成熟的标志，为了自己，为了家人，为了泰拉的</p>
+<p>土地，她勇敢的直面生活，承担责任，不顾个人声望与身段，甚至安危生死。“上帝为我作证，我将不再</p>
+<p>饥饿。”这段泰拉艰难的时光，是斯卡莉一生中的的高光岁月，丰富而全面的展露了她作为女性独有的坚</p>
+<p>强与执着，古人云“士不可以不弘毅，任重而道远”，在这被北方豪强包围的南方市镇中，斯卡莉以弘毅</p>
+<p>的精神持家，维持着祖上的土地与今人的生活，试图恢复以往繁华丰富的时光，任重道远的漫漫长路，</p>
+<p>她把自己热情的内心与渺远的爱情封印，艰难跋涉不再回头。</p>
+<h4 id="5-重回繁华"><a href="#5-重回繁华" class="headerlink" title="5.重回繁华:"></a>5.重回繁华:</h4><p>艾希利回来了，穿着梅兰妮为它缝制的、如今已经残破不堪的衣衫，带着理想主义者失败后特有的灰暗</p>
+<p>的面容，一步一步踱着进入了这个生活刚刚步入正规的泰拉庄园。艾希利的到来重新点燃了斯卡莉对爱</p>
+<p>情和过往生活的喜爱和热情，也是她对现在日夜操劳的生活愈加地厌倦，终于，她再一次和艾希利拥抱</p>
+<p>亲吻并表明心迹。提出要和他私奔到墨西哥，去追寻更好的生活，但艾希利在亲吻过后再一次以仅存的</p>
+<p>良知和南方贵族特有的君子之风拒绝了她，她只好再一次转身直面绝望的生活。</p>
+<p>北方佬严苛的征税是她不得不寻找帮助，这时她再一次想到了巴特勒船长，然而巴特勒船长参军之后却</p>
+<p>被俘虏，被关在监狱不能给她金钱上的帮助，正在回家的路上，心灰意冷的她遇上了她妹妹修伦的未婚</p>
+<p>夫弗兰克，原本一贫如洗的弗兰克因为经营木材生意而成了爆发户，经营着一家商店和木材厂，斯卡莉</p>
+<p>在弗兰克身上看到了金钱和交税的可能，于是她欺骗弗兰克说修伦已经不再爱他，并用自己美貌的外表</p>
+<p>与动人的情话成功打动了弗兰克，成为了他的妻子，也成功接管了木材厂的生意。生活日渐富裕的同</p>
+<p>时，她对金钱的执念也愈加深重，儿时养成的自私性格也愈演愈烈，她开始为了赚钱而不择手段，与摧</p>
+<p>毁她庄园、杀害她丈夫的北方佬大做生意，甚至非法雇佣、压榨囚犯来经营木材厂。</p>
+<p>在一次前往木材厂的路上，她又一次遇上了巴特勒，他已经通过贿赂被释放，重新变成了腰缠万贯的绅</p>
+<p>士。巴特勒再一次感叹于她独自以身犯险穿过贫民窟的勇气，她却因为巴特勒没有伸出援手恶语相向。</p>
+<p>果不其然，在贫民窟她受到了袭击，但是有惊无险的逃过了，可是她的新丈夫弗兰克却与艾希利带着其</p>
+<p>他反政府成员袭击了黑人的贫民窟，并在战斗中不幸中弹死去，艾希利也受了伤，当巴特勒冒险就会受</p>
+<p>伤的艾希利时，斯卡莉却一心关注着艾希利的伤情而对自己的丈夫不闻不问，直到巴特勒说出这个噩</p>
+<p>耗。</p>
+<h4 id="6-终成眷属"><a href="#6-终成眷属" class="headerlink" title="6.终成眷属:"></a>6.终成眷属:</h4><p>时过境迁，巴特勒对第二次成为寡妇的斯卡莉依旧执着，而这一次几乎放弃对艾希利爱情的斯卡莉没有</p>
+<p>在拒绝一直苦苦追求她的巴特勒。结婚一年以后，斯卡莉和巴特勒有了第一个孩子邦妮，而他们也利用</p>
+<p>这段时间和巴特勒多年以来从事粮食和军火走私生意所得的巨额财富把泰拉庄园重新打造的金碧辉煌，</p>
+<p>重现了斯卡莉儿时的梦中时光，斯卡莉再一次过上了养尊处优的上流生活，甚至比以前仍有过有之。但</p>
+<p>是斯卡莉在婚姻短暂的甜蜜蜜月后，仍然对艾希利念念不忘，婚后仍一次一次的地前去艾希利所在的木</p>
+<p>材厂，总是那些钱财对她已不重要。在一个下午，她又一次挑逗艾希利时，艾希利终于忍不住拥抱了她</p>
+<p>并祝她快乐幸福。然而巧合且不幸的是，这一幕正好被进来的其他人看到，很快所有人包括梅兰妮也知道了这件事情，更要命的是斯卡莉不得不去参加艾希利的生日会，在她最尴尬的时候，梅兰妮却选择了</p>
+<p>相信她和艾希利之间是清白的，并主动为她解围，事情才得以解决。</p>
+<p>但是经过这件事情，再加上先前偶然发现发现斯卡莉偷偷翻阅艾希利的照片，巴特勒对斯卡莉彻底心灰</p>
+<p>意冷，然而他却从邦妮身上看到了当年斯卡莉没有被现实和金钱玷污的模样，于是把全部心思都放在培</p>
+<p>养和教育他们的女儿上，先是带她去外国旅行，后因为女儿对母亲的思念不得不回国，又教女儿骑马等</p>
+<p>运动，什么事都顺着她，完全以新式教育的观点培养宝贝女儿，这点也与从小接受老式南方贵族教育的</p>
+<p>斯卡莉渐行渐远。经年终成眷属的两人，逐渐渐行渐远，形同陌路。</p>
+<h4 id="7-不说再见"><a href="#7-不说再见" class="headerlink" title="7.不说再见:"></a>7.不说再见:</h4><p>泰拉庄园的一个清晨，骑在小马上英姿飒爽的小邦妮伴着清晨的阳光来到争吵的父母亲面前，要给他们</p>
+<p>表演跨越栅栏，斯卡莉见状不禁想起当年换上痴呆的父亲翻阅栅栏跌下马而死的惨状，慌忙让巴特勒去</p>
+<p>拦下她，巴特勒大声呼喊她停下，然而为时已晚。父亲和女儿，奇异而悲惨的经历了同样的命运，令人</p>
+<p>感到可笑而又不禁潸然泪下。</p>
+<p>邦妮死后，巴特勒追悔莫及，万念俱灰，他不能接受宝贝女儿突然去世的结局，甚至固执地认为女儿没</p>
+<p>有死而不肯为她下葬，为了葬礼的顺利举行，同样悲伤的斯卡莉只好请佣人去找梅兰妮帮忙，已有身孕</p>
+<p>的梅兰妮听到之后立即赶来安慰巴特勒，在刚刚说服巴特勒同意为小邦妮下葬之时，梅兰妮却突然晕</p>
+<p>倒，原本没有生育能力的她，为了这一传递生命的神圣事业，已经倾尽所有。</p>
+<p>孩子安全出生，而梅兰妮却已经奄奄一息，在弥留之际，她执意要见斯卡莉，并对说出了自己最后的遗</p>
+<p>言：替我照顾好艾希利，好好爱巴特勒，他真的很爱你。温柔一生的梅兰妮故去了，只留下斯卡莉独自</p>
+<p>面对失去生活最后希望的艾希利和要毅然决然离开她，去他乡追求爱与美的巴特勒，短时间内连续经历</p>
+<p>生离与死别打击的斯卡莉，孤身一人的斯卡莉，面对未来的生活仍旧没有失去希望，而是哭泣着，继续</p>
+<p>聚集起对世界和生活的热情，再一次出发。</p>
+<p>故事的最后，斯卡莉独自一人站在儿时与父亲并肩而立的苍天大树下，微风缓缓，古木的枯枝已经萌发</p>
+<p>新芽，举目远眺，远处的泰拉庄园笼罩在一片朦胧的烟火中，天边火红色的云彩飘摇，夕阳正好。</p>
+<h2 id="3-艺术成就"><a href="#3-艺术成就" class="headerlink" title="3.艺术成就:"></a>3.艺术成就:</h2><h3 id="1-画面"><a href="#1-画面" class="headerlink" title="1.画面:"></a>1.画面:</h3><p>影片大多数情节展现在油画般的布景当中，画面本身所带来的朦胧气氛，配合上费雯丽梦幻、沉浸、甚</p>
+<p>至可以说是有些做作的表演，让人感觉仿佛置身南方庄园的美丽童话当中，美丽的画面甚至任意截取出</p>
+<p>一个瞬间都可以被当作经典，而部分紧促残酷的场景则转向写实画风，如斯卡莉逃亡过程中目睹的悲惨</p>
+<p>景象、她枪杀强盗瞬间鲜血四溅的场景，通过这种画风的改变较好的衬托了影片节奏和情绪的变化，也</p>
+<p>表现了对战争的厌恶以及悲天悯人的人性温暖。而影片为数不多的长镜头更是聚焦拥抱、深思等场面，</p>
+<p>直面人物内心，仿佛在通过镜头的退役来展现人物丰富的心理活动和说不出的万语千言，极其富有艺术</p>
+<p>感染力。</p>
+<h4 id="2-布局"><a href="#2-布局" class="headerlink" title="2.布局:"></a>2.布局:</h4><p>影片的布局十分巧妙，采用双线结构，主线是斯卡莉与艾希利、巴特勒与其他丈夫的感情纠葛，暗线则</p>
+<p>是美国南北战争前后的社会发展与人心变化。以成长式的剧情体现了时间地点跨度下一个人的转变。叙</p>
+<p>事上冷静与热情相结合，张弛有度，配合斯卡莉的主要视角与必要时推动剧情的其他视角，使观众能够</p>
+<p>在全面的感受剧情的同时沉浸式的体验女主角的情感与追求变化。</p>
+<p>影片在艺术上还有诸多成就与亮点，如亮丽的色彩使用，大气磅礴的气势，豪华奢靡的场景，逼真的战</p>
+<p>争场面等等，此处受制于篇幅不再一一赘述。</p>
+<h2 id="4-人物形象"><a href="#4-人物形象" class="headerlink" title="4.人物形象:"></a>4.人物形象:</h2><h4 id="1-斯卡莉"><a href="#1-斯卡莉" class="headerlink" title="1.斯卡莉:"></a>1.斯卡莉:</h4><p>斯卡莉是影片的主角，南方种植园主的千金，她有着美丽的身形与无暇的笑容，对生命和生活怀有着无</p>
+<p>比的热情，无论经历多大的苦难都能勇敢的面对生活，同时，她又虚荣而自私，现实而贪婪，痴情而残</p>
+<p>忍，形象饱满而极具多维层次感，她的笑容让人沉醉，她的热情让人动容，她的残忍让人心寒，一场似</p>
+<p>乎酝酿已久的战争出现在她的生命中，这场战争使她感受到了前所未有的痛苦，爱情的消亡，亲情的逝</p>
+<p>去，让她在苦难中得到成长，明白了爱的意味，从自私到无私的转变，从而唤醒了当代女性意识觉醒，</p>
+<p>思想自由解放，这与18、19世纪哲学思想家如康德等人所倡导的”天赋人权”、自由平等等思想不谋而</p>
+<p>合。</p>
+<h4 id="2-巴特勒"><a href="#2-巴特勒" class="headerlink" title="2.巴特勒:"></a>2.巴特勒:</h4><p>巴特勒影片的男主角。他是典型的英伦绅士形象，智慧，勇敢，敏锐，正义，无论对谁都是笑容和煦、</p>
+<p>彬彬有礼，举止翩翩，同时家财万贯，是万千少女的梦中情人形象，为此还产生了瑞德巴特勒情结，但</p>
+<p>他同时又有属于自己的自私与骄傲，他的自私要求他做任何事都要有最终的回报，他的骄傲不允许他在</p>
+<p>国家危难之时带着女人逃避，这是这种性格成就了他，却也因此让他始终得不到斯卡莉最真挚的爱。</p>
+<h4 id="3-艾希利"><a href="#3-艾希利" class="headerlink" title="3.艾希利:"></a>3.艾希利:</h4><p>艾希利是典型的理想主义者形象，他也是一位绅士，南北战争前对战争充满信心，战斗时勇敢作战，战</p>
+<p>后仍积极参加反政府组织，在事业上他的一生奋斗具有古希腊式的悲剧色彩，令人唏嘘感叹。而在感情</p>
+<p>上他又是懦弱的、模棱两可的、没有担当的，他始终出于贵族的操守于内心的底线没有答应斯卡莉的表</p>
+<p>白，但是又经常克制不住内心的冲动与斯卡莉拥吻，说着绵绵情话。在生活中他又是脆弱的，会被挫折</p>
+<p>打倒，会变得一蹶不振，找不到生活的方向。与巴特勒相比，他有缺点，却更加真实，或许这也是斯卡</p>
+<p>莉自始至终钟情于他的原因。</p>
+<h4 id="4-梅兰妮"><a href="#4-梅兰妮" class="headerlink" title="4.梅兰妮:"></a>4.梅兰妮:</h4><p>梅兰妮是古典温柔女性的代表，巴特勒称她为”十分伟大、完美的女人“，与热烈奔放的斯卡莉相比，她</p>
+<p>性格沉静温婉，待人平和宽容，永远选择相信别人，始终看到别人好的一面。纵使在所有人都质疑艾希</p>
+<p>利和斯卡莉时，她仍然选择相信斯卡莉，并在故去之时把艾希利托付给斯卡莉。在温柔的同时，梅兰妮</p>
+<p>又有勇敢的一面，她在明知生育会面临极大危险的情况下，依旧毅然决然选择这神圣的使命，最终坦然</p>
+<p>地面对死亡。她和巴特勒一样，都用有着近乎完美的人设，是无数男人心目中的温暖情人形象。</p>
+<h2 id="5-影片主题"><a href="#5-影片主题" class="headerlink" title="5.影片主题:"></a>5.影片主题:</h2><h3 id="1-乱世爱情与婚姻：坚守、背叛、遗忘"><a href="#1-乱世爱情与婚姻：坚守、背叛、遗忘" class="headerlink" title="1.乱世爱情与婚姻：坚守、背叛、遗忘"></a>1.乱世爱情与婚姻：坚守、背叛、遗忘</h3><p>爱情贯穿《乱世佳人》的始终，是重要的影片线索和主题之一。斯卡莉始终对艾希利有着热烈明媚的，</p>
+<p>爱，为了这份爱情她牺牲了自己的第一任丈夫，把他当作自己感情的玩物，她的第二次婚姻是出于生存</p>
+<p>所需，只是把婚姻当作生存的工具，而她对巴特勒怀有的则是一种介于信任和喜爱之间的感情，不能说</p>
+<p>她完全不爱巴特勒，但未必对着堪称完美的男人有多迷恋。斯卡莉的三次婚姻都已悲剧收场，她的爱情</p>
+<p>更是始终没有收到真挚的回应，斯卡莉的爱情与婚姻是失败的，这种失败有她自己的原因，有艾希利的</p>
+<p>原因，也有时代的原因，但她对爱情的坚持与追求却没有失败，是感人至深并且应收到尊敬的。</p>
+<p>艾希利虽然没有明确的出轨，但他确实对斯卡莉和梅兰妮都怀有十分的喜爱，从这种意义上说，他确实</p>
+<p>背叛了自己的感情，背叛了自己专一忠贞的誓言，确实，很难有人能拒绝斯卡莉动人的外表与如一热烈</p>
+<p>的示爱，艾希利爱情与婚姻的问题，其实是男人在选择和追求时普遍的问题，在追求爱情时希望爱的炽</p>
+<p>热如骄阳，正如斯卡莉的爱，然而面对平淡生活与事业的失意时，又渴望温柔如水的安慰和陪伴，正如</p>
+<p>梅兰妮的爱。有人说乱世佳人教会我们如何去爱，倒不如说教会我们如何在爱情和婚姻之间取舍，最终做到像巴特勒</p>
+<p>像那样冷静的追求爱情。巴特勒对斯卡莉一见钟情，然后想尽各种办法追求她，但是后来发现自己不再</p>
+<p>喜欢她的时候又把自己的爱全部给了自己的孩子小邦妮，又在小邦妮死后冷静而又不失了风度的告别斯</p>
+<p>卡莉，去追求新的美好爱情。始终把爱情与婚姻紧紧握在一起，斯卡莉的爱太浓列梦幻，艾希利的爱太</p>
+<p>犹豫怯懦，或许只有巴特勒的爱情和对爱情的态度才是我们所追求和推崇的。</p>
+<h3 id="2-Gone-with-the-wind：西风吹彻的土地"><a href="#2-Gone-with-the-wind：西风吹彻的土地" class="headerlink" title="2. Gone with the wind：西风吹彻的土地"></a>2. Gone with the wind：西风吹彻的土地</h3><p>乱世佳人英文名是gone with the wind，随风而逝，在小说原文中作者曾经解释说意思是斯卡莉的故乡</p>
+<p>泰拉庄园已经随风飘去，乱世之中，佳人摧折，命途多舛，飘零四海，乱世之中，佳人奋发，爱的炽烈</p>
+<p>明媚，生活的独立自由，乱世之中始终怀有对土地与生活的坚守与热爱。”没有比你更深重的苦难，没有</p>
+<p>比你更自由的意志“，观毕乱世佳人，置身盛世，或许我们应当学会如何去生存，如何去尽力生活，如何</p>
+<p>去爱，爱土地与土地上的人，爱希望与未来，爱人性中每一丝丝明亮的闪光。</p>
+<p>最后以影片的结尾作结:</p>
+<p>Home,I want to go home,I have to think of a way to get him back,no matter what,tomorrow is a</p>
+<p>new day.</p>
+<p>抒情熊</p>
+<p>2022.3.18</p>
+]]></content>
+      <categories>
+        <category>创作</category>
+      </categories>
+      <tags>
+        <tag>影评</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>从IOC到java架构</title>
     <url>/2023/03/18/%E4%BB%8EIOC%E5%88%B0Java%E6%9E%B6%E6%9E%84/</url>
     <content><![CDATA[<h1 id="从SpringIOC到架构设计"><a href="#从SpringIOC到架构设计" class="headerlink" title="从SpringIOC到架构设计"></a>从SpringIOC到架构设计</h1><h1 id="1-目的"><a href="#1-目的" class="headerlink" title="1.目的:"></a>1.目的:</h1><p>从Spring框架的IOC,DI,SpringBoot的自动装配原理产生原因,作用,实现原理入手,浅析框架的简化开发作用,以及框架的设计思路.</p>
@@ -1743,18 +1743,6 @@
       </tags>
   </entry>
   <entry>
-    <title>北邙星梦</title>
-    <url>/2023/05/29/%E5%8C%97%E9%82%99%E6%98%9F%E6%A2%A6/</url>
-    <content><![CDATA[<p>若你来自北方<br>若你的肩头从未抖落风霜<br>若你的目光里从未有过烟雨江南<br>当你把目光投向熙攘 直视生活<br>当你听到不属于北方的夜夜笙歌<br>相信你眼中会残存北方的月影<br>那未曾体味过繁华的温柔的月影<br>可你的梦里是否有过对江南的憧憬<br>以春暖花开为背景 把心爱的元素用素笔勾勒<br>把画面定格 用一如永远的话语抹上底色<br>希望你能有憧憬的目光<br>无论它来自你的故乡<br>还是来自繁华却少许空洞的江南<br>希望你能找到和你一样的人<br>从北方走来却不心怀江南的人<br>用所有不平凡的品质情感让目光相会<br>哪怕不思考前提 哪怕会轻易提起<br>希望你能带着两束目光走向最后<br>放下来自漫漫黄沙里的理性<br>做出作出决定就不会改变<br>做不到眼中同时装着江南和故乡<br>就做个函数吧<br>同时握着理性和情感<br>做出决定就不改变<br>不回头不眺望也无所谓悲伤</p>
-]]></content>
-      <categories>
-        <category>创作</category>
-      </categories>
-      <tags>
-        <tag>诗歌</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>分布式原理</title>
     <url>/2023/01/17/%E5%88%86%E5%B8%83%E5%BC%8F/</url>
     <content><![CDATA[<h1 id="分布式理论-现代架构基石"><a href="#分布式理论-现代架构基石" class="headerlink" title="分布式理论-现代架构基石"></a>分布式理论-现代架构基石</h1><h1 id="1-目录："><a href="#1-目录：" class="headerlink" title="1.目录："></a>1.目录：</h1><p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230202220429.png" alt="QQ截图20230202220429"></p>
@@ -1812,6 +1800,18 @@
       </categories>
       <tags>
         <tag>分布式</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>北邙星梦</title>
+    <url>/2023/05/29/%E5%8C%97%E9%82%99%E6%98%9F%E6%A2%A6/</url>
+    <content><![CDATA[<p>若你来自北方<br>若你的肩头从未抖落风霜<br>若你的目光里从未有过烟雨江南<br>当你把目光投向熙攘 直视生活<br>当你听到不属于北方的夜夜笙歌<br>相信你眼中会残存北方的月影<br>那未曾体味过繁华的温柔的月影<br>可你的梦里是否有过对江南的憧憬<br>以春暖花开为背景 把心爱的元素用素笔勾勒<br>把画面定格 用一如永远的话语抹上底色<br>希望你能有憧憬的目光<br>无论它来自你的故乡<br>还是来自繁华却少许空洞的江南<br>希望你能找到和你一样的人<br>从北方走来却不心怀江南的人<br>用所有不平凡的品质情感让目光相会<br>哪怕不思考前提 哪怕会轻易提起<br>希望你能带着两束目光走向最后<br>放下来自漫漫黄沙里的理性<br>做出作出决定就不会改变<br>做不到眼中同时装着江南和故乡<br>就做个函数吧<br>同时握着理性和情感<br>做出决定就不改变<br>不回头不眺望也无所谓悲伤</p>
+]]></content>
+      <categories>
+        <category>创作</category>
+      </categories>
+      <tags>
+        <tag>诗歌</tag>
       </tags>
   </entry>
   <entry>
@@ -1907,6 +1907,63 @@
       </tags>
   </entry>
   <entry>
+    <title>数据库概述</title>
+    <url>/2023/03/18/%E6%95%B0%E6%8D%AE%E5%BA%93%E6%A6%82%E8%BF%B0/</url>
+    <content><![CDATA[<h1 id="数据库"><a href="#数据库" class="headerlink" title="数据库"></a>数据库</h1><h1 id="1-数据持久化"><a href="#1-数据持久化" class="headerlink" title="1.数据持久化:"></a>1.数据持久化:</h1><p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230309095548.png" alt="QQ截图20230309095548"></p>
+<p>一些问题:</p>
+<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230309095740.png" alt="QQ截图20230309095740"></p>
+<h1 id="2-存储系统与数据库系统"><a href="#2-存储系统与数据库系统" class="headerlink" title="2.存储系统与数据库系统:"></a>2.存储系统与数据库系统:</h1><h2 id="2-1-存储系统"><a href="#2-1-存储系统" class="headerlink" title="2.1 存储系统:"></a>2.1 存储系统:</h2><p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230309100001.png" alt="QQ截图20230309100001"></p>
+<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230309100035.png" alt="QQ截图20230309100035"></p>
+<p>io的基本路径上要简单,处于性能考虑,但是在异常处理上要做到复杂.</p>
+<h2 id="2-2-存储器的层级结构"><a href="#2-2-存储器的层级结构" class="headerlink" title="2.2 存储器的层级结构:"></a>2.2 存储器的层级结构:</h2><p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230309100302.png" alt="QQ截图20230309100302"></p>
+<p>上方存储容量小,读写快.</p>
+<p>下方存储容量大,读写慢.</p>
+<h2 id="2-3-应用到存储介质"><a href="#2-3-应用到存储介质" class="headerlink" title="2.3 应用到存储介质:"></a>2.3 应用到存储介质:</h2><p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230309100513.png" alt="QQ截图20230309100513"></p>
+<h2 id="2-4-RAID技术"><a href="#2-4-RAID技术" class="headerlink" title="2.4 RAID技术:"></a>2.4 RAID技术:</h2><p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230309100813.png" alt="QQ截图20230309100813"></p>
+<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230309101050.png" alt="QQ截图20230309101050"></p>
+<h2 id="2-5-关系"><a href="#2-5-关系" class="headerlink" title="2.5 关系:"></a>2.5 关系:</h2><p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230309101302.png" alt="QQ截图20230309101302"></p>
+<p>关系型数据库是存储系统,但是在存储之外,有发展出其他能力.</p>
+<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230309101357.png" alt="QQ截图20230309101357"></p>
+<p>非关系型数据库也是存储系统,但是一般不要求严格的结构化.</p>
+<h2 id="2-6-结构化数据管理"><a href="#2-6-结构化数据管理" class="headerlink" title="2.6 结构化数据管理:"></a>2.6 结构化数据管理:</h2><p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230309101603.png" alt="QQ截图20230309101603"></p>
+<p>事务能力:</p>
+<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230309101724.png" alt="QQ截图20230309101724"></p>
+<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230309102054.png" alt="QQ截图20230309102054"></p>
+<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230309102131.png" alt="QQ截图20230309102131"></p>
+<h1 id="3-主流存储产品"><a href="#3-主流存储产品" class="headerlink" title="3.主流存储产品:"></a>3.主流存储产品:</h1><p>明确存储系统与数据库系统的区别.</p>
+<h2 id="3-1-单机存储-本地文件系统"><a href="#3-1-单机存储-本地文件系统" class="headerlink" title="3.1 单机存储-本地文件系统:"></a>3.1 单机存储-本地文件系统:</h2><p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230309102437.png" alt="QQ截图20230309102437"></p>
+<h2 id="3-2-单机存储-k-v存储系统"><a href="#3-2-单机存储-k-v存储系统" class="headerlink" title="3.2 单机存储-k-v存储系统:"></a>3.2 单机存储-k-v存储系统:</h2><p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230309102859.png" alt="QQ截图20230309102859"></p>
+<h2 id="3-2-分布式存储系统"><a href="#3-2-分布式存储系统" class="headerlink" title="3.2 分布式存储系统:"></a>3.2 分布式存储系统:</h2><p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230309103346.png" alt="QQ截图20230309103346"></p>
+<h3 id="3-2-1-HDFS-分布式文件系统"><a href="#3-2-1-HDFS-分布式文件系统" class="headerlink" title="3.2.1 HDFS:分布式文件系统:"></a>3.2.1 HDFS:分布式文件系统:</h3><p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230309103425.png" alt="QQ截图20230309103425"></p>
+<h2 id="3-2-2-Ceph"><a href="#3-2-2-Ceph" class="headerlink" title="3.2.2 Ceph:"></a>3.2.2 Ceph:</h2><p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230309103719.png" alt="QQ截图20230309103719"></p>
+<h1 id="4-主流数据库"><a href="#4-主流数据库" class="headerlink" title="4.主流数据库:"></a>4.主流数据库:</h1><h2 id="4-1-单机关系型数据库"><a href="#4-1-单机关系型数据库" class="headerlink" title="4.1 单机关系型数据库:"></a>4.1 单机关系型数据库:</h2><p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230309103913.png" alt="QQ截图20230309103913"></p>
+<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230309104238.png" alt="QQ截图20230309104238"></p>
+<p>page是内存真实数据,redo存储事务中的数据库操作,others存储内存不够用时候的临时文件.</p>
+<h2 id="4-2-单机型非关系型数据库"><a href="#4-2-单机型非关系型数据库" class="headerlink" title="4.2 单机型非关系型数据库:"></a>4.2 单机型非关系型数据库:</h2><p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230309104417.png" alt="QQ截图20230309104417"></p>
+<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230309104750.png" alt="QQ截图20230309104750"></p>
+<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230309104908.png" alt="QQ截图20230309104908"></p>
+<h2 id="4-3-从单机到分布式"><a href="#4-3-从单机到分布式" class="headerlink" title="4.3 从单机到分布式:"></a>4.3 从单机到分布式:</h2><p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230309105157.png" alt="QQ截图20230309105157"></p>
+<p>池化:</p>
+<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230309105331.png" alt="QQ截图20230309105331"></p>
+<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230309105551.png" alt="QQ截图20230309105551"></p>
+<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230309105701.png" alt="QQ截图20230309105701"></p>
+<p>一些难题:</p>
+<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230309105720.png" alt="QQ截图20230309105720"></p>
+<h1 id="5-演进"><a href="#5-演进" class="headerlink" title="5.演进:"></a>5.演进:</h1><p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230309110106.png" alt="QQ截图20230309110106"></p>
+<h2 id="5-1-SPDK"><a href="#5-1-SPDK" class="headerlink" title="5.1 SPDK:"></a>5.1 SPDK:</h2><p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230309110137.png" alt="QQ截图20230309110137"></p>
+<h2 id="5-2-AI"><a href="#5-2-AI" class="headerlink" title="5.2 AI:"></a>5.2 AI:</h2><p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230309110506.png" alt="QQ截图20230309110506"></p>
+<h2 id="5-3-高性能硬件"><a href="#5-3-高性能硬件" class="headerlink" title="5.3 高性能硬件:"></a>5.3 高性能硬件:</h2><p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230309110645.png" alt="QQ截图20230309110645"></p>
+<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230309110803.png" alt="QQ截图20230309110803"></p>
+<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230309110830.png" alt="QQ截图20230309110830"></p>
+]]></content>
+      <categories>
+        <category>笔记</category>
+      </categories>
+      <tags>
+        <tag>数据库</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>微服务</title>
     <url>/2023/03/18/%E5%BE%AE%E6%9C%8D%E5%8A%A1/</url>
     <content><![CDATA[<h1 id="微服务架构原理与治理实践："><a href="#微服务架构原理与治理实践：" class="headerlink" title="微服务架构原理与治理实践："></a>微服务架构原理与治理实践：</h1><h1 id="1-引入："><a href="#1-引入：" class="headerlink" title="1.引入："></a>1.引入：</h1><p>微服务架构是当前大多数互联网公司的标准架构.</p>
@@ -1977,6 +2034,170 @@
       </categories>
       <tags>
         <tag>架构</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>数据结构</title>
+    <url>/2023/03/18/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/</url>
+    <content><![CDATA[<h1 id="数据结构"><a href="#数据结构" class="headerlink" title="数据结构"></a>数据结构</h1><h1 id="1-绪论"><a href="#1-绪论" class="headerlink" title="1.绪论:"></a>1.绪论:</h1><h2 id="1-1-定义"><a href="#1-1-定义" class="headerlink" title="1. 1 定义:"></a>1. 1 定义:</h2><p><strong>数据</strong>是对信息的一种符号表示。在计算机科学中是指所有能输入到计算机中并被计算机程序处理的符号的总称。</p>
+<p>数据结构十数据对象在计算机中的组织方式.<strong>数据结构</strong>是一个二元组 Data_Structure ＝（D，R），其中，D 是数据元素的有限集，R 是 D 上关系的有限集。</p>
+<h2 id="1-2-逻辑结构与存储结构"><a href="#1-2-逻辑结构与存储结构" class="headerlink" title="1.2 逻辑结构与存储结构:"></a>1.2 逻辑结构与存储结构:</h2><p>逻辑结构是指数据间的相互关系.通常分为四类结构:线性结构,集合,树,图或网.(还有什么有序表之类的)</p>
+<p><strong>存储结构</strong>是指数据结构在计算机中的表示，又称为数据的物理结构。通常由四种基本的存储方法实现：</p>
+<p>（1）顺序存储方式</p>
+<p>（2）链式存储方式</p>
+<p>（3）索引存储方式</p>
+<p>（4）散列存储方式</p>
+<h2 id="1-3-算法复杂度"><a href="#1-3-算法复杂度" class="headerlink" title="1.3 算法复杂度:"></a>1.3 算法复杂度:</h2><p>主要分为时间复杂度和空间复杂度.</p>
+<h3 id="1-3-1-空间复杂度"><a href="#1-3-1-空间复杂度" class="headerlink" title="1.3.1 空间复杂度:"></a>1.3.1 空间复杂度:</h3><p>空间复杂度是指执行程序时,额外占用的存储空间的大小.</p>
+<h3 id="1-3-2-时间复杂度"><a href="#1-3-2-时间复杂度" class="headerlink" title="1.3.2 时间复杂度:"></a>1.3.2 时间复杂度:</h3><p>时间复杂度是指执行程序时,占用时间的大小.</p>
+<p>时间复杂度只与待解决问题的规模(n)有关,与一步基本操作的工作量无关.</p>
+<p>时间复杂度只考虑问题的宏观渐进性,意识是求解的难度随着问题规模的增大逐渐增大的趋势.如线性增长(o(n)).</p>
+<h3 id="1-3-3-算法特性"><a href="#1-3-3-算法特性" class="headerlink" title="1.3.3 算法特性:"></a>1.3.3 算法特性:</h3><p>输入.输出.有穷性.确定性.可行性.</p>
+<h1 id="2-线性表"><a href="#2-线性表" class="headerlink" title="2.线性表:"></a>2.线性表:</h1><h2 id="2-1-定义"><a href="#2-1-定义" class="headerlink" title="2.1 定义:"></a>2.1 定义:</h2><p>线性表是n个相同类型的数据元素组成的有限序列.是最简单的.最基础的数据结构(逻辑结构).线性表包括顺序表(数组)和链表.</p>
+<h2 id="2-2-特征"><a href="#2-2-特征" class="headerlink" title="2.2 特征:"></a>2.2 特征:</h2><p>线性表的第一个元素叫第一元素,最后一个元素是最后元素,中间元素的上一个元素叫前驱,后一个元素叫后继.</p>
+<h2 id="2-3-顺序表基本运算的复杂度"><a href="#2-3-顺序表基本运算的复杂度" class="headerlink" title="2.3 顺序表基本运算的复杂度:"></a>2.3 顺序表基本运算的复杂度:</h2><p>插入,删除都是o(n).</p>
+<h2 id="2-4-顺序表优缺点"><a href="#2-4-顺序表优缺点" class="headerlink" title="2.4 顺序表优缺点:"></a>2.4 顺序表优缺点:</h2><p>优点: 节省空间,查找元素第i个元素比较简单(头+元素大小✖i)</p>
+<p>缺点:插入.删除都需要移动数据.比较不容易确定存储空间.</p>
+<h2 id="2-5-链表"><a href="#2-5-链表" class="headerlink" title="2.5 链表:"></a>2.5 链表:</h2><h3 id="2-5-1-头结点"><a href="#2-5-1-头结点" class="headerlink" title="2.5.1: 头结点:"></a>2.5.1: 头结点:</h3><p>头结点不存储数据.指针指向第一个节点.</p>
+<p>头插法:读入的数据元素的顺序与生成的链表中元素的顺序是相反的。</p>
+<p>尾插法读入的数据元素的顺序与生成的链表中元素的顺序是一致的。</p>
+<h1 id="3-栈和队列"><a href="#3-栈和队列" class="headerlink" title="3.栈和队列:"></a>3.栈和队列:</h1><h2 id="3-1-定义"><a href="#3-1-定义" class="headerlink" title="3.1 定义:"></a>3.1 定义:</h2><p>栈和队列是一种特殊的线性表.先进后出为栈,先进先出为队列.</p>
+<h2 id="3-2-栈"><a href="#3-2-栈" class="headerlink" title="3.2 栈:"></a>3.2 栈:</h2><p>插入和删除均在特定的一端进行.</p>
+<p>最先进入的一端叫栈底,进行操作的一端叫栈顶.入栈成为Push,出栈称为Pop.</p>
+<p>栈的一种定义：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">#define STACK_INIT_SIZE 100</span><br><span class="line"></span><br><span class="line">#define STACKINCREMENT 10</span><br><span class="line"></span><br><span class="line">typedef struct</span><br><span class="line">&#123;</span><br><span class="line"> SElemType *base;</span><br><span class="line"></span><br><span class="line">SElemType *top;</span><br><span class="line"></span><br><span class="line">int stacksize;</span><br><span class="line"></span><br><span class="line">&#125;SqStack;</span><br></pre></td></tr></table></figure>
+
+<p>top指针表示栈顶，入栈时，top指针存入数据后移动，成为新的栈顶。出栈时，top指针回退。</p>
+<h2 id="3-3-队列："><a href="#3-3-队列：" class="headerlink" title="3.3 队列："></a>3.3 队列：</h2><p>一种先进先出的线性表。</p>
+<p>入队的地方称为队尾，出队的地方称为队头，队尾指针rear,队头指针front。</p>
+<h1 id="4-串"><a href="#4-串" class="headerlink" title="4.串:"></a>4.串:</h1><h1 id="5-数组和广义表："><a href="#5-数组和广义表：" class="headerlink" title="5.数组和广义表："></a>5.数组和广义表：</h1><h1 id="6-树："><a href="#6-树：" class="headerlink" title="6.树："></a>6.树：</h1><h1 id="7-图："><a href="#7-图：" class="headerlink" title="7.图："></a>7.图：</h1><h2 id="7-1-定义："><a href="#7-1-定义：" class="headerlink" title="7.1 定义："></a>7.1 定义：</h2><p>由点的集合和边的集合构成的集合，任意两个结点之间都可能相关，即结点之间的邻接关系可以是任意的。</p>
+<h2 id="7-2-图的相关术语："><a href="#7-2-图的相关术语：" class="headerlink" title="7.2 图的相关术语："></a>7.2 图的相关术语：</h2><p>度：节点的边数。入读是指向该节点的边数，出度是从该节点出发的边数。</p>
+<p>强连通图：任意两点之间都联通的图</p>
+<p>路径、路径长度：顶点 vp到顶点 vq之间的路径是指顶点序列 vp,vi1,vi2, …, vim,vq.。路径上边的数目称为路径长度。</p>
+<h2 id="7-3-图的存储："><a href="#7-3-图的存储：" class="headerlink" title="7.3 图的存储："></a>7.3 图的存储：</h2><h3 id="7-3-1-邻接矩阵："><a href="#7-3-1-邻接矩阵：" class="headerlink" title="7.3.1 邻接矩阵："></a>7.3.1 邻接矩阵：</h3><h3 id="7-3-2-邻接表："><a href="#7-3-2-邻接表：" class="headerlink" title="7.3.2 邻接表："></a>7.3.2 邻接表：</h3><p>是图的一种顺序存储与链式存储结合的存储方法，类似于树的孩子链表表示法。就是对于图 G 中的每个顶点 vi，将所有邻接于 vi的顶点 vj链成一个单链表，这个单链表就称为顶点 vi的邻接表，再将所有点的邻接表表头放到数组中，就构成了图的邻接表。</p>
+<p>在邻接表中，每条边都会出现两次，如果是n个顶点，e条边的邻接表，总共需要n个头节点和2e个表节点，比较适合存储比较稀疏的图。</p>
+<h2 id="7-4：图的遍历："><a href="#7-4：图的遍历：" class="headerlink" title="7.4：图的遍历："></a>7.4：图的遍历：</h2><p>从图的某一个顶点出发，访问所有的顶点。</p>
+<h3 id="7-4-1-深度优先搜索："><a href="#7-4-1-深度优先搜索：" class="headerlink" title="7.4.1 深度优先搜索："></a>7.4.1 深度优先搜索：</h3><p>从某一个顶点开始，访问一个顶点后，接着访问与这个顶点相邻的，未被访问过的顶点，直到所有的顶点都被访问过为止。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">void DFS(Graph G,int v ) /*从第 v 个顶点出发递归地深度优先遍历图 G*/</span><br><span class="line"></span><br><span class="line">&#123; </span><br><span class="line">visited[v]=TRUE;Visit(v); /*访问第 v 个顶点*/</span><br><span class="line"></span><br><span class="line">for(w=FisrtAdjVex(G,v);w&gt;=0; w=NextAdjVex(G,v,w))</span><br><span class="line"></span><br><span class="line">if (!visited[w]) DFS(G,w); /*对 v 的尚未访问的邻接顶点 w 递归调用 DFS*/</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>遍历图的过程实质上是对每个顶点查找其邻接点的过程，其耗费的时间则取决于所采用的存储结构。当以邻接矩阵为图的存储结构时，查找每个顶点的邻接点所需时间为O(n2 ) ，其中 n 为图中顶点数。而当以邻接表作图的存储结构时，找邻接点所需时间为 O(e)，其中e 为无向图中边的数或有向图中弧的数。由此，当以邻接表作存储结构时，深度优先搜索遍历图的时间复杂度为 O(n+e) 。</p>
+<h3 id="7-4-2-广度优先搜索："><a href="#7-4-2-广度优先搜索：" class="headerlink" title="7.4.2: 广度优先搜索："></a>7.4.2: 广度优先搜索：</h3><p>从某一个顶点开始，先访问该顶点，再访问与该顶点相邻的所有未访问过的顶点，然后在对这些邻接顶点的邻接顶点做相同的操作。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">void BFS (Graph G,int v)</span><br><span class="line"></span><br><span class="line">&#123;</span><br><span class="line">InitQueue(Q); /*置空的辅助队列 Q*/</span><br><span class="line"></span><br><span class="line">visited[v]=TRUE; Visit(v); /*访问 v*/</span><br><span class="line"></span><br><span class="line">EnQueue(Q,v); /*v 入队列*/</span><br><span class="line"></span><br><span class="line">while (!QueueEmpty(Q)) </span><br><span class="line"></span><br><span class="line">&#123;DeQueue(Q,u); /*队头元素出队并置为 u*/</span><br><span class="line"></span><br><span class="line">for(w=FistAdjVex(G,u); w&gt;=0; w=NextAdjVex(G,u,w))</span><br><span class="line"></span><br><span class="line">if(!visited[w])</span><br><span class="line"></span><br><span class="line">&#123;visited[w]=TRUE; Visit(w);</span><br><span class="line"></span><br><span class="line"> EnQueue(Q,w); /*u 尚未访问的邻接顶点 w 入队列 Q*/</span><br><span class="line">&#125;&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line">注意入队列的顺序，先入队列的点先出队列进行的下一步的bfs，可能会影响遍历顺序。</span><br></pre></td></tr></table></figure>
+
+<p>广度优先搜索遍历图的过程实质是通过边或弧找邻接点的过程，其时间复杂度和深度优先搜索遍历相同，两者不同之处仅仅在于对顶点访问的顺序不同。</p>
+<h2 id="7-5-最小生成树："><a href="#7-5-最小生成树：" class="headerlink" title="7.5 最小生成树："></a>7.5 最小生成树：</h2><p><strong>生成树：</strong>所谓连通图 G 的生成树，是 G 的包含其全部 n 个顶点的一个极小连通子图。它必定包含且仅包含 G 的 n-1 条边。</p>
+<p>最小生成树是指在图的所有生成树中，边权和最小的树。</p>
+<p>下面给出两种求最小生成数的算法。</p>
+<h3 id="7-5-1：Prim算法："><a href="#7-5-1：Prim算法：" class="headerlink" title="7.5.1：Prim算法："></a>7.5.1：Prim算法：</h3><p>建立u，v(所有顶点集合)，t三个集合。任选一个顶点开始。把该顶点加入u，寻找一条边，这条边的两个顶点一个在u中，一个在v-u中，而且这条边的权值在符合所有的边中最小，把v-u中的那个点加入u，把这条边加入t，反复进行操作，知道u中包括了所有的顶点为止。</p>
+<p>时间复杂度o（n2）(邻接矩阵)o(n+e)(邻接表)，比较适合于边稠密的网。</p>
+<h3 id="7-5-2-Kruskal-算法"><a href="#7-5-2-Kruskal-算法" class="headerlink" title="7.5.2:  Kruskal 算法:"></a>7.5.2:  Kruskal 算法:</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">void Kruskal (G,T)&#123;</span><br><span class="line">T=V;</span><br><span class="line">ncomp=N;</span><br><span class="line">while（ncomp&gt;1）</span><br><span class="line">&#123;</span><br><span class="line">	从G中找到取出并删除权值最小的边，记为x.</span><br><span class="line">	if(x的两个顶点在T中并没有相连相连)</span><br><span class="line">	&#123;</span><br><span class="line">		把这条边加入t；</span><br><span class="line">		ncomp--；</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>时间复杂度o（enlog2e）比较适合边稀疏的网。</p>
+<h2 id="7-6：最短路径："><a href="#7-6：最短路径：" class="headerlink" title="7.6：最短路径："></a>7.6：最短路径：</h2><h3 id="7-6-1-单源最短路："><a href="#7-6-1-单源最短路：" class="headerlink" title="7.6.1:单源最短路："></a>7.6.1:单源最短路：</h3><p>给定有向图g和源点v，求该点到所有顶点的最短距离。</p>
+<p>Dijkstra 算法:</p>
+<p>s是已经求出最短路的集合,v-s是未求出最短路的集合.</p>
+<p>首先把顶点加入s,把与v最近的v1也加入s.</p>
+<p>然后在v-s中寻找vx到vo与vx到v1,遍历找最短的加入s.</p>
+<p>依次进行操作.</p>
+<p>时间复杂度是 O(n 2 ).</p>
+<h3 id="7-6-2-多源最短路"><a href="#7-6-2-多源最短路" class="headerlink" title="7.6.2: 多源最短路:"></a>7.6.2: 多源最短路:</h3><p>从 Vi到 Vj的所有可能存在的路径中，选出一条长度最短的路径。时间复杂度是 O(n 3 ).</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">for(int k = 0 ; k &lt; size ; k ++)</span><br><span class="line">&#123;</span><br><span class="line">    for(int i = 0 ; i &lt; size ; i ++)</span><br><span class="line">    &#123;</span><br><span class="line">        for(int j = 0 ; j &lt; size ; j ++)</span><br><span class="line">        &#123;</span><br><span class="line">            if(zu[i][j] &gt; zu[i][k] + zu[k][j])&#123;</span><br><span class="line">            	zu[i][j] = zu[i][k] + zu[k][j];</span><br><span class="line">            &#125; </span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;	 </span><br></pre></td></tr></table></figure>
+
+<h2 id="7-7-拓扑排序"><a href="#7-7-拓扑排序" class="headerlink" title="7.7: 拓扑排序:"></a>7.7: 拓扑排序:</h2><h3 id="7-7-1-AOE网"><a href="#7-7-1-AOE网" class="headerlink" title="7.7.1: AOE网:"></a>7.7.1: AOE网:</h3><p>是一张有向无环图.</p>
+<p>顶点表示事件,边表示事件.</p>
+<p>拓扑序列:如果存在vi到vj的路径,则在这个序列中i位于j之前.有向图的序列不唯一,无环图一定有拓扑序列,有环图一定没有拓扑序列.</p>
+<p>算法:</p>
+<p>(1)选图中入度为0的顶点输出.</p>
+<p>(2)删除该顶点以及预期相连的所有边.</p>
+<p>(3)重复进行 直到所以的顶点都被输出.</p>
+<p>整个算法的时间复杂度 为 O（e+n）。<strong>拓扑排序的序列可能不唯一。</strong> </p>
+<h3 id="7-7-2-关键路径"><a href="#7-7-2-关键路径" class="headerlink" title="7.7.2: 关键路径:"></a>7.7.2: 关键路径:</h3><p>首先要搞清楚几个概念:</p>
+<h4 id="7-7-2-1-事件的最早发生时间"><a href="#7-7-2-1-事件的最早发生时间" class="headerlink" title="7.7.2.1:事件的最早发生时间:"></a>7.7.2.1:事件的最早发生时间:</h4><p>记为ve[k]</p>
+<p>是从原点到发生事件的点的最长的路径长度.(含义是这个事件要在前面所有的事件都结束了之后这个事件才能就开始,所以所需要时间最长的活动为制约条件)</p>
+<h4 id="7-7-2-2-事件的最晚发生时间"><a href="#7-7-2-2-事件的最晚发生时间" class="headerlink" title="7.7.2.2:事件的最晚发生时间:"></a>7.7.2.2:事件的最晚发生时间:</h4><p>记为vl[k]</p>
+<p>开始节点为0,汇点为其最早开始时间.对于其他节点,从汇点开始减去其到上一个顶点的路径长度.</p>
+<h4 id="7-7-2-3-活动的最晚发生时间"><a href="#7-7-2-3-活动的最晚发生时间" class="headerlink" title="7.7.2.3:活动的最晚发生时间:"></a>7.7.2.3:活动的最晚发生时间:</h4><p>事件最晚时间减去活动边.</p>
+<h4 id="7-7-2-2-活动的最早发生时间"><a href="#7-7-2-2-活动的最早发生时间" class="headerlink" title="7.7.2.2:活动的最早发生时间:"></a>7.7.2.2:活动的最早发生时间:</h4><p>就是活动源头一侧的时间的最早发生时间.</p>
+<p>活动的最早和最晚开始时间相同的活动就是关键活动.由关键活动组成的路径被称为关键路径.</p>
+<p>整个工程完成的时间为：从有向图的<strong>源点</strong>到<strong>汇点</strong>的最长路径。</p>
+<h1 id="8-查找"><a href="#8-查找" class="headerlink" title="8.查找:"></a>8.查找:</h1><h2 id="8-1-顺序查找"><a href="#8-1-顺序查找" class="headerlink" title="8.1: 顺序查找:"></a>8.1: 顺序查找:</h2><p>第一个元素向后,依次顺序查找.</p>
+<h2 id="8-2-折半查找"><a href="#8-2-折半查找" class="headerlink" title="8.2: 折半查找:"></a>8.2: 折半查找:</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">int Search_Bin (SSTable ST, KeyType key ) </span><br><span class="line"></span><br><span class="line">&#123;low = 1; high = ST.length; /*置区间初值*/</span><br><span class="line"></span><br><span class="line">while(low &lt;= high)</span><br><span class="line"></span><br><span class="line"> &#123;mid=(low + high)/2;</span><br><span class="line"></span><br><span class="line"> if（</span><br><span class="line"></span><br><span class="line">key == ST.elem[mid].key )</span><br><span class="line"></span><br><span class="line"> return mid; /*找到待查元素*/</span><br><span class="line"></span><br><span class="line"> else if(key&lt;ST.elem[mid].key) )</span><br><span class="line"></span><br><span class="line"> high = mid - 1; /*继续在前半区间进行查找*/</span><br><span class="line"></span><br><span class="line"> else low = mid + 1;/*继续在后半区间进行查找*/</span><br><span class="line"></span><br><span class="line"> &#125;</span><br><span class="line"></span><br><span class="line"> return 0; /*顺序表中不存在待查元素*/</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>要求数据顺序存储 且有序。</p>
+<p>o（logn）</p>
+<h2 id="8-3：索引查找："><a href="#8-3：索引查找：" class="headerlink" title="8.3：索引查找："></a>8.3：索引查找：</h2><p>①查找表要求顺序存储；②查找表分成 n 块，当 i&gt;j 时，第 i 块中的最小元素大于第 j 块中的最大元素。</p>
+<p>过程：①首先确定所要查找关键字在哪一块中。②在所确定的块中用顺序查找查找关键字。</p>
+<p>平均查找长度n+l+2➗2 其中l是每块长度 n是总长度  若要使平均次数最小 每块的长度是根号n</p>
+<h2 id="8-4：-监视哨："><a href="#8-4：-监视哨：" class="headerlink" title="8.4： 监视哨："></a>8.4： 监视哨：</h2><p>不是带查找元素，是人为构造的一个数据，放在特定的位置，用来处理数组越界等情况。所以有监视哨的表，查询的元素要比待查元素多一个（失败时）成功就不需要了。</p>
+<h2 id="8-4：二叉排序树："><a href="#8-4：二叉排序树：" class="headerlink" title="8.4：二叉排序树："></a>8.4：二叉排序树：</h2><h3 id="8-4-1：-静态查找表与动态查找表："><a href="#8-4-1：-静态查找表与动态查找表：" class="headerlink" title="8.4.1： 静态查找表与动态查找表："></a>8.4.1： 静态查找表与动态查找表：</h3><p>动态查找表：有时在查询之后，还需要将“查询”结果为“不在查找表中”的数据元素插入到查找表中；或者，从查找表中删除其“查询”结果为“在查找表中”的数据元素。</p>
+<h3 id="8-4-2：-定义："><a href="#8-4-2：-定义：" class="headerlink" title="8.4.2： 定义："></a>8.4.2： 定义：</h3><p>空树或者对于所有的子树都有：左子树＜根节点＜右子树</p>
+<p>查找时：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">BSTree SearchBST(BiTree bt, KeyType key)/*在根指针 bt 所指二叉排序树中，递归查</span><br><span class="line">找某关键字等于 key 的元素，若查找成功，则返回指向该元素结点指针，否则返回空指针 */</span><br><span class="line">&#123;if(!bt) return NULL; </span><br><span class="line"></span><br><span class="line">else if(bt-&gt;key==key) return bt; /*查找成功*/ </span><br><span class="line"></span><br><span class="line">else if(key＜bt-&gt;key)</span><br><span class="line"></span><br><span class="line">return SearchBST(bt-&gt;lchild,key); /*在左子树中继续查找*/</span><br><span class="line"></span><br><span class="line"> else return SearchBST(bt-&gt;rchild, key); /*在右子树中继续查找*/</span><br><span class="line"></span><br><span class="line">&#125; </span><br></pre></td></tr></table></figure>
+
+<h2 id="8-5：平衡二叉树："><a href="#8-5：平衡二叉树：" class="headerlink" title="8.5：平衡二叉树："></a>8.5：平衡二叉树：</h2><p>或者是一棵空树，或者是具有下列性质的二叉排序树：它的左子树和右子树都是平衡二叉树，且左子树和右子树高度之差的绝对值不超过 1。</p>
+<p>在插入过程中，采用平衡旋转技术：左单旋转；右单旋转；先左后右双向旋转；先右后左双向旋转。</p>
+<p>在平衡树上进行查找的过程和二叉排序树相同，因此，查找过程中和给定值进行比较的关键字的个数不超过平衡 树的深度，和 log2n 相当。</p>
+<h2 id="8-6：哈希表："><a href="#8-6：哈希表：" class="headerlink" title="8.6：哈希表："></a>8.6：哈希表：</h2><p>基本思想是首先在元素的关键字 key 和元素的存储位置 p 之间建立一个对应关系 H，使得 p&#x3D;H(key)，H 称为散列函数。创建散列表时，把关键字为 key 的元素直接存入地址为 H(key)的单元；以后当查找关键字为 key 的元素时，再利用散列函数计算出该元素的存储位置 p&#x3D;H(key)，从而达到按关键字直接存取元素的目的。</p>
+<p>装填因子：</p>
+<p>a&#x3D;填入结点数&#x2F;空间大小</p>
+<p>①直接定址法：H(key) &#x3D; a  key + b</p>
+<p>适合于：地址集合的大小 &#x3D; &#x3D; 关键字集合的大小</p>
+<p>⑤除留余数法：H(key) &#x3D; key MOD p ，其中 p≤m (表长)并且 p 应为不大于 m 的素数</p>
+<h3 id="8-6-2：-解决冲突方法："><a href="#8-6-2：-解决冲突方法：" class="headerlink" title="8.6.2： 解决冲突方法："></a>8.6.2： 解决冲突方法：</h3><p>①开放定址法：当关键字 key 的散列地址 p&#x3D; H（key）出现冲突时，以 p 为基础，产生另一</p>
+<p>个散列地址 p1，如果 p1仍然冲突，再以 p 为基础，产生另一个散列地址 p2，……，直到找</p>
+<p>出一个不冲突的散列地址 pi，将相应元素存入其中。</p>
+<p>主要有以下三种：</p>
+<p>●线性探测再散列 </p>
+<p>di&#x3D;1，2，3，…:， m-1</p>
+<p>特点：冲突发生时，顺序查看表中下一单元，直到找出一个空单元或查遍全表。</p>
+<p>●二次探测再散列 </p>
+<p>di&#x3D;±1 2，±2 2，…，±k 2 (k≤m&#x2F;2)</p>
+<p>特点：冲突发生时，在表的左右进行跳跃式探测，比较灵活。</p>
+<p>●伪随机探测再散列 </p>
+<p>di&#x3D;伪随机数序列。</p>
+<p>②链地址法：将所有散列地址为 i 的元素构成一个称为同义词链的单链表，并将单链表的</p>
+<p>头指针存在散列表的第 i 个单元中，因而查找、插入和删除主要在同义词链中进行。 链地</p>
+<p>址法适用于经常进行插入和删除的情况。</p>
+<p>平均查找长度与a（装填因子）和处理冲突的方法有关，与问题的规模无关。</p>
+<h1 id="9-排序："><a href="#9-排序：" class="headerlink" title="9.排序："></a>9.排序：</h1><p>排序的基本操作使比较数据和移动数据。</p>
+<h2 id="9-1：-内部排序与外部排序："><a href="#9-1：-内部排序与外部排序：" class="headerlink" title="9.1： 内部排序与外部排序："></a>9.1： 内部排序与外部排序：</h2><p>只使用内存的排序称之为内部排序，需要借助计算机外存的排序称为外部排序，外部排序的主要影响因素是内外存之间的交换次数。</p>
+<h2 id="9-2：插入排序："><a href="#9-2：插入排序：" class="headerlink" title="9.2：插入排序："></a>9.2：插入排序：</h2><p>将第一个元素看作是有序。第一趟使前两个元素有序，第二趟使前三个元素有序．．．．直到第n-１趟，使整体有序。</p>
+<p>是稳定排序。（排序中存在相同关键字时，其相对位置保持不变）ｏ（ｎ２）.</p>
+<h2 id="9-３：折半插入排序："><a href="#9-３：折半插入排序：" class="headerlink" title="9.３：折半插入排序："></a>9.３：折半插入排序：</h2><p>在插入排序的基础上，使用折半搜索的思想进行插入。</p>
+<h2 id="9-４：希尔排序："><a href="#9-４：希尔排序：" class="headerlink" title="9.４：希尔排序："></a>9.４：希尔排序：</h2><p>先将序列分为子序列，然后将子序列分别进行插入排序。</p>
+<h2 id="9-５：冒泡排序："><a href="#9-５：冒泡排序：" class="headerlink" title="9.５：冒泡排序："></a>9.５：冒泡排序：</h2><p>在有序时比较过一次之后直接结束，比较快。</p>
+<h2 id="9-６：快速排序："><a href="#9-６：快速排序：" class="headerlink" title="9.６：快速排序："></a>9.６：快速排序：</h2><p>找一个记录作为轴，小于的放在轴前，大于的放在轴后，然后对形成的子序列分别递归使用快速排序。</p>
+<p>左右指针移动。</p>
+<p>数据有序时会发生退化o(n2),平均分成两部分时效率最高。</p>
+<h2 id="9-７：选择排序："><a href="#9-７：选择排序：" class="headerlink" title="9.７：选择排序："></a>9.７：选择排序：</h2><h2 id="9-８：堆排序："><a href="#9-８：堆排序：" class="headerlink" title="9.８：堆排序："></a>9.８：堆排序：</h2><p>建立堆，取走堆顶元素，重新建立堆，不断循环。</p>
+<p>找出10000个元素中最大的十个元素最快的方法就是使用堆排序。</p>
+<h2 id="9-9-归并排序："><a href="#9-9-归并排序：" class="headerlink" title="9.9: 归并排序："></a>9.9: 归并排序：</h2><p>消耗辅助空间最多的排序。稳定。</p>
+<p>将两个以上的有序序列合并成一个有序序列。</p>
+<p>o（nlogn）</p>
+<p>合并时最多需要移动m+n-1（两个序列的个数）次</p>
+]]></content>
+      <categories>
+        <category>笔记</category>
+      </categories>
+      <tags>
+        <tag>课程</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>明月策</title>
+    <url>/2023/05/29/%E6%98%8E%E6%9C%88%E7%AD%96/</url>
+    <content><![CDATA[<p>明月策<br>灯火幽微 月色皎皎<br>过客从乡野游荡到市镇<br>孤魂般掠过银白色街道<br>掠过与他无关的</p>
+<p>故乡的低语 情人的呢喃<br>他简单思量着远方递不出的喜爱<br>喟叹自己不知几日缘起而花落的一生一次次<br>千里明月</p>
+<p>可否传递思绪万千？<br>于是他折断利刃 既闻铁砧铿锵 笔锋凌扬<br>以精工 细笔策问明月 折返月光</p>
+<p>当过客带着丑陋 贪婪 无能和懦弱远去<br>在明月策的书简上留下刀痕与笔端<br>世人肆意横行着<br>明月策上浩荡强风吹拂过的雕刻和文字<br>千古以往白驹咆哮般游历世界的孤魂过客<br>带着被漠视意外的喜悦与喜爱徘徊<br>皓首穷经谓之策<br>白首不离谓之明月</p>
+<p>借着月光告别市镇的过客<br>拥抱大地与玫瑰<br>祝福幸福的人民<br>无奈的翻动着明月策的书页<br>或许只是再找越来越远的思念<br>或许在等另外一个同样爱的明媚炽烈的孤魂<br>月光皎皎</p>
+<p>希望闪亮</p>
+]]></content>
+      <categories>
+        <category>创作</category>
+      </categories>
+      <tags>
+        <tag>诗歌</tag>
       </tags>
   </entry>
   <entry>
@@ -2312,227 +2533,6 @@
       </tags>
   </entry>
   <entry>
-    <title>数据库概述</title>
-    <url>/2023/03/18/%E6%95%B0%E6%8D%AE%E5%BA%93%E6%A6%82%E8%BF%B0/</url>
-    <content><![CDATA[<h1 id="数据库"><a href="#数据库" class="headerlink" title="数据库"></a>数据库</h1><h1 id="1-数据持久化"><a href="#1-数据持久化" class="headerlink" title="1.数据持久化:"></a>1.数据持久化:</h1><p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230309095548.png" alt="QQ截图20230309095548"></p>
-<p>一些问题:</p>
-<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230309095740.png" alt="QQ截图20230309095740"></p>
-<h1 id="2-存储系统与数据库系统"><a href="#2-存储系统与数据库系统" class="headerlink" title="2.存储系统与数据库系统:"></a>2.存储系统与数据库系统:</h1><h2 id="2-1-存储系统"><a href="#2-1-存储系统" class="headerlink" title="2.1 存储系统:"></a>2.1 存储系统:</h2><p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230309100001.png" alt="QQ截图20230309100001"></p>
-<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230309100035.png" alt="QQ截图20230309100035"></p>
-<p>io的基本路径上要简单,处于性能考虑,但是在异常处理上要做到复杂.</p>
-<h2 id="2-2-存储器的层级结构"><a href="#2-2-存储器的层级结构" class="headerlink" title="2.2 存储器的层级结构:"></a>2.2 存储器的层级结构:</h2><p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230309100302.png" alt="QQ截图20230309100302"></p>
-<p>上方存储容量小,读写快.</p>
-<p>下方存储容量大,读写慢.</p>
-<h2 id="2-3-应用到存储介质"><a href="#2-3-应用到存储介质" class="headerlink" title="2.3 应用到存储介质:"></a>2.3 应用到存储介质:</h2><p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230309100513.png" alt="QQ截图20230309100513"></p>
-<h2 id="2-4-RAID技术"><a href="#2-4-RAID技术" class="headerlink" title="2.4 RAID技术:"></a>2.4 RAID技术:</h2><p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230309100813.png" alt="QQ截图20230309100813"></p>
-<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230309101050.png" alt="QQ截图20230309101050"></p>
-<h2 id="2-5-关系"><a href="#2-5-关系" class="headerlink" title="2.5 关系:"></a>2.5 关系:</h2><p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230309101302.png" alt="QQ截图20230309101302"></p>
-<p>关系型数据库是存储系统,但是在存储之外,有发展出其他能力.</p>
-<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230309101357.png" alt="QQ截图20230309101357"></p>
-<p>非关系型数据库也是存储系统,但是一般不要求严格的结构化.</p>
-<h2 id="2-6-结构化数据管理"><a href="#2-6-结构化数据管理" class="headerlink" title="2.6 结构化数据管理:"></a>2.6 结构化数据管理:</h2><p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230309101603.png" alt="QQ截图20230309101603"></p>
-<p>事务能力:</p>
-<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230309101724.png" alt="QQ截图20230309101724"></p>
-<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230309102054.png" alt="QQ截图20230309102054"></p>
-<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230309102131.png" alt="QQ截图20230309102131"></p>
-<h1 id="3-主流存储产品"><a href="#3-主流存储产品" class="headerlink" title="3.主流存储产品:"></a>3.主流存储产品:</h1><p>明确存储系统与数据库系统的区别.</p>
-<h2 id="3-1-单机存储-本地文件系统"><a href="#3-1-单机存储-本地文件系统" class="headerlink" title="3.1 单机存储-本地文件系统:"></a>3.1 单机存储-本地文件系统:</h2><p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230309102437.png" alt="QQ截图20230309102437"></p>
-<h2 id="3-2-单机存储-k-v存储系统"><a href="#3-2-单机存储-k-v存储系统" class="headerlink" title="3.2 单机存储-k-v存储系统:"></a>3.2 单机存储-k-v存储系统:</h2><p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230309102859.png" alt="QQ截图20230309102859"></p>
-<h2 id="3-2-分布式存储系统"><a href="#3-2-分布式存储系统" class="headerlink" title="3.2 分布式存储系统:"></a>3.2 分布式存储系统:</h2><p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230309103346.png" alt="QQ截图20230309103346"></p>
-<h3 id="3-2-1-HDFS-分布式文件系统"><a href="#3-2-1-HDFS-分布式文件系统" class="headerlink" title="3.2.1 HDFS:分布式文件系统:"></a>3.2.1 HDFS:分布式文件系统:</h3><p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230309103425.png" alt="QQ截图20230309103425"></p>
-<h2 id="3-2-2-Ceph"><a href="#3-2-2-Ceph" class="headerlink" title="3.2.2 Ceph:"></a>3.2.2 Ceph:</h2><p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230309103719.png" alt="QQ截图20230309103719"></p>
-<h1 id="4-主流数据库"><a href="#4-主流数据库" class="headerlink" title="4.主流数据库:"></a>4.主流数据库:</h1><h2 id="4-1-单机关系型数据库"><a href="#4-1-单机关系型数据库" class="headerlink" title="4.1 单机关系型数据库:"></a>4.1 单机关系型数据库:</h2><p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230309103913.png" alt="QQ截图20230309103913"></p>
-<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230309104238.png" alt="QQ截图20230309104238"></p>
-<p>page是内存真实数据,redo存储事务中的数据库操作,others存储内存不够用时候的临时文件.</p>
-<h2 id="4-2-单机型非关系型数据库"><a href="#4-2-单机型非关系型数据库" class="headerlink" title="4.2 单机型非关系型数据库:"></a>4.2 单机型非关系型数据库:</h2><p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230309104417.png" alt="QQ截图20230309104417"></p>
-<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230309104750.png" alt="QQ截图20230309104750"></p>
-<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230309104908.png" alt="QQ截图20230309104908"></p>
-<h2 id="4-3-从单机到分布式"><a href="#4-3-从单机到分布式" class="headerlink" title="4.3 从单机到分布式:"></a>4.3 从单机到分布式:</h2><p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230309105157.png" alt="QQ截图20230309105157"></p>
-<p>池化:</p>
-<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230309105331.png" alt="QQ截图20230309105331"></p>
-<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230309105551.png" alt="QQ截图20230309105551"></p>
-<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230309105701.png" alt="QQ截图20230309105701"></p>
-<p>一些难题:</p>
-<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230309105720.png" alt="QQ截图20230309105720"></p>
-<h1 id="5-演进"><a href="#5-演进" class="headerlink" title="5.演进:"></a>5.演进:</h1><p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230309110106.png" alt="QQ截图20230309110106"></p>
-<h2 id="5-1-SPDK"><a href="#5-1-SPDK" class="headerlink" title="5.1 SPDK:"></a>5.1 SPDK:</h2><p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230309110137.png" alt="QQ截图20230309110137"></p>
-<h2 id="5-2-AI"><a href="#5-2-AI" class="headerlink" title="5.2 AI:"></a>5.2 AI:</h2><p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230309110506.png" alt="QQ截图20230309110506"></p>
-<h2 id="5-3-高性能硬件"><a href="#5-3-高性能硬件" class="headerlink" title="5.3 高性能硬件:"></a>5.3 高性能硬件:</h2><p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230309110645.png" alt="QQ截图20230309110645"></p>
-<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230309110803.png" alt="QQ截图20230309110803"></p>
-<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230309110830.png" alt="QQ截图20230309110830"></p>
-]]></content>
-      <categories>
-        <category>笔记</category>
-      </categories>
-      <tags>
-        <tag>数据库</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>数据结构</title>
-    <url>/2023/03/18/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/</url>
-    <content><![CDATA[<h1 id="数据结构"><a href="#数据结构" class="headerlink" title="数据结构"></a>数据结构</h1><h1 id="1-绪论"><a href="#1-绪论" class="headerlink" title="1.绪论:"></a>1.绪论:</h1><h2 id="1-1-定义"><a href="#1-1-定义" class="headerlink" title="1. 1 定义:"></a>1. 1 定义:</h2><p><strong>数据</strong>是对信息的一种符号表示。在计算机科学中是指所有能输入到计算机中并被计算机程序处理的符号的总称。</p>
-<p>数据结构十数据对象在计算机中的组织方式.<strong>数据结构</strong>是一个二元组 Data_Structure ＝（D，R），其中，D 是数据元素的有限集，R 是 D 上关系的有限集。</p>
-<h2 id="1-2-逻辑结构与存储结构"><a href="#1-2-逻辑结构与存储结构" class="headerlink" title="1.2 逻辑结构与存储结构:"></a>1.2 逻辑结构与存储结构:</h2><p>逻辑结构是指数据间的相互关系.通常分为四类结构:线性结构,集合,树,图或网.(还有什么有序表之类的)</p>
-<p><strong>存储结构</strong>是指数据结构在计算机中的表示，又称为数据的物理结构。通常由四种基本的存储方法实现：</p>
-<p>（1）顺序存储方式</p>
-<p>（2）链式存储方式</p>
-<p>（3）索引存储方式</p>
-<p>（4）散列存储方式</p>
-<h2 id="1-3-算法复杂度"><a href="#1-3-算法复杂度" class="headerlink" title="1.3 算法复杂度:"></a>1.3 算法复杂度:</h2><p>主要分为时间复杂度和空间复杂度.</p>
-<h3 id="1-3-1-空间复杂度"><a href="#1-3-1-空间复杂度" class="headerlink" title="1.3.1 空间复杂度:"></a>1.3.1 空间复杂度:</h3><p>空间复杂度是指执行程序时,额外占用的存储空间的大小.</p>
-<h3 id="1-3-2-时间复杂度"><a href="#1-3-2-时间复杂度" class="headerlink" title="1.3.2 时间复杂度:"></a>1.3.2 时间复杂度:</h3><p>时间复杂度是指执行程序时,占用时间的大小.</p>
-<p>时间复杂度只与待解决问题的规模(n)有关,与一步基本操作的工作量无关.</p>
-<p>时间复杂度只考虑问题的宏观渐进性,意识是求解的难度随着问题规模的增大逐渐增大的趋势.如线性增长(o(n)).</p>
-<h3 id="1-3-3-算法特性"><a href="#1-3-3-算法特性" class="headerlink" title="1.3.3 算法特性:"></a>1.3.3 算法特性:</h3><p>输入.输出.有穷性.确定性.可行性.</p>
-<h1 id="2-线性表"><a href="#2-线性表" class="headerlink" title="2.线性表:"></a>2.线性表:</h1><h2 id="2-1-定义"><a href="#2-1-定义" class="headerlink" title="2.1 定义:"></a>2.1 定义:</h2><p>线性表是n个相同类型的数据元素组成的有限序列.是最简单的.最基础的数据结构(逻辑结构).线性表包括顺序表(数组)和链表.</p>
-<h2 id="2-2-特征"><a href="#2-2-特征" class="headerlink" title="2.2 特征:"></a>2.2 特征:</h2><p>线性表的第一个元素叫第一元素,最后一个元素是最后元素,中间元素的上一个元素叫前驱,后一个元素叫后继.</p>
-<h2 id="2-3-顺序表基本运算的复杂度"><a href="#2-3-顺序表基本运算的复杂度" class="headerlink" title="2.3 顺序表基本运算的复杂度:"></a>2.3 顺序表基本运算的复杂度:</h2><p>插入,删除都是o(n).</p>
-<h2 id="2-4-顺序表优缺点"><a href="#2-4-顺序表优缺点" class="headerlink" title="2.4 顺序表优缺点:"></a>2.4 顺序表优缺点:</h2><p>优点: 节省空间,查找元素第i个元素比较简单(头+元素大小✖i)</p>
-<p>缺点:插入.删除都需要移动数据.比较不容易确定存储空间.</p>
-<h2 id="2-5-链表"><a href="#2-5-链表" class="headerlink" title="2.5 链表:"></a>2.5 链表:</h2><h3 id="2-5-1-头结点"><a href="#2-5-1-头结点" class="headerlink" title="2.5.1: 头结点:"></a>2.5.1: 头结点:</h3><p>头结点不存储数据.指针指向第一个节点.</p>
-<p>头插法:读入的数据元素的顺序与生成的链表中元素的顺序是相反的。</p>
-<p>尾插法读入的数据元素的顺序与生成的链表中元素的顺序是一致的。</p>
-<h1 id="3-栈和队列"><a href="#3-栈和队列" class="headerlink" title="3.栈和队列:"></a>3.栈和队列:</h1><h2 id="3-1-定义"><a href="#3-1-定义" class="headerlink" title="3.1 定义:"></a>3.1 定义:</h2><p>栈和队列是一种特殊的线性表.先进后出为栈,先进先出为队列.</p>
-<h2 id="3-2-栈"><a href="#3-2-栈" class="headerlink" title="3.2 栈:"></a>3.2 栈:</h2><p>插入和删除均在特定的一端进行.</p>
-<p>最先进入的一端叫栈底,进行操作的一端叫栈顶.入栈成为Push,出栈称为Pop.</p>
-<p>栈的一种定义：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">#define STACK_INIT_SIZE 100</span><br><span class="line"></span><br><span class="line">#define STACKINCREMENT 10</span><br><span class="line"></span><br><span class="line">typedef struct</span><br><span class="line">&#123;</span><br><span class="line"> SElemType *base;</span><br><span class="line"></span><br><span class="line">SElemType *top;</span><br><span class="line"></span><br><span class="line">int stacksize;</span><br><span class="line"></span><br><span class="line">&#125;SqStack;</span><br></pre></td></tr></table></figure>
-
-<p>top指针表示栈顶，入栈时，top指针存入数据后移动，成为新的栈顶。出栈时，top指针回退。</p>
-<h2 id="3-3-队列："><a href="#3-3-队列：" class="headerlink" title="3.3 队列："></a>3.3 队列：</h2><p>一种先进先出的线性表。</p>
-<p>入队的地方称为队尾，出队的地方称为队头，队尾指针rear,队头指针front。</p>
-<h1 id="4-串"><a href="#4-串" class="headerlink" title="4.串:"></a>4.串:</h1><h1 id="5-数组和广义表："><a href="#5-数组和广义表：" class="headerlink" title="5.数组和广义表："></a>5.数组和广义表：</h1><h1 id="6-树："><a href="#6-树：" class="headerlink" title="6.树："></a>6.树：</h1><h1 id="7-图："><a href="#7-图：" class="headerlink" title="7.图："></a>7.图：</h1><h2 id="7-1-定义："><a href="#7-1-定义：" class="headerlink" title="7.1 定义："></a>7.1 定义：</h2><p>由点的集合和边的集合构成的集合，任意两个结点之间都可能相关，即结点之间的邻接关系可以是任意的。</p>
-<h2 id="7-2-图的相关术语："><a href="#7-2-图的相关术语：" class="headerlink" title="7.2 图的相关术语："></a>7.2 图的相关术语：</h2><p>度：节点的边数。入读是指向该节点的边数，出度是从该节点出发的边数。</p>
-<p>强连通图：任意两点之间都联通的图</p>
-<p>路径、路径长度：顶点 vp到顶点 vq之间的路径是指顶点序列 vp,vi1,vi2, …, vim,vq.。路径上边的数目称为路径长度。</p>
-<h2 id="7-3-图的存储："><a href="#7-3-图的存储：" class="headerlink" title="7.3 图的存储："></a>7.3 图的存储：</h2><h3 id="7-3-1-邻接矩阵："><a href="#7-3-1-邻接矩阵：" class="headerlink" title="7.3.1 邻接矩阵："></a>7.3.1 邻接矩阵：</h3><h3 id="7-3-2-邻接表："><a href="#7-3-2-邻接表：" class="headerlink" title="7.3.2 邻接表："></a>7.3.2 邻接表：</h3><p>是图的一种顺序存储与链式存储结合的存储方法，类似于树的孩子链表表示法。就是对于图 G 中的每个顶点 vi，将所有邻接于 vi的顶点 vj链成一个单链表，这个单链表就称为顶点 vi的邻接表，再将所有点的邻接表表头放到数组中，就构成了图的邻接表。</p>
-<p>在邻接表中，每条边都会出现两次，如果是n个顶点，e条边的邻接表，总共需要n个头节点和2e个表节点，比较适合存储比较稀疏的图。</p>
-<h2 id="7-4：图的遍历："><a href="#7-4：图的遍历：" class="headerlink" title="7.4：图的遍历："></a>7.4：图的遍历：</h2><p>从图的某一个顶点出发，访问所有的顶点。</p>
-<h3 id="7-4-1-深度优先搜索："><a href="#7-4-1-深度优先搜索：" class="headerlink" title="7.4.1 深度优先搜索："></a>7.4.1 深度优先搜索：</h3><p>从某一个顶点开始，访问一个顶点后，接着访问与这个顶点相邻的，未被访问过的顶点，直到所有的顶点都被访问过为止。</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">void DFS(Graph G,int v ) /*从第 v 个顶点出发递归地深度优先遍历图 G*/</span><br><span class="line"></span><br><span class="line">&#123; </span><br><span class="line">visited[v]=TRUE;Visit(v); /*访问第 v 个顶点*/</span><br><span class="line"></span><br><span class="line">for(w=FisrtAdjVex(G,v);w&gt;=0; w=NextAdjVex(G,v,w))</span><br><span class="line"></span><br><span class="line">if (!visited[w]) DFS(G,w); /*对 v 的尚未访问的邻接顶点 w 递归调用 DFS*/</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>遍历图的过程实质上是对每个顶点查找其邻接点的过程，其耗费的时间则取决于所采用的存储结构。当以邻接矩阵为图的存储结构时，查找每个顶点的邻接点所需时间为O(n2 ) ，其中 n 为图中顶点数。而当以邻接表作图的存储结构时，找邻接点所需时间为 O(e)，其中e 为无向图中边的数或有向图中弧的数。由此，当以邻接表作存储结构时，深度优先搜索遍历图的时间复杂度为 O(n+e) 。</p>
-<h3 id="7-4-2-广度优先搜索："><a href="#7-4-2-广度优先搜索：" class="headerlink" title="7.4.2: 广度优先搜索："></a>7.4.2: 广度优先搜索：</h3><p>从某一个顶点开始，先访问该顶点，再访问与该顶点相邻的所有未访问过的顶点，然后在对这些邻接顶点的邻接顶点做相同的操作。</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">void BFS (Graph G,int v)</span><br><span class="line"></span><br><span class="line">&#123;</span><br><span class="line">InitQueue(Q); /*置空的辅助队列 Q*/</span><br><span class="line"></span><br><span class="line">visited[v]=TRUE; Visit(v); /*访问 v*/</span><br><span class="line"></span><br><span class="line">EnQueue(Q,v); /*v 入队列*/</span><br><span class="line"></span><br><span class="line">while (!QueueEmpty(Q)) </span><br><span class="line"></span><br><span class="line">&#123;DeQueue(Q,u); /*队头元素出队并置为 u*/</span><br><span class="line"></span><br><span class="line">for(w=FistAdjVex(G,u); w&gt;=0; w=NextAdjVex(G,u,w))</span><br><span class="line"></span><br><span class="line">if(!visited[w])</span><br><span class="line"></span><br><span class="line">&#123;visited[w]=TRUE; Visit(w);</span><br><span class="line"></span><br><span class="line"> EnQueue(Q,w); /*u 尚未访问的邻接顶点 w 入队列 Q*/</span><br><span class="line">&#125;&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line">注意入队列的顺序，先入队列的点先出队列进行的下一步的bfs，可能会影响遍历顺序。</span><br></pre></td></tr></table></figure>
-
-<p>广度优先搜索遍历图的过程实质是通过边或弧找邻接点的过程，其时间复杂度和深度优先搜索遍历相同，两者不同之处仅仅在于对顶点访问的顺序不同。</p>
-<h2 id="7-5-最小生成树："><a href="#7-5-最小生成树：" class="headerlink" title="7.5 最小生成树："></a>7.5 最小生成树：</h2><p><strong>生成树：</strong>所谓连通图 G 的生成树，是 G 的包含其全部 n 个顶点的一个极小连通子图。它必定包含且仅包含 G 的 n-1 条边。</p>
-<p>最小生成树是指在图的所有生成树中，边权和最小的树。</p>
-<p>下面给出两种求最小生成数的算法。</p>
-<h3 id="7-5-1：Prim算法："><a href="#7-5-1：Prim算法：" class="headerlink" title="7.5.1：Prim算法："></a>7.5.1：Prim算法：</h3><p>建立u，v(所有顶点集合)，t三个集合。任选一个顶点开始。把该顶点加入u，寻找一条边，这条边的两个顶点一个在u中，一个在v-u中，而且这条边的权值在符合所有的边中最小，把v-u中的那个点加入u，把这条边加入t，反复进行操作，知道u中包括了所有的顶点为止。</p>
-<p>时间复杂度o（n2）(邻接矩阵)o(n+e)(邻接表)，比较适合于边稠密的网。</p>
-<h3 id="7-5-2-Kruskal-算法"><a href="#7-5-2-Kruskal-算法" class="headerlink" title="7.5.2:  Kruskal 算法:"></a>7.5.2:  Kruskal 算法:</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">void Kruskal (G,T)&#123;</span><br><span class="line">T=V;</span><br><span class="line">ncomp=N;</span><br><span class="line">while（ncomp&gt;1）</span><br><span class="line">&#123;</span><br><span class="line">	从G中找到取出并删除权值最小的边，记为x.</span><br><span class="line">	if(x的两个顶点在T中并没有相连相连)</span><br><span class="line">	&#123;</span><br><span class="line">		把这条边加入t；</span><br><span class="line">		ncomp--；</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>时间复杂度o（enlog2e）比较适合边稀疏的网。</p>
-<h2 id="7-6：最短路径："><a href="#7-6：最短路径：" class="headerlink" title="7.6：最短路径："></a>7.6：最短路径：</h2><h3 id="7-6-1-单源最短路："><a href="#7-6-1-单源最短路：" class="headerlink" title="7.6.1:单源最短路："></a>7.6.1:单源最短路：</h3><p>给定有向图g和源点v，求该点到所有顶点的最短距离。</p>
-<p>Dijkstra 算法:</p>
-<p>s是已经求出最短路的集合,v-s是未求出最短路的集合.</p>
-<p>首先把顶点加入s,把与v最近的v1也加入s.</p>
-<p>然后在v-s中寻找vx到vo与vx到v1,遍历找最短的加入s.</p>
-<p>依次进行操作.</p>
-<p>时间复杂度是 O(n 2 ).</p>
-<h3 id="7-6-2-多源最短路"><a href="#7-6-2-多源最短路" class="headerlink" title="7.6.2: 多源最短路:"></a>7.6.2: 多源最短路:</h3><p>从 Vi到 Vj的所有可能存在的路径中，选出一条长度最短的路径。时间复杂度是 O(n 3 ).</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">for(int k = 0 ; k &lt; size ; k ++)</span><br><span class="line">&#123;</span><br><span class="line">    for(int i = 0 ; i &lt; size ; i ++)</span><br><span class="line">    &#123;</span><br><span class="line">        for(int j = 0 ; j &lt; size ; j ++)</span><br><span class="line">        &#123;</span><br><span class="line">            if(zu[i][j] &gt; zu[i][k] + zu[k][j])&#123;</span><br><span class="line">            	zu[i][j] = zu[i][k] + zu[k][j];</span><br><span class="line">            &#125; </span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;	 </span><br></pre></td></tr></table></figure>
-
-<h2 id="7-7-拓扑排序"><a href="#7-7-拓扑排序" class="headerlink" title="7.7: 拓扑排序:"></a>7.7: 拓扑排序:</h2><h3 id="7-7-1-AOE网"><a href="#7-7-1-AOE网" class="headerlink" title="7.7.1: AOE网:"></a>7.7.1: AOE网:</h3><p>是一张有向无环图.</p>
-<p>顶点表示事件,边表示事件.</p>
-<p>拓扑序列:如果存在vi到vj的路径,则在这个序列中i位于j之前.有向图的序列不唯一,无环图一定有拓扑序列,有环图一定没有拓扑序列.</p>
-<p>算法:</p>
-<p>(1)选图中入度为0的顶点输出.</p>
-<p>(2)删除该顶点以及预期相连的所有边.</p>
-<p>(3)重复进行 直到所以的顶点都被输出.</p>
-<p>整个算法的时间复杂度 为 O（e+n）。<strong>拓扑排序的序列可能不唯一。</strong> </p>
-<h3 id="7-7-2-关键路径"><a href="#7-7-2-关键路径" class="headerlink" title="7.7.2: 关键路径:"></a>7.7.2: 关键路径:</h3><p>首先要搞清楚几个概念:</p>
-<h4 id="7-7-2-1-事件的最早发生时间"><a href="#7-7-2-1-事件的最早发生时间" class="headerlink" title="7.7.2.1:事件的最早发生时间:"></a>7.7.2.1:事件的最早发生时间:</h4><p>记为ve[k]</p>
-<p>是从原点到发生事件的点的最长的路径长度.(含义是这个事件要在前面所有的事件都结束了之后这个事件才能就开始,所以所需要时间最长的活动为制约条件)</p>
-<h4 id="7-7-2-2-事件的最晚发生时间"><a href="#7-7-2-2-事件的最晚发生时间" class="headerlink" title="7.7.2.2:事件的最晚发生时间:"></a>7.7.2.2:事件的最晚发生时间:</h4><p>记为vl[k]</p>
-<p>开始节点为0,汇点为其最早开始时间.对于其他节点,从汇点开始减去其到上一个顶点的路径长度.</p>
-<h4 id="7-7-2-3-活动的最晚发生时间"><a href="#7-7-2-3-活动的最晚发生时间" class="headerlink" title="7.7.2.3:活动的最晚发生时间:"></a>7.7.2.3:活动的最晚发生时间:</h4><p>事件最晚时间减去活动边.</p>
-<h4 id="7-7-2-2-活动的最早发生时间"><a href="#7-7-2-2-活动的最早发生时间" class="headerlink" title="7.7.2.2:活动的最早发生时间:"></a>7.7.2.2:活动的最早发生时间:</h4><p>就是活动源头一侧的时间的最早发生时间.</p>
-<p>活动的最早和最晚开始时间相同的活动就是关键活动.由关键活动组成的路径被称为关键路径.</p>
-<p>整个工程完成的时间为：从有向图的<strong>源点</strong>到<strong>汇点</strong>的最长路径。</p>
-<h1 id="8-查找"><a href="#8-查找" class="headerlink" title="8.查找:"></a>8.查找:</h1><h2 id="8-1-顺序查找"><a href="#8-1-顺序查找" class="headerlink" title="8.1: 顺序查找:"></a>8.1: 顺序查找:</h2><p>第一个元素向后,依次顺序查找.</p>
-<h2 id="8-2-折半查找"><a href="#8-2-折半查找" class="headerlink" title="8.2: 折半查找:"></a>8.2: 折半查找:</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">int Search_Bin (SSTable ST, KeyType key ) </span><br><span class="line"></span><br><span class="line">&#123;low = 1; high = ST.length; /*置区间初值*/</span><br><span class="line"></span><br><span class="line">while(low &lt;= high)</span><br><span class="line"></span><br><span class="line"> &#123;mid=(low + high)/2;</span><br><span class="line"></span><br><span class="line"> if（</span><br><span class="line"></span><br><span class="line">key == ST.elem[mid].key )</span><br><span class="line"></span><br><span class="line"> return mid; /*找到待查元素*/</span><br><span class="line"></span><br><span class="line"> else if(key&lt;ST.elem[mid].key) )</span><br><span class="line"></span><br><span class="line"> high = mid - 1; /*继续在前半区间进行查找*/</span><br><span class="line"></span><br><span class="line"> else low = mid + 1;/*继续在后半区间进行查找*/</span><br><span class="line"></span><br><span class="line"> &#125;</span><br><span class="line"></span><br><span class="line"> return 0; /*顺序表中不存在待查元素*/</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>要求数据顺序存储 且有序。</p>
-<p>o（logn）</p>
-<h2 id="8-3：索引查找："><a href="#8-3：索引查找：" class="headerlink" title="8.3：索引查找："></a>8.3：索引查找：</h2><p>①查找表要求顺序存储；②查找表分成 n 块，当 i&gt;j 时，第 i 块中的最小元素大于第 j 块中的最大元素。</p>
-<p>过程：①首先确定所要查找关键字在哪一块中。②在所确定的块中用顺序查找查找关键字。</p>
-<p>平均查找长度n+l+2➗2 其中l是每块长度 n是总长度  若要使平均次数最小 每块的长度是根号n</p>
-<h2 id="8-4：-监视哨："><a href="#8-4：-监视哨：" class="headerlink" title="8.4： 监视哨："></a>8.4： 监视哨：</h2><p>不是带查找元素，是人为构造的一个数据，放在特定的位置，用来处理数组越界等情况。所以有监视哨的表，查询的元素要比待查元素多一个（失败时）成功就不需要了。</p>
-<h2 id="8-4：二叉排序树："><a href="#8-4：二叉排序树：" class="headerlink" title="8.4：二叉排序树："></a>8.4：二叉排序树：</h2><h3 id="8-4-1：-静态查找表与动态查找表："><a href="#8-4-1：-静态查找表与动态查找表：" class="headerlink" title="8.4.1： 静态查找表与动态查找表："></a>8.4.1： 静态查找表与动态查找表：</h3><p>动态查找表：有时在查询之后，还需要将“查询”结果为“不在查找表中”的数据元素插入到查找表中；或者，从查找表中删除其“查询”结果为“在查找表中”的数据元素。</p>
-<h3 id="8-4-2：-定义："><a href="#8-4-2：-定义：" class="headerlink" title="8.4.2： 定义："></a>8.4.2： 定义：</h3><p>空树或者对于所有的子树都有：左子树＜根节点＜右子树</p>
-<p>查找时：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">BSTree SearchBST(BiTree bt, KeyType key)/*在根指针 bt 所指二叉排序树中，递归查</span><br><span class="line">找某关键字等于 key 的元素，若查找成功，则返回指向该元素结点指针，否则返回空指针 */</span><br><span class="line">&#123;if(!bt) return NULL; </span><br><span class="line"></span><br><span class="line">else if(bt-&gt;key==key) return bt; /*查找成功*/ </span><br><span class="line"></span><br><span class="line">else if(key＜bt-&gt;key)</span><br><span class="line"></span><br><span class="line">return SearchBST(bt-&gt;lchild,key); /*在左子树中继续查找*/</span><br><span class="line"></span><br><span class="line"> else return SearchBST(bt-&gt;rchild, key); /*在右子树中继续查找*/</span><br><span class="line"></span><br><span class="line">&#125; </span><br></pre></td></tr></table></figure>
-
-<h2 id="8-5：平衡二叉树："><a href="#8-5：平衡二叉树：" class="headerlink" title="8.5：平衡二叉树："></a>8.5：平衡二叉树：</h2><p>或者是一棵空树，或者是具有下列性质的二叉排序树：它的左子树和右子树都是平衡二叉树，且左子树和右子树高度之差的绝对值不超过 1。</p>
-<p>在插入过程中，采用平衡旋转技术：左单旋转；右单旋转；先左后右双向旋转；先右后左双向旋转。</p>
-<p>在平衡树上进行查找的过程和二叉排序树相同，因此，查找过程中和给定值进行比较的关键字的个数不超过平衡 树的深度，和 log2n 相当。</p>
-<h2 id="8-6：哈希表："><a href="#8-6：哈希表：" class="headerlink" title="8.6：哈希表："></a>8.6：哈希表：</h2><p>基本思想是首先在元素的关键字 key 和元素的存储位置 p 之间建立一个对应关系 H，使得 p&#x3D;H(key)，H 称为散列函数。创建散列表时，把关键字为 key 的元素直接存入地址为 H(key)的单元；以后当查找关键字为 key 的元素时，再利用散列函数计算出该元素的存储位置 p&#x3D;H(key)，从而达到按关键字直接存取元素的目的。</p>
-<p>装填因子：</p>
-<p>a&#x3D;填入结点数&#x2F;空间大小</p>
-<p>①直接定址法：H(key) &#x3D; a  key + b</p>
-<p>适合于：地址集合的大小 &#x3D; &#x3D; 关键字集合的大小</p>
-<p>⑤除留余数法：H(key) &#x3D; key MOD p ，其中 p≤m (表长)并且 p 应为不大于 m 的素数</p>
-<h3 id="8-6-2：-解决冲突方法："><a href="#8-6-2：-解决冲突方法：" class="headerlink" title="8.6.2： 解决冲突方法："></a>8.6.2： 解决冲突方法：</h3><p>①开放定址法：当关键字 key 的散列地址 p&#x3D; H（key）出现冲突时，以 p 为基础，产生另一</p>
-<p>个散列地址 p1，如果 p1仍然冲突，再以 p 为基础，产生另一个散列地址 p2，……，直到找</p>
-<p>出一个不冲突的散列地址 pi，将相应元素存入其中。</p>
-<p>主要有以下三种：</p>
-<p>●线性探测再散列 </p>
-<p>di&#x3D;1，2，3，…:， m-1</p>
-<p>特点：冲突发生时，顺序查看表中下一单元，直到找出一个空单元或查遍全表。</p>
-<p>●二次探测再散列 </p>
-<p>di&#x3D;±1 2，±2 2，…，±k 2 (k≤m&#x2F;2)</p>
-<p>特点：冲突发生时，在表的左右进行跳跃式探测，比较灵活。</p>
-<p>●伪随机探测再散列 </p>
-<p>di&#x3D;伪随机数序列。</p>
-<p>②链地址法：将所有散列地址为 i 的元素构成一个称为同义词链的单链表，并将单链表的</p>
-<p>头指针存在散列表的第 i 个单元中，因而查找、插入和删除主要在同义词链中进行。 链地</p>
-<p>址法适用于经常进行插入和删除的情况。</p>
-<p>平均查找长度与a（装填因子）和处理冲突的方法有关，与问题的规模无关。</p>
-<h1 id="9-排序："><a href="#9-排序：" class="headerlink" title="9.排序："></a>9.排序：</h1><p>排序的基本操作使比较数据和移动数据。</p>
-<h2 id="9-1：-内部排序与外部排序："><a href="#9-1：-内部排序与外部排序：" class="headerlink" title="9.1： 内部排序与外部排序："></a>9.1： 内部排序与外部排序：</h2><p>只使用内存的排序称之为内部排序，需要借助计算机外存的排序称为外部排序，外部排序的主要影响因素是内外存之间的交换次数。</p>
-<h2 id="9-2：插入排序："><a href="#9-2：插入排序：" class="headerlink" title="9.2：插入排序："></a>9.2：插入排序：</h2><p>将第一个元素看作是有序。第一趟使前两个元素有序，第二趟使前三个元素有序．．．．直到第n-１趟，使整体有序。</p>
-<p>是稳定排序。（排序中存在相同关键字时，其相对位置保持不变）ｏ（ｎ２）.</p>
-<h2 id="9-３：折半插入排序："><a href="#9-３：折半插入排序：" class="headerlink" title="9.３：折半插入排序："></a>9.３：折半插入排序：</h2><p>在插入排序的基础上，使用折半搜索的思想进行插入。</p>
-<h2 id="9-４：希尔排序："><a href="#9-４：希尔排序：" class="headerlink" title="9.４：希尔排序："></a>9.４：希尔排序：</h2><p>先将序列分为子序列，然后将子序列分别进行插入排序。</p>
-<h2 id="9-５：冒泡排序："><a href="#9-５：冒泡排序：" class="headerlink" title="9.５：冒泡排序："></a>9.５：冒泡排序：</h2><p>在有序时比较过一次之后直接结束，比较快。</p>
-<h2 id="9-６：快速排序："><a href="#9-６：快速排序：" class="headerlink" title="9.６：快速排序："></a>9.６：快速排序：</h2><p>找一个记录作为轴，小于的放在轴前，大于的放在轴后，然后对形成的子序列分别递归使用快速排序。</p>
-<p>左右指针移动。</p>
-<p>数据有序时会发生退化o(n2),平均分成两部分时效率最高。</p>
-<h2 id="9-７：选择排序："><a href="#9-７：选择排序：" class="headerlink" title="9.７：选择排序："></a>9.７：选择排序：</h2><h2 id="9-８：堆排序："><a href="#9-８：堆排序：" class="headerlink" title="9.８：堆排序："></a>9.８：堆排序：</h2><p>建立堆，取走堆顶元素，重新建立堆，不断循环。</p>
-<p>找出10000个元素中最大的十个元素最快的方法就是使用堆排序。</p>
-<h2 id="9-9-归并排序："><a href="#9-9-归并排序：" class="headerlink" title="9.9: 归并排序："></a>9.9: 归并排序：</h2><p>消耗辅助空间最多的排序。稳定。</p>
-<p>将两个以上的有序序列合并成一个有序序列。</p>
-<p>o（nlogn）</p>
-<p>合并时最多需要移动m+n-1（两个序列的个数）次</p>
-]]></content>
-      <categories>
-        <category>笔记</category>
-      </categories>
-      <tags>
-        <tag>课程</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>明月策</title>
-    <url>/2023/05/29/%E6%98%8E%E6%9C%88%E7%AD%96/</url>
-    <content><![CDATA[<p>明月策<br>灯火幽微 月色皎皎<br>过客从乡野游荡到市镇<br>孤魂般掠过银白色街道<br>掠过与他无关的</p>
-<p>故乡的低语 情人的呢喃<br>他简单思量着远方递不出的喜爱<br>喟叹自己不知几日缘起而花落的一生一次次<br>千里明月</p>
-<p>可否传递思绪万千？<br>于是他折断利刃 既闻铁砧铿锵 笔锋凌扬<br>以精工 细笔策问明月 折返月光</p>
-<p>当过客带着丑陋 贪婪 无能和懦弱远去<br>在明月策的书简上留下刀痕与笔端<br>世人肆意横行着<br>明月策上浩荡强风吹拂过的雕刻和文字<br>千古以往白驹咆哮般游历世界的孤魂过客<br>带着被漠视意外的喜悦与喜爱徘徊<br>皓首穷经谓之策<br>白首不离谓之明月</p>
-<p>借着月光告别市镇的过客<br>拥抱大地与玫瑰<br>祝福幸福的人民<br>无奈的翻动着明月策的书页<br>或许只是再找越来越远的思念<br>或许在等另外一个同样爱的明媚炽烈的孤魂<br>月光皎皎</p>
-<p>希望闪亮</p>
-]]></content>
-      <categories>
-        <category>创作</category>
-      </categories>
-      <tags>
-        <tag>诗歌</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>有匪</title>
     <url>/2023/06/04/%E6%9C%89%E5%8C%AA/</url>
     <content><![CDATA[<p>title出自《诗经·国风·淇奥》：</p>
@@ -2573,6 +2573,49 @@
       </categories>
       <tags>
         <tag>评论</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>服务器部署</title>
+    <url>/2023/02/10/%E6%9C%8D%E5%8A%A1%E5%99%A8%E9%83%A8%E7%BD%B2/</url>
+    <content><![CDATA[<h1 id="服务器部署教程"><a href="#服务器部署教程" class="headerlink" title="服务器部署教程"></a>服务器部署教程</h1><p>均需要连接校园网</p>
+<p>服务器连接信息：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">地址: 10.245.150.220</span><br><span class="line"></span><br><span class="line">端口: 22</span><br><span class="line"></span><br><span class="line">账户: root</span><br><span class="line"></span><br><span class="line">密码: werun_4321</span><br></pre></td></tr></table></figure>
+
+
+
+<p>数据库连接信息：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">地址: 10.245.150.219</span><br><span class="line"></span><br><span class="line">端口: 3306</span><br><span class="line"></span><br><span class="line">账户: root</span><br><span class="line"></span><br><span class="line">密码: TJ4u5&amp;CT8czz$2B%</span><br></pre></td></tr></table></figure>
+
+<p>1.修改自己的数据库配置。</p>
+<p>我们需要把自己的项目部署到服务器上，数据库也不能用我们本地的数据库，所以首先我们要修改数据库配置。</p>
+<p>以jpa为例：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">datasource:</span><br><span class="line">  driver-class-name: com.mysql.cj.jdbc.Driver</span><br><span class="line">  username: root</span><br><span class="line">  password: TJ4u5&amp;CT8czz$2B%</span><br><span class="line">  url: jdbc:mysql://10.245.150.219:3306/你的小组名（小组1就写group1，以此类推）?useUnicode=true&amp;characterEncoding=UTF8&amp;useJDBCCompliantTimezoneShift=true&amp;useLegacyDatetimeCode=false&amp;serverTimezone=UTC</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">地址: 10.245.150.219</span><br><span class="line"></span><br><span class="line">端口: 3306</span><br><span class="line"></span><br><span class="line">账户: root</span><br><span class="line"></span><br><span class="line">密码: TJ4u5&amp;CT8czz$2B%</span><br></pre></td></tr></table></figure>
+
+<p>如果使用mybatis也需要上面的配置连接上数据库并建表.</p>
+<p>2.把自己的项目打包成jar包</p>
+<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230423140224.png" alt="QQ截图20230423140224"></p>
+<p>右侧的maven 先clean再package.</p>
+<p>然后在target目录下找到项目名.jar这个文件。</p>
+<p>找到就算是打包成功了。</p>
+<p>2.把自己的jar包上传到服务器上。</p>
+<p>服务器的文件结构如图：</p>
+<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230423223238.png" alt="QQ截图20230423223238"></p>
+<p>按照小组名把对应的jar包上传到对应的文件夹下。</p>
+<p>完成这一步建议使用xftp.大家可以去搜一下这东西的使用方法。</p>
+<p>3.用xshell连接服务器，进入自己的小组下面，启动项目：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">java -jar jar包名.jar</span><br></pre></td></tr></table></figure>
+
+<p>看到控制台出现跟平常项目一样的堆栈信息就是启动成功了。</p>
+<p>注意，还要在配置里修改端口号，第一组就用8081，第二组8082，第三组8083，遇上其他的问题可以在csdn上搜索。</p>
+]]></content>
+      <categories>
+        <category>笔记</category>
+      </categories>
+      <tags>
+        <tag>服务器</tag>
       </tags>
   </entry>
   <entry>
@@ -2694,46 +2737,20 @@
       </tags>
   </entry>
   <entry>
-    <title>服务器部署</title>
-    <url>/2023/02/10/%E6%9C%8D%E5%8A%A1%E5%99%A8%E9%83%A8%E7%BD%B2/</url>
-    <content><![CDATA[<h1 id="服务器部署教程"><a href="#服务器部署教程" class="headerlink" title="服务器部署教程"></a>服务器部署教程</h1><p>均需要连接校园网</p>
-<p>服务器连接信息：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">地址: 10.245.150.220</span><br><span class="line"></span><br><span class="line">端口: 22</span><br><span class="line"></span><br><span class="line">账户: root</span><br><span class="line"></span><br><span class="line">密码: werun_4321</span><br></pre></td></tr></table></figure>
-
-
-
-<p>数据库连接信息：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">地址: 10.245.150.219</span><br><span class="line"></span><br><span class="line">端口: 3306</span><br><span class="line"></span><br><span class="line">账户: root</span><br><span class="line"></span><br><span class="line">密码: TJ4u5&amp;CT8czz$2B%</span><br></pre></td></tr></table></figure>
-
-<p>1.修改自己的数据库配置。</p>
-<p>我们需要把自己的项目部署到服务器上，数据库也不能用我们本地的数据库，所以首先我们要修改数据库配置。</p>
-<p>以jpa为例：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">datasource:</span><br><span class="line">  driver-class-name: com.mysql.cj.jdbc.Driver</span><br><span class="line">  username: root</span><br><span class="line">  password: TJ4u5&amp;CT8czz$2B%</span><br><span class="line">  url: jdbc:mysql://10.245.150.219:3306/你的小组名（小组1就写group1，以此类推）?useUnicode=true&amp;characterEncoding=UTF8&amp;useJDBCCompliantTimezoneShift=true&amp;useLegacyDatetimeCode=false&amp;serverTimezone=UTC</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">地址: 10.245.150.219</span><br><span class="line"></span><br><span class="line">端口: 3306</span><br><span class="line"></span><br><span class="line">账户: root</span><br><span class="line"></span><br><span class="line">密码: TJ4u5&amp;CT8czz$2B%</span><br></pre></td></tr></table></figure>
-
-<p>如果使用mybatis也需要上面的配置连接上数据库并建表.</p>
-<p>2.把自己的项目打包成jar包</p>
-<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230423140224.png" alt="QQ截图20230423140224"></p>
-<p>右侧的maven 先clean再package.</p>
-<p>然后在target目录下找到项目名.jar这个文件。</p>
-<p>找到就算是打包成功了。</p>
-<p>2.把自己的jar包上传到服务器上。</p>
-<p>服务器的文件结构如图：</p>
-<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230423223238.png" alt="QQ截图20230423223238"></p>
-<p>按照小组名把对应的jar包上传到对应的文件夹下。</p>
-<p>完成这一步建议使用xftp.大家可以去搜一下这东西的使用方法。</p>
-<p>3.用xshell连接服务器，进入自己的小组下面，启动项目：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">java -jar jar包名.jar</span><br></pre></td></tr></table></figure>
-
-<p>看到控制台出现跟平常项目一样的堆栈信息就是启动成功了。</p>
-<p>注意，还要在配置里修改端口号，第一组就用8081，第二组8082，第三组8083，遇上其他的问题可以在csdn上搜索。</p>
+    <title>江城一梦</title>
+    <url>/2023/01/17/%E6%B1%9F%E5%9F%8E%E4%B8%80%E6%A2%A6/</url>
+    <content><![CDATA[<h5 id="江城一梦"><a href="#江城一梦" class="headerlink" title="江城一梦"></a>江城一梦</h5><p>雪落在冰封的江<br>冻伤窗棂后童真的凝望<br>寻江溯洄而上<br>寂静的江城<br>城上钟鼓不闻<br>岸边长幺不响<br>难以面对寒冷太匆匆<br>于凌寒时节的梦</p>
+<p>一梦烟景繁华<br>每一个平凡名姓<br>每一个闪烁的点点星光<br>安稳的生活<br>安稳的喜爱<br>穿梭自我的城中<br>启航生命的江上</p>
+<p>一梦万物生灵<br>百鸟高唱 游鱼竞逐<br>苍鹰折翼翻飞<br>雄鹿高昂 眼神明亮<br>七岔的鹿角撞开死神的垂镰<br>灵长也不再自诩至尊<br>往日施舍的双手<br>化作热烈的拥抱</p>
+<p>一梦天道昭彰<br>四方星月的兼城灯火<br>步步流动的白衣长廊<br>精确沉重的高屋瓦瓴<br>血脉传承中交融心跳<br>万里河山<br>眸中挚爱<br>放不下每一个生命<br>留不下每一个身影</p>
+<p>你相信经迭的时光<br>江流会重新开始奔腾<br>江城一梦</p>
+<p>梦在曲折的一生<br>梦在江帆的渔火<br>江城逐梦<br>关于未来<br>关于你</p>
 ]]></content>
       <categories>
-        <category>笔记</category>
+        <category>创作</category>
       </categories>
       <tags>
-        <tag>服务器</tag>
+        <tag>诗歌</tag>
       </tags>
   </entry>
   <entry>
@@ -2791,6 +2808,24 @@
       </tags>
   </entry>
   <entry>
+    <title>泠音泛海</title>
+    <url>/2023/01/17/%E6%B3%A0%E9%9F%B3%E6%B3%9B%E6%B5%B7/</url>
+    <content><![CDATA[<h5 id="泠音泛海"><a href="#泠音泛海" class="headerlink" title="泠音泛海"></a>泠音泛海</h5><p>灼灼烈阳<br>炙烤天海悠悠<br>航船静谧游弋<br>无风 无浪 无波涛<br>航向不喻 江海遥遥</p>
+<p>船上 深海的冷清<br>水手疲惫的眼神<br>散漫寥落人影如酒杯<br>尽力摇晃 目光清清<br>混沌 执迷 凭栏<br>眺望波光天海</p>
+<p>回首故国<br>长雁入秋心海如梦<br>牵挂故人又游弋何方<br>何时骄傲踏上这航船<br>何时举目遥望 缓缓起航<br>海峰 斜阳 沉落<br>漫漫长夜可否许我<br>渡过煎熬似晚风温婉</p>
+<p>雾霭飘渺<br>静海夜涛<br>忽闻弦声轻扬<br>泠音轻响<br>十里音韵长谣<br>遇不到的人可知遇的每一个词句<br>春山烛火希望<br>抬眼星河 水中明月<br>放声高咏<br>唱尽不知意的千千悲欢<br>时幻时真<br>浮云摇摆起伏变换<br>孤舟航 云梦闹</p>
+<p>曲终 落笔<br>泠音遥遥<br>执惘不闻 彷徨难再<br>目光再望向远方</p>
+<p>万千巨轮驶过的航道<br>万千天风吹彻的航道<br>万千高闲倾慕的彼岸<br>重新怀希望泛海</p>
+<p>渐散风闻 幕影成双<br>秉烛安光 封寒落涧<br>静月出山 泠音泛海<br>我自辗转 悲喜不言</p>
+]]></content>
+      <categories>
+        <category>创作</category>
+      </categories>
+      <tags>
+        <tag>诗歌</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>白马遥</title>
     <url>/2023/01/17/%E7%99%BD%E9%A9%AC%E9%81%A5/</url>
     <content><![CDATA[<h5 id="白马遥"><a href="#白马遥" class="headerlink" title="白马遥"></a>白马遥</h5><p>三关千里 念念不忘<br>是你红豆初抛的桃天</p>
@@ -2807,41 +2842,6 @@
 <p>或许距离与时间从来阻隔不了爱</p>
 <p>或许你有远方的喜爱<br>或许眼前美好无比漫长<br>或许你牵不牵手都有勇气</p>
 <p>在短暂的余生上<br>再一次身骑白马</p>
-]]></content>
-      <categories>
-        <category>创作</category>
-      </categories>
-      <tags>
-        <tag>诗歌</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>江城一梦</title>
-    <url>/2023/01/17/%E6%B1%9F%E5%9F%8E%E4%B8%80%E6%A2%A6/</url>
-    <content><![CDATA[<h5 id="江城一梦"><a href="#江城一梦" class="headerlink" title="江城一梦"></a>江城一梦</h5><p>雪落在冰封的江<br>冻伤窗棂后童真的凝望<br>寻江溯洄而上<br>寂静的江城<br>城上钟鼓不闻<br>岸边长幺不响<br>难以面对寒冷太匆匆<br>于凌寒时节的梦</p>
-<p>一梦烟景繁华<br>每一个平凡名姓<br>每一个闪烁的点点星光<br>安稳的生活<br>安稳的喜爱<br>穿梭自我的城中<br>启航生命的江上</p>
-<p>一梦万物生灵<br>百鸟高唱 游鱼竞逐<br>苍鹰折翼翻飞<br>雄鹿高昂 眼神明亮<br>七岔的鹿角撞开死神的垂镰<br>灵长也不再自诩至尊<br>往日施舍的双手<br>化作热烈的拥抱</p>
-<p>一梦天道昭彰<br>四方星月的兼城灯火<br>步步流动的白衣长廊<br>精确沉重的高屋瓦瓴<br>血脉传承中交融心跳<br>万里河山<br>眸中挚爱<br>放不下每一个生命<br>留不下每一个身影</p>
-<p>你相信经迭的时光<br>江流会重新开始奔腾<br>江城一梦</p>
-<p>梦在曲折的一生<br>梦在江帆的渔火<br>江城逐梦<br>关于未来<br>关于你</p>
-]]></content>
-      <categories>
-        <category>创作</category>
-      </categories>
-      <tags>
-        <tag>诗歌</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>泠音泛海</title>
-    <url>/2023/01/17/%E6%B3%A0%E9%9F%B3%E6%B3%9B%E6%B5%B7/</url>
-    <content><![CDATA[<h5 id="泠音泛海"><a href="#泠音泛海" class="headerlink" title="泠音泛海"></a>泠音泛海</h5><p>灼灼烈阳<br>炙烤天海悠悠<br>航船静谧游弋<br>无风 无浪 无波涛<br>航向不喻 江海遥遥</p>
-<p>船上 深海的冷清<br>水手疲惫的眼神<br>散漫寥落人影如酒杯<br>尽力摇晃 目光清清<br>混沌 执迷 凭栏<br>眺望波光天海</p>
-<p>回首故国<br>长雁入秋心海如梦<br>牵挂故人又游弋何方<br>何时骄傲踏上这航船<br>何时举目遥望 缓缓起航<br>海峰 斜阳 沉落<br>漫漫长夜可否许我<br>渡过煎熬似晚风温婉</p>
-<p>雾霭飘渺<br>静海夜涛<br>忽闻弦声轻扬<br>泠音轻响<br>十里音韵长谣<br>遇不到的人可知遇的每一个词句<br>春山烛火希望<br>抬眼星河 水中明月<br>放声高咏<br>唱尽不知意的千千悲欢<br>时幻时真<br>浮云摇摆起伏变换<br>孤舟航 云梦闹</p>
-<p>曲终 落笔<br>泠音遥遥<br>执惘不闻 彷徨难再<br>目光再望向远方</p>
-<p>万千巨轮驶过的航道<br>万千天风吹彻的航道<br>万千高闲倾慕的彼岸<br>重新怀希望泛海</p>
-<p>渐散风闻 幕影成双<br>秉烛安光 封寒落涧<br>静月出山 泠音泛海<br>我自辗转 悲喜不言</p>
 ]]></content>
       <categories>
         <category>创作</category>
@@ -3290,128 +3290,6 @@
       </tags>
   </entry>
   <entry>
-    <title>近世代数</title>
-    <url>/2023/01/17/%E8%BF%91%E4%B8%96%E4%BB%A3%E6%95%B0/</url>
-    <content><![CDATA[<h1 id="近世代数"><a href="#近世代数" class="headerlink" title="近世代数"></a>近世代数</h1><h1 id="1-引入"><a href="#1-引入" class="headerlink" title="1.引入:"></a>1.引入:</h1><p>近世代数主要研究所谓的代数系统,即带有运算的集合；研究代数运算的规律和各种代数系统的性质。</p>
-<h1 id="2-基本概念"><a href="#2-基本概念" class="headerlink" title="2.基本概念:"></a>2.基本概念:</h1><h2 id="2-1-二元运算"><a href="#2-1-二元运算" class="headerlink" title="2.1 二元运算:"></a>2.1 二元运算:</h2><p>s为集合,sxs到s的映射,成为s上的一个二元运算.</p>
-<p>S中任何两个元素的运算结果都属于S，这个性质称为运算的封闭性. (后面常说S对某运算封闭).</p>
-<p>实例:</p>
-<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230206215025.png" alt="QQ截图20230206215025"></p>
-<h2 id="2-2-一元运算"><a href="#2-2-一元运算" class="headerlink" title="2.2 一元运算:"></a>2.2 一元运算:</h2><p>s到s的映射.</p>
-<p>表示:</p>
-<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230206215025-1675691574119-2.png" alt="QQ截图20230206215025"></p>
-<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230206215215.png" alt="QQ截图20230206215215"></p>
-<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230206215227.png" alt="QQ截图20230206215227"></p>
-<h2 id="2-3-二元运算的规律"><a href="#2-3-二元运算的规律" class="headerlink" title="2.3 二元运算的规律:"></a>2.3 二元运算的规律:</h2><p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230206215406.png" alt="QQ截图20230206215406"></p>
-<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230206215515.png" alt="QQ截图20230206215515"></p>
-<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230207150210.png" alt="QQ截图20230207150210"></p>
-<h2 id="2-4-单位元"><a href="#2-4-单位元" class="headerlink" title="2.4 单位元:"></a>2.4 单位元:</h2><p>类似乘法里面的1.</p>
-<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230206215633.png" alt="QQ截图20230206215633"></p>
-<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230206215652.png" alt="QQ截图20230206215652"></p>
-<h2 id="2-5-零元"><a href="#2-5-零元" class="headerlink" title="2.5 零元:"></a>2.5 零元:</h2><p>类似乘法中的0.</p>
-<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230206215840.png" alt="QQ截图20230206215840"></p>
-<h2 id="2-6-逆元"><a href="#2-6-逆元" class="headerlink" title="2.6 逆元:"></a>2.6 逆元:</h2><p>类似倒数.</p>
-<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230207150035.png" alt="QQ截图20230207150035"></p>
-<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230207150103.png" alt="QQ截图20230207150103"></p>
-<h2 id="2-7-代数系统"><a href="#2-7-代数系统" class="headerlink" title="2.7 代数系统:"></a>2.7 代数系<img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230207150253.png" alt="QQ截图20230207150253">统:</h2><p>一个集合+集合上的一些二元运算.</p>
-<p>近世代数（或抽象代数）的主要研究内容就是研究所谓的代数系统，即带有运算的集合。在近世代数里，不管是在群、环里还是在其它代数系统里，研究一种代数系统就是要解决这一系统的存在问题、数量问题和构造问题。如果对于一个代数系统，这三个问题能得到圆满的解答，研究的目的就算达到了 <strong>。</strong></p>
-<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230207150539.png" alt="QQ截图20230207150539"></p>
-<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230207150635.png" alt="QQ截图20230207150635"></p>
-<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230207150649.png" alt="QQ截图20230207150649"></p>
-<h1 id="3-半群"><a href="#3-半群" class="headerlink" title="3.半群:"></a>3.半群:</h1><h2 id="3-1-定义"><a href="#3-1-定义" class="headerlink" title="3.1 定义:"></a>3.1 定义:</h2><p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230207151020.png" alt="QQ截图20230207151020"></p>
-<p>结合律:半群</p>
-<p>交换律:交换半群,可换半群.</p>
-<h2 id="3-2-半群的术语"><a href="#3-2-半群的术语" class="headerlink" title="3.2 半群的术语:"></a>3.2 半群的术语:</h2><p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230207151407.png" alt="QQ截图20230207151407"></p>
-<p>单位元问题:</p>
-<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230207151446.png" alt="QQ截图20230207151446"></p>
-<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230207151558.png" alt="QQ截图20230207151558"></p>
-<h2 id="3-3-子半群"><a href="#3-3-子半群" class="headerlink" title="3.3 子半群:"></a>3.3 子半群:</h2><p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230207151724.png" alt="QQ截图20230207151724"></p>
-<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230207152024.png" alt="QQ截图20230207152024"></p>
-<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230207152328.png" alt="QQ截图20230207152328"></p>
-<h2 id="3-4-理想"><a href="#3-4-理想" class="headerlink" title="3.4 理想:"></a>3.4 理想:</h2><p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230207152359.png" alt="QQ截图20230207152359"></p>
-<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230207152451.png" alt="QQ截图20230207152451"></p>
-<p>两个集合,不加符号,表示两个集合里面任意两个元素进行操作.</p>
-<h2 id="3-5-循环半群"><a href="#3-5-循环半群" class="headerlink" title="3.5 循环半群:"></a>3.5 循环半群:</h2><p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230211155421.png" alt="QQ截图20230211155421"></p>
-<h2 id="3-6-半群的同态和同构"><a href="#3-6-半群的同态和同构" class="headerlink" title="3.6 半群的同态和同构:"></a>3.6 半群的同态和同构:</h2><p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230211155550.png" alt="QQ截图20230211155550"></p>
-<h2 id="3-7-商半群"><a href="#3-7-商半群" class="headerlink" title="3.7 商半群:"></a>3.7 商半群:</h2><p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230211155650.png" alt="QQ截图20230211155650"></p>
-<h1 id="4-幺半群"><a href="#4-幺半群" class="headerlink" title="4.幺半群:"></a>4.幺半群:</h1><p>有单位元的半群.</p>
-<p>有单位元,符合集合律的代数系统.</p>
-<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230211155934.png" alt="QQ截图20230211155934"></p>
-<h2 id="4-1-幺半群的性质"><a href="#4-1-幺半群的性质" class="headerlink" title="4.1 幺半群的性质:"></a>4.1 幺半群的性质:</h2><p>有限与无限. S集合的基数成为幺半群的阶.</p>
-<p>有的有零元,有的没有零元.</p>
-<h2 id="4-2-逆元问题"><a href="#4-2-逆元问题" class="headerlink" title="4.2 逆元问题:"></a>4.2 逆元问题:</h2><p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230211160315.png" alt="QQ截图20230211160315"></p>
-<h1 id="5-群"><a href="#5-群" class="headerlink" title="5.群:"></a>5.群:</h1><h2 id="5-1-定义"><a href="#5-1-定义" class="headerlink" title="5.1 定义:"></a>5.1 定义:</h2><p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230211160658.png" alt="QQ截图20230211160658"></p>
-<h1 id="6-有限群和子群"><a href="#6-有限群和子群" class="headerlink" title="6.有限群和子群:"></a>6.有限群和子群:</h1><p>在群的定义上加上有限集合的限制条件.</p>
-<h2 id="6-1-有限群的性质"><a href="#6-1-有限群的性质" class="headerlink" title="6.1 有限群的性质:"></a>6.1 有限群的性质:</h2><p>有限群的每个元素的阶均为有限且不超过群的阶.</p>
-<h2 id="6-2-子群的定义"><a href="#6-2-子群的定义" class="headerlink" title="6.2 子群的定义:"></a>6.2 子群的定义:</h2><p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230211161340.png" alt="QQ截图20230211161340"></p>
-<p>子集,运算封闭,构成群.</p>
-<h2 id="6-3-子群的性质"><a href="#6-3-子群的性质" class="headerlink" title="6.3 子群的性质:"></a>6.3 子群的性质:</h2><p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230211161509.png" alt="QQ截图20230211161509"></p>
-<h3 id="判别子群的方法"><a href="#判别子群的方法" class="headerlink" title="判别子群的方法:"></a>判别子群的方法:</h3><p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/fwefsedsf.png" alt="fwefsedsf"></p>
-<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230211161614.png" alt="QQ截图20230211161614"></p>
-<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230211161632.png" alt="QQ截图20230211161632"></p>
-<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230211161708.png" alt="QQ截图20230211161708"></p>
-<h1 id="7-变换群"><a href="#7-变换群" class="headerlink" title="7.变换群:"></a>7.变换群:</h1><h2 id="7-1-变换"><a href="#7-1-变换" class="headerlink" title="7.1 变换:"></a>7.1 变换:</h2><p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230211161915.png" alt="QQ截图20230211161915"></p>
-<h2 id="7-2-变换群"><a href="#7-2-变换群" class="headerlink" title="7.2 变换群:"></a>7.2 变换群:</h2><p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230211162051.png" alt="QQ截图20230211162051"></p>
-<h2 id="7-3-群的同构"><a href="#7-3-群的同构" class="headerlink" title="7.3 群的同构:"></a>7.3 群的同构:</h2><p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230211162120.png" alt="QQ截图20230211162120"></p>
-<h2 id="7-4-群的Cayley定理"><a href="#7-4-群的Cayley定理" class="headerlink" title="7.4 群的Cayley定理:"></a>7.4 群的Cayley定理:</h2><p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230211162300.png" alt="QQ截图20230211162300"></p>
-<h1 id="8-置换群"><a href="#8-置换群" class="headerlink" title="8.置换群:"></a>8.置换群:</h1><h2 id="8-1-定义"><a href="#8-1-定义" class="headerlink" title="8.1 定义:"></a>8.1 定义:</h2><p>特殊的变换群.</p>
-<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230211162432.png" alt="QQ截图20230211162432"></p>
-<h2 id="8-2-n元置换的乘法"><a href="#8-2-n元置换的乘法" class="headerlink" title="8.2 n元置换的乘法:"></a>8.2 n元置换的乘法:</h2><p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230211162648.png" alt="QQ截图20230211162648"></p>
-<h2 id="8-3-n元置换的性质"><a href="#8-3-n元置换的性质" class="headerlink" title="8.3 n元置换的性质:"></a>8.3 n元置换的性质:</h2><p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230211162738.png" alt="QQ截图20230211162738"></p>
-<h2 id="8-4-置换群"><a href="#8-4-置换群" class="headerlink" title="8.4 置换群:"></a>8.4 置换群:</h2><p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230211162820.png" alt="QQ截图20230211162820"></p>
-<h1 id="9-循环群"><a href="#9-循环群" class="headerlink" title="9.循环群:"></a>9.循环群:</h1><h2 id="9-1-定义"><a href="#9-1-定义" class="headerlink" title="9.1 定义:"></a>9.1 定义:</h2><p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230211162949.png" alt="QQ截图20230211162949"></p>
-<p>循环群必定是交换群.</p>
-<h2 id="9-2-循环群的性质"><a href="#9-2-循环群的性质" class="headerlink" title="9.2 循环群的性质:"></a>9.2 循环群的性质:</h2><p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230211163226.png" alt="QQ截图20230211163226"></p>
-<h2 id="9-3-循环群的子群"><a href="#9-3-循环群的子群" class="headerlink" title="9.3 循环群的子群:"></a>9.3 循环群的子群:</h2><p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230211163340.png" alt="QQ截图20230211163340"></p>
-<h1 id="10-子群的陪集"><a href="#10-子群的陪集" class="headerlink" title="10. 子群的陪集:"></a>10. 子群的陪集:</h1><h2 id="10-1-陪集的定义"><a href="#10-1-陪集的定义" class="headerlink" title="10.1 陪集的定义:"></a>10.1 陪集的定义:</h2><p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230211164730.png" alt="QQ截图20230211164730"></p>
-<h2 id="10-2-左陪集的基本性质"><a href="#10-2-左陪集的基本性质" class="headerlink" title="10.2 左陪集的基本性质:"></a>10.2 左陪集的基本性质:</h2><p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230211165008.png" alt="QQ截图20230211165008"></p>
-<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230211165019.png" alt="QQ截图20230211165019"></p>
-<h2 id="10-3-右陪集的基本性质"><a href="#10-3-右陪集的基本性质" class="headerlink" title="10.3 右陪集的基本性质:"></a>10.3 右陪集的基本性质:</h2><p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230211165111.png" alt="QQ截图20230211165111"></p>
-<h2 id="10-4-陪集的基本性质"><a href="#10-4-陪集的基本性质" class="headerlink" title="10.4 陪集的基本性质:"></a>10.4 陪集的基本性质:</h2><p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230211165158.png" alt="QQ截图20230211165158"></p>
-<h2 id="10-5-Lagrange定理"><a href="#10-5-Lagrange定理" class="headerlink" title="10.5 Lagrange定理:"></a>10.5 Lagrange定理:</h2><p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230211165259.png" alt="QQ截图20230211165259"></p>
-<h1 id="11-群的同态基本定理"><a href="#11-群的同态基本定理" class="headerlink" title="11. 群的同态基本定理:"></a>11. 群的同态基本定理:</h1><h2 id="11-1-正规子群与商群"><a href="#11-1-正规子群与商群" class="headerlink" title="11.1 正规子群与商群:"></a>11.1 正规子群与商群:</h2><p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230211165646.png" alt="QQ截图20230211165646"></p>
-<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230211165708.png" alt="QQ截图20230211165708"></p>
-<h2 id="11-2-正规子群的判别定理"><a href="#11-2-正规子群的判别定理" class="headerlink" title="11.2 正规子群的判别定理:"></a>11.2 正规子群的判别定理:</h2><p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230211165821.png" alt="QQ截图20230211165821"></p>
-<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230211170106.png" alt="QQ截图20230211170106"></p>
-<h1 id="12-环"><a href="#12-环" class="headerlink" title="12.环:"></a>12.环:</h1><h2 id="12-1-环的定义"><a href="#12-1-环的定义" class="headerlink" title="12.1 环的定义:"></a>12.1 环的定义:</h2><p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230211170310.png" alt="QQ截图20230211170310"></p>
-<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230211170331.png" alt="QQ截图20230211170331"></p>
-<h2 id="12-2-环的运算性质"><a href="#12-2-环的运算性质" class="headerlink" title="12.2 环的运算性质:"></a>12.2 环的运算性质:</h2><p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230211170428.png" alt="QQ截图20230211170428"></p>
-<h2 id="12-3-零因子"><a href="#12-3-零因子" class="headerlink" title="12.3 零因子:"></a>12.3 零因子:</h2><p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230211170532.png" alt="QQ截图20230211170532"></p>
-<h2 id="12-4-特殊的环"><a href="#12-4-特殊的环" class="headerlink" title="12.4 特殊的环:"></a>12.4 特殊的环:</h2><p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230211170740.png" alt="QQ截图20230211170740"></p>
-<h1 id="13-格"><a href="#13-格" class="headerlink" title="13.格:"></a>13.格:</h1><h2 id="13-1-定义"><a href="#13-1-定义" class="headerlink" title="13.1 定义:"></a>13.1 定义:</h2><p>偏序关系,自反,反对称,传递的关系称为偏序关系.</p>
-<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230214110232.png" alt="QQ截图20230214110232"></p>
-<p>上确界:比两者都大,而却在这个偏序集中.符合这些条件的数里面最小的.</p>
-<h2 id="13-2-格的对偶原理"><a href="#13-2-格的对偶原理" class="headerlink" title="13.2 格的对偶原理:"></a>13.2 格的对偶原理:</h2><p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230214110703.png" alt="QQ截图20230214110703"></p>
-<h2 id="13-3-格的性质"><a href="#13-3-格的性质" class="headerlink" title="13.3 格的性质:"></a>13.3 格的性质:</h2><p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230214111418.png" alt="QQ截图20230214111418"></p>
-<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230214112440.png" alt="QQ截图20230214112440"></p>
-<h2 id="13-4-格作为代数系统"><a href="#13-4-格作为代数系统" class="headerlink" title="13.4 格作为代数系统:"></a>13.4 格作为代数系统:</h2><p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230214115726.png" alt="QQ截图20230214115726"></p>
-<h2 id="13-5-子格"><a href="#13-5-子格" class="headerlink" title="13.5 子格:"></a>13.5 子格:</h2><p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230214115835.png" alt="QQ截图20230214115835"></p>
-<p>判别法:</p>
-<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230214115906.png" alt="QQ截图20230214115906"></p>
-<h2 id="13-6-格的同态和同构"><a href="#13-6-格的同态和同构" class="headerlink" title="13.6 格的同态和同构:"></a>13.6 格的同态和同构:</h2><p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230214120020.png" alt="QQ截图20230214120020"></p>
-<h2 id="13-7-有界格"><a href="#13-7-有界格" class="headerlink" title="13.7 有界格:"></a>13.7 有界格:</h2><p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230214120107.png" alt="QQ截图20230214120107"></p>
-<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230214120134.png" alt="QQ截图20230214120134"></p>
-<p>补元:</p>
-<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230214120210.png" alt="QQ截图20230214120210"></p>
-<h2 id="13-8-分配格"><a href="#13-8-分配格" class="headerlink" title="13.8 分配格:"></a>13.8 分配格:</h2><p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230214153931.png" alt="QQ截图20230214153931"></p>
-<p>符合分配率的格.</p>
-<p>性质:</p>
-<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230214154040.png" alt="QQ截图20230214154040"></p>
-<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230214154052.png" alt="QQ截图20230214154052"></p>
-<h1 id="14-布尔代数"><a href="#14-布尔代数" class="headerlink" title="14.布尔代数:"></a>14.布尔代数:</h1><h2 id="14-1-定义"><a href="#14-1-定义" class="headerlink" title="14.1 定义:"></a>14.1 定义:</h2><p>有补分配格称为布尔代数.</p>
-<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230214154214.png" alt="QQ截图20230214154214"></p>
-<h2 id="14-2-性质"><a href="#14-2-性质" class="headerlink" title="14.2 性质:"></a>14.2 性质:</h2><p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230214154247.png" alt="QQ截图20230214154247"></p>
-<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230214154256.png" alt="QQ截图20230214154256"></p>
-<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230214154310.png" alt="QQ截图20230214154310"></p>
-]]></content>
-      <categories>
-        <category>笔记</category>
-      </categories>
-      <tags>
-        <tag>课程</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>计算机组成原理</title>
     <url>/2023/01/17/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86/</url>
     <content><![CDATA[<h1 id="计算机组成原理"><a href="#计算机组成原理" class="headerlink" title="计算机组成原理"></a>计算机组成原理</h1><h1 id="1-目录"><a href="#1-目录" class="headerlink" title="1.目录:"></a>1.目录:</h1><p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230204152953.png" alt="QQ截图20230204152953"></p>
@@ -3649,6 +3527,128 @@
       </tags>
   </entry>
   <entry>
+    <title>近世代数</title>
+    <url>/2023/01/17/%E8%BF%91%E4%B8%96%E4%BB%A3%E6%95%B0/</url>
+    <content><![CDATA[<h1 id="近世代数"><a href="#近世代数" class="headerlink" title="近世代数"></a>近世代数</h1><h1 id="1-引入"><a href="#1-引入" class="headerlink" title="1.引入:"></a>1.引入:</h1><p>近世代数主要研究所谓的代数系统,即带有运算的集合；研究代数运算的规律和各种代数系统的性质。</p>
+<h1 id="2-基本概念"><a href="#2-基本概念" class="headerlink" title="2.基本概念:"></a>2.基本概念:</h1><h2 id="2-1-二元运算"><a href="#2-1-二元运算" class="headerlink" title="2.1 二元运算:"></a>2.1 二元运算:</h2><p>s为集合,sxs到s的映射,成为s上的一个二元运算.</p>
+<p>S中任何两个元素的运算结果都属于S，这个性质称为运算的封闭性. (后面常说S对某运算封闭).</p>
+<p>实例:</p>
+<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230206215025.png" alt="QQ截图20230206215025"></p>
+<h2 id="2-2-一元运算"><a href="#2-2-一元运算" class="headerlink" title="2.2 一元运算:"></a>2.2 一元运算:</h2><p>s到s的映射.</p>
+<p>表示:</p>
+<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230206215025-1675691574119-2.png" alt="QQ截图20230206215025"></p>
+<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230206215215.png" alt="QQ截图20230206215215"></p>
+<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230206215227.png" alt="QQ截图20230206215227"></p>
+<h2 id="2-3-二元运算的规律"><a href="#2-3-二元运算的规律" class="headerlink" title="2.3 二元运算的规律:"></a>2.3 二元运算的规律:</h2><p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230206215406.png" alt="QQ截图20230206215406"></p>
+<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230206215515.png" alt="QQ截图20230206215515"></p>
+<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230207150210.png" alt="QQ截图20230207150210"></p>
+<h2 id="2-4-单位元"><a href="#2-4-单位元" class="headerlink" title="2.4 单位元:"></a>2.4 单位元:</h2><p>类似乘法里面的1.</p>
+<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230206215633.png" alt="QQ截图20230206215633"></p>
+<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230206215652.png" alt="QQ截图20230206215652"></p>
+<h2 id="2-5-零元"><a href="#2-5-零元" class="headerlink" title="2.5 零元:"></a>2.5 零元:</h2><p>类似乘法中的0.</p>
+<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230206215840.png" alt="QQ截图20230206215840"></p>
+<h2 id="2-6-逆元"><a href="#2-6-逆元" class="headerlink" title="2.6 逆元:"></a>2.6 逆元:</h2><p>类似倒数.</p>
+<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230207150035.png" alt="QQ截图20230207150035"></p>
+<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230207150103.png" alt="QQ截图20230207150103"></p>
+<h2 id="2-7-代数系统"><a href="#2-7-代数系统" class="headerlink" title="2.7 代数系统:"></a>2.7 代数系<img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230207150253.png" alt="QQ截图20230207150253">统:</h2><p>一个集合+集合上的一些二元运算.</p>
+<p>近世代数（或抽象代数）的主要研究内容就是研究所谓的代数系统，即带有运算的集合。在近世代数里，不管是在群、环里还是在其它代数系统里，研究一种代数系统就是要解决这一系统的存在问题、数量问题和构造问题。如果对于一个代数系统，这三个问题能得到圆满的解答，研究的目的就算达到了 <strong>。</strong></p>
+<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230207150539.png" alt="QQ截图20230207150539"></p>
+<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230207150635.png" alt="QQ截图20230207150635"></p>
+<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230207150649.png" alt="QQ截图20230207150649"></p>
+<h1 id="3-半群"><a href="#3-半群" class="headerlink" title="3.半群:"></a>3.半群:</h1><h2 id="3-1-定义"><a href="#3-1-定义" class="headerlink" title="3.1 定义:"></a>3.1 定义:</h2><p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230207151020.png" alt="QQ截图20230207151020"></p>
+<p>结合律:半群</p>
+<p>交换律:交换半群,可换半群.</p>
+<h2 id="3-2-半群的术语"><a href="#3-2-半群的术语" class="headerlink" title="3.2 半群的术语:"></a>3.2 半群的术语:</h2><p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230207151407.png" alt="QQ截图20230207151407"></p>
+<p>单位元问题:</p>
+<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230207151446.png" alt="QQ截图20230207151446"></p>
+<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230207151558.png" alt="QQ截图20230207151558"></p>
+<h2 id="3-3-子半群"><a href="#3-3-子半群" class="headerlink" title="3.3 子半群:"></a>3.3 子半群:</h2><p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230207151724.png" alt="QQ截图20230207151724"></p>
+<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230207152024.png" alt="QQ截图20230207152024"></p>
+<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230207152328.png" alt="QQ截图20230207152328"></p>
+<h2 id="3-4-理想"><a href="#3-4-理想" class="headerlink" title="3.4 理想:"></a>3.4 理想:</h2><p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230207152359.png" alt="QQ截图20230207152359"></p>
+<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230207152451.png" alt="QQ截图20230207152451"></p>
+<p>两个集合,不加符号,表示两个集合里面任意两个元素进行操作.</p>
+<h2 id="3-5-循环半群"><a href="#3-5-循环半群" class="headerlink" title="3.5 循环半群:"></a>3.5 循环半群:</h2><p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230211155421.png" alt="QQ截图20230211155421"></p>
+<h2 id="3-6-半群的同态和同构"><a href="#3-6-半群的同态和同构" class="headerlink" title="3.6 半群的同态和同构:"></a>3.6 半群的同态和同构:</h2><p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230211155550.png" alt="QQ截图20230211155550"></p>
+<h2 id="3-7-商半群"><a href="#3-7-商半群" class="headerlink" title="3.7 商半群:"></a>3.7 商半群:</h2><p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230211155650.png" alt="QQ截图20230211155650"></p>
+<h1 id="4-幺半群"><a href="#4-幺半群" class="headerlink" title="4.幺半群:"></a>4.幺半群:</h1><p>有单位元的半群.</p>
+<p>有单位元,符合集合律的代数系统.</p>
+<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230211155934.png" alt="QQ截图20230211155934"></p>
+<h2 id="4-1-幺半群的性质"><a href="#4-1-幺半群的性质" class="headerlink" title="4.1 幺半群的性质:"></a>4.1 幺半群的性质:</h2><p>有限与无限. S集合的基数成为幺半群的阶.</p>
+<p>有的有零元,有的没有零元.</p>
+<h2 id="4-2-逆元问题"><a href="#4-2-逆元问题" class="headerlink" title="4.2 逆元问题:"></a>4.2 逆元问题:</h2><p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230211160315.png" alt="QQ截图20230211160315"></p>
+<h1 id="5-群"><a href="#5-群" class="headerlink" title="5.群:"></a>5.群:</h1><h2 id="5-1-定义"><a href="#5-1-定义" class="headerlink" title="5.1 定义:"></a>5.1 定义:</h2><p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230211160658.png" alt="QQ截图20230211160658"></p>
+<h1 id="6-有限群和子群"><a href="#6-有限群和子群" class="headerlink" title="6.有限群和子群:"></a>6.有限群和子群:</h1><p>在群的定义上加上有限集合的限制条件.</p>
+<h2 id="6-1-有限群的性质"><a href="#6-1-有限群的性质" class="headerlink" title="6.1 有限群的性质:"></a>6.1 有限群的性质:</h2><p>有限群的每个元素的阶均为有限且不超过群的阶.</p>
+<h2 id="6-2-子群的定义"><a href="#6-2-子群的定义" class="headerlink" title="6.2 子群的定义:"></a>6.2 子群的定义:</h2><p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230211161340.png" alt="QQ截图20230211161340"></p>
+<p>子集,运算封闭,构成群.</p>
+<h2 id="6-3-子群的性质"><a href="#6-3-子群的性质" class="headerlink" title="6.3 子群的性质:"></a>6.3 子群的性质:</h2><p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230211161509.png" alt="QQ截图20230211161509"></p>
+<h3 id="判别子群的方法"><a href="#判别子群的方法" class="headerlink" title="判别子群的方法:"></a>判别子群的方法:</h3><p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/fwefsedsf.png" alt="fwefsedsf"></p>
+<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230211161614.png" alt="QQ截图20230211161614"></p>
+<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230211161632.png" alt="QQ截图20230211161632"></p>
+<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230211161708.png" alt="QQ截图20230211161708"></p>
+<h1 id="7-变换群"><a href="#7-变换群" class="headerlink" title="7.变换群:"></a>7.变换群:</h1><h2 id="7-1-变换"><a href="#7-1-变换" class="headerlink" title="7.1 变换:"></a>7.1 变换:</h2><p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230211161915.png" alt="QQ截图20230211161915"></p>
+<h2 id="7-2-变换群"><a href="#7-2-变换群" class="headerlink" title="7.2 变换群:"></a>7.2 变换群:</h2><p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230211162051.png" alt="QQ截图20230211162051"></p>
+<h2 id="7-3-群的同构"><a href="#7-3-群的同构" class="headerlink" title="7.3 群的同构:"></a>7.3 群的同构:</h2><p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230211162120.png" alt="QQ截图20230211162120"></p>
+<h2 id="7-4-群的Cayley定理"><a href="#7-4-群的Cayley定理" class="headerlink" title="7.4 群的Cayley定理:"></a>7.4 群的Cayley定理:</h2><p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230211162300.png" alt="QQ截图20230211162300"></p>
+<h1 id="8-置换群"><a href="#8-置换群" class="headerlink" title="8.置换群:"></a>8.置换群:</h1><h2 id="8-1-定义"><a href="#8-1-定义" class="headerlink" title="8.1 定义:"></a>8.1 定义:</h2><p>特殊的变换群.</p>
+<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230211162432.png" alt="QQ截图20230211162432"></p>
+<h2 id="8-2-n元置换的乘法"><a href="#8-2-n元置换的乘法" class="headerlink" title="8.2 n元置换的乘法:"></a>8.2 n元置换的乘法:</h2><p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230211162648.png" alt="QQ截图20230211162648"></p>
+<h2 id="8-3-n元置换的性质"><a href="#8-3-n元置换的性质" class="headerlink" title="8.3 n元置换的性质:"></a>8.3 n元置换的性质:</h2><p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230211162738.png" alt="QQ截图20230211162738"></p>
+<h2 id="8-4-置换群"><a href="#8-4-置换群" class="headerlink" title="8.4 置换群:"></a>8.4 置换群:</h2><p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230211162820.png" alt="QQ截图20230211162820"></p>
+<h1 id="9-循环群"><a href="#9-循环群" class="headerlink" title="9.循环群:"></a>9.循环群:</h1><h2 id="9-1-定义"><a href="#9-1-定义" class="headerlink" title="9.1 定义:"></a>9.1 定义:</h2><p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230211162949.png" alt="QQ截图20230211162949"></p>
+<p>循环群必定是交换群.</p>
+<h2 id="9-2-循环群的性质"><a href="#9-2-循环群的性质" class="headerlink" title="9.2 循环群的性质:"></a>9.2 循环群的性质:</h2><p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230211163226.png" alt="QQ截图20230211163226"></p>
+<h2 id="9-3-循环群的子群"><a href="#9-3-循环群的子群" class="headerlink" title="9.3 循环群的子群:"></a>9.3 循环群的子群:</h2><p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230211163340.png" alt="QQ截图20230211163340"></p>
+<h1 id="10-子群的陪集"><a href="#10-子群的陪集" class="headerlink" title="10. 子群的陪集:"></a>10. 子群的陪集:</h1><h2 id="10-1-陪集的定义"><a href="#10-1-陪集的定义" class="headerlink" title="10.1 陪集的定义:"></a>10.1 陪集的定义:</h2><p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230211164730.png" alt="QQ截图20230211164730"></p>
+<h2 id="10-2-左陪集的基本性质"><a href="#10-2-左陪集的基本性质" class="headerlink" title="10.2 左陪集的基本性质:"></a>10.2 左陪集的基本性质:</h2><p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230211165008.png" alt="QQ截图20230211165008"></p>
+<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230211165019.png" alt="QQ截图20230211165019"></p>
+<h2 id="10-3-右陪集的基本性质"><a href="#10-3-右陪集的基本性质" class="headerlink" title="10.3 右陪集的基本性质:"></a>10.3 右陪集的基本性质:</h2><p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230211165111.png" alt="QQ截图20230211165111"></p>
+<h2 id="10-4-陪集的基本性质"><a href="#10-4-陪集的基本性质" class="headerlink" title="10.4 陪集的基本性质:"></a>10.4 陪集的基本性质:</h2><p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230211165158.png" alt="QQ截图20230211165158"></p>
+<h2 id="10-5-Lagrange定理"><a href="#10-5-Lagrange定理" class="headerlink" title="10.5 Lagrange定理:"></a>10.5 Lagrange定理:</h2><p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230211165259.png" alt="QQ截图20230211165259"></p>
+<h1 id="11-群的同态基本定理"><a href="#11-群的同态基本定理" class="headerlink" title="11. 群的同态基本定理:"></a>11. 群的同态基本定理:</h1><h2 id="11-1-正规子群与商群"><a href="#11-1-正规子群与商群" class="headerlink" title="11.1 正规子群与商群:"></a>11.1 正规子群与商群:</h2><p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230211165646.png" alt="QQ截图20230211165646"></p>
+<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230211165708.png" alt="QQ截图20230211165708"></p>
+<h2 id="11-2-正规子群的判别定理"><a href="#11-2-正规子群的判别定理" class="headerlink" title="11.2 正规子群的判别定理:"></a>11.2 正规子群的判别定理:</h2><p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230211165821.png" alt="QQ截图20230211165821"></p>
+<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230211170106.png" alt="QQ截图20230211170106"></p>
+<h1 id="12-环"><a href="#12-环" class="headerlink" title="12.环:"></a>12.环:</h1><h2 id="12-1-环的定义"><a href="#12-1-环的定义" class="headerlink" title="12.1 环的定义:"></a>12.1 环的定义:</h2><p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230211170310.png" alt="QQ截图20230211170310"></p>
+<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230211170331.png" alt="QQ截图20230211170331"></p>
+<h2 id="12-2-环的运算性质"><a href="#12-2-环的运算性质" class="headerlink" title="12.2 环的运算性质:"></a>12.2 环的运算性质:</h2><p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230211170428.png" alt="QQ截图20230211170428"></p>
+<h2 id="12-3-零因子"><a href="#12-3-零因子" class="headerlink" title="12.3 零因子:"></a>12.3 零因子:</h2><p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230211170532.png" alt="QQ截图20230211170532"></p>
+<h2 id="12-4-特殊的环"><a href="#12-4-特殊的环" class="headerlink" title="12.4 特殊的环:"></a>12.4 特殊的环:</h2><p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230211170740.png" alt="QQ截图20230211170740"></p>
+<h1 id="13-格"><a href="#13-格" class="headerlink" title="13.格:"></a>13.格:</h1><h2 id="13-1-定义"><a href="#13-1-定义" class="headerlink" title="13.1 定义:"></a>13.1 定义:</h2><p>偏序关系,自反,反对称,传递的关系称为偏序关系.</p>
+<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230214110232.png" alt="QQ截图20230214110232"></p>
+<p>上确界:比两者都大,而却在这个偏序集中.符合这些条件的数里面最小的.</p>
+<h2 id="13-2-格的对偶原理"><a href="#13-2-格的对偶原理" class="headerlink" title="13.2 格的对偶原理:"></a>13.2 格的对偶原理:</h2><p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230214110703.png" alt="QQ截图20230214110703"></p>
+<h2 id="13-3-格的性质"><a href="#13-3-格的性质" class="headerlink" title="13.3 格的性质:"></a>13.3 格的性质:</h2><p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230214111418.png" alt="QQ截图20230214111418"></p>
+<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230214112440.png" alt="QQ截图20230214112440"></p>
+<h2 id="13-4-格作为代数系统"><a href="#13-4-格作为代数系统" class="headerlink" title="13.4 格作为代数系统:"></a>13.4 格作为代数系统:</h2><p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230214115726.png" alt="QQ截图20230214115726"></p>
+<h2 id="13-5-子格"><a href="#13-5-子格" class="headerlink" title="13.5 子格:"></a>13.5 子格:</h2><p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230214115835.png" alt="QQ截图20230214115835"></p>
+<p>判别法:</p>
+<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230214115906.png" alt="QQ截图20230214115906"></p>
+<h2 id="13-6-格的同态和同构"><a href="#13-6-格的同态和同构" class="headerlink" title="13.6 格的同态和同构:"></a>13.6 格的同态和同构:</h2><p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230214120020.png" alt="QQ截图20230214120020"></p>
+<h2 id="13-7-有界格"><a href="#13-7-有界格" class="headerlink" title="13.7 有界格:"></a>13.7 有界格:</h2><p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230214120107.png" alt="QQ截图20230214120107"></p>
+<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230214120134.png" alt="QQ截图20230214120134"></p>
+<p>补元:</p>
+<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230214120210.png" alt="QQ截图20230214120210"></p>
+<h2 id="13-8-分配格"><a href="#13-8-分配格" class="headerlink" title="13.8 分配格:"></a>13.8 分配格:</h2><p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230214153931.png" alt="QQ截图20230214153931"></p>
+<p>符合分配率的格.</p>
+<p>性质:</p>
+<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230214154040.png" alt="QQ截图20230214154040"></p>
+<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230214154052.png" alt="QQ截图20230214154052"></p>
+<h1 id="14-布尔代数"><a href="#14-布尔代数" class="headerlink" title="14.布尔代数:"></a>14.布尔代数:</h1><h2 id="14-1-定义"><a href="#14-1-定义" class="headerlink" title="14.1 定义:"></a>14.1 定义:</h2><p>有补分配格称为布尔代数.</p>
+<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230214154214.png" alt="QQ截图20230214154214"></p>
+<h2 id="14-2-性质"><a href="#14-2-性质" class="headerlink" title="14.2 性质:"></a>14.2 性质:</h2><p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230214154247.png" alt="QQ截图20230214154247"></p>
+<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230214154256.png" alt="QQ截图20230214154256"></p>
+<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230214154310.png" alt="QQ截图20230214154310"></p>
+]]></content>
+      <categories>
+        <category>笔记</category>
+      </categories>
+      <tags>
+        <tag>课程</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>青萍</title>
     <url>/2023/02/10/%E9%9D%92%E8%90%8D/</url>
     <content><![CDATA[<h1 id="青萍"><a href="#青萍" class="headerlink" title="青萍"></a>青萍</h1><p>暖阳 穿彻高楼间的草木<br>照映到屋里少年郎 昏沉的脸庞<br>短暂的日光渐浓 渐斜 渐散乱<br>黑幕深重的夜 城市如苍茫荒野<br>青萍之末 西风吹彻 雾霭苍苍</p>
@@ -3663,6 +3663,80 @@
       </categories>
       <tags>
         <tag>诗歌</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>马克思主义原理</title>
+    <url>/2023/02/10/%E9%A9%AC%E5%85%8B%E6%80%9D%E4%B8%BB%E4%B9%89%E5%8E%9F%E7%90%86/</url>
+    <content><![CDATA[<h1 id="马克思主义原理"><a href="#马克思主义原理" class="headerlink" title="马克思主义原理"></a>马克思主义原理</h1><h1 id="1-世界的物质性及发展规律"><a href="#1-世界的物质性及发展规律" class="headerlink" title="1.世界的物质性及发展规律:"></a>1.世界的物质性及发展规律:</h1><h2 id="1-1-哲学"><a href="#1-1-哲学" class="headerlink" title="1.1 哲学:"></a>1.1 哲学:</h2><p>哲学：系统化、理论化的世界观，是对自然知识、</p>
+<p>社会知识和思维知识的概括和总结，它提供了对于世界以及人与世界关系的全面而深刻的思考。</p>
+<p>全部哲学，特别是近代哲学的重大的基本问题，是思维和存在的关系问题。</p>
+<h2 id="1-2-唯物主义和唯心主义"><a href="#1-2-唯物主义和唯心主义" class="headerlink" title="1.2 唯物主义和唯心主义"></a>1.2 唯物主义和唯心主义</h2><p>主观唯心主义:主体之内的精神是世界的本原，认为世界是人的主观意志的产物或表现。</p>
+<p>客观唯心主义:主体之外的精神是世界的本原，认为世界是客观精神的产物或表现。</p>
+<p>朴素唯物主义:根本观点：用某一种或几种具体的“原初”的物质形态解释世界本原，如水、火、气等，并认为物质形态是运动变化的。</p>
+<p>形而上学唯物主义:原子是组成物质的最小单位.</p>
+<p>辩证唯物主义:物质.物质的存在:运动,物质决定意识.</p>
+<p>人工智能是人类智能的物质化.</p>
+<h2 id="1-3-同一性"><a href="#1-3-同一性" class="headerlink" title="1.3 同一性:"></a>1.3 同一性:</h2><p>思维和存在有无同一性，即思维能否认识存在，能否正确认识存在的问题。</p>
+<p>唯物论者、彻底唯心论者是可知论者.</p>
+<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230212132335.png" alt="QQ截图20230212132335"></p>
+<h2 id="1-4-辩证法"><a href="#1-4-辩证法" class="headerlink" title="1.4 辩证法:"></a>1.4 辩证法:</h2><p>事物的联系,发展和矛盾.</p>
+<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230212132551.png" alt="QQ截图20230212132551"></p>
+<p>矛盾的同一性和斗争性.普遍性和特殊性.</p>
+<p>量变与质变.</p>
+<p>辩证的否定观念:扬弃.既克服又保留.</p>
+<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230212132922.png" alt="QQ截图20230212132922"></p>
+<h2 id="1-5-实践与认识"><a href="#1-5-实践与认识" class="headerlink" title="1.5 实践与认识:"></a>1.5 实践与认识:</h2><p>实践是认识的来源.是认识发展的动力.是认识的目的.是检验真理的唯一标准.</p>
+<p>认识的本质是主体在实践基础上对客体的能动反映.</p>
+<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230212152334.png" alt="QQ截图20230212152334"></p>
+<h2 id="1-6-真理"><a href="#1-6-真理" class="headerlink" title="1.6 真理:"></a>1.6 真理:</h2><p>客观性,绝对性,相对性.</p>
+<p>真理的内容表明了主客观统一的确定性和发展的无限性.</p>
+<p>人们在一定条件下对事物的客观过程及其发展规律的正确认识总是有限度的。</p>
+<p>实践是检验真理的唯一标准.</p>
+<p>实践标准有确定性和不确定性.</p>
+<h1 id="2-人类社会发展规律"><a href="#2-人类社会发展规律" class="headerlink" title="2. 人类社会发展规律:"></a>2. 人类社会发展规律:</h1><p>历史观: 人类对社会历史发展的根本看法和根本观点.</p>
+<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230212204345.png" alt="QQ截图20230212204345"></p>
+<p>社会存在决定社会意识.</p>
+<p>社会意识对社会存在具有能动的反作用.</p>
+<h2 id="2-1-生产力与生产关系"><a href="#2-1-生产力与生产关系" class="headerlink" title="2.1 生产力与生产关系:"></a>2.1 生产力与生产关系:</h2><p>生产力决定生产关系.</p>
+<p>生产关系要适合生产力.</p>
+<h2 id="2-2-经济基础与上层建筑"><a href="#2-2-经济基础与上层建筑" class="headerlink" title="2.2 经济基础与上层建筑:"></a>2.2 经济基础与上层建筑:</h2><p>经济基础决定上层建筑.</p>
+<p>上层建筑对经济基础具有能动的反作用.</p>
+<h2 id="2-3-社会形态更替"><a href="#2-3-社会形态更替" class="headerlink" title="2.3 社会形态更替:"></a>2.3 社会形态更替:</h2><p>社会形态:经济基础+上层建筑.</p>
+<p>根本属性: 生产资料所有关系.</p>
+<p>统一性与多样性: 社会演进情况统一.具体过程多样.</p>
+<p>必然性,历史选择性.</p>
+<p>前进性,曲折性,顺序性,跨越性.</p>
+<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230212205223.png" alt="QQ截图20230212205223"></p>
+<h2 id="2-4-社会历史发展的动力"><a href="#2-4-社会历史发展的动力" class="headerlink" title="2.4 社会历史发展的动力:"></a>2.4 社会历史发展的动力:</h2><p>根本动力:社会基本矛盾:即生产力和生产关系的矛盾，经济基础和上层建筑的矛盾.</p>
+<p>直接动力:阶级斗争和社会革命.</p>
+<h2 id="2-5-人民群众在历史发展中的作用"><a href="#2-5-人民群众在历史发展中的作用" class="headerlink" title="2.5 人民群众在历史发展中的作用:"></a>2.5 人民群众在历史发展中的作用:</h2><p>人民群众是历史的创造者.</p>
+<p>辩证的评价英雄领袖的作用.</p>
+<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230212205534.png" alt="QQ截图20230212205534"></p>
+<h1 id="3-资本主义的本质及规律"><a href="#3-资本主义的本质及规律" class="headerlink" title="3. 资本主义的本质及规律:"></a>3. 资本主义的本质及规律:</h1><p>商品经济:交换.</p>
+<p>商品:使用价值和价值.</p>
+<p>具体劳动和抽象劳动(脑力).</p>
+<h2 id="3-1-价值规律"><a href="#3-1-价值规律" class="headerlink" title="3.1 价值规律:"></a>3.1 价值规律:</h2><p>商品价值量是由生产商品的劳动时间决定的.</p>
+<p>价格围绕价值上下波动.</p>
+<h2 id="3-2-私有制的基本矛盾"><a href="#3-2-私有制的基本矛盾" class="headerlink" title="3.2 私有制的基本矛盾:"></a>3.2 私有制的基本矛盾:</h2><p>私人劳动和社会劳动的矛盾构成私有制商品经济的基本矛盾。</p>
+<p>矛盾产生基础：社会分工和私有制。</p>
+<p>矛盾解决途径：交换。</p>
+<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230212210333.png" alt="QQ截图20230212210333"></p>
+<h2 id="3-3-马克思劳动价值论"><a href="#3-3-马克思劳动价值论" class="headerlink" title="3.3 马克思劳动价值论:"></a>3.3 马克思劳动价值论:</h2><p>资本主义经济制度是以资本主义私有制和雇佣劳动为基础的一种剥削制度.</p>
+<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230212210537.png" alt="QQ截图20230212210537"></p>
+<h2 id="3-4-剩余价值"><a href="#3-4-剩余价值" class="headerlink" title="3.4 剩余价值:"></a>3.4 剩余价值:</h2><p>劳动不是商品，没有价值.</p>
+<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230212210650.png" alt="QQ截图20230212210650"></p>
+<p>剩余价值转换为利润.</p>
+<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230212210939.png" alt="QQ截图20230212210939"></p>
+<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230212211038.png" alt="QQ截图20230212211038"></p>
+<p>劳动二重性,一句话总结：具体劳动创造使用价值，抽象劳动创造价值。</p>
+<h1 id="4-资本主义的发展及其规律"><a href="#4-资本主义的发展及其规律" class="headerlink" title="4. 资本主义的发展及其规律:"></a>4. 资本主义的发展及其规律:</h1><p>垄断资本主义.</p>
+]]></content>
+      <categories>
+        <category>笔记</category>
+      </categories>
+      <tags>
+        <tag>课程</tag>
       </tags>
   </entry>
   <entry>
@@ -4036,96 +4110,6 @@
       </tags>
   </entry>
   <entry>
-    <title>风凌夜话</title>
-    <url>/2023/02/10/%E9%A3%8E%E5%87%8C%E5%A4%9C%E8%AF%9D/</url>
-    <content><![CDATA[<h1 id="风凌夜话"><a href="#风凌夜话" class="headerlink" title="风凌夜话"></a>风凌夜话</h1><p>大江 北上<br>孕育经纬江河 编织千里沃土<br>船载渡口 渡口渡船<br>当微咸的海风吹过<br>风凌渡熙攘乘客的肩头<br>焦急而充满期待的旅人 匆匆翻越过船桨与时光<br>会再与你再一次相遇 把目光收藏</p>
-<p>倦容奄奄 体态臃肿的远游客<br>竭力掩饰着<br>被昭彰大河的风暴摧毁的眼睛与衣袂<br>寄着绚丽斑斓 点翠的彩云笺<br>携着为你存留的松花酒与春水茶<br>念着酒醒日暮里 意气飞扬的闪念文字<br>目送着黄昏映在渡口的影子缓缓拉长 拉长<br>留下一个气韵生动的夜晚</p>
-<p>悄悄燃点起西窗的红烛<br>庄重地摆正杯箸 大白未浮<br>客人迫不及待的与你分享 记忆里的故事与时光<br>几多喜悦 几多喟叹 几多潸然<br>只夹杂在觥筹交错间 化作克制平淡的点滴字句<br>折竹卧雪 烛火昏黄 风移影动<br>客人与你一同追忆往日的时光<br>让相携的双手或远望的眼眉 都在追忆里悠然镀上纯净的天青色</p>
-<p>当星月沉落 暮色青冥 烟火漫卷<br>当拾肉的贪玩孩童飞奔着寻找母亲<br>过客与你 缓缓唱起未来的时光<br>凤冠浓妆 前方似轴戏大幕 春雷震震<br>浅斟低唱 来日寄寻常巷陌 红袖添香<br>你会抚慰过客的内心 再起义武奋扬<br>你会指引过客的步履 赴往春山横波<br>汽船刺耳的汽笛声缓缓吹响<br>过客与你急觉 东方既白早已屏退了白月光<br>残宴既尽 仍有万语千言 唯有娇笑着说着再见<br>过客纵马奔向远方 又携书剑<br>你仍守着这人影绰绰的风凌渡口</p>
-<p>日后 行船的一千个夜晚<br>我会再一次想起这个夜晚与你的相遇<br>想起风凌夜话 你我仲夜轻声的语言<br>想起微弱模糊的光线里 你或放肆或温婉的笑容和眉眼<br>在渡口和夜话所不能至的地方<br>诠释着鼓励和希望的意义<br>践行着摇曳烛火下 夜话立下的诺言<br>期盼着下一个黄昏和长夜<br>我与你像侠客与侠女一般绕过万重关山 万里土地 万载时光<br>经行 相遇在下一个熙攘的风凌渡口<br>再一次收藏你的目光<br>再一次拥抱你的语言<br>再一次呢喃你的名字</p>
-]]></content>
-      <categories>
-        <category>创作</category>
-      </categories>
-      <tags>
-        <tag>诗歌</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>马克思主义原理</title>
-    <url>/2023/02/10/%E9%A9%AC%E5%85%8B%E6%80%9D%E4%B8%BB%E4%B9%89%E5%8E%9F%E7%90%86/</url>
-    <content><![CDATA[<h1 id="马克思主义原理"><a href="#马克思主义原理" class="headerlink" title="马克思主义原理"></a>马克思主义原理</h1><h1 id="1-世界的物质性及发展规律"><a href="#1-世界的物质性及发展规律" class="headerlink" title="1.世界的物质性及发展规律:"></a>1.世界的物质性及发展规律:</h1><h2 id="1-1-哲学"><a href="#1-1-哲学" class="headerlink" title="1.1 哲学:"></a>1.1 哲学:</h2><p>哲学：系统化、理论化的世界观，是对自然知识、</p>
-<p>社会知识和思维知识的概括和总结，它提供了对于世界以及人与世界关系的全面而深刻的思考。</p>
-<p>全部哲学，特别是近代哲学的重大的基本问题，是思维和存在的关系问题。</p>
-<h2 id="1-2-唯物主义和唯心主义"><a href="#1-2-唯物主义和唯心主义" class="headerlink" title="1.2 唯物主义和唯心主义"></a>1.2 唯物主义和唯心主义</h2><p>主观唯心主义:主体之内的精神是世界的本原，认为世界是人的主观意志的产物或表现。</p>
-<p>客观唯心主义:主体之外的精神是世界的本原，认为世界是客观精神的产物或表现。</p>
-<p>朴素唯物主义:根本观点：用某一种或几种具体的“原初”的物质形态解释世界本原，如水、火、气等，并认为物质形态是运动变化的。</p>
-<p>形而上学唯物主义:原子是组成物质的最小单位.</p>
-<p>辩证唯物主义:物质.物质的存在:运动,物质决定意识.</p>
-<p>人工智能是人类智能的物质化.</p>
-<h2 id="1-3-同一性"><a href="#1-3-同一性" class="headerlink" title="1.3 同一性:"></a>1.3 同一性:</h2><p>思维和存在有无同一性，即思维能否认识存在，能否正确认识存在的问题。</p>
-<p>唯物论者、彻底唯心论者是可知论者.</p>
-<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230212132335.png" alt="QQ截图20230212132335"></p>
-<h2 id="1-4-辩证法"><a href="#1-4-辩证法" class="headerlink" title="1.4 辩证法:"></a>1.4 辩证法:</h2><p>事物的联系,发展和矛盾.</p>
-<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230212132551.png" alt="QQ截图20230212132551"></p>
-<p>矛盾的同一性和斗争性.普遍性和特殊性.</p>
-<p>量变与质变.</p>
-<p>辩证的否定观念:扬弃.既克服又保留.</p>
-<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230212132922.png" alt="QQ截图20230212132922"></p>
-<h2 id="1-5-实践与认识"><a href="#1-5-实践与认识" class="headerlink" title="1.5 实践与认识:"></a>1.5 实践与认识:</h2><p>实践是认识的来源.是认识发展的动力.是认识的目的.是检验真理的唯一标准.</p>
-<p>认识的本质是主体在实践基础上对客体的能动反映.</p>
-<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230212152334.png" alt="QQ截图20230212152334"></p>
-<h2 id="1-6-真理"><a href="#1-6-真理" class="headerlink" title="1.6 真理:"></a>1.6 真理:</h2><p>客观性,绝对性,相对性.</p>
-<p>真理的内容表明了主客观统一的确定性和发展的无限性.</p>
-<p>人们在一定条件下对事物的客观过程及其发展规律的正确认识总是有限度的。</p>
-<p>实践是检验真理的唯一标准.</p>
-<p>实践标准有确定性和不确定性.</p>
-<h1 id="2-人类社会发展规律"><a href="#2-人类社会发展规律" class="headerlink" title="2. 人类社会发展规律:"></a>2. 人类社会发展规律:</h1><p>历史观: 人类对社会历史发展的根本看法和根本观点.</p>
-<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230212204345.png" alt="QQ截图20230212204345"></p>
-<p>社会存在决定社会意识.</p>
-<p>社会意识对社会存在具有能动的反作用.</p>
-<h2 id="2-1-生产力与生产关系"><a href="#2-1-生产力与生产关系" class="headerlink" title="2.1 生产力与生产关系:"></a>2.1 生产力与生产关系:</h2><p>生产力决定生产关系.</p>
-<p>生产关系要适合生产力.</p>
-<h2 id="2-2-经济基础与上层建筑"><a href="#2-2-经济基础与上层建筑" class="headerlink" title="2.2 经济基础与上层建筑:"></a>2.2 经济基础与上层建筑:</h2><p>经济基础决定上层建筑.</p>
-<p>上层建筑对经济基础具有能动的反作用.</p>
-<h2 id="2-3-社会形态更替"><a href="#2-3-社会形态更替" class="headerlink" title="2.3 社会形态更替:"></a>2.3 社会形态更替:</h2><p>社会形态:经济基础+上层建筑.</p>
-<p>根本属性: 生产资料所有关系.</p>
-<p>统一性与多样性: 社会演进情况统一.具体过程多样.</p>
-<p>必然性,历史选择性.</p>
-<p>前进性,曲折性,顺序性,跨越性.</p>
-<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230212205223.png" alt="QQ截图20230212205223"></p>
-<h2 id="2-4-社会历史发展的动力"><a href="#2-4-社会历史发展的动力" class="headerlink" title="2.4 社会历史发展的动力:"></a>2.4 社会历史发展的动力:</h2><p>根本动力:社会基本矛盾:即生产力和生产关系的矛盾，经济基础和上层建筑的矛盾.</p>
-<p>直接动力:阶级斗争和社会革命.</p>
-<h2 id="2-5-人民群众在历史发展中的作用"><a href="#2-5-人民群众在历史发展中的作用" class="headerlink" title="2.5 人民群众在历史发展中的作用:"></a>2.5 人民群众在历史发展中的作用:</h2><p>人民群众是历史的创造者.</p>
-<p>辩证的评价英雄领袖的作用.</p>
-<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230212205534.png" alt="QQ截图20230212205534"></p>
-<h1 id="3-资本主义的本质及规律"><a href="#3-资本主义的本质及规律" class="headerlink" title="3. 资本主义的本质及规律:"></a>3. 资本主义的本质及规律:</h1><p>商品经济:交换.</p>
-<p>商品:使用价值和价值.</p>
-<p>具体劳动和抽象劳动(脑力).</p>
-<h2 id="3-1-价值规律"><a href="#3-1-价值规律" class="headerlink" title="3.1 价值规律:"></a>3.1 价值规律:</h2><p>商品价值量是由生产商品的劳动时间决定的.</p>
-<p>价格围绕价值上下波动.</p>
-<h2 id="3-2-私有制的基本矛盾"><a href="#3-2-私有制的基本矛盾" class="headerlink" title="3.2 私有制的基本矛盾:"></a>3.2 私有制的基本矛盾:</h2><p>私人劳动和社会劳动的矛盾构成私有制商品经济的基本矛盾。</p>
-<p>矛盾产生基础：社会分工和私有制。</p>
-<p>矛盾解决途径：交换。</p>
-<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230212210333.png" alt="QQ截图20230212210333"></p>
-<h2 id="3-3-马克思劳动价值论"><a href="#3-3-马克思劳动价值论" class="headerlink" title="3.3 马克思劳动价值论:"></a>3.3 马克思劳动价值论:</h2><p>资本主义经济制度是以资本主义私有制和雇佣劳动为基础的一种剥削制度.</p>
-<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230212210537.png" alt="QQ截图20230212210537"></p>
-<h2 id="3-4-剩余价值"><a href="#3-4-剩余价值" class="headerlink" title="3.4 剩余价值:"></a>3.4 剩余价值:</h2><p>劳动不是商品，没有价值.</p>
-<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230212210650.png" alt="QQ截图20230212210650"></p>
-<p>剩余价值转换为利润.</p>
-<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230212210939.png" alt="QQ截图20230212210939"></p>
-<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230212211038.png" alt="QQ截图20230212211038"></p>
-<p>劳动二重性,一句话总结：具体劳动创造使用价值，抽象劳动创造价值。</p>
-<h1 id="4-资本主义的发展及其规律"><a href="#4-资本主义的发展及其规律" class="headerlink" title="4. 资本主义的发展及其规律:"></a>4. 资本主义的发展及其规律:</h1><p>垄断资本主义.</p>
-]]></content>
-      <categories>
-        <category>笔记</category>
-      </categories>
-      <tags>
-        <tag>课程</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>鹤扶摇</title>
     <url>/2023/01/17/%E9%B9%A4%E6%89%B6%E6%91%87/</url>
     <content><![CDATA[<h5 id="鹤扶摇"><a href="#鹤扶摇" class="headerlink" title="鹤扶摇"></a>鹤扶摇</h5><p>长星坠落的青天<br>白云深处展浩然虹霓<br>黄鹤眺望<br>仙人颔首<br>辞人间阴阳交叠<br>尚存凭栏意气<br>无名之辈冲冠 负惬远游<br>追黄鹤跋涉川泽四海<br>以青衫浅袂涤荡满目风尘</p>
@@ -4135,6 +4119,22 @@
 <p>问鹤于天上人间 长生证道<br>达观日升月落 苍狗白云 兴替生死<br>逆旅光阴外 向送魂的长歌遥遥挥手<br>汲书秩长卷<br>谛竹林击节<br>覆履江左周郎 博望诸葛 草木东山<br>清涧溪畔黄鹤饮泉 书生回首<br>天门拂尘仙都客<br>气蒸云梦<br>青丝绾颜</p>
 <p>仙人驾鹤西征<br>乡野书生挥袖 清越挽歌<br>长相问鹤以万语千言<br>却此欲言又止<br>终究自驿路折返<br>漫漫书剑 漫漫青灯 漫漫少年<br>漫漫追忆西窗红烛下<br>向清凉皓月的承平岁月<br>反复斟酌所谓语言的终极意义<br>在下一个夜晚抽象锤炼<br>化为点滴翰墨<br>或被称为文字 付梓于浩荡青史<br>或伴猿揉长啸 被西风吹彻<br>天地之间</p>
 <p>愿黄鹤去而复返<br>自灰港大瞧<br>愿每一个直面惨淡生活的眉间尺<br>都能抽出如虹长剑 微微敛袍颔首<br>远游追鹤<br>藏峰见史<br>守心传道<br>最终化作一句语言 一组剪影<br>一个被珍重为玉器的名字<br>且看<br>鹤乘风扶摇<br>天上仙人</p>
+]]></content>
+      <categories>
+        <category>创作</category>
+      </categories>
+      <tags>
+        <tag>诗歌</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>风凌夜话</title>
+    <url>/2023/02/10/%E9%A3%8E%E5%87%8C%E5%A4%9C%E8%AF%9D/</url>
+    <content><![CDATA[<h1 id="风凌夜话"><a href="#风凌夜话" class="headerlink" title="风凌夜话"></a>风凌夜话</h1><p>大江 北上<br>孕育经纬江河 编织千里沃土<br>船载渡口 渡口渡船<br>当微咸的海风吹过<br>风凌渡熙攘乘客的肩头<br>焦急而充满期待的旅人 匆匆翻越过船桨与时光<br>会再与你再一次相遇 把目光收藏</p>
+<p>倦容奄奄 体态臃肿的远游客<br>竭力掩饰着<br>被昭彰大河的风暴摧毁的眼睛与衣袂<br>寄着绚丽斑斓 点翠的彩云笺<br>携着为你存留的松花酒与春水茶<br>念着酒醒日暮里 意气飞扬的闪念文字<br>目送着黄昏映在渡口的影子缓缓拉长 拉长<br>留下一个气韵生动的夜晚</p>
+<p>悄悄燃点起西窗的红烛<br>庄重地摆正杯箸 大白未浮<br>客人迫不及待的与你分享 记忆里的故事与时光<br>几多喜悦 几多喟叹 几多潸然<br>只夹杂在觥筹交错间 化作克制平淡的点滴字句<br>折竹卧雪 烛火昏黄 风移影动<br>客人与你一同追忆往日的时光<br>让相携的双手或远望的眼眉 都在追忆里悠然镀上纯净的天青色</p>
+<p>当星月沉落 暮色青冥 烟火漫卷<br>当拾肉的贪玩孩童飞奔着寻找母亲<br>过客与你 缓缓唱起未来的时光<br>凤冠浓妆 前方似轴戏大幕 春雷震震<br>浅斟低唱 来日寄寻常巷陌 红袖添香<br>你会抚慰过客的内心 再起义武奋扬<br>你会指引过客的步履 赴往春山横波<br>汽船刺耳的汽笛声缓缓吹响<br>过客与你急觉 东方既白早已屏退了白月光<br>残宴既尽 仍有万语千言 唯有娇笑着说着再见<br>过客纵马奔向远方 又携书剑<br>你仍守着这人影绰绰的风凌渡口</p>
+<p>日后 行船的一千个夜晚<br>我会再一次想起这个夜晚与你的相遇<br>想起风凌夜话 你我仲夜轻声的语言<br>想起微弱模糊的光线里 你或放肆或温婉的笑容和眉眼<br>在渡口和夜话所不能至的地方<br>诠释着鼓励和希望的意义<br>践行着摇曳烛火下 夜话立下的诺言<br>期盼着下一个黄昏和长夜<br>我与你像侠客与侠女一般绕过万重关山 万里土地 万载时光<br>经行 相遇在下一个熙攘的风凌渡口<br>再一次收藏你的目光<br>再一次拥抱你的语言<br>再一次呢喃你的名字</p>
 ]]></content>
       <categories>
         <category>创作</category>
