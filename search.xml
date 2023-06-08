@@ -1,6 +1,161 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>ClickHouse</title>
+    <url>/2023/04/28/ClickHouse/</url>
+    <content><![CDATA[<h1 id="ClickHouse"><a href="#ClickHouse" class="headerlink" title="ClickHouse:"></a>ClickHouse:</h1><p>一款查询引擎.</p>
+<h1 id="1-数据库基本概念"><a href="#1-数据库基本概念" class="headerlink" title="1.数据库基本概念:"></a>1.数据库基本概念:</h1><p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230301095032.png" alt="QQ截图20230301095032"></p>
+<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230301095221.png" alt="QQ截图20230301095221"></p>
+<h2 id="1-1分类"><a href="#1-1分类" class="headerlink" title="1.1分类:"></a>1.1分类:</h2><p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230301095333.png" alt="QQ截图20230301095333"></p>
+<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230301095426.png" alt="QQ截图20230301095426"></p>
+<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230301095500.png" alt="QQ截图20230301095500"></p>
+<h2 id="1-2-OLAP数据库"><a href="#1-2-OLAP数据库" class="headerlink" title="1.2 OLAP数据库:"></a>1.2 OLAP数据库:</h2><p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230301095547.png" alt="QQ截图20230301095547"></p>
+<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230301095724.png" alt="QQ截图20230301095724"></p>
+<h2 id="1-3-sql"><a href="#1-3-sql" class="headerlink" title="1.3 sql:"></a>1.3 sql:</h2><p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230301095816.png" alt="QQ截图20230301095816"></p>
+<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230301095833.png" alt="QQ截图20230301095833"></p>
+<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230301100008.png" alt="QQ截图20230301100008"></p>
+<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230301100111.png" alt="QQ截图20230301100111"></p>
+<h2 id="1-4-数据库架构"><a href="#1-4-数据库架构" class="headerlink" title="1.4 数据库架构:"></a>1.4 数据库架构:</h2><p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230301100203.png" alt="QQ截图20230301100203"></p>
+<h3 id="1-4-1解释器"><a href="#1-4-1解释器" class="headerlink" title="1.4.1解释器:"></a>1.4.1解释器:</h3><p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230301100321.png" alt="QQ截图20230301100321"></p>
+<h3 id="1-4-2分析器"><a href="#1-4-2分析器" class="headerlink" title="1.4.2分析器:"></a>1.4.2分析器:</h3><p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230301100359.png" alt="QQ截图20230301100359"></p>
+<h3 id="1-4-3优化器"><a href="#1-4-3优化器" class="headerlink" title="1.4.3优化器:"></a>1.4.3优化器:</h3><p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230301100511.png" alt="QQ截图20230301100511"></p>
+<p>把ast变成一个一个的算子(执行计划).</p>
+<h3 id="1-4-4执行引擎"><a href="#1-4-4执行引擎" class="headerlink" title="1.4.4执行引擎:"></a>1.4.4执行引擎:</h3><p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230301100611.png" alt="QQ截图20230301100611"></p>
+<h3 id="1-4-5存储引擎"><a href="#1-4-5存储引擎" class="headerlink" title="1.4.5存储引擎:"></a>1.4.5存储引擎:</h3><p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230301100659.png" alt="QQ截图20230301100659"></p>
+<h1 id="2-列式存储"><a href="#2-列式存储" class="headerlink" title="2.列式存储:"></a>2.列式存储:</h1><p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230301100818.png" alt="QQ截图20230301100818"></p>
+<h2 id="2-1-行式存储与列式存储"><a href="#2-1-行式存储与列式存储" class="headerlink" title="2.1 行式存储与列式存储:"></a>2.1 行式存储与列式存储:</h2><p>行式存储:每一行的顺序,连续的写到存储介质当中去.</p>
+<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230301100929.png" alt="QQ截图20230301100929"></p>
+<p>列式存储:一列一列的写入.</p>
+<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230301101022.png" alt="QQ截图20230301101022"></p>
+<h2 id="2-2-列式存储的优点"><a href="#2-2-列式存储的优点" class="headerlink" title="2.2 列式存储的优点:"></a>2.2 列式存储的优点:</h2><h3 id="2-2-1-数据压缩"><a href="#2-2-1-数据压缩" class="headerlink" title="2.2.1 数据压缩:"></a>2.2.1 数据压缩:</h3><p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230301101148.png" alt="QQ截图20230301101148"></p>
+<p>比如主键在列上存储有某种规律(递增).</p>
+<h4 id="压缩算法"><a href="#压缩算法" class="headerlink" title="压缩算法:"></a>压缩算法:</h4><p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230301101241.png" alt="QQ截图20230301101241"></p>
+<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230301101330.png" alt="QQ截图20230301101330"></p>
+<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230301101418.png" alt="QQ截图20230301101418"></p>
+<h3 id="2-2-2-聚合计算："><a href="#2-2-2-聚合计算：" class="headerlink" title="2.2.2 聚合计算："></a>2.2.2 聚合计算：</h3><p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230301101459.png" alt="QQ截图20230301101459"></p>
+<h3 id="2-2-3-延迟物化："><a href="#2-2-3-延迟物化：" class="headerlink" title="2.2.3 延迟物化："></a>2.2.3 延迟物化：</h3><p>把一种数据格式变成另一种数据格式。</p>
+<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230301101619.png" alt="QQ截图20230301101619"></p>
+<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230301101718.png" alt="QQ截图20230301101718"></p>
+<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230301101806.png" alt="QQ截图20230301101806"></p>
+<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230301101847.png" alt="QQ截图20230301101847"></p>
+<h3 id="2-2-4-向量化："><a href="#2-2-4-向量化：" class="headerlink" title="2.2.4 向量化："></a>2.2.4 向量化：</h3><p>解释：</p>
+<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230301102311.png" alt="QQ截图20230301102311"></p>
+<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230301102428.png" alt="QQ截图20230301102428"></p>
+<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230301102512.png" alt="QQ截图20230301102512"></p>
+<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230301145624.png" alt="QQ截图20230301145624"></p>
+<h2 id="2-3-优缺点分析"><a href="#2-3-优缺点分析" class="headerlink" title="2.3 优缺点分析:"></a>2.3 优缺点分析:</h2><p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230301193053.png" alt="QQ截图20230301193053"></p>
+<h1 id="3-存储设计"><a href="#3-存储设计" class="headerlink" title="3.存储设计:"></a>3.存储设计:</h1><h2 id="3-1-表定义和结构"><a href="#3-1-表定义和结构" class="headerlink" title="3.1 表定义和结构:"></a>3.1 表定义和结构:</h2><p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230301193925.png" alt="QQ截图20230301193925"></p>
+<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230301194207.png" alt="QQ截图20230301194207"></p>
+<p>distable不存储数据,相当于view的功能.</p>
+<p>localtable存储数据.</p>
+<h2 id="3-2-引擎架构"><a href="#3-2-引擎架构" class="headerlink" title="3.2 引擎架构:"></a>3.2 引擎架构:</h2><p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230301194359.png" alt="QQ截图20230301194359"></p>
+<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230301194533.png" alt="QQ截图20230301194533"></p>
+<p>bin存储数据,mrk存储索引.</p>
+<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230301194648.png" alt="QQ截图20230301194648"></p>
+<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230301194736.png" alt="QQ截图20230301194736"></p>
+<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230301194801.png" alt="QQ截图20230301194801"></p>
+<h2 id="3-3-索引设计"><a href="#3-3-索引设计" class="headerlink" title="3.3 索引设计:"></a>3.3 索引设计:</h2><h3 id="3-3-1-hash-index"><a href="#3-3-1-hash-index" class="headerlink" title="3.3.1 hash index:"></a>3.3.1 hash index:</h3><p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230301194820.png" alt="QQ截图20230301194820"></p>
+<h3 id="3-3-2-b-tree"><a href="#3-3-2-b-tree" class="headerlink" title="3.3.2 b-tree:"></a>3.3.2 b-tree:</h3><p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230301194859.png" alt="QQ截图20230301194859"></p>
+<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230301195006.png" alt="QQ截图20230301195006"></p>
+<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230301195155.png" alt="QQ截图20230301195155"></p>
+<h3 id="3-3-3-LSM-tree"><a href="#3-3-3-LSM-tree" class="headerlink" title="3.3.3 LSM tree:"></a>3.3.3 LSM tree:</h3><p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230301195321.png" alt="QQ截图20230301195321"></p>
+<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230301195347.png" alt="QQ截图20230301195347"></p>
+<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230301195533.png" alt="QQ截图20230301195533"></p>
+<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230301195632.png" alt="QQ截图20230301195632"></p>
+<p>稀疏索引:一些特定的数据,用于缩小查找范围.</p>
+<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230301195740.png" alt="QQ截图20230301195740"></p>
+<h2 id="3-4-索引实现"><a href="#3-4-索引实现" class="headerlink" title="3.4 索引实现:"></a>3.4 索引实现:</h2><p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230301200018.png" alt="QQ截图20230301200018"></p>
+<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230301200038.png" alt="QQ截图20230301200038"></p>
+<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230301200107.png" alt="QQ截图20230301200107"></p>
+<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230301200229.png" alt="QQ截图20230301200229"></p>
+<p>普通的mark都存储的是这个mark中的最小值,但是由于最后一个mark并没有装满,为了获得确定的区间,primaryindex存储的是所有数据的最大值.</p>
+<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230301200436.png" alt="QQ截图20230301200436"></p>
+<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230301201204.png" alt="QQ截图20230301201204"></p>
+<p>优化:二级索引:</p>
+<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230301201427.png" alt="QQ截图20230301201427"></p>
+<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230301201535.png" alt="QQ截图20230301201535"></p>
+<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230301201615.png" alt="QQ截图20230301201615"></p>
+<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230301201638.png" alt="QQ截图20230301201638"></p>
+<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230301201729.png" alt="QQ截图20230301201729"></p>
+<h2 id="3-5-数据合并"><a href="#3-5-数据合并" class="headerlink" title="3.5 数据合并:"></a>3.5 数据合并:</h2><p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230301201804.png" alt="QQ截图20230301201804"></p>
+<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230301201915.png" alt="QQ截图20230301201915"></p>
+<h2 id="3-6-数据查询"><a href="#3-6-数据查询" class="headerlink" title="3.6 数据查询:"></a>3.6 数据查询:</h2><p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230301202034.png" alt="QQ截图20230301202034"></p>
+<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230301202042.png" alt="QQ截图20230301202042"></p>
+<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230301202132.png" alt="QQ截图20230301202132"></p>
+<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230301202203.png" alt="QQ截图20230301202203"></p>
+<h1 id="4-应用场景"><a href="#4-应用场景" class="headerlink" title="4.应用场景:"></a>4.应用场景:</h1><p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230301202248.png" alt="QQ截图20230301202248"></p>
+<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230301202359.png" alt="QQ截图20230301202359"></p>
+<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230301202449.png" alt="QQ截图20230301202449"></p>
+<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230301202542.png" alt="QQ截图20230301202542"></p>
+<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230301202720.png" alt="QQ截图20230301202720"></p>
+<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230301202809.png" alt="QQ截图20230301202809"></p>
+<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230301202916.png" alt="QQ截图20230301202916"></p>
+<p>map:kv.</p>
+<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230301203027.png" alt="QQ截图20230301203027"></p>
+<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230301203145.png" alt="QQ截图20230301203145"></p>
+<h1 id="5-总结："><a href="#5-总结：" class="headerlink" title="5.总结："></a>5.总结：</h1><p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230301203304.png" alt="QQ截图20230301203304"></p>
+]]></content>
+      <categories>
+        <category>笔记</category>
+      </categories>
+      <tags>
+        <tag>中间件</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Git</title>
+    <url>/2023/03/13/Git/</url>
+    <content><![CDATA[<h1 id="Git"><a href="#Git" class="headerlink" title="Git"></a>Git</h1><h1 id="1-Git介绍"><a href="#1-Git介绍" class="headerlink" title="1.Git介绍:"></a>1.Git介绍:</h1><p>git是一个版本控制软件，是可以在你电脑不联网的情况下，只在本地使用的一个版本管理工具，其作用就是可以让你更好的管理你的程序，比如你原来提交过的内容，以后虽然修改了，但是通过git这个工具，可以把你原来提交的内容重现出来，这样对于你后来才意识到的一些错误的更改，可以进行还原。</p>
+<p>一个版本控制的通俗易懂例子:</p>
+<p>[(121条消息) （一）Git和Github介绍_如筏喻者的博客-CSDN博客](<a href="https://blog.csdn.net/weixin_40634003/article/details/122977154?ops_request_misc=%7B%22request_id%22:%22167860762916800192216681%22,%22scm%22:%2220140713.130102334..%22%7D&request_id=167860762916800192216681&biz_id=0&utm_medium=distribute.pc_search_result.none-task-blog-2~all~baidu_landing_v2~default-4-122977154-null-null.142%5Ev73%5Econtrol,201%5Ev4%5Eadd_ask,239%5Ev2%5Einsert_chatgpt&utm_term=git">https://blog.csdn.net/weixin_40634003/article/details/122977154?ops_request_misc=%7B%22request%5Fid%22%3A%22167860762916800192216681%22%2C%22scm%22%3A%2220140713.130102334..%22%7D&amp;request_id=167860762916800192216681&amp;biz_id=0&amp;utm_medium=distribute.pc_search_result.none-task-blog-2~all~baidu_landing_v2~default-4-122977154-null-null.142^v73^control,201^v4^add_ask,239^v2^insert_chatgpt&amp;utm_term=git</a> 和github&amp;spm&#x3D;1018.2226.3001.4187)</p>
+<h2 id="1-1-版本控制软件类型"><a href="#1-1-版本控制软件类型" class="headerlink" title="1.1 版本控制软件类型:"></a>1.1 版本控制软件类型:</h2><h3 id="1-1-1-本地版本："><a href="#1-1-1-本地版本：" class="headerlink" title="1.1.1 本地版本："></a>1.1.1 本地版本：</h3><p>单机运行，使维护文件版本的操作工具化.<img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/dcad420a312545c4a9e8c5f428dce96e.png" alt="dcad420a312545c4a9e8c5f428dce96e"></p>
+<h3 id="1-1-2-集中式"><a href="#1-1-2-集中式" class="headerlink" title="1.1.2 集中式:"></a>1.1.2 集中式:</h3><p>集中化的版本控制系统：联网运行，支持多人协作开发;性能差、用户体验不好.</p>
+<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/efc7fffb3b1549178a68b0b9955ac1b7.png" alt="efc7fffb3b1549178a68b0b9955ac1b7"></p>
+<h3 id="1-1-3-分布式"><a href="#1-1-3-分布式" class="headerlink" title="1.1.3 分布式:"></a>1.1.3 分布式:</h3><p>联网运行，支持多人协作开发;性能优秀、用户体验好.</p>
+<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/99b3f17afa124a8eb76a9a738cdb823b.png" alt="99b3f17afa124a8eb76a9a738cdb823b"></p>
+<p>这里的分布式是指本机和服务器互相备份,与一般传统意义上的分布式全在服务端有所区别.</p>
+<h2 id="1-2-Git特性"><a href="#1-2-Git特性" class="headerlink" title="1.2 Git特性:"></a>1.2 Git特性:</h2><h3 id="1-2-1-保存方式"><a href="#1-2-1-保存方式" class="headerlink" title="1.2.1 保存方式:"></a>1.2.1 保存方式:</h3><p>svn是保存一份原始的本地文件和改动.</p>
+<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/4e37806678b24531a8e2df05a7eee5d9.png" alt="4e37806678b24531a8e2df05a7eee5d9"></p>
+<p>而git是保存每一次的完整的文件快照.</p>
+<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/c8fde5b0098740dfb5c9188992e9972c-1678676269145-10.png" alt="c8fde5b0098740dfb5c9188992e9972c"></p>
+<p>就像使用了数据库索引一样,增加了读性能而略微牺牲了写性能.</p>
+<h3 id="1-2-2-分区"><a href="#1-2-2-分区" class="headerlink" title="1.2.2 分区:"></a>1.2.2 分区:</h3><p>使用Git管理的项目，拥有三个区域，分别是工作区、暂存区、Git仓库。</p>
+<p>工作区：我们书写代码的地方，工作的目录就叫工作区。</p>
+<p>暂存区：暂时存储的区域，在git中，代码无法直接从工作区提交到仓库区，而是需要先从工作区添加到暂存区，然后才能从暂存区提交到仓库区。暂存区的目的是避免误操作。</p>
+<p>本地仓库区：将保存在暂存区域的内容永久转储到 Git 仓库中，生成版本号。生成版本号之后，就可以任何的回退到某一个具体的版本.</p>
+<p><img src="C:\Users\wpy\Desktop\blog\source\images\Git\QQ截图20230313110157.png" alt="QQ截图20230313110157"></p>
+<h2 id="1-3-Git与Github"><a href="#1-3-Git与Github" class="headerlink" title="1.3 Git与Github:"></a>1.3 Git与Github:</h2><p>GitHub 与 Git 是完全不同的两个东西。<br>在 Git 中，开发者将源代码存入名叫“Git 仓库”的资料库中并加以使用。而 GitHub 则是在网络上提供 Git 仓库的一项服务。</p>
+<p>Git 仓库管理功能是 GitHub 的核心。因此，使用 GitHub 之前必须先掌握 Git 的相关知识，同时本地的设备还要安装 Git 的环境。</p>
+<p>GitHub 上公开的软件源代码全都由 Git 进行管理且只支持用 Git 进行管理。<br>先有 Git，再有 Github，是 Github 傍 Git 大腿发展起来的，而不是 Git 傍 GitHub 大腿。</p>
+<h1 id="2-Git使用"><a href="#2-Git使用" class="headerlink" title="2.Git使用:"></a>2.Git使用:</h1><h2 id="2-1-Git协作模式"><a href="#2-1-Git协作模式" class="headerlink" title="2.1 Git协作模式:"></a>2.1 Git协作模式:</h2><h3 id="2-1-1-团队协作"><a href="#2-1-1-团队协作" class="headerlink" title="2.1.1 团队协作:"></a>2.1.1 团队协作:</h3><p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/20200209195719928.png" alt="20200209195719928"></p>
+<h3 id="2-1-2-非团队协作"><a href="#2-1-2-非团队协作" class="headerlink" title="2.1.2 非团队协作:"></a>2.1.2 非团队协作:</h3><p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/20200210121426442.png" alt="20200210121426442"></p>
+<h2 id="2-2-分支"><a href="#2-2-分支" class="headerlink" title="2.2 分支:"></a>2.2 分支:</h2><p>在进行多人协作开发的时候，为了防止互相干扰，提高协同开发的体验，建议每个开发者都基于分支进行项目功能的开发，例如:</p>
+<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/598d123ef5ab439e8275acbf16baeb45.png" alt="598d123ef5ab439e8275acbf16baeb45"></p>
+<h2 id="2-3-Git下载安装"><a href="#2-3-Git下载安装" class="headerlink" title="2.3 Git下载安装:"></a>2.3 Git下载安装:</h2><p>参看<a href="https://blog.csdn.net/weixin_47638941/article/details/120632890?ops_request_misc=%7B%22request_id%22:%22167867670516782427458948%22,%22scm%22:%2220140713.130102334..%22%7D&request_id=167867670516782427458948&biz_id=0&utm_medium=distribute.pc_search_result.none-task-blog-2~all~top_positive~default-1-120632890-null-null.142%5Ev73%5Econtrol,201%5Ev4%5Eadd_ask,239%5Ev2%5Einsert_chatgpt&utm_term=git%E4%B8%8B%E8%BD%BD%E5%AE%89%E8%A3%85%E6%95%99%E7%A8%8B&spm=1018.2226.3001.4187">(121条消息) Git的下载安装 (图文教程)<em>git下载安装</em>@memory的博客-CSDN博客</a></p>
+<h2 id="2-4-Git使用"><a href="#2-4-Git使用" class="headerlink" title="2.4 Git使用:"></a>2.4 Git使用:</h2><p><a href="https://juejin.cn/post/6844903924458078221#heading-3">Github使用教程图文详解 - 掘金 (juejin.cn)</a></p>
+<p><a href="https://juejin.cn/post/7002456806198870023#heading-9">谈谈git与github使用 - 掘金 (juejin.cn)</a></p>
+<h3 id="2-4-1-第一次使用"><a href="#2-4-1-第一次使用" class="headerlink" title="2.4.1 第一次使用:"></a>2.4.1 第一次使用:</h3><p>新建文件夹,执行</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">//初始化git仓库</span><br><span class="line">git init</span><br></pre></td></tr></table></figure>
+
+<p>然后连接到远程仓库:</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">//为仓库起别名,并连接</span><br><span class="line">git remote add 别名 地址</span><br><span class="line">git remote add origin https://github.com/bearslyricattack/demo.git</span><br><span class="line">//创建自己的分支</span><br><span class="line">git checkout -b 分支名</span><br><span class="line">git checkout -b wpy_dev</span><br><span class="line">//从主分支上拉取下代码</span><br><span class="line">git pull 别名 分支名</span><br><span class="line">git pull origin main</span><br></pre></td></tr></table></figure>
+
+<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230313113241.png" alt="QQ截图20230313113241"></p>
+<p>拉取下代码后,进行本地开发,在开发完成后,把开发完成的新代码放到这个文件夹下,然后执行</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">//由工作区添加到暂存区</span><br><span class="line">git add --all</span><br><span class="line">//由暂存区提交到仓库</span><br><span class="line">git commit -m &quot;&quot;</span><br><span class="line">&quot;&quot;里面是提交日志,生成的是版本号</span><br><span class="line">//提交到github</span><br><span class="line">git push 别名 分支名</span><br><span class="line">git push origin wpy_dev</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230313113330.png" alt="QQ截图20230313113330"></p>
+<p>然后在登录github进行分支合并就可以了.</p>
+<h3 id="2-4-2-以后使用"><a href="#2-4-2-以后使用" class="headerlink" title="2.4.2 以后使用:"></a>2.4.2 以后使用:</h3><p>只需要先pull,然后按照上面的流程继续即可.</p>
+]]></content>
+      <categories>
+        <category>笔记</category>
+      </categories>
+      <tags>
+        <tag>中间件</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Golang</title>
     <url>/2023/01/17/Golang/</url>
     <content><![CDATA[<h1 id="Golang"><a href="#Golang" class="headerlink" title="Golang:"></a>Golang:</h1><h1 id="1-Golang简介"><a href="#1-Golang简介" class="headerlink" title="1.Golang简介:"></a>1.Golang简介:</h1><h2 id="1-1Golang优点"><a href="#1-1Golang优点" class="headerlink" title="1.1Golang优点:"></a>1.1Golang优点:</h2><p>1.高性能,高并发.python有性能问题.</p>
@@ -341,161 +496,6 @@
       </tags>
   </entry>
   <entry>
-    <title>Git</title>
-    <url>/2023/03/13/Git/</url>
-    <content><![CDATA[<h1 id="Git"><a href="#Git" class="headerlink" title="Git"></a>Git</h1><h1 id="1-Git介绍"><a href="#1-Git介绍" class="headerlink" title="1.Git介绍:"></a>1.Git介绍:</h1><p>git是一个版本控制软件，是可以在你电脑不联网的情况下，只在本地使用的一个版本管理工具，其作用就是可以让你更好的管理你的程序，比如你原来提交过的内容，以后虽然修改了，但是通过git这个工具，可以把你原来提交的内容重现出来，这样对于你后来才意识到的一些错误的更改，可以进行还原。</p>
-<p>一个版本控制的通俗易懂例子:</p>
-<p>[(121条消息) （一）Git和Github介绍_如筏喻者的博客-CSDN博客](<a href="https://blog.csdn.net/weixin_40634003/article/details/122977154?ops_request_misc=%7B%22request_id%22:%22167860762916800192216681%22,%22scm%22:%2220140713.130102334..%22%7D&request_id=167860762916800192216681&biz_id=0&utm_medium=distribute.pc_search_result.none-task-blog-2~all~baidu_landing_v2~default-4-122977154-null-null.142%5Ev73%5Econtrol,201%5Ev4%5Eadd_ask,239%5Ev2%5Einsert_chatgpt&utm_term=git">https://blog.csdn.net/weixin_40634003/article/details/122977154?ops_request_misc=%7B%22request%5Fid%22%3A%22167860762916800192216681%22%2C%22scm%22%3A%2220140713.130102334..%22%7D&amp;request_id=167860762916800192216681&amp;biz_id=0&amp;utm_medium=distribute.pc_search_result.none-task-blog-2~all~baidu_landing_v2~default-4-122977154-null-null.142^v73^control,201^v4^add_ask,239^v2^insert_chatgpt&amp;utm_term=git</a> 和github&amp;spm&#x3D;1018.2226.3001.4187)</p>
-<h2 id="1-1-版本控制软件类型"><a href="#1-1-版本控制软件类型" class="headerlink" title="1.1 版本控制软件类型:"></a>1.1 版本控制软件类型:</h2><h3 id="1-1-1-本地版本："><a href="#1-1-1-本地版本：" class="headerlink" title="1.1.1 本地版本："></a>1.1.1 本地版本：</h3><p>单机运行，使维护文件版本的操作工具化.<img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/dcad420a312545c4a9e8c5f428dce96e.png" alt="dcad420a312545c4a9e8c5f428dce96e"></p>
-<h3 id="1-1-2-集中式"><a href="#1-1-2-集中式" class="headerlink" title="1.1.2 集中式:"></a>1.1.2 集中式:</h3><p>集中化的版本控制系统：联网运行，支持多人协作开发;性能差、用户体验不好.</p>
-<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/efc7fffb3b1549178a68b0b9955ac1b7.png" alt="efc7fffb3b1549178a68b0b9955ac1b7"></p>
-<h3 id="1-1-3-分布式"><a href="#1-1-3-分布式" class="headerlink" title="1.1.3 分布式:"></a>1.1.3 分布式:</h3><p>联网运行，支持多人协作开发;性能优秀、用户体验好.</p>
-<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/99b3f17afa124a8eb76a9a738cdb823b.png" alt="99b3f17afa124a8eb76a9a738cdb823b"></p>
-<p>这里的分布式是指本机和服务器互相备份,与一般传统意义上的分布式全在服务端有所区别.</p>
-<h2 id="1-2-Git特性"><a href="#1-2-Git特性" class="headerlink" title="1.2 Git特性:"></a>1.2 Git特性:</h2><h3 id="1-2-1-保存方式"><a href="#1-2-1-保存方式" class="headerlink" title="1.2.1 保存方式:"></a>1.2.1 保存方式:</h3><p>svn是保存一份原始的本地文件和改动.</p>
-<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/4e37806678b24531a8e2df05a7eee5d9.png" alt="4e37806678b24531a8e2df05a7eee5d9"></p>
-<p>而git是保存每一次的完整的文件快照.</p>
-<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/c8fde5b0098740dfb5c9188992e9972c-1678676269145-10.png" alt="c8fde5b0098740dfb5c9188992e9972c"></p>
-<p>就像使用了数据库索引一样,增加了读性能而略微牺牲了写性能.</p>
-<h3 id="1-2-2-分区"><a href="#1-2-2-分区" class="headerlink" title="1.2.2 分区:"></a>1.2.2 分区:</h3><p>使用Git管理的项目，拥有三个区域，分别是工作区、暂存区、Git仓库。</p>
-<p>工作区：我们书写代码的地方，工作的目录就叫工作区。</p>
-<p>暂存区：暂时存储的区域，在git中，代码无法直接从工作区提交到仓库区，而是需要先从工作区添加到暂存区，然后才能从暂存区提交到仓库区。暂存区的目的是避免误操作。</p>
-<p>本地仓库区：将保存在暂存区域的内容永久转储到 Git 仓库中，生成版本号。生成版本号之后，就可以任何的回退到某一个具体的版本.</p>
-<p><img src="C:\Users\wpy\Desktop\blog\source\images\Git\QQ截图20230313110157.png" alt="QQ截图20230313110157"></p>
-<h2 id="1-3-Git与Github"><a href="#1-3-Git与Github" class="headerlink" title="1.3 Git与Github:"></a>1.3 Git与Github:</h2><p>GitHub 与 Git 是完全不同的两个东西。<br>在 Git 中，开发者将源代码存入名叫“Git 仓库”的资料库中并加以使用。而 GitHub 则是在网络上提供 Git 仓库的一项服务。</p>
-<p>Git 仓库管理功能是 GitHub 的核心。因此，使用 GitHub 之前必须先掌握 Git 的相关知识，同时本地的设备还要安装 Git 的环境。</p>
-<p>GitHub 上公开的软件源代码全都由 Git 进行管理且只支持用 Git 进行管理。<br>先有 Git，再有 Github，是 Github 傍 Git 大腿发展起来的，而不是 Git 傍 GitHub 大腿。</p>
-<h1 id="2-Git使用"><a href="#2-Git使用" class="headerlink" title="2.Git使用:"></a>2.Git使用:</h1><h2 id="2-1-Git协作模式"><a href="#2-1-Git协作模式" class="headerlink" title="2.1 Git协作模式:"></a>2.1 Git协作模式:</h2><h3 id="2-1-1-团队协作"><a href="#2-1-1-团队协作" class="headerlink" title="2.1.1 团队协作:"></a>2.1.1 团队协作:</h3><p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/20200209195719928.png" alt="20200209195719928"></p>
-<h3 id="2-1-2-非团队协作"><a href="#2-1-2-非团队协作" class="headerlink" title="2.1.2 非团队协作:"></a>2.1.2 非团队协作:</h3><p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/20200210121426442.png" alt="20200210121426442"></p>
-<h2 id="2-2-分支"><a href="#2-2-分支" class="headerlink" title="2.2 分支:"></a>2.2 分支:</h2><p>在进行多人协作开发的时候，为了防止互相干扰，提高协同开发的体验，建议每个开发者都基于分支进行项目功能的开发，例如:</p>
-<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/598d123ef5ab439e8275acbf16baeb45.png" alt="598d123ef5ab439e8275acbf16baeb45"></p>
-<h2 id="2-3-Git下载安装"><a href="#2-3-Git下载安装" class="headerlink" title="2.3 Git下载安装:"></a>2.3 Git下载安装:</h2><p>参看<a href="https://blog.csdn.net/weixin_47638941/article/details/120632890?ops_request_misc=%7B%22request_id%22:%22167867670516782427458948%22,%22scm%22:%2220140713.130102334..%22%7D&request_id=167867670516782427458948&biz_id=0&utm_medium=distribute.pc_search_result.none-task-blog-2~all~top_positive~default-1-120632890-null-null.142%5Ev73%5Econtrol,201%5Ev4%5Eadd_ask,239%5Ev2%5Einsert_chatgpt&utm_term=git%E4%B8%8B%E8%BD%BD%E5%AE%89%E8%A3%85%E6%95%99%E7%A8%8B&spm=1018.2226.3001.4187">(121条消息) Git的下载安装 (图文教程)<em>git下载安装</em>@memory的博客-CSDN博客</a></p>
-<h2 id="2-4-Git使用"><a href="#2-4-Git使用" class="headerlink" title="2.4 Git使用:"></a>2.4 Git使用:</h2><p><a href="https://juejin.cn/post/6844903924458078221#heading-3">Github使用教程图文详解 - 掘金 (juejin.cn)</a></p>
-<p><a href="https://juejin.cn/post/7002456806198870023#heading-9">谈谈git与github使用 - 掘金 (juejin.cn)</a></p>
-<h3 id="2-4-1-第一次使用"><a href="#2-4-1-第一次使用" class="headerlink" title="2.4.1 第一次使用:"></a>2.4.1 第一次使用:</h3><p>新建文件夹,执行</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">//初始化git仓库</span><br><span class="line">git init</span><br></pre></td></tr></table></figure>
-
-<p>然后连接到远程仓库:</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">//为仓库起别名,并连接</span><br><span class="line">git remote add 别名 地址</span><br><span class="line">git remote add origin https://github.com/bearslyricattack/demo.git</span><br><span class="line">//创建自己的分支</span><br><span class="line">git checkout -b 分支名</span><br><span class="line">git checkout -b wpy_dev</span><br><span class="line">//从主分支上拉取下代码</span><br><span class="line">git pull 别名 分支名</span><br><span class="line">git pull origin main</span><br></pre></td></tr></table></figure>
-
-<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230313113241.png" alt="QQ截图20230313113241"></p>
-<p>拉取下代码后,进行本地开发,在开发完成后,把开发完成的新代码放到这个文件夹下,然后执行</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">//由工作区添加到暂存区</span><br><span class="line">git add --all</span><br><span class="line">//由暂存区提交到仓库</span><br><span class="line">git commit -m &quot;&quot;</span><br><span class="line">&quot;&quot;里面是提交日志,生成的是版本号</span><br><span class="line">//提交到github</span><br><span class="line">git push 别名 分支名</span><br><span class="line">git push origin wpy_dev</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230313113330.png" alt="QQ截图20230313113330"></p>
-<p>然后在登录github进行分支合并就可以了.</p>
-<h3 id="2-4-2-以后使用"><a href="#2-4-2-以后使用" class="headerlink" title="2.4.2 以后使用:"></a>2.4.2 以后使用:</h3><p>只需要先pull,然后按照上面的流程继续即可.</p>
-]]></content>
-      <categories>
-        <category>笔记</category>
-      </categories>
-      <tags>
-        <tag>中间件</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>ClickHouse</title>
-    <url>/2023/04/28/ClickHouse/</url>
-    <content><![CDATA[<h1 id="ClickHouse"><a href="#ClickHouse" class="headerlink" title="ClickHouse:"></a>ClickHouse:</h1><p>一款查询引擎.</p>
-<h1 id="1-数据库基本概念"><a href="#1-数据库基本概念" class="headerlink" title="1.数据库基本概念:"></a>1.数据库基本概念:</h1><p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230301095032.png" alt="QQ截图20230301095032"></p>
-<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230301095221.png" alt="QQ截图20230301095221"></p>
-<h2 id="1-1分类"><a href="#1-1分类" class="headerlink" title="1.1分类:"></a>1.1分类:</h2><p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230301095333.png" alt="QQ截图20230301095333"></p>
-<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230301095426.png" alt="QQ截图20230301095426"></p>
-<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230301095500.png" alt="QQ截图20230301095500"></p>
-<h2 id="1-2-OLAP数据库"><a href="#1-2-OLAP数据库" class="headerlink" title="1.2 OLAP数据库:"></a>1.2 OLAP数据库:</h2><p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230301095547.png" alt="QQ截图20230301095547"></p>
-<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230301095724.png" alt="QQ截图20230301095724"></p>
-<h2 id="1-3-sql"><a href="#1-3-sql" class="headerlink" title="1.3 sql:"></a>1.3 sql:</h2><p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230301095816.png" alt="QQ截图20230301095816"></p>
-<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230301095833.png" alt="QQ截图20230301095833"></p>
-<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230301100008.png" alt="QQ截图20230301100008"></p>
-<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230301100111.png" alt="QQ截图20230301100111"></p>
-<h2 id="1-4-数据库架构"><a href="#1-4-数据库架构" class="headerlink" title="1.4 数据库架构:"></a>1.4 数据库架构:</h2><p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230301100203.png" alt="QQ截图20230301100203"></p>
-<h3 id="1-4-1解释器"><a href="#1-4-1解释器" class="headerlink" title="1.4.1解释器:"></a>1.4.1解释器:</h3><p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230301100321.png" alt="QQ截图20230301100321"></p>
-<h3 id="1-4-2分析器"><a href="#1-4-2分析器" class="headerlink" title="1.4.2分析器:"></a>1.4.2分析器:</h3><p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230301100359.png" alt="QQ截图20230301100359"></p>
-<h3 id="1-4-3优化器"><a href="#1-4-3优化器" class="headerlink" title="1.4.3优化器:"></a>1.4.3优化器:</h3><p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230301100511.png" alt="QQ截图20230301100511"></p>
-<p>把ast变成一个一个的算子(执行计划).</p>
-<h3 id="1-4-4执行引擎"><a href="#1-4-4执行引擎" class="headerlink" title="1.4.4执行引擎:"></a>1.4.4执行引擎:</h3><p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230301100611.png" alt="QQ截图20230301100611"></p>
-<h3 id="1-4-5存储引擎"><a href="#1-4-5存储引擎" class="headerlink" title="1.4.5存储引擎:"></a>1.4.5存储引擎:</h3><p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230301100659.png" alt="QQ截图20230301100659"></p>
-<h1 id="2-列式存储"><a href="#2-列式存储" class="headerlink" title="2.列式存储:"></a>2.列式存储:</h1><p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230301100818.png" alt="QQ截图20230301100818"></p>
-<h2 id="2-1-行式存储与列式存储"><a href="#2-1-行式存储与列式存储" class="headerlink" title="2.1 行式存储与列式存储:"></a>2.1 行式存储与列式存储:</h2><p>行式存储:每一行的顺序,连续的写到存储介质当中去.</p>
-<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230301100929.png" alt="QQ截图20230301100929"></p>
-<p>列式存储:一列一列的写入.</p>
-<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230301101022.png" alt="QQ截图20230301101022"></p>
-<h2 id="2-2-列式存储的优点"><a href="#2-2-列式存储的优点" class="headerlink" title="2.2 列式存储的优点:"></a>2.2 列式存储的优点:</h2><h3 id="2-2-1-数据压缩"><a href="#2-2-1-数据压缩" class="headerlink" title="2.2.1 数据压缩:"></a>2.2.1 数据压缩:</h3><p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230301101148.png" alt="QQ截图20230301101148"></p>
-<p>比如主键在列上存储有某种规律(递增).</p>
-<h4 id="压缩算法"><a href="#压缩算法" class="headerlink" title="压缩算法:"></a>压缩算法:</h4><p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230301101241.png" alt="QQ截图20230301101241"></p>
-<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230301101330.png" alt="QQ截图20230301101330"></p>
-<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230301101418.png" alt="QQ截图20230301101418"></p>
-<h3 id="2-2-2-聚合计算："><a href="#2-2-2-聚合计算：" class="headerlink" title="2.2.2 聚合计算："></a>2.2.2 聚合计算：</h3><p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230301101459.png" alt="QQ截图20230301101459"></p>
-<h3 id="2-2-3-延迟物化："><a href="#2-2-3-延迟物化：" class="headerlink" title="2.2.3 延迟物化："></a>2.2.3 延迟物化：</h3><p>把一种数据格式变成另一种数据格式。</p>
-<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230301101619.png" alt="QQ截图20230301101619"></p>
-<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230301101718.png" alt="QQ截图20230301101718"></p>
-<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230301101806.png" alt="QQ截图20230301101806"></p>
-<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230301101847.png" alt="QQ截图20230301101847"></p>
-<h3 id="2-2-4-向量化："><a href="#2-2-4-向量化：" class="headerlink" title="2.2.4 向量化："></a>2.2.4 向量化：</h3><p>解释：</p>
-<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230301102311.png" alt="QQ截图20230301102311"></p>
-<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230301102428.png" alt="QQ截图20230301102428"></p>
-<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230301102512.png" alt="QQ截图20230301102512"></p>
-<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230301145624.png" alt="QQ截图20230301145624"></p>
-<h2 id="2-3-优缺点分析"><a href="#2-3-优缺点分析" class="headerlink" title="2.3 优缺点分析:"></a>2.3 优缺点分析:</h2><p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230301193053.png" alt="QQ截图20230301193053"></p>
-<h1 id="3-存储设计"><a href="#3-存储设计" class="headerlink" title="3.存储设计:"></a>3.存储设计:</h1><h2 id="3-1-表定义和结构"><a href="#3-1-表定义和结构" class="headerlink" title="3.1 表定义和结构:"></a>3.1 表定义和结构:</h2><p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230301193925.png" alt="QQ截图20230301193925"></p>
-<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230301194207.png" alt="QQ截图20230301194207"></p>
-<p>distable不存储数据,相当于view的功能.</p>
-<p>localtable存储数据.</p>
-<h2 id="3-2-引擎架构"><a href="#3-2-引擎架构" class="headerlink" title="3.2 引擎架构:"></a>3.2 引擎架构:</h2><p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230301194359.png" alt="QQ截图20230301194359"></p>
-<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230301194533.png" alt="QQ截图20230301194533"></p>
-<p>bin存储数据,mrk存储索引.</p>
-<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230301194648.png" alt="QQ截图20230301194648"></p>
-<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230301194736.png" alt="QQ截图20230301194736"></p>
-<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230301194801.png" alt="QQ截图20230301194801"></p>
-<h2 id="3-3-索引设计"><a href="#3-3-索引设计" class="headerlink" title="3.3 索引设计:"></a>3.3 索引设计:</h2><h3 id="3-3-1-hash-index"><a href="#3-3-1-hash-index" class="headerlink" title="3.3.1 hash index:"></a>3.3.1 hash index:</h3><p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230301194820.png" alt="QQ截图20230301194820"></p>
-<h3 id="3-3-2-b-tree"><a href="#3-3-2-b-tree" class="headerlink" title="3.3.2 b-tree:"></a>3.3.2 b-tree:</h3><p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230301194859.png" alt="QQ截图20230301194859"></p>
-<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230301195006.png" alt="QQ截图20230301195006"></p>
-<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230301195155.png" alt="QQ截图20230301195155"></p>
-<h3 id="3-3-3-LSM-tree"><a href="#3-3-3-LSM-tree" class="headerlink" title="3.3.3 LSM tree:"></a>3.3.3 LSM tree:</h3><p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230301195321.png" alt="QQ截图20230301195321"></p>
-<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230301195347.png" alt="QQ截图20230301195347"></p>
-<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230301195533.png" alt="QQ截图20230301195533"></p>
-<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230301195632.png" alt="QQ截图20230301195632"></p>
-<p>稀疏索引:一些特定的数据,用于缩小查找范围.</p>
-<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230301195740.png" alt="QQ截图20230301195740"></p>
-<h2 id="3-4-索引实现"><a href="#3-4-索引实现" class="headerlink" title="3.4 索引实现:"></a>3.4 索引实现:</h2><p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230301200018.png" alt="QQ截图20230301200018"></p>
-<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230301200038.png" alt="QQ截图20230301200038"></p>
-<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230301200107.png" alt="QQ截图20230301200107"></p>
-<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230301200229.png" alt="QQ截图20230301200229"></p>
-<p>普通的mark都存储的是这个mark中的最小值,但是由于最后一个mark并没有装满,为了获得确定的区间,primaryindex存储的是所有数据的最大值.</p>
-<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230301200436.png" alt="QQ截图20230301200436"></p>
-<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230301201204.png" alt="QQ截图20230301201204"></p>
-<p>优化:二级索引:</p>
-<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230301201427.png" alt="QQ截图20230301201427"></p>
-<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230301201535.png" alt="QQ截图20230301201535"></p>
-<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230301201615.png" alt="QQ截图20230301201615"></p>
-<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230301201638.png" alt="QQ截图20230301201638"></p>
-<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230301201729.png" alt="QQ截图20230301201729"></p>
-<h2 id="3-5-数据合并"><a href="#3-5-数据合并" class="headerlink" title="3.5 数据合并:"></a>3.5 数据合并:</h2><p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230301201804.png" alt="QQ截图20230301201804"></p>
-<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230301201915.png" alt="QQ截图20230301201915"></p>
-<h2 id="3-6-数据查询"><a href="#3-6-数据查询" class="headerlink" title="3.6 数据查询:"></a>3.6 数据查询:</h2><p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230301202034.png" alt="QQ截图20230301202034"></p>
-<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230301202042.png" alt="QQ截图20230301202042"></p>
-<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230301202132.png" alt="QQ截图20230301202132"></p>
-<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230301202203.png" alt="QQ截图20230301202203"></p>
-<h1 id="4-应用场景"><a href="#4-应用场景" class="headerlink" title="4.应用场景:"></a>4.应用场景:</h1><p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230301202248.png" alt="QQ截图20230301202248"></p>
-<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230301202359.png" alt="QQ截图20230301202359"></p>
-<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230301202449.png" alt="QQ截图20230301202449"></p>
-<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230301202542.png" alt="QQ截图20230301202542"></p>
-<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230301202720.png" alt="QQ截图20230301202720"></p>
-<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230301202809.png" alt="QQ截图20230301202809"></p>
-<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230301202916.png" alt="QQ截图20230301202916"></p>
-<p>map:kv.</p>
-<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230301203027.png" alt="QQ截图20230301203027"></p>
-<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230301203145.png" alt="QQ截图20230301203145"></p>
-<h1 id="5-总结："><a href="#5-总结：" class="headerlink" title="5.总结："></a>5.总结：</h1><p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230301203304.png" alt="QQ截图20230301203304"></p>
-]]></content>
-      <categories>
-        <category>笔记</category>
-      </categories>
-      <tags>
-        <tag>中间件</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Go语言设计与实现</title>
     <url>/2023/03/14/Go%E8%AF%AD%E8%A8%80%E8%AE%BE%E8%AE%A1%E4%B8%8E%E5%AE%9E%E7%8E%B0/</url>
     <content><![CDATA[<h1 id="Go语言设计与实现"><a href="#Go语言设计与实现" class="headerlink" title="Go语言设计与实现"></a>Go语言设计与实现</h1><h1 id="1-编译原理"><a href="#1-编译原理" class="headerlink" title="1.编译原理:"></a>1.编译原理:</h1><p>go语言编译器的源代码放在src&#x2F;cmd&#x2F;complie中.</p>
@@ -593,31 +593,6 @@
       </tags>
   </entry>
   <entry>
-    <title>Redis</title>
-    <url>/2023/01/17/Redis/</url>
-    <content><![CDATA[<h1 id="Redis"><a href="#Redis" class="headerlink" title="Redis"></a>Redis</h1><h1 id="1-Redis介绍："><a href="#1-Redis介绍：" class="headerlink" title="1.Redis介绍："></a>1.Redis介绍：</h1><h2 id="1-1-为什么需要redis："><a href="#1-1-为什么需要redis：" class="headerlink" title="1.1 为什么需要redis："></a>1.1 为什么需要redis：</h2><p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230215111415.png" alt="QQ截图20230215111415"></p>
-<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230215111447.png" alt="QQ截图20230215111447"></p>
-<h2 id="1-2-基本结构："><a href="#1-2-基本结构：" class="headerlink" title="1.2 基本结构："></a>1.2 基本结构：</h2><p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230215111543.png" alt="QQ截图20230215111543"></p>
-<p>一定程度上实现持久化。</p>
-<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230215111849.png" alt="QQ截图20230215111849"></p>
-<h1 id="2-Redis应用案例："><a href="#2-Redis应用案例：" class="headerlink" title="2. Redis应用案例："></a>2. Redis应用案例：</h1><h2 id="2-1-连续签到："><a href="#2-1-连续签到：" class="headerlink" title="2.1 连续签到："></a>2.1 连续签到：</h2><p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230215111950.png" alt="QQ截图20230215111950"></p>
-<h2 id="2-2-String数据结构："><a href="#2-2-String数据结构：" class="headerlink" title="2.2 String数据结构："></a>2.2 String数据结构：</h2><p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230215112319.png" alt="QQ截图20230215112319"></p>
-<p>存储的是二进制数据。</p>
-<p>flags获取数据类型，alloc是分配空间长度，len是实际长度。</p>
-<h2 id="2-3-消息通知："><a href="#2-3-消息通知：" class="headerlink" title="2.3 消息通知："></a>2.3 消息通知：</h2><p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230215112738.png" alt="QQ截图20230215112738"></p>
-<h2 id="2-4-List数据结构："><a href="#2-4-List数据结构：" class="headerlink" title="2.4 List数据结构："></a>2.4 List数据结构：</h2><p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230215113124.png" alt="QQ截图20230215113124"></p>
-<p>在一个节点上存储很多个数据。</p>
-<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230215113359.png" alt="QQ截图20230215113359"></p>
-<h2 id="2-5-计数："><a href="#2-5-计数：" class="headerlink" title="2.5 计数："></a>2.5 计数：</h2><p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230215113442.png" alt="QQ截图20230215113442"></p>
-]]></content>
-      <categories>
-        <category>笔记</category>
-      </categories>
-      <tags>
-        <tag>中间件</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Hertz</title>
     <url>/2023/02/04/Hertz/</url>
     <content><![CDATA[<h1 id="Hertz"><a href="#Hertz" class="headerlink" title="Hertz"></a>Hertz</h1><h1 id="1-简介："><a href="#1-简介：" class="headerlink" title="1.简介："></a>1.简介：</h1><p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230204145726.png" alt="QQ截图20230204145726"></p>
@@ -665,6 +640,31 @@
       </categories>
       <tags>
         <tag>Go</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Redis</title>
+    <url>/2023/01/17/Redis/</url>
+    <content><![CDATA[<h1 id="Redis"><a href="#Redis" class="headerlink" title="Redis"></a>Redis</h1><h1 id="1-Redis介绍："><a href="#1-Redis介绍：" class="headerlink" title="1.Redis介绍："></a>1.Redis介绍：</h1><h2 id="1-1-为什么需要redis："><a href="#1-1-为什么需要redis：" class="headerlink" title="1.1 为什么需要redis："></a>1.1 为什么需要redis：</h2><p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230215111415.png" alt="QQ截图20230215111415"></p>
+<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230215111447.png" alt="QQ截图20230215111447"></p>
+<h2 id="1-2-基本结构："><a href="#1-2-基本结构：" class="headerlink" title="1.2 基本结构："></a>1.2 基本结构：</h2><p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230215111543.png" alt="QQ截图20230215111543"></p>
+<p>一定程度上实现持久化。</p>
+<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230215111849.png" alt="QQ截图20230215111849"></p>
+<h1 id="2-Redis应用案例："><a href="#2-Redis应用案例：" class="headerlink" title="2. Redis应用案例："></a>2. Redis应用案例：</h1><h2 id="2-1-连续签到："><a href="#2-1-连续签到：" class="headerlink" title="2.1 连续签到："></a>2.1 连续签到：</h2><p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230215111950.png" alt="QQ截图20230215111950"></p>
+<h2 id="2-2-String数据结构："><a href="#2-2-String数据结构：" class="headerlink" title="2.2 String数据结构："></a>2.2 String数据结构：</h2><p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230215112319.png" alt="QQ截图20230215112319"></p>
+<p>存储的是二进制数据。</p>
+<p>flags获取数据类型，alloc是分配空间长度，len是实际长度。</p>
+<h2 id="2-3-消息通知："><a href="#2-3-消息通知：" class="headerlink" title="2.3 消息通知："></a>2.3 消息通知：</h2><p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230215112738.png" alt="QQ截图20230215112738"></p>
+<h2 id="2-4-List数据结构："><a href="#2-4-List数据结构：" class="headerlink" title="2.4 List数据结构："></a>2.4 List数据结构：</h2><p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230215113124.png" alt="QQ截图20230215113124"></p>
+<p>在一个节点上存储很多个数据。</p>
+<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230215113359.png" alt="QQ截图20230215113359"></p>
+<h2 id="2-5-计数："><a href="#2-5-计数：" class="headerlink" title="2.5 计数："></a>2.5 计数：</h2><p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230215113442.png" alt="QQ截图20230215113442"></p>
+]]></content>
+      <categories>
+        <category>笔记</category>
+      </categories>
+      <tags>
+        <tag>中间件</tag>
       </tags>
   </entry>
   <entry>
@@ -1692,18 +1692,6 @@
       </tags>
   </entry>
   <entry>
-    <title>侠藏</title>
-    <url>/2023/05/29/%E4%BE%A0%E8%97%8F/</url>
-    <content><![CDATA[<p>侠藏<br>（一）<br>天启六年，辽东。<br>北风一阵阵呼啸而过，却吹不出几家灯火。<br>自从后金起兵，似乎浓墨重彩的黑夜更使人留恋起来，只因为黑夜里没有战争,没有死亡，只有好梦和安眠。但此刻，天边已有一抹纯白，未升的阳光和未落的月色一同， 映在这关外唯一的城里。<br>城外，是精锐的后金骑兵。<br>这支以努尔哈赤的仇恨为源火建立的军队，在这荒凉的大漠还未尝一败，更可怕的是，每次他们攻城成功，都会残忍的屠城，把生机和希望一同断绝。<br>而此刻的宁远城，似乎就是他们眼中的下一片废墟。<br>城中仅有一万余守军，且大多是新军和老兵。没有支援，大明的官员们都畏惧后金的凶狠残暴，畏缩在山海关后不敢发兵。而远隔千里之外的京师，甚至都不知道这场战争的发生。<br>他站在城楼上北望，寒风凛冽。<br>天光还未大亮，如今的后金在绝对的实力面前，连都偷袭都不屑起来。<br>“也许今天就要死在这里了吧？”他想，“不过也好，我就是为这一天而活着的。”<br>他不由得开始回忆起从前，无数画面和音律从眼前划过，最后拼凑、融合，凝结成两个并不十分清晰的身影。<br>“我终究要成为一名大侠的。”<br>“好啊，那我定会跟在你身后，与你一同走遍万水千山。”<br>（二）<br>总有那么一个人，你希望永远拉着他的手，走过所有人间苍茫，在年年岁岁里幕影成双，但现实总是不尽如人意，你与他渐走渐散，再无相逢。<br>从初见他的那一刻起，凌就决定守护他一生。<br>那年他十四岁，不同官场世家的顽劣性格，他只喜欢安静沉默地看书写字。凌初至他家的那一天，他正为读一本古书而发愁，凌就站在他的身后，听管家对他说，“以后这就是你的主子了。”闻言，他抬起头，正对上凌的目光。<br>凌至今记得那个眼神，纯净清冽，没有太多世俗的东西，可只是简单的相望就有令人心疼的感觉。仿佛来自异域的弃子，因无人知会而沉默不言。<br>后来的他们形影不离，渐渐超越了主仆之间的关系。<br>凌还记得第一次听他讲故事的那一天。是他的故事让凌第一次知道了世界上还有这样一方净土，那里没有暴力、流浪、战乱，故事里有的，是渺远绮丽的山川江海，是催人泪下的恩怨情仇，是以家国为重的英雄侠客，而这种侠客精神，也正是他们所最爱的。<br>古往今来，侠客们大多一袭青衫薄衣，银鞍白马，仗剑游行于天地之间，且富济贫，敢爱敢恨，放浪形骸，无所畏惧。对于从儿时起，就因贫穷而颠沛流离的凌来说，这种生活就意味着可以自己做出选择，可以自由自在，无所顾忌。但对于出身于书香门第的他，本应立志考取功名，高居庙堂之上，可他却想成为侠客。<br>直到他们分开，他也从未对凌说起过侠对于他的意义。<br>“如今的你，做到你想要的全部了么？”凌这样想着，大声喝道，“我们现在何处？”<br>“距离宁远城还有不足五里，天亮之间应该能赶到城中。”<br>“好！大家再快点！争取在后金发起进攻之前赶到城中！”<br>凌收回思绪。环视四周，浩荡千里的尽是八旗军队的旗帜，却看不到明军的身影。“我们可能是最后的支援了吧？却来自一支毫无编制的民兵，真可笑啊。”凌苦笑，抽出了长刀。他的身后，无数道身影借着微光纵马飞奔。<br>他们本是辽东人，但因为后金的攻城掠地而失去了亲人和家乡。愤怒使他们自发的聚集，但因为主力明军的懦弱，他们已经许久没有用武之地。<br>听说此次的新任宁前道不再退缩而决定一战，他们才从辽东的四面八方赶来此地，为家乡奉献最后一点力量。<br>最终，他们中的很多人最终如愿以偿，与自己的土地共存亡，但那些活下来的人也变得无比强大，因为他们无可失去。<br>谁也未曾想到他们最终变成了后金军队在最擅长的骑术上的梦魇，被冠以响亮的封号，名震四海。<br>关宁铁骑。<br>（三）<br>元宵节。<br>书中说南宋的元宵是最热闹的，平民百姓无论男女都会走上街头看花灯，熙熙攘攘的长街上，叫卖声，笙箫声，挑逗声此起彼伏，放眼望去，无论是御街还是寻常巷陌，皆是张灯结彩，宛如一片片星海。从前的花灯也好看，形态各异，五彩缤纷，令人眼花缭乱，正如那座始终埋没在江南烟雨中的城市，仿佛从始至终蒙着一层飘渺的薄暮，令人看不透。<br>可能每一座城市都有专属的颜色，只是大多都隐匿于城市的角落，隐匿于每个普通人的平凡生活，唯有在熙攘佳节时，这种颜色才会变得格外明亮，使不曾熟悉这座城市的人也能真切地感受到。<br>而天启的京师，惟有一片真切而阴郁的灰色。<br>今年的冬天格外冷。哪怕是元宵佳节，街上还是寥寥无人，赏灯人们都早早回家，享受炉火和家人的温暖。抬眼看城市的高处，唯有几盏单调的花灯，发着微弱的光，好似幕星一般。<br>“这大概就是王朝日薄西山的景象吧。”他这样想着，推开了门。<br>她依旧在弹她的琴。声音并不十分凄婉，只是很压抑，仿佛与清冷的庭院相应和，很容易让人想到那些可望而不可即的东西，比如故乡，比如理想。<br>“我要走啦，”他自顾自地说，“去关外。”<br>琴声依旧，她已经很久没有同他说过话了。<br>“我知道，你想要的不是这些，为身居高位而左右逢源，为投政敌之所好而加害同窗，可是，我别无选择啊。”<br>琴声骤停。<br>“你还记得你娶我的时候么，”她缓缓地说，“那时的你只是一名一无所有的书生，刚刚考中举人，心中只有以天下为己任，立志做一名人皆称道的好官。可现在呢，你做的那些为了升官发财而做的那些恶心的事我永远也不会忘。”<br>他闻言，沉默了很久。<br>“我有没有和你说过，我小时候想成为一名侠客？”<br>他突然用力，猛地拉过她的衣袖，强迫她直视他的眼睛。<br>“一味地正直是没有用的！我需要力量，我需要可以执掌苍生的权力！没有权力，哪怕侠客梦再美，现世里你什么都不是！”<br>他松开手，大口大口地喘息着。<br>“我说过的话我没有忘，”他说，“也永远不会忘。”<br>院门忽的被推开，身着华贵彩衣的随从和身着铁甲的武士鱼贯而入，层层环绕在他身旁。<br>“大人，时候到了，该走了。”一名随从上前，压低声音说。<br>他面色冷峻地推开他，跨上一匹马，走出了大院。<br>“晴，照顾好自己。”<br>一队人策马向京师外飞驰而去，他们的身后，似伴若有若无的琴声。<br>“那么，我相信你，希望你不会让我失望。”<br>（四）<br>城外。<br>后金的骑兵已列队完毕，沉默的武士胯下是嘶鸣的骏马，来自朔北的风呼啸而过，他们却纹丝不动。等待着的最后进攻的命令。<br>他从城头回望，同样无言的士兵站在城头，正在最后调试红衣大炮。<br>这是他们最后的仰仗。只有这些来自葡萄牙，被称为“佛郎机”的恐怖巨兽才能遏制住后金军的骏马长刀。<br> 他突然很想说些什么，却又不知道从何说起。<br>其实他从小就不善言谈，只有在面对相知的人他才会知无不言。但多年宦海沉浮，他再也没遇到凌那样知心的人。她也很久不理解他，不言说那些本可以说的万语千言。<br>“你在何方？行何事？你的身旁是否有值得守护的人？”他想。<br>“这里，是我们的土地！”他一字一顿。<br>“我不知道是什么让你们走到现在，但对于我，是我的侠客梦。从很小的时候开始，我就梦想做一名仗剑走江湖的大侠，能劫富济贫，行侠一方，但长大了才发现，侠客精神的存在本就是社会的悖论，一己之力终究改变不了太多。”他叹息了一声，“为了这一天，我已经等待了太久，走过官场的腐朽黑暗，习惯了踩着别人的尸体前行，看惯了勾心斗角，生离死别，我一直在寻找一个可以报国的机会。那个机会，就在我面前，就在我们面前！”<br>“列阵！”他大声的说。<br>（五）<br>“头儿，前面已经开打了！”<br>凌暗自叹息，他终究还是没能在开战之前赶到城下。说实话他对这座孤城的守将还是比较好奇的，本希望能见他一面，但现在怕是没有机会了。<br>“寻找破绽，直接切入战场！”<br>战事如火如荼的进行着，每一刻都有人死去。<br>后金军的骑兵虽然犀利，但却不善于攻城，而明军虽然人数劣势，但有必死的心智，加上有利的地形和怒吼的红衣大炮，竟是挡住了后金的攻势，竟隐隐有反攻地迹象。<br>中军的努尔哈赤有些着急了。对面守将是谁？无名小卒罢了。而堂堂的后金国主竟在此无名小卒面前停滞不前。这是他所不能接受的。<br>“正黄旗压上！我领军做先锋！”他怒吼一声。<br>“报告！西南方出现不明军队，直奔我们中军而来！”<br>努尔哈赤大惊，急忙望去。<br>只见一支飞驰的骑军神兵般降入战场，借着战马的冲击力，所到之处后金军皆人仰马翻。为首的一人身着黑衣，手执双刀，翻飞间手起刀落。似有睥睨八荒之威势。<br>“这才是我想要的对手啊！”努尔哈赤赞叹地说，“不过这样笔直的冲阵，怕是嫌命长了吧？”<br>他握起了他的刀。<br>……<br>他依旧站在城楼上，只不过手中多了一口宝剑。<br>“有人来了！”他看到了骑兵赴死般的冲阵，自然也认出了他心念的人。<br>凌。<br>“打开城门，召集骑兵出城迎战！”<br>“你疯了！你知道他们是什么人！”<br>“我知道，”他头也不回地说，“那是我的故人。”<br>他仰天长啸，城门洞开。<br>“此去经年，你过的好吗？”<br>（六）<br>他还记得与凌的分别。<br>那天他喝了很多酒，似乎把所有剩下的钱都拿来买酒了。<br>“那我走了，你要照顾好自己啊。”<br>“我会的，你也是，别再为了别人那么拼了。”<br>凌笑。<br>“可要好好对她啊，不然我可不放过你。”<br>“好啦好啦，我知道你也喜欢过她，是啊，她那样的人又有几个人不喜欢呢？放心，我会永远对她好的。可是现在，天色已晚啦。”<br>他不再说话，小口啜着酒。<br>凌忽然想起他曾经读到过的一句诗，“桃李春风一杯酒，江湖夜雨十年灯。”<br>可能这句话就是写离别的吧？分开时大家都强撑着把酒言欢，分开后却独行辗转，守心独语，再也不说出心中所想，在每个沉默的夜里走向远方。<br>“那，我走了，再会。”<br>再会。<br>再会吧，希望再会之时，你能实现所有愿望，负剑走在山水江湖间，清傲孤寒，无所牵挂。<br>（七）<br>凌已经无力对他行礼了。<br>硝烟散尽，敌军退去，他们打赢了这场不可能胜利的战争，但他就要死了。<br>所谓故人相逢应该是很美满的吧？毕竟天下有四海，故人却寥寥无几。所以每个相逢应举杯相迎，推杯换盏间，说尽世间沧桑。<br>可战场上的相逢总是意味着分别，而且是以天人两隔的分别，，一人归去，再无相逢执手的可能。<br>“你还是那样，为了别人总是奋不顾身啊。”他不禁回想起小时候凌为了保护他在小巷中与人斗殴至头破血流的时光，发现他从未真正理解过身边的人，只是在自我所信奉的道路上渐行渐远。<br>“没办法，本就一无所有，所以每次才能压上全部，毕竟就算失败了也失去不了什么。凌咳出一口鲜血，“不说这个了，她还好么？”<br>“嗯，不过她现在应该很讨厌我吧？为了身居高位，可以掌兵作战，我做了太多为人所不齿的事。”他苦笑。<br>“还记得我们小时候么？你说你要做一名大侠，我要吵着闹着要跟在你身后，如今的你还留着当年的梦么？只是我不能陪你走了啊。”凌神智已经有些恍惚，“没事，你还有她，她也是懂你的吧？可要好好待她啊，不然我……”<br>“你总是对我说这些。让我想起我父亲。”他打断了凌，转身，走向落日余晖照耀下的、只剩下断壁颓垣的宁远城，一场胜利改变不了什么，后金军还会再来，战火的暗影始终笼罩在辽东这片土地的上空。<br>凌望着他的背影渐行渐远，往事如漫天风雪扑面而来。<br>“你的侠客梦，要一直走下去啊。”凌轻声说着，闭上了双眼。<br>（八）<br>崇祯三年。京师。<br>他望着窗外，盛夏已过，秋的肃杀萧瑟已缓慢入侵了京城。<br>宁远大捷后，他本可以节节攀升，但他却毅然辞官归乡，去寻找他故人眼中的侠的身影。<br>谁也不知道多年以后他为何要重新出山，也没有人能想到他竟然死于最忠诚的帝国之手。<br>而她，就像是不愿看到他的结局一般，一年前已弃他而去。<br>“现在世间，却是没有令我牵挂的人和事了啊。”他暗自想着。回想自己的一生。<br>“追求侠义，心系苍生，错了吗？”<br>“沉浮官场，不择手段，错了吗？”<br>“独守孤城，力战外侮，错了吗？”<br>“我一生追求的侠义，难道是错的吗？还是说面对这个世界，侠的精神就应当被埋藏在每个心怀正义的人的内心而不展露呢？可是这样，那侠客精神存在的意义和目的又是什么呢？”<br>天将明。<br>他这样想着，面对自己和帝国的薄暮，紧紧地闭上了双眼。</p>
-]]></content>
-      <categories>
-        <category>创作</category>
-      </categories>
-      <tags>
-        <tag>诗歌</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>低代码综测平台</title>
     <url>/2023/06/07/%E4%BD%8E%E4%BB%A3%E7%A0%81%E7%BB%BC%E6%B5%8B%E5%B9%B3%E5%8F%B0/</url>
     <content><![CDATA[<h1 id="低代码综测平台"><a href="#低代码综测平台" class="headerlink" title="低代码综测平台"></a>低代码综测平台</h1><h1 id="问题引入"><a href="#问题引入" class="headerlink" title="问题引入:"></a>问题引入:</h1><p>每个大学都有综测，但是综测的组成成分各不相同，而对于很多学校来说，并没有以学校为单位的针对性的系统来管理每一个同学的综测.<br>同时，在大学生的课程领域也存在着类似的问题.一门课程的成绩往往由两个或者多个部分组成.但是基于同样的原因，同学们没有办法在漫长的课程进行过程中看到自己这门课动态的成绩变化，教师也无法方便有效的管理数据.<br>显而易见，可以使用低代码平台构建对应的解决方案，但是当前的低代码平台存在定义流程逻辑复杂，而且需要考虑部署，运维等等一系列问题，不太适合非计算机专业人士使用.本项目就是为了解决这些问题.</p>
@@ -1740,6 +1728,30 @@
       </categories>
       <tags>
         <tag>项目</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>侠藏</title>
+    <url>/2023/05/29/%E4%BE%A0%E8%97%8F/</url>
+    <content><![CDATA[<p>侠藏<br>（一）<br>天启六年，辽东。<br>北风一阵阵呼啸而过，却吹不出几家灯火。<br>自从后金起兵，似乎浓墨重彩的黑夜更使人留恋起来，只因为黑夜里没有战争,没有死亡，只有好梦和安眠。但此刻，天边已有一抹纯白，未升的阳光和未落的月色一同， 映在这关外唯一的城里。<br>城外，是精锐的后金骑兵。<br>这支以努尔哈赤的仇恨为源火建立的军队，在这荒凉的大漠还未尝一败，更可怕的是，每次他们攻城成功，都会残忍的屠城，把生机和希望一同断绝。<br>而此刻的宁远城，似乎就是他们眼中的下一片废墟。<br>城中仅有一万余守军，且大多是新军和老兵。没有支援，大明的官员们都畏惧后金的凶狠残暴，畏缩在山海关后不敢发兵。而远隔千里之外的京师，甚至都不知道这场战争的发生。<br>他站在城楼上北望，寒风凛冽。<br>天光还未大亮，如今的后金在绝对的实力面前，连都偷袭都不屑起来。<br>“也许今天就要死在这里了吧？”他想，“不过也好，我就是为这一天而活着的。”<br>他不由得开始回忆起从前，无数画面和音律从眼前划过，最后拼凑、融合，凝结成两个并不十分清晰的身影。<br>“我终究要成为一名大侠的。”<br>“好啊，那我定会跟在你身后，与你一同走遍万水千山。”<br>（二）<br>总有那么一个人，你希望永远拉着他的手，走过所有人间苍茫，在年年岁岁里幕影成双，但现实总是不尽如人意，你与他渐走渐散，再无相逢。<br>从初见他的那一刻起，凌就决定守护他一生。<br>那年他十四岁，不同官场世家的顽劣性格，他只喜欢安静沉默地看书写字。凌初至他家的那一天，他正为读一本古书而发愁，凌就站在他的身后，听管家对他说，“以后这就是你的主子了。”闻言，他抬起头，正对上凌的目光。<br>凌至今记得那个眼神，纯净清冽，没有太多世俗的东西，可只是简单的相望就有令人心疼的感觉。仿佛来自异域的弃子，因无人知会而沉默不言。<br>后来的他们形影不离，渐渐超越了主仆之间的关系。<br>凌还记得第一次听他讲故事的那一天。是他的故事让凌第一次知道了世界上还有这样一方净土，那里没有暴力、流浪、战乱，故事里有的，是渺远绮丽的山川江海，是催人泪下的恩怨情仇，是以家国为重的英雄侠客，而这种侠客精神，也正是他们所最爱的。<br>古往今来，侠客们大多一袭青衫薄衣，银鞍白马，仗剑游行于天地之间，且富济贫，敢爱敢恨，放浪形骸，无所畏惧。对于从儿时起，就因贫穷而颠沛流离的凌来说，这种生活就意味着可以自己做出选择，可以自由自在，无所顾忌。但对于出身于书香门第的他，本应立志考取功名，高居庙堂之上，可他却想成为侠客。<br>直到他们分开，他也从未对凌说起过侠对于他的意义。<br>“如今的你，做到你想要的全部了么？”凌这样想着，大声喝道，“我们现在何处？”<br>“距离宁远城还有不足五里，天亮之间应该能赶到城中。”<br>“好！大家再快点！争取在后金发起进攻之前赶到城中！”<br>凌收回思绪。环视四周，浩荡千里的尽是八旗军队的旗帜，却看不到明军的身影。“我们可能是最后的支援了吧？却来自一支毫无编制的民兵，真可笑啊。”凌苦笑，抽出了长刀。他的身后，无数道身影借着微光纵马飞奔。<br>他们本是辽东人，但因为后金的攻城掠地而失去了亲人和家乡。愤怒使他们自发的聚集，但因为主力明军的懦弱，他们已经许久没有用武之地。<br>听说此次的新任宁前道不再退缩而决定一战，他们才从辽东的四面八方赶来此地，为家乡奉献最后一点力量。<br>最终，他们中的很多人最终如愿以偿，与自己的土地共存亡，但那些活下来的人也变得无比强大，因为他们无可失去。<br>谁也未曾想到他们最终变成了后金军队在最擅长的骑术上的梦魇，被冠以响亮的封号，名震四海。<br>关宁铁骑。<br>（三）<br>元宵节。<br>书中说南宋的元宵是最热闹的，平民百姓无论男女都会走上街头看花灯，熙熙攘攘的长街上，叫卖声，笙箫声，挑逗声此起彼伏，放眼望去，无论是御街还是寻常巷陌，皆是张灯结彩，宛如一片片星海。从前的花灯也好看，形态各异，五彩缤纷，令人眼花缭乱，正如那座始终埋没在江南烟雨中的城市，仿佛从始至终蒙着一层飘渺的薄暮，令人看不透。<br>可能每一座城市都有专属的颜色，只是大多都隐匿于城市的角落，隐匿于每个普通人的平凡生活，唯有在熙攘佳节时，这种颜色才会变得格外明亮，使不曾熟悉这座城市的人也能真切地感受到。<br>而天启的京师，惟有一片真切而阴郁的灰色。<br>今年的冬天格外冷。哪怕是元宵佳节，街上还是寥寥无人，赏灯人们都早早回家，享受炉火和家人的温暖。抬眼看城市的高处，唯有几盏单调的花灯，发着微弱的光，好似幕星一般。<br>“这大概就是王朝日薄西山的景象吧。”他这样想着，推开了门。<br>她依旧在弹她的琴。声音并不十分凄婉，只是很压抑，仿佛与清冷的庭院相应和，很容易让人想到那些可望而不可即的东西，比如故乡，比如理想。<br>“我要走啦，”他自顾自地说，“去关外。”<br>琴声依旧，她已经很久没有同他说过话了。<br>“我知道，你想要的不是这些，为身居高位而左右逢源，为投政敌之所好而加害同窗，可是，我别无选择啊。”<br>琴声骤停。<br>“你还记得你娶我的时候么，”她缓缓地说，“那时的你只是一名一无所有的书生，刚刚考中举人，心中只有以天下为己任，立志做一名人皆称道的好官。可现在呢，你做的那些为了升官发财而做的那些恶心的事我永远也不会忘。”<br>他闻言，沉默了很久。<br>“我有没有和你说过，我小时候想成为一名侠客？”<br>他突然用力，猛地拉过她的衣袖，强迫她直视他的眼睛。<br>“一味地正直是没有用的！我需要力量，我需要可以执掌苍生的权力！没有权力，哪怕侠客梦再美，现世里你什么都不是！”<br>他松开手，大口大口地喘息着。<br>“我说过的话我没有忘，”他说，“也永远不会忘。”<br>院门忽的被推开，身着华贵彩衣的随从和身着铁甲的武士鱼贯而入，层层环绕在他身旁。<br>“大人，时候到了，该走了。”一名随从上前，压低声音说。<br>他面色冷峻地推开他，跨上一匹马，走出了大院。<br>“晴，照顾好自己。”<br>一队人策马向京师外飞驰而去，他们的身后，似伴若有若无的琴声。<br>“那么，我相信你，希望你不会让我失望。”<br>（四）<br>城外。<br>后金的骑兵已列队完毕，沉默的武士胯下是嘶鸣的骏马，来自朔北的风呼啸而过，他们却纹丝不动。等待着的最后进攻的命令。<br>他从城头回望，同样无言的士兵站在城头，正在最后调试红衣大炮。<br>这是他们最后的仰仗。只有这些来自葡萄牙，被称为“佛郎机”的恐怖巨兽才能遏制住后金军的骏马长刀。<br> 他突然很想说些什么，却又不知道从何说起。<br>其实他从小就不善言谈，只有在面对相知的人他才会知无不言。但多年宦海沉浮，他再也没遇到凌那样知心的人。她也很久不理解他，不言说那些本可以说的万语千言。<br>“你在何方？行何事？你的身旁是否有值得守护的人？”他想。<br>“这里，是我们的土地！”他一字一顿。<br>“我不知道是什么让你们走到现在，但对于我，是我的侠客梦。从很小的时候开始，我就梦想做一名仗剑走江湖的大侠，能劫富济贫，行侠一方，但长大了才发现，侠客精神的存在本就是社会的悖论，一己之力终究改变不了太多。”他叹息了一声，“为了这一天，我已经等待了太久，走过官场的腐朽黑暗，习惯了踩着别人的尸体前行，看惯了勾心斗角，生离死别，我一直在寻找一个可以报国的机会。那个机会，就在我面前，就在我们面前！”<br>“列阵！”他大声的说。<br>（五）<br>“头儿，前面已经开打了！”<br>凌暗自叹息，他终究还是没能在开战之前赶到城下。说实话他对这座孤城的守将还是比较好奇的，本希望能见他一面，但现在怕是没有机会了。<br>“寻找破绽，直接切入战场！”<br>战事如火如荼的进行着，每一刻都有人死去。<br>后金军的骑兵虽然犀利，但却不善于攻城，而明军虽然人数劣势，但有必死的心智，加上有利的地形和怒吼的红衣大炮，竟是挡住了后金的攻势，竟隐隐有反攻地迹象。<br>中军的努尔哈赤有些着急了。对面守将是谁？无名小卒罢了。而堂堂的后金国主竟在此无名小卒面前停滞不前。这是他所不能接受的。<br>“正黄旗压上！我领军做先锋！”他怒吼一声。<br>“报告！西南方出现不明军队，直奔我们中军而来！”<br>努尔哈赤大惊，急忙望去。<br>只见一支飞驰的骑军神兵般降入战场，借着战马的冲击力，所到之处后金军皆人仰马翻。为首的一人身着黑衣，手执双刀，翻飞间手起刀落。似有睥睨八荒之威势。<br>“这才是我想要的对手啊！”努尔哈赤赞叹地说，“不过这样笔直的冲阵，怕是嫌命长了吧？”<br>他握起了他的刀。<br>……<br>他依旧站在城楼上，只不过手中多了一口宝剑。<br>“有人来了！”他看到了骑兵赴死般的冲阵，自然也认出了他心念的人。<br>凌。<br>“打开城门，召集骑兵出城迎战！”<br>“你疯了！你知道他们是什么人！”<br>“我知道，”他头也不回地说，“那是我的故人。”<br>他仰天长啸，城门洞开。<br>“此去经年，你过的好吗？”<br>（六）<br>他还记得与凌的分别。<br>那天他喝了很多酒，似乎把所有剩下的钱都拿来买酒了。<br>“那我走了，你要照顾好自己啊。”<br>“我会的，你也是，别再为了别人那么拼了。”<br>凌笑。<br>“可要好好对她啊，不然我可不放过你。”<br>“好啦好啦，我知道你也喜欢过她，是啊，她那样的人又有几个人不喜欢呢？放心，我会永远对她好的。可是现在，天色已晚啦。”<br>他不再说话，小口啜着酒。<br>凌忽然想起他曾经读到过的一句诗，“桃李春风一杯酒，江湖夜雨十年灯。”<br>可能这句话就是写离别的吧？分开时大家都强撑着把酒言欢，分开后却独行辗转，守心独语，再也不说出心中所想，在每个沉默的夜里走向远方。<br>“那，我走了，再会。”<br>再会。<br>再会吧，希望再会之时，你能实现所有愿望，负剑走在山水江湖间，清傲孤寒，无所牵挂。<br>（七）<br>凌已经无力对他行礼了。<br>硝烟散尽，敌军退去，他们打赢了这场不可能胜利的战争，但他就要死了。<br>所谓故人相逢应该是很美满的吧？毕竟天下有四海，故人却寥寥无几。所以每个相逢应举杯相迎，推杯换盏间，说尽世间沧桑。<br>可战场上的相逢总是意味着分别，而且是以天人两隔的分别，，一人归去，再无相逢执手的可能。<br>“你还是那样，为了别人总是奋不顾身啊。”他不禁回想起小时候凌为了保护他在小巷中与人斗殴至头破血流的时光，发现他从未真正理解过身边的人，只是在自我所信奉的道路上渐行渐远。<br>“没办法，本就一无所有，所以每次才能压上全部，毕竟就算失败了也失去不了什么。凌咳出一口鲜血，“不说这个了，她还好么？”<br>“嗯，不过她现在应该很讨厌我吧？为了身居高位，可以掌兵作战，我做了太多为人所不齿的事。”他苦笑。<br>“还记得我们小时候么？你说你要做一名大侠，我要吵着闹着要跟在你身后，如今的你还留着当年的梦么？只是我不能陪你走了啊。”凌神智已经有些恍惚，“没事，你还有她，她也是懂你的吧？可要好好待她啊，不然我……”<br>“你总是对我说这些。让我想起我父亲。”他打断了凌，转身，走向落日余晖照耀下的、只剩下断壁颓垣的宁远城，一场胜利改变不了什么，后金军还会再来，战火的暗影始终笼罩在辽东这片土地的上空。<br>凌望着他的背影渐行渐远，往事如漫天风雪扑面而来。<br>“你的侠客梦，要一直走下去啊。”凌轻声说着，闭上了双眼。<br>（八）<br>崇祯三年。京师。<br>他望着窗外，盛夏已过，秋的肃杀萧瑟已缓慢入侵了京城。<br>宁远大捷后，他本可以节节攀升，但他却毅然辞官归乡，去寻找他故人眼中的侠的身影。<br>谁也不知道多年以后他为何要重新出山，也没有人能想到他竟然死于最忠诚的帝国之手。<br>而她，就像是不愿看到他的结局一般，一年前已弃他而去。<br>“现在世间，却是没有令我牵挂的人和事了啊。”他暗自想着。回想自己的一生。<br>“追求侠义，心系苍生，错了吗？”<br>“沉浮官场，不择手段，错了吗？”<br>“独守孤城，力战外侮，错了吗？”<br>“我一生追求的侠义，难道是错的吗？还是说面对这个世界，侠的精神就应当被埋藏在每个心怀正义的人的内心而不展露呢？可是这样，那侠客精神存在的意义和目的又是什么呢？”<br>天将明。<br>他这样想着，面对自己和帝国的薄暮，紧紧地闭上了双眼。</p>
+]]></content>
+      <categories>
+        <category>创作</category>
+      </categories>
+      <tags>
+        <tag>诗歌</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>北邙星梦</title>
+    <url>/2023/05/29/%E5%8C%97%E9%82%99%E6%98%9F%E6%A2%A6/</url>
+    <content><![CDATA[<p>若你来自北方<br>若你的肩头从未抖落风霜<br>若你的目光里从未有过烟雨江南<br>当你把目光投向熙攘 直视生活<br>当你听到不属于北方的夜夜笙歌<br>相信你眼中会残存北方的月影<br>那未曾体味过繁华的温柔的月影<br>可你的梦里是否有过对江南的憧憬<br>以春暖花开为背景 把心爱的元素用素笔勾勒<br>把画面定格 用一如永远的话语抹上底色<br>希望你能有憧憬的目光<br>无论它来自你的故乡<br>还是来自繁华却少许空洞的江南<br>希望你能找到和你一样的人<br>从北方走来却不心怀江南的人<br>用所有不平凡的品质情感让目光相会<br>哪怕不思考前提 哪怕会轻易提起<br>希望你能带着两束目光走向最后<br>放下来自漫漫黄沙里的理性<br>做出作出决定就不会改变<br>做不到眼中同时装着江南和故乡<br>就做个函数吧<br>同时握着理性和情感<br>做出决定就不改变<br>不回头不眺望也无所谓悲伤</p>
+]]></content>
+      <categories>
+        <category>创作</category>
+      </categories>
+      <tags>
+        <tag>诗歌</tag>
       </tags>
   </entry>
   <entry>
@@ -1803,34 +1815,6 @@
       </tags>
   </entry>
   <entry>
-    <title>天风白马</title>
-    <url>/2023/05/29/%E5%A4%A9%E9%A3%8E%E7%99%BD%E9%A9%AC/</url>
-    <content><![CDATA[<h1 id="天风白马"><a href="#天风白马" class="headerlink" title="天风白马"></a>天风白马</h1><p>小镇巷陌上 人马奔忙<br>骑手无数次踱过街道 目之所至<br>窗棂与人影交叠 熙熙攘攘<br>兴之所往 忽而高扬马鞭 起势 耳畔回响<br>浩荡天风呼啸 仙乐奏鸣 </p>
-<p>天风奏鸣中 看到最真实的自我<br>携着无尽的野望与卑微的愠怒 生活<br>博约观取 而放浪混浊<br>仰止高山 而畏惧退缩<br>灵犀心念 而轻言负诺<br>衷情遣词 而折心沐火<br>奏鸣中不断回望 惟有流光与千里明月<br>回响着散落的双手 与不再明亮的眼睛<br>奏鸣中漫阅前程 焚书折剑 尘土茫茫<br>飞扬的少年意气与惨淡的粲然日夜<br>奔涌 沸腾 厉啸<br>希冀着 超脱于激昂天风</p>
-<p>天风奏鸣中 看到喜悦的人间<br>经行过无尽的亲吻 拥抱 爱恋 娇颜<br>却被只影拒绝<br>终以酒肉致幻 以低眉言笑 以傲慢分崩<br>彩云灯火 风光霁月<br>却只愿守着那金子般的岁月 不断蚕食<br>希冀着 沉醉于悠然天风</p>
-<p>终夜开眼 以白马为瞻<br>一遍遍幻想着银鞍 星川 纵横捭阖<br>喟叹着义从 奋发于钢铁烈火<br>把盛世美颜融与寸缕肌肤 与每一寸骨血<br>灼血 挥枪 天地入怀而如归<br>梦境里反复呓语着<br>烽火入冬 三月江南 繁花如画</p>
-<p>或许短暂的一生<br>就是追逐自我白马的旅程<br>歧路狭隘 但或有天风奏鸣<br>生活破碎而纷繁 游人如织而迫近青冥暮色<br>但见天色已晚 曜日将出<br>自我之相 勇当逐马</p>
-]]></content>
-      <categories>
-        <category>创作</category>
-      </categories>
-      <tags>
-        <tag>诗歌</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>北邙星梦</title>
-    <url>/2023/05/29/%E5%8C%97%E9%82%99%E6%98%9F%E6%A2%A6/</url>
-    <content><![CDATA[<p>若你来自北方<br>若你的肩头从未抖落风霜<br>若你的目光里从未有过烟雨江南<br>当你把目光投向熙攘 直视生活<br>当你听到不属于北方的夜夜笙歌<br>相信你眼中会残存北方的月影<br>那未曾体味过繁华的温柔的月影<br>可你的梦里是否有过对江南的憧憬<br>以春暖花开为背景 把心爱的元素用素笔勾勒<br>把画面定格 用一如永远的话语抹上底色<br>希望你能有憧憬的目光<br>无论它来自你的故乡<br>还是来自繁华却少许空洞的江南<br>希望你能找到和你一样的人<br>从北方走来却不心怀江南的人<br>用所有不平凡的品质情感让目光相会<br>哪怕不思考前提 哪怕会轻易提起<br>希望你能带着两束目光走向最后<br>放下来自漫漫黄沙里的理性<br>做出作出决定就不会改变<br>做不到眼中同时装着江南和故乡<br>就做个函数吧<br>同时握着理性和情感<br>做出决定就不改变<br>不回头不眺望也无所谓悲伤</p>
-]]></content>
-      <categories>
-        <category>创作</category>
-      </categories>
-      <tags>
-        <tag>诗歌</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>塑鸿</title>
     <url>/2023/01/17/%E5%A1%91%E9%B8%BF/</url>
     <content><![CDATA[<h5 id="塑鸿"><a href="#塑鸿" class="headerlink" title="塑鸿"></a>塑鸿</h5><p>天地间的青山在极目外<br>苍穹上的鸿雁在远眺中<br>仰慕于青山的浩渺<br>惊异于鸿雁的自信<br>于是决意塑造自我的鸿<br>翱翔于予慕的青山上</p>
@@ -1850,14 +1834,19 @@
       </tags>
   </entry>
   <entry>
-    <title>奎桑提教学</title>
-    <url>/2023/02/10/%E5%A5%8E%E6%A1%91%E6%8F%90%E6%95%99%E5%AD%A6/</url>
-    <content><![CDATA[]]></content>
+    <title>天风白马</title>
+    <url>/2023/05/29/%E5%A4%A9%E9%A3%8E%E7%99%BD%E9%A9%AC/</url>
+    <content><![CDATA[<h1 id="天风白马"><a href="#天风白马" class="headerlink" title="天风白马"></a>天风白马</h1><p>小镇巷陌上 人马奔忙<br>骑手无数次踱过街道 目之所至<br>窗棂与人影交叠 熙熙攘攘<br>兴之所往 忽而高扬马鞭 起势 耳畔回响<br>浩荡天风呼啸 仙乐奏鸣 </p>
+<p>天风奏鸣中 看到最真实的自我<br>携着无尽的野望与卑微的愠怒 生活<br>博约观取 而放浪混浊<br>仰止高山 而畏惧退缩<br>灵犀心念 而轻言负诺<br>衷情遣词 而折心沐火<br>奏鸣中不断回望 惟有流光与千里明月<br>回响着散落的双手 与不再明亮的眼睛<br>奏鸣中漫阅前程 焚书折剑 尘土茫茫<br>飞扬的少年意气与惨淡的粲然日夜<br>奔涌 沸腾 厉啸<br>希冀着 超脱于激昂天风</p>
+<p>天风奏鸣中 看到喜悦的人间<br>经行过无尽的亲吻 拥抱 爱恋 娇颜<br>却被只影拒绝<br>终以酒肉致幻 以低眉言笑 以傲慢分崩<br>彩云灯火 风光霁月<br>却只愿守着那金子般的岁月 不断蚕食<br>希冀着 沉醉于悠然天风</p>
+<p>终夜开眼 以白马为瞻<br>一遍遍幻想着银鞍 星川 纵横捭阖<br>喟叹着义从 奋发于钢铁烈火<br>把盛世美颜融与寸缕肌肤 与每一寸骨血<br>灼血 挥枪 天地入怀而如归<br>梦境里反复呓语着<br>烽火入冬 三月江南 繁花如画</p>
+<p>或许短暂的一生<br>就是追逐自我白马的旅程<br>歧路狭隘 但或有天风奏鸣<br>生活破碎而纷繁 游人如织而迫近青冥暮色<br>但见天色已晚 曜日将出<br>自我之相 勇当逐马</p>
+]]></content>
       <categories>
-        <category>教学</category>
+        <category>创作</category>
       </categories>
       <tags>
-        <tag>奎桑提</tag>
+        <tag>诗歌</tag>
       </tags>
   </entry>
   <entry>
@@ -1869,6 +1858,52 @@
       </categories>
       <tags>
         <tag>奥恩</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>奎桑提教学</title>
+    <url>/2023/02/10/%E5%A5%8E%E6%A1%91%E6%8F%90%E6%95%99%E5%AD%A6/</url>
+    <content><![CDATA[]]></content>
+      <categories>
+        <category>教学</category>
+      </categories>
+      <tags>
+        <tag>奎桑提</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>巷</title>
+    <url>/2023/02/10/%E5%B7%B7/</url>
+    <content><![CDATA[<p>巷<br>他依稀记得昔年初遇的模样<br>在熟悉的故国故城</p>
+<p>恍若千里是熙熙攘攘的古巷<br>莺飞草长映出她眼中的流光<br>时光婉转却风采飞扬</p>
+<p>少年转身告别故乡<br>闯荡远方的背后留下寂寞清冷的月光她低沉的吟唱被时光渐渐淡忘<br>抑或昏黄的月影中烛火黯淡无光</p>
+<p>年华辗转后少年忆起曾经豆蔻旧梦</p>
+<p>开始循着旧梦走向魂牵梦萦的故乡</p>
+<p>当他越过青山重 终于以游子归来<br>古巷里再也听不到 的是她的婉转歌声</p>
+<p>少年念及过往后再叹世事无常<br>转身离去赴往喧嚣浮华的客方<br>又是一夜清冷月光<br>恍然间又听到她的低声浅唱<br>他仿佛褪去眉间风霜如同时光轮转梦中古巷里的故人重逢<br>再也等不到的两相执手<br>他紧握着半生的古巷月光<br>看着幻梦中的她渐行渐远<br>希冀着时光再一次流转<br>流转出彼时年少的模样</p>
+]]></content>
+      <categories>
+        <category>创作</category>
+      </categories>
+      <tags>
+        <tag>诗歌</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>彩云辞</title>
+    <url>/2023/01/17/%E5%BD%A9%E4%BA%91%E8%BE%9E/</url>
+    <content><![CDATA[<h5 id="彩云辞"><a href="#彩云辞" class="headerlink" title="彩云辞"></a>彩云辞</h5><p>夕照弥漫<br>沉醉于金色的山水风光<br>殊不知云影变幻<br>彩云悄然泊于身旁</p>
+<p>灵动飞扬是彩云的身影<br>明丽温婉是彩云的光芒<br>桀骜的白云也再移不开目光<br>在秋月秋水的秉烛夜谈<br>在春日春山的缓缓吟唱</p>
+<p>然世事变易 风雨飘摇<br>彩云徐徐归去<br>于梦不到的云间<br>用七彩的微光传递温暖<br>唯有天鸢可以拉住彩云的裙摆<br>在同去同归中执手相望</p>
+<p>面向涌动的人海<br>彩云只在回忆里<br>升起一轮淡淡的暖阳<br>柴米油盐的生活<br>庸俗肤浅的岁月<br>不经意间短暂的回想<br>总会带来善良与希望</p>
+<p>叹天地广袤 万象纷繁<br>惟有珍藏彩云往昔的言笑顾盼<br>细数彩云光影的日暮温柔<br>对彩云向远方的归去<br>许下最真挚的承诺 最美好的祝福</p>
+<p>愿彩云始终保持七彩的模样<br>温柔的光洒落并不温柔的人间<br>愿彩云与你我的几多相遇相知<br>温柔的鼓励一程追寻 踏山寻海<br>不卑不亢</p>
+]]></content>
+      <categories>
+        <category>创作</category>
+      </categories>
+      <tags>
+        <tag>诗歌</tag>
       </tags>
   </entry>
   <entry>
@@ -1942,98 +1977,6 @@
       </categories>
       <tags>
         <tag>架构</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>巷</title>
-    <url>/2023/02/10/%E5%B7%B7/</url>
-    <content><![CDATA[<p>巷<br>他依稀记得昔年初遇的模样<br>在熟悉的故国故城</p>
-<p>恍若千里是熙熙攘攘的古巷<br>莺飞草长映出她眼中的流光<br>时光婉转却风采飞扬</p>
-<p>少年转身告别故乡<br>闯荡远方的背后留下寂寞清冷的月光她低沉的吟唱被时光渐渐淡忘<br>抑或昏黄的月影中烛火黯淡无光</p>
-<p>年华辗转后少年忆起曾经豆蔻旧梦</p>
-<p>开始循着旧梦走向魂牵梦萦的故乡</p>
-<p>当他越过青山重 终于以游子归来<br>古巷里再也听不到 的是她的婉转歌声</p>
-<p>少年念及过往后再叹世事无常<br>转身离去赴往喧嚣浮华的客方<br>又是一夜清冷月光<br>恍然间又听到她的低声浅唱<br>他仿佛褪去眉间风霜如同时光轮转梦中古巷里的故人重逢<br>再也等不到的两相执手<br>他紧握着半生的古巷月光<br>看着幻梦中的她渐行渐远<br>希冀着时光再一次流转<br>流转出彼时年少的模样</p>
-]]></content>
-      <categories>
-        <category>创作</category>
-      </categories>
-      <tags>
-        <tag>诗歌</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>彩云辞</title>
-    <url>/2023/01/17/%E5%BD%A9%E4%BA%91%E8%BE%9E/</url>
-    <content><![CDATA[<h5 id="彩云辞"><a href="#彩云辞" class="headerlink" title="彩云辞"></a>彩云辞</h5><p>夕照弥漫<br>沉醉于金色的山水风光<br>殊不知云影变幻<br>彩云悄然泊于身旁</p>
-<p>灵动飞扬是彩云的身影<br>明丽温婉是彩云的光芒<br>桀骜的白云也再移不开目光<br>在秋月秋水的秉烛夜谈<br>在春日春山的缓缓吟唱</p>
-<p>然世事变易 风雨飘摇<br>彩云徐徐归去<br>于梦不到的云间<br>用七彩的微光传递温暖<br>唯有天鸢可以拉住彩云的裙摆<br>在同去同归中执手相望</p>
-<p>面向涌动的人海<br>彩云只在回忆里<br>升起一轮淡淡的暖阳<br>柴米油盐的生活<br>庸俗肤浅的岁月<br>不经意间短暂的回想<br>总会带来善良与希望</p>
-<p>叹天地广袤 万象纷繁<br>惟有珍藏彩云往昔的言笑顾盼<br>细数彩云光影的日暮温柔<br>对彩云向远方的归去<br>许下最真挚的承诺 最美好的祝福</p>
-<p>愿彩云始终保持七彩的模样<br>温柔的光洒落并不温柔的人间<br>愿彩云与你我的几多相遇相知<br>温柔的鼓励一程追寻 踏山寻海<br>不卑不亢</p>
-]]></content>
-      <categories>
-        <category>创作</category>
-      </categories>
-      <tags>
-        <tag>诗歌</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>数据库概述</title>
-    <url>/2023/03/18/%E6%95%B0%E6%8D%AE%E5%BA%93%E6%A6%82%E8%BF%B0/</url>
-    <content><![CDATA[<h1 id="数据库"><a href="#数据库" class="headerlink" title="数据库"></a>数据库</h1><h1 id="1-数据持久化"><a href="#1-数据持久化" class="headerlink" title="1.数据持久化:"></a>1.数据持久化:</h1><p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230309095548.png" alt="QQ截图20230309095548"></p>
-<p>一些问题:</p>
-<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230309095740.png" alt="QQ截图20230309095740"></p>
-<h1 id="2-存储系统与数据库系统"><a href="#2-存储系统与数据库系统" class="headerlink" title="2.存储系统与数据库系统:"></a>2.存储系统与数据库系统:</h1><h2 id="2-1-存储系统"><a href="#2-1-存储系统" class="headerlink" title="2.1 存储系统:"></a>2.1 存储系统:</h2><p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230309100001.png" alt="QQ截图20230309100001"></p>
-<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230309100035.png" alt="QQ截图20230309100035"></p>
-<p>io的基本路径上要简单,处于性能考虑,但是在异常处理上要做到复杂.</p>
-<h2 id="2-2-存储器的层级结构"><a href="#2-2-存储器的层级结构" class="headerlink" title="2.2 存储器的层级结构:"></a>2.2 存储器的层级结构:</h2><p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230309100302.png" alt="QQ截图20230309100302"></p>
-<p>上方存储容量小,读写快.</p>
-<p>下方存储容量大,读写慢.</p>
-<h2 id="2-3-应用到存储介质"><a href="#2-3-应用到存储介质" class="headerlink" title="2.3 应用到存储介质:"></a>2.3 应用到存储介质:</h2><p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230309100513.png" alt="QQ截图20230309100513"></p>
-<h2 id="2-4-RAID技术"><a href="#2-4-RAID技术" class="headerlink" title="2.4 RAID技术:"></a>2.4 RAID技术:</h2><p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230309100813.png" alt="QQ截图20230309100813"></p>
-<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230309101050.png" alt="QQ截图20230309101050"></p>
-<h2 id="2-5-关系"><a href="#2-5-关系" class="headerlink" title="2.5 关系:"></a>2.5 关系:</h2><p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230309101302.png" alt="QQ截图20230309101302"></p>
-<p>关系型数据库是存储系统,但是在存储之外,有发展出其他能力.</p>
-<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230309101357.png" alt="QQ截图20230309101357"></p>
-<p>非关系型数据库也是存储系统,但是一般不要求严格的结构化.</p>
-<h2 id="2-6-结构化数据管理"><a href="#2-6-结构化数据管理" class="headerlink" title="2.6 结构化数据管理:"></a>2.6 结构化数据管理:</h2><p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230309101603.png" alt="QQ截图20230309101603"></p>
-<p>事务能力:</p>
-<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230309101724.png" alt="QQ截图20230309101724"></p>
-<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230309102054.png" alt="QQ截图20230309102054"></p>
-<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230309102131.png" alt="QQ截图20230309102131"></p>
-<h1 id="3-主流存储产品"><a href="#3-主流存储产品" class="headerlink" title="3.主流存储产品:"></a>3.主流存储产品:</h1><p>明确存储系统与数据库系统的区别.</p>
-<h2 id="3-1-单机存储-本地文件系统"><a href="#3-1-单机存储-本地文件系统" class="headerlink" title="3.1 单机存储-本地文件系统:"></a>3.1 单机存储-本地文件系统:</h2><p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230309102437.png" alt="QQ截图20230309102437"></p>
-<h2 id="3-2-单机存储-k-v存储系统"><a href="#3-2-单机存储-k-v存储系统" class="headerlink" title="3.2 单机存储-k-v存储系统:"></a>3.2 单机存储-k-v存储系统:</h2><p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230309102859.png" alt="QQ截图20230309102859"></p>
-<h2 id="3-2-分布式存储系统"><a href="#3-2-分布式存储系统" class="headerlink" title="3.2 分布式存储系统:"></a>3.2 分布式存储系统:</h2><p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230309103346.png" alt="QQ截图20230309103346"></p>
-<h3 id="3-2-1-HDFS-分布式文件系统"><a href="#3-2-1-HDFS-分布式文件系统" class="headerlink" title="3.2.1 HDFS:分布式文件系统:"></a>3.2.1 HDFS:分布式文件系统:</h3><p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230309103425.png" alt="QQ截图20230309103425"></p>
-<h2 id="3-2-2-Ceph"><a href="#3-2-2-Ceph" class="headerlink" title="3.2.2 Ceph:"></a>3.2.2 Ceph:</h2><p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230309103719.png" alt="QQ截图20230309103719"></p>
-<h1 id="4-主流数据库"><a href="#4-主流数据库" class="headerlink" title="4.主流数据库:"></a>4.主流数据库:</h1><h2 id="4-1-单机关系型数据库"><a href="#4-1-单机关系型数据库" class="headerlink" title="4.1 单机关系型数据库:"></a>4.1 单机关系型数据库:</h2><p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230309103913.png" alt="QQ截图20230309103913"></p>
-<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230309104238.png" alt="QQ截图20230309104238"></p>
-<p>page是内存真实数据,redo存储事务中的数据库操作,others存储内存不够用时候的临时文件.</p>
-<h2 id="4-2-单机型非关系型数据库"><a href="#4-2-单机型非关系型数据库" class="headerlink" title="4.2 单机型非关系型数据库:"></a>4.2 单机型非关系型数据库:</h2><p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230309104417.png" alt="QQ截图20230309104417"></p>
-<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230309104750.png" alt="QQ截图20230309104750"></p>
-<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230309104908.png" alt="QQ截图20230309104908"></p>
-<h2 id="4-3-从单机到分布式"><a href="#4-3-从单机到分布式" class="headerlink" title="4.3 从单机到分布式:"></a>4.3 从单机到分布式:</h2><p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230309105157.png" alt="QQ截图20230309105157"></p>
-<p>池化:</p>
-<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230309105331.png" alt="QQ截图20230309105331"></p>
-<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230309105551.png" alt="QQ截图20230309105551"></p>
-<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230309105701.png" alt="QQ截图20230309105701"></p>
-<p>一些难题:</p>
-<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230309105720.png" alt="QQ截图20230309105720"></p>
-<h1 id="5-演进"><a href="#5-演进" class="headerlink" title="5.演进:"></a>5.演进:</h1><p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230309110106.png" alt="QQ截图20230309110106"></p>
-<h2 id="5-1-SPDK"><a href="#5-1-SPDK" class="headerlink" title="5.1 SPDK:"></a>5.1 SPDK:</h2><p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230309110137.png" alt="QQ截图20230309110137"></p>
-<h2 id="5-2-AI"><a href="#5-2-AI" class="headerlink" title="5.2 AI:"></a>5.2 AI:</h2><p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230309110506.png" alt="QQ截图20230309110506"></p>
-<h2 id="5-3-高性能硬件"><a href="#5-3-高性能硬件" class="headerlink" title="5.3 高性能硬件:"></a>5.3 高性能硬件:</h2><p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230309110645.png" alt="QQ截图20230309110645"></p>
-<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230309110803.png" alt="QQ截图20230309110803"></p>
-<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230309110830.png" alt="QQ截图20230309110830"></p>
-]]></content>
-      <categories>
-        <category>笔记</category>
-      </categories>
-      <tags>
-        <tag>数据库</tag>
       </tags>
   </entry>
   <entry>
@@ -2369,6 +2312,63 @@
       </tags>
   </entry>
   <entry>
+    <title>数据库概述</title>
+    <url>/2023/03/18/%E6%95%B0%E6%8D%AE%E5%BA%93%E6%A6%82%E8%BF%B0/</url>
+    <content><![CDATA[<h1 id="数据库"><a href="#数据库" class="headerlink" title="数据库"></a>数据库</h1><h1 id="1-数据持久化"><a href="#1-数据持久化" class="headerlink" title="1.数据持久化:"></a>1.数据持久化:</h1><p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230309095548.png" alt="QQ截图20230309095548"></p>
+<p>一些问题:</p>
+<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230309095740.png" alt="QQ截图20230309095740"></p>
+<h1 id="2-存储系统与数据库系统"><a href="#2-存储系统与数据库系统" class="headerlink" title="2.存储系统与数据库系统:"></a>2.存储系统与数据库系统:</h1><h2 id="2-1-存储系统"><a href="#2-1-存储系统" class="headerlink" title="2.1 存储系统:"></a>2.1 存储系统:</h2><p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230309100001.png" alt="QQ截图20230309100001"></p>
+<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230309100035.png" alt="QQ截图20230309100035"></p>
+<p>io的基本路径上要简单,处于性能考虑,但是在异常处理上要做到复杂.</p>
+<h2 id="2-2-存储器的层级结构"><a href="#2-2-存储器的层级结构" class="headerlink" title="2.2 存储器的层级结构:"></a>2.2 存储器的层级结构:</h2><p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230309100302.png" alt="QQ截图20230309100302"></p>
+<p>上方存储容量小,读写快.</p>
+<p>下方存储容量大,读写慢.</p>
+<h2 id="2-3-应用到存储介质"><a href="#2-3-应用到存储介质" class="headerlink" title="2.3 应用到存储介质:"></a>2.3 应用到存储介质:</h2><p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230309100513.png" alt="QQ截图20230309100513"></p>
+<h2 id="2-4-RAID技术"><a href="#2-4-RAID技术" class="headerlink" title="2.4 RAID技术:"></a>2.4 RAID技术:</h2><p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230309100813.png" alt="QQ截图20230309100813"></p>
+<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230309101050.png" alt="QQ截图20230309101050"></p>
+<h2 id="2-5-关系"><a href="#2-5-关系" class="headerlink" title="2.5 关系:"></a>2.5 关系:</h2><p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230309101302.png" alt="QQ截图20230309101302"></p>
+<p>关系型数据库是存储系统,但是在存储之外,有发展出其他能力.</p>
+<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230309101357.png" alt="QQ截图20230309101357"></p>
+<p>非关系型数据库也是存储系统,但是一般不要求严格的结构化.</p>
+<h2 id="2-6-结构化数据管理"><a href="#2-6-结构化数据管理" class="headerlink" title="2.6 结构化数据管理:"></a>2.6 结构化数据管理:</h2><p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230309101603.png" alt="QQ截图20230309101603"></p>
+<p>事务能力:</p>
+<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230309101724.png" alt="QQ截图20230309101724"></p>
+<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230309102054.png" alt="QQ截图20230309102054"></p>
+<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230309102131.png" alt="QQ截图20230309102131"></p>
+<h1 id="3-主流存储产品"><a href="#3-主流存储产品" class="headerlink" title="3.主流存储产品:"></a>3.主流存储产品:</h1><p>明确存储系统与数据库系统的区别.</p>
+<h2 id="3-1-单机存储-本地文件系统"><a href="#3-1-单机存储-本地文件系统" class="headerlink" title="3.1 单机存储-本地文件系统:"></a>3.1 单机存储-本地文件系统:</h2><p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230309102437.png" alt="QQ截图20230309102437"></p>
+<h2 id="3-2-单机存储-k-v存储系统"><a href="#3-2-单机存储-k-v存储系统" class="headerlink" title="3.2 单机存储-k-v存储系统:"></a>3.2 单机存储-k-v存储系统:</h2><p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230309102859.png" alt="QQ截图20230309102859"></p>
+<h2 id="3-2-分布式存储系统"><a href="#3-2-分布式存储系统" class="headerlink" title="3.2 分布式存储系统:"></a>3.2 分布式存储系统:</h2><p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230309103346.png" alt="QQ截图20230309103346"></p>
+<h3 id="3-2-1-HDFS-分布式文件系统"><a href="#3-2-1-HDFS-分布式文件系统" class="headerlink" title="3.2.1 HDFS:分布式文件系统:"></a>3.2.1 HDFS:分布式文件系统:</h3><p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230309103425.png" alt="QQ截图20230309103425"></p>
+<h2 id="3-2-2-Ceph"><a href="#3-2-2-Ceph" class="headerlink" title="3.2.2 Ceph:"></a>3.2.2 Ceph:</h2><p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230309103719.png" alt="QQ截图20230309103719"></p>
+<h1 id="4-主流数据库"><a href="#4-主流数据库" class="headerlink" title="4.主流数据库:"></a>4.主流数据库:</h1><h2 id="4-1-单机关系型数据库"><a href="#4-1-单机关系型数据库" class="headerlink" title="4.1 单机关系型数据库:"></a>4.1 单机关系型数据库:</h2><p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230309103913.png" alt="QQ截图20230309103913"></p>
+<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230309104238.png" alt="QQ截图20230309104238"></p>
+<p>page是内存真实数据,redo存储事务中的数据库操作,others存储内存不够用时候的临时文件.</p>
+<h2 id="4-2-单机型非关系型数据库"><a href="#4-2-单机型非关系型数据库" class="headerlink" title="4.2 单机型非关系型数据库:"></a>4.2 单机型非关系型数据库:</h2><p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230309104417.png" alt="QQ截图20230309104417"></p>
+<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230309104750.png" alt="QQ截图20230309104750"></p>
+<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230309104908.png" alt="QQ截图20230309104908"></p>
+<h2 id="4-3-从单机到分布式"><a href="#4-3-从单机到分布式" class="headerlink" title="4.3 从单机到分布式:"></a>4.3 从单机到分布式:</h2><p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230309105157.png" alt="QQ截图20230309105157"></p>
+<p>池化:</p>
+<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230309105331.png" alt="QQ截图20230309105331"></p>
+<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230309105551.png" alt="QQ截图20230309105551"></p>
+<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230309105701.png" alt="QQ截图20230309105701"></p>
+<p>一些难题:</p>
+<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230309105720.png" alt="QQ截图20230309105720"></p>
+<h1 id="5-演进"><a href="#5-演进" class="headerlink" title="5.演进:"></a>5.演进:</h1><p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230309110106.png" alt="QQ截图20230309110106"></p>
+<h2 id="5-1-SPDK"><a href="#5-1-SPDK" class="headerlink" title="5.1 SPDK:"></a>5.1 SPDK:</h2><p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230309110137.png" alt="QQ截图20230309110137"></p>
+<h2 id="5-2-AI"><a href="#5-2-AI" class="headerlink" title="5.2 AI:"></a>5.2 AI:</h2><p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230309110506.png" alt="QQ截图20230309110506"></p>
+<h2 id="5-3-高性能硬件"><a href="#5-3-高性能硬件" class="headerlink" title="5.3 高性能硬件:"></a>5.3 高性能硬件:</h2><p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230309110645.png" alt="QQ截图20230309110645"></p>
+<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230309110803.png" alt="QQ截图20230309110803"></p>
+<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230309110830.png" alt="QQ截图20230309110830"></p>
+]]></content>
+      <categories>
+        <category>笔记</category>
+      </categories>
+      <tags>
+        <tag>数据库</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>数据结构</title>
     <url>/2023/03/18/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/</url>
     <content><![CDATA[<h1 id="数据结构"><a href="#数据结构" class="headerlink" title="数据结构"></a>数据结构</h1><h1 id="1-绪论"><a href="#1-绪论" class="headerlink" title="1.绪论:"></a>1.绪论:</h1><h2 id="1-1-定义"><a href="#1-1-定义" class="headerlink" title="1. 1 定义:"></a>1. 1 定义:</h2><p><strong>数据</strong>是对信息的一种符号表示。在计算机科学中是指所有能输入到计算机中并被计算机程序处理的符号的总称。</p>
@@ -2516,6 +2516,23 @@
       </tags>
   </entry>
   <entry>
+    <title>明月策</title>
+    <url>/2023/05/29/%E6%98%8E%E6%9C%88%E7%AD%96/</url>
+    <content><![CDATA[<p>明月策<br>灯火幽微 月色皎皎<br>过客从乡野游荡到市镇<br>孤魂般掠过银白色街道<br>掠过与他无关的</p>
+<p>故乡的低语 情人的呢喃<br>他简单思量着远方递不出的喜爱<br>喟叹自己不知几日缘起而花落的一生一次次<br>千里明月</p>
+<p>可否传递思绪万千？<br>于是他折断利刃 既闻铁砧铿锵 笔锋凌扬<br>以精工 细笔策问明月 折返月光</p>
+<p>当过客带着丑陋 贪婪 无能和懦弱远去<br>在明月策的书简上留下刀痕与笔端<br>世人肆意横行着<br>明月策上浩荡强风吹拂过的雕刻和文字<br>千古以往白驹咆哮般游历世界的孤魂过客<br>带着被漠视意外的喜悦与喜爱徘徊<br>皓首穷经谓之策<br>白首不离谓之明月</p>
+<p>借着月光告别市镇的过客<br>拥抱大地与玫瑰<br>祝福幸福的人民<br>无奈的翻动着明月策的书页<br>或许只是再找越来越远的思念<br>或许在等另外一个同样爱的明媚炽烈的孤魂<br>月光皎皎</p>
+<p>希望闪亮</p>
+]]></content>
+      <categories>
+        <category>创作</category>
+      </categories>
+      <tags>
+        <tag>诗歌</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>有匪</title>
     <url>/2023/06/04/%E6%9C%89%E5%8C%AA/</url>
     <content><![CDATA[<p>title出自《诗经·国风·淇奥》：</p>
@@ -2556,66 +2573,6 @@
       </categories>
       <tags>
         <tag>评论</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>明月策</title>
-    <url>/2023/05/29/%E6%98%8E%E6%9C%88%E7%AD%96/</url>
-    <content><![CDATA[<p>明月策<br>灯火幽微 月色皎皎<br>过客从乡野游荡到市镇<br>孤魂般掠过银白色街道<br>掠过与他无关的</p>
-<p>故乡的低语 情人的呢喃<br>他简单思量着远方递不出的喜爱<br>喟叹自己不知几日缘起而花落的一生一次次<br>千里明月</p>
-<p>可否传递思绪万千？<br>于是他折断利刃 既闻铁砧铿锵 笔锋凌扬<br>以精工 细笔策问明月 折返月光</p>
-<p>当过客带着丑陋 贪婪 无能和懦弱远去<br>在明月策的书简上留下刀痕与笔端<br>世人肆意横行着<br>明月策上浩荡强风吹拂过的雕刻和文字<br>千古以往白驹咆哮般游历世界的孤魂过客<br>带着被漠视意外的喜悦与喜爱徘徊<br>皓首穷经谓之策<br>白首不离谓之明月</p>
-<p>借着月光告别市镇的过客<br>拥抱大地与玫瑰<br>祝福幸福的人民<br>无奈的翻动着明月策的书页<br>或许只是再找越来越远的思念<br>或许在等另外一个同样爱的明媚炽烈的孤魂<br>月光皎皎</p>
-<p>希望闪亮</p>
-]]></content>
-      <categories>
-        <category>创作</category>
-      </categories>
-      <tags>
-        <tag>诗歌</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>服务器部署</title>
-    <url>/2023/02/10/%E6%9C%8D%E5%8A%A1%E5%99%A8%E9%83%A8%E7%BD%B2/</url>
-    <content><![CDATA[<h1 id="服务器部署教程"><a href="#服务器部署教程" class="headerlink" title="服务器部署教程"></a>服务器部署教程</h1><p>均需要连接校园网</p>
-<p>服务器连接信息：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">地址: 10.245.150.220</span><br><span class="line"></span><br><span class="line">端口: 22</span><br><span class="line"></span><br><span class="line">账户: root</span><br><span class="line"></span><br><span class="line">密码: werun_4321</span><br></pre></td></tr></table></figure>
-
-
-
-<p>数据库连接信息：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">地址: 10.245.150.219</span><br><span class="line"></span><br><span class="line">端口: 3306</span><br><span class="line"></span><br><span class="line">账户: root</span><br><span class="line"></span><br><span class="line">密码: TJ4u5&amp;CT8czz$2B%</span><br></pre></td></tr></table></figure>
-
-<p>1.修改自己的数据库配置。</p>
-<p>我们需要把自己的项目部署到服务器上，数据库也不能用我们本地的数据库，所以首先我们要修改数据库配置。</p>
-<p>以jpa为例：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">datasource:</span><br><span class="line">  driver-class-name: com.mysql.cj.jdbc.Driver</span><br><span class="line">  username: root</span><br><span class="line">  password: TJ4u5&amp;CT8czz$2B%</span><br><span class="line">  url: jdbc:mysql://10.245.150.219:3306/你的小组名（小组1就写group1，以此类推）?useUnicode=true&amp;characterEncoding=UTF8&amp;useJDBCCompliantTimezoneShift=true&amp;useLegacyDatetimeCode=false&amp;serverTimezone=UTC</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">地址: 10.245.150.219</span><br><span class="line"></span><br><span class="line">端口: 3306</span><br><span class="line"></span><br><span class="line">账户: root</span><br><span class="line"></span><br><span class="line">密码: TJ4u5&amp;CT8czz$2B%</span><br></pre></td></tr></table></figure>
-
-<p>如果使用mybatis也需要上面的配置连接上数据库并建表.</p>
-<p>2.把自己的项目打包成jar包</p>
-<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230423140224.png" alt="QQ截图20230423140224"></p>
-<p>右侧的maven 先clean再package.</p>
-<p>然后在target目录下找到项目名.jar这个文件。</p>
-<p>找到就算是打包成功了。</p>
-<p>2.把自己的jar包上传到服务器上。</p>
-<p>服务器的文件结构如图：</p>
-<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230423223238.png" alt="QQ截图20230423223238"></p>
-<p>按照小组名把对应的jar包上传到对应的文件夹下。</p>
-<p>完成这一步建议使用xftp.大家可以去搜一下这东西的使用方法。</p>
-<p>3.用xshell连接服务器，进入自己的小组下面，启动项目：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">java -jar jar包名.jar</span><br></pre></td></tr></table></figure>
-
-<p>看到控制台出现跟平常项目一样的堆栈信息就是启动成功了。</p>
-<p>注意，还要在配置里修改端口号，第一组就用8081，第二组8082，第三组8083，遇上其他的问题可以在csdn上搜索。</p>
-]]></content>
-      <categories>
-        <category>笔记</category>
-      </categories>
-      <tags>
-        <tag>服务器</tag>
       </tags>
   </entry>
   <entry>
@@ -2737,6 +2694,49 @@
       </tags>
   </entry>
   <entry>
+    <title>服务器部署</title>
+    <url>/2023/02/10/%E6%9C%8D%E5%8A%A1%E5%99%A8%E9%83%A8%E7%BD%B2/</url>
+    <content><![CDATA[<h1 id="服务器部署教程"><a href="#服务器部署教程" class="headerlink" title="服务器部署教程"></a>服务器部署教程</h1><p>均需要连接校园网</p>
+<p>服务器连接信息：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">地址: 10.245.150.220</span><br><span class="line"></span><br><span class="line">端口: 22</span><br><span class="line"></span><br><span class="line">账户: root</span><br><span class="line"></span><br><span class="line">密码: werun_4321</span><br></pre></td></tr></table></figure>
+
+
+
+<p>数据库连接信息：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">地址: 10.245.150.219</span><br><span class="line"></span><br><span class="line">端口: 3306</span><br><span class="line"></span><br><span class="line">账户: root</span><br><span class="line"></span><br><span class="line">密码: TJ4u5&amp;CT8czz$2B%</span><br></pre></td></tr></table></figure>
+
+<p>1.修改自己的数据库配置。</p>
+<p>我们需要把自己的项目部署到服务器上，数据库也不能用我们本地的数据库，所以首先我们要修改数据库配置。</p>
+<p>以jpa为例：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">datasource:</span><br><span class="line">  driver-class-name: com.mysql.cj.jdbc.Driver</span><br><span class="line">  username: root</span><br><span class="line">  password: TJ4u5&amp;CT8czz$2B%</span><br><span class="line">  url: jdbc:mysql://10.245.150.219:3306/你的小组名（小组1就写group1，以此类推）?useUnicode=true&amp;characterEncoding=UTF8&amp;useJDBCCompliantTimezoneShift=true&amp;useLegacyDatetimeCode=false&amp;serverTimezone=UTC</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">地址: 10.245.150.219</span><br><span class="line"></span><br><span class="line">端口: 3306</span><br><span class="line"></span><br><span class="line">账户: root</span><br><span class="line"></span><br><span class="line">密码: TJ4u5&amp;CT8czz$2B%</span><br></pre></td></tr></table></figure>
+
+<p>如果使用mybatis也需要上面的配置连接上数据库并建表.</p>
+<p>2.把自己的项目打包成jar包</p>
+<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230423140224.png" alt="QQ截图20230423140224"></p>
+<p>右侧的maven 先clean再package.</p>
+<p>然后在target目录下找到项目名.jar这个文件。</p>
+<p>找到就算是打包成功了。</p>
+<p>2.把自己的jar包上传到服务器上。</p>
+<p>服务器的文件结构如图：</p>
+<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230423223238.png" alt="QQ截图20230423223238"></p>
+<p>按照小组名把对应的jar包上传到对应的文件夹下。</p>
+<p>完成这一步建议使用xftp.大家可以去搜一下这东西的使用方法。</p>
+<p>3.用xshell连接服务器，进入自己的小组下面，启动项目：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">java -jar jar包名.jar</span><br></pre></td></tr></table></figure>
+
+<p>看到控制台出现跟平常项目一样的堆栈信息就是启动成功了。</p>
+<p>注意，还要在配置里修改端口号，第一组就用8081，第二组8082，第三组8083，遇上其他的问题可以在csdn上搜索。</p>
+]]></content>
+      <categories>
+        <category>笔记</category>
+      </categories>
+      <tags>
+        <tag>服务器</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>桌搭教程</title>
     <url>/2023/03/18/%E6%A1%8C%E6%90%AD%E6%95%99%E7%A8%8B/</url>
     <content><![CDATA[<h1 id="1-概述："><a href="#1-概述：" class="headerlink" title="1.概述："></a>1.概述：</h1><p>一个依托于宿舍桌子，以显示器为核心的桌搭教程。</p>
@@ -2791,23 +2791,6 @@
       </tags>
   </entry>
   <entry>
-    <title>江城一梦</title>
-    <url>/2023/01/17/%E6%B1%9F%E5%9F%8E%E4%B8%80%E6%A2%A6/</url>
-    <content><![CDATA[<h5 id="江城一梦"><a href="#江城一梦" class="headerlink" title="江城一梦"></a>江城一梦</h5><p>雪落在冰封的江<br>冻伤窗棂后童真的凝望<br>寻江溯洄而上<br>寂静的江城<br>城上钟鼓不闻<br>岸边长幺不响<br>难以面对寒冷太匆匆<br>于凌寒时节的梦</p>
-<p>一梦烟景繁华<br>每一个平凡名姓<br>每一个闪烁的点点星光<br>安稳的生活<br>安稳的喜爱<br>穿梭自我的城中<br>启航生命的江上</p>
-<p>一梦万物生灵<br>百鸟高唱 游鱼竞逐<br>苍鹰折翼翻飞<br>雄鹿高昂 眼神明亮<br>七岔的鹿角撞开死神的垂镰<br>灵长也不再自诩至尊<br>往日施舍的双手<br>化作热烈的拥抱</p>
-<p>一梦天道昭彰<br>四方星月的兼城灯火<br>步步流动的白衣长廊<br>精确沉重的高屋瓦瓴<br>血脉传承中交融心跳<br>万里河山<br>眸中挚爱<br>放不下每一个生命<br>留不下每一个身影</p>
-<p>你相信经迭的时光<br>江流会重新开始奔腾<br>江城一梦</p>
-<p>梦在曲折的一生<br>梦在江帆的渔火<br>江城逐梦<br>关于未来<br>关于你</p>
-]]></content>
-      <categories>
-        <category>创作</category>
-      </categories>
-      <tags>
-        <tag>诗歌</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>白马遥</title>
     <url>/2023/01/17/%E7%99%BD%E9%A9%AC%E9%81%A5/</url>
     <content><![CDATA[<h5 id="白马遥"><a href="#白马遥" class="headerlink" title="白马遥"></a>白马遥</h5><p>三关千里 念念不忘<br>是你红豆初抛的桃天</p>
@@ -2833,112 +2816,20 @@
       </tags>
   </entry>
   <entry>
-    <title>系统分析与设计</title>
-    <url>/2023/03/18/%E7%B3%BB%E7%BB%9F%E5%88%86%E6%9E%90%E4%B8%8E%E8%AE%BE%E8%AE%A1/</url>
-    <content><![CDATA[<h1 id="系统分析与设计"><a href="#系统分析与设计" class="headerlink" title="系统分析与设计"></a>系统分析与设计</h1><h1 id="1-系统"><a href="#1-系统" class="headerlink" title="1.系统:"></a>1.系统:</h1><h2 id="1-1-系统与信息系统"><a href="#1-1-系统与信息系统" class="headerlink" title="1.1 系统与信息系统:"></a>1.1 系统与信息系统:</h2><p>系统:一个能够产生特定结果的相关构件的集合.</p>
-<p>信息系统：以信息作为输入&#x2F;输出对象，以计算机软、硬件为核心的系统.</p>
-<h2 id="1-2系统开发角色"><a href="#1-2系统开发角色" class="headerlink" title="1.2系统开发角色:"></a>1.2系统开发角色:</h2><p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230329151714.png" alt="QQ截图20230329151714"></p>
-<h2 id="1-3系统开发方法"><a href="#1-3系统开发方法" class="headerlink" title="1.3系统开发方法:"></a>1.3系统开发方法:</h2><p>结构化开发:</p>
-<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230329151751.png" alt="QQ截图20230329151751"></p>
-<p>面向对象开发:</p>
-<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230329151838.png" alt="QQ截图20230329151838"></p>
-<p>UML面向对象开发:</p>
-<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230329151910.png" alt="QQ截图20230329151910"></p>
-<h1 id="2-UML"><a href="#2-UML" class="headerlink" title="2.UML:"></a>2.UML:</h1><h2 id="2-1-定义"><a href="#2-1-定义" class="headerlink" title="2.1 定义:"></a>2.1 定义:</h2><p>UML — Unified Modeling Language.</p>
-<p>UML 是一种对软件系统的制作过程&#x2F;产出物进行下述工作的描述语言： 可视化（visualizing）、详述 （specifying）、构造 （constructing）、 文档化（documentin).</p>
-<h2 id="2-2构成"><a href="#2-2构成" class="headerlink" title="2.2构成:"></a>2.2构成:</h2><p>主要有四部分构成:视图(views).图(Diagrams).模型元素.通用机制.</p>
-<h3 id="2-2-1-视图"><a href="#2-2-1-视图" class="headerlink" title="2.2.1 视图:"></a>2.2.1 视图:</h3><p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230329152406.png" alt="QQ截图20230329152406"></p>
-<h3 id="2-2-2-图"><a href="#2-2-2-图" class="headerlink" title="2.2.2 图:"></a>2.2.2 图:</h3><p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230329152536.png" alt="QQ截图20230329152536"></p>
-<h3 id="2-2-3-关系"><a href="#2-2-3-关系" class="headerlink" title="2.2.3 关系:"></a>2.2.3 关系:</h3><p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230329152559.png" alt="QQ截图20230329152559"></p>
-<h1 id="3-需求"><a href="#3-需求" class="headerlink" title="3.需求:"></a>3.需求:</h1><h2 id="3-1需求的必要性"><a href="#3-1需求的必要性" class="headerlink" title="3.1需求的必要性:"></a>3.1需求的必要性:</h2><p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230329152740.png" alt="QQ截图20230329152740"></p>
-<h2 id="3-2-需求的获取步骤"><a href="#3-2-需求的获取步骤" class="headerlink" title="3.2 需求的获取步骤:"></a>3.2 需求的获取步骤:</h2><p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230329152929.png" alt="QQ截图20230329152929"></p>
-<h2 id="3-3-需求分类"><a href="#3-3-需求分类" class="headerlink" title="3.3 需求分类:"></a>3.3 需求分类:</h2><h3 id="3-3-1-业务需求"><a href="#3-3-1-业务需求" class="headerlink" title="3.3.1 业务需求:"></a>3.3.1 业务需求:</h3><p>描述项目的总体目标.</p>
-<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230329153135.png" alt="QQ截图20230329153135"></p>
-<h3 id="3-3-2-用户需求"><a href="#3-3-2-用户需求" class="headerlink" title="3.3.2 用户需求:"></a>3.3.2 用户需求:</h3><p>重点描述项目需求中涉及到用户操作的部分,一般分为功能需求与非功能需求.</p>
-<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230329153329.png" alt="QQ截图20230329153329"></p>
-<h4 id="3-3-2-1-功能需求"><a href="#3-3-2-1-功能需求" class="headerlink" title="3.3.2.1 功能需求:"></a>3.3.2.1 功能需求:</h4><p>功能需求是指系统需要提供的功能以及服务.</p>
-<h4 id="3-3-2-2-非功能需求"><a href="#3-3-2-2-非功能需求" class="headerlink" title="3.3.2.2 非功能需求:"></a>3.3.2.2 非功能需求:</h4><p>非功能需求(Non-Functional Requirements, NFR)：从各个角度对系统的约束和限制，反映了客户对软件系统质量和性能(quality and  performance)的额外要求，包括安全性、可靠性、互操作性、健壮性、易使用性、可维护性、可移植性、可重用性、可扩充性等.</p>
-<p><strong>注意：非功能需求隐含了对可选设计方案的一些关键影响</strong></p>
-<h3 id="3-3-3-业务规则"><a href="#3-3-3-业务规则" class="headerlink" title="3.3.3 业务规则:"></a>3.3.3 业务规则:</h3><p>业务的具体实现细节.可执行性或内部执行逻辑的一些限定条件.</p>
-<h3 id="3-3-4-数据定义"><a href="#3-3-4-数据定义" class="headerlink" title="3.3.4 数据定义:"></a>3.3.4 数据定义:</h3><p>较为复杂的数据格式的定义.</p>
-<h3 id="3-3-5-约束条件"><a href="#3-3-5-约束条件" class="headerlink" title="3.3.5 约束条件:"></a>3.3.5 约束条件:</h3><p>范围比较广泛,主要描述系统开发在过程中的限制条件.</p>
-<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230329153941.png" alt="QQ截图20230329153941"></p>
-<h3 id="3-3-6-外部接口需求"><a href="#3-3-6-外部接口需求" class="headerlink" title="3.3.6 外部接口需求:"></a>3.3.6 外部接口需求:</h3><p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230329154022.png" alt="QQ截图20230329154022"></p>
-<h2 id="3-4-好的需求"><a href="#3-4-好的需求" class="headerlink" title="3.4 好的需求:"></a>3.4 好的需求:</h2><p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230329154105.png" alt="QQ截图20230329154105"></p>
-<h1 id="4-需求建模"><a href="#4-需求建模" class="headerlink" title="4.需求建模:"></a>4.需求建模:</h1><p>获取需求之后,建立模型,对需求进行描述.</p>
-<h2 id="4-1-事件"><a href="#4-1-事件" class="headerlink" title="4.1 事件:"></a>4.1 事件:</h2><p>事件：发生在某一特定的时间和地点、可描述并且系统应该记录下来的事情.</p>
-<p>信息系统的所有处理过程都是由事件驱动&#x2F;触发的.事件发生时需要系统做出响应，能列出所有这样的事件就可以搞清楚用户对系统的需求.</p>
-<h3 id="4-1-1-事件类型"><a href="#4-1-1-事件类型" class="headerlink" title="4.1.1 事件类型:"></a>4.1.1 事件类型:</h3><p>外部事件: 系统外的事件.一般的行为都可以被认为是外部事件.</p>
-<p>临时事件:某一时刻发生的事件.比如定时任务等.</p>
-<p>状态事件:系统发生状态是所引发的事件.</p>
-<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230329155153.png" alt="QQ截图20230329155153"></p>
-<h3 id="4-1-2-事件定义"><a href="#4-1-2-事件定义" class="headerlink" title="4.1.2 事件定义:"></a>4.1.2 事件定义:</h3><p>1.与系统无关的不算做事件.</p>
-<p>2.特别细节的事件在系统分析阶段不予考虑.</p>
-<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230329155451.png" alt="QQ截图20230329155451"></p>
-<p>多个不同的事件组成了事件列表.</p>
-<h2 id="4-2-事物"><a href="#4-2-事物" class="headerlink" title="4.2 事物:"></a>4.2 事物:</h2><p>在传统的开发方法中，事物就是构成系统存储 信息的相关数据 在面向对象的开发方法中，事物就是在系统中相互交互的对象.</p>
-<h3 id="4-2-1-关系"><a href="#4-2-1-关系" class="headerlink" title="4.2.1 关系:"></a>4.2.1 关系:</h3><p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230330154018.png" alt="QQ截图20230330154018"></p>
-<h3 id="4-2-2-属性"><a href="#4-2-2-属性" class="headerlink" title="4.2.2 属性:"></a>4.2.2 属性:</h3><p>属性：有关事物的一条特定信息.</p>
-<h3 id="4-2-3-ERD"><a href="#4-2-3-ERD" class="headerlink" title="4.2.3 ERD:"></a>4.2.3 ERD:</h3><p>实体关系图.</p>
-<p>示例:</p>
-<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230330154536.png" alt="QQ截图20230330154536"></p>
-<p>关系说明:</p>
-<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230330154436.png" alt="QQ截图20230330154436"></p>
-<p>简单记为:双方都有一条竖线,有圈是可选,斜线数量代表各种关系.</p>
-<h3 id="4-2-4-类图"><a href="#4-2-4-类图" class="headerlink" title="4.2.4 类图:"></a>4.2.4 类图:</h3><p>面向对象设计所构建出来出的模型,用类图表示.</p>
-<p>一个类由三部分组成:名字,属性,方法.</p>
-<p>不同类之间的关系如下:</p>
-<p>泛化:</p>
-<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230330154838.png" alt="QQ截图20230330154838"></p>
-<p>组合:物理上一体的组成部分:</p>
-<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230330154853.png" alt="QQ截图20230330154853"></p>
-<p>聚合:物理上本没有关系,人为的联系在一起.</p>
-<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230330154846.png" alt="QQ截图20230330154846"></p>
-<h2 id="4-3-敏捷开发"><a href="#4-3-敏捷开发" class="headerlink" title="4.3.敏捷开发:"></a>4.3.敏捷开发:</h2><h3 id="4-3-1-用户故事"><a href="#4-3-1-用户故事" class="headerlink" title="4.3.1 用户故事:"></a>4.3.1 用户故事:</h3><p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230330155247.png" alt="QQ截图20230330155247"></p>
-<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230330155324.png" alt="QQ截图20230330155324"></p>
-<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230330155430.png" alt="QQ截图20230330155430"></p>
-<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230330155445.png" alt="QQ截图20230330155445"></p>
-<h1 id="5-用例分析"><a href="#5-用例分析" class="headerlink" title="5.用例分析:"></a>5.用例分析:</h1><p>1.用例模型图.</p>
-<p>2.每个用例的详细描述.  </p>
-<p>3.术语表：所用到的术语说明. </p>
-<p>4.补充规约：非功能性需求的说明.</p>
-<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230330161302.png" alt="QQ截图20230330161302"></p>
-<h2 id="5-1-用例"><a href="#5-1-用例" class="headerlink" title="5.1 用例:"></a>5.1 用例:</h2><p>用例(Use Case)：表示系统所提供的服务或可执行的某种行为.</p>
-<p>– 定义了系统是如何被参与者所使用的，描述了参与者为了使用系统所提供的某一完整功能而与系统之间发生的一段“对话”.</p>
-<p>– 用例的概念在1986年由Ivar Jacobson正式提出之后被广泛接受，迅速发展，已成为OO、UML、RUP的标准规范和方法.</p>
-<h2 id="5-2-特征："><a href="#5-2-特征：" class="headerlink" title="5.2 特征："></a>5.2 特征：</h2><p>1.不可分解</p>
-<p>2.系统参与</p>
-<p>3.可观测</p>
-<p>4.有价值</p>
-<p>5.特定角色触发</p>
-<h2 id="5-3-用例图："><a href="#5-3-用例图：" class="headerlink" title="5.3 用例图："></a>5.3 用例图：</h2><p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230330160049.png" alt="QQ截图20230330160049"></p>
-<h2 id="5-4-用例建模的基本流程："><a href="#5-4-用例建模的基本流程：" class="headerlink" title="5.4 用例建模的基本流程："></a>5.4 用例建模的基本流程：</h2><p>1.识别并描述参与者(actor)； </p>
-<p>2.识别用例(use case)，并给出简要描述； </p>
-<p>3.识别参与者与用例之间的通讯关联(Association)；</p>
-<p>4.给出每一个用例的详细描述.</p>
-<p>5.细化用例模型.</p>
-<h3 id="5-4-1-特殊参与者："><a href="#5-4-1-特殊参与者：" class="headerlink" title="5.4.1 特殊参与者："></a>5.4.1 特殊参与者：</h3><p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230330160340.png" alt="QQ截图20230330160340"></p>
-<h3 id="5-4-2-详细描述："><a href="#5-4-2-详细描述：" class="headerlink" title="5.4.2 详细描述："></a>5.4.2 详细描述：</h3><p>包括事件流（常规与备选），前置，后置条件，目标等。</p>
-<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230330160656.png" alt="QQ截图20230330160656"></p>
-<h3 id="5-4-3-细化用例模型："><a href="#5-4-3-细化用例模型：" class="headerlink" title="5.4.3 细化用例模型："></a>5.4.3 细化用例模型：</h3><p>包含：</p>
-<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230330160802.png" alt="QQ截图20230330160802"></p>
-<p>拓展：</p>
-<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230330160811.png" alt="QQ截图20230330160811"></p>
-<p>注意箭头指向的方向是拓展的主体方向。</p>
-<p>泛化：</p>
-<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230330160753.png" alt="QQ截图20230330160753"></p>
-<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230330160849.png" alt="QQ截图20230330160849"></p>
-<h2 id="5-5-活动图与泳道图："><a href="#5-5-活动图与泳道图：" class="headerlink" title="5.5 活动图与泳道图："></a>5.5 活动图与泳道图：</h2><p>作为补充.</p>
-<p>活动图：</p>
-<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230330161349.png" alt="QQ截图20230330161349"></p>
-<p>泳道图：</p>
-<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230330161357.png" alt="QQ截图20230330161357"></p>
-<h1 id="6-结构化系统分析："><a href="#6-结构化系统分析：" class="headerlink" title="6.结构化系统分析："></a>6.结构化系统分析：</h1>]]></content>
+    <title>江城一梦</title>
+    <url>/2023/01/17/%E6%B1%9F%E5%9F%8E%E4%B8%80%E6%A2%A6/</url>
+    <content><![CDATA[<h5 id="江城一梦"><a href="#江城一梦" class="headerlink" title="江城一梦"></a>江城一梦</h5><p>雪落在冰封的江<br>冻伤窗棂后童真的凝望<br>寻江溯洄而上<br>寂静的江城<br>城上钟鼓不闻<br>岸边长幺不响<br>难以面对寒冷太匆匆<br>于凌寒时节的梦</p>
+<p>一梦烟景繁华<br>每一个平凡名姓<br>每一个闪烁的点点星光<br>安稳的生活<br>安稳的喜爱<br>穿梭自我的城中<br>启航生命的江上</p>
+<p>一梦万物生灵<br>百鸟高唱 游鱼竞逐<br>苍鹰折翼翻飞<br>雄鹿高昂 眼神明亮<br>七岔的鹿角撞开死神的垂镰<br>灵长也不再自诩至尊<br>往日施舍的双手<br>化作热烈的拥抱</p>
+<p>一梦天道昭彰<br>四方星月的兼城灯火<br>步步流动的白衣长廊<br>精确沉重的高屋瓦瓴<br>血脉传承中交融心跳<br>万里河山<br>眸中挚爱<br>放不下每一个生命<br>留不下每一个身影</p>
+<p>你相信经迭的时光<br>江流会重新开始奔腾<br>江城一梦</p>
+<p>梦在曲折的一生<br>梦在江帆的渔火<br>江城逐梦<br>关于未来<br>关于你</p>
+]]></content>
       <categories>
-        <category>笔记</category>
+        <category>创作</category>
       </categories>
       <tags>
-        <tag>课程</tag>
+        <tag>诗歌</tag>
       </tags>
   </entry>
   <entry>
@@ -3184,6 +3075,115 @@
       </tags>
   </entry>
   <entry>
+    <title>系统分析与设计</title>
+    <url>/2023/03/18/%E7%B3%BB%E7%BB%9F%E5%88%86%E6%9E%90%E4%B8%8E%E8%AE%BE%E8%AE%A1/</url>
+    <content><![CDATA[<h1 id="系统分析与设计"><a href="#系统分析与设计" class="headerlink" title="系统分析与设计"></a>系统分析与设计</h1><h1 id="1-系统"><a href="#1-系统" class="headerlink" title="1.系统:"></a>1.系统:</h1><h2 id="1-1-系统与信息系统"><a href="#1-1-系统与信息系统" class="headerlink" title="1.1 系统与信息系统:"></a>1.1 系统与信息系统:</h2><p>系统:一个能够产生特定结果的相关构件的集合.</p>
+<p>信息系统：以信息作为输入&#x2F;输出对象，以计算机软、硬件为核心的系统.</p>
+<h2 id="1-2系统开发角色"><a href="#1-2系统开发角色" class="headerlink" title="1.2系统开发角色:"></a>1.2系统开发角色:</h2><p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230329151714.png" alt="QQ截图20230329151714"></p>
+<h2 id="1-3系统开发方法"><a href="#1-3系统开发方法" class="headerlink" title="1.3系统开发方法:"></a>1.3系统开发方法:</h2><p>结构化开发:</p>
+<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230329151751.png" alt="QQ截图20230329151751"></p>
+<p>面向对象开发:</p>
+<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230329151838.png" alt="QQ截图20230329151838"></p>
+<p>UML面向对象开发:</p>
+<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230329151910.png" alt="QQ截图20230329151910"></p>
+<h1 id="2-UML"><a href="#2-UML" class="headerlink" title="2.UML:"></a>2.UML:</h1><h2 id="2-1-定义"><a href="#2-1-定义" class="headerlink" title="2.1 定义:"></a>2.1 定义:</h2><p>UML — Unified Modeling Language.</p>
+<p>UML 是一种对软件系统的制作过程&#x2F;产出物进行下述工作的描述语言： 可视化（visualizing）、详述 （specifying）、构造 （constructing）、 文档化（documentin).</p>
+<h2 id="2-2构成"><a href="#2-2构成" class="headerlink" title="2.2构成:"></a>2.2构成:</h2><p>主要有四部分构成:视图(views).图(Diagrams).模型元素.通用机制.</p>
+<h3 id="2-2-1-视图"><a href="#2-2-1-视图" class="headerlink" title="2.2.1 视图:"></a>2.2.1 视图:</h3><p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230329152406.png" alt="QQ截图20230329152406"></p>
+<h3 id="2-2-2-图"><a href="#2-2-2-图" class="headerlink" title="2.2.2 图:"></a>2.2.2 图:</h3><p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230329152536.png" alt="QQ截图20230329152536"></p>
+<h3 id="2-2-3-关系"><a href="#2-2-3-关系" class="headerlink" title="2.2.3 关系:"></a>2.2.3 关系:</h3><p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230329152559.png" alt="QQ截图20230329152559"></p>
+<h1 id="3-需求"><a href="#3-需求" class="headerlink" title="3.需求:"></a>3.需求:</h1><h2 id="3-1需求的必要性"><a href="#3-1需求的必要性" class="headerlink" title="3.1需求的必要性:"></a>3.1需求的必要性:</h2><p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230329152740.png" alt="QQ截图20230329152740"></p>
+<h2 id="3-2-需求的获取步骤"><a href="#3-2-需求的获取步骤" class="headerlink" title="3.2 需求的获取步骤:"></a>3.2 需求的获取步骤:</h2><p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230329152929.png" alt="QQ截图20230329152929"></p>
+<h2 id="3-3-需求分类"><a href="#3-3-需求分类" class="headerlink" title="3.3 需求分类:"></a>3.3 需求分类:</h2><h3 id="3-3-1-业务需求"><a href="#3-3-1-业务需求" class="headerlink" title="3.3.1 业务需求:"></a>3.3.1 业务需求:</h3><p>描述项目的总体目标.</p>
+<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230329153135.png" alt="QQ截图20230329153135"></p>
+<h3 id="3-3-2-用户需求"><a href="#3-3-2-用户需求" class="headerlink" title="3.3.2 用户需求:"></a>3.3.2 用户需求:</h3><p>重点描述项目需求中涉及到用户操作的部分,一般分为功能需求与非功能需求.</p>
+<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230329153329.png" alt="QQ截图20230329153329"></p>
+<h4 id="3-3-2-1-功能需求"><a href="#3-3-2-1-功能需求" class="headerlink" title="3.3.2.1 功能需求:"></a>3.3.2.1 功能需求:</h4><p>功能需求是指系统需要提供的功能以及服务.</p>
+<h4 id="3-3-2-2-非功能需求"><a href="#3-3-2-2-非功能需求" class="headerlink" title="3.3.2.2 非功能需求:"></a>3.3.2.2 非功能需求:</h4><p>非功能需求(Non-Functional Requirements, NFR)：从各个角度对系统的约束和限制，反映了客户对软件系统质量和性能(quality and  performance)的额外要求，包括安全性、可靠性、互操作性、健壮性、易使用性、可维护性、可移植性、可重用性、可扩充性等.</p>
+<p><strong>注意：非功能需求隐含了对可选设计方案的一些关键影响</strong></p>
+<h3 id="3-3-3-业务规则"><a href="#3-3-3-业务规则" class="headerlink" title="3.3.3 业务规则:"></a>3.3.3 业务规则:</h3><p>业务的具体实现细节.可执行性或内部执行逻辑的一些限定条件.</p>
+<h3 id="3-3-4-数据定义"><a href="#3-3-4-数据定义" class="headerlink" title="3.3.4 数据定义:"></a>3.3.4 数据定义:</h3><p>较为复杂的数据格式的定义.</p>
+<h3 id="3-3-5-约束条件"><a href="#3-3-5-约束条件" class="headerlink" title="3.3.5 约束条件:"></a>3.3.5 约束条件:</h3><p>范围比较广泛,主要描述系统开发在过程中的限制条件.</p>
+<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230329153941.png" alt="QQ截图20230329153941"></p>
+<h3 id="3-3-6-外部接口需求"><a href="#3-3-6-外部接口需求" class="headerlink" title="3.3.6 外部接口需求:"></a>3.3.6 外部接口需求:</h3><p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230329154022.png" alt="QQ截图20230329154022"></p>
+<h2 id="3-4-好的需求"><a href="#3-4-好的需求" class="headerlink" title="3.4 好的需求:"></a>3.4 好的需求:</h2><p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230329154105.png" alt="QQ截图20230329154105"></p>
+<h1 id="4-需求建模"><a href="#4-需求建模" class="headerlink" title="4.需求建模:"></a>4.需求建模:</h1><p>获取需求之后,建立模型,对需求进行描述.</p>
+<h2 id="4-1-事件"><a href="#4-1-事件" class="headerlink" title="4.1 事件:"></a>4.1 事件:</h2><p>事件：发生在某一特定的时间和地点、可描述并且系统应该记录下来的事情.</p>
+<p>信息系统的所有处理过程都是由事件驱动&#x2F;触发的.事件发生时需要系统做出响应，能列出所有这样的事件就可以搞清楚用户对系统的需求.</p>
+<h3 id="4-1-1-事件类型"><a href="#4-1-1-事件类型" class="headerlink" title="4.1.1 事件类型:"></a>4.1.1 事件类型:</h3><p>外部事件: 系统外的事件.一般的行为都可以被认为是外部事件.</p>
+<p>临时事件:某一时刻发生的事件.比如定时任务等.</p>
+<p>状态事件:系统发生状态是所引发的事件.</p>
+<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230329155153.png" alt="QQ截图20230329155153"></p>
+<h3 id="4-1-2-事件定义"><a href="#4-1-2-事件定义" class="headerlink" title="4.1.2 事件定义:"></a>4.1.2 事件定义:</h3><p>1.与系统无关的不算做事件.</p>
+<p>2.特别细节的事件在系统分析阶段不予考虑.</p>
+<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230329155451.png" alt="QQ截图20230329155451"></p>
+<p>多个不同的事件组成了事件列表.</p>
+<h2 id="4-2-事物"><a href="#4-2-事物" class="headerlink" title="4.2 事物:"></a>4.2 事物:</h2><p>在传统的开发方法中，事物就是构成系统存储 信息的相关数据 在面向对象的开发方法中，事物就是在系统中相互交互的对象.</p>
+<h3 id="4-2-1-关系"><a href="#4-2-1-关系" class="headerlink" title="4.2.1 关系:"></a>4.2.1 关系:</h3><p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230330154018.png" alt="QQ截图20230330154018"></p>
+<h3 id="4-2-2-属性"><a href="#4-2-2-属性" class="headerlink" title="4.2.2 属性:"></a>4.2.2 属性:</h3><p>属性：有关事物的一条特定信息.</p>
+<h3 id="4-2-3-ERD"><a href="#4-2-3-ERD" class="headerlink" title="4.2.3 ERD:"></a>4.2.3 ERD:</h3><p>实体关系图.</p>
+<p>示例:</p>
+<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230330154536.png" alt="QQ截图20230330154536"></p>
+<p>关系说明:</p>
+<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230330154436.png" alt="QQ截图20230330154436"></p>
+<p>简单记为:双方都有一条竖线,有圈是可选,斜线数量代表各种关系.</p>
+<h3 id="4-2-4-类图"><a href="#4-2-4-类图" class="headerlink" title="4.2.4 类图:"></a>4.2.4 类图:</h3><p>面向对象设计所构建出来出的模型,用类图表示.</p>
+<p>一个类由三部分组成:名字,属性,方法.</p>
+<p>不同类之间的关系如下:</p>
+<p>泛化:</p>
+<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230330154838.png" alt="QQ截图20230330154838"></p>
+<p>组合:物理上一体的组成部分:</p>
+<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230330154853.png" alt="QQ截图20230330154853"></p>
+<p>聚合:物理上本没有关系,人为的联系在一起.</p>
+<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230330154846.png" alt="QQ截图20230330154846"></p>
+<h2 id="4-3-敏捷开发"><a href="#4-3-敏捷开发" class="headerlink" title="4.3.敏捷开发:"></a>4.3.敏捷开发:</h2><h3 id="4-3-1-用户故事"><a href="#4-3-1-用户故事" class="headerlink" title="4.3.1 用户故事:"></a>4.3.1 用户故事:</h3><p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230330155247.png" alt="QQ截图20230330155247"></p>
+<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230330155324.png" alt="QQ截图20230330155324"></p>
+<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230330155430.png" alt="QQ截图20230330155430"></p>
+<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230330155445.png" alt="QQ截图20230330155445"></p>
+<h1 id="5-用例分析"><a href="#5-用例分析" class="headerlink" title="5.用例分析:"></a>5.用例分析:</h1><p>1.用例模型图.</p>
+<p>2.每个用例的详细描述.  </p>
+<p>3.术语表：所用到的术语说明. </p>
+<p>4.补充规约：非功能性需求的说明.</p>
+<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230330161302.png" alt="QQ截图20230330161302"></p>
+<h2 id="5-1-用例"><a href="#5-1-用例" class="headerlink" title="5.1 用例:"></a>5.1 用例:</h2><p>用例(Use Case)：表示系统所提供的服务或可执行的某种行为.</p>
+<p>– 定义了系统是如何被参与者所使用的，描述了参与者为了使用系统所提供的某一完整功能而与系统之间发生的一段“对话”.</p>
+<p>– 用例的概念在1986年由Ivar Jacobson正式提出之后被广泛接受，迅速发展，已成为OO、UML、RUP的标准规范和方法.</p>
+<h2 id="5-2-特征："><a href="#5-2-特征：" class="headerlink" title="5.2 特征："></a>5.2 特征：</h2><p>1.不可分解</p>
+<p>2.系统参与</p>
+<p>3.可观测</p>
+<p>4.有价值</p>
+<p>5.特定角色触发</p>
+<h2 id="5-3-用例图："><a href="#5-3-用例图：" class="headerlink" title="5.3 用例图："></a>5.3 用例图：</h2><p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230330160049.png" alt="QQ截图20230330160049"></p>
+<h2 id="5-4-用例建模的基本流程："><a href="#5-4-用例建模的基本流程：" class="headerlink" title="5.4 用例建模的基本流程："></a>5.4 用例建模的基本流程：</h2><p>1.识别并描述参与者(actor)； </p>
+<p>2.识别用例(use case)，并给出简要描述； </p>
+<p>3.识别参与者与用例之间的通讯关联(Association)；</p>
+<p>4.给出每一个用例的详细描述.</p>
+<p>5.细化用例模型.</p>
+<h3 id="5-4-1-特殊参与者："><a href="#5-4-1-特殊参与者：" class="headerlink" title="5.4.1 特殊参与者："></a>5.4.1 特殊参与者：</h3><p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230330160340.png" alt="QQ截图20230330160340"></p>
+<h3 id="5-4-2-详细描述："><a href="#5-4-2-详细描述：" class="headerlink" title="5.4.2 详细描述："></a>5.4.2 详细描述：</h3><p>包括事件流（常规与备选），前置，后置条件，目标等。</p>
+<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230330160656.png" alt="QQ截图20230330160656"></p>
+<h3 id="5-4-3-细化用例模型："><a href="#5-4-3-细化用例模型：" class="headerlink" title="5.4.3 细化用例模型："></a>5.4.3 细化用例模型：</h3><p>包含：</p>
+<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230330160802.png" alt="QQ截图20230330160802"></p>
+<p>拓展：</p>
+<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230330160811.png" alt="QQ截图20230330160811"></p>
+<p>注意箭头指向的方向是拓展的主体方向。</p>
+<p>泛化：</p>
+<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230330160753.png" alt="QQ截图20230330160753"></p>
+<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230330160849.png" alt="QQ截图20230330160849"></p>
+<h2 id="5-5-活动图与泳道图："><a href="#5-5-活动图与泳道图：" class="headerlink" title="5.5 活动图与泳道图："></a>5.5 活动图与泳道图：</h2><p>作为补充.</p>
+<p>活动图：</p>
+<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230330161349.png" alt="QQ截图20230330161349"></p>
+<p>泳道图：</p>
+<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230330161357.png" alt="QQ截图20230330161357"></p>
+<h1 id="6-结构化系统分析："><a href="#6-结构化系统分析：" class="headerlink" title="6.结构化系统分析："></a>6.结构化系统分析：</h1>]]></content>
+      <categories>
+        <category>笔记</category>
+      </categories>
+      <tags>
+        <tag>课程</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>草木森</title>
     <url>/2023/01/17/%E8%8D%89%E6%9C%A8%E6%A3%AE/</url>
     <content><![CDATA[<p>草木森<br>阳春三月<br>奔赴苍翠草木<br>匆匆抖落满目风尘<br>青山上举目眺望<br>夭矫的鸿举起羽翼</p>
@@ -3409,23 +3409,6 @@
       </categories>
       <tags>
         <tag>课程</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>青萍</title>
-    <url>/2023/02/10/%E9%9D%92%E8%90%8D/</url>
-    <content><![CDATA[<h1 id="青萍"><a href="#青萍" class="headerlink" title="青萍"></a>青萍</h1><p>暖阳 穿彻高楼间的草木<br>照映到屋里少年郎 昏沉的脸庞<br>短暂的日光渐浓 渐斜 渐散乱<br>黑幕深重的夜 城市如苍茫荒野<br>青萍之末 西风吹彻 雾霭苍苍</p>
-<p>渐清醒的少年郎 透过屏幕<br>纸醉金迷的安稳 疯狂<br>试图竭尽全力尽力思虑 妄想看到最远的远方<br>却总因无望而折返 哭泣 慌张<br>沉沦迷茫地 一次次地点燃<br>泛白屏幕里七彩色的篝火<br>试图遮挡住苍白脸庞上 无神清澈的目光</p>
-<p>归途何往?<br>尔尔辞晚 总是做不到的一苇以航<br>少年郎 自以为阅尽千帆 深谙世事变幻<br>喟叹年岁辗转 朱颜折镜<br>自知拳劲孱弱 宝骏委顿 剑锋腐朽<br>且放掀澜青云志 不去谛听那厉哮寒风<br>拥抱最真实的拥抱 亲吻最甜美的笑容<br>暖阳缓缓 岁月蓦然</p>
-<p>偶然的夜 幸福过后的辗转<br>少年郎 不经意间追忆过往的诗篇<br>再次看到蛛网 尘烟 枯藤 大海<br>再次触摸那<br>摇曳着曙光那枝温暖漂亮的笔杆<br>恍然 觉醒 回望<br>在时光内部核心里 滴答作响的旧时光</p>
-<p>漫漫江湖 青萍飞扬的尘世<br>是少年郎心上 千载幽咽而天地共鸣的一个个文字<br>再一次谨醒他切莫虚度时光<br>追风折柳 揽桑榆 平风月<br>剥开历史风尘的面目 第一次清晰地看到<br>彼时年少的脸庞<br>思虑自己的笺越 思虑喜爱的奔忙 思虑家国的远方<br>对生活喜悦热情 对时光珍守如一</p>
-<p>当城市里再次响起传唱乡野韵律<br>当如洪吕大钟的咆哮蜕变为小城歌谣的温婉<br>合上书页的少年郎<br>看着窗外的 永无休止的风暴<br>开始真实而坦率地期待着<br>某天的清晨 那穿过树林的微风与露珠折射出的太阳<br>生死聚散方知人生如梦<br>聚啸青山方知相守始终<br>少年郎 似青萍之微末 也似青萍一般孕育起势向整个世界的疾风<br>疾风闪烁 越过历史 岁月 死亡 年轻<br>裹挟着未来与生命 骄傲地佩戴着少年郎的名字<br>奔涌向前</p>
-]]></content>
-      <categories>
-        <category>创作</category>
-      </categories>
-      <tags>
-        <tag>诗歌</tag>
       </tags>
   </entry>
   <entry>
@@ -3663,6 +3646,23 @@
       </categories>
       <tags>
         <tag>课程</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>青萍</title>
+    <url>/2023/02/10/%E9%9D%92%E8%90%8D/</url>
+    <content><![CDATA[<h1 id="青萍"><a href="#青萍" class="headerlink" title="青萍"></a>青萍</h1><p>暖阳 穿彻高楼间的草木<br>照映到屋里少年郎 昏沉的脸庞<br>短暂的日光渐浓 渐斜 渐散乱<br>黑幕深重的夜 城市如苍茫荒野<br>青萍之末 西风吹彻 雾霭苍苍</p>
+<p>渐清醒的少年郎 透过屏幕<br>纸醉金迷的安稳 疯狂<br>试图竭尽全力尽力思虑 妄想看到最远的远方<br>却总因无望而折返 哭泣 慌张<br>沉沦迷茫地 一次次地点燃<br>泛白屏幕里七彩色的篝火<br>试图遮挡住苍白脸庞上 无神清澈的目光</p>
+<p>归途何往?<br>尔尔辞晚 总是做不到的一苇以航<br>少年郎 自以为阅尽千帆 深谙世事变幻<br>喟叹年岁辗转 朱颜折镜<br>自知拳劲孱弱 宝骏委顿 剑锋腐朽<br>且放掀澜青云志 不去谛听那厉哮寒风<br>拥抱最真实的拥抱 亲吻最甜美的笑容<br>暖阳缓缓 岁月蓦然</p>
+<p>偶然的夜 幸福过后的辗转<br>少年郎 不经意间追忆过往的诗篇<br>再次看到蛛网 尘烟 枯藤 大海<br>再次触摸那<br>摇曳着曙光那枝温暖漂亮的笔杆<br>恍然 觉醒 回望<br>在时光内部核心里 滴答作响的旧时光</p>
+<p>漫漫江湖 青萍飞扬的尘世<br>是少年郎心上 千载幽咽而天地共鸣的一个个文字<br>再一次谨醒他切莫虚度时光<br>追风折柳 揽桑榆 平风月<br>剥开历史风尘的面目 第一次清晰地看到<br>彼时年少的脸庞<br>思虑自己的笺越 思虑喜爱的奔忙 思虑家国的远方<br>对生活喜悦热情 对时光珍守如一</p>
+<p>当城市里再次响起传唱乡野韵律<br>当如洪吕大钟的咆哮蜕变为小城歌谣的温婉<br>合上书页的少年郎<br>看着窗外的 永无休止的风暴<br>开始真实而坦率地期待着<br>某天的清晨 那穿过树林的微风与露珠折射出的太阳<br>生死聚散方知人生如梦<br>聚啸青山方知相守始终<br>少年郎 似青萍之微末 也似青萍一般孕育起势向整个世界的疾风<br>疾风闪烁 越过历史 岁月 死亡 年轻<br>裹挟着未来与生命 骄傲地佩戴着少年郎的名字<br>奔涌向前</p>
+]]></content>
+      <categories>
+        <category>创作</category>
+      </categories>
+      <tags>
+        <tag>诗歌</tag>
       </tags>
   </entry>
   <entry>
