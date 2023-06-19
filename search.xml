@@ -103,156 +103,6 @@
       </tags>
   </entry>
   <entry>
-    <title>Git</title>
-    <url>/2023/03/13/Git/</url>
-    <content><![CDATA[<h1 id="Git"><a href="#Git" class="headerlink" title="Git"></a>Git</h1><h1 id="1-Git介绍"><a href="#1-Git介绍" class="headerlink" title="1.Git介绍:"></a>1.Git介绍:</h1><p>git是一个版本控制软件，是可以在你电脑不联网的情况下，只在本地使用的一个版本管理工具，其作用就是可以让你更好的管理你的程序，比如你原来提交过的内容，以后虽然修改了，但是通过git这个工具，可以把你原来提交的内容重现出来，这样对于你后来才意识到的一些错误的更改，可以进行还原。</p>
-<p>一个版本控制的通俗易懂例子:</p>
-<p>[(121条消息) （一）Git和Github介绍_如筏喻者的博客-CSDN博客](<a href="https://blog.csdn.net/weixin_40634003/article/details/122977154?ops_request_misc=%7B%22request_id%22:%22167860762916800192216681%22,%22scm%22:%2220140713.130102334..%22%7D&request_id=167860762916800192216681&biz_id=0&utm_medium=distribute.pc_search_result.none-task-blog-2~all~baidu_landing_v2~default-4-122977154-null-null.142%5Ev73%5Econtrol,201%5Ev4%5Eadd_ask,239%5Ev2%5Einsert_chatgpt&utm_term=git">https://blog.csdn.net/weixin_40634003/article/details/122977154?ops_request_misc=%7B%22request%5Fid%22%3A%22167860762916800192216681%22%2C%22scm%22%3A%2220140713.130102334..%22%7D&amp;request_id=167860762916800192216681&amp;biz_id=0&amp;utm_medium=distribute.pc_search_result.none-task-blog-2~all~baidu_landing_v2~default-4-122977154-null-null.142^v73^control,201^v4^add_ask,239^v2^insert_chatgpt&amp;utm_term=git</a> 和github&amp;spm&#x3D;1018.2226.3001.4187)</p>
-<h2 id="1-1-版本控制软件类型"><a href="#1-1-版本控制软件类型" class="headerlink" title="1.1 版本控制软件类型:"></a>1.1 版本控制软件类型:</h2><h3 id="1-1-1-本地版本："><a href="#1-1-1-本地版本：" class="headerlink" title="1.1.1 本地版本："></a>1.1.1 本地版本：</h3><p>单机运行，使维护文件版本的操作工具化.<img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/dcad420a312545c4a9e8c5f428dce96e.png" alt="dcad420a312545c4a9e8c5f428dce96e"></p>
-<h3 id="1-1-2-集中式"><a href="#1-1-2-集中式" class="headerlink" title="1.1.2 集中式:"></a>1.1.2 集中式:</h3><p>集中化的版本控制系统：联网运行，支持多人协作开发;性能差、用户体验不好.</p>
-<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/efc7fffb3b1549178a68b0b9955ac1b7.png" alt="efc7fffb3b1549178a68b0b9955ac1b7"></p>
-<h3 id="1-1-3-分布式"><a href="#1-1-3-分布式" class="headerlink" title="1.1.3 分布式:"></a>1.1.3 分布式:</h3><p>联网运行，支持多人协作开发;性能优秀、用户体验好.</p>
-<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/99b3f17afa124a8eb76a9a738cdb823b.png" alt="99b3f17afa124a8eb76a9a738cdb823b"></p>
-<p>这里的分布式是指本机和服务器互相备份,与一般传统意义上的分布式全在服务端有所区别.</p>
-<h2 id="1-2-Git特性"><a href="#1-2-Git特性" class="headerlink" title="1.2 Git特性:"></a>1.2 Git特性:</h2><h3 id="1-2-1-保存方式"><a href="#1-2-1-保存方式" class="headerlink" title="1.2.1 保存方式:"></a>1.2.1 保存方式:</h3><p>svn是保存一份原始的本地文件和改动.</p>
-<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/4e37806678b24531a8e2df05a7eee5d9.png" alt="4e37806678b24531a8e2df05a7eee5d9"></p>
-<p>而git是保存每一次的完整的文件快照.</p>
-<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/c8fde5b0098740dfb5c9188992e9972c-1678676269145-10.png" alt="c8fde5b0098740dfb5c9188992e9972c"></p>
-<p>就像使用了数据库索引一样,增加了读性能而略微牺牲了写性能.</p>
-<h3 id="1-2-2-分区"><a href="#1-2-2-分区" class="headerlink" title="1.2.2 分区:"></a>1.2.2 分区:</h3><p>使用Git管理的项目，拥有三个区域，分别是工作区、暂存区、Git仓库。</p>
-<p>工作区：我们书写代码的地方，工作的目录就叫工作区。</p>
-<p>暂存区：暂时存储的区域，在git中，代码无法直接从工作区提交到仓库区，而是需要先从工作区添加到暂存区，然后才能从暂存区提交到仓库区。暂存区的目的是避免误操作。</p>
-<p>本地仓库区：将保存在暂存区域的内容永久转储到 Git 仓库中，生成版本号。生成版本号之后，就可以任何的回退到某一个具体的版本.</p>
-<p><img src="C:\Users\wpy\Desktop\blog\source\images\Git\QQ截图20230313110157.png" alt="QQ截图20230313110157"></p>
-<h2 id="1-3-Git与Github"><a href="#1-3-Git与Github" class="headerlink" title="1.3 Git与Github:"></a>1.3 Git与Github:</h2><p>GitHub 与 Git 是完全不同的两个东西。<br>在 Git 中，开发者将源代码存入名叫“Git 仓库”的资料库中并加以使用。而 GitHub 则是在网络上提供 Git 仓库的一项服务。</p>
-<p>Git 仓库管理功能是 GitHub 的核心。因此，使用 GitHub 之前必须先掌握 Git 的相关知识，同时本地的设备还要安装 Git 的环境。</p>
-<p>GitHub 上公开的软件源代码全都由 Git 进行管理且只支持用 Git 进行管理。<br>先有 Git，再有 Github，是 Github 傍 Git 大腿发展起来的，而不是 Git 傍 GitHub 大腿。</p>
-<h1 id="2-Git使用"><a href="#2-Git使用" class="headerlink" title="2.Git使用:"></a>2.Git使用:</h1><h2 id="2-1-Git协作模式"><a href="#2-1-Git协作模式" class="headerlink" title="2.1 Git协作模式:"></a>2.1 Git协作模式:</h2><h3 id="2-1-1-团队协作"><a href="#2-1-1-团队协作" class="headerlink" title="2.1.1 团队协作:"></a>2.1.1 团队协作:</h3><p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/20200209195719928.png" alt="20200209195719928"></p>
-<h3 id="2-1-2-非团队协作"><a href="#2-1-2-非团队协作" class="headerlink" title="2.1.2 非团队协作:"></a>2.1.2 非团队协作:</h3><p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/20200210121426442.png" alt="20200210121426442"></p>
-<h2 id="2-2-分支"><a href="#2-2-分支" class="headerlink" title="2.2 分支:"></a>2.2 分支:</h2><p>在进行多人协作开发的时候，为了防止互相干扰，提高协同开发的体验，建议每个开发者都基于分支进行项目功能的开发，例如:</p>
-<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/598d123ef5ab439e8275acbf16baeb45.png" alt="598d123ef5ab439e8275acbf16baeb45"></p>
-<h2 id="2-3-Git下载安装"><a href="#2-3-Git下载安装" class="headerlink" title="2.3 Git下载安装:"></a>2.3 Git下载安装:</h2><p>参看<a href="https://blog.csdn.net/weixin_47638941/article/details/120632890?ops_request_misc=%7B%22request_id%22:%22167867670516782427458948%22,%22scm%22:%2220140713.130102334..%22%7D&request_id=167867670516782427458948&biz_id=0&utm_medium=distribute.pc_search_result.none-task-blog-2~all~top_positive~default-1-120632890-null-null.142%5Ev73%5Econtrol,201%5Ev4%5Eadd_ask,239%5Ev2%5Einsert_chatgpt&utm_term=git%E4%B8%8B%E8%BD%BD%E5%AE%89%E8%A3%85%E6%95%99%E7%A8%8B&spm=1018.2226.3001.4187">(121条消息) Git的下载安装 (图文教程)<em>git下载安装</em>@memory的博客-CSDN博客</a></p>
-<h2 id="2-4-Git使用"><a href="#2-4-Git使用" class="headerlink" title="2.4 Git使用:"></a>2.4 Git使用:</h2><p><a href="https://juejin.cn/post/6844903924458078221#heading-3">Github使用教程图文详解 - 掘金 (juejin.cn)</a></p>
-<p><a href="https://juejin.cn/post/7002456806198870023#heading-9">谈谈git与github使用 - 掘金 (juejin.cn)</a></p>
-<h3 id="2-4-1-第一次使用"><a href="#2-4-1-第一次使用" class="headerlink" title="2.4.1 第一次使用:"></a>2.4.1 第一次使用:</h3><p>新建文件夹,执行</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">//初始化git仓库</span><br><span class="line">git init</span><br></pre></td></tr></table></figure>
-
-<p>然后连接到远程仓库:</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">//为仓库起别名,并连接</span><br><span class="line">git remote add 别名 地址</span><br><span class="line">git remote add origin https://github.com/bearslyricattack/demo.git</span><br><span class="line">//创建自己的分支</span><br><span class="line">git checkout -b 分支名</span><br><span class="line">git checkout -b wpy_dev</span><br><span class="line">//从主分支上拉取下代码</span><br><span class="line">git pull 别名 分支名</span><br><span class="line">git pull origin main</span><br></pre></td></tr></table></figure>
-
-<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230313113241.png" alt="QQ截图20230313113241"></p>
-<p>拉取下代码后,进行本地开发,在开发完成后,把开发完成的新代码放到这个文件夹下,然后执行</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">//由工作区添加到暂存区</span><br><span class="line">git add --all</span><br><span class="line">//由暂存区提交到仓库</span><br><span class="line">git commit -m &quot;&quot;</span><br><span class="line">&quot;&quot;里面是提交日志,生成的是版本号</span><br><span class="line">//提交到github</span><br><span class="line">git push 别名 分支名</span><br><span class="line">git push origin wpy_dev</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230313113330.png" alt="QQ截图20230313113330"></p>
-<p>然后在登录github进行分支合并就可以了.</p>
-<h3 id="2-4-2-以后使用"><a href="#2-4-2-以后使用" class="headerlink" title="2.4.2 以后使用:"></a>2.4.2 以后使用:</h3><p>只需要先pull,然后按照上面的流程继续即可.</p>
-]]></content>
-      <categories>
-        <category>笔记</category>
-      </categories>
-      <tags>
-        <tag>中间件</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Go语言设计与实现</title>
-    <url>/2023/03/14/Go%E8%AF%AD%E8%A8%80%E8%AE%BE%E8%AE%A1%E4%B8%8E%E5%AE%9E%E7%8E%B0/</url>
-    <content><![CDATA[<h1 id="Go语言设计与实现"><a href="#Go语言设计与实现" class="headerlink" title="Go语言设计与实现"></a>Go语言设计与实现</h1><h1 id="1-编译原理"><a href="#1-编译原理" class="headerlink" title="1.编译原理:"></a>1.编译原理:</h1><p>go语言编译器的源代码放在src&#x2F;cmd&#x2F;complie中.</p>
-<h2 id="1-1-预备知识"><a href="#1-1-预备知识" class="headerlink" title="1.1 预备知识:"></a>1.1 预备知识:</h2><h3 id="1-1-1-抽象语法树"><a href="#1-1-1-抽象语法树" class="headerlink" title="1.1.1 抽象语法树:"></a>1.1.1 抽象语法树:</h3><p>抽象语法树（abstract syntax code，AST）是源代码的抽象语法结构的树状表示，树上的每个节点都表示源代码中的一种结构，这所以说是抽象的，是因为抽象语法树并不会表示出真实语法出现的每一个细节，比如说，嵌套括号被隐含在树的结构中，并没有以节点的形式呈现。抽象语法树并不依赖于源语言的语法，也就是说语法分析阶段所采用的上下文无文文法，因为在写文法时，经常会对文法进行等价的转换（消除左递归，回溯，二义性等），这样会给文法分析引入一些多余的成分，对后续阶段造成不利影响，甚至会使合个阶段变得混乱。因些，很多编译器经常要独立地构造语法分析树，为前端，后端建立一个清晰的接口。抽象语法树在很多领域有广泛的应用，比如浏览器，智能编辑器，编译器。</p>
-<h3 id="1-1-2-静态单赋值"><a href="#1-1-2-静态单赋值" class="headerlink" title="1.1.2 静态单赋值:"></a>1.1.2 静态单赋值:</h3><p>称为ssa,是编译器后端的一部分,是指每个变量只会被赋值一次,是一种中间代码的特性.</p>
-<h3 id="1-1-3-编译阶段"><a href="#1-1-3-编译阶段" class="headerlink" title="1.1.3 编译阶段:"></a>1.1.3 编译阶段:</h3><h4 id="1-1-3-1-编译器的前后端"><a href="#1-1-3-1-编译器的前后端" class="headerlink" title="1.1.3.1 编译器的前后端:"></a>1.1.3.1 编译器的前后端:</h4><p>编译器一般由前端和后端组成.其中前端负责把源代码转换成语言无关的中间代码,后端主要负责代码的生成和优化.包括中间代码和机器码.                                                                                                                                                                                                                                                                                </p>
-<h4 id="1-1-3-2-词法分析和语法分析"><a href="#1-1-3-2-词法分析和语法分析" class="headerlink" title="1.1.3.2 词法分析和语法分析:"></a>1.1.3.2 词法分析和语法分析:</h4><p>词法分析是解析源代码文件,变成token序列,语法分析是把token序列变成ast.</p>
-<p>出现任何问题编译会即刻终止并在控制台打印问题.</p>
-<h4 id="1-1-3-3-类型检查"><a href="#1-1-3-3-类型检查" class="headerlink" title="1.1.3.3 类型检查:"></a>1.1.3.3 类型检查:</h4><p>对ast进行各种类型的检查,同时更改一些关键字的类型.（如make）。</p>
-<h5 id="1-1-3-3-1-强类型和弱类型："><a href="#1-1-3-3-1-强类型和弱类型：" class="headerlink" title="1.1.3.3.1 强类型和弱类型："></a>1.1.3.3.1 强类型和弱类型：</h5><p>强类型：在语言的编译器有更严格的要求。</p>
-<p>弱类型：编译时期的类型错误会在运行时进行隐式的类型转换，可能会导致错误。</p>
-<h5 id="1-1-3-3-2-静态类型检查和动态类型检查："><a href="#1-1-3-3-2-静态类型检查和动态类型检查：" class="headerlink" title="1.1.3.3.2 静态类型检查和动态类型检查："></a>1.1.3.3.2 静态类型检查和动态类型检查：</h5><p>静态类型检查通过对源代码的分析，判断程序类型是否安全。可以在编译器约束变量的类型。</p>
-<p>动态类型检查是运行时确定程序类型是否安全的过程，这就要求在编译时，为所有的对象加入类型标签等信息，而工程师可以利用这些信息实现反射，动态派发等一系列动态的功能。使用起来非常灵活。</p>
-<p>这两种类型检查并不是完全对立的，很多编程语言同时使用这两种类型检查，使用静态类型检查减少错误，为对象添加类型标签，从而实现语言的动态功能。Go语言就是其中之一。 </p>
-<h4 id="1-1-3-4-中间代码生成"><a href="#1-1-3-4-中间代码生成" class="headerlink" title="1.1.3.4 中间代码生成:"></a>1.1.3.4 中间代码生成:</h4><p>经过前两步之后,就可以认为代码已经不存在问题了,就可以生成中间代码。</p>
-<p>通过goroutine并发编译方式，将每一个函数的ast变成中间代码。</p>
-<h4 id="1-1-3-5-机器码生成："><a href="#1-1-3-5-机器码生成：" class="headerlink" title="1.1.3.5 机器码生成："></a>1.1.3.5 机器码生成：</h4><p>根据不同的架构环境以及中间代码，生成机器码.</p>
-<h1 id="2-数据结构："><a href="#2-数据结构：" class="headerlink" title="2.数据结构："></a>2.数据结构：</h1><h2 id="2-1-数组："><a href="#2-1-数组：" class="headerlink" title="2.1 数组："></a>2.1 数组：</h2><h3 id="2-1-1-初始化"><a href="#2-1-1-初始化" class="headerlink" title="2.1.1 初始化:"></a>2.1.1 初始化:</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">arr := [3]int&#123;1,2,3&#125;</span><br><span class="line">arr := [...]int&#123;1,2,3&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<p>数组初始化大小后无法改变。</p>
-<h3 id="2-1-2-访问和赋值"><a href="#2-1-2-访问和赋值" class="headerlink" title="2.1.2 访问和赋值:"></a>2.1.2 访问和赋值:</h3><p>数组是一连串的存储空间,通过数组开头的指针,数组的大小,数组中数据元素的大小访问数组中的元素.</p>
-<h2 id="2-2-切片"><a href="#2-2-切片" class="headerlink" title="2.2 切片:"></a>2.2 切片:</h2><p>数组切边,即动态数组.数据结构是一个结构体:</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">type SliceHeader struct&#123;</span><br><span class="line">Data uintptr</span><br><span class="line">len int</span><br><span class="line">cap int</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>data是一个数组的一部分，连续片段的引用。len是当前切片的长度，cap是data数组的大小。</p>
-<h3 id="2-2-1-初始化："><a href="#2-2-1-初始化：" class="headerlink" title="2.2.1 初始化："></a>2.2.1 初始化：</h3><p>使用make关键字。</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">slice := make([]int,10)</span><br></pre></td></tr></table></figure>
-
-<p>当切片长度不够的时候，会发生扩容，具体过程是新建一个更大的切片然后把原先切片的内容复制过去。</p>
-<h2 id="2-3-哈希表："><a href="#2-3-哈希表：" class="headerlink" title="2.3 哈希表："></a>2.3 哈希表：</h2><h3 id="2-3-1-设计原理："><a href="#2-3-1-设计原理：" class="headerlink" title="2.3.1 设计原理："></a>2.3.1 设计原理：</h3><p>两个关键点：哈希函数和解决冲突的方法。</p>
-<h4 id="2-3-1-1：哈希函数："><a href="#2-3-1-1：哈希函数：" class="headerlink" title="2.3.1.1：哈希函数："></a>2.3.1.1：哈希函数：</h4><p>理想情况：输出范围远远大于输入范围.</p>
-<p>实际解决方案：输出结果尽可能的均匀，通过工程手段解决冲突问题。</p>
-<h4 id="2-3-1-2-解决冲突方法："><a href="#2-3-1-2-解决冲突方法：" class="headerlink" title="2.3.1.2 解决冲突方法："></a>2.3.1.2 解决冲突方法：</h4><p>开放地址法和拉链法。</p>
-<h3 id="2-3-2-使用："><a href="#2-3-2-使用：" class="headerlink" title="2.3.2 使用："></a>2.3.2 使用：</h3><h4 id="2-3-2-1-初始化："><a href="#2-3-2-1-初始化：" class="headerlink" title="2.3.2.1 初始化："></a>2.3.2.1 初始化：</h4><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">//使用make</span><br><span class="line">hash := make(map[string]int,3)</span><br><span class="line">//使用字面量</span><br><span class="line">hash := map[string]int &#123;</span><br><span class="line"> &quot;1&quot;: 1,</span><br><span class="line"> &quot;2&quot;: 2,</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h4 id="2-3-2-2-使用"><a href="#2-3-2-2-使用" class="headerlink" title="2.3.2.2 使用:"></a>2.3.2.2 使用:</h4><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">a = hash[key]</span><br><span class="line"></span><br><span class="line">for k,v := range hash&#123;</span><br><span class="line"> 	//k,v</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h4 id="2-3-2-3-数据结构"><a href="#2-3-2-3-数据结构" class="headerlink" title="2.3.2.3 数据结构:"></a>2.3.2.3 数据结构:</h4><p>核心是一个hmap,包括count:数量,hash0:哈希表种子等.还有 buckets,指向正常桶和溢出桶的数组(他们是连续存储的),数组中的元素存储</p>
-<p>的是哈希键的前八位.一个桶存储8个键值对,一旦有更多的键值对,就会装载到溢出桶中,超过一定的范围就会引发扩容,使桶的数量翻倍.</p>
-<h2 id="2-4-字符串"><a href="#2-4-字符串" class="headerlink" title="2.4 字符串:"></a>2.4 字符串:</h2><h3 id="2-4-1-数据结构"><a href="#2-4-1-数据结构" class="headerlink" title="2.4.1 数据结构:"></a>2.4.1 数据结构:</h3><p> 与切片高度相似,包含指向字节数组的指针,和数组的大小.</p>
-<p>与Java,Python等语言一样,Go的字符串也是只读的,不可变的.因此所有字符串上的操作都是通过复制实现的. </p>
-<h3 id="2-4-2-使用"><a href="#2-4-2-使用" class="headerlink" title="2.4.2 使用:"></a>2.4.2 使用:</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">str := &quot;123&quot;</span><br></pre></td></tr></table></figure>
-
-<p>在进行拼接和类型转换时,string和[]byte之间转换,可能会造成性能问题. </p>
-<h1 id="3-语言特性"><a href="#3-语言特性" class="headerlink" title="3. 语言特性:"></a>3. 语言特性:</h1><h2 id="3-1-函数调用"><a href="#3-1-函数调用" class="headerlink" title="3.1 函数调用:"></a>3.1 函数调用:</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">func myFunction(a,b int)(int ,int)&#123;</span><br><span class="line"> 	return a+b,a-b</span><br><span class="line">&#125;</span><br><span class="line">myFunction(66,77)</span><br></pre></td></tr></table></figure>
-
-<p>与c语言传递参数时同时使用寄存器(前六个参数)和栈,用寄存器传递返回值的方式,go语言选择使用完全栈传递参数和返回值.牺牲了部分函数调用的性能,但是不需要考虑寄存器的具体设计,同时更加简单,支持多返回值.</p>
-<h2 id="3-2-参数传递"><a href="#3-2-参数传递" class="headerlink" title="3.2 参数传递:"></a>3.2 参数传递:</h2><p>向函数传递参数一般有两种方式,一种是传值,双方持有两份不同的数据,另一种是传递引用,双方持有同一份数据.</p>
-<p>而在Go语言中,选择了传值的方式,无论是何种数据类型,都会进行复制.对于一般的数据类型,比如整数,数组,结构体等,都会复制全部内容.而对于指针,会复制一个指针,指向原有指针指向的对象.</p>
-<p>所以在向函数传递很大的数组或者结构体是,尽量传递指针而不是其本身,避免发生大规模的数据复制从而影响性能.</p>
-<h2 id="3-3-接口"><a href="#3-3-接口" class="headerlink" title="3.3 接口:"></a>3.3 接口:</h2><p>代码必须能够被人阅读，只是机器恰好可以执行.</p>
-<p>接口用于隐藏实现底层,解耦依赖关系等等功能,很多面向对象语言都有接口这一概念，例如 Java 和 C#。</p>
-<h3 id="3-3-1-定义"><a href="#3-3-1-定义" class="headerlink" title="3.3.1 定义:"></a>3.3.1 定义:</h3><p>定义接口需要使用 <code>interface</code> 关键字，在接口中我们只能定义方法签名，不能包含成员变量.与定义结构体非常相近.</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">type error interface &#123;</span><br><span class="line">	Error() string</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>Go语言中的接口实现是隐式的,只需要实现接口下面的所有的方法,就详单与实现了接口,而不需要像Java一样显式的声明出来.</p>
-<h3 id="3-3-2-接口检查"><a href="#3-3-2-接口检查" class="headerlink" title="3.3.2 接口检查:"></a>3.3.2 接口检查:</h3><figure class="highlight go"><table><tr><td class="code"><pre><span class="line"><span class="keyword">type</span> <span class="type">error</span> <span class="keyword">interface</span> &#123;</span><br><span class="line">	Error() <span class="type">string</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">type</span> RPCError <span class="keyword">struct</span> &#123;</span><br><span class="line">	Code    <span class="type">int64</span></span><br><span class="line">	Message <span class="type">string</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="params">(e *RPCError)</span></span> Error() <span class="type">string</span> &#123;</span><br><span class="line">	<span class="keyword">return</span> fmt.Sprintf(<span class="string">&quot;%s, code=%d&quot;</span>, e.Message, e.Code)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">	<span class="keyword">var</span> rpcErr <span class="type">error</span> = NewRPCError(<span class="number">400</span>, <span class="string">&quot;unknown err&quot;</span>) <span class="comment">// typecheck1</span></span><br><span class="line">	err := AsErr(rpcErr) <span class="comment">// typecheck2</span></span><br><span class="line">	<span class="built_in">println</span>(err)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">NewRPCError</span><span class="params">(code <span class="type">int64</span>, msg <span class="type">string</span>)</span></span> <span class="type">error</span> &#123;</span><br><span class="line">	<span class="keyword">return</span> &amp;RPCError&#123; <span class="comment">// typecheck3</span></span><br><span class="line">		Code:    code,</span><br><span class="line">		Message: msg,</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">AsErr</span><span class="params">(err <span class="type">error</span>)</span></span> <span class="type">error</span> &#123;</span><br><span class="line">	<span class="keyword">return</span> err</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>Go 语言在<a href="https://draveness.me/golang/docs/part1-prerequisite/ch02-compile/golang-compile-intro/">编译期间</a>对代码进行类型检查，上述代码总共触发了三次类型检查：</p>
-<ol>
-<li>将 <code>*RPCError</code> 类型的变量赋值给 <code>error</code> 类型的变量 <code>rpcErr</code>；</li>
-<li>将 <code>*RPCError</code> 类型的变量 <code>rpcErr</code> 传递给签名中参数类型为 <code>error</code> 的 <code>AsErr</code> 函数；</li>
-<li>将 <code>*RPCError</code> 类型的变量从函数签名的返回值类型为 <code>error</code> 的 <code>NewRPCError</code> 函数中返回；</li>
-</ol>
-<h3 id="3-3-3-类型"><a href="#3-3-3-类型" class="headerlink" title="3.3.3 类型:"></a>3.3.3 类型:</h3><p> Go 语言中有两种略微不同的接口，一种是带有一组方法的接口，另一种是不带任何方法的 <code>interface&#123;&#125;</code>：Go 语言使用 <a href="https://draveness.me/golang/tree/runtime.iface"><code>runtime.iface</code></a> 表示第一种接口，使用 <a href="https://draveness.me/golang/tree/runtime.eface"><code>runtime.eface</code></a> 表示第二种不包含任何方法的接口 <code>interface&#123;&#125;</code>，两种接口虽然都使用 <code>interface</code> 声明，但是由于后者在 Go 语言中很常见，所以在实现时使用了特殊的类型。</p>
-<h3 id="3-3-4-指针和接口"><a href="#3-3-4-指针和接口" class="headerlink" title="3.3.4 指针和接口:"></a>3.3.4 指针和接口:</h3><figure class="highlight go"><table><tr><td class="code"><pre><span class="line"><span class="keyword">type</span> Duck <span class="keyword">interface</span> &#123;</span><br><span class="line">	Quack()</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">type</span> Cat <span class="keyword">struct</span>&#123;&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="params">(c Cat)</span></span> Quack() &#123;</span><br><span class="line">	fmt.Println(<span class="string">&quot;meow&quot;</span>)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">	<span class="keyword">var</span> c Duck = &amp;Cat&#123;&#125;</span><br><span class="line">	c.Quack()</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>这段代码使用结构体作为参数实现接口,而在初始化变量的时候使用指针的方式.也就是说,c是一个指针,指向一个cat结构体,当运行c.quack方法时,会复制一个指针,同样指向cat,所以可以正常运行.</p>
-<figure class="highlight go"><table><tr><td class="code"><pre><span class="line"><span class="keyword">type</span> Duck <span class="keyword">interface</span> &#123;</span><br><span class="line">	Quack()</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">type</span> Cat <span class="keyword">struct</span>&#123;&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="params">(c *Cat)</span></span> Quack() &#123;</span><br><span class="line">	fmt.Println(<span class="string">&quot;meow&quot;</span>)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">	<span class="keyword">var</span> c Duck = Cat&#123;&#125;</span><br><span class="line">	c.Quack()</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>这段代码使用指针作为参数实现接口,而初始化变量的时候使用结构体的方式,这样是不行的,因为这个方法需要的是一个指针变量,而这个现在并没有指针变量,所以无法通过.</p>
-<h2 id="3-4-反射"><a href="#3-4-反射" class="headerlink" title="3.4 反射:"></a>3.4 反射:</h2><p>主要依靠”reflect”包.主要包括两个函数和类型,他们是一一对应的.</p>
-<p>1.类型reflect.Type是反射包定义的一个接口，我们可以使用reflect.TypeOf()函数获取任意变量的类型.</p>
-<p>2.类型reflect.Value是反射包定义的一个结构体,可以使用reflect.ValueOf()函数获取任意变量的值.</p>
-<p>反射包中的所有方法基本都是围绕着 reflect.Type 和reflect.Value两个类型设计的。我们通过 reflect.TypeOf()、reflect.ValueOf()可以将一个普通的变量转换成反射包中提供的reflect.Type  和 reflect.Value随后就可以使用反射包中的方法对它们进行复杂的操作。</p>
-<h3 id="3-4-1-第一法则"><a href="#3-4-1-第一法则" class="headerlink" title="3.4.1 第一法则:"></a>3.4.1 第一法则:</h3><p>从 <code>interface&#123;&#125;</code> 变量可以反射出反射对象.</p>
-<p>两个重要的方法的参数都是接口类型.使用时会发生类型转换.</p>
-<figure class="highlight go"><table><tr><td class="code"><pre><span class="line"><span class="keyword">package</span> main</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> (</span><br><span class="line">	<span class="string">&quot;fmt&quot;</span></span><br><span class="line">	<span class="string">&quot;reflect&quot;</span></span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">	author := <span class="string">&quot;draven&quot;</span></span><br><span class="line">	fmt.Println(<span class="string">&quot;TypeOf author:&quot;</span>, reflect.TypeOf(author))</span><br><span class="line">	fmt.Println(<span class="string">&quot;ValueOf author:&quot;</span>, reflect.ValueOf(author))</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">$ <span class="keyword">go</span> run main.<span class="keyword">go</span></span><br><span class="line">TypeOf author: <span class="type">string</span></span><br><span class="line">ValueOf author: draven</span><br></pre></td></tr></table></figure>
-
-<h3 id="3-4-2-第二法则"><a href="#3-4-2-第二法则" class="headerlink" title="3.4.2 第二法则:"></a>3.4.2 第二法则:</h3><p>从反射对象可以获取 <code>interface&#123;&#125;</code> 变量；</p>
-<figure class="highlight go"><table><tr><td class="code"><pre><span class="line">v := reflect.ValueOf(<span class="number">1</span>)</span><br><span class="line">v.Interface().(<span class="type">int</span>)</span><br></pre></td></tr></table></figure>
-
-<h3 id="3-4-3-第三法则"><a href="#3-4-3-第三法则" class="headerlink" title="3.4.3 第三法则:"></a>3.4.3 第三法则:</h3><p>要修改反射对象，其值必须可设置；</p>
-<figure class="highlight go"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">	i := <span class="number">1</span></span><br><span class="line">	v := reflect.ValueOf(&amp;i)</span><br><span class="line">	v.Elem().SetInt(<span class="number">10</span>)</span><br><span class="line">	fmt.Println(i)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">$ <span class="keyword">go</span> run reflect.<span class="keyword">go</span></span><br><span class="line"><span class="number">10</span></span><br></pre></td></tr></table></figure>
-
-<p>修改反射对象值的过程,由于传值特性,这种过程类似于</p>
-<figure class="highlight go"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">	i := <span class="number">1</span></span><br><span class="line">	v := &amp;i</span><br><span class="line">	*v = <span class="number">10</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h1 id="4-关键字"><a href="#4-关键字" class="headerlink" title="4.关键字:"></a>4.关键字:</h1>]]></content>
-      <categories>
-        <category>笔记</category>
-      </categories>
-      <tags>
-        <tag>Go</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Golang</title>
     <url>/2023/01/17/Golang/</url>
     <content><![CDATA[<h1 id="Golang"><a href="#Golang" class="headerlink" title="Golang:"></a>Golang:</h1><h1 id="1-Golang简介"><a href="#1-Golang简介" class="headerlink" title="1.Golang简介:"></a>1.Golang简介:</h1><h2 id="1-1Golang优点"><a href="#1-1Golang优点" class="headerlink" title="1.1Golang优点:"></a>1.1Golang优点:</h2><p>1.高性能,高并发.python有性能问题.</p>
@@ -593,28 +443,153 @@
       </tags>
   </entry>
   <entry>
-    <title>Redis</title>
-    <url>/2023/01/17/Redis/</url>
-    <content><![CDATA[<h1 id="Redis"><a href="#Redis" class="headerlink" title="Redis"></a>Redis</h1><h1 id="1-Redis介绍："><a href="#1-Redis介绍：" class="headerlink" title="1.Redis介绍："></a>1.Redis介绍：</h1><h2 id="1-1-为什么需要redis："><a href="#1-1-为什么需要redis：" class="headerlink" title="1.1 为什么需要redis："></a>1.1 为什么需要redis：</h2><p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230215111415.png" alt="QQ截图20230215111415"></p>
-<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230215111447.png" alt="QQ截图20230215111447"></p>
-<h2 id="1-2-基本结构："><a href="#1-2-基本结构：" class="headerlink" title="1.2 基本结构："></a>1.2 基本结构：</h2><p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230215111543.png" alt="QQ截图20230215111543"></p>
-<p>一定程度上实现持久化。</p>
-<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230215111849.png" alt="QQ截图20230215111849"></p>
-<h1 id="2-Redis应用案例："><a href="#2-Redis应用案例：" class="headerlink" title="2. Redis应用案例："></a>2. Redis应用案例：</h1><h2 id="2-1-连续签到："><a href="#2-1-连续签到：" class="headerlink" title="2.1 连续签到："></a>2.1 连续签到：</h2><p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230215111950.png" alt="QQ截图20230215111950"></p>
-<h2 id="2-2-String数据结构："><a href="#2-2-String数据结构：" class="headerlink" title="2.2 String数据结构："></a>2.2 String数据结构：</h2><p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230215112319.png" alt="QQ截图20230215112319"></p>
-<p>存储的是二进制数据。</p>
-<p>flags获取数据类型，alloc是分配空间长度，len是实际长度。</p>
-<h2 id="2-3-消息通知："><a href="#2-3-消息通知：" class="headerlink" title="2.3 消息通知："></a>2.3 消息通知：</h2><p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230215112738.png" alt="QQ截图20230215112738"></p>
-<h2 id="2-4-List数据结构："><a href="#2-4-List数据结构：" class="headerlink" title="2.4 List数据结构："></a>2.4 List数据结构：</h2><p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230215113124.png" alt="QQ截图20230215113124"></p>
-<p>在一个节点上存储很多个数据。</p>
-<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230215113359.png" alt="QQ截图20230215113359"></p>
-<h2 id="2-5-计数："><a href="#2-5-计数：" class="headerlink" title="2.5 计数："></a>2.5 计数：</h2><p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230215113442.png" alt="QQ截图20230215113442"></p>
+    <title>Git</title>
+    <url>/2023/03/13/Git/</url>
+    <content><![CDATA[<h1 id="Git"><a href="#Git" class="headerlink" title="Git"></a>Git</h1><h1 id="1-Git介绍"><a href="#1-Git介绍" class="headerlink" title="1.Git介绍:"></a>1.Git介绍:</h1><p>git是一个版本控制软件，是可以在你电脑不联网的情况下，只在本地使用的一个版本管理工具，其作用就是可以让你更好的管理你的程序，比如你原来提交过的内容，以后虽然修改了，但是通过git这个工具，可以把你原来提交的内容重现出来，这样对于你后来才意识到的一些错误的更改，可以进行还原。</p>
+<p>一个版本控制的通俗易懂例子:</p>
+<p>[(121条消息) （一）Git和Github介绍_如筏喻者的博客-CSDN博客](<a href="https://blog.csdn.net/weixin_40634003/article/details/122977154?ops_request_misc=%7B%22request_id%22:%22167860762916800192216681%22,%22scm%22:%2220140713.130102334..%22%7D&request_id=167860762916800192216681&biz_id=0&utm_medium=distribute.pc_search_result.none-task-blog-2~all~baidu_landing_v2~default-4-122977154-null-null.142%5Ev73%5Econtrol,201%5Ev4%5Eadd_ask,239%5Ev2%5Einsert_chatgpt&utm_term=git">https://blog.csdn.net/weixin_40634003/article/details/122977154?ops_request_misc=%7B%22request%5Fid%22%3A%22167860762916800192216681%22%2C%22scm%22%3A%2220140713.130102334..%22%7D&amp;request_id=167860762916800192216681&amp;biz_id=0&amp;utm_medium=distribute.pc_search_result.none-task-blog-2~all~baidu_landing_v2~default-4-122977154-null-null.142^v73^control,201^v4^add_ask,239^v2^insert_chatgpt&amp;utm_term=git</a> 和github&amp;spm&#x3D;1018.2226.3001.4187)</p>
+<h2 id="1-1-版本控制软件类型"><a href="#1-1-版本控制软件类型" class="headerlink" title="1.1 版本控制软件类型:"></a>1.1 版本控制软件类型:</h2><h3 id="1-1-1-本地版本："><a href="#1-1-1-本地版本：" class="headerlink" title="1.1.1 本地版本："></a>1.1.1 本地版本：</h3><p>单机运行，使维护文件版本的操作工具化.<img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/dcad420a312545c4a9e8c5f428dce96e.png" alt="dcad420a312545c4a9e8c5f428dce96e"></p>
+<h3 id="1-1-2-集中式"><a href="#1-1-2-集中式" class="headerlink" title="1.1.2 集中式:"></a>1.1.2 集中式:</h3><p>集中化的版本控制系统：联网运行，支持多人协作开发;性能差、用户体验不好.</p>
+<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/efc7fffb3b1549178a68b0b9955ac1b7.png" alt="efc7fffb3b1549178a68b0b9955ac1b7"></p>
+<h3 id="1-1-3-分布式"><a href="#1-1-3-分布式" class="headerlink" title="1.1.3 分布式:"></a>1.1.3 分布式:</h3><p>联网运行，支持多人协作开发;性能优秀、用户体验好.</p>
+<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/99b3f17afa124a8eb76a9a738cdb823b.png" alt="99b3f17afa124a8eb76a9a738cdb823b"></p>
+<p>这里的分布式是指本机和服务器互相备份,与一般传统意义上的分布式全在服务端有所区别.</p>
+<h2 id="1-2-Git特性"><a href="#1-2-Git特性" class="headerlink" title="1.2 Git特性:"></a>1.2 Git特性:</h2><h3 id="1-2-1-保存方式"><a href="#1-2-1-保存方式" class="headerlink" title="1.2.1 保存方式:"></a>1.2.1 保存方式:</h3><p>svn是保存一份原始的本地文件和改动.</p>
+<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/4e37806678b24531a8e2df05a7eee5d9.png" alt="4e37806678b24531a8e2df05a7eee5d9"></p>
+<p>而git是保存每一次的完整的文件快照.</p>
+<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/c8fde5b0098740dfb5c9188992e9972c-1678676269145-10.png" alt="c8fde5b0098740dfb5c9188992e9972c"></p>
+<p>就像使用了数据库索引一样,增加了读性能而略微牺牲了写性能.</p>
+<h3 id="1-2-2-分区"><a href="#1-2-2-分区" class="headerlink" title="1.2.2 分区:"></a>1.2.2 分区:</h3><p>使用Git管理的项目，拥有三个区域，分别是工作区、暂存区、Git仓库。</p>
+<p>工作区：我们书写代码的地方，工作的目录就叫工作区。</p>
+<p>暂存区：暂时存储的区域，在git中，代码无法直接从工作区提交到仓库区，而是需要先从工作区添加到暂存区，然后才能从暂存区提交到仓库区。暂存区的目的是避免误操作。</p>
+<p>本地仓库区：将保存在暂存区域的内容永久转储到 Git 仓库中，生成版本号。生成版本号之后，就可以任何的回退到某一个具体的版本.</p>
+<p><img src="C:\Users\wpy\Desktop\blog\source\images\Git\QQ截图20230313110157.png" alt="QQ截图20230313110157"></p>
+<h2 id="1-3-Git与Github"><a href="#1-3-Git与Github" class="headerlink" title="1.3 Git与Github:"></a>1.3 Git与Github:</h2><p>GitHub 与 Git 是完全不同的两个东西。<br>在 Git 中，开发者将源代码存入名叫“Git 仓库”的资料库中并加以使用。而 GitHub 则是在网络上提供 Git 仓库的一项服务。</p>
+<p>Git 仓库管理功能是 GitHub 的核心。因此，使用 GitHub 之前必须先掌握 Git 的相关知识，同时本地的设备还要安装 Git 的环境。</p>
+<p>GitHub 上公开的软件源代码全都由 Git 进行管理且只支持用 Git 进行管理。<br>先有 Git，再有 Github，是 Github 傍 Git 大腿发展起来的，而不是 Git 傍 GitHub 大腿。</p>
+<h1 id="2-Git使用"><a href="#2-Git使用" class="headerlink" title="2.Git使用:"></a>2.Git使用:</h1><h2 id="2-1-Git协作模式"><a href="#2-1-Git协作模式" class="headerlink" title="2.1 Git协作模式:"></a>2.1 Git协作模式:</h2><h3 id="2-1-1-团队协作"><a href="#2-1-1-团队协作" class="headerlink" title="2.1.1 团队协作:"></a>2.1.1 团队协作:</h3><p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/20200209195719928.png" alt="20200209195719928"></p>
+<h3 id="2-1-2-非团队协作"><a href="#2-1-2-非团队协作" class="headerlink" title="2.1.2 非团队协作:"></a>2.1.2 非团队协作:</h3><p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/20200210121426442.png" alt="20200210121426442"></p>
+<h2 id="2-2-分支"><a href="#2-2-分支" class="headerlink" title="2.2 分支:"></a>2.2 分支:</h2><p>在进行多人协作开发的时候，为了防止互相干扰，提高协同开发的体验，建议每个开发者都基于分支进行项目功能的开发，例如:</p>
+<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/598d123ef5ab439e8275acbf16baeb45.png" alt="598d123ef5ab439e8275acbf16baeb45"></p>
+<h2 id="2-3-Git下载安装"><a href="#2-3-Git下载安装" class="headerlink" title="2.3 Git下载安装:"></a>2.3 Git下载安装:</h2><p>参看<a href="https://blog.csdn.net/weixin_47638941/article/details/120632890?ops_request_misc=%7B%22request_id%22:%22167867670516782427458948%22,%22scm%22:%2220140713.130102334..%22%7D&request_id=167867670516782427458948&biz_id=0&utm_medium=distribute.pc_search_result.none-task-blog-2~all~top_positive~default-1-120632890-null-null.142%5Ev73%5Econtrol,201%5Ev4%5Eadd_ask,239%5Ev2%5Einsert_chatgpt&utm_term=git%E4%B8%8B%E8%BD%BD%E5%AE%89%E8%A3%85%E6%95%99%E7%A8%8B&spm=1018.2226.3001.4187">(121条消息) Git的下载安装 (图文教程)<em>git下载安装</em>@memory的博客-CSDN博客</a></p>
+<h2 id="2-4-Git使用"><a href="#2-4-Git使用" class="headerlink" title="2.4 Git使用:"></a>2.4 Git使用:</h2><p><a href="https://juejin.cn/post/6844903924458078221#heading-3">Github使用教程图文详解 - 掘金 (juejin.cn)</a></p>
+<p><a href="https://juejin.cn/post/7002456806198870023#heading-9">谈谈git与github使用 - 掘金 (juejin.cn)</a></p>
+<h3 id="2-4-1-第一次使用"><a href="#2-4-1-第一次使用" class="headerlink" title="2.4.1 第一次使用:"></a>2.4.1 第一次使用:</h3><p>新建文件夹,执行</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">//初始化git仓库</span><br><span class="line">git init</span><br></pre></td></tr></table></figure>
+
+<p>然后连接到远程仓库:</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">//为仓库起别名,并连接</span><br><span class="line">git remote add 别名 地址</span><br><span class="line">git remote add origin https://github.com/bearslyricattack/demo.git</span><br><span class="line">//创建自己的分支</span><br><span class="line">git checkout -b 分支名</span><br><span class="line">git checkout -b wpy_dev</span><br><span class="line">//从主分支上拉取下代码</span><br><span class="line">git pull 别名 分支名</span><br><span class="line">git pull origin main</span><br></pre></td></tr></table></figure>
+
+<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230313113241.png" alt="QQ截图20230313113241"></p>
+<p>拉取下代码后,进行本地开发,在开发完成后,把开发完成的新代码放到这个文件夹下,然后执行</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">//由工作区添加到暂存区</span><br><span class="line">git add --all</span><br><span class="line">//由暂存区提交到仓库</span><br><span class="line">git commit -m &quot;&quot;</span><br><span class="line">&quot;&quot;里面是提交日志,生成的是版本号</span><br><span class="line">//提交到github</span><br><span class="line">git push 别名 分支名</span><br><span class="line">git push origin wpy_dev</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230313113330.png" alt="QQ截图20230313113330"></p>
+<p>然后在登录github进行分支合并就可以了.</p>
+<h3 id="2-4-2-以后使用"><a href="#2-4-2-以后使用" class="headerlink" title="2.4.2 以后使用:"></a>2.4.2 以后使用:</h3><p>只需要先pull,然后按照上面的流程继续即可.</p>
 ]]></content>
       <categories>
         <category>笔记</category>
       </categories>
       <tags>
         <tag>中间件</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Go语言设计与实现</title>
+    <url>/2023/03/14/Go%E8%AF%AD%E8%A8%80%E8%AE%BE%E8%AE%A1%E4%B8%8E%E5%AE%9E%E7%8E%B0/</url>
+    <content><![CDATA[<h1 id="Go语言设计与实现"><a href="#Go语言设计与实现" class="headerlink" title="Go语言设计与实现"></a>Go语言设计与实现</h1><h1 id="1-编译原理"><a href="#1-编译原理" class="headerlink" title="1.编译原理:"></a>1.编译原理:</h1><p>go语言编译器的源代码放在src&#x2F;cmd&#x2F;complie中.</p>
+<h2 id="1-1-预备知识"><a href="#1-1-预备知识" class="headerlink" title="1.1 预备知识:"></a>1.1 预备知识:</h2><h3 id="1-1-1-抽象语法树"><a href="#1-1-1-抽象语法树" class="headerlink" title="1.1.1 抽象语法树:"></a>1.1.1 抽象语法树:</h3><p>抽象语法树（abstract syntax code，AST）是源代码的抽象语法结构的树状表示，树上的每个节点都表示源代码中的一种结构，这所以说是抽象的，是因为抽象语法树并不会表示出真实语法出现的每一个细节，比如说，嵌套括号被隐含在树的结构中，并没有以节点的形式呈现。抽象语法树并不依赖于源语言的语法，也就是说语法分析阶段所采用的上下文无文文法，因为在写文法时，经常会对文法进行等价的转换（消除左递归，回溯，二义性等），这样会给文法分析引入一些多余的成分，对后续阶段造成不利影响，甚至会使合个阶段变得混乱。因些，很多编译器经常要独立地构造语法分析树，为前端，后端建立一个清晰的接口。抽象语法树在很多领域有广泛的应用，比如浏览器，智能编辑器，编译器。</p>
+<h3 id="1-1-2-静态单赋值"><a href="#1-1-2-静态单赋值" class="headerlink" title="1.1.2 静态单赋值:"></a>1.1.2 静态单赋值:</h3><p>称为ssa,是编译器后端的一部分,是指每个变量只会被赋值一次,是一种中间代码的特性.</p>
+<h3 id="1-1-3-编译阶段"><a href="#1-1-3-编译阶段" class="headerlink" title="1.1.3 编译阶段:"></a>1.1.3 编译阶段:</h3><h4 id="1-1-3-1-编译器的前后端"><a href="#1-1-3-1-编译器的前后端" class="headerlink" title="1.1.3.1 编译器的前后端:"></a>1.1.3.1 编译器的前后端:</h4><p>编译器一般由前端和后端组成.其中前端负责把源代码转换成语言无关的中间代码,后端主要负责代码的生成和优化.包括中间代码和机器码.                                                                                                                                                                                                                                                                                </p>
+<h4 id="1-1-3-2-词法分析和语法分析"><a href="#1-1-3-2-词法分析和语法分析" class="headerlink" title="1.1.3.2 词法分析和语法分析:"></a>1.1.3.2 词法分析和语法分析:</h4><p>词法分析是解析源代码文件,变成token序列,语法分析是把token序列变成ast.</p>
+<p>出现任何问题编译会即刻终止并在控制台打印问题.</p>
+<h4 id="1-1-3-3-类型检查"><a href="#1-1-3-3-类型检查" class="headerlink" title="1.1.3.3 类型检查:"></a>1.1.3.3 类型检查:</h4><p>对ast进行各种类型的检查,同时更改一些关键字的类型.（如make）。</p>
+<h5 id="1-1-3-3-1-强类型和弱类型："><a href="#1-1-3-3-1-强类型和弱类型：" class="headerlink" title="1.1.3.3.1 强类型和弱类型："></a>1.1.3.3.1 强类型和弱类型：</h5><p>强类型：在语言的编译器有更严格的要求。</p>
+<p>弱类型：编译时期的类型错误会在运行时进行隐式的类型转换，可能会导致错误。</p>
+<h5 id="1-1-3-3-2-静态类型检查和动态类型检查："><a href="#1-1-3-3-2-静态类型检查和动态类型检查：" class="headerlink" title="1.1.3.3.2 静态类型检查和动态类型检查："></a>1.1.3.3.2 静态类型检查和动态类型检查：</h5><p>静态类型检查通过对源代码的分析，判断程序类型是否安全。可以在编译器约束变量的类型。</p>
+<p>动态类型检查是运行时确定程序类型是否安全的过程，这就要求在编译时，为所有的对象加入类型标签等信息，而工程师可以利用这些信息实现反射，动态派发等一系列动态的功能。使用起来非常灵活。</p>
+<p>这两种类型检查并不是完全对立的，很多编程语言同时使用这两种类型检查，使用静态类型检查减少错误，为对象添加类型标签，从而实现语言的动态功能。Go语言就是其中之一。 </p>
+<h4 id="1-1-3-4-中间代码生成"><a href="#1-1-3-4-中间代码生成" class="headerlink" title="1.1.3.4 中间代码生成:"></a>1.1.3.4 中间代码生成:</h4><p>经过前两步之后,就可以认为代码已经不存在问题了,就可以生成中间代码。</p>
+<p>通过goroutine并发编译方式，将每一个函数的ast变成中间代码。</p>
+<h4 id="1-1-3-5-机器码生成："><a href="#1-1-3-5-机器码生成：" class="headerlink" title="1.1.3.5 机器码生成："></a>1.1.3.5 机器码生成：</h4><p>根据不同的架构环境以及中间代码，生成机器码.</p>
+<h1 id="2-数据结构："><a href="#2-数据结构：" class="headerlink" title="2.数据结构："></a>2.数据结构：</h1><h2 id="2-1-数组："><a href="#2-1-数组：" class="headerlink" title="2.1 数组："></a>2.1 数组：</h2><h3 id="2-1-1-初始化"><a href="#2-1-1-初始化" class="headerlink" title="2.1.1 初始化:"></a>2.1.1 初始化:</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">arr := [3]int&#123;1,2,3&#125;</span><br><span class="line">arr := [...]int&#123;1,2,3&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>数组初始化大小后无法改变。</p>
+<h3 id="2-1-2-访问和赋值"><a href="#2-1-2-访问和赋值" class="headerlink" title="2.1.2 访问和赋值:"></a>2.1.2 访问和赋值:</h3><p>数组是一连串的存储空间,通过数组开头的指针,数组的大小,数组中数据元素的大小访问数组中的元素.</p>
+<h2 id="2-2-切片"><a href="#2-2-切片" class="headerlink" title="2.2 切片:"></a>2.2 切片:</h2><p>数组切边,即动态数组.数据结构是一个结构体:</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">type SliceHeader struct&#123;</span><br><span class="line">Data uintptr</span><br><span class="line">len int</span><br><span class="line">cap int</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>data是一个数组的一部分，连续片段的引用。len是当前切片的长度，cap是data数组的大小。</p>
+<h3 id="2-2-1-初始化："><a href="#2-2-1-初始化：" class="headerlink" title="2.2.1 初始化："></a>2.2.1 初始化：</h3><p>使用make关键字。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">slice := make([]int,10)</span><br></pre></td></tr></table></figure>
+
+<p>当切片长度不够的时候，会发生扩容，具体过程是新建一个更大的切片然后把原先切片的内容复制过去。</p>
+<h2 id="2-3-哈希表："><a href="#2-3-哈希表：" class="headerlink" title="2.3 哈希表："></a>2.3 哈希表：</h2><h3 id="2-3-1-设计原理："><a href="#2-3-1-设计原理：" class="headerlink" title="2.3.1 设计原理："></a>2.3.1 设计原理：</h3><p>两个关键点：哈希函数和解决冲突的方法。</p>
+<h4 id="2-3-1-1：哈希函数："><a href="#2-3-1-1：哈希函数：" class="headerlink" title="2.3.1.1：哈希函数："></a>2.3.1.1：哈希函数：</h4><p>理想情况：输出范围远远大于输入范围.</p>
+<p>实际解决方案：输出结果尽可能的均匀，通过工程手段解决冲突问题。</p>
+<h4 id="2-3-1-2-解决冲突方法："><a href="#2-3-1-2-解决冲突方法：" class="headerlink" title="2.3.1.2 解决冲突方法："></a>2.3.1.2 解决冲突方法：</h4><p>开放地址法和拉链法。</p>
+<h3 id="2-3-2-使用："><a href="#2-3-2-使用：" class="headerlink" title="2.3.2 使用："></a>2.3.2 使用：</h3><h4 id="2-3-2-1-初始化："><a href="#2-3-2-1-初始化：" class="headerlink" title="2.3.2.1 初始化："></a>2.3.2.1 初始化：</h4><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">//使用make</span><br><span class="line">hash := make(map[string]int,3)</span><br><span class="line">//使用字面量</span><br><span class="line">hash := map[string]int &#123;</span><br><span class="line"> &quot;1&quot;: 1,</span><br><span class="line"> &quot;2&quot;: 2,</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="2-3-2-2-使用"><a href="#2-3-2-2-使用" class="headerlink" title="2.3.2.2 使用:"></a>2.3.2.2 使用:</h4><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">a = hash[key]</span><br><span class="line"></span><br><span class="line">for k,v := range hash&#123;</span><br><span class="line"> 	//k,v</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="2-3-2-3-数据结构"><a href="#2-3-2-3-数据结构" class="headerlink" title="2.3.2.3 数据结构:"></a>2.3.2.3 数据结构:</h4><p>核心是一个hmap,包括count:数量,hash0:哈希表种子等.还有 buckets,指向正常桶和溢出桶的数组(他们是连续存储的),数组中的元素存储</p>
+<p>的是哈希键的前八位.一个桶存储8个键值对,一旦有更多的键值对,就会装载到溢出桶中,超过一定的范围就会引发扩容,使桶的数量翻倍.</p>
+<h2 id="2-4-字符串"><a href="#2-4-字符串" class="headerlink" title="2.4 字符串:"></a>2.4 字符串:</h2><h3 id="2-4-1-数据结构"><a href="#2-4-1-数据结构" class="headerlink" title="2.4.1 数据结构:"></a>2.4.1 数据结构:</h3><p> 与切片高度相似,包含指向字节数组的指针,和数组的大小.</p>
+<p>与Java,Python等语言一样,Go的字符串也是只读的,不可变的.因此所有字符串上的操作都是通过复制实现的. </p>
+<h3 id="2-4-2-使用"><a href="#2-4-2-使用" class="headerlink" title="2.4.2 使用:"></a>2.4.2 使用:</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">str := &quot;123&quot;</span><br></pre></td></tr></table></figure>
+
+<p>在进行拼接和类型转换时,string和[]byte之间转换,可能会造成性能问题. </p>
+<h1 id="3-语言特性"><a href="#3-语言特性" class="headerlink" title="3. 语言特性:"></a>3. 语言特性:</h1><h2 id="3-1-函数调用"><a href="#3-1-函数调用" class="headerlink" title="3.1 函数调用:"></a>3.1 函数调用:</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">func myFunction(a,b int)(int ,int)&#123;</span><br><span class="line"> 	return a+b,a-b</span><br><span class="line">&#125;</span><br><span class="line">myFunction(66,77)</span><br></pre></td></tr></table></figure>
+
+<p>与c语言传递参数时同时使用寄存器(前六个参数)和栈,用寄存器传递返回值的方式,go语言选择使用完全栈传递参数和返回值.牺牲了部分函数调用的性能,但是不需要考虑寄存器的具体设计,同时更加简单,支持多返回值.</p>
+<h2 id="3-2-参数传递"><a href="#3-2-参数传递" class="headerlink" title="3.2 参数传递:"></a>3.2 参数传递:</h2><p>向函数传递参数一般有两种方式,一种是传值,双方持有两份不同的数据,另一种是传递引用,双方持有同一份数据.</p>
+<p>而在Go语言中,选择了传值的方式,无论是何种数据类型,都会进行复制.对于一般的数据类型,比如整数,数组,结构体等,都会复制全部内容.而对于指针,会复制一个指针,指向原有指针指向的对象.</p>
+<p>所以在向函数传递很大的数组或者结构体是,尽量传递指针而不是其本身,避免发生大规模的数据复制从而影响性能.</p>
+<h2 id="3-3-接口"><a href="#3-3-接口" class="headerlink" title="3.3 接口:"></a>3.3 接口:</h2><p>代码必须能够被人阅读，只是机器恰好可以执行.</p>
+<p>接口用于隐藏实现底层,解耦依赖关系等等功能,很多面向对象语言都有接口这一概念，例如 Java 和 C#。</p>
+<h3 id="3-3-1-定义"><a href="#3-3-1-定义" class="headerlink" title="3.3.1 定义:"></a>3.3.1 定义:</h3><p>定义接口需要使用 <code>interface</code> 关键字，在接口中我们只能定义方法签名，不能包含成员变量.与定义结构体非常相近.</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">type error interface &#123;</span><br><span class="line">	Error() string</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>Go语言中的接口实现是隐式的,只需要实现接口下面的所有的方法,就详单与实现了接口,而不需要像Java一样显式的声明出来.</p>
+<h3 id="3-3-2-接口检查"><a href="#3-3-2-接口检查" class="headerlink" title="3.3.2 接口检查:"></a>3.3.2 接口检查:</h3><figure class="highlight go"><table><tr><td class="code"><pre><span class="line"><span class="keyword">type</span> <span class="type">error</span> <span class="keyword">interface</span> &#123;</span><br><span class="line">	Error() <span class="type">string</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">type</span> RPCError <span class="keyword">struct</span> &#123;</span><br><span class="line">	Code    <span class="type">int64</span></span><br><span class="line">	Message <span class="type">string</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="params">(e *RPCError)</span></span> Error() <span class="type">string</span> &#123;</span><br><span class="line">	<span class="keyword">return</span> fmt.Sprintf(<span class="string">&quot;%s, code=%d&quot;</span>, e.Message, e.Code)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">	<span class="keyword">var</span> rpcErr <span class="type">error</span> = NewRPCError(<span class="number">400</span>, <span class="string">&quot;unknown err&quot;</span>) <span class="comment">// typecheck1</span></span><br><span class="line">	err := AsErr(rpcErr) <span class="comment">// typecheck2</span></span><br><span class="line">	<span class="built_in">println</span>(err)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">NewRPCError</span><span class="params">(code <span class="type">int64</span>, msg <span class="type">string</span>)</span></span> <span class="type">error</span> &#123;</span><br><span class="line">	<span class="keyword">return</span> &amp;RPCError&#123; <span class="comment">// typecheck3</span></span><br><span class="line">		Code:    code,</span><br><span class="line">		Message: msg,</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">AsErr</span><span class="params">(err <span class="type">error</span>)</span></span> <span class="type">error</span> &#123;</span><br><span class="line">	<span class="keyword">return</span> err</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>Go 语言在<a href="https://draveness.me/golang/docs/part1-prerequisite/ch02-compile/golang-compile-intro/">编译期间</a>对代码进行类型检查，上述代码总共触发了三次类型检查：</p>
+<ol>
+<li>将 <code>*RPCError</code> 类型的变量赋值给 <code>error</code> 类型的变量 <code>rpcErr</code>；</li>
+<li>将 <code>*RPCError</code> 类型的变量 <code>rpcErr</code> 传递给签名中参数类型为 <code>error</code> 的 <code>AsErr</code> 函数；</li>
+<li>将 <code>*RPCError</code> 类型的变量从函数签名的返回值类型为 <code>error</code> 的 <code>NewRPCError</code> 函数中返回；</li>
+</ol>
+<h3 id="3-3-3-类型"><a href="#3-3-3-类型" class="headerlink" title="3.3.3 类型:"></a>3.3.3 类型:</h3><p> Go 语言中有两种略微不同的接口，一种是带有一组方法的接口，另一种是不带任何方法的 <code>interface&#123;&#125;</code>：Go 语言使用 <a href="https://draveness.me/golang/tree/runtime.iface"><code>runtime.iface</code></a> 表示第一种接口，使用 <a href="https://draveness.me/golang/tree/runtime.eface"><code>runtime.eface</code></a> 表示第二种不包含任何方法的接口 <code>interface&#123;&#125;</code>，两种接口虽然都使用 <code>interface</code> 声明，但是由于后者在 Go 语言中很常见，所以在实现时使用了特殊的类型。</p>
+<h3 id="3-3-4-指针和接口"><a href="#3-3-4-指针和接口" class="headerlink" title="3.3.4 指针和接口:"></a>3.3.4 指针和接口:</h3><figure class="highlight go"><table><tr><td class="code"><pre><span class="line"><span class="keyword">type</span> Duck <span class="keyword">interface</span> &#123;</span><br><span class="line">	Quack()</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">type</span> Cat <span class="keyword">struct</span>&#123;&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="params">(c Cat)</span></span> Quack() &#123;</span><br><span class="line">	fmt.Println(<span class="string">&quot;meow&quot;</span>)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">	<span class="keyword">var</span> c Duck = &amp;Cat&#123;&#125;</span><br><span class="line">	c.Quack()</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>这段代码使用结构体作为参数实现接口,而在初始化变量的时候使用指针的方式.也就是说,c是一个指针,指向一个cat结构体,当运行c.quack方法时,会复制一个指针,同样指向cat,所以可以正常运行.</p>
+<figure class="highlight go"><table><tr><td class="code"><pre><span class="line"><span class="keyword">type</span> Duck <span class="keyword">interface</span> &#123;</span><br><span class="line">	Quack()</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">type</span> Cat <span class="keyword">struct</span>&#123;&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="params">(c *Cat)</span></span> Quack() &#123;</span><br><span class="line">	fmt.Println(<span class="string">&quot;meow&quot;</span>)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">	<span class="keyword">var</span> c Duck = Cat&#123;&#125;</span><br><span class="line">	c.Quack()</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>这段代码使用指针作为参数实现接口,而初始化变量的时候使用结构体的方式,这样是不行的,因为这个方法需要的是一个指针变量,而这个现在并没有指针变量,所以无法通过.</p>
+<h2 id="3-4-反射"><a href="#3-4-反射" class="headerlink" title="3.4 反射:"></a>3.4 反射:</h2><p>主要依靠”reflect”包.主要包括两个函数和类型,他们是一一对应的.</p>
+<p>1.类型reflect.Type是反射包定义的一个接口，我们可以使用reflect.TypeOf()函数获取任意变量的类型.</p>
+<p>2.类型reflect.Value是反射包定义的一个结构体,可以使用reflect.ValueOf()函数获取任意变量的值.</p>
+<p>反射包中的所有方法基本都是围绕着 reflect.Type 和reflect.Value两个类型设计的。我们通过 reflect.TypeOf()、reflect.ValueOf()可以将一个普通的变量转换成反射包中提供的reflect.Type  和 reflect.Value随后就可以使用反射包中的方法对它们进行复杂的操作。</p>
+<h3 id="3-4-1-第一法则"><a href="#3-4-1-第一法则" class="headerlink" title="3.4.1 第一法则:"></a>3.4.1 第一法则:</h3><p>从 <code>interface&#123;&#125;</code> 变量可以反射出反射对象.</p>
+<p>两个重要的方法的参数都是接口类型.使用时会发生类型转换.</p>
+<figure class="highlight go"><table><tr><td class="code"><pre><span class="line"><span class="keyword">package</span> main</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> (</span><br><span class="line">	<span class="string">&quot;fmt&quot;</span></span><br><span class="line">	<span class="string">&quot;reflect&quot;</span></span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">	author := <span class="string">&quot;draven&quot;</span></span><br><span class="line">	fmt.Println(<span class="string">&quot;TypeOf author:&quot;</span>, reflect.TypeOf(author))</span><br><span class="line">	fmt.Println(<span class="string">&quot;ValueOf author:&quot;</span>, reflect.ValueOf(author))</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">$ <span class="keyword">go</span> run main.<span class="keyword">go</span></span><br><span class="line">TypeOf author: <span class="type">string</span></span><br><span class="line">ValueOf author: draven</span><br></pre></td></tr></table></figure>
+
+<h3 id="3-4-2-第二法则"><a href="#3-4-2-第二法则" class="headerlink" title="3.4.2 第二法则:"></a>3.4.2 第二法则:</h3><p>从反射对象可以获取 <code>interface&#123;&#125;</code> 变量；</p>
+<figure class="highlight go"><table><tr><td class="code"><pre><span class="line">v := reflect.ValueOf(<span class="number">1</span>)</span><br><span class="line">v.Interface().(<span class="type">int</span>)</span><br></pre></td></tr></table></figure>
+
+<h3 id="3-4-3-第三法则"><a href="#3-4-3-第三法则" class="headerlink" title="3.4.3 第三法则:"></a>3.4.3 第三法则:</h3><p>要修改反射对象，其值必须可设置；</p>
+<figure class="highlight go"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">	i := <span class="number">1</span></span><br><span class="line">	v := reflect.ValueOf(&amp;i)</span><br><span class="line">	v.Elem().SetInt(<span class="number">10</span>)</span><br><span class="line">	fmt.Println(i)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">$ <span class="keyword">go</span> run reflect.<span class="keyword">go</span></span><br><span class="line"><span class="number">10</span></span><br></pre></td></tr></table></figure>
+
+<p>修改反射对象值的过程,由于传值特性,这种过程类似于</p>
+<figure class="highlight go"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">	i := <span class="number">1</span></span><br><span class="line">	v := &amp;i</span><br><span class="line">	*v = <span class="number">10</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h1 id="4-关键字"><a href="#4-关键字" class="headerlink" title="4.关键字:"></a>4.关键字:</h1>]]></content>
+      <categories>
+        <category>笔记</category>
+      </categories>
+      <tags>
+        <tag>Go</tag>
       </tags>
   </entry>
   <entry>
@@ -665,6 +640,31 @@
       </categories>
       <tags>
         <tag>Go</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Redis</title>
+    <url>/2023/01/17/Redis/</url>
+    <content><![CDATA[<h1 id="Redis"><a href="#Redis" class="headerlink" title="Redis"></a>Redis</h1><h1 id="1-Redis介绍："><a href="#1-Redis介绍：" class="headerlink" title="1.Redis介绍："></a>1.Redis介绍：</h1><h2 id="1-1-为什么需要redis："><a href="#1-1-为什么需要redis：" class="headerlink" title="1.1 为什么需要redis："></a>1.1 为什么需要redis：</h2><p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230215111415.png" alt="QQ截图20230215111415"></p>
+<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230215111447.png" alt="QQ截图20230215111447"></p>
+<h2 id="1-2-基本结构："><a href="#1-2-基本结构：" class="headerlink" title="1.2 基本结构："></a>1.2 基本结构：</h2><p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230215111543.png" alt="QQ截图20230215111543"></p>
+<p>一定程度上实现持久化。</p>
+<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230215111849.png" alt="QQ截图20230215111849"></p>
+<h1 id="2-Redis应用案例："><a href="#2-Redis应用案例：" class="headerlink" title="2. Redis应用案例："></a>2. Redis应用案例：</h1><h2 id="2-1-连续签到："><a href="#2-1-连续签到：" class="headerlink" title="2.1 连续签到："></a>2.1 连续签到：</h2><p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230215111950.png" alt="QQ截图20230215111950"></p>
+<h2 id="2-2-String数据结构："><a href="#2-2-String数据结构：" class="headerlink" title="2.2 String数据结构："></a>2.2 String数据结构：</h2><p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230215112319.png" alt="QQ截图20230215112319"></p>
+<p>存储的是二进制数据。</p>
+<p>flags获取数据类型，alloc是分配空间长度，len是实际长度。</p>
+<h2 id="2-3-消息通知："><a href="#2-3-消息通知：" class="headerlink" title="2.3 消息通知："></a>2.3 消息通知：</h2><p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230215112738.png" alt="QQ截图20230215112738"></p>
+<h2 id="2-4-List数据结构："><a href="#2-4-List数据结构：" class="headerlink" title="2.4 List数据结构："></a>2.4 List数据结构：</h2><p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230215113124.png" alt="QQ截图20230215113124"></p>
+<p>在一个节点上存储很多个数据。</p>
+<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230215113359.png" alt="QQ截图20230215113359"></p>
+<h2 id="2-5-计数："><a href="#2-5-计数：" class="headerlink" title="2.5 计数："></a>2.5 计数：</h2><p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230215113442.png" alt="QQ截图20230215113442"></p>
+]]></content>
+      <categories>
+        <category>笔记</category>
+      </categories>
+      <tags>
+        <tag>中间件</tag>
       </tags>
   </entry>
   <entry>
@@ -1547,6 +1547,18 @@
       </tags>
   </entry>
   <entry>
+    <title>侠藏</title>
+    <url>/2023/05/29/%E4%BE%A0%E8%97%8F/</url>
+    <content><![CDATA[<p>侠藏<br>（一）<br>天启六年，辽东。<br>北风一阵阵呼啸而过，却吹不出几家灯火。<br>自从后金起兵，似乎浓墨重彩的黑夜更使人留恋起来，只因为黑夜里没有战争,没有死亡，只有好梦和安眠。但此刻，天边已有一抹纯白，未升的阳光和未落的月色一同， 映在这关外唯一的城里。<br>城外，是精锐的后金骑兵。<br>这支以努尔哈赤的仇恨为源火建立的军队，在这荒凉的大漠还未尝一败，更可怕的是，每次他们攻城成功，都会残忍的屠城，把生机和希望一同断绝。<br>而此刻的宁远城，似乎就是他们眼中的下一片废墟。<br>城中仅有一万余守军，且大多是新军和老兵。没有支援，大明的官员们都畏惧后金的凶狠残暴，畏缩在山海关后不敢发兵。而远隔千里之外的京师，甚至都不知道这场战争的发生。<br>他站在城楼上北望，寒风凛冽。<br>天光还未大亮，如今的后金在绝对的实力面前，连都偷袭都不屑起来。<br>“也许今天就要死在这里了吧？”他想，“不过也好，我就是为这一天而活着的。”<br>他不由得开始回忆起从前，无数画面和音律从眼前划过，最后拼凑、融合，凝结成两个并不十分清晰的身影。<br>“我终究要成为一名大侠的。”<br>“好啊，那我定会跟在你身后，与你一同走遍万水千山。”<br>（二）<br>总有那么一个人，你希望永远拉着他的手，走过所有人间苍茫，在年年岁岁里幕影成双，但现实总是不尽如人意，你与他渐走渐散，再无相逢。<br>从初见他的那一刻起，凌就决定守护他一生。<br>那年他十四岁，不同官场世家的顽劣性格，他只喜欢安静沉默地看书写字。凌初至他家的那一天，他正为读一本古书而发愁，凌就站在他的身后，听管家对他说，“以后这就是你的主子了。”闻言，他抬起头，正对上凌的目光。<br>凌至今记得那个眼神，纯净清冽，没有太多世俗的东西，可只是简单的相望就有令人心疼的感觉。仿佛来自异域的弃子，因无人知会而沉默不言。<br>后来的他们形影不离，渐渐超越了主仆之间的关系。<br>凌还记得第一次听他讲故事的那一天。是他的故事让凌第一次知道了世界上还有这样一方净土，那里没有暴力、流浪、战乱，故事里有的，是渺远绮丽的山川江海，是催人泪下的恩怨情仇，是以家国为重的英雄侠客，而这种侠客精神，也正是他们所最爱的。<br>古往今来，侠客们大多一袭青衫薄衣，银鞍白马，仗剑游行于天地之间，且富济贫，敢爱敢恨，放浪形骸，无所畏惧。对于从儿时起，就因贫穷而颠沛流离的凌来说，这种生活就意味着可以自己做出选择，可以自由自在，无所顾忌。但对于出身于书香门第的他，本应立志考取功名，高居庙堂之上，可他却想成为侠客。<br>直到他们分开，他也从未对凌说起过侠对于他的意义。<br>“如今的你，做到你想要的全部了么？”凌这样想着，大声喝道，“我们现在何处？”<br>“距离宁远城还有不足五里，天亮之间应该能赶到城中。”<br>“好！大家再快点！争取在后金发起进攻之前赶到城中！”<br>凌收回思绪。环视四周，浩荡千里的尽是八旗军队的旗帜，却看不到明军的身影。“我们可能是最后的支援了吧？却来自一支毫无编制的民兵，真可笑啊。”凌苦笑，抽出了长刀。他的身后，无数道身影借着微光纵马飞奔。<br>他们本是辽东人，但因为后金的攻城掠地而失去了亲人和家乡。愤怒使他们自发的聚集，但因为主力明军的懦弱，他们已经许久没有用武之地。<br>听说此次的新任宁前道不再退缩而决定一战，他们才从辽东的四面八方赶来此地，为家乡奉献最后一点力量。<br>最终，他们中的很多人最终如愿以偿，与自己的土地共存亡，但那些活下来的人也变得无比强大，因为他们无可失去。<br>谁也未曾想到他们最终变成了后金军队在最擅长的骑术上的梦魇，被冠以响亮的封号，名震四海。<br>关宁铁骑。<br>（三）<br>元宵节。<br>书中说南宋的元宵是最热闹的，平民百姓无论男女都会走上街头看花灯，熙熙攘攘的长街上，叫卖声，笙箫声，挑逗声此起彼伏，放眼望去，无论是御街还是寻常巷陌，皆是张灯结彩，宛如一片片星海。从前的花灯也好看，形态各异，五彩缤纷，令人眼花缭乱，正如那座始终埋没在江南烟雨中的城市，仿佛从始至终蒙着一层飘渺的薄暮，令人看不透。<br>可能每一座城市都有专属的颜色，只是大多都隐匿于城市的角落，隐匿于每个普通人的平凡生活，唯有在熙攘佳节时，这种颜色才会变得格外明亮，使不曾熟悉这座城市的人也能真切地感受到。<br>而天启的京师，惟有一片真切而阴郁的灰色。<br>今年的冬天格外冷。哪怕是元宵佳节，街上还是寥寥无人，赏灯人们都早早回家，享受炉火和家人的温暖。抬眼看城市的高处，唯有几盏单调的花灯，发着微弱的光，好似幕星一般。<br>“这大概就是王朝日薄西山的景象吧。”他这样想着，推开了门。<br>她依旧在弹她的琴。声音并不十分凄婉，只是很压抑，仿佛与清冷的庭院相应和，很容易让人想到那些可望而不可即的东西，比如故乡，比如理想。<br>“我要走啦，”他自顾自地说，“去关外。”<br>琴声依旧，她已经很久没有同他说过话了。<br>“我知道，你想要的不是这些，为身居高位而左右逢源，为投政敌之所好而加害同窗，可是，我别无选择啊。”<br>琴声骤停。<br>“你还记得你娶我的时候么，”她缓缓地说，“那时的你只是一名一无所有的书生，刚刚考中举人，心中只有以天下为己任，立志做一名人皆称道的好官。可现在呢，你做的那些为了升官发财而做的那些恶心的事我永远也不会忘。”<br>他闻言，沉默了很久。<br>“我有没有和你说过，我小时候想成为一名侠客？”<br>他突然用力，猛地拉过她的衣袖，强迫她直视他的眼睛。<br>“一味地正直是没有用的！我需要力量，我需要可以执掌苍生的权力！没有权力，哪怕侠客梦再美，现世里你什么都不是！”<br>他松开手，大口大口地喘息着。<br>“我说过的话我没有忘，”他说，“也永远不会忘。”<br>院门忽的被推开，身着华贵彩衣的随从和身着铁甲的武士鱼贯而入，层层环绕在他身旁。<br>“大人，时候到了，该走了。”一名随从上前，压低声音说。<br>他面色冷峻地推开他，跨上一匹马，走出了大院。<br>“晴，照顾好自己。”<br>一队人策马向京师外飞驰而去，他们的身后，似伴若有若无的琴声。<br>“那么，我相信你，希望你不会让我失望。”<br>（四）<br>城外。<br>后金的骑兵已列队完毕，沉默的武士胯下是嘶鸣的骏马，来自朔北的风呼啸而过，他们却纹丝不动。等待着的最后进攻的命令。<br>他从城头回望，同样无言的士兵站在城头，正在最后调试红衣大炮。<br>这是他们最后的仰仗。只有这些来自葡萄牙，被称为“佛郎机”的恐怖巨兽才能遏制住后金军的骏马长刀。<br> 他突然很想说些什么，却又不知道从何说起。<br>其实他从小就不善言谈，只有在面对相知的人他才会知无不言。但多年宦海沉浮，他再也没遇到凌那样知心的人。她也很久不理解他，不言说那些本可以说的万语千言。<br>“你在何方？行何事？你的身旁是否有值得守护的人？”他想。<br>“这里，是我们的土地！”他一字一顿。<br>“我不知道是什么让你们走到现在，但对于我，是我的侠客梦。从很小的时候开始，我就梦想做一名仗剑走江湖的大侠，能劫富济贫，行侠一方，但长大了才发现，侠客精神的存在本就是社会的悖论，一己之力终究改变不了太多。”他叹息了一声，“为了这一天，我已经等待了太久，走过官场的腐朽黑暗，习惯了踩着别人的尸体前行，看惯了勾心斗角，生离死别，我一直在寻找一个可以报国的机会。那个机会，就在我面前，就在我们面前！”<br>“列阵！”他大声的说。<br>（五）<br>“头儿，前面已经开打了！”<br>凌暗自叹息，他终究还是没能在开战之前赶到城下。说实话他对这座孤城的守将还是比较好奇的，本希望能见他一面，但现在怕是没有机会了。<br>“寻找破绽，直接切入战场！”<br>战事如火如荼的进行着，每一刻都有人死去。<br>后金军的骑兵虽然犀利，但却不善于攻城，而明军虽然人数劣势，但有必死的心智，加上有利的地形和怒吼的红衣大炮，竟是挡住了后金的攻势，竟隐隐有反攻地迹象。<br>中军的努尔哈赤有些着急了。对面守将是谁？无名小卒罢了。而堂堂的后金国主竟在此无名小卒面前停滞不前。这是他所不能接受的。<br>“正黄旗压上！我领军做先锋！”他怒吼一声。<br>“报告！西南方出现不明军队，直奔我们中军而来！”<br>努尔哈赤大惊，急忙望去。<br>只见一支飞驰的骑军神兵般降入战场，借着战马的冲击力，所到之处后金军皆人仰马翻。为首的一人身着黑衣，手执双刀，翻飞间手起刀落。似有睥睨八荒之威势。<br>“这才是我想要的对手啊！”努尔哈赤赞叹地说，“不过这样笔直的冲阵，怕是嫌命长了吧？”<br>他握起了他的刀。<br>……<br>他依旧站在城楼上，只不过手中多了一口宝剑。<br>“有人来了！”他看到了骑兵赴死般的冲阵，自然也认出了他心念的人。<br>凌。<br>“打开城门，召集骑兵出城迎战！”<br>“你疯了！你知道他们是什么人！”<br>“我知道，”他头也不回地说，“那是我的故人。”<br>他仰天长啸，城门洞开。<br>“此去经年，你过的好吗？”<br>（六）<br>他还记得与凌的分别。<br>那天他喝了很多酒，似乎把所有剩下的钱都拿来买酒了。<br>“那我走了，你要照顾好自己啊。”<br>“我会的，你也是，别再为了别人那么拼了。”<br>凌笑。<br>“可要好好对她啊，不然我可不放过你。”<br>“好啦好啦，我知道你也喜欢过她，是啊，她那样的人又有几个人不喜欢呢？放心，我会永远对她好的。可是现在，天色已晚啦。”<br>他不再说话，小口啜着酒。<br>凌忽然想起他曾经读到过的一句诗，“桃李春风一杯酒，江湖夜雨十年灯。”<br>可能这句话就是写离别的吧？分开时大家都强撑着把酒言欢，分开后却独行辗转，守心独语，再也不说出心中所想，在每个沉默的夜里走向远方。<br>“那，我走了，再会。”<br>再会。<br>再会吧，希望再会之时，你能实现所有愿望，负剑走在山水江湖间，清傲孤寒，无所牵挂。<br>（七）<br>凌已经无力对他行礼了。<br>硝烟散尽，敌军退去，他们打赢了这场不可能胜利的战争，但他就要死了。<br>所谓故人相逢应该是很美满的吧？毕竟天下有四海，故人却寥寥无几。所以每个相逢应举杯相迎，推杯换盏间，说尽世间沧桑。<br>可战场上的相逢总是意味着分别，而且是以天人两隔的分别，，一人归去，再无相逢执手的可能。<br>“你还是那样，为了别人总是奋不顾身啊。”他不禁回想起小时候凌为了保护他在小巷中与人斗殴至头破血流的时光，发现他从未真正理解过身边的人，只是在自我所信奉的道路上渐行渐远。<br>“没办法，本就一无所有，所以每次才能压上全部，毕竟就算失败了也失去不了什么。凌咳出一口鲜血，“不说这个了，她还好么？”<br>“嗯，不过她现在应该很讨厌我吧？为了身居高位，可以掌兵作战，我做了太多为人所不齿的事。”他苦笑。<br>“还记得我们小时候么？你说你要做一名大侠，我要吵着闹着要跟在你身后，如今的你还留着当年的梦么？只是我不能陪你走了啊。”凌神智已经有些恍惚，“没事，你还有她，她也是懂你的吧？可要好好待她啊，不然我……”<br>“你总是对我说这些。让我想起我父亲。”他打断了凌，转身，走向落日余晖照耀下的、只剩下断壁颓垣的宁远城，一场胜利改变不了什么，后金军还会再来，战火的暗影始终笼罩在辽东这片土地的上空。<br>凌望着他的背影渐行渐远，往事如漫天风雪扑面而来。<br>“你的侠客梦，要一直走下去啊。”凌轻声说着，闭上了双眼。<br>（八）<br>崇祯三年。京师。<br>他望着窗外，盛夏已过，秋的肃杀萧瑟已缓慢入侵了京城。<br>宁远大捷后，他本可以节节攀升，但他却毅然辞官归乡，去寻找他故人眼中的侠的身影。<br>谁也不知道多年以后他为何要重新出山，也没有人能想到他竟然死于最忠诚的帝国之手。<br>而她，就像是不愿看到他的结局一般，一年前已弃他而去。<br>“现在世间，却是没有令我牵挂的人和事了啊。”他暗自想着。回想自己的一生。<br>“追求侠义，心系苍生，错了吗？”<br>“沉浮官场，不择手段，错了吗？”<br>“独守孤城，力战外侮，错了吗？”<br>“我一生追求的侠义，难道是错的吗？还是说面对这个世界，侠的精神就应当被埋藏在每个心怀正义的人的内心而不展露呢？可是这样，那侠客精神存在的意义和目的又是什么呢？”<br>天将明。<br>他这样想着，面对自己和帝国的薄暮，紧紧地闭上了双眼。</p>
+]]></content>
+      <categories>
+        <category>创作</category>
+      </categories>
+      <tags>
+        <tag>诗歌</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>低代码综测平台</title>
     <url>/2023/06/07/%E4%BD%8E%E4%BB%A3%E7%A0%81%E7%BB%BC%E6%B5%8B%E5%B9%B3%E5%8F%B0/</url>
     <content><![CDATA[<h1 id="低代码综测平台"><a href="#低代码综测平台" class="headerlink" title="低代码综测平台"></a>低代码综测平台</h1><h1 id="问题引入"><a href="#问题引入" class="headerlink" title="问题引入:"></a>问题引入:</h1><p>每个大学都有综测，但是综测的组成成分各不相同，而对于很多学校来说，并没有以学校为单位的针对性的系统来管理每一个同学的综测.<br>同时，在大学生的课程领域也存在着类似的问题.一门课程的成绩往往由两个或者多个部分组成.但是基于同样的原因，同学们没有办法在漫长的课程进行过程中看到自己这门课动态的成绩变化，教师也无法方便有效的管理数据.<br>显而易见，可以使用低代码平台构建对应的解决方案，但是当前的低代码平台存在定义流程逻辑复杂，而且需要考虑部署，运维等等一系列问题，不太适合非计算机专业人士使用.本项目就是为了解决这些问题.</p>
@@ -1731,18 +1743,6 @@
       </tags>
   </entry>
   <entry>
-    <title>侠藏</title>
-    <url>/2023/05/29/%E4%BE%A0%E8%97%8F/</url>
-    <content><![CDATA[<p>侠藏<br>（一）<br>天启六年，辽东。<br>北风一阵阵呼啸而过，却吹不出几家灯火。<br>自从后金起兵，似乎浓墨重彩的黑夜更使人留恋起来，只因为黑夜里没有战争,没有死亡，只有好梦和安眠。但此刻，天边已有一抹纯白，未升的阳光和未落的月色一同， 映在这关外唯一的城里。<br>城外，是精锐的后金骑兵。<br>这支以努尔哈赤的仇恨为源火建立的军队，在这荒凉的大漠还未尝一败，更可怕的是，每次他们攻城成功，都会残忍的屠城，把生机和希望一同断绝。<br>而此刻的宁远城，似乎就是他们眼中的下一片废墟。<br>城中仅有一万余守军，且大多是新军和老兵。没有支援，大明的官员们都畏惧后金的凶狠残暴，畏缩在山海关后不敢发兵。而远隔千里之外的京师，甚至都不知道这场战争的发生。<br>他站在城楼上北望，寒风凛冽。<br>天光还未大亮，如今的后金在绝对的实力面前，连都偷袭都不屑起来。<br>“也许今天就要死在这里了吧？”他想，“不过也好，我就是为这一天而活着的。”<br>他不由得开始回忆起从前，无数画面和音律从眼前划过，最后拼凑、融合，凝结成两个并不十分清晰的身影。<br>“我终究要成为一名大侠的。”<br>“好啊，那我定会跟在你身后，与你一同走遍万水千山。”<br>（二）<br>总有那么一个人，你希望永远拉着他的手，走过所有人间苍茫，在年年岁岁里幕影成双，但现实总是不尽如人意，你与他渐走渐散，再无相逢。<br>从初见他的那一刻起，凌就决定守护他一生。<br>那年他十四岁，不同官场世家的顽劣性格，他只喜欢安静沉默地看书写字。凌初至他家的那一天，他正为读一本古书而发愁，凌就站在他的身后，听管家对他说，“以后这就是你的主子了。”闻言，他抬起头，正对上凌的目光。<br>凌至今记得那个眼神，纯净清冽，没有太多世俗的东西，可只是简单的相望就有令人心疼的感觉。仿佛来自异域的弃子，因无人知会而沉默不言。<br>后来的他们形影不离，渐渐超越了主仆之间的关系。<br>凌还记得第一次听他讲故事的那一天。是他的故事让凌第一次知道了世界上还有这样一方净土，那里没有暴力、流浪、战乱，故事里有的，是渺远绮丽的山川江海，是催人泪下的恩怨情仇，是以家国为重的英雄侠客，而这种侠客精神，也正是他们所最爱的。<br>古往今来，侠客们大多一袭青衫薄衣，银鞍白马，仗剑游行于天地之间，且富济贫，敢爱敢恨，放浪形骸，无所畏惧。对于从儿时起，就因贫穷而颠沛流离的凌来说，这种生活就意味着可以自己做出选择，可以自由自在，无所顾忌。但对于出身于书香门第的他，本应立志考取功名，高居庙堂之上，可他却想成为侠客。<br>直到他们分开，他也从未对凌说起过侠对于他的意义。<br>“如今的你，做到你想要的全部了么？”凌这样想着，大声喝道，“我们现在何处？”<br>“距离宁远城还有不足五里，天亮之间应该能赶到城中。”<br>“好！大家再快点！争取在后金发起进攻之前赶到城中！”<br>凌收回思绪。环视四周，浩荡千里的尽是八旗军队的旗帜，却看不到明军的身影。“我们可能是最后的支援了吧？却来自一支毫无编制的民兵，真可笑啊。”凌苦笑，抽出了长刀。他的身后，无数道身影借着微光纵马飞奔。<br>他们本是辽东人，但因为后金的攻城掠地而失去了亲人和家乡。愤怒使他们自发的聚集，但因为主力明军的懦弱，他们已经许久没有用武之地。<br>听说此次的新任宁前道不再退缩而决定一战，他们才从辽东的四面八方赶来此地，为家乡奉献最后一点力量。<br>最终，他们中的很多人最终如愿以偿，与自己的土地共存亡，但那些活下来的人也变得无比强大，因为他们无可失去。<br>谁也未曾想到他们最终变成了后金军队在最擅长的骑术上的梦魇，被冠以响亮的封号，名震四海。<br>关宁铁骑。<br>（三）<br>元宵节。<br>书中说南宋的元宵是最热闹的，平民百姓无论男女都会走上街头看花灯，熙熙攘攘的长街上，叫卖声，笙箫声，挑逗声此起彼伏，放眼望去，无论是御街还是寻常巷陌，皆是张灯结彩，宛如一片片星海。从前的花灯也好看，形态各异，五彩缤纷，令人眼花缭乱，正如那座始终埋没在江南烟雨中的城市，仿佛从始至终蒙着一层飘渺的薄暮，令人看不透。<br>可能每一座城市都有专属的颜色，只是大多都隐匿于城市的角落，隐匿于每个普通人的平凡生活，唯有在熙攘佳节时，这种颜色才会变得格外明亮，使不曾熟悉这座城市的人也能真切地感受到。<br>而天启的京师，惟有一片真切而阴郁的灰色。<br>今年的冬天格外冷。哪怕是元宵佳节，街上还是寥寥无人，赏灯人们都早早回家，享受炉火和家人的温暖。抬眼看城市的高处，唯有几盏单调的花灯，发着微弱的光，好似幕星一般。<br>“这大概就是王朝日薄西山的景象吧。”他这样想着，推开了门。<br>她依旧在弹她的琴。声音并不十分凄婉，只是很压抑，仿佛与清冷的庭院相应和，很容易让人想到那些可望而不可即的东西，比如故乡，比如理想。<br>“我要走啦，”他自顾自地说，“去关外。”<br>琴声依旧，她已经很久没有同他说过话了。<br>“我知道，你想要的不是这些，为身居高位而左右逢源，为投政敌之所好而加害同窗，可是，我别无选择啊。”<br>琴声骤停。<br>“你还记得你娶我的时候么，”她缓缓地说，“那时的你只是一名一无所有的书生，刚刚考中举人，心中只有以天下为己任，立志做一名人皆称道的好官。可现在呢，你做的那些为了升官发财而做的那些恶心的事我永远也不会忘。”<br>他闻言，沉默了很久。<br>“我有没有和你说过，我小时候想成为一名侠客？”<br>他突然用力，猛地拉过她的衣袖，强迫她直视他的眼睛。<br>“一味地正直是没有用的！我需要力量，我需要可以执掌苍生的权力！没有权力，哪怕侠客梦再美，现世里你什么都不是！”<br>他松开手，大口大口地喘息着。<br>“我说过的话我没有忘，”他说，“也永远不会忘。”<br>院门忽的被推开，身着华贵彩衣的随从和身着铁甲的武士鱼贯而入，层层环绕在他身旁。<br>“大人，时候到了，该走了。”一名随从上前，压低声音说。<br>他面色冷峻地推开他，跨上一匹马，走出了大院。<br>“晴，照顾好自己。”<br>一队人策马向京师外飞驰而去，他们的身后，似伴若有若无的琴声。<br>“那么，我相信你，希望你不会让我失望。”<br>（四）<br>城外。<br>后金的骑兵已列队完毕，沉默的武士胯下是嘶鸣的骏马，来自朔北的风呼啸而过，他们却纹丝不动。等待着的最后进攻的命令。<br>他从城头回望，同样无言的士兵站在城头，正在最后调试红衣大炮。<br>这是他们最后的仰仗。只有这些来自葡萄牙，被称为“佛郎机”的恐怖巨兽才能遏制住后金军的骏马长刀。<br> 他突然很想说些什么，却又不知道从何说起。<br>其实他从小就不善言谈，只有在面对相知的人他才会知无不言。但多年宦海沉浮，他再也没遇到凌那样知心的人。她也很久不理解他，不言说那些本可以说的万语千言。<br>“你在何方？行何事？你的身旁是否有值得守护的人？”他想。<br>“这里，是我们的土地！”他一字一顿。<br>“我不知道是什么让你们走到现在，但对于我，是我的侠客梦。从很小的时候开始，我就梦想做一名仗剑走江湖的大侠，能劫富济贫，行侠一方，但长大了才发现，侠客精神的存在本就是社会的悖论，一己之力终究改变不了太多。”他叹息了一声，“为了这一天，我已经等待了太久，走过官场的腐朽黑暗，习惯了踩着别人的尸体前行，看惯了勾心斗角，生离死别，我一直在寻找一个可以报国的机会。那个机会，就在我面前，就在我们面前！”<br>“列阵！”他大声的说。<br>（五）<br>“头儿，前面已经开打了！”<br>凌暗自叹息，他终究还是没能在开战之前赶到城下。说实话他对这座孤城的守将还是比较好奇的，本希望能见他一面，但现在怕是没有机会了。<br>“寻找破绽，直接切入战场！”<br>战事如火如荼的进行着，每一刻都有人死去。<br>后金军的骑兵虽然犀利，但却不善于攻城，而明军虽然人数劣势，但有必死的心智，加上有利的地形和怒吼的红衣大炮，竟是挡住了后金的攻势，竟隐隐有反攻地迹象。<br>中军的努尔哈赤有些着急了。对面守将是谁？无名小卒罢了。而堂堂的后金国主竟在此无名小卒面前停滞不前。这是他所不能接受的。<br>“正黄旗压上！我领军做先锋！”他怒吼一声。<br>“报告！西南方出现不明军队，直奔我们中军而来！”<br>努尔哈赤大惊，急忙望去。<br>只见一支飞驰的骑军神兵般降入战场，借着战马的冲击力，所到之处后金军皆人仰马翻。为首的一人身着黑衣，手执双刀，翻飞间手起刀落。似有睥睨八荒之威势。<br>“这才是我想要的对手啊！”努尔哈赤赞叹地说，“不过这样笔直的冲阵，怕是嫌命长了吧？”<br>他握起了他的刀。<br>……<br>他依旧站在城楼上，只不过手中多了一口宝剑。<br>“有人来了！”他看到了骑兵赴死般的冲阵，自然也认出了他心念的人。<br>凌。<br>“打开城门，召集骑兵出城迎战！”<br>“你疯了！你知道他们是什么人！”<br>“我知道，”他头也不回地说，“那是我的故人。”<br>他仰天长啸，城门洞开。<br>“此去经年，你过的好吗？”<br>（六）<br>他还记得与凌的分别。<br>那天他喝了很多酒，似乎把所有剩下的钱都拿来买酒了。<br>“那我走了，你要照顾好自己啊。”<br>“我会的，你也是，别再为了别人那么拼了。”<br>凌笑。<br>“可要好好对她啊，不然我可不放过你。”<br>“好啦好啦，我知道你也喜欢过她，是啊，她那样的人又有几个人不喜欢呢？放心，我会永远对她好的。可是现在，天色已晚啦。”<br>他不再说话，小口啜着酒。<br>凌忽然想起他曾经读到过的一句诗，“桃李春风一杯酒，江湖夜雨十年灯。”<br>可能这句话就是写离别的吧？分开时大家都强撑着把酒言欢，分开后却独行辗转，守心独语，再也不说出心中所想，在每个沉默的夜里走向远方。<br>“那，我走了，再会。”<br>再会。<br>再会吧，希望再会之时，你能实现所有愿望，负剑走在山水江湖间，清傲孤寒，无所牵挂。<br>（七）<br>凌已经无力对他行礼了。<br>硝烟散尽，敌军退去，他们打赢了这场不可能胜利的战争，但他就要死了。<br>所谓故人相逢应该是很美满的吧？毕竟天下有四海，故人却寥寥无几。所以每个相逢应举杯相迎，推杯换盏间，说尽世间沧桑。<br>可战场上的相逢总是意味着分别，而且是以天人两隔的分别，，一人归去，再无相逢执手的可能。<br>“你还是那样，为了别人总是奋不顾身啊。”他不禁回想起小时候凌为了保护他在小巷中与人斗殴至头破血流的时光，发现他从未真正理解过身边的人，只是在自我所信奉的道路上渐行渐远。<br>“没办法，本就一无所有，所以每次才能压上全部，毕竟就算失败了也失去不了什么。凌咳出一口鲜血，“不说这个了，她还好么？”<br>“嗯，不过她现在应该很讨厌我吧？为了身居高位，可以掌兵作战，我做了太多为人所不齿的事。”他苦笑。<br>“还记得我们小时候么？你说你要做一名大侠，我要吵着闹着要跟在你身后，如今的你还留着当年的梦么？只是我不能陪你走了啊。”凌神智已经有些恍惚，“没事，你还有她，她也是懂你的吧？可要好好待她啊，不然我……”<br>“你总是对我说这些。让我想起我父亲。”他打断了凌，转身，走向落日余晖照耀下的、只剩下断壁颓垣的宁远城，一场胜利改变不了什么，后金军还会再来，战火的暗影始终笼罩在辽东这片土地的上空。<br>凌望着他的背影渐行渐远，往事如漫天风雪扑面而来。<br>“你的侠客梦，要一直走下去啊。”凌轻声说着，闭上了双眼。<br>（八）<br>崇祯三年。京师。<br>他望着窗外，盛夏已过，秋的肃杀萧瑟已缓慢入侵了京城。<br>宁远大捷后，他本可以节节攀升，但他却毅然辞官归乡，去寻找他故人眼中的侠的身影。<br>谁也不知道多年以后他为何要重新出山，也没有人能想到他竟然死于最忠诚的帝国之手。<br>而她，就像是不愿看到他的结局一般，一年前已弃他而去。<br>“现在世间，却是没有令我牵挂的人和事了啊。”他暗自想着。回想自己的一生。<br>“追求侠义，心系苍生，错了吗？”<br>“沉浮官场，不择手段，错了吗？”<br>“独守孤城，力战外侮，错了吗？”<br>“我一生追求的侠义，难道是错的吗？还是说面对这个世界，侠的精神就应当被埋藏在每个心怀正义的人的内心而不展露呢？可是这样，那侠客精神存在的意义和目的又是什么呢？”<br>天将明。<br>他这样想着，面对自己和帝国的薄暮，紧紧地闭上了双眼。</p>
-]]></content>
-      <categories>
-        <category>创作</category>
-      </categories>
-      <tags>
-        <tag>诗歌</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>分布式原理</title>
     <url>/2023/01/17/%E5%88%86%E5%B8%83%E5%BC%8F/</url>
     <content><![CDATA[<h1 id="分布式理论-现代架构基石"><a href="#分布式理论-现代架构基石" class="headerlink" title="分布式理论-现代架构基石"></a>分布式理论-现代架构基石</h1><h1 id="1-目录："><a href="#1-目录：" class="headerlink" title="1.目录："></a>1.目录：</h1><p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230202220429.png" alt="QQ截图20230202220429"></p>
@@ -1815,25 +1815,6 @@
       </tags>
   </entry>
   <entry>
-    <title>塑鸿</title>
-    <url>/2023/01/17/%E5%A1%91%E9%B8%BF/</url>
-    <content><![CDATA[<h5 id="塑鸿"><a href="#塑鸿" class="headerlink" title="塑鸿"></a>塑鸿</h5><p>天地间的青山在极目外<br>苍穹上的鸿雁在远眺中<br>仰慕于青山的浩渺<br>惊异于鸿雁的自信<br>于是决意塑造自我的鸿<br>翱翔于予慕的青山上</p>
-<p>首先我要铸造锻打它的骨骼<br>剔除每一丝杂质里的犹豫与怯懦</p>
-<p>其次我要编制描绘它的羽翼<br>从林间的微风里捕捉自由 从深海的月影中萃取温</p>
-<p>我更要全心全意塑造它的灵魂<br>以我所见的每一个不羁的鸿的语言<br>以我心心念念的长久执着与陪伴<br>以我每一个漫漫长夜的静静守望</p>
-<p>我之所以强调所谓塑造的意义<br>是因为它可以抛弃每一个人心中与身上所有所有的不完美<br>只把最美好最高洁的内心展现于世人面前<br>把每一个展翅翱翔的背影留在世人心中</p>
-<p>我知道<br>终究我塑造的鸿会离我而去<br>飞向我永远看不到的青山上<br>而我只能慢慢消散而被时光遗弃</p>
-<p>但我相信<br>终有一天<br>我的鸿会于其他的鸿比翼飞翔于这遍及青山的世<br>传递我塑造时给予的无限爱恋与期待</p>
-<p>纵使那时我已长辞于此<br>纵使那时已无人知晓我的名字</p>
-]]></content>
-      <categories>
-        <category>创作</category>
-      </categories>
-      <tags>
-        <tag>诗歌</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>大一立项爬虫</title>
     <url>/2023/06/18/%E5%A4%A7%E4%B8%80%E7%AB%8B%E9%A1%B9%E7%88%AC%E8%99%AB/</url>
     <content><![CDATA[<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">//京东</span><br><span class="line">import requests</span><br><span class="line">from bs4 import BeautifulSoup</span><br><span class="line">import xlwt</span><br><span class="line"></span><br><span class="line">def get_html(url):</span><br><span class="line">    # 模拟浏览器访问</span><br><span class="line">    headers = &#123;</span><br><span class="line">        &#x27;User-Agent&#x27;: &#x27;Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/101.0.4951.64 Safari/537.36 Edg/101.0.1210.53&#x27;&#125;</span><br><span class="line">    print(&quot;--&gt; 成功爬取网站信息&quot;)</span><br><span class="line">    response = requests.get(url, headers=headers)  # 请求访问网站</span><br><span class="line">    if response.status_code == 200:</span><br><span class="line">        html = response.text  # 获取网页源码</span><br><span class="line">        return html  # 返回网页源码</span><br><span class="line">    else:</span><br><span class="line">        print(&quot;获取网站信息失败！&quot;)</span><br><span class="line">if __name__ == &#x27;__main__&#x27;:</span><br><span class="line">    # 创建workbook，就是创建一个Excel文档</span><br><span class="line">    write_work = xlwt.Workbook(encoding=&#x27;ascii&#x27;)</span><br><span class="line">    # 添加一张单</span><br><span class="line">    write_sheet = write_work.add_sheet(&quot;sheet1&quot;)</span><br><span class="line">    # 创建表头</span><br><span class="line">   # write_sheet.write(0, 0, label=&#x27;商品编号&#x27;)      # 第1行 第1列 写入内容&#x27;商品编号&#x27;</span><br><span class="line">    write_sheet.write(0, 0, label=&#x27;商品名称&#x27;)      # 第1行 第2列 写入内容&#x27;商品名称&#x27;</span><br><span class="line">    write_sheet.write(0, 1, label=&#x27;价格&#x27;)         # 第1行 第4列 写入内容&#x27;价格&#x27;</span><br><span class="line">    write_sheet.write(0, 2, label=&#x27;详情页网址&#x27;)         # 第1行 第5列 写入内容&#x27;商家&#x27;</span><br><span class="line">    write_sheet.write(0, 3, label=&#x27;评价数量&#x27;)   # 第1行 第6列 写入内容&#x27;商品详情地址&#x27;</span><br><span class="line"></span><br><span class="line">    # 记录当前行数</span><br><span class="line">    _current_row = 0</span><br><span class="line">    i=0</span><br><span class="line">    k=0</span><br><span class="line">    j=0</span><br><span class="line">    # 搜索关键字</span><br><span class="line">    keyword = input(&quot;请输入你要搜索的商品：&quot;)</span><br><span class="line">    for k in range(0,10):</span><br><span class="line">        i = 3+k*2</span><br><span class="line">        j = 56+k*60</span><br><span class="line">        # 搜索地址</span><br><span class="line">        search_url = &#x27;https://search.jd.com/Search?keyword=&#x27; + keyword + &#x27;&amp;enc=utf-8&amp;page=&#123;&#125;&amp;s=&#123;&#125;&amp;click=0&#x27;.format(i, j)</span><br><span class="line">        print(search_url)</span><br><span class="line">        html = get_html(search_url)</span><br><span class="line">        # 初始化BeautifulSoup库,并设置解析器</span><br><span class="line">        soup = BeautifulSoup(html, &#x27;lxml&#x27;)</span><br><span class="line">        # 商品列表</span><br><span class="line">        goods_list = soup.find_all(&#x27;li&#x27;, class_=&#x27;gl-item&#x27;)</span><br><span class="line">        # 打印goods_list到控制台</span><br><span class="line">        for li in goods_list:  # 遍历父节点</span><br><span class="line">            # 由于我们第一行已经写入了表头。所以这里0+1，就是从第1行开始，后面每次循环+1</span><br><span class="line">            _current_row += 1</span><br><span class="line">            if _current_row == 29:</span><br><span class="line">                break</span><br><span class="line">            # 商品编号</span><br><span class="line">            no = li[&#x27;data-sku&#x27;]</span><br><span class="line">            # 商品名称</span><br><span class="line">            name = li.find(class_=&#x27;p-name p-name-type-2&#x27;).find(&#x27;em&#x27;).get_text()</span><br><span class="line">            # 价格</span><br><span class="line">            price = li.find(class_=&#x27;p-price&#x27;).find(&#x27;i&#x27;).get_text()</span><br><span class="line">            # 商家</span><br><span class="line">            number = &#x27;http:&#x27;+li.find(class_=&#x27;p-commit&#x27;).find(&#x27;a&#x27;)[&#x27;href&#x27;]</span><br><span class="line">            # 商品详情地址</span><br><span class="line">            co = li.find(class_=&#x27;p-commit&#x27;).find(&#x27;a&#x27;).get_text()</span><br><span class="line"></span><br><span class="line">           #detail_addr = li.find(class_=&#x27;p-name p-name-type-2&#x27;).find(&#x27;a&#x27;)[&#x27;href&#x27;]</span><br><span class="line"> # 写入Excel</span><br><span class="line">            #write_sheet.write(_current_row, 0, label=no)</span><br><span class="line">            write_sheet.write(_current_row, 0, label=name)</span><br><span class="line">            write_sheet.write(_current_row, 1, label=price)</span><br><span class="line">            write_sheet.write(_current_row, 2, label=number)</span><br><span class="line">           # write_sheet.write(_current_row, 3, label=co)</span><br><span class="line"></span><br><span class="line">    # 保存文件，使用的是相对目录（也可以使用绝对路径），会保存在当前文件的同目录下。文件名为读取多个商品页面1.xls，必须是.xls后缀</span><br><span class="line">    write_work.save(&quot;./keyword.xls&quot;)</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
@@ -1869,14 +1850,22 @@
       </tags>
   </entry>
   <entry>
-    <title>奥恩教学</title>
-    <url>/2023/02/10/%E5%A5%A5%E6%81%A9%E6%95%99%E5%AD%A6/</url>
-    <content><![CDATA[]]></content>
+    <title>塑鸿</title>
+    <url>/2023/01/17/%E5%A1%91%E9%B8%BF/</url>
+    <content><![CDATA[<h5 id="塑鸿"><a href="#塑鸿" class="headerlink" title="塑鸿"></a>塑鸿</h5><p>天地间的青山在极目外<br>苍穹上的鸿雁在远眺中<br>仰慕于青山的浩渺<br>惊异于鸿雁的自信<br>于是决意塑造自我的鸿<br>翱翔于予慕的青山上</p>
+<p>首先我要铸造锻打它的骨骼<br>剔除每一丝杂质里的犹豫与怯懦</p>
+<p>其次我要编制描绘它的羽翼<br>从林间的微风里捕捉自由 从深海的月影中萃取温</p>
+<p>我更要全心全意塑造它的灵魂<br>以我所见的每一个不羁的鸿的语言<br>以我心心念念的长久执着与陪伴<br>以我每一个漫漫长夜的静静守望</p>
+<p>我之所以强调所谓塑造的意义<br>是因为它可以抛弃每一个人心中与身上所有所有的不完美<br>只把最美好最高洁的内心展现于世人面前<br>把每一个展翅翱翔的背影留在世人心中</p>
+<p>我知道<br>终究我塑造的鸿会离我而去<br>飞向我永远看不到的青山上<br>而我只能慢慢消散而被时光遗弃</p>
+<p>但我相信<br>终有一天<br>我的鸿会于其他的鸿比翼飞翔于这遍及青山的世<br>传递我塑造时给予的无限爱恋与期待</p>
+<p>纵使那时我已长辞于此<br>纵使那时已无人知晓我的名字</p>
+]]></content>
       <categories>
-        <category>教学</category>
+        <category>创作</category>
       </categories>
       <tags>
-        <tag>奥恩</tag>
+        <tag>诗歌</tag>
       </tags>
   </entry>
   <entry>
@@ -1891,20 +1880,14 @@
       </tags>
   </entry>
   <entry>
-    <title>彩云辞</title>
-    <url>/2023/01/17/%E5%BD%A9%E4%BA%91%E8%BE%9E/</url>
-    <content><![CDATA[<h5 id="彩云辞"><a href="#彩云辞" class="headerlink" title="彩云辞"></a>彩云辞</h5><p>夕照弥漫<br>沉醉于金色的山水风光<br>殊不知云影变幻<br>彩云悄然泊于身旁</p>
-<p>灵动飞扬是彩云的身影<br>明丽温婉是彩云的光芒<br>桀骜的白云也再移不开目光<br>在秋月秋水的秉烛夜谈<br>在春日春山的缓缓吟唱</p>
-<p>然世事变易 风雨飘摇<br>彩云徐徐归去<br>于梦不到的云间<br>用七彩的微光传递温暖<br>唯有天鸢可以拉住彩云的裙摆<br>在同去同归中执手相望</p>
-<p>面向涌动的人海<br>彩云只在回忆里<br>升起一轮淡淡的暖阳<br>柴米油盐的生活<br>庸俗肤浅的岁月<br>不经意间短暂的回想<br>总会带来善良与希望</p>
-<p>叹天地广袤 万象纷繁<br>惟有珍藏彩云往昔的言笑顾盼<br>细数彩云光影的日暮温柔<br>对彩云向远方的归去<br>许下最真挚的承诺 最美好的祝福</p>
-<p>愿彩云始终保持七彩的模样<br>温柔的光洒落并不温柔的人间<br>愿彩云与你我的几多相遇相知<br>温柔的鼓励一程追寻 踏山寻海<br>不卑不亢</p>
-]]></content>
+    <title>奥恩教学</title>
+    <url>/2023/02/10/%E5%A5%A5%E6%81%A9%E6%95%99%E5%AD%A6/</url>
+    <content><![CDATA[]]></content>
       <categories>
-        <category>创作</category>
+        <category>教学</category>
       </categories>
       <tags>
-        <tag>诗歌</tag>
+        <tag>奥恩</tag>
       </tags>
   </entry>
   <entry>
@@ -1917,6 +1900,23 @@
 <p>开始循着旧梦走向魂牵梦萦的故乡</p>
 <p>当他越过青山重 终于以游子归来<br>古巷里再也听不到 的是她的婉转歌声</p>
 <p>少年念及过往后再叹世事无常<br>转身离去赴往喧嚣浮华的客方<br>又是一夜清冷月光<br>恍然间又听到她的低声浅唱<br>他仿佛褪去眉间风霜如同时光轮转梦中古巷里的故人重逢<br>再也等不到的两相执手<br>他紧握着半生的古巷月光<br>看着幻梦中的她渐行渐远<br>希冀着时光再一次流转<br>流转出彼时年少的模样</p>
+]]></content>
+      <categories>
+        <category>创作</category>
+      </categories>
+      <tags>
+        <tag>诗歌</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>彩云辞</title>
+    <url>/2023/01/17/%E5%BD%A9%E4%BA%91%E8%BE%9E/</url>
+    <content><![CDATA[<h5 id="彩云辞"><a href="#彩云辞" class="headerlink" title="彩云辞"></a>彩云辞</h5><p>夕照弥漫<br>沉醉于金色的山水风光<br>殊不知云影变幻<br>彩云悄然泊于身旁</p>
+<p>灵动飞扬是彩云的身影<br>明丽温婉是彩云的光芒<br>桀骜的白云也再移不开目光<br>在秋月秋水的秉烛夜谈<br>在春日春山的缓缓吟唱</p>
+<p>然世事变易 风雨飘摇<br>彩云徐徐归去<br>于梦不到的云间<br>用七彩的微光传递温暖<br>唯有天鸢可以拉住彩云的裙摆<br>在同去同归中执手相望</p>
+<p>面向涌动的人海<br>彩云只在回忆里<br>升起一轮淡淡的暖阳<br>柴米油盐的生活<br>庸俗肤浅的岁月<br>不经意间短暂的回想<br>总会带来善良与希望</p>
+<p>叹天地广袤 万象纷繁<br>惟有珍藏彩云往昔的言笑顾盼<br>细数彩云光影的日暮温柔<br>对彩云向远方的归去<br>许下最真挚的承诺 最美好的祝福</p>
+<p>愿彩云始终保持七彩的模样<br>温柔的光洒落并不温柔的人间<br>愿彩云与你我的几多相遇相知<br>温柔的鼓励一程追寻 踏山寻海<br>不卑不亢</p>
 ]]></content>
       <categories>
         <category>创作</category>
@@ -2053,153 +2053,6 @@
       </categories>
       <tags>
         <tag>数据库</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>数据结构</title>
-    <url>/2023/03/18/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/</url>
-    <content><![CDATA[<h1 id="数据结构"><a href="#数据结构" class="headerlink" title="数据结构"></a>数据结构</h1><h1 id="1-绪论"><a href="#1-绪论" class="headerlink" title="1.绪论:"></a>1.绪论:</h1><h2 id="1-1-定义"><a href="#1-1-定义" class="headerlink" title="1. 1 定义:"></a>1. 1 定义:</h2><p><strong>数据</strong>是对信息的一种符号表示。在计算机科学中是指所有能输入到计算机中并被计算机程序处理的符号的总称。</p>
-<p>数据结构十数据对象在计算机中的组织方式.<strong>数据结构</strong>是一个二元组 Data_Structure ＝（D，R），其中，D 是数据元素的有限集，R 是 D 上关系的有限集。</p>
-<h2 id="1-2-逻辑结构与存储结构"><a href="#1-2-逻辑结构与存储结构" class="headerlink" title="1.2 逻辑结构与存储结构:"></a>1.2 逻辑结构与存储结构:</h2><p>逻辑结构是指数据间的相互关系.通常分为四类结构:线性结构,集合,树,图或网.(还有什么有序表之类的)</p>
-<p><strong>存储结构</strong>是指数据结构在计算机中的表示，又称为数据的物理结构。通常由四种基本的存储方法实现：</p>
-<p>（1）顺序存储方式</p>
-<p>（2）链式存储方式</p>
-<p>（3）索引存储方式</p>
-<p>（4）散列存储方式</p>
-<h2 id="1-3-算法复杂度"><a href="#1-3-算法复杂度" class="headerlink" title="1.3 算法复杂度:"></a>1.3 算法复杂度:</h2><p>主要分为时间复杂度和空间复杂度.</p>
-<h3 id="1-3-1-空间复杂度"><a href="#1-3-1-空间复杂度" class="headerlink" title="1.3.1 空间复杂度:"></a>1.3.1 空间复杂度:</h3><p>空间复杂度是指执行程序时,额外占用的存储空间的大小.</p>
-<h3 id="1-3-2-时间复杂度"><a href="#1-3-2-时间复杂度" class="headerlink" title="1.3.2 时间复杂度:"></a>1.3.2 时间复杂度:</h3><p>时间复杂度是指执行程序时,占用时间的大小.</p>
-<p>时间复杂度只与待解决问题的规模(n)有关,与一步基本操作的工作量无关.</p>
-<p>时间复杂度只考虑问题的宏观渐进性,意识是求解的难度随着问题规模的增大逐渐增大的趋势.如线性增长(o(n)).</p>
-<h3 id="1-3-3-算法特性"><a href="#1-3-3-算法特性" class="headerlink" title="1.3.3 算法特性:"></a>1.3.3 算法特性:</h3><p>输入.输出.有穷性.确定性.可行性.</p>
-<h1 id="2-线性表"><a href="#2-线性表" class="headerlink" title="2.线性表:"></a>2.线性表:</h1><h2 id="2-1-定义"><a href="#2-1-定义" class="headerlink" title="2.1 定义:"></a>2.1 定义:</h2><p>线性表是n个相同类型的数据元素组成的有限序列.是最简单的.最基础的数据结构(逻辑结构).线性表包括顺序表(数组)和链表.</p>
-<h2 id="2-2-特征"><a href="#2-2-特征" class="headerlink" title="2.2 特征:"></a>2.2 特征:</h2><p>线性表的第一个元素叫第一元素,最后一个元素是最后元素,中间元素的上一个元素叫前驱,后一个元素叫后继.</p>
-<h2 id="2-3-顺序表基本运算的复杂度"><a href="#2-3-顺序表基本运算的复杂度" class="headerlink" title="2.3 顺序表基本运算的复杂度:"></a>2.3 顺序表基本运算的复杂度:</h2><p>插入,删除都是o(n).</p>
-<h2 id="2-4-顺序表优缺点"><a href="#2-4-顺序表优缺点" class="headerlink" title="2.4 顺序表优缺点:"></a>2.4 顺序表优缺点:</h2><p>优点: 节省空间,查找元素第i个元素比较简单(头+元素大小✖i)</p>
-<p>缺点:插入.删除都需要移动数据.比较不容易确定存储空间.</p>
-<h2 id="2-5-链表"><a href="#2-5-链表" class="headerlink" title="2.5 链表:"></a>2.5 链表:</h2><h3 id="2-5-1-头结点"><a href="#2-5-1-头结点" class="headerlink" title="2.5.1: 头结点:"></a>2.5.1: 头结点:</h3><p>头结点不存储数据.指针指向第一个节点.</p>
-<p>头插法:读入的数据元素的顺序与生成的链表中元素的顺序是相反的。</p>
-<p>尾插法读入的数据元素的顺序与生成的链表中元素的顺序是一致的。</p>
-<h1 id="3-栈和队列"><a href="#3-栈和队列" class="headerlink" title="3.栈和队列:"></a>3.栈和队列:</h1><h2 id="3-1-定义"><a href="#3-1-定义" class="headerlink" title="3.1 定义:"></a>3.1 定义:</h2><p>栈和队列是一种特殊的线性表.先进后出为栈,先进先出为队列.</p>
-<h2 id="3-2-栈"><a href="#3-2-栈" class="headerlink" title="3.2 栈:"></a>3.2 栈:</h2><p>插入和删除均在特定的一端进行.</p>
-<p>最先进入的一端叫栈底,进行操作的一端叫栈顶.入栈成为Push,出栈称为Pop.</p>
-<p>栈的一种定义：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">#define STACK_INIT_SIZE 100</span><br><span class="line"></span><br><span class="line">#define STACKINCREMENT 10</span><br><span class="line"></span><br><span class="line">typedef struct</span><br><span class="line">&#123;</span><br><span class="line"> SElemType *base;</span><br><span class="line"></span><br><span class="line">SElemType *top;</span><br><span class="line"></span><br><span class="line">int stacksize;</span><br><span class="line"></span><br><span class="line">&#125;SqStack;</span><br></pre></td></tr></table></figure>
-
-<p>top指针表示栈顶，入栈时，top指针存入数据后移动，成为新的栈顶。出栈时，top指针回退。</p>
-<h2 id="3-3-队列："><a href="#3-3-队列：" class="headerlink" title="3.3 队列："></a>3.3 队列：</h2><p>一种先进先出的线性表。</p>
-<p>入队的地方称为队尾，出队的地方称为队头，队尾指针rear,队头指针front。</p>
-<h1 id="4-串"><a href="#4-串" class="headerlink" title="4.串:"></a>4.串:</h1><h1 id="5-数组和广义表："><a href="#5-数组和广义表：" class="headerlink" title="5.数组和广义表："></a>5.数组和广义表：</h1><h1 id="6-树："><a href="#6-树：" class="headerlink" title="6.树："></a>6.树：</h1><h1 id="7-图："><a href="#7-图：" class="headerlink" title="7.图："></a>7.图：</h1><h2 id="7-1-定义："><a href="#7-1-定义：" class="headerlink" title="7.1 定义："></a>7.1 定义：</h2><p>由点的集合和边的集合构成的集合，任意两个结点之间都可能相关，即结点之间的邻接关系可以是任意的。</p>
-<h2 id="7-2-图的相关术语："><a href="#7-2-图的相关术语：" class="headerlink" title="7.2 图的相关术语："></a>7.2 图的相关术语：</h2><p>度：节点的边数。入读是指向该节点的边数，出度是从该节点出发的边数。</p>
-<p>强连通图：任意两点之间都联通的图</p>
-<p>路径、路径长度：顶点 vp到顶点 vq之间的路径是指顶点序列 vp,vi1,vi2, …, vim,vq.。路径上边的数目称为路径长度。</p>
-<h2 id="7-3-图的存储："><a href="#7-3-图的存储：" class="headerlink" title="7.3 图的存储："></a>7.3 图的存储：</h2><h3 id="7-3-1-邻接矩阵："><a href="#7-3-1-邻接矩阵：" class="headerlink" title="7.3.1 邻接矩阵："></a>7.3.1 邻接矩阵：</h3><h3 id="7-3-2-邻接表："><a href="#7-3-2-邻接表：" class="headerlink" title="7.3.2 邻接表："></a>7.3.2 邻接表：</h3><p>是图的一种顺序存储与链式存储结合的存储方法，类似于树的孩子链表表示法。就是对于图 G 中的每个顶点 vi，将所有邻接于 vi的顶点 vj链成一个单链表，这个单链表就称为顶点 vi的邻接表，再将所有点的邻接表表头放到数组中，就构成了图的邻接表。</p>
-<p>在邻接表中，每条边都会出现两次，如果是n个顶点，e条边的邻接表，总共需要n个头节点和2e个表节点，比较适合存储比较稀疏的图。</p>
-<h2 id="7-4：图的遍历："><a href="#7-4：图的遍历：" class="headerlink" title="7.4：图的遍历："></a>7.4：图的遍历：</h2><p>从图的某一个顶点出发，访问所有的顶点。</p>
-<h3 id="7-4-1-深度优先搜索："><a href="#7-4-1-深度优先搜索：" class="headerlink" title="7.4.1 深度优先搜索："></a>7.4.1 深度优先搜索：</h3><p>从某一个顶点开始，访问一个顶点后，接着访问与这个顶点相邻的，未被访问过的顶点，直到所有的顶点都被访问过为止。</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">void DFS(Graph G,int v ) /*从第 v 个顶点出发递归地深度优先遍历图 G*/</span><br><span class="line"></span><br><span class="line">&#123; </span><br><span class="line">visited[v]=TRUE;Visit(v); /*访问第 v 个顶点*/</span><br><span class="line"></span><br><span class="line">for(w=FisrtAdjVex(G,v);w&gt;=0; w=NextAdjVex(G,v,w))</span><br><span class="line"></span><br><span class="line">if (!visited[w]) DFS(G,w); /*对 v 的尚未访问的邻接顶点 w 递归调用 DFS*/</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>遍历图的过程实质上是对每个顶点查找其邻接点的过程，其耗费的时间则取决于所采用的存储结构。当以邻接矩阵为图的存储结构时，查找每个顶点的邻接点所需时间为O(n2 ) ，其中 n 为图中顶点数。而当以邻接表作图的存储结构时，找邻接点所需时间为 O(e)，其中e 为无向图中边的数或有向图中弧的数。由此，当以邻接表作存储结构时，深度优先搜索遍历图的时间复杂度为 O(n+e) 。</p>
-<h3 id="7-4-2-广度优先搜索："><a href="#7-4-2-广度优先搜索：" class="headerlink" title="7.4.2: 广度优先搜索："></a>7.4.2: 广度优先搜索：</h3><p>从某一个顶点开始，先访问该顶点，再访问与该顶点相邻的所有未访问过的顶点，然后在对这些邻接顶点的邻接顶点做相同的操作。</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">void BFS (Graph G,int v)</span><br><span class="line"></span><br><span class="line">&#123;</span><br><span class="line">InitQueue(Q); /*置空的辅助队列 Q*/</span><br><span class="line"></span><br><span class="line">visited[v]=TRUE; Visit(v); /*访问 v*/</span><br><span class="line"></span><br><span class="line">EnQueue(Q,v); /*v 入队列*/</span><br><span class="line"></span><br><span class="line">while (!QueueEmpty(Q)) </span><br><span class="line"></span><br><span class="line">&#123;DeQueue(Q,u); /*队头元素出队并置为 u*/</span><br><span class="line"></span><br><span class="line">for(w=FistAdjVex(G,u); w&gt;=0; w=NextAdjVex(G,u,w))</span><br><span class="line"></span><br><span class="line">if(!visited[w])</span><br><span class="line"></span><br><span class="line">&#123;visited[w]=TRUE; Visit(w);</span><br><span class="line"></span><br><span class="line"> EnQueue(Q,w); /*u 尚未访问的邻接顶点 w 入队列 Q*/</span><br><span class="line">&#125;&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line">注意入队列的顺序，先入队列的点先出队列进行的下一步的bfs，可能会影响遍历顺序。</span><br></pre></td></tr></table></figure>
-
-<p>广度优先搜索遍历图的过程实质是通过边或弧找邻接点的过程，其时间复杂度和深度优先搜索遍历相同，两者不同之处仅仅在于对顶点访问的顺序不同。</p>
-<h2 id="7-5-最小生成树："><a href="#7-5-最小生成树：" class="headerlink" title="7.5 最小生成树："></a>7.5 最小生成树：</h2><p><strong>生成树：</strong>所谓连通图 G 的生成树，是 G 的包含其全部 n 个顶点的一个极小连通子图。它必定包含且仅包含 G 的 n-1 条边。</p>
-<p>最小生成树是指在图的所有生成树中，边权和最小的树。</p>
-<p>下面给出两种求最小生成数的算法。</p>
-<h3 id="7-5-1：Prim算法："><a href="#7-5-1：Prim算法：" class="headerlink" title="7.5.1：Prim算法："></a>7.5.1：Prim算法：</h3><p>建立u，v(所有顶点集合)，t三个集合。任选一个顶点开始。把该顶点加入u，寻找一条边，这条边的两个顶点一个在u中，一个在v-u中，而且这条边的权值在符合所有的边中最小，把v-u中的那个点加入u，把这条边加入t，反复进行操作，知道u中包括了所有的顶点为止。</p>
-<p>时间复杂度o（n2）(邻接矩阵)o(n+e)(邻接表)，比较适合于边稠密的网。</p>
-<h3 id="7-5-2-Kruskal-算法"><a href="#7-5-2-Kruskal-算法" class="headerlink" title="7.5.2:  Kruskal 算法:"></a>7.5.2:  Kruskal 算法:</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">void Kruskal (G,T)&#123;</span><br><span class="line">T=V;</span><br><span class="line">ncomp=N;</span><br><span class="line">while（ncomp&gt;1）</span><br><span class="line">&#123;</span><br><span class="line">	从G中找到取出并删除权值最小的边，记为x.</span><br><span class="line">	if(x的两个顶点在T中并没有相连相连)</span><br><span class="line">	&#123;</span><br><span class="line">		把这条边加入t；</span><br><span class="line">		ncomp--；</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>时间复杂度o（enlog2e）比较适合边稀疏的网。</p>
-<h2 id="7-6：最短路径："><a href="#7-6：最短路径：" class="headerlink" title="7.6：最短路径："></a>7.6：最短路径：</h2><h3 id="7-6-1-单源最短路："><a href="#7-6-1-单源最短路：" class="headerlink" title="7.6.1:单源最短路："></a>7.6.1:单源最短路：</h3><p>给定有向图g和源点v，求该点到所有顶点的最短距离。</p>
-<p>Dijkstra 算法:</p>
-<p>s是已经求出最短路的集合,v-s是未求出最短路的集合.</p>
-<p>首先把顶点加入s,把与v最近的v1也加入s.</p>
-<p>然后在v-s中寻找vx到vo与vx到v1,遍历找最短的加入s.</p>
-<p>依次进行操作.</p>
-<p>时间复杂度是 O(n 2 ).</p>
-<h3 id="7-6-2-多源最短路"><a href="#7-6-2-多源最短路" class="headerlink" title="7.6.2: 多源最短路:"></a>7.6.2: 多源最短路:</h3><p>从 Vi到 Vj的所有可能存在的路径中，选出一条长度最短的路径。时间复杂度是 O(n 3 ).</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">for(int k = 0 ; k &lt; size ; k ++)</span><br><span class="line">&#123;</span><br><span class="line">    for(int i = 0 ; i &lt; size ; i ++)</span><br><span class="line">    &#123;</span><br><span class="line">        for(int j = 0 ; j &lt; size ; j ++)</span><br><span class="line">        &#123;</span><br><span class="line">            if(zu[i][j] &gt; zu[i][k] + zu[k][j])&#123;</span><br><span class="line">            	zu[i][j] = zu[i][k] + zu[k][j];</span><br><span class="line">            &#125; </span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;	 </span><br></pre></td></tr></table></figure>
-
-<h2 id="7-7-拓扑排序"><a href="#7-7-拓扑排序" class="headerlink" title="7.7: 拓扑排序:"></a>7.7: 拓扑排序:</h2><h3 id="7-7-1-AOE网"><a href="#7-7-1-AOE网" class="headerlink" title="7.7.1: AOE网:"></a>7.7.1: AOE网:</h3><p>是一张有向无环图.</p>
-<p>顶点表示事件,边表示事件.</p>
-<p>拓扑序列:如果存在vi到vj的路径,则在这个序列中i位于j之前.有向图的序列不唯一,无环图一定有拓扑序列,有环图一定没有拓扑序列.</p>
-<p>算法:</p>
-<p>(1)选图中入度为0的顶点输出.</p>
-<p>(2)删除该顶点以及预期相连的所有边.</p>
-<p>(3)重复进行 直到所以的顶点都被输出.</p>
-<p>整个算法的时间复杂度 为 O（e+n）。<strong>拓扑排序的序列可能不唯一。</strong> </p>
-<h3 id="7-7-2-关键路径"><a href="#7-7-2-关键路径" class="headerlink" title="7.7.2: 关键路径:"></a>7.7.2: 关键路径:</h3><p>首先要搞清楚几个概念:</p>
-<h4 id="7-7-2-1-事件的最早发生时间"><a href="#7-7-2-1-事件的最早发生时间" class="headerlink" title="7.7.2.1:事件的最早发生时间:"></a>7.7.2.1:事件的最早发生时间:</h4><p>记为ve[k]</p>
-<p>是从原点到发生事件的点的最长的路径长度.(含义是这个事件要在前面所有的事件都结束了之后这个事件才能就开始,所以所需要时间最长的活动为制约条件)</p>
-<h4 id="7-7-2-2-事件的最晚发生时间"><a href="#7-7-2-2-事件的最晚发生时间" class="headerlink" title="7.7.2.2:事件的最晚发生时间:"></a>7.7.2.2:事件的最晚发生时间:</h4><p>记为vl[k]</p>
-<p>开始节点为0,汇点为其最早开始时间.对于其他节点,从汇点开始减去其到上一个顶点的路径长度.</p>
-<h4 id="7-7-2-3-活动的最晚发生时间"><a href="#7-7-2-3-活动的最晚发生时间" class="headerlink" title="7.7.2.3:活动的最晚发生时间:"></a>7.7.2.3:活动的最晚发生时间:</h4><p>事件最晚时间减去活动边.</p>
-<h4 id="7-7-2-2-活动的最早发生时间"><a href="#7-7-2-2-活动的最早发生时间" class="headerlink" title="7.7.2.2:活动的最早发生时间:"></a>7.7.2.2:活动的最早发生时间:</h4><p>就是活动源头一侧的时间的最早发生时间.</p>
-<p>活动的最早和最晚开始时间相同的活动就是关键活动.由关键活动组成的路径被称为关键路径.</p>
-<p>整个工程完成的时间为：从有向图的<strong>源点</strong>到<strong>汇点</strong>的最长路径。</p>
-<h1 id="8-查找"><a href="#8-查找" class="headerlink" title="8.查找:"></a>8.查找:</h1><h2 id="8-1-顺序查找"><a href="#8-1-顺序查找" class="headerlink" title="8.1: 顺序查找:"></a>8.1: 顺序查找:</h2><p>第一个元素向后,依次顺序查找.</p>
-<h2 id="8-2-折半查找"><a href="#8-2-折半查找" class="headerlink" title="8.2: 折半查找:"></a>8.2: 折半查找:</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">int Search_Bin (SSTable ST, KeyType key ) </span><br><span class="line"></span><br><span class="line">&#123;low = 1; high = ST.length; /*置区间初值*/</span><br><span class="line"></span><br><span class="line">while(low &lt;= high)</span><br><span class="line"></span><br><span class="line"> &#123;mid=(low + high)/2;</span><br><span class="line"></span><br><span class="line"> if（</span><br><span class="line"></span><br><span class="line">key == ST.elem[mid].key )</span><br><span class="line"></span><br><span class="line"> return mid; /*找到待查元素*/</span><br><span class="line"></span><br><span class="line"> else if(key&lt;ST.elem[mid].key) )</span><br><span class="line"></span><br><span class="line"> high = mid - 1; /*继续在前半区间进行查找*/</span><br><span class="line"></span><br><span class="line"> else low = mid + 1;/*继续在后半区间进行查找*/</span><br><span class="line"></span><br><span class="line"> &#125;</span><br><span class="line"></span><br><span class="line"> return 0; /*顺序表中不存在待查元素*/</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>要求数据顺序存储 且有序。</p>
-<p>o（logn）</p>
-<h2 id="8-3：索引查找："><a href="#8-3：索引查找：" class="headerlink" title="8.3：索引查找："></a>8.3：索引查找：</h2><p>①查找表要求顺序存储；②查找表分成 n 块，当 i&gt;j 时，第 i 块中的最小元素大于第 j 块中的最大元素。</p>
-<p>过程：①首先确定所要查找关键字在哪一块中。②在所确定的块中用顺序查找查找关键字。</p>
-<p>平均查找长度n+l+2➗2 其中l是每块长度 n是总长度  若要使平均次数最小 每块的长度是根号n</p>
-<h2 id="8-4：-监视哨："><a href="#8-4：-监视哨：" class="headerlink" title="8.4： 监视哨："></a>8.4： 监视哨：</h2><p>不是带查找元素，是人为构造的一个数据，放在特定的位置，用来处理数组越界等情况。所以有监视哨的表，查询的元素要比待查元素多一个（失败时）成功就不需要了。</p>
-<h2 id="8-4：二叉排序树："><a href="#8-4：二叉排序树：" class="headerlink" title="8.4：二叉排序树："></a>8.4：二叉排序树：</h2><h3 id="8-4-1：-静态查找表与动态查找表："><a href="#8-4-1：-静态查找表与动态查找表：" class="headerlink" title="8.4.1： 静态查找表与动态查找表："></a>8.4.1： 静态查找表与动态查找表：</h3><p>动态查找表：有时在查询之后，还需要将“查询”结果为“不在查找表中”的数据元素插入到查找表中；或者，从查找表中删除其“查询”结果为“在查找表中”的数据元素。</p>
-<h3 id="8-4-2：-定义："><a href="#8-4-2：-定义：" class="headerlink" title="8.4.2： 定义："></a>8.4.2： 定义：</h3><p>空树或者对于所有的子树都有：左子树＜根节点＜右子树</p>
-<p>查找时：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">BSTree SearchBST(BiTree bt, KeyType key)/*在根指针 bt 所指二叉排序树中，递归查</span><br><span class="line">找某关键字等于 key 的元素，若查找成功，则返回指向该元素结点指针，否则返回空指针 */</span><br><span class="line">&#123;if(!bt) return NULL; </span><br><span class="line"></span><br><span class="line">else if(bt-&gt;key==key) return bt; /*查找成功*/ </span><br><span class="line"></span><br><span class="line">else if(key＜bt-&gt;key)</span><br><span class="line"></span><br><span class="line">return SearchBST(bt-&gt;lchild,key); /*在左子树中继续查找*/</span><br><span class="line"></span><br><span class="line"> else return SearchBST(bt-&gt;rchild, key); /*在右子树中继续查找*/</span><br><span class="line"></span><br><span class="line">&#125; </span><br></pre></td></tr></table></figure>
-
-<h2 id="8-5：平衡二叉树："><a href="#8-5：平衡二叉树：" class="headerlink" title="8.5：平衡二叉树："></a>8.5：平衡二叉树：</h2><p>或者是一棵空树，或者是具有下列性质的二叉排序树：它的左子树和右子树都是平衡二叉树，且左子树和右子树高度之差的绝对值不超过 1。</p>
-<p>在插入过程中，采用平衡旋转技术：左单旋转；右单旋转；先左后右双向旋转；先右后左双向旋转。</p>
-<p>在平衡树上进行查找的过程和二叉排序树相同，因此，查找过程中和给定值进行比较的关键字的个数不超过平衡 树的深度，和 log2n 相当。</p>
-<h2 id="8-6：哈希表："><a href="#8-6：哈希表：" class="headerlink" title="8.6：哈希表："></a>8.6：哈希表：</h2><p>基本思想是首先在元素的关键字 key 和元素的存储位置 p 之间建立一个对应关系 H，使得 p&#x3D;H(key)，H 称为散列函数。创建散列表时，把关键字为 key 的元素直接存入地址为 H(key)的单元；以后当查找关键字为 key 的元素时，再利用散列函数计算出该元素的存储位置 p&#x3D;H(key)，从而达到按关键字直接存取元素的目的。</p>
-<p>装填因子：</p>
-<p>a&#x3D;填入结点数&#x2F;空间大小</p>
-<p>①直接定址法：H(key) &#x3D; a  key + b</p>
-<p>适合于：地址集合的大小 &#x3D; &#x3D; 关键字集合的大小</p>
-<p>⑤除留余数法：H(key) &#x3D; key MOD p ，其中 p≤m (表长)并且 p 应为不大于 m 的素数</p>
-<h3 id="8-6-2：-解决冲突方法："><a href="#8-6-2：-解决冲突方法：" class="headerlink" title="8.6.2： 解决冲突方法："></a>8.6.2： 解决冲突方法：</h3><p>①开放定址法：当关键字 key 的散列地址 p&#x3D; H（key）出现冲突时，以 p 为基础，产生另一</p>
-<p>个散列地址 p1，如果 p1仍然冲突，再以 p 为基础，产生另一个散列地址 p2，……，直到找</p>
-<p>出一个不冲突的散列地址 pi，将相应元素存入其中。</p>
-<p>主要有以下三种：</p>
-<p>●线性探测再散列 </p>
-<p>di&#x3D;1，2，3，…:， m-1</p>
-<p>特点：冲突发生时，顺序查看表中下一单元，直到找出一个空单元或查遍全表。</p>
-<p>●二次探测再散列 </p>
-<p>di&#x3D;±1 2，±2 2，…，±k 2 (k≤m&#x2F;2)</p>
-<p>特点：冲突发生时，在表的左右进行跳跃式探测，比较灵活。</p>
-<p>●伪随机探测再散列 </p>
-<p>di&#x3D;伪随机数序列。</p>
-<p>②链地址法：将所有散列地址为 i 的元素构成一个称为同义词链的单链表，并将单链表的</p>
-<p>头指针存在散列表的第 i 个单元中，因而查找、插入和删除主要在同义词链中进行。 链地</p>
-<p>址法适用于经常进行插入和删除的情况。</p>
-<p>平均查找长度与a（装填因子）和处理冲突的方法有关，与问题的规模无关。</p>
-<h1 id="9-排序："><a href="#9-排序：" class="headerlink" title="9.排序："></a>9.排序：</h1><p>排序的基本操作使比较数据和移动数据。</p>
-<h2 id="9-1：-内部排序与外部排序："><a href="#9-1：-内部排序与外部排序：" class="headerlink" title="9.1： 内部排序与外部排序："></a>9.1： 内部排序与外部排序：</h2><p>只使用内存的排序称之为内部排序，需要借助计算机外存的排序称为外部排序，外部排序的主要影响因素是内外存之间的交换次数。</p>
-<h2 id="9-2：插入排序："><a href="#9-2：插入排序：" class="headerlink" title="9.2：插入排序："></a>9.2：插入排序：</h2><p>将第一个元素看作是有序。第一趟使前两个元素有序，第二趟使前三个元素有序．．．．直到第n-１趟，使整体有序。</p>
-<p>是稳定排序。（排序中存在相同关键字时，其相对位置保持不变）ｏ（ｎ２）.</p>
-<h2 id="9-３：折半插入排序："><a href="#9-３：折半插入排序：" class="headerlink" title="9.３：折半插入排序："></a>9.３：折半插入排序：</h2><p>在插入排序的基础上，使用折半搜索的思想进行插入。</p>
-<h2 id="9-４：希尔排序："><a href="#9-４：希尔排序：" class="headerlink" title="9.４：希尔排序："></a>9.４：希尔排序：</h2><p>先将序列分为子序列，然后将子序列分别进行插入排序。</p>
-<h2 id="9-５：冒泡排序："><a href="#9-５：冒泡排序：" class="headerlink" title="9.５：冒泡排序："></a>9.５：冒泡排序：</h2><p>在有序时比较过一次之后直接结束，比较快。</p>
-<h2 id="9-６：快速排序："><a href="#9-６：快速排序：" class="headerlink" title="9.６：快速排序："></a>9.６：快速排序：</h2><p>找一个记录作为轴，小于的放在轴前，大于的放在轴后，然后对形成的子序列分别递归使用快速排序。</p>
-<p>左右指针移动。</p>
-<p>数据有序时会发生退化o(n2),平均分成两部分时效率最高。</p>
-<h2 id="9-７：选择排序："><a href="#9-７：选择排序：" class="headerlink" title="9.７：选择排序："></a>9.７：选择排序：</h2><h2 id="9-８：堆排序："><a href="#9-８：堆排序：" class="headerlink" title="9.８：堆排序："></a>9.８：堆排序：</h2><p>建立堆，取走堆顶元素，重新建立堆，不断循环。</p>
-<p>找出10000个元素中最大的十个元素最快的方法就是使用堆排序。</p>
-<h2 id="9-9-归并排序："><a href="#9-9-归并排序：" class="headerlink" title="9.9: 归并排序："></a>9.9: 归并排序：</h2><p>消耗辅助空间最多的排序。稳定。</p>
-<p>将两个以上的有序序列合并成一个有序序列。</p>
-<p>o（nlogn）</p>
-<p>合并时最多需要移动m+n-1（两个序列的个数）次</p>
-]]></content>
-      <categories>
-        <category>笔记</category>
-      </categories>
-      <tags>
-        <tag>课程</tag>
       </tags>
   </entry>
   <entry>
@@ -3076,46 +2929,150 @@
       </tags>
   </entry>
   <entry>
-    <title>服务器部署</title>
-    <url>/2023/02/10/%E6%9C%8D%E5%8A%A1%E5%99%A8%E9%83%A8%E7%BD%B2/</url>
-    <content><![CDATA[<h1 id="服务器部署教程"><a href="#服务器部署教程" class="headerlink" title="服务器部署教程"></a>服务器部署教程</h1><p>均需要连接校园网</p>
-<p>服务器连接信息：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">地址: 10.245.150.220</span><br><span class="line"></span><br><span class="line">端口: 22</span><br><span class="line"></span><br><span class="line">账户: root</span><br><span class="line"></span><br><span class="line">密码: werun_4321</span><br></pre></td></tr></table></figure>
+    <title>数据结构</title>
+    <url>/2023/03/18/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/</url>
+    <content><![CDATA[<h1 id="数据结构"><a href="#数据结构" class="headerlink" title="数据结构"></a>数据结构</h1><h1 id="1-绪论"><a href="#1-绪论" class="headerlink" title="1.绪论:"></a>1.绪论:</h1><h2 id="1-1-定义"><a href="#1-1-定义" class="headerlink" title="1. 1 定义:"></a>1. 1 定义:</h2><p><strong>数据</strong>是对信息的一种符号表示。在计算机科学中是指所有能输入到计算机中并被计算机程序处理的符号的总称。</p>
+<p>数据结构十数据对象在计算机中的组织方式.<strong>数据结构</strong>是一个二元组 Data_Structure ＝（D，R），其中，D 是数据元素的有限集，R 是 D 上关系的有限集。</p>
+<h2 id="1-2-逻辑结构与存储结构"><a href="#1-2-逻辑结构与存储结构" class="headerlink" title="1.2 逻辑结构与存储结构:"></a>1.2 逻辑结构与存储结构:</h2><p>逻辑结构是指数据间的相互关系.通常分为四类结构:线性结构,集合,树,图或网.(还有什么有序表之类的)</p>
+<p><strong>存储结构</strong>是指数据结构在计算机中的表示，又称为数据的物理结构。通常由四种基本的存储方法实现：</p>
+<p>（1）顺序存储方式</p>
+<p>（2）链式存储方式</p>
+<p>（3）索引存储方式</p>
+<p>（4）散列存储方式</p>
+<h2 id="1-3-算法复杂度"><a href="#1-3-算法复杂度" class="headerlink" title="1.3 算法复杂度:"></a>1.3 算法复杂度:</h2><p>主要分为时间复杂度和空间复杂度.</p>
+<h3 id="1-3-1-空间复杂度"><a href="#1-3-1-空间复杂度" class="headerlink" title="1.3.1 空间复杂度:"></a>1.3.1 空间复杂度:</h3><p>空间复杂度是指执行程序时,额外占用的存储空间的大小.</p>
+<h3 id="1-3-2-时间复杂度"><a href="#1-3-2-时间复杂度" class="headerlink" title="1.3.2 时间复杂度:"></a>1.3.2 时间复杂度:</h3><p>时间复杂度是指执行程序时,占用时间的大小.</p>
+<p>时间复杂度只与待解决问题的规模(n)有关,与一步基本操作的工作量无关.</p>
+<p>时间复杂度只考虑问题的宏观渐进性,意识是求解的难度随着问题规模的增大逐渐增大的趋势.如线性增长(o(n)).</p>
+<h3 id="1-3-3-算法特性"><a href="#1-3-3-算法特性" class="headerlink" title="1.3.3 算法特性:"></a>1.3.3 算法特性:</h3><p>输入.输出.有穷性.确定性.可行性.</p>
+<h1 id="2-线性表"><a href="#2-线性表" class="headerlink" title="2.线性表:"></a>2.线性表:</h1><h2 id="2-1-定义"><a href="#2-1-定义" class="headerlink" title="2.1 定义:"></a>2.1 定义:</h2><p>线性表是n个相同类型的数据元素组成的有限序列.是最简单的.最基础的数据结构(逻辑结构).线性表包括顺序表(数组)和链表.</p>
+<h2 id="2-2-特征"><a href="#2-2-特征" class="headerlink" title="2.2 特征:"></a>2.2 特征:</h2><p>线性表的第一个元素叫第一元素,最后一个元素是最后元素,中间元素的上一个元素叫前驱,后一个元素叫后继.</p>
+<h2 id="2-3-顺序表基本运算的复杂度"><a href="#2-3-顺序表基本运算的复杂度" class="headerlink" title="2.3 顺序表基本运算的复杂度:"></a>2.3 顺序表基本运算的复杂度:</h2><p>插入,删除都是o(n).</p>
+<h2 id="2-4-顺序表优缺点"><a href="#2-4-顺序表优缺点" class="headerlink" title="2.4 顺序表优缺点:"></a>2.4 顺序表优缺点:</h2><p>优点: 节省空间,查找元素第i个元素比较简单(头+元素大小✖i)</p>
+<p>缺点:插入.删除都需要移动数据.比较不容易确定存储空间.</p>
+<h2 id="2-5-链表"><a href="#2-5-链表" class="headerlink" title="2.5 链表:"></a>2.5 链表:</h2><h3 id="2-5-1-头结点"><a href="#2-5-1-头结点" class="headerlink" title="2.5.1: 头结点:"></a>2.5.1: 头结点:</h3><p>头结点不存储数据.指针指向第一个节点.</p>
+<p>头插法:读入的数据元素的顺序与生成的链表中元素的顺序是相反的。</p>
+<p>尾插法读入的数据元素的顺序与生成的链表中元素的顺序是一致的。</p>
+<h1 id="3-栈和队列"><a href="#3-栈和队列" class="headerlink" title="3.栈和队列:"></a>3.栈和队列:</h1><h2 id="3-1-定义"><a href="#3-1-定义" class="headerlink" title="3.1 定义:"></a>3.1 定义:</h2><p>栈和队列是一种特殊的线性表.先进后出为栈,先进先出为队列.</p>
+<h2 id="3-2-栈"><a href="#3-2-栈" class="headerlink" title="3.2 栈:"></a>3.2 栈:</h2><p>插入和删除均在特定的一端进行.</p>
+<p>最先进入的一端叫栈底,进行操作的一端叫栈顶.入栈成为Push,出栈称为Pop.</p>
+<p>栈的一种定义：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">#define STACK_INIT_SIZE 100</span><br><span class="line"></span><br><span class="line">#define STACKINCREMENT 10</span><br><span class="line"></span><br><span class="line">typedef struct</span><br><span class="line">&#123;</span><br><span class="line"> SElemType *base;</span><br><span class="line"></span><br><span class="line">SElemType *top;</span><br><span class="line"></span><br><span class="line">int stacksize;</span><br><span class="line"></span><br><span class="line">&#125;SqStack;</span><br></pre></td></tr></table></figure>
 
+<p>top指针表示栈顶，入栈时，top指针存入数据后移动，成为新的栈顶。出栈时，top指针回退。</p>
+<h2 id="3-3-队列："><a href="#3-3-队列：" class="headerlink" title="3.3 队列："></a>3.3 队列：</h2><p>一种先进先出的线性表。</p>
+<p>入队的地方称为队尾，出队的地方称为队头，队尾指针rear,队头指针front。</p>
+<h1 id="4-串"><a href="#4-串" class="headerlink" title="4.串:"></a>4.串:</h1><h1 id="5-数组和广义表："><a href="#5-数组和广义表：" class="headerlink" title="5.数组和广义表："></a>5.数组和广义表：</h1><h1 id="6-树："><a href="#6-树：" class="headerlink" title="6.树："></a>6.树：</h1><h1 id="7-图："><a href="#7-图：" class="headerlink" title="7.图："></a>7.图：</h1><h2 id="7-1-定义："><a href="#7-1-定义：" class="headerlink" title="7.1 定义："></a>7.1 定义：</h2><p>由点的集合和边的集合构成的集合，任意两个结点之间都可能相关，即结点之间的邻接关系可以是任意的。</p>
+<h2 id="7-2-图的相关术语："><a href="#7-2-图的相关术语：" class="headerlink" title="7.2 图的相关术语："></a>7.2 图的相关术语：</h2><p>度：节点的边数。入读是指向该节点的边数，出度是从该节点出发的边数。</p>
+<p>强连通图：任意两点之间都联通的图</p>
+<p>路径、路径长度：顶点 vp到顶点 vq之间的路径是指顶点序列 vp,vi1,vi2, …, vim,vq.。路径上边的数目称为路径长度。</p>
+<h2 id="7-3-图的存储："><a href="#7-3-图的存储：" class="headerlink" title="7.3 图的存储："></a>7.3 图的存储：</h2><h3 id="7-3-1-邻接矩阵："><a href="#7-3-1-邻接矩阵：" class="headerlink" title="7.3.1 邻接矩阵："></a>7.3.1 邻接矩阵：</h3><h3 id="7-3-2-邻接表："><a href="#7-3-2-邻接表：" class="headerlink" title="7.3.2 邻接表："></a>7.3.2 邻接表：</h3><p>是图的一种顺序存储与链式存储结合的存储方法，类似于树的孩子链表表示法。就是对于图 G 中的每个顶点 vi，将所有邻接于 vi的顶点 vj链成一个单链表，这个单链表就称为顶点 vi的邻接表，再将所有点的邻接表表头放到数组中，就构成了图的邻接表。</p>
+<p>在邻接表中，每条边都会出现两次，如果是n个顶点，e条边的邻接表，总共需要n个头节点和2e个表节点，比较适合存储比较稀疏的图。</p>
+<h2 id="7-4：图的遍历："><a href="#7-4：图的遍历：" class="headerlink" title="7.4：图的遍历："></a>7.4：图的遍历：</h2><p>从图的某一个顶点出发，访问所有的顶点。</p>
+<h3 id="7-4-1-深度优先搜索："><a href="#7-4-1-深度优先搜索：" class="headerlink" title="7.4.1 深度优先搜索："></a>7.4.1 深度优先搜索：</h3><p>从某一个顶点开始，访问一个顶点后，接着访问与这个顶点相邻的，未被访问过的顶点，直到所有的顶点都被访问过为止。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">void DFS(Graph G,int v ) /*从第 v 个顶点出发递归地深度优先遍历图 G*/</span><br><span class="line"></span><br><span class="line">&#123; </span><br><span class="line">visited[v]=TRUE;Visit(v); /*访问第 v 个顶点*/</span><br><span class="line"></span><br><span class="line">for(w=FisrtAdjVex(G,v);w&gt;=0; w=NextAdjVex(G,v,w))</span><br><span class="line"></span><br><span class="line">if (!visited[w]) DFS(G,w); /*对 v 的尚未访问的邻接顶点 w 递归调用 DFS*/</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
+<p>遍历图的过程实质上是对每个顶点查找其邻接点的过程，其耗费的时间则取决于所采用的存储结构。当以邻接矩阵为图的存储结构时，查找每个顶点的邻接点所需时间为O(n2 ) ，其中 n 为图中顶点数。而当以邻接表作图的存储结构时，找邻接点所需时间为 O(e)，其中e 为无向图中边的数或有向图中弧的数。由此，当以邻接表作存储结构时，深度优先搜索遍历图的时间复杂度为 O(n+e) 。</p>
+<h3 id="7-4-2-广度优先搜索："><a href="#7-4-2-广度优先搜索：" class="headerlink" title="7.4.2: 广度优先搜索："></a>7.4.2: 广度优先搜索：</h3><p>从某一个顶点开始，先访问该顶点，再访问与该顶点相邻的所有未访问过的顶点，然后在对这些邻接顶点的邻接顶点做相同的操作。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">void BFS (Graph G,int v)</span><br><span class="line"></span><br><span class="line">&#123;</span><br><span class="line">InitQueue(Q); /*置空的辅助队列 Q*/</span><br><span class="line"></span><br><span class="line">visited[v]=TRUE; Visit(v); /*访问 v*/</span><br><span class="line"></span><br><span class="line">EnQueue(Q,v); /*v 入队列*/</span><br><span class="line"></span><br><span class="line">while (!QueueEmpty(Q)) </span><br><span class="line"></span><br><span class="line">&#123;DeQueue(Q,u); /*队头元素出队并置为 u*/</span><br><span class="line"></span><br><span class="line">for(w=FistAdjVex(G,u); w&gt;=0; w=NextAdjVex(G,u,w))</span><br><span class="line"></span><br><span class="line">if(!visited[w])</span><br><span class="line"></span><br><span class="line">&#123;visited[w]=TRUE; Visit(w);</span><br><span class="line"></span><br><span class="line"> EnQueue(Q,w); /*u 尚未访问的邻接顶点 w 入队列 Q*/</span><br><span class="line">&#125;&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line">注意入队列的顺序，先入队列的点先出队列进行的下一步的bfs，可能会影响遍历顺序。</span><br></pre></td></tr></table></figure>
 
-<p>数据库连接信息：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">地址: 10.245.150.219</span><br><span class="line"></span><br><span class="line">端口: 3306</span><br><span class="line"></span><br><span class="line">账户: root</span><br><span class="line"></span><br><span class="line">密码: TJ4u5&amp;CT8czz$2B%</span><br></pre></td></tr></table></figure>
+<p>广度优先搜索遍历图的过程实质是通过边或弧找邻接点的过程，其时间复杂度和深度优先搜索遍历相同，两者不同之处仅仅在于对顶点访问的顺序不同。</p>
+<h2 id="7-5-最小生成树："><a href="#7-5-最小生成树：" class="headerlink" title="7.5 最小生成树："></a>7.5 最小生成树：</h2><p><strong>生成树：</strong>所谓连通图 G 的生成树，是 G 的包含其全部 n 个顶点的一个极小连通子图。它必定包含且仅包含 G 的 n-1 条边。</p>
+<p>最小生成树是指在图的所有生成树中，边权和最小的树。</p>
+<p>下面给出两种求最小生成数的算法。</p>
+<h3 id="7-5-1：Prim算法："><a href="#7-5-1：Prim算法：" class="headerlink" title="7.5.1：Prim算法："></a>7.5.1：Prim算法：</h3><p>建立u，v(所有顶点集合)，t三个集合。任选一个顶点开始。把该顶点加入u，寻找一条边，这条边的两个顶点一个在u中，一个在v-u中，而且这条边的权值在符合所有的边中最小，把v-u中的那个点加入u，把这条边加入t，反复进行操作，知道u中包括了所有的顶点为止。</p>
+<p>时间复杂度o（n2）(邻接矩阵)o(n+e)(邻接表)，比较适合于边稠密的网。</p>
+<h3 id="7-5-2-Kruskal-算法"><a href="#7-5-2-Kruskal-算法" class="headerlink" title="7.5.2:  Kruskal 算法:"></a>7.5.2:  Kruskal 算法:</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">void Kruskal (G,T)&#123;</span><br><span class="line">T=V;</span><br><span class="line">ncomp=N;</span><br><span class="line">while（ncomp&gt;1）</span><br><span class="line">&#123;</span><br><span class="line">	从G中找到取出并删除权值最小的边，记为x.</span><br><span class="line">	if(x的两个顶点在T中并没有相连相连)</span><br><span class="line">	&#123;</span><br><span class="line">		把这条边加入t；</span><br><span class="line">		ncomp--；</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<p>1.修改自己的数据库配置。</p>
-<p>我们需要把自己的项目部署到服务器上，数据库也不能用我们本地的数据库，所以首先我们要修改数据库配置。</p>
-<p>以jpa为例：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">datasource:</span><br><span class="line">  driver-class-name: com.mysql.cj.jdbc.Driver</span><br><span class="line">  username: root</span><br><span class="line">  password: TJ4u5&amp;CT8czz$2B%</span><br><span class="line">  url: jdbc:mysql://10.245.150.219:3306/你的小组名（小组1就写group1，以此类推）?useUnicode=true&amp;characterEncoding=UTF8&amp;useJDBCCompliantTimezoneShift=true&amp;useLegacyDatetimeCode=false&amp;serverTimezone=UTC</span><br></pre></td></tr></table></figure>
+<p>时间复杂度o（enlog2e）比较适合边稀疏的网。</p>
+<h2 id="7-6：最短路径："><a href="#7-6：最短路径：" class="headerlink" title="7.6：最短路径："></a>7.6：最短路径：</h2><h3 id="7-6-1-单源最短路："><a href="#7-6-1-单源最短路：" class="headerlink" title="7.6.1:单源最短路："></a>7.6.1:单源最短路：</h3><p>给定有向图g和源点v，求该点到所有顶点的最短距离。</p>
+<p>Dijkstra 算法:</p>
+<p>s是已经求出最短路的集合,v-s是未求出最短路的集合.</p>
+<p>首先把顶点加入s,把与v最近的v1也加入s.</p>
+<p>然后在v-s中寻找vx到vo与vx到v1,遍历找最短的加入s.</p>
+<p>依次进行操作.</p>
+<p>时间复杂度是 O(n 2 ).</p>
+<h3 id="7-6-2-多源最短路"><a href="#7-6-2-多源最短路" class="headerlink" title="7.6.2: 多源最短路:"></a>7.6.2: 多源最短路:</h3><p>从 Vi到 Vj的所有可能存在的路径中，选出一条长度最短的路径。时间复杂度是 O(n 3 ).</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">for(int k = 0 ; k &lt; size ; k ++)</span><br><span class="line">&#123;</span><br><span class="line">    for(int i = 0 ; i &lt; size ; i ++)</span><br><span class="line">    &#123;</span><br><span class="line">        for(int j = 0 ; j &lt; size ; j ++)</span><br><span class="line">        &#123;</span><br><span class="line">            if(zu[i][j] &gt; zu[i][k] + zu[k][j])&#123;</span><br><span class="line">            	zu[i][j] = zu[i][k] + zu[k][j];</span><br><span class="line">            &#125; </span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;	 </span><br></pre></td></tr></table></figure>
 
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">地址: 10.245.150.219</span><br><span class="line"></span><br><span class="line">端口: 3306</span><br><span class="line"></span><br><span class="line">账户: root</span><br><span class="line"></span><br><span class="line">密码: TJ4u5&amp;CT8czz$2B%</span><br></pre></td></tr></table></figure>
+<h2 id="7-7-拓扑排序"><a href="#7-7-拓扑排序" class="headerlink" title="7.7: 拓扑排序:"></a>7.7: 拓扑排序:</h2><h3 id="7-7-1-AOE网"><a href="#7-7-1-AOE网" class="headerlink" title="7.7.1: AOE网:"></a>7.7.1: AOE网:</h3><p>是一张有向无环图.</p>
+<p>顶点表示事件,边表示事件.</p>
+<p>拓扑序列:如果存在vi到vj的路径,则在这个序列中i位于j之前.有向图的序列不唯一,无环图一定有拓扑序列,有环图一定没有拓扑序列.</p>
+<p>算法:</p>
+<p>(1)选图中入度为0的顶点输出.</p>
+<p>(2)删除该顶点以及预期相连的所有边.</p>
+<p>(3)重复进行 直到所以的顶点都被输出.</p>
+<p>整个算法的时间复杂度 为 O（e+n）。<strong>拓扑排序的序列可能不唯一。</strong> </p>
+<h3 id="7-7-2-关键路径"><a href="#7-7-2-关键路径" class="headerlink" title="7.7.2: 关键路径:"></a>7.7.2: 关键路径:</h3><p>首先要搞清楚几个概念:</p>
+<h4 id="7-7-2-1-事件的最早发生时间"><a href="#7-7-2-1-事件的最早发生时间" class="headerlink" title="7.7.2.1:事件的最早发生时间:"></a>7.7.2.1:事件的最早发生时间:</h4><p>记为ve[k]</p>
+<p>是从原点到发生事件的点的最长的路径长度.(含义是这个事件要在前面所有的事件都结束了之后这个事件才能就开始,所以所需要时间最长的活动为制约条件)</p>
+<h4 id="7-7-2-2-事件的最晚发生时间"><a href="#7-7-2-2-事件的最晚发生时间" class="headerlink" title="7.7.2.2:事件的最晚发生时间:"></a>7.7.2.2:事件的最晚发生时间:</h4><p>记为vl[k]</p>
+<p>开始节点为0,汇点为其最早开始时间.对于其他节点,从汇点开始减去其到上一个顶点的路径长度.</p>
+<h4 id="7-7-2-3-活动的最晚发生时间"><a href="#7-7-2-3-活动的最晚发生时间" class="headerlink" title="7.7.2.3:活动的最晚发生时间:"></a>7.7.2.3:活动的最晚发生时间:</h4><p>事件最晚时间减去活动边.</p>
+<h4 id="7-7-2-2-活动的最早发生时间"><a href="#7-7-2-2-活动的最早发生时间" class="headerlink" title="7.7.2.2:活动的最早发生时间:"></a>7.7.2.2:活动的最早发生时间:</h4><p>就是活动源头一侧的时间的最早发生时间.</p>
+<p>活动的最早和最晚开始时间相同的活动就是关键活动.由关键活动组成的路径被称为关键路径.</p>
+<p>整个工程完成的时间为：从有向图的<strong>源点</strong>到<strong>汇点</strong>的最长路径。</p>
+<h1 id="8-查找"><a href="#8-查找" class="headerlink" title="8.查找:"></a>8.查找:</h1><h2 id="8-1-顺序查找"><a href="#8-1-顺序查找" class="headerlink" title="8.1: 顺序查找:"></a>8.1: 顺序查找:</h2><p>第一个元素向后,依次顺序查找.</p>
+<h2 id="8-2-折半查找"><a href="#8-2-折半查找" class="headerlink" title="8.2: 折半查找:"></a>8.2: 折半查找:</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">int Search_Bin (SSTable ST, KeyType key ) </span><br><span class="line"></span><br><span class="line">&#123;low = 1; high = ST.length; /*置区间初值*/</span><br><span class="line"></span><br><span class="line">while(low &lt;= high)</span><br><span class="line"></span><br><span class="line"> &#123;mid=(low + high)/2;</span><br><span class="line"></span><br><span class="line"> if（</span><br><span class="line"></span><br><span class="line">key == ST.elem[mid].key )</span><br><span class="line"></span><br><span class="line"> return mid; /*找到待查元素*/</span><br><span class="line"></span><br><span class="line"> else if(key&lt;ST.elem[mid].key) )</span><br><span class="line"></span><br><span class="line"> high = mid - 1; /*继续在前半区间进行查找*/</span><br><span class="line"></span><br><span class="line"> else low = mid + 1;/*继续在后半区间进行查找*/</span><br><span class="line"></span><br><span class="line"> &#125;</span><br><span class="line"></span><br><span class="line"> return 0; /*顺序表中不存在待查元素*/</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<p>如果使用mybatis也需要上面的配置连接上数据库并建表.</p>
-<p>2.把自己的项目打包成jar包</p>
-<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230423140224.png" alt="QQ截图20230423140224"></p>
-<p>右侧的maven 先clean再package.</p>
-<p>然后在target目录下找到项目名.jar这个文件。</p>
-<p>找到就算是打包成功了。</p>
-<p>2.把自己的jar包上传到服务器上。</p>
-<p>服务器的文件结构如图：</p>
-<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230423223238.png" alt="QQ截图20230423223238"></p>
-<p>按照小组名把对应的jar包上传到对应的文件夹下。</p>
-<p>完成这一步建议使用xftp.大家可以去搜一下这东西的使用方法。</p>
-<p>3.用xshell连接服务器，进入自己的小组下面，启动项目：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">java -jar jar包名.jar</span><br></pre></td></tr></table></figure>
+<p>要求数据顺序存储 且有序。</p>
+<p>o（logn）</p>
+<h2 id="8-3：索引查找："><a href="#8-3：索引查找：" class="headerlink" title="8.3：索引查找："></a>8.3：索引查找：</h2><p>①查找表要求顺序存储；②查找表分成 n 块，当 i&gt;j 时，第 i 块中的最小元素大于第 j 块中的最大元素。</p>
+<p>过程：①首先确定所要查找关键字在哪一块中。②在所确定的块中用顺序查找查找关键字。</p>
+<p>平均查找长度n+l+2➗2 其中l是每块长度 n是总长度  若要使平均次数最小 每块的长度是根号n</p>
+<h2 id="8-4：-监视哨："><a href="#8-4：-监视哨：" class="headerlink" title="8.4： 监视哨："></a>8.4： 监视哨：</h2><p>不是带查找元素，是人为构造的一个数据，放在特定的位置，用来处理数组越界等情况。所以有监视哨的表，查询的元素要比待查元素多一个（失败时）成功就不需要了。</p>
+<h2 id="8-4：二叉排序树："><a href="#8-4：二叉排序树：" class="headerlink" title="8.4：二叉排序树："></a>8.4：二叉排序树：</h2><h3 id="8-4-1：-静态查找表与动态查找表："><a href="#8-4-1：-静态查找表与动态查找表：" class="headerlink" title="8.4.1： 静态查找表与动态查找表："></a>8.4.1： 静态查找表与动态查找表：</h3><p>动态查找表：有时在查询之后，还需要将“查询”结果为“不在查找表中”的数据元素插入到查找表中；或者，从查找表中删除其“查询”结果为“在查找表中”的数据元素。</p>
+<h3 id="8-4-2：-定义："><a href="#8-4-2：-定义：" class="headerlink" title="8.4.2： 定义："></a>8.4.2： 定义：</h3><p>空树或者对于所有的子树都有：左子树＜根节点＜右子树</p>
+<p>查找时：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">BSTree SearchBST(BiTree bt, KeyType key)/*在根指针 bt 所指二叉排序树中，递归查</span><br><span class="line">找某关键字等于 key 的元素，若查找成功，则返回指向该元素结点指针，否则返回空指针 */</span><br><span class="line">&#123;if(!bt) return NULL; </span><br><span class="line"></span><br><span class="line">else if(bt-&gt;key==key) return bt; /*查找成功*/ </span><br><span class="line"></span><br><span class="line">else if(key＜bt-&gt;key)</span><br><span class="line"></span><br><span class="line">return SearchBST(bt-&gt;lchild,key); /*在左子树中继续查找*/</span><br><span class="line"></span><br><span class="line"> else return SearchBST(bt-&gt;rchild, key); /*在右子树中继续查找*/</span><br><span class="line"></span><br><span class="line">&#125; </span><br></pre></td></tr></table></figure>
 
-<p>看到控制台出现跟平常项目一样的堆栈信息就是启动成功了。</p>
-<p>注意，还要在配置里修改端口号，第一组就用8081，第二组8082，第三组8083，遇上其他的问题可以在csdn上搜索。</p>
+<h2 id="8-5：平衡二叉树："><a href="#8-5：平衡二叉树：" class="headerlink" title="8.5：平衡二叉树："></a>8.5：平衡二叉树：</h2><p>或者是一棵空树，或者是具有下列性质的二叉排序树：它的左子树和右子树都是平衡二叉树，且左子树和右子树高度之差的绝对值不超过 1。</p>
+<p>在插入过程中，采用平衡旋转技术：左单旋转；右单旋转；先左后右双向旋转；先右后左双向旋转。</p>
+<p>在平衡树上进行查找的过程和二叉排序树相同，因此，查找过程中和给定值进行比较的关键字的个数不超过平衡 树的深度，和 log2n 相当。</p>
+<h2 id="8-6：哈希表："><a href="#8-6：哈希表：" class="headerlink" title="8.6：哈希表："></a>8.6：哈希表：</h2><p>基本思想是首先在元素的关键字 key 和元素的存储位置 p 之间建立一个对应关系 H，使得 p&#x3D;H(key)，H 称为散列函数。创建散列表时，把关键字为 key 的元素直接存入地址为 H(key)的单元；以后当查找关键字为 key 的元素时，再利用散列函数计算出该元素的存储位置 p&#x3D;H(key)，从而达到按关键字直接存取元素的目的。</p>
+<p>装填因子：</p>
+<p>a&#x3D;填入结点数&#x2F;空间大小</p>
+<p>①直接定址法：H(key) &#x3D; a  key + b</p>
+<p>适合于：地址集合的大小 &#x3D; &#x3D; 关键字集合的大小</p>
+<p>⑤除留余数法：H(key) &#x3D; key MOD p ，其中 p≤m (表长)并且 p 应为不大于 m 的素数</p>
+<h3 id="8-6-2：-解决冲突方法："><a href="#8-6-2：-解决冲突方法：" class="headerlink" title="8.6.2： 解决冲突方法："></a>8.6.2： 解决冲突方法：</h3><p>①开放定址法：当关键字 key 的散列地址 p&#x3D; H（key）出现冲突时，以 p 为基础，产生另一</p>
+<p>个散列地址 p1，如果 p1仍然冲突，再以 p 为基础，产生另一个散列地址 p2，……，直到找</p>
+<p>出一个不冲突的散列地址 pi，将相应元素存入其中。</p>
+<p>主要有以下三种：</p>
+<p>●线性探测再散列 </p>
+<p>di&#x3D;1，2，3，…:， m-1</p>
+<p>特点：冲突发生时，顺序查看表中下一单元，直到找出一个空单元或查遍全表。</p>
+<p>●二次探测再散列 </p>
+<p>di&#x3D;±1 2，±2 2，…，±k 2 (k≤m&#x2F;2)</p>
+<p>特点：冲突发生时，在表的左右进行跳跃式探测，比较灵活。</p>
+<p>●伪随机探测再散列 </p>
+<p>di&#x3D;伪随机数序列。</p>
+<p>②链地址法：将所有散列地址为 i 的元素构成一个称为同义词链的单链表，并将单链表的</p>
+<p>头指针存在散列表的第 i 个单元中，因而查找、插入和删除主要在同义词链中进行。 链地</p>
+<p>址法适用于经常进行插入和删除的情况。</p>
+<p>平均查找长度与a（装填因子）和处理冲突的方法有关，与问题的规模无关。</p>
+<h1 id="9-排序："><a href="#9-排序：" class="headerlink" title="9.排序："></a>9.排序：</h1><p>排序的基本操作使比较数据和移动数据。</p>
+<h2 id="9-1：-内部排序与外部排序："><a href="#9-1：-内部排序与外部排序：" class="headerlink" title="9.1： 内部排序与外部排序："></a>9.1： 内部排序与外部排序：</h2><p>只使用内存的排序称之为内部排序，需要借助计算机外存的排序称为外部排序，外部排序的主要影响因素是内外存之间的交换次数。</p>
+<h2 id="9-2：插入排序："><a href="#9-2：插入排序：" class="headerlink" title="9.2：插入排序："></a>9.2：插入排序：</h2><p>将第一个元素看作是有序。第一趟使前两个元素有序，第二趟使前三个元素有序．．．．直到第n-１趟，使整体有序。</p>
+<p>是稳定排序。（排序中存在相同关键字时，其相对位置保持不变）ｏ（ｎ２）.</p>
+<h2 id="9-３：折半插入排序："><a href="#9-３：折半插入排序：" class="headerlink" title="9.３：折半插入排序："></a>9.３：折半插入排序：</h2><p>在插入排序的基础上，使用折半搜索的思想进行插入。</p>
+<h2 id="9-４：希尔排序："><a href="#9-４：希尔排序：" class="headerlink" title="9.４：希尔排序："></a>9.４：希尔排序：</h2><p>先将序列分为子序列，然后将子序列分别进行插入排序。</p>
+<h2 id="9-５：冒泡排序："><a href="#9-５：冒泡排序：" class="headerlink" title="9.５：冒泡排序："></a>9.５：冒泡排序：</h2><p>在有序时比较过一次之后直接结束，比较快。</p>
+<h2 id="9-６：快速排序："><a href="#9-６：快速排序：" class="headerlink" title="9.６：快速排序："></a>9.６：快速排序：</h2><p>找一个记录作为轴，小于的放在轴前，大于的放在轴后，然后对形成的子序列分别递归使用快速排序。</p>
+<p>左右指针移动。</p>
+<p>数据有序时会发生退化o(n2),平均分成两部分时效率最高。</p>
+<h2 id="9-７：选择排序："><a href="#9-７：选择排序：" class="headerlink" title="9.７：选择排序："></a>9.７：选择排序：</h2><h2 id="9-８：堆排序："><a href="#9-８：堆排序：" class="headerlink" title="9.８：堆排序："></a>9.８：堆排序：</h2><p>建立堆，取走堆顶元素，重新建立堆，不断循环。</p>
+<p>找出10000个元素中最大的十个元素最快的方法就是使用堆排序。</p>
+<h2 id="9-9-归并排序："><a href="#9-9-归并排序：" class="headerlink" title="9.9: 归并排序："></a>9.9: 归并排序：</h2><p>消耗辅助空间最多的排序。稳定。</p>
+<p>将两个以上的有序序列合并成一个有序序列。</p>
+<p>o（nlogn）</p>
+<p>合并时最多需要移动m+n-1（两个序列的个数）次</p>
 ]]></content>
       <categories>
         <category>笔记</category>
       </categories>
       <tags>
-        <tag>服务器</tag>
+        <tag>课程</tag>
       </tags>
   </entry>
   <entry>
@@ -3176,6 +3133,103 @@
       </categories>
       <tags>
         <tag>评论</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>服务器部署</title>
+    <url>/2023/02/10/%E6%9C%8D%E5%8A%A1%E5%99%A8%E9%83%A8%E7%BD%B2/</url>
+    <content><![CDATA[<h1 id="服务器部署教程"><a href="#服务器部署教程" class="headerlink" title="服务器部署教程"></a>服务器部署教程</h1><p>均需要连接校园网</p>
+<p>服务器连接信息：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">地址: 10.245.150.220</span><br><span class="line"></span><br><span class="line">端口: 22</span><br><span class="line"></span><br><span class="line">账户: root</span><br><span class="line"></span><br><span class="line">密码: werun_4321</span><br></pre></td></tr></table></figure>
+
+
+
+<p>数据库连接信息：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">地址: 10.245.150.219</span><br><span class="line"></span><br><span class="line">端口: 3306</span><br><span class="line"></span><br><span class="line">账户: root</span><br><span class="line"></span><br><span class="line">密码: TJ4u5&amp;CT8czz$2B%</span><br></pre></td></tr></table></figure>
+
+<p>1.修改自己的数据库配置。</p>
+<p>我们需要把自己的项目部署到服务器上，数据库也不能用我们本地的数据库，所以首先我们要修改数据库配置。</p>
+<p>以jpa为例：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">datasource:</span><br><span class="line">  driver-class-name: com.mysql.cj.jdbc.Driver</span><br><span class="line">  username: root</span><br><span class="line">  password: TJ4u5&amp;CT8czz$2B%</span><br><span class="line">  url: jdbc:mysql://10.245.150.219:3306/你的小组名（小组1就写group1，以此类推）?useUnicode=true&amp;characterEncoding=UTF8&amp;useJDBCCompliantTimezoneShift=true&amp;useLegacyDatetimeCode=false&amp;serverTimezone=UTC</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">地址: 10.245.150.219</span><br><span class="line"></span><br><span class="line">端口: 3306</span><br><span class="line"></span><br><span class="line">账户: root</span><br><span class="line"></span><br><span class="line">密码: TJ4u5&amp;CT8czz$2B%</span><br></pre></td></tr></table></figure>
+
+<p>如果使用mybatis也需要上面的配置连接上数据库并建表.</p>
+<p>2.把自己的项目打包成jar包</p>
+<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230423140224.png" alt="QQ截图20230423140224"></p>
+<p>右侧的maven 先clean再package.</p>
+<p>然后在target目录下找到项目名.jar这个文件。</p>
+<p>找到就算是打包成功了。</p>
+<p>2.把自己的jar包上传到服务器上。</p>
+<p>服务器的文件结构如图：</p>
+<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E6%88%AA%E5%9B%BE20230423223238.png" alt="QQ截图20230423223238"></p>
+<p>按照小组名把对应的jar包上传到对应的文件夹下。</p>
+<p>完成这一步建议使用xftp.大家可以去搜一下这东西的使用方法。</p>
+<p>3.用xshell连接服务器，进入自己的小组下面，启动项目：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">java -jar jar包名.jar</span><br></pre></td></tr></table></figure>
+
+<p>看到控制台出现跟平常项目一样的堆栈信息就是启动成功了。</p>
+<p>注意，还要在配置里修改端口号，第一组就用8081，第二组8082，第三组8083，遇上其他的问题可以在csdn上搜索。</p>
+]]></content>
+      <categories>
+        <category>笔记</category>
+      </categories>
+      <tags>
+        <tag>服务器</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>桌搭教程</title>
+    <url>/2023/03/18/%E6%A1%8C%E6%90%AD%E6%95%99%E7%A8%8B/</url>
+    <content><![CDATA[<h1 id="1-概述："><a href="#1-概述：" class="headerlink" title="1.概述："></a>1.概述：</h1><p>一个依托于宿舍桌子，以显示器为核心的桌搭教程。</p>
+<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/1685326693089.jpg" alt="1685326693089"></p>
+<h1 id="2-初创设计-v1-0-0："><a href="#2-初创设计-v1-0-0：" class="headerlink" title="2.初创设计: v1.0.0："></a>2.初创设计: v1.0.0：</h1><p>和大多数人一样 首先我们遇上的只是一个普普通通的学校的桌子.</p>
+<p>要做的第一件事肯定是把自己现有的物品全部摆放到桌子上，并且进行略微的，不改动桌子的设计。</p>
+<p>具体思路是：</p>
+<p>1.桌面主体构造显示屏和电脑屏幕.平板屏幕的三屏幕.</p>
+<p>2.最上方两个柜子放书，下方放各种摆件与物品.</p>
+<p>3.书包挂载在左侧，右侧墙面上用挂钩和置物盒放置物品.</p>
+<p>4.各种小摆件散乱的摆放在各个角落.</p>
+<p>效果图如下：</p>
+<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/mmexport1685326491424.jpg" alt="mmexport1685326491424"></p>
+<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/4265112.jpg" alt="4265112"></p>
+<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/4262824.jpg" alt="4262824"></p>
+<p>还有一些细节需要说明：</p>
+<p>1.整体颜色思路选择:以绿白色为主，因为显示屏和电脑本事没有强烈观感色，于是桌面颜色搭配的核心就变成了键盘和鼠标。</p>
+<p>由于键盘绿白色，鼠标黑白色，鼠标垫是绿色和黑色，故整体选择了绿白色作为主色调，主要使用了浅绿色的墙纸和绿白色调的明信片贴在墙的各个角落作为点缀，各种摆件（如香薰等）也尽量选择这两种颜色。</p>
+<p>2.理线:主打一个把线挡起来，只要看不见就是好的理线，像手机充电头等不得不暴露的，使用磁吸工具固定在桌子的一侧。</p>
+<h1 id="3-v2-0-0"><a href="#3-v2-0-0" class="headerlink" title="3.v2.0.0:"></a>3.v2.0.0:</h1><p>上一个版本的桌搭虽然比较美观，但是仍然有诸多问题，其中最主要的一个问题是：由于柜子的限制，导致人距离显示屏太近了，长时间看着电脑屏幕会感到不舒服。</p>
+<p>要想解决这个问题，有以下几种解决方案：</p>
+<p>1.显示器支架（需要在桌子上打孔，对学校桌子有损害，pass）</p>
+<p>2.延长桌板（延长的面积不够大而且不稳定，pass）</p>
+<p>3.拆掉柜子（可行）</p>
+<p>于是拆掉柜子，抬高显示器，进行重新设计,本次设计以极简和收纳的思路重新进行设计，力求使桌面变得更加简洁。</p>
+<p>效果如下：</p>
+<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/mmexport1685326495910.jpg" alt="mmexport1685326495910"><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/qq_pic_merged_1685327368044.jpg" alt="qq_pic_merged_1685327368044"></p>
+<h1 id="4-v3-0-0："><a href="#4-v3-0-0：" class="headerlink" title="4.v3.0.0："></a>4.v3.0.0：</h1><p>装备升级带来的更新，主要以显示器支架和显示器挂灯为主。</p>
+<p>显示器支架不仅可以太高显示器，还可以分两层收纳物品，使拆掉柜子的桌子可以重新变得丰富。</p>
+<p>显示器挂灯则可以营造氛围，配合原有的台灯进行光幕的延展。</p>
+<p>另外还新增了很多摆件，和墙面后的挂画。</p>
+<p>效果图如下：</p>
+<p>白天:</p>
+<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/1685326603181.jpg" alt="1685326603181"></p>
+<p>夜晚:(营造光效)</p>
+<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/mmexport1685326498646.jpg" alt="mmexport1685326498646"></p>
+<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/mmexport1685329124724.jpg" alt="mmexport1685329124724"></p>
+<p>全景:</p>
+<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/mmexport1685326505228.jpg" alt="mmexport1685326505228"></p>
+<h1 id="5-v3-1-0"><a href="#5-v3-1-0" class="headerlink" title="5.v3.1.0:"></a>5.v3.1.0:</h1><p>主要原因是终于拼搭成功了一个巨型的反浩克机甲模型,并且把它放置在桌面上,于是所有的布局都进行了大改和重组.</p>
+<p>效果如下:</p>
+<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/mmexport1685327230455.jpg" alt="mmexport1685327230455"></p>
+<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/1685333571570.jpg" alt="1685333571570"></p>
+<p>书柜:</p>
+<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/1685333571278.jpg" alt="1685333571278"></p>
+]]></content>
+      <categories>
+        <category>笔记</category>
+      </categories>
+      <tags>
+        <tag>桌搭</tag>
       </tags>
   </entry>
   <entry>
@@ -3297,57 +3351,20 @@
       </tags>
   </entry>
   <entry>
-    <title>桌搭教程</title>
-    <url>/2023/03/18/%E6%A1%8C%E6%90%AD%E6%95%99%E7%A8%8B/</url>
-    <content><![CDATA[<h1 id="1-概述："><a href="#1-概述：" class="headerlink" title="1.概述："></a>1.概述：</h1><p>一个依托于宿舍桌子，以显示器为核心的桌搭教程。</p>
-<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/1685326693089.jpg" alt="1685326693089"></p>
-<h1 id="2-初创设计-v1-0-0："><a href="#2-初创设计-v1-0-0：" class="headerlink" title="2.初创设计: v1.0.0："></a>2.初创设计: v1.0.0：</h1><p>和大多数人一样 首先我们遇上的只是一个普普通通的学校的桌子.</p>
-<p>要做的第一件事肯定是把自己现有的物品全部摆放到桌子上，并且进行略微的，不改动桌子的设计。</p>
-<p>具体思路是：</p>
-<p>1.桌面主体构造显示屏和电脑屏幕.平板屏幕的三屏幕.</p>
-<p>2.最上方两个柜子放书，下方放各种摆件与物品.</p>
-<p>3.书包挂载在左侧，右侧墙面上用挂钩和置物盒放置物品.</p>
-<p>4.各种小摆件散乱的摆放在各个角落.</p>
-<p>效果图如下：</p>
-<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/mmexport1685326491424.jpg" alt="mmexport1685326491424"></p>
-<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/4265112.jpg" alt="4265112"></p>
-<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/4262824.jpg" alt="4262824"></p>
-<p>还有一些细节需要说明：</p>
-<p>1.整体颜色思路选择:以绿白色为主，因为显示屏和电脑本事没有强烈观感色，于是桌面颜色搭配的核心就变成了键盘和鼠标。</p>
-<p>由于键盘绿白色，鼠标黑白色，鼠标垫是绿色和黑色，故整体选择了绿白色作为主色调，主要使用了浅绿色的墙纸和绿白色调的明信片贴在墙的各个角落作为点缀，各种摆件（如香薰等）也尽量选择这两种颜色。</p>
-<p>2.理线:主打一个把线挡起来，只要看不见就是好的理线，像手机充电头等不得不暴露的，使用磁吸工具固定在桌子的一侧。</p>
-<h1 id="3-v2-0-0"><a href="#3-v2-0-0" class="headerlink" title="3.v2.0.0:"></a>3.v2.0.0:</h1><p>上一个版本的桌搭虽然比较美观，但是仍然有诸多问题，其中最主要的一个问题是：由于柜子的限制，导致人距离显示屏太近了，长时间看着电脑屏幕会感到不舒服。</p>
-<p>要想解决这个问题，有以下几种解决方案：</p>
-<p>1.显示器支架（需要在桌子上打孔，对学校桌子有损害，pass）</p>
-<p>2.延长桌板（延长的面积不够大而且不稳定，pass）</p>
-<p>3.拆掉柜子（可行）</p>
-<p>于是拆掉柜子，抬高显示器，进行重新设计,本次设计以极简和收纳的思路重新进行设计，力求使桌面变得更加简洁。</p>
-<p>效果如下：</p>
-<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/mmexport1685326495910.jpg" alt="mmexport1685326495910"><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/qq_pic_merged_1685327368044.jpg" alt="qq_pic_merged_1685327368044"></p>
-<h1 id="4-v3-0-0："><a href="#4-v3-0-0：" class="headerlink" title="4.v3.0.0："></a>4.v3.0.0：</h1><p>装备升级带来的更新，主要以显示器支架和显示器挂灯为主。</p>
-<p>显示器支架不仅可以太高显示器，还可以分两层收纳物品，使拆掉柜子的桌子可以重新变得丰富。</p>
-<p>显示器挂灯则可以营造氛围，配合原有的台灯进行光幕的延展。</p>
-<p>另外还新增了很多摆件，和墙面后的挂画。</p>
-<p>效果图如下：</p>
-<p>白天:</p>
-<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/1685326603181.jpg" alt="1685326603181"></p>
-<p>夜晚:(营造光效)</p>
-<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/mmexport1685326498646.jpg" alt="mmexport1685326498646"></p>
-<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/mmexport1685329124724.jpg" alt="mmexport1685329124724"></p>
-<p>全景:</p>
-<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/mmexport1685326505228.jpg" alt="mmexport1685326505228"></p>
-<h1 id="5-v3-1-0"><a href="#5-v3-1-0" class="headerlink" title="5.v3.1.0:"></a>5.v3.1.0:</h1><p>主要原因是终于拼搭成功了一个巨型的反浩克机甲模型,并且把它放置在桌面上,于是所有的布局都进行了大改和重组.</p>
-<p>效果如下:</p>
-<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/mmexport1685327230455.jpg" alt="mmexport1685327230455"></p>
-<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/1685333571570.jpg" alt="1685333571570"></p>
-<p>书柜:</p>
-<p><img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/1685333571278.jpg" alt="1685333571278"></p>
+    <title>江城一梦</title>
+    <url>/2023/01/17/%E6%B1%9F%E5%9F%8E%E4%B8%80%E6%A2%A6/</url>
+    <content><![CDATA[<h5 id="江城一梦"><a href="#江城一梦" class="headerlink" title="江城一梦"></a>江城一梦</h5><p>雪落在冰封的江<br>冻伤窗棂后童真的凝望<br>寻江溯洄而上<br>寂静的江城<br>城上钟鼓不闻<br>岸边长幺不响<br>难以面对寒冷太匆匆<br>于凌寒时节的梦</p>
+<p>一梦烟景繁华<br>每一个平凡名姓<br>每一个闪烁的点点星光<br>安稳的生活<br>安稳的喜爱<br>穿梭自我的城中<br>启航生命的江上</p>
+<p>一梦万物生灵<br>百鸟高唱 游鱼竞逐<br>苍鹰折翼翻飞<br>雄鹿高昂 眼神明亮<br>七岔的鹿角撞开死神的垂镰<br>灵长也不再自诩至尊<br>往日施舍的双手<br>化作热烈的拥抱</p>
+<p>一梦天道昭彰<br>四方星月的兼城灯火<br>步步流动的白衣长廊<br>精确沉重的高屋瓦瓴<br>血脉传承中交融心跳<br>万里河山<br>眸中挚爱<br>放不下每一个生命<br>留不下每一个身影</p>
+<p>你相信经迭的时光<br>江流会重新开始奔腾<br>江城一梦</p>
+<p>梦在曲折的一生<br>梦在江帆的渔火<br>江城逐梦<br>关于未来<br>关于你</p>
 ]]></content>
       <categories>
-        <category>笔记</category>
+        <category>创作</category>
       </categories>
       <tags>
-        <tag>桌搭</tag>
+        <tag>诗歌</tag>
       </tags>
   </entry>
   <entry>
@@ -3360,23 +3377,6 @@
 <p>曲终 落笔<br>泠音遥遥<br>执惘不闻 彷徨难再<br>目光再望向远方</p>
 <p>万千巨轮驶过的航道<br>万千天风吹彻的航道<br>万千高闲倾慕的彼岸<br>重新怀希望泛海</p>
 <p>渐散风闻 幕影成双<br>秉烛安光 封寒落涧<br>静月出山 泠音泛海<br>我自辗转 悲喜不言</p>
-]]></content>
-      <categories>
-        <category>创作</category>
-      </categories>
-      <tags>
-        <tag>诗歌</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>江城一梦</title>
-    <url>/2023/01/17/%E6%B1%9F%E5%9F%8E%E4%B8%80%E6%A2%A6/</url>
-    <content><![CDATA[<h5 id="江城一梦"><a href="#江城一梦" class="headerlink" title="江城一梦"></a>江城一梦</h5><p>雪落在冰封的江<br>冻伤窗棂后童真的凝望<br>寻江溯洄而上<br>寂静的江城<br>城上钟鼓不闻<br>岸边长幺不响<br>难以面对寒冷太匆匆<br>于凌寒时节的梦</p>
-<p>一梦烟景繁华<br>每一个平凡名姓<br>每一个闪烁的点点星光<br>安稳的生活<br>安稳的喜爱<br>穿梭自我的城中<br>启航生命的江上</p>
-<p>一梦万物生灵<br>百鸟高唱 游鱼竞逐<br>苍鹰折翼翻飞<br>雄鹿高昂 眼神明亮<br>七岔的鹿角撞开死神的垂镰<br>灵长也不再自诩至尊<br>往日施舍的双手<br>化作热烈的拥抱</p>
-<p>一梦天道昭彰<br>四方星月的兼城灯火<br>步步流动的白衣长廊<br>精确沉重的高屋瓦瓴<br>血脉传承中交融心跳<br>万里河山<br>眸中挚爱<br>放不下每一个生命<br>留不下每一个身影</p>
-<p>你相信经迭的时光<br>江流会重新开始奔腾<br>江城一梦</p>
-<p>梦在曲折的一生<br>梦在江帆的渔火<br>江城逐梦<br>关于未来<br>关于你</p>
 ]]></content>
       <categories>
         <category>创作</category>
@@ -3744,21 +3744,6 @@
       </tags>
   </entry>
   <entry>
-    <title>草木森</title>
-    <url>/2023/01/17/%E8%8D%89%E6%9C%A8%E6%A3%AE/</url>
-    <content><![CDATA[<p>草木森<br>阳春三月<br>奔赴苍翠草木<br>匆匆抖落满目风尘<br>青山上举目眺望<br>夭矫的鸿举起羽翼</p>
-<p>铺陈原野的草木<br>栖身于涓涓冰雪<br>奋发于烈火嘶鸣<br>喟叹于反复摧毁自然的语言<br>冠着金翎 冲锋<br>缓缓推向身后<br>终将碧绿的浪涛</p>
-<p>当灰色树枝与白色枯骨呼应<br>欣喜地听到春日的萌动<br>松开始终握紧的双手<br>以简单的魂魄敬天道昭彰<br>更从容的抹去本该矗立大地之上的名字三月东风佳人呓语<br>天色蔚蓝如画</p>
-<p>岁月万古<br>层叠轮转的草木<br>总是把自己最珍视的绿色交予世人眼眸草木为森<br>徘徊于每一处森森草木间<br>希冀这草木天光永续<br>和着微风清唱起不存在的礼赞<br>万语干言</p>
-]]></content>
-      <categories>
-        <category>创作</category>
-      </categories>
-      <tags>
-        <tag>诗歌</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>规则引擎</title>
     <url>/2023/02/10/%E8%A7%84%E5%88%99%E5%BC%95%E6%93%8E/</url>
     <content><![CDATA[<h1 id="规则引擎-设计与实现"><a href="#规则引擎-设计与实现" class="headerlink" title="规则引擎:设计与实现"></a>规则引擎:设计与实现</h1><h1 id="1-介绍"><a href="#1-介绍" class="headerlink" title="1.介绍:"></a>1.介绍:</h1><p>规则引擎是一种嵌入在应用服务中的组件，可以将灵活多变的业务决策从服务代码中分离出来。通过使用预定义的语义模块来编写业务逻辑规则。在执行时接受数据输入、解释业务规则，并做出决策。规则引擎能大大提高系统的灵活性和扩展性。<img src="http://bearsblog.oss-cn-beijing.aliyuncs.com/img/QQ%E5%9B%BE%E7%89%8720230131170454.jpg" alt="QQ图片20230131170454"></p>
@@ -3847,6 +3832,21 @@
       </categories>
       <tags>
         <tag>中间件</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>草木森</title>
+    <url>/2023/01/17/%E8%8D%89%E6%9C%A8%E6%A3%AE/</url>
+    <content><![CDATA[<p>草木森<br>阳春三月<br>奔赴苍翠草木<br>匆匆抖落满目风尘<br>青山上举目眺望<br>夭矫的鸿举起羽翼</p>
+<p>铺陈原野的草木<br>栖身于涓涓冰雪<br>奋发于烈火嘶鸣<br>喟叹于反复摧毁自然的语言<br>冠着金翎 冲锋<br>缓缓推向身后<br>终将碧绿的浪涛</p>
+<p>当灰色树枝与白色枯骨呼应<br>欣喜地听到春日的萌动<br>松开始终握紧的双手<br>以简单的魂魄敬天道昭彰<br>更从容的抹去本该矗立大地之上的名字三月东风佳人呓语<br>天色蔚蓝如画</p>
+<p>岁月万古<br>层叠轮转的草木<br>总是把自己最珍视的绿色交予世人眼眸草木为森<br>徘徊于每一处森森草木间<br>希冀这草木天光永续<br>和着微风清唱起不存在的礼赞<br>万语干言</p>
+]]></content>
+      <categories>
+        <category>创作</category>
+      </categories>
+      <tags>
+        <tag>诗歌</tag>
       </tags>
   </entry>
   <entry>
@@ -4206,39 +4206,6 @@
       </categories>
       <tags>
         <tag>课程</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>风凌夜话</title>
-    <url>/2023/02/10/%E9%A3%8E%E5%87%8C%E5%A4%9C%E8%AF%9D/</url>
-    <content><![CDATA[<h1 id="风凌夜话"><a href="#风凌夜话" class="headerlink" title="风凌夜话"></a>风凌夜话</h1><p>大江 北上<br>孕育经纬江河 编织千里沃土<br>船载渡口 渡口渡船<br>当微咸的海风吹过<br>风凌渡熙攘乘客的肩头<br>焦急而充满期待的旅人 匆匆翻越过船桨与时光<br>会再与你再一次相遇 把目光收藏</p>
-<p>倦容奄奄 体态臃肿的远游客<br>竭力掩饰着<br>被昭彰大河的风暴摧毁的眼睛与衣袂<br>寄着绚丽斑斓 点翠的彩云笺<br>携着为你存留的松花酒与春水茶<br>念着酒醒日暮里 意气飞扬的闪念文字<br>目送着黄昏映在渡口的影子缓缓拉长 拉长<br>留下一个气韵生动的夜晚</p>
-<p>悄悄燃点起西窗的红烛<br>庄重地摆正杯箸 大白未浮<br>客人迫不及待的与你分享 记忆里的故事与时光<br>几多喜悦 几多喟叹 几多潸然<br>只夹杂在觥筹交错间 化作克制平淡的点滴字句<br>折竹卧雪 烛火昏黄 风移影动<br>客人与你一同追忆往日的时光<br>让相携的双手或远望的眼眉 都在追忆里悠然镀上纯净的天青色</p>
-<p>当星月沉落 暮色青冥 烟火漫卷<br>当拾肉的贪玩孩童飞奔着寻找母亲<br>过客与你 缓缓唱起未来的时光<br>凤冠浓妆 前方似轴戏大幕 春雷震震<br>浅斟低唱 来日寄寻常巷陌 红袖添香<br>你会抚慰过客的内心 再起义武奋扬<br>你会指引过客的步履 赴往春山横波<br>汽船刺耳的汽笛声缓缓吹响<br>过客与你急觉 东方既白早已屏退了白月光<br>残宴既尽 仍有万语千言 唯有娇笑着说着再见<br>过客纵马奔向远方 又携书剑<br>你仍守着这人影绰绰的风凌渡口</p>
-<p>日后 行船的一千个夜晚<br>我会再一次想起这个夜晚与你的相遇<br>想起风凌夜话 你我仲夜轻声的语言<br>想起微弱模糊的光线里 你或放肆或温婉的笑容和眉眼<br>在渡口和夜话所不能至的地方<br>诠释着鼓励和希望的意义<br>践行着摇曳烛火下 夜话立下的诺言<br>期盼着下一个黄昏和长夜<br>我与你像侠客与侠女一般绕过万重关山 万里土地 万载时光<br>经行 相遇在下一个熙攘的风凌渡口<br>再一次收藏你的目光<br>再一次拥抱你的语言<br>再一次呢喃你的名字</p>
-]]></content>
-      <categories>
-        <category>创作</category>
-      </categories>
-      <tags>
-        <tag>诗歌</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>青萍</title>
-    <url>/2023/02/10/%E9%9D%92%E8%90%8D/</url>
-    <content><![CDATA[<h1 id="青萍"><a href="#青萍" class="headerlink" title="青萍"></a>青萍</h1><p>暖阳 穿彻高楼间的草木<br>照映到屋里少年郎 昏沉的脸庞<br>短暂的日光渐浓 渐斜 渐散乱<br>黑幕深重的夜 城市如苍茫荒野<br>青萍之末 西风吹彻 雾霭苍苍</p>
-<p>渐清醒的少年郎 透过屏幕<br>纸醉金迷的安稳 疯狂<br>试图竭尽全力尽力思虑 妄想看到最远的远方<br>却总因无望而折返 哭泣 慌张<br>沉沦迷茫地 一次次地点燃<br>泛白屏幕里七彩色的篝火<br>试图遮挡住苍白脸庞上 无神清澈的目光</p>
-<p>归途何往?<br>尔尔辞晚 总是做不到的一苇以航<br>少年郎 自以为阅尽千帆 深谙世事变幻<br>喟叹年岁辗转 朱颜折镜<br>自知拳劲孱弱 宝骏委顿 剑锋腐朽<br>且放掀澜青云志 不去谛听那厉哮寒风<br>拥抱最真实的拥抱 亲吻最甜美的笑容<br>暖阳缓缓 岁月蓦然</p>
-<p>偶然的夜 幸福过后的辗转<br>少年郎 不经意间追忆过往的诗篇<br>再次看到蛛网 尘烟 枯藤 大海<br>再次触摸那<br>摇曳着曙光那枝温暖漂亮的笔杆<br>恍然 觉醒 回望<br>在时光内部核心里 滴答作响的旧时光</p>
-<p>漫漫江湖 青萍飞扬的尘世<br>是少年郎心上 千载幽咽而天地共鸣的一个个文字<br>再一次谨醒他切莫虚度时光<br>追风折柳 揽桑榆 平风月<br>剥开历史风尘的面目 第一次清晰地看到<br>彼时年少的脸庞<br>思虑自己的笺越 思虑喜爱的奔忙 思虑家国的远方<br>对生活喜悦热情 对时光珍守如一</p>
-<p>当城市里再次响起传唱乡野韵律<br>当如洪吕大钟的咆哮蜕变为小城歌谣的温婉<br>合上书页的少年郎<br>看着窗外的 永无休止的风暴<br>开始真实而坦率地期待着<br>某天的清晨 那穿过树林的微风与露珠折射出的太阳<br>生死聚散方知人生如梦<br>聚啸青山方知相守始终<br>少年郎 似青萍之微末 也似青萍一般孕育起势向整个世界的疾风<br>疾风闪烁 越过历史 岁月 死亡 年轻<br>裹挟着未来与生命 骄傲地佩戴着少年郎的名字<br>奔涌向前</p>
-]]></content>
-      <categories>
-        <category>创作</category>
-      </categories>
-      <tags>
-        <tag>诗歌</tag>
       </tags>
   </entry>
   <entry>
@@ -4609,6 +4576,39 @@
       </categories>
       <tags>
         <tag>课程</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>青萍</title>
+    <url>/2023/02/10/%E9%9D%92%E8%90%8D/</url>
+    <content><![CDATA[<h1 id="青萍"><a href="#青萍" class="headerlink" title="青萍"></a>青萍</h1><p>暖阳 穿彻高楼间的草木<br>照映到屋里少年郎 昏沉的脸庞<br>短暂的日光渐浓 渐斜 渐散乱<br>黑幕深重的夜 城市如苍茫荒野<br>青萍之末 西风吹彻 雾霭苍苍</p>
+<p>渐清醒的少年郎 透过屏幕<br>纸醉金迷的安稳 疯狂<br>试图竭尽全力尽力思虑 妄想看到最远的远方<br>却总因无望而折返 哭泣 慌张<br>沉沦迷茫地 一次次地点燃<br>泛白屏幕里七彩色的篝火<br>试图遮挡住苍白脸庞上 无神清澈的目光</p>
+<p>归途何往?<br>尔尔辞晚 总是做不到的一苇以航<br>少年郎 自以为阅尽千帆 深谙世事变幻<br>喟叹年岁辗转 朱颜折镜<br>自知拳劲孱弱 宝骏委顿 剑锋腐朽<br>且放掀澜青云志 不去谛听那厉哮寒风<br>拥抱最真实的拥抱 亲吻最甜美的笑容<br>暖阳缓缓 岁月蓦然</p>
+<p>偶然的夜 幸福过后的辗转<br>少年郎 不经意间追忆过往的诗篇<br>再次看到蛛网 尘烟 枯藤 大海<br>再次触摸那<br>摇曳着曙光那枝温暖漂亮的笔杆<br>恍然 觉醒 回望<br>在时光内部核心里 滴答作响的旧时光</p>
+<p>漫漫江湖 青萍飞扬的尘世<br>是少年郎心上 千载幽咽而天地共鸣的一个个文字<br>再一次谨醒他切莫虚度时光<br>追风折柳 揽桑榆 平风月<br>剥开历史风尘的面目 第一次清晰地看到<br>彼时年少的脸庞<br>思虑自己的笺越 思虑喜爱的奔忙 思虑家国的远方<br>对生活喜悦热情 对时光珍守如一</p>
+<p>当城市里再次响起传唱乡野韵律<br>当如洪吕大钟的咆哮蜕变为小城歌谣的温婉<br>合上书页的少年郎<br>看着窗外的 永无休止的风暴<br>开始真实而坦率地期待着<br>某天的清晨 那穿过树林的微风与露珠折射出的太阳<br>生死聚散方知人生如梦<br>聚啸青山方知相守始终<br>少年郎 似青萍之微末 也似青萍一般孕育起势向整个世界的疾风<br>疾风闪烁 越过历史 岁月 死亡 年轻<br>裹挟着未来与生命 骄傲地佩戴着少年郎的名字<br>奔涌向前</p>
+]]></content>
+      <categories>
+        <category>创作</category>
+      </categories>
+      <tags>
+        <tag>诗歌</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>风凌夜话</title>
+    <url>/2023/02/10/%E9%A3%8E%E5%87%8C%E5%A4%9C%E8%AF%9D/</url>
+    <content><![CDATA[<h1 id="风凌夜话"><a href="#风凌夜话" class="headerlink" title="风凌夜话"></a>风凌夜话</h1><p>大江 北上<br>孕育经纬江河 编织千里沃土<br>船载渡口 渡口渡船<br>当微咸的海风吹过<br>风凌渡熙攘乘客的肩头<br>焦急而充满期待的旅人 匆匆翻越过船桨与时光<br>会再与你再一次相遇 把目光收藏</p>
+<p>倦容奄奄 体态臃肿的远游客<br>竭力掩饰着<br>被昭彰大河的风暴摧毁的眼睛与衣袂<br>寄着绚丽斑斓 点翠的彩云笺<br>携着为你存留的松花酒与春水茶<br>念着酒醒日暮里 意气飞扬的闪念文字<br>目送着黄昏映在渡口的影子缓缓拉长 拉长<br>留下一个气韵生动的夜晚</p>
+<p>悄悄燃点起西窗的红烛<br>庄重地摆正杯箸 大白未浮<br>客人迫不及待的与你分享 记忆里的故事与时光<br>几多喜悦 几多喟叹 几多潸然<br>只夹杂在觥筹交错间 化作克制平淡的点滴字句<br>折竹卧雪 烛火昏黄 风移影动<br>客人与你一同追忆往日的时光<br>让相携的双手或远望的眼眉 都在追忆里悠然镀上纯净的天青色</p>
+<p>当星月沉落 暮色青冥 烟火漫卷<br>当拾肉的贪玩孩童飞奔着寻找母亲<br>过客与你 缓缓唱起未来的时光<br>凤冠浓妆 前方似轴戏大幕 春雷震震<br>浅斟低唱 来日寄寻常巷陌 红袖添香<br>你会抚慰过客的内心 再起义武奋扬<br>你会指引过客的步履 赴往春山横波<br>汽船刺耳的汽笛声缓缓吹响<br>过客与你急觉 东方既白早已屏退了白月光<br>残宴既尽 仍有万语千言 唯有娇笑着说着再见<br>过客纵马奔向远方 又携书剑<br>你仍守着这人影绰绰的风凌渡口</p>
+<p>日后 行船的一千个夜晚<br>我会再一次想起这个夜晚与你的相遇<br>想起风凌夜话 你我仲夜轻声的语言<br>想起微弱模糊的光线里 你或放肆或温婉的笑容和眉眼<br>在渡口和夜话所不能至的地方<br>诠释着鼓励和希望的意义<br>践行着摇曳烛火下 夜话立下的诺言<br>期盼着下一个黄昏和长夜<br>我与你像侠客与侠女一般绕过万重关山 万里土地 万载时光<br>经行 相遇在下一个熙攘的风凌渡口<br>再一次收藏你的目光<br>再一次拥抱你的语言<br>再一次呢喃你的名字</p>
+]]></content>
+      <categories>
+        <category>创作</category>
+      </categories>
+      <tags>
+        <tag>诗歌</tag>
       </tags>
   </entry>
   <entry>
