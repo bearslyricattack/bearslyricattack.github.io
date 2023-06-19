@@ -1,0 +1,834 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-theme="light">
+    <head>
+        <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>大一立项爬虫 | 风凌渡</title>
+<noscript>开启Javascript是必要的</noscript>
+<link rel="icon" type="image/x-icon" href="/img/avatar.webp">
+<link rel="apple-touch-icon" href="/img/avatar.webp">
+<meta name="apple-mobile-web-app-title" content="风凌渡">
+<link rel="bookmark" href="/img/avatar.webp">
+<link rel="apple-touch-icon-precomposed" sizes="180x180" href="/img/avatar.webp">
+<meta name="description" content="a blog 一个分享技术与生活的博客">
+<meta name="theme-color" content="#1C1C1F">
+<link rel="stylesheet" href="/css/var.css">
+<link rel="stylesheet" href="/css/main.css">
+<link rel="stylesheet" href="/css/custom.css">
+
+
+
+<link rel="stylesheet" href="https://cdn.bootcdn.net/ajax/libs/font-awesome/6.3.0/css/all.min.css">
+    
+
+<link rel="stylesheet" href="/lib/snackbar.min.css">
+
+
+<script src="/lib/qrcode.min.js"></script>
+
+
+
+
+
+<script>var GLOBALCONFIG = {"root":"/","runtime":"2022-5-21 00:00:00","lazyload":{"enable":false,"error":"/img/acrylic.png"},"hightlight":{"enable":false,"limit":200},"lightbox":true,"randomlinks":false,"lang":{"theme":{"dark":"已切换至深色模式","light":"已切换至浅色模式"},"copy":{"success":"复制成功","error":"复制失败"},"backtop":"返回顶部","time":{"recent":"最近","yesterday":"昨天","berforeyesterday":"前天","daybefore":"天前","runtime":"天"},"sayhello":{"morning":"早上好","noon":"中午好","afternoon":"下午好","night":"晚上好","goodnight":"晚安","iam":"!  我是"},"search":{"empty":"搜索结果为空","hit":"已为您找到 ${query} 条结果","placeholder":"输入关键词快速查找"}},"covercolor":false,"localsearch":{"preload":false,"path":"/search.xml"}};</script><script id="site-config">var PAGECONFIG = {"is_home":false,"is_post":true,"is_page":false,"page":false,"toc":true,"comment":false};</script>
+    <meta name="generator" content="Hexo 6.3.0"></head>
+    <body id="body">
+        
+        <div id="console" style="zoom: 1;" class="">
+    <div class="close-btn" onclick="acrylic.hideConsole()" href="javascript:void(0);">
+        <i class="fas fa-circle-xmark"></i>
+    </div>
+    <div class="button-group">
+        <div class="console-btn-item"> <a class="darkmode_switchbutton" onclick="acrylic.switchDarkMode()" title="显示模式切换"
+                href="javascript:void(0);" rel="external nofollow" data-pjax-state=""><i class="fas fa-moon"
+                    style="font-size: 1rem;"></i></a></div>
+                    
+            <div class="console-btn-item" id="consoleMusic" onclick="acrylic.musicToggle()" title="音乐开关"><a class="music-switch"><i class="fas fa-music"></i></a></div>
+        
+        <div class="console-btn-item" id="consoleFPS" onclick="acrylic.FPSToggle()" title="帧率显示开关"><a class="FPS-switch"
+                data-pjax-state=""><i class="fas fa-gauge"></i></a></div>
+    </div>
+    <div class="console-mask" onclick="acrylic.hideConsole()" href="javascript:void(0);" rel="external nofollow"></div>
+</div>
+        <div id="sidebar" style="zoom: 1;">
+    <div id="menu-mask" style="display: none;"></div>
+    <div id="sidebar-menus" class>
+        <span class="sidebar-menu-item-title">功能</span>
+        <div class="sidebar-menu-item">
+            <a class="darkmode_switchbutton menu-child" onclick="acrylic.switchDarkMode()" title="显示模式切换"
+                href="javascript:void(0);" rel="external nofollow">
+                <i class="fas fa-moon" style="font-size: 1rem;"></i>
+                <span>显示模式</span>
+            </a>
+        </div>
+        
+            <div class="back-menu-list-groups">
+    
+      
+      <div class="back-menu-list-group">
+        <div class="back-menu-list-title">
+          我的
+        </div>
+        <div class="back-menu-list">
+          
+            
+            <a class="back-menu-item" href="/" rel="external nofollow" title="博客">
+              <img class="back-menu-item-icon" src="/img/avatar.webp" loading="lazy">
+              <span class="back-menu-item-text">
+                博客
+              </span>
+            </a>
+          
+        </div>
+      </div>
+    
+  </div>
+  
+        
+        <div class="menus_items">
+    
+        <div class="menus_item">
+            
+                <a class="site-page" href="javascript:void(0);" rel="external nofollow">
+                    <span> 文库</span>
+                </a>
+                <ul class="menus_item_child">
+                    
+                        <li>
+                            <a class="site-page child" href="/archives/">
+                                <i class="fas fa-box-archive"></i>
+                                <span> 文章列表</span>
+                            </a>
+                        </li>
+                    
+                        <li>
+                            <a class="site-page child" href="/categories/">
+                                <i class="fas fa-cube"></i>
+                                <span> 全部分类</span>
+                            </a>
+                        </li>
+                    
+                        <li>
+                            <a class="site-page child" href="/tags/">
+                                <i class="fas fa-tags"></i>
+                                <span> 全部标签</span>
+                            </a>
+                        </li>
+                    
+                </ul>
+             
+        </div>
+    
+        <div class="menus_item">
+            
+                <a class="site-page not-child" target="_blank" href="https://github.com/bearslyricattack" rel="external nofollow noopener">
+                    <span> 仓库</span>
+                </a>
+             
+        </div>
+    
+</div>
+        <span class="sidebar-menu-item-title">标签</span>
+        <div class="card-widget card-tags card-archives card-webinfo card-allinfo">
+            <div class="item-headline">
+                <i class="fas fa-tags"></i>
+                <span>标签</span>
+            </div>
+            <div class="card-tag-cloud">
+                
+                    <a href="/tags/%E4%B8%AD%E9%97%B4%E4%BB%B6/" style="font-size: 1em; color: #d3d3d3">中间件
+                        <sup>4</sup>
+                    </a>
+                
+                    <a href="/tags/Go/" style="font-size: 1em; color: #d3d3d3">Go
+                        <sup>3</sup>
+                    </a>
+                
+                    <a href="/tags/Java/" style="font-size: 1em; color: #d3d3d3">Java
+                        <sup>3</sup>
+                    </a>
+                
+                    <a href="/tags/%E6%9E%B6%E6%9E%84/" style="font-size: 1em; color: #d3d3d3">架构
+                        <sup>3</sup>
+                    </a>
+                
+                    <a href="/tags/%E9%A1%B9%E7%9B%AE/" style="font-size: 1em; color: #d3d3d3">项目
+                        <sup>2</sup>
+                    </a>
+                
+                    <a href="/tags/%E5%BD%B1%E8%AF%84/" style="font-size: 1em; color: #d3d3d3">影评
+                        <sup>1</sup>
+                    </a>
+                
+                    <a href="/tags/%E8%AF%97%E6%AD%8C/" style="font-size: 1em; color: #d3d3d3">诗歌
+                        <sup>14</sup>
+                    </a>
+                
+                    <a href="/tags/%E5%88%86%E5%B8%83%E5%BC%8F/" style="font-size: 1em; color: #d3d3d3">分布式
+                        <sup>1</sup>
+                    </a>
+                
+                    <a href="/tags/%E5%A5%8E%E6%A1%91%E6%8F%90/" style="font-size: 1em; color: #d3d3d3">奎桑提
+                        <sup>1</sup>
+                    </a>
+                
+                    <a href="/tags/%E5%A5%A5%E6%81%A9/" style="font-size: 1em; color: #d3d3d3">奥恩
+                        <sup>1</sup>
+                    </a>
+                
+                    <a href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/" style="font-size: 1em; color: #d3d3d3">数据库
+                        <sup>2</sup>
+                    </a>
+                
+                    <a href="/tags/%E8%AF%BE%E7%A8%8B/" style="font-size: 1em; color: #d3d3d3">课程
+                        <sup>8</sup>
+                    </a>
+                
+                    <a href="/tags/%E8%AF%84%E8%AE%BA/" style="font-size: 1em; color: #d3d3d3">评论
+                        <sup>1</sup>
+                    </a>
+                
+                    <a href="/tags/%E6%9C%8D%E5%8A%A1%E5%99%A8/" style="font-size: 1em; color: #d3d3d3">服务器
+                        <sup>1</sup>
+                    </a>
+                
+                    <a href="/tags/%E6%A1%8C%E6%90%AD/" style="font-size: 1em; color: #d3d3d3">桌搭
+                        <sup>1</sup>
+                    </a>
+                
+            </div>
+        </div>
+    </div>
+</div>    
+        
+            <div class="post" id="body-wrap">
+                <header class="post-bg" id="page-header">
+    <nav id="nav" class="show">
+    <div id="nav-group">
+        <div id="blog_name">
+            
+                <div class="back-home-button" tabindex="-1">
+                    <i class="back-home-button-icon fas fa-grip-vertical"></i>
+                    <div class="back-menu-list-groups">
+    
+      
+      <div class="back-menu-list-group">
+        <div class="back-menu-list-title">
+          我的
+        </div>
+        <div class="back-menu-list">
+          
+            
+            <a class="back-menu-item" href="/" rel="external nofollow" title="博客">
+              <img class="back-menu-item-icon" src="/img/avatar.webp" loading="lazy">
+              <span class="back-menu-item-text">
+                博客
+              </span>
+            </a>
+          
+        </div>
+      </div>
+    
+  </div>
+  
+                </div>
+            
+            <a id="site-name" href="/" title="返回博客主页">
+                    
+            </a>
+        </div>
+        <div id="page-name-mask">
+            <div id="page-name">
+                <a id="page-name-text" onclick="acrylic.toTop()">大一立项爬虫</a>
+            </div>
+        </div>
+        <div id="menus">
+            <div class="menus_items">
+    
+        <div class="menus_item">
+            
+                <a class="site-page" href="javascript:void(0);" rel="external nofollow">
+                    <span> 文库</span>
+                </a>
+                <ul class="menus_item_child">
+                    
+                        <li>
+                            <a class="site-page child" href="/archives/">
+                                <i class="fas fa-box-archive"></i>
+                                <span> 文章列表</span>
+                            </a>
+                        </li>
+                    
+                        <li>
+                            <a class="site-page child" href="/categories/">
+                                <i class="fas fa-cube"></i>
+                                <span> 全部分类</span>
+                            </a>
+                        </li>
+                    
+                        <li>
+                            <a class="site-page child" href="/tags/">
+                                <i class="fas fa-tags"></i>
+                                <span> 全部标签</span>
+                            </a>
+                        </li>
+                    
+                </ul>
+             
+        </div>
+    
+        <div class="menus_item">
+            
+                <a class="site-page not-child" target="_blank" href="https://github.com/bearslyricattack" rel="external nofollow noopener">
+                    <span> 仓库</span>
+                </a>
+             
+        </div>
+    
+</div>
+        </div>
+        <!-- <div id="nav-left">
+            <div id="fps-group">
+                <div id="fps">145</div><span class="fpsText">FPS</span>
+            </div>
+        </div> -->
+        <div id="nav-right">
+            
+    <div class="nav-button only-home" id="travellings_button">
+        <a class="site-page"  target="_blank" rel="noopener external nofollow" href="https://www.travellings.cn/go.html" title="开往-友链接力"  width="120">
+            <i class="fa-solid fa-train-subway" style="font-size: 1rem;"></i>
+        </a>
+    </div>
+
+
+    <div class="nav-button" id="randomPost_button">
+        <a class="site-page" onclick="toRandomPost()"
+            title="随机前往一个文章">
+            <i class="fas fa-shuffle" style="font-size: 1rem;"></i>
+        </a>
+    </div>
+
+
+    <div class="nav-button" id="search-button">
+        <a class="site-page social-icon search" title="站内搜索"
+            href="javascript:void(0);" rel="external nofollow">
+            <i class="fas fa-magnifying-glass" style="font-size: 1rem;"></i>
+        </a>
+    </div>
+
+
+    <div class="nav-button" id="nav-console">
+        <a class="console_switchbutton" onclick="acrylic.showConsole()"
+        title="显示中控台" href="javascript:void(0);" rel="external nofollow">
+        <i class="fas fa-bars-progress" style="font-size: 1rem;"></i>
+        </a>
+    </div>
+
+<div class="nav-button" id="nav-totop" onclick="acrylic.toTop()">
+    <a class="totopbtn">
+        <i class="fas fa-arrow-up"></i>
+        <span id="percent">0</span>
+    </a>
+</div>
+<div id="toggle-menu">
+    <a class="site-page">
+        <i class="fas fa-bars fa-fw" style="font-size: 1rem;"></i>
+    </a>
+</div>
+        </div>
+    </div>
+</nav>
+    
+        <div class="coverdiv" id="coverdiv">
+    <img id="post-cover" class="nolazyload" src="/img/302.jpg" alt="cover">
+</div>
+<div id="post-info">
+    <div id="post-firstinfo">
+        <div class="meta-firstline">
+            <a class="post-meta-original" title="该文章为原创文章，注意版权协议">
+                原创
+            </a>
+            
+            <span class="post-meta-categories">
+                
+                    <a class="post-meta-categories" href="/categories/%E7%AC%94%E8%AE%B0/">笔记</a>
+                
+            </span>
+            
+            <div class="tag_share">
+                <div class="post-meta__tag-list">
+                    
+                        <a class="post-meta__tags" href="/tags/%E9%A1%B9%E7%9B%AE/">
+                            <span class="tags-punctuation">#</span>
+                            <span class="tags-name">项目</span>
+                        </a>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+    <h1 class="post-title">大一立项爬虫</h1>
+    <div id="post-meta">
+        <div class="meta-secondline">
+            <span class="post-meta-date" title="发布于">
+                <i class="post-meta-icon fa-fw fas fa-calendar"></i>
+                <time datetime="2023-06-18T20:17:17+08:00"></time>
+            </span>
+            
+            
+                <span class="post-meta-position" title="作者IP归属地为山东·威海">
+                    <i class="fas fa-location-dot post-meta-icon"></i>
+                    <span>山东·威海</span>
+                </span>
+            
+            
+                
+                
+            
+            
+                
+        </div>
+    </div>
+</div>
+<section class="main-hero-waves-area waves-area"><svg class="waves-svg" xmlns="http://www.w3.org/2000/svg"
+    xlink="http://www.w3.org/1999/xlink" viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto">
+    <defs>
+        <path id="gentle-wave"
+            d="M -160 44 c 30 0 58 -18 88 -18 s 58 18 88 18 s 58 -18 88 -18 s 58 18 88 18 v 44 h -352 Z"></path>
+    </defs>
+    <g class="parallax">
+        <use href="#gentle-wave" x="48" y="0"></use>
+        <use href="#gentle-wave" x="48" y="3"></use>
+        <use href="#gentle-wave" x="48" y="5"></use>
+        <use href="#gentle-wave" x="48" y="7"></use>
+    </g>
+</svg>
+</section>
+
+        
+</header>
+                <main class="layout" id="content-inner">
+    <div id="post">
+        <article class="post-content" id="article-container">
+            <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br></pre></td><td class="code"><pre><span class="line">//京东</span><br><span class="line">import requests</span><br><span class="line">from bs4 import BeautifulSoup</span><br><span class="line">import xlwt</span><br><span class="line"></span><br><span class="line">def get_html(url):</span><br><span class="line">    # 模拟浏览器访问</span><br><span class="line">    headers = &#123;</span><br><span class="line">        &#x27;User-Agent&#x27;: &#x27;Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/101.0.4951.64 Safari/537.36 Edg/101.0.1210.53&#x27;&#125;</span><br><span class="line">    print(&quot;--&gt; 成功爬取网站信息&quot;)</span><br><span class="line">    response = requests.get(url, headers=headers)  # 请求访问网站</span><br><span class="line">    if response.status_code == 200:</span><br><span class="line">        html = response.text  # 获取网页源码</span><br><span class="line">        return html  # 返回网页源码</span><br><span class="line">    else:</span><br><span class="line">        print(&quot;获取网站信息失败！&quot;)</span><br><span class="line">if __name__ == &#x27;__main__&#x27;:</span><br><span class="line">    # 创建workbook，就是创建一个Excel文档</span><br><span class="line">    write_work = xlwt.Workbook(encoding=&#x27;ascii&#x27;)</span><br><span class="line">    # 添加一张单</span><br><span class="line">    write_sheet = write_work.add_sheet(&quot;sheet1&quot;)</span><br><span class="line">    # 创建表头</span><br><span class="line">   # write_sheet.write(0, 0, label=&#x27;商品编号&#x27;)      # 第1行 第1列 写入内容&#x27;商品编号&#x27;</span><br><span class="line">    write_sheet.write(0, 0, label=&#x27;商品名称&#x27;)      # 第1行 第2列 写入内容&#x27;商品名称&#x27;</span><br><span class="line">    write_sheet.write(0, 1, label=&#x27;价格&#x27;)         # 第1行 第4列 写入内容&#x27;价格&#x27;</span><br><span class="line">    write_sheet.write(0, 2, label=&#x27;详情页网址&#x27;)         # 第1行 第5列 写入内容&#x27;商家&#x27;</span><br><span class="line">    write_sheet.write(0, 3, label=&#x27;评价数量&#x27;)   # 第1行 第6列 写入内容&#x27;商品详情地址&#x27;</span><br><span class="line"></span><br><span class="line">    # 记录当前行数</span><br><span class="line">    _current_row = 0</span><br><span class="line">    i=0</span><br><span class="line">    k=0</span><br><span class="line">    j=0</span><br><span class="line">    # 搜索关键字</span><br><span class="line">    keyword = input(&quot;请输入你要搜索的商品：&quot;)</span><br><span class="line">    for k in range(0,10):</span><br><span class="line">        i = 3+k*2</span><br><span class="line">        j = 56+k*60</span><br><span class="line">        # 搜索地址</span><br><span class="line">        search_url = &#x27;https://search.jd.com/Search?keyword=&#x27; + keyword + &#x27;&amp;enc=utf-8&amp;page=&#123;&#125;&amp;s=&#123;&#125;&amp;click=0&#x27;.format(i, j)</span><br><span class="line">        print(search_url)</span><br><span class="line">        html = get_html(search_url)</span><br><span class="line">        # 初始化BeautifulSoup库,并设置解析器</span><br><span class="line">        soup = BeautifulSoup(html, &#x27;lxml&#x27;)</span><br><span class="line">        # 商品列表</span><br><span class="line">        goods_list = soup.find_all(&#x27;li&#x27;, class_=&#x27;gl-item&#x27;)</span><br><span class="line">        # 打印goods_list到控制台</span><br><span class="line">        for li in goods_list:  # 遍历父节点</span><br><span class="line">            # 由于我们第一行已经写入了表头。所以这里0+1，就是从第1行开始，后面每次循环+1</span><br><span class="line">            _current_row += 1</span><br><span class="line">            if _current_row == 29:</span><br><span class="line">                break</span><br><span class="line">            # 商品编号</span><br><span class="line">            no = li[&#x27;data-sku&#x27;]</span><br><span class="line">            # 商品名称</span><br><span class="line">            name = li.find(class_=&#x27;p-name p-name-type-2&#x27;).find(&#x27;em&#x27;).get_text()</span><br><span class="line">            # 价格</span><br><span class="line">            price = li.find(class_=&#x27;p-price&#x27;).find(&#x27;i&#x27;).get_text()</span><br><span class="line">            # 商家</span><br><span class="line">            number = &#x27;http:&#x27;+li.find(class_=&#x27;p-commit&#x27;).find(&#x27;a&#x27;)[&#x27;href&#x27;]</span><br><span class="line">            # 商品详情地址</span><br><span class="line">            co = li.find(class_=&#x27;p-commit&#x27;).find(&#x27;a&#x27;).get_text()</span><br><span class="line"></span><br><span class="line">           #detail_addr = li.find(class_=&#x27;p-name p-name-type-2&#x27;).find(&#x27;a&#x27;)[&#x27;href&#x27;]</span><br><span class="line"> # 写入Excel</span><br><span class="line">            #write_sheet.write(_current_row, 0, label=no)</span><br><span class="line">            write_sheet.write(_current_row, 0, label=name)</span><br><span class="line">            write_sheet.write(_current_row, 1, label=price)</span><br><span class="line">            write_sheet.write(_current_row, 2, label=number)</span><br><span class="line">           # write_sheet.write(_current_row, 3, label=co)</span><br><span class="line"></span><br><span class="line">    # 保存文件，使用的是相对目录（也可以使用绝对路径），会保存在当前文件的同目录下。文件名为读取多个商品页面1.xls，必须是.xls后缀</span><br><span class="line">    write_work.save(&quot;./keyword.xls&quot;)</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br></pre></td><td class="code"><pre><span class="line">from selenium import webdriver</span><br><span class="line">import re</span><br><span class="line">driver = webdriver.Chrome()</span><br><span class="line">from selenium import webdriver</span><br><span class="line">import time</span><br><span class="line">import csv</span><br><span class="line">import xlwt</span><br><span class="line"></span><br><span class="line"># 搜索商品，获取商品页码</span><br><span class="line">def search_product(key_word):</span><br><span class="line">    # 定位输入框</span><br><span class="line">    browser.find_element_by_id(&quot;q&quot;).send_keys(key_word)</span><br><span class="line">    # 定义点击按钮，并点击</span><br><span class="line">    browser.find_element_by_class_name(&#x27;btn-search&#x27;).click()</span><br><span class="line">    # 最大化窗口：为了方便我们扫码</span><br><span class="line">    browser.maximize_window()</span><br><span class="line">    # 等待15秒，给足时间我们扫码</span><br><span class="line">    time.sleep(15)</span><br><span class="line">    # 定位这个“页码”，获取“共100页这个文本”</span><br><span class="line">    page_info = browser.find_element_by_xpath(&#x27;//div[@class=&quot;total&quot;]&#x27;).text</span><br><span class="line">    # findall()返回的是一个列表，虽然此时只有一个元素它也是一个列表。</span><br><span class="line">    page = re.findall(&quot;(\d+)&quot;, page_info)[0]</span><br><span class="line">    return page</span><br><span class="line"></span><br><span class="line">def main(key_word):</span><br><span class="line">    book = xlwt.Workbook(encoding=&#x27;utf-8&#x27;, style_compression=0)</span><br><span class="line">    sheet = book.add_sheet(&#x27;爬取商品&#x27;, cell_overwrite_ok=True)</span><br><span class="line">    col = (&#x27;商品名称&#x27;, &#x27;商品价格&#x27;, &#x27;付款人数&#x27;, &#x27;店铺名称&#x27;,&#x27;发货地&#x27;)</span><br><span class="line">    for i in range(0, 5):</span><br><span class="line">        sheet.write(0, i, col[i])</span><br><span class="line">    browser.get(&#x27;https://www.taobao.com/&#x27;)</span><br><span class="line">    page = search_product(key_word)</span><br><span class="line">    print(page)</span><br><span class="line">    page_num = 1</span><br><span class="line">    i=0</span><br><span class="line">    while int(page) != page_num:</span><br><span class="line">        print(&quot;*&quot; * 20)</span><br><span class="line">        print(&quot;正在爬取第&#123;&#125;页&quot;.format(page_num + 1))</span><br><span class="line">        browser.get(&#x27;https://s.taobao.com/search?q=&#123;&#125;&amp;s=&#123;&#125;&#x27;.format(key_word, page_num * 44))</span><br><span class="line">        browser.implicitly_wait(15)</span><br><span class="line"></span><br><span class="line">        # 通过页面分析发现：所有的信息都在items节点下</span><br><span class="line">        items = browser.find_elements_by_xpath(&#x27;//div[@class=&quot;items&quot;]/div[@class=&quot;item J_MouserOnverReq  &quot;]&#x27;)</span><br><span class="line">        for item in items:</span><br><span class="line">            # 参数信息</span><br><span class="line">            pro_desc = item.find_element_by_xpath(&#x27;.//div[@class=&quot;row row-2 title&quot;]/a&#x27;).text</span><br><span class="line">            # 价格</span><br><span class="line">            pro_price = item.find_element_by_xpath(&#x27;.//strong&#x27;).text</span><br><span class="line">            # 付款人数</span><br><span class="line">            buy_num = item.find_element_by_xpath(&#x27;.//div[@class=&quot;deal-cnt&quot;]&#x27;).text</span><br><span class="line">            # 旗舰店</span><br><span class="line">            shop = item.find_element_by_xpath(&#x27;.//div[@class=&quot;shop&quot;]/a&#x27;).text</span><br><span class="line">            # 发货地</span><br><span class="line">            address = item.find_element_by_xpath(&#x27;.//div[@class=&quot;location&quot;]&#x27;).text</span><br><span class="line">            with open(&#x27;&#123;&#125;.csv&#x27;.format(key_word), mode=&#x27;a&#x27;, newline=&#x27;&#x27;, encoding=&#x27;utf-8-sig&#x27;) as f:</span><br><span class="line">                csv_writer = csv.writer(f, delimiter=&#x27;,&#x27;)</span><br><span class="line">                csv_writer.writerow([pro_desc, pro_price, buy_num, shop, address])</span><br><span class="line">            sheet.write(i, 0, pro_desc)</span><br><span class="line">            sheet.write(i, 1, pro_price)</span><br><span class="line">            sheet.write(i, 2, buy_num)</span><br><span class="line">            sheet.write(i, 3, shop)</span><br><span class="line">            sheet.write(i, 4, address)</span><br><span class="line">            i+=1</span><br><span class="line">        page_num += 1</span><br><span class="line">    path = &#x27;D:/&#x27; + key_word + &#x27;.xls&#x27;</span><br><span class="line">    book.save(path)</span><br><span class="line">    print(&quot;数据爬取完毕！&quot;)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">if __name__ == &#x27;__main__&#x27;:</span><br><span class="line">    key_word = input(&quot;请输入你要搜索的商品：&quot;)</span><br><span class="line">    browser = webdriver.Chrome()</span><br><span class="line">    main(key_word)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br></pre></td><td class="code"><pre><span class="line">import requests</span><br><span class="line">import json</span><br><span class="line">from urllib.parse import quote</span><br><span class="line">import xlwt</span><br><span class="line"></span><br><span class="line">def get_weipin_info():</span><br><span class="line">    write_work = xlwt.Workbook(encoding=&#x27;ascii&#x27;)</span><br><span class="line">    # 添加一张单</span><br><span class="line">    write_sheet = write_work.add_sheet(&quot;sheet1&quot;)</span><br><span class="line">    # 创建表头</span><br><span class="line">    write_sheet.write(0, 0, label=&#x27;商品名称&#x27;)  # 第1行 第2列 写入内容&#x27;商品名称&#x27;</span><br><span class="line">    write_sheet.write(0, 1, label=&#x27;价格&#x27;)  # 第1行 第4列 写入内容&#x27;价格&#x27;</span><br><span class="line">    write_sheet.write(0, 2, label=&#x27;详情页链接&#x27;)  # 第1行 第5列 写入内容&#x27;商家&#x27;</span><br><span class="line">    keyword = input(&#x27;请输入想要查询的商品关键词&gt;&gt;&gt;&#x27;)</span><br><span class="line">    pagenum = int(input(&#x27;请输入页数,每页120个商品&gt;&gt;&gt;&#x27;))</span><br><span class="line">    _current_row = 1</span><br><span class="line">    for i in range(0, pagenum):</span><br><span class="line">        url = &#x27;https://mapi.vip.com/vips-mobile/rest/shopping/pc/search/product/rank?callback=getMerchandiseIds&amp;app_name=shop_pc&amp;app_version=4.0&amp;warehouse=VIP_HZ&amp;fdc_area_id=104101108&amp;client=pc&amp;mobile_platform=1&amp;province_id=104101&amp;api_key=70f71280d5d547b2a7bb370a529aeea1&amp;user_id=&amp;mars_cid=1628070214309_e7fbca2c43dda020cc7734c00466d49c&amp;wap_consumer=a&amp;standby_id=nature&amp;keyword=&#123;&#125;&amp;lv3CatIds=&amp;lv2CatIds=&amp;lv1CatIds=&amp;brandStoreSns=&amp;props=&amp;priceMin=&amp;priceMax=&amp;vipService=&amp;sort=0&amp;pageOffset=&#123;&#125;&amp;channelId=1&amp;gPlatform=PC&amp;batchSize=120&amp;_=1628070503449&#x27;.format(</span><br><span class="line">            quote(keyword), 120 * i)</span><br><span class="line">        headers = &#123;</span><br><span class="line">            &#x27;referer&#x27;: &#x27;https://category.vip.com/&#x27;,</span><br><span class="line">            &#x27;user-agent&#x27;: &#x27;Mozilla/5.0&#x27;</span><br><span class="line">        &#125;</span><br><span class="line">        html = requests.get(url, headers=headers)</span><br><span class="line">        # print(html.text)</span><br><span class="line">        start = html.text.find(&#x27;&#123;&quot;code&quot;&#x27;)</span><br><span class="line">        json_data = json.loads(html.text[start:-1])[&#x27;data&#x27;][&#x27;products&#x27;]</span><br><span class="line">        # print(json_data)</span><br><span class="line">        for data in json_data:</span><br><span class="line">            pid = data[&#x27;pid&#x27;]</span><br><span class="line">            # print(pid)</span><br><span class="line">            stuff_url = &#x27;https://mapi.vip.com/vips-mobile/rest/shopping/pc/product/module/list/v2?callback=getMerchandiseDroplets1&amp;app_name=shop_pc&amp;app_version=4.0&amp;warcallback=getMerchandiseDroplets1&amp;app_name=shop_pc&amp;app_version=4.0&amp;warehouse=VIP_HZ&amp;fdc_area_id=104101108&amp;client=pc&amp;mobile_platform=1&amp;province_id=104101&amp;api_key=70f71280d5d547b2a7bb370a529aeea1&amp;user_id=&amp;mars_cid=1628070214309_e7fbca2c43dda020cc7734c00466d49c&amp;wap_consumer=a&amp;productIds=&#123;&#125;&amp;scene=search&amp;standby_id=nature&amp;extParams=%7B%22stdSizeVids%22%3A%22%22%2C%22preheatTipsVer%22%3A%223%22%2C%22couponVer%22%3A%22v2%22%2C%22exclusivePrice%22%3A%221%22%2C%22iconSpec%22%3A%222x%22%2C%22ic2label%22%3A1%7D&amp;context=&amp;_=1628071156110&#x27;.format(</span><br><span class="line">                pid)</span><br><span class="line">            stuff_html = requests.get(stuff_url, headers=headers)</span><br><span class="line">            # print(stuff_html.text)</span><br><span class="line">            start = stuff_html.text.find(&#x27;&#123;&quot;code&quot;&#x27;)</span><br><span class="line">            end = stuff_html.text.find(&#x27;&quot;&#125;&#125;&#x27;) + len(&#x27;&quot;&#125;&#125;&#x27;)</span><br><span class="line">            stuff_json_data = json.loads(stuff_html.text[start:end])[&#x27;data&#x27;][&#x27;products&#x27;]</span><br><span class="line">            # print(stuff_json_data)</span><br><span class="line">            for stuff_data in stuff_json_data:</span><br><span class="line">                title = stuff_data[&#x27;title&#x27;]</span><br><span class="line">                price = stuff_data[&#x27;price&#x27;][&#x27;salePrice&#x27;]</span><br><span class="line">                imgurl = stuff_data[&#x27;squareImage&#x27;]</span><br><span class="line">                print(&#x27;名称:&#123;&#125;,价格:&#123;&#125;元&#x27;.format(title, price))</span><br><span class="line">                print(imgurl)</span><br><span class="line">                write_sheet.write(_current_row, 0, label=title)</span><br><span class="line">                write_sheet.write(_current_row, 1, label=price)</span><br><span class="line">                write_sheet.write(_current_row, 2, label=imgurl)</span><br><span class="line">                _current_row += 1</span><br><span class="line">                &#x27;&#x27;&#x27;</span><br><span class="line">                with open(&#x27;&#123;&#125;商品信息.txt&#x27;.format(keyword), &#x27;a&#x27;, encoding=&#x27;utf8&#x27;) as f:</span><br><span class="line">                    f.write(&#x27;商品名称:&#123;&#125;,价格:&#123;&#125;元&#x27;.format(title, price) + &#x27;\n&#x27;)</span><br><span class="line">                    f.write(&#x27;商品图片链接:&#123;&#125;&#x27;.format(imgurl) + &#x27;\n&#x27;)</span><br><span class="line">                    &#x27;&#x27;&#x27;</span><br><span class="line">        write_work.save(&quot;./key.xls&quot;)</span><br><span class="line">    print(&#x27;&#123;&#125;商品信息爬取完成&#x27;.format(keyword))</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">if __name__ == &#x27;__main__&#x27;:</span><br><span class="line">    get_weipin_info()</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br><span class="line">174</span><br><span class="line">175</span><br><span class="line">176</span><br><span class="line">177</span><br><span class="line">178</span><br><span class="line">179</span><br><span class="line">180</span><br><span class="line">181</span><br><span class="line">182</span><br><span class="line">183</span><br><span class="line">184</span><br><span class="line">185</span><br><span class="line">186</span><br><span class="line">187</span><br><span class="line">188</span><br><span class="line">189</span><br><span class="line">190</span><br><span class="line">191</span><br><span class="line">192</span><br><span class="line">193</span><br><span class="line">194</span><br><span class="line">195</span><br><span class="line">196</span><br><span class="line">197</span><br><span class="line">198</span><br><span class="line">199</span><br><span class="line">200</span><br><span class="line">201</span><br><span class="line">202</span><br><span class="line">203</span><br><span class="line">204</span><br><span class="line">205</span><br><span class="line">206</span><br><span class="line">207</span><br><span class="line">208</span><br><span class="line">209</span><br><span class="line">210</span><br><span class="line">211</span><br><span class="line">212</span><br><span class="line">213</span><br><span class="line">214</span><br><span class="line">215</span><br><span class="line">216</span><br><span class="line">217</span><br><span class="line">218</span><br><span class="line">219</span><br><span class="line">220</span><br><span class="line">221</span><br><span class="line">222</span><br><span class="line">223</span><br><span class="line">224</span><br><span class="line">225</span><br><span class="line">226</span><br><span class="line">227</span><br></pre></td><td class="code"><pre><span class="line">import re</span><br><span class="line">import time</span><br><span class="line">from concurrent.futures import ThreadPoolExecutor</span><br><span class="line">import matplotlib.pyplot as plt</span><br><span class="line">import pymysql</span><br><span class="line">import requests</span><br><span class="line">import seaborn as sns</span><br><span class="line">import xlwt</span><br><span class="line">from selenium import webdriver</span><br><span class="line">import random</span><br><span class="line"></span><br><span class="line"># 爬取网页部分</span><br><span class="line"></span><br><span class="line"># 使用selenium自动获取cookie</span><br><span class="line"># 因为解决不了淘宝滑块等验证的问题,此方法暂不可行</span><br><span class="line">def getCookie():</span><br><span class="line">    options = webdriver.Chrome</span><br><span class="line">    dr = webdriver.Chrome(r&#x27;C:\Users\wpy\AppData\Local\Google\Chrome\Application\chromedriver_win32&#x27;)</span><br><span class="line">    dr.get(&#x27;https://s.taobao.com/search?q=狗&#x27;)</span><br><span class="line"></span><br><span class="line">    cookie_test = dr.get_cookies()</span><br><span class="line">    # 未整理的cookie</span><br><span class="line">    print(cookie_test)</span><br><span class="line">    cookie = [item[&quot;name&quot;] + &quot;=&quot; + item[&quot;value&quot;] for item in cookie_test]</span><br><span class="line">    cookiestr = &#x27;; &#x27;.join(item for item in cookie)</span><br><span class="line">    # 整理后的cookie</span><br><span class="line">    print(cookiestr)</span><br><span class="line"></span><br><span class="line"># 获取网页的html文档</span><br><span class="line"># 具体思路是手动获取cookie,把cookie存入文件夹中,从文件夹中读取cookie进行爬取</span><br><span class="line">def getHTML(name, page):</span><br><span class="line">    try:</span><br><span class="line">        # 爬取数据过多会导致淘宝安全系统认为我们是爬虫从而停止且ip被封,所以尝试使用代理池解决,首先使用付费代理,获取含有ip地址的api,然后把获取到的ip地址手动的存入程序中</span><br><span class="line">        # proxy = [&#x27;106.32.9.201:4231&#x27;, &#x27;58.63.37.245:4245&#x27;, &#x27;27.156.212.245:4213&#x27;, &#x27;218.91.4.107:4212&#x27;,</span><br><span class="line">        #          &#x27;117.57.20.217:4226&#x27;, &#x27;222.190.198.122:4231&#x27;, &#x27;123.158.127.209:4281&#x27;]</span><br><span class="line">        # # 准备好的代理ip</span><br><span class="line">        # proxy1 = proxy[1]</span><br><span class="line">        # new_data = &#123;</span><br><span class="line">        #     &quot;http&quot;: &quot;123.158.127.209:4281&quot;</span><br><span class="line">        # &#125;</span><br><span class="line">        start_url = &#x27;https://s.taobao.com/search?q=&#x27; + name</span><br><span class="line">        header = &#123;</span><br><span class="line">            &#x27;User-Agent&#x27;: &#x27;Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:76.0) Gecko/20100101 Firefox/70.0&#x27;</span><br><span class="line">        &#125;</span><br><span class="line">        path = &#x27;D:\mycookie.txt&#x27;</span><br><span class="line">        with open(path, &#x27;r&#x27;) as f:</span><br><span class="line">            mycookies = f.read()</span><br><span class="line">        mycookies = mycookies.split(&#x27;;&#x27;)</span><br><span class="line">        cookies = &#123;&#125;</span><br><span class="line">        for cookie in mycookies:</span><br><span class="line">            name, value = cookie.strip().split(&#x27;=&#x27;, 1)</span><br><span class="line">            cookies[name] = value</span><br><span class="line">        goods = &#x27;&#x27;</span><br><span class="line">        for i in range(0, 1):</span><br><span class="line">            i = int(page)</span><br><span class="line">            if i == 0:</span><br><span class="line">                url = start_url</span><br><span class="line">            else:</span><br><span class="line">                url = start_url + &#x27;&amp;s=&#x27; + str(44 * i)</span><br><span class="line">            # r = requests.get(url, headers=header, cookies=cookies, timeout=60,proxies=new_data)</span><br><span class="line">            r = requests.get(url, headers=header, cookies=cookies, timeout=60)</span><br><span class="line">            r.encoding = r.apparent_encoding</span><br><span class="line">            goods += r.text</span><br><span class="line">        print(&#x27;获取网页文档成功!&#x27;)</span><br><span class="line">        return goods</span><br><span class="line">    except:</span><br><span class="line">        print(&#x27;获取网页文档失败!&#x27; + &#x27;已爬取到第&#x27; + str(i) + &#x27;页&#x27;)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"># 解析网页部分</span><br><span class="line"># 使用正则表达式匹配得到想要的字段,存储在列表中</span><br><span class="line">def findMS(html):</span><br><span class="line">    try:</span><br><span class="line">        marketnames = re.findall(&#x27;&quot;nick&quot;:&quot;(.*?)&quot;&#x27;, html)</span><br><span class="line">        titles = re.findall(&#x27;&quot;raw_title&quot;:&quot;(.*?)&quot;&#x27;, html)</span><br><span class="line">        prices = re.findall(&#x27;&quot;view_price&quot;:&quot;(.*?)&quot;&#x27;, html)</span><br><span class="line">        pays = re.findall(&#x27;&quot;view_sales&quot;:&quot;(.*?)&quot;&#x27;, html)</span><br><span class="line">        data = []</span><br><span class="line">        for i in range(len(titles)):</span><br><span class="line">            data.append([marketnames[i], titles[i], prices[i], pays[i]])</span><br><span class="line">        print(&#x27;解析网页成功!&#x27;)</span><br><span class="line">        return data</span><br><span class="line">    except:</span><br><span class="line">        print(&#x27;解析网页失败!&#x27;)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"># 数据处理部分</span><br><span class="line"># 按照价格进行用户定制的升降序排序</span><br><span class="line"># 升序</span><br><span class="line">def sort1(data):</span><br><span class="line">    for i in range(len(data) - 1):</span><br><span class="line">        for j in range(len(data) - i - 1):</span><br><span class="line">            if float((data[j])[2]) &gt; float((data[j + 1])[2]):</span><br><span class="line">                data[j], data[j + 1] = data[j + 1], data[j]</span><br><span class="line">    return data</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"># 降序</span><br><span class="line">def sort2(data):</span><br><span class="line">    for i in range(len(data) - 1):</span><br><span class="line">        for j in range(len(data) - i - 1):</span><br><span class="line">            if float((data[j])[2]) &lt; float((data[j + 1])[2]):</span><br><span class="line">                data[j], data[j + 1] = data[j + 1], data[j]</span><br><span class="line">    return data</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"># 数据持久化部分</span><br><span class="line"></span><br><span class="line"># 存入Excel:</span><br><span class="line">def download(data, name, page):</span><br><span class="line">    try:</span><br><span class="line">        if len(data) != page * 44:</span><br><span class="line">            print(&quot;当前data元素个数为:&quot; + str(len(data)))</span><br><span class="line">            print(&quot;预期data元素个数为:&quot; + str(page * 44))</span><br><span class="line">            number = len(data)</span><br><span class="line">        else:</span><br><span class="line">            number = page * 44</span><br><span class="line">        book = xlwt.Workbook(encoding=&#x27;utf-8&#x27;, style_compression=0)</span><br><span class="line">        sheet = book.add_sheet(&#x27;爬取商品&#x27;, cell_overwrite_ok=True)</span><br><span class="line">        col = (&#x27;商铺名称&#x27;, &#x27;商品&#x27;, &#x27;价格&#x27;, &#x27;购买人数&#x27;)</span><br><span class="line">        for i in range(0, 4):</span><br><span class="line">            sheet.write(0, i, col[i])</span><br><span class="line">            for k in range(0, number):</span><br><span class="line">                datalist = data[k]</span><br><span class="line">                for j in range(0, 4):</span><br><span class="line">                    sheet.write(k + 1, j, datalist[j])</span><br><span class="line">        path = &#x27;D:/&#x27; + name + &#x27;.xls&#x27;</span><br><span class="line">        book.save(path)</span><br><span class="line">        print(&#x27;存入Excel成功!&#x27;)</span><br><span class="line">    except:</span><br><span class="line">        print(&#x27;存入Excel失败!&#x27;)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"># 存入mysql数据库:</span><br><span class="line">def sql(name, data):</span><br><span class="line">    try:</span><br><span class="line">        # 获取连接对象conn，建立数据库的连接</span><br><span class="line">        conn = pymysql.connect(host=&#x27;localhost&#x27;, port=3306, user=&#x27;root&#x27;, passwd=&#x27;123456&#x27;, db=&#x27;dbcourses&#x27;,</span><br><span class="line">                               charset=&#x27;utf8&#x27;)</span><br><span class="line">        # db:表示数据库名称</span><br><span class="line">        #  进行连接数据库服务端（host 访问服务端的ip，user 访问服务端的用户，password访问服务端的用户密码，database 访问服务端的数据库，charset 访问时采用的编码方式）</span><br><span class="line">        cur = conn.cursor()</span><br><span class="line">        sql1 = &#x27;create table &#x27; + str(</span><br><span class="line">            name) + &#x27;(id int not null,shop varchar(225),commodity varchar(225),price varchar(225),number varchar(225));&#x27;</span><br><span class="line">        sql1 = str(sql1)</span><br><span class="line">        cur.execute(sql1)</span><br><span class="line">        # 二次拼接得到sql语句</span><br><span class="line">        for i in range(0, len(data)):</span><br><span class="line">            sql11 = &#x27;insert into &#x27;</span><br><span class="line">            sql22 = &#x27;(id,shop,commodity,price,number) values(&#x27;</span><br><span class="line">            sql33 = str(i)</span><br><span class="line">            sql44 = &#x27;,&#x27;</span><br><span class="line">            sql55 = &#x27;&quot;&#x27;</span><br><span class="line">            sql77 = &#x27;);&#x27;</span><br><span class="line">            sql66 = sql11 + name + sql22 + sql33 + sql44 + sql55 + str(data[i][0]) + sql55 + sql44 + sql55 + str(</span><br><span class="line">                data[i][1]) + sql55 + sql44 + sql55 + str(data[i][2]) + sql55 + sql44 + sql55 + str(</span><br><span class="line">                data[i][3]) + sql55 + sql77</span><br><span class="line">            sql4 = str(sql66)</span><br><span class="line">            cur.execute(sql4)</span><br><span class="line">        conn.commit()</span><br><span class="line">        cur.close()</span><br><span class="line">        conn.close()</span><br><span class="line">        print(&#x27;存入数据库成功!&#x27;)</span><br><span class="line">    except:</span><br><span class="line">        print(&#x27;存入数据库失败!&#x27;)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"># 数据可视化部分</span><br><span class="line"></span><br><span class="line"># 使用直方图表现价格趋势</span><br><span class="line">def view(data):</span><br><span class="line">    name = []</span><br><span class="line">    price = []</span><br><span class="line">    for i in range(len(data) - 1):</span><br><span class="line">        name.append(i)</span><br><span class="line">        price.append(data[i][2])</span><br><span class="line">    # 用Matplotlib画条形图</span><br><span class="line">    plt.bar(name, price)</span><br><span class="line">    plt.show()</span><br><span class="line">    # 用Seaborn画条形图</span><br><span class="line">    sns.barplot(name, price)</span><br><span class="line">    plt.show()</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">def main():</span><br><span class="line">    # 用户输入</span><br><span class="line">    name = input(&#x27;请输入爬取商品的名字:&#x27;)</span><br><span class="line">    page = input(&#x27;请输入你想要爬取的页数:&#x27;)</span><br><span class="line">    sort = input(&#x27;请输入你想要的价格排序方式:升序请输入1,降序请输入2:&#x27;)</span><br><span class="line">    sort = int(sort)</span><br><span class="line">    page = int(page)</span><br><span class="line"></span><br><span class="line">    # 爬取数据</span><br><span class="line">    data1 = []</span><br><span class="line">    for i in range(0, int(page)):</span><br><span class="line">        html = getHTML(name, page)</span><br><span class="line">        data = findMS(html)</span><br><span class="line">        # 猜测爬取数据过多被封,可能是爬取频率的问题,故此处随机设置间隔尝试解决此问题</span><br><span class="line">        time.sleep(random.randint(1, 10))</span><br><span class="line">        # print(&quot;当前数据长度为:&quot; + str(len(data)))</span><br><span class="line">        if len(data) == 0:</span><br><span class="line">            print(&quot;数据有误!当前页数为&quot; + str(i))</span><br><span class="line">            print(data)</span><br><span class="line">            print(html)</span><br><span class="line"></span><br><span class="line">        data1 += data</span><br><span class="line">        data = []</span><br><span class="line">    # # 数据处理</span><br><span class="line">    # if sort == 1:</span><br><span class="line">    #     data = sort1(data)</span><br><span class="line">    # if sort == 2:</span><br><span class="line">    #     data = sort2(data)</span><br><span class="line"></span><br><span class="line">    # 数据持久化</span><br><span class="line">    download(data1, name, page)</span><br><span class="line">    # sql(name, data)</span><br><span class="line"></span><br><span class="line">    # 数据可视化</span><br><span class="line">    # view(data)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"># 创建线程池:提高爬取的效率</span><br><span class="line">if __name__ == &quot;__main__&quot;:</span><br><span class="line">    pool = ThreadPoolExecutor(max_workers=2)</span><br><span class="line">    future1 = pool.submit(main())</span><br><span class="line">    pool.shutdown()</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+        </article>
+        <div class="post-tools" id="post-tools">
+            <div class="post-tools-left">
+                
+                <div class="share-link mobile">
+    <div class="share-qrcode">
+        <div class="share-button" title="使用手机访问这篇文章">
+            <i class="fas fa-qrcode"></i>
+        </div>
+        <div class="share-main">
+            <div class="share-main-all">
+                <div id="qrcode" title="http://example.com/2023/06/18/%E5%A4%A7%E4%B8%80%E7%AB%8B%E9%A1%B9%E7%88%AC%E8%99%AB/">
+                </div>
+                <div class="reward-dec">使用手机访问这篇文章</div>
+            </div>
+        </div>
+        <script type="text/javascript">
+            new QRCode(document.getElementById("qrcode"), "http://example.com/2023/06/18/%E5%A4%A7%E4%B8%80%E7%AB%8B%E9%A1%B9%E7%88%AC%E8%99%AB/");
+        </script>
+    </div>
+</div>
+                <div class="share-link weibo"><a class="share-button" target="_blank"
+    href="https://service.weibo.com/share/share.php?title=大一立项爬虫&amp;url=http://example.com/2023/06/18/%E5%A4%A7%E4%B8%80%E7%AB%8B%E9%A1%B9%E7%88%AC%E8%99%AB/&amp;pic=/img/302.jpg"
+    title="分享到微博" rel="noopener external nofollow noreferrer noopener">
+    <i class="fab fa-weibo" style="font-size:22px"></i>
+</a>
+</div>
+<div class="share-link copyurl">
+<div class="share-button" id="post-share-url" title="复制链接" onclick="acrylic.copyPageUrl()">
+    <i class="fas fa-link"></i>
+</div>
+</div>
+            </div>
+            <div class="post-tools-right">
+                <div class="tag_share">
+                    <div class="post-meta__tag-list">
+                        
+                            <a href="/tags/%E9%A1%B9%E7%9B%AE/" class="post-meta__tags">
+                                <span class="tags-punctuation">#</span>
+                                项目
+                                <span class="tagsPageCount">2</span>
+                            </a>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="post-copyright">
+    <div class="post-copyright__author">
+        <a class="post-copyright__original" title="该文章为原创文章，注意版权协议">原创</a>
+        <a class="post-copyright-title" href="#">
+            <span>大一立项爬虫</span>
+        </a>
+    </div>
+    <div class="post-copyright__type">
+        <span class="post-copyright-info" id="post-copyright-url">
+            <a href="/2023/06/18/%E5%A4%A7%E4%B8%80%E7%AB%8B%E9%A1%B9%E7%88%AC%E8%99%AB/">http://example.com/2023/06/18/%E5%A4%A7%E4%B8%80%E7%AB%8B%E9%A1%B9%E7%88%AC%E8%99%AB/</a>
+        </span>
+        <button class="post-copyright-copybtn" onclick="acrylic.copyPageUrl()">
+            <i class="fas fa-paste copy-btn"></i>
+        </button>
+    </div>
+    <div class="post-copyright__notice"><span class="post-copyright-info">本文是原创文章，采用 <a
+                href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank">CC BY-NC-ND 4.0</a> 协议，完整转载请注明来自 <a
+                href="/">风凌渡</a>
+            </span>
+        </div>
+</div>
+        <nav class="pagination-post" id="pagination">
+    
+        
+            <div class="next-post pull-full">
+                <a href="/2023/06/18/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/">
+                    <div class="pagination-info">
+                        <div class="label">下一篇</div>
+                        <div class="next_info">操作系统</div>
+                    </div>
+                </a>
+            </div>
+                
+        
+    
+</nav>
+            
+    </div>
+    <div class="aside-content" id="aside-content">
+    
+    
+        
+        <div class="card-widget card-info">
+    <div class="card-content">
+        <div class="card-info-avatar is-center">
+            <div class="author-info__sayhi" id="author-info__sayhi">
+            </div>
+            <div class="author-info__name">
+                抒情熊
+            </div>
+            <div class="author-info__description">这有关于<b>后端</b>、<b>架构</b>的相关笔记分享，还有拙作<b>诗歌</b>和<b>小说</b>，另有如<b>奎桑提</b>和<b>奥恩</b>的相关教学。<br>相信会对你有所帮助.</div>
+        </div>
+    </div>
+    <div class="banner-button-group">
+        <a class="banner-button" href="/about/">
+            <i class="fas fa-circle-chevron-right"></i>
+            <span class="banner-button-text">了解更多</span>
+        </a>
+    </div>
+    <div class="card-info-social-icons is-center">
+        
+            <a class="social-icon" target="_blank" rel="noopener" href="https://github.com/bearslyricattack" title="Github">
+                <i class="fa-brands fa-github"></i>
+            </a>
+        
+            <a class="social-icon" target="_blank" rel="noopener" href="https://user.qzone.qq.com/2669184984" title="Mail">
+                <i class="fa-solid fa-envelope"></i>
+            </a>
+        
+    </div>
+</div>
+     
+    
+    <div class="sticky_layout">
+        
+            <div class="card-widget" id="card-toc">
+    <div class="item-headline">
+        <i class="fas fa-bars"></i>
+        <span>文章目录</span>
+    </div>
+    <div class="toc-content" id="toc-content">
+        
+    </div>
+</div>
+            
+        
+            
+        <div class="card-widget card-recent-post">
+    <div class="item-headline">
+        <i class="fas fa-list-ol"></i>
+        <span>最近发布</span>
+    </div>
+    <div class="aside-list">
+        
+        
+            <div class="aside-list-item">
+                <a class="thumbnail" href="/2023/06/18/%E5%A4%A7%E4%B8%80%E7%AB%8B%E9%A1%B9%E7%88%AC%E8%99%AB/" title="大一立项爬虫">
+                    <img
+                        alt="大一立项爬虫"
+                        src="/img/302.jpg">
+                </a>
+                <div class="content">
+                    
+                        <a class="article-recent_post_categories" href="/2023/06/18/%E5%A4%A7%E4%B8%80%E7%AB%8B%E9%A1%B9%E7%88%AC%E8%99%AB/">
+                            笔记
+                        </a>
+                    
+                    <a class="title" href="/2023/06/18/%E5%A4%A7%E4%B8%80%E7%AB%8B%E9%A1%B9%E7%88%AC%E8%99%AB/" title="大一立项爬虫">
+                        大一立项爬虫
+                    </a>
+                </div>
+            </div>
+                
+        
+            <div class="aside-list-item">
+                <a class="thumbnail" href="/2023/06/18/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/" title="操作系统">
+                    <img
+                        alt="操作系统"
+                        src="/img/301.jpg">
+                </a>
+                <div class="content">
+                    
+                        <a class="article-recent_post_categories" href="/2023/06/18/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/">
+                            笔记
+                        </a>
+                    
+                    <a class="title" href="/2023/06/18/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/" title="操作系统">
+                        操作系统
+                    </a>
+                </div>
+            </div>
+                
+        
+            <div class="aside-list-item">
+                <a class="thumbnail" href="/2023/06/08/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F/" title="数据库系统">
+                    <img
+                        alt="数据库系统"
+                        src="/img/100.jpg">
+                </a>
+                <div class="content">
+                    
+                        <a class="article-recent_post_categories" href="/2023/06/08/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F/">
+                            课程
+                        </a>
+                    
+                    <a class="title" href="/2023/06/08/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F/" title="数据库系统">
+                        数据库系统
+                    </a>
+                </div>
+            </div>
+                
+        
+            <div class="aside-list-item">
+                <a class="thumbnail" href="/2023/06/07/%E4%BD%8E%E4%BB%A3%E7%A0%81%E7%BB%BC%E6%B5%8B%E5%B9%B3%E5%8F%B0/" title="低代码综测平台">
+                    <img
+                        alt="低代码综测平台"
+                        src="/img/200.jpg">
+                </a>
+                <div class="content">
+                    
+                        <a class="article-recent_post_categories" href="/2023/06/07/%E4%BD%8E%E4%BB%A3%E7%A0%81%E7%BB%BC%E6%B5%8B%E5%B9%B3%E5%8F%B0/">
+                            创作
+                        </a>
+                    
+                    <a class="title" href="/2023/06/07/%E4%BD%8E%E4%BB%A3%E7%A0%81%E7%BB%BC%E6%B5%8B%E5%B9%B3%E5%8F%B0/" title="低代码综测平台">
+                        低代码综测平台
+                    </a>
+                </div>
+            </div>
+                
+        
+            <div class="aside-list-item">
+                <a class="thumbnail" href="/2023/06/04/%E6%9C%89%E5%8C%AA/" title="有匪">
+                    <img
+                        alt="有匪"
+                        src="/img/400.jpg">
+                </a>
+                <div class="content">
+                    
+                        <a class="article-recent_post_categories" href="/2023/06/04/%E6%9C%89%E5%8C%AA/">
+                            创作
+                        </a>
+                    
+                    <a class="title" href="/2023/06/04/%E6%9C%89%E5%8C%AA/" title="有匪">
+                        有匪
+                    </a>
+                </div>
+            </div>
+            
+    </div>
+</div>
+     
+        
+    </div>
+</div> 
+</main>
+                <footer id="footer">
+                    <div id="footer_deal">
+    
+        <a class="deal_link" target="_blank" href="https://github.com/bearslyricattack" rel="external nofollow noopener" title="Github">
+            <i class="fa-brands fa-github"></i>
+        </a>
+    
+        <a class="deal_link" target="_blank" href="https://user.qzone.qq.com/2669184984" rel="external nofollow noopener" title="Mail">
+            <i class="fa-solid fa-envelope"></i>
+        </a>
+    
+    <img class="footer_mini_logo" src="/img/avatar.webp"
+        title="返回顶部" onclick="acrylic.toTop()">
+    
+        <a class="deal_link" target="_blank" href="https://music.163.com/#/user/follows?id=436327083" rel="external nofollow noopener" title="网易云">
+            <i class="fa-solid fa-music"></i>
+        </a>
+    
+        <a class="deal_link" target="_blank" href="https://space.bilibili.com/701779878?spm_id_from=333.1007.0.0" rel="external nofollow noopener" title="bilibili">
+            <i class="fa-brands fa-bilibili"></i>
+        </a>
+    
+</div>    
+<div id="heo-footer">
+    
+    
+</div>
+<div id="footer-section">
+    <div class="footer-section-links">
+        <div class="footer-section-left">
+            <div id="footer-section-tips">
+                <div class="copyright">©2022 - 2023 By 
+                    <a class="footer-section-link" href="/" rel="external nofollow">抒情熊</a>
+                    <a class="footer-section-link" href="https://github.com/hexo-theme-Acrylic/Hexo-Theme-Acrylic-Next" rel="external nofollow" target="_blank"> Theme By Acrylic-Next</a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-section-right">
+            <a class="footer-section-link" href="/rss/">订阅</a>
+            
+            <a class="footer-section-link cc" target="_blank" href="https://creativecommons.org/licenses/by/4.0/" title="cc协议">
+                <i class="fa-solid fa-closed-captioning"></i>
+            </a>
+        </div>
+    </div>
+</div>
+                </footer>
+            </div>
+         
+        <div>
+    <script type="text/javascript" src="/js/utils.js"></script>
+    <script type="text/javascript" src="/js/main.js"></script>
+    
+
+<script src="/lib/pjax.min.js"></script>
+
+
+
+<script src="/lib/snackbar.min.js"></script>
+
+
+    
+<script src="/lib/view-image.min.js"></script>
+
+
+
+    
+<link rel="stylesheet" href="/lib/swiper.min.css">
+
+    
+<script src="/lib/swiper.min.js"></script>
+
+
+<div id="js-pjax">
+    
+    
+        <script async src="https://npm.elemecdn.com/penndu@1.0.0/bsz.js"></script>
+     
+</div>
+
+    
+<link rel="stylesheet" href="https://lf9-cdn-tos.bytecdntp.com/cdn/expire-1-M/aplayer/1.10.1/APlayer.min.css">
+
+    
+<script src="https://lf3-cdn-tos.bytecdntp.com/cdn/expire-1-M/aplayer/1.10.1/APlayer.min.js"></script>
+
+    
+<script src="https://cdn1.tianli0.top/npm/meting@2.0.1/dist/Meting.min.js"></script>
+
+
+
+    
+<script src="/js/extend/covercolor/web.js"></script>
+
+        
+
+    <script>
+  let pjaxSelectors = [
+    'title',
+    '#body-wrap',
+    '#site-config',
+    'meta[name="description"]',
+    '#js-pjax'
+  ]
+  
+  const pjax = new Pjax({
+    elements: 'a:not([target="_blank"])',
+    selectors: pjaxSelectors,
+    cacheBust: false,
+    analytics: false,
+    scrollRestoration: false
+  })
+
+  document.querySelectorAll('script[data-pjax]').forEach(item => {
+      const newScript = document.createElement('script')
+      const content = item.text || item.textContent || item.innerHTML || ""
+      Array.from(item.attributes).forEach(attr => newScript.setAttribute(attr.name, attr.value))
+      newScript.appendChild(document.createTextNode(content))
+      item.parentNode.replaceChild(newScript, item)
+  })
+
+  document.addEventListener('pjax:error', (e) => {
+    if (e.request.status === 404) {
+      pjax.loadUrl('/404.html')
+    }
+  })
+</script>
+    
+</div>
+        
+    <div id="local-search">
+    <div class="search-dialog">
+        <nav class="search-nav">
+            <span class="search-dialog-title">搜索</span>
+            <button class="search-close-button">
+                <i class="fas fa-times"></i>
+            </button>
+        </nav>
+        <div id="loading-database">
+            <i class="fas fa-spinner fa-pulse"></i>
+            <span>加载中</span>
+        </div>
+        <div class="search-wrap">
+            <div class="search-box">
+                <input class="search-box-input" placeholder="输入关键词快速查找" type="text" id="search-input" autocomplete="off" spellcheck="false" autocorrect="off" autocapitalize="off">
+            </div>
+            <div id="loading-status"></div>
+            <div id="search-results"></div>
+        </div>
+    </div>
+    <div id="search-mask"></div>
+</div>
+    
+<link rel="stylesheet" href="/css/search/local-search.css">
+
+    
+<script src="/js/extend/search/local-search.js"></script>
+
+
+     
+        <div class="needEndHide" id="nav-music" onclick="acrylic.musicToggle()">
+    <div id="nav-music-hoverTips">音乐已暂停</div>
+    <meting-js id="7315994021" server="tencent" type="playlist" mutex="true"
+        preload="none" data-lrctype="0" order="random" theme="var(--heo-main)"></meting-js>
+</div>
+    
+    </body>
+</html>
+<script>const posts=["2023/06/18/大一立项爬虫/","2023/06/18/操作系统/","2023/06/08/数据库系统/","2023/06/07/低代码综测平台/","2023/06/04/有匪/","2023/05/29/明月策/","2023/05/29/北邙星梦/","2023/05/29/侠藏/","2023/05/29/天风白马/","2023/04/28/ClickHouse/","2023/03/18/从IOC到Java架构/","2023/03/18/微服务/","2023/03/18/数据库概述/","2023/03/18/数据结构/","2023/03/18/桌搭教程/","2023/03/18/算法设计与分析/","2023/03/18/系统分析与设计/","2023/03/18/面向对象建模技术/","2023/03/14/Go语言设计与实现/","2023/03/13/Git/","2023/02/10/奎桑提教学/","2023/02/10/奥恩教学/","2023/02/10/服务器部署/","2023/02/10/规则引擎/","2023/02/10/风凌夜话/","2023/02/10/青萍/","2023/02/10/巷/","2023/02/10/乱世佳人/","2023/02/10/马克思主义原理/","2023/02/04/Hertz/","2023/01/17/架构设计/","2023/01/17/草木森/","2023/01/17/计算机组成原理/","2023/01/17/鹤扶摇/","2023/01/17/泠音泛海/","2023/01/17/江城一梦/","2023/01/17/近世代数/","2023/01/17/白马遥/","2023/01/17/塑鸿/","2023/01/17/彩云辞/","2023/01/17/Java虚拟机/","2023/01/17/Web基本原理/","2023/01/17/Springboot入门/","2023/01/17/分布式/","2023/01/17/Golang/","2023/01/17/Redis/"];function toRandomPost(){ window.pjax ? pjax.loadUrl('/'+posts[Math.floor(Math.random()*posts.length)]) : window.open('/'+posts[Math.floor(Math.random()*posts.length)], "_self"); };</script>
